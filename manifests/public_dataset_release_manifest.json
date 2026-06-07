@@ -1,0 +1,50 @@
+{
+  "artifacts": {
+    "dataset_card": "DATASET_CARD.md",
+    "duckdb": "generated/duckdb/hansard.duckdb",
+    "licensing_and_provenance": "docs/licensing-and-provenance.md",
+    "parquet": "generated/parquet/hansard.parquet",
+    "pipeline_handoff": "docs/pipeline-handoff.md",
+    "public_release_checklist": "docs/public-release-checklist.md",
+    "readiness_review": "docs/readiness-review.md",
+    "record_schema": "schemas/hansard_record.schema.json",
+    "record_schema_validation": "manifests/record_schema_validation.json"
+  },
+  "counts": {
+    "duckdb_rows": 193922,
+    "normalized_rows": 193922,
+    "schema_rows": 193922,
+    "schema_validated_rows": 193922,
+    "source_files": 8
+  },
+  "generated_at": "2026-06-07T06:01:12.476756+00:00",
+  "limitations": [
+    "No explicit source Party column.",
+    "MemberOfParliament is unresolved raw source text.",
+    "Content remains document-level text, not speech-turn segmentation.",
+    "No public upload or release has occurred.",
+    "Final human licensing and hosting review is still required."
+  ],
+  "manifest_version": 1,
+  "publication_status": "prepared_for_review",
+  "published": false,
+  "quality": {
+    "duckdb_row_count_matches_expected": true,
+    "normalization_warnings": 0,
+    "record_schema_errors": 0,
+    "record_schema_valid": true,
+    "record_schema_warnings": 0
+  },
+  "recommended_next_tracks": [
+    "release_hosting_and_versioning",
+    "dataset_card_review_and_publication",
+    "speech_turn_segmentation",
+    "reporting_powerbi_model",
+    "search_rag_indexing"
+  ],
+  "source": {
+    "archive_name": "2024-09-06 Hansard Extract from DocumentsDB.zip",
+    "member_count": 8,
+    "sha256": "2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299"
+  }
+}

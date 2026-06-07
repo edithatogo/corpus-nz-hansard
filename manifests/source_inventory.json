@@ -1,0 +1,82 @@
+{
+  "generated_at": "2026-06-02T12:15:33.480109+00:00",
+  "inventory_version": 1,
+  "members": [
+    {
+      "compressed_size": 74863069,
+      "crc32": "bfcb0a84",
+      "modified_time": "2024-09-06T16:43:38+00:00",
+      "name": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+      "sha256": "ca89faaf28d8198ce82020bae50dfb777f257231e558f58c250544703e30fd8e",
+      "uncompressed_size": 228464273
+    },
+    {
+      "compressed_size": 94446550,
+      "crc32": "222e4641",
+      "modified_time": "2024-09-06T17:05:38+00:00",
+      "name": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-48.csv",
+      "sha256": "cd5fe3cc544323e1221fa20ca07235c75ff516764f6315f146384fb20c38e4ef",
+      "uncompressed_size": 455157236
+    },
+    {
+      "compressed_size": 108290541,
+      "crc32": "7609c521",
+      "modified_time": "2024-09-06T17:08:12+00:00",
+      "name": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-49.csv",
+      "sha256": "cdc2c7641f618bbca790a0e288d41223e47996193308a0a711162936a7038c46",
+      "uncompressed_size": 519596192
+    },
+    {
+      "compressed_size": 101528282,
+      "crc32": "b52e1247",
+      "modified_time": "2024-09-06T17:11:00+00:00",
+      "name": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-50.csv",
+      "sha256": "2d390722113f2bbe2ccb2c74e0e034eb4fdd77df9b94f58b930805bd2e292f92",
+      "uncompressed_size": 496126794
+    },
+    {
+      "compressed_size": 78307113,
+      "crc32": "dfb2f801",
+      "modified_time": "2024-09-06T17:15:38+00:00",
+      "name": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-51.csv",
+      "sha256": "7495ca5d62c8772545066876b1dcb5f270cba14cc1dd2aa80c1c31adfb05e87c",
+      "uncompressed_size": 379702876
+    },
+    {
+      "compressed_size": 34833138,
+      "crc32": "d5926046",
+      "modified_time": "2024-09-06T17:17:30+00:00",
+      "name": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-52.csv",
+      "sha256": "a4a962540aae252faa34ce59c9980e267189b02b90693307da9d509ce7b23c85",
+      "uncompressed_size": 166567364
+    },
+    {
+      "compressed_size": 34443221,
+      "crc32": "ef0d1bab",
+      "modified_time": "2024-09-06T17:19:34+00:00",
+      "name": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-53.csv",
+      "sha256": "8774fa59978d7fb94787dd5d2f6804491141b2eed3299616e1153697032c02be",
+      "uncompressed_size": 164178244
+    },
+    {
+      "compressed_size": 9729020,
+      "crc32": "684824f5",
+      "modified_time": "2024-09-06T17:21:24+00:00",
+      "name": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+      "sha256": "5b12fb15d9b0e7a12e42ce48dd434efad8d707132fee8856d7df4afae5b0aab1",
+      "uncompressed_size": 46753378
+    }
+  ],
+  "source_archive": {
+    "modified_time": "2026-06-02T04:38:24.744443+00:00",
+    "name": "2024-09-06 Hansard Extract from DocumentsDB.zip",
+    "path": "2024-09-06 Hansard Extract from DocumentsDB.zip",
+    "sha256": "2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299",
+    "size": 536442492
+  },
+  "summary": {
+    "member_count": 8,
+    "total_compressed_size": 536440934,
+    "total_uncompressed_size": 2456546357
+  }
+}

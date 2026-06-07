@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-06-07T05:59:06.093122+00:00",
+  "rows_by_file": {
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv": 24378,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-48.csv": 19709,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-49.csv": 23877,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-50.csv": 39803,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-51.csv": 34808,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-52.csv": 21171,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-53.csv": 23402,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv": 6774
+  },
+  "summary": {
+    "input_rows": 193922,
+    "output_rows": 193922,
+    "warning_count": 0,
+    "warnings_by_code": {}
+  },
+  "validation_version": 1,
+  "warning_examples": {}
+}

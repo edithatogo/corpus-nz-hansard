@@ -1,0 +1,8 @@
+{
+  "track_id": "hansard_corpus_pipeline_mvp_20260602",
+  "type": "feature",
+  "status": "completed",
+  "created_at": "2026-06-02T22:06:08+10:00",
+  "updated_at": "2026-06-02T23:49:00+10:00",
+  "description": "Maximalist initial track covering source inventory, CSV schema discovery, and a reproducible pipeline MVP for NZ Hansard corpus outputs."
+}

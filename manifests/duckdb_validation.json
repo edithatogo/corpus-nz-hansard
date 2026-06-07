@@ -1,0 +1,91 @@
+{
+  "database": "generated\\duckdb\\hansard.duckdb",
+  "generated_at": "2026-06-07T06:00:22.232962+00:00",
+  "parquet": "generated\\parquet\\hansard.parquet",
+  "rows_by_parliament_number": {
+    "47": 24378,
+    "48": 19709,
+    "49": 23877,
+    "50": 39803,
+    "51": 34808,
+    "52": 21171,
+    "53": 23402,
+    "54": 6774
+  },
+  "rows_by_source_file": {
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv": 24378,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-48.csv": 19709,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-49.csv": 23877,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-50.csv": 39803,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-51.csv": 34808,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-52.csv": 21171,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-53.csv": 23402,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv": 6774
+  },
+  "sample_documents": [
+    {
+      "content_length": 3426,
+      "parliament_document_id": "47HansS_20050310_00000279",
+      "parliament_number": 47,
+      "title": "Peck, Mark: Questions for Oral Answer \u2014 Questions to Ministers"
+    },
+    {
+      "content_length": 594,
+      "parliament_document_id": "47HansS_20030225_00001570",
+      "parliament_number": 47,
+      "title": "Vote: Television New Zealand Bill \u2014 Instruction to Committee, In Committee"
+    },
+    {
+      "content_length": 332,
+      "parliament_document_id": "47HansS_20040629_00001450",
+      "parliament_number": 47,
+      "title": "Yates, Dianne: Local Government (Auckland) Amendment Bill \u2014 Second Reading, Instruction to Committee, In Committee"
+    },
+    {
+      "content_length": 291,
+      "parliament_document_id": "47HansS_20041116_00000942",
+      "parliament_number": 47,
+      "title": "Horomia, Parekura: Transport Legislation Bill \u2014 Instruction to Committee, In Committee"
+    },
+    {
+      "content_length": 973,
+      "parliament_document_id": "47HansS_20030327_00001246",
+      "parliament_number": 47,
+      "title": "Worth, Richard: War Pensions Amendment Bill (No 2) \u2014 In Committee"
+    }
+  ],
+  "summary": {
+    "checkpoint_error": null,
+    "checkpoint_status": "succeeded",
+    "column_count": 23,
+    "columns": [
+      "stable_id",
+      "jurisdiction",
+      "country",
+      "source",
+      "source_archive",
+      "source_file",
+      "source_row_number",
+      "parliament_number",
+      "parliament_document_id",
+      "document_type",
+      "title",
+      "abbreviated_title",
+      "status",
+      "content",
+      "member_of_parliament_raw",
+      "member_of_parliament_count",
+      "portfolio_raw",
+      "last_modified",
+      "document_content_date",
+      "language",
+      "text_sha256",
+      "source_hash",
+      "pipeline_version"
+    ],
+    "expected_rows": 193922,
+    "row_count": 193922,
+    "row_count_matches_expected": true
+  },
+  "validation_version": 1
+}

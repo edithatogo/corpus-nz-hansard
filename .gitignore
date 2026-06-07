@@ -1,0 +1,10 @@
+# Generated corpus outputs
+generated/
+2024-09-06 Hansard Extract from DocumentsDB.zip
+
+# Local caches
+.cache/
+.tmp/
+.antigravitycli/
+__pycache__/
+*.pyc

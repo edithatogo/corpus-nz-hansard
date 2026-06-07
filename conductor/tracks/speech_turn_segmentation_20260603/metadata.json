@@ -1,0 +1,8 @@
+{
+  "track_id": "speech_turn_segmentation_20260603",
+  "type": "feature",
+  "status": "completed",
+  "created_at": "2026-06-03T00:37:00+10:00",
+  "updated_at": "2026-06-03T00:48:00+10:00",
+  "description": "Build conservative document-level speech-turn segmentation tooling and validation outputs without claiming authoritative speaker attribution."
+}

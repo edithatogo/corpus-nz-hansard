@@ -1,0 +1,15 @@
+{
+  "id": "search_rag_index_20260603",
+  "title": "Search and RAG Index MVP",
+  "status": "completed",
+  "created_at": "2026-06-03T00:00:00+10:00",
+  "updated_at": "2026-06-07T15:32:11+10:00",
+  "goal": "Build a local lexical search and citation-ready chunk index from normalized Hansard Parquet without external embedding services.",
+  "outputs": [
+    "scripts/build_search_index.py",
+    "generated/search/hansard_search.sqlite",
+    "manifests/search_index_validation.json",
+    "docs/search-rag-index-contract.md",
+    "docs/search-rag-index-report.md"
+  ]
+}

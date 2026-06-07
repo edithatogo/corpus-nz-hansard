@@ -1,0 +1,82 @@
+{
+  "examples": [
+    {
+      "parliament_document_id": "47HansD_20030408",
+      "speaker_candidate": "Minister of Consumer Affairs",
+      "speech_text_prefix": "I move"
+    },
+    {
+      "parliament_document_id": "47HansD_20031112_00001051",
+      "speaker_candidate": "CLAYTON COSGROVE",
+      "speech_text_prefix": "The second is a certificate of incorporation showing various other companies with extremely similar names set up by Mr Alister Taylor."
+    },
+    {
+      "parliament_document_id": "47HansS_20050217_00000759",
+      "speaker_candidate": "RODNEY HIDE",
+      "speech_text_prefix": "Yes."
+    },
+    {
+      "parliament_document_id": "47HansS_20030910_00000943",
+      "speaker_candidate": "NANAIA MAHUTA",
+      "speech_text_prefix": "The truth hurts\u2014just a little bit of the truth hurts. If there is a Minister of Immigration who can fix it it is Lianne Dalziel. She is a great Minister and rep"
+    },
+    {
+      "parliament_document_id": "47HansD_20030910",
+      "speaker_candidate": "Richard Worth",
+      "speech_text_prefix": "Teletubbies"
+    },
+    {
+      "parliament_document_id": "47HansD_20030910",
+      "speaker_candidate": "NANAIA MAHUTA",
+      "speech_text_prefix": "The truth hurts\u2014just a little bit of the truth hurts. If there is a Minister of Immigration who can fix it it is Lianne Dalziel. She is a great Minister and rep"
+    },
+    {
+      "parliament_document_id": "47HansD_20040908_00000864",
+      "speaker_candidate": "Counting for Something",
+      "speech_text_prefix": "Value Added By Voluntary Agencies"
+    },
+    {
+      "parliament_document_id": "47HansD_20041005",
+      "speaker_candidate": "RUSSELL FAIRBROTHER",
+      "speech_text_prefix": "Hansard"
+    },
+    {
+      "parliament_document_id": "47HansS_20031210_00001051",
+      "speaker_candidate": "Hon Roger Sowry",
+      "speech_text_prefix": "I raise a point of order Mr Speaker. I sought the call. You heard me\u2014because you looked at me. You then looked across and called Ms Pettis. I was aware that Lab"
+    },
+    {
+      "parliament_document_id": "47HansD_20050727_00000486",
+      "speaker_candidate": "Minister of Justice",
+      "speech_text_prefix": "Yes the Government will support sending this bill to a select committee. Whether section 59 should be repealed or amended is still an open question that can onl"
+    }
+  ],
+  "generated_at": "2026-06-02T14:12:38.073426+00:00",
+  "input": "generated\\parquet\\hansard.parquet",
+  "limitations": [
+    "Heuristic candidates only.",
+    "Speaker names are not identity-resolved.",
+    "Party/electorate details are not extracted.",
+    "Documents without tab-colon markers emit no turns."
+  ],
+  "output": "generated\\parquet\\hansard_speech_turns.parquet",
+  "summary": {
+    "authoritative": false,
+    "confidence_counts": {
+      "medium": 439
+    },
+    "documents_read": 193922,
+    "documents_with_turns": 360,
+    "documents_without_turns": 193562,
+    "method": "tab_colon_marker_v1",
+    "turns_written": 439
+  },
+  "turns_by_document_type": {
+    "Hansard - daily": 149,
+    "Hansard - debate": 149,
+    "Hansard - question": 56,
+    "Hansard - speech": 84,
+    "Hansard - vote": 1
+  },
+  "validation_version": 1
+}
