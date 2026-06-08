@@ -7,6 +7,14 @@ on:
         description: "Archive version"
         required: true
         default: "0.1.0-review.20260603"
+      upload_to_zenodo:
+        description: "Upload archive files to a Zenodo draft"
+        required: true
+        default: "false"
+      zenodo_api_url:
+        description: "Zenodo API URL"
+        required: true
+        default: "https://zenodo.org/api"
 
 jobs:
   archive:
@@ -38,6 +46,26 @@ jobs:
           python scripts\validate_hansard_records.py --parquet generated\parquet\hansard.parquet --schema schemas\hansard_record.schema.json --report manifests\record_schema_validation.json
       - name: Build Zenodo archive
         run: python scripts\build_zenodo_archive.py --output-dir generated\zenodo --version "${{ inputs.version }}"
+      - name: Upload Zenodo draft
+        if: ${{ inputs.upload_to_zenodo == 'true' }}
+        shell: pwsh
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+          ARCHIVE_CREATORS_JSON: ${{ secrets.ARCHIVE_CREATORS_JSON }}
+          ZENODO_DEPOSITION_ID: ${{ secrets.ZENODO_DEPOSITION_ID }}
+          ZENODO_API_URL: ${{ inputs.zenodo_api_url }}
+        run: |
+          if (-not "$env:ZENODO_TOKEN") {
+            throw "ZENODO_TOKEN secret is required when upload_to_zenodo is true."
+          }
+          if (-not "$env:ARCHIVE_CREATORS_JSON") {
+            throw "ARCHIVE_CREATORS_JSON secret is required when upload_to_zenodo is true."
+          }
+          python scripts\upload_zenodo_archive.py `
+            --archive "generated\zenodo\nz-hansard-corpus-${{ inputs.version }}.tar.gz" `
+            --manifest "generated\zenodo\nz-hansard-corpus-${{ inputs.version }}.manifest.json" `
+            --api-url "$env:ZENODO_API_URL" `
+            --version "${{ inputs.version }}"
       - name: Upload archive artifact
         uses: actions/upload-artifact@v4
         with:
