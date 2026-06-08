@@ -1,5 +1,6 @@
 import json
 import sys
+import tempfile
 import unittest
 import uuid
 from pathlib import Path
@@ -9,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.upload_huggingface_dataset import upload_huggingface_dataset
 
-TEST_TMP = ROOT / ".tmp" / "tests"
+TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
 
 
 class FakeHfApi:

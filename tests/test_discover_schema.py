@@ -1,4 +1,5 @@
 import sys
+import tempfile
 import unittest
 import zipfile
 from pathlib import Path
@@ -8,7 +9,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.discover_schema import build_schema_discovery, write_schema_discovery
 
-TEST_TMP = ROOT / ".tmp" / "tests"
+TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
 
 
 class DiscoverSchemaTest(unittest.TestCase):

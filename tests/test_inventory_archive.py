@@ -1,6 +1,7 @@
 import hashlib
 import json
 import sys
+import tempfile
 import unittest
 import zipfile
 from pathlib import Path
@@ -10,7 +11,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.inventory_archive import build_inventory, write_inventory
 
-TEST_TMP = ROOT / ".tmp" / "tests"
+TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
 
 
 class InventoryArchiveTest(unittest.TestCase):

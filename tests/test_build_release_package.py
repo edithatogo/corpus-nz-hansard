@@ -1,5 +1,6 @@
 import json
 import sys
+import tempfile
 import unittest
 import zipfile
 from pathlib import Path
@@ -9,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.build_release_package import build_release_package
 
-TEST_TMP = ROOT / ".tmp" / "tests"
+TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
 
 
 class BuildReleasePackageTest(unittest.TestCase):

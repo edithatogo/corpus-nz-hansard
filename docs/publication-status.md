@@ -31,6 +31,16 @@ Last verified: 2026-06-07
 - Hugging Face and Zenodo GitHub workflows also need `SOURCE_ARCHIVE_URL` because the source ZIP is intentionally ignored. Workflow downloads are SHA-256 verified before rebuild.
 - Zenodo draft upload is blocked because `ZENODO_TOKEN` and `ARCHIVE_CREATORS_JSON` are not configured. The workflow can build a GitHub Actions artifact without those secrets and can upload a draft when `upload_to_zenodo=true`.
 
+## Readiness Check
+
+Run this before dispatching upload workflows:
+
+```powershell
+python scripts/check_publication_readiness.py
+```
+
+The check reports whether local environment variables for Hugging Face and Zenodo publication are present without printing secret values. A nonzero exit means at least one selected publication target is not ready.
+
 ## Claim Boundary
 
 The GitHub review prerelease is public. The full dataset has not been published to Hugging Face or Zenodo, and no DOI has been minted.

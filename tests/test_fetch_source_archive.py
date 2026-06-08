@@ -1,5 +1,6 @@
 import hashlib
 import sys
+import tempfile
 import unittest
 import uuid
 from pathlib import Path
@@ -9,7 +10,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.fetch_source_archive import fetch_source_archive
 
-TEST_TMP = ROOT / ".tmp" / "tests"
+TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
 
 
 class FakeResponse:

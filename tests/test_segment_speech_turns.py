@@ -1,5 +1,6 @@
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -11,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.segment_speech_turns import extract_turns_from_content, run_segmentation
 
-TEST_TMP = ROOT / ".tmp" / "tests"
+TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
 
 
 class SegmentSpeechTurnsTest(unittest.TestCase):

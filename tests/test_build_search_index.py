@@ -1,6 +1,7 @@
 import json
 import sqlite3
 import sys
+import tempfile
 import unittest
 import uuid
 from pathlib import Path
@@ -13,7 +14,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.build_search_index import build_search_index, chunk_text
 
-TEST_TMP = ROOT / ".tmp" / "tests"
+TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
 
 
 class BuildSearchIndexTest(unittest.TestCase):

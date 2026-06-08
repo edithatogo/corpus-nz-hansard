@@ -1,5 +1,6 @@
 import json
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -8,7 +9,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.build_public_release_manifest import build_release_manifest, write_manifest
 
-TEST_TMP = ROOT / ".tmp" / "tests"
+TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
 
 
 class PublicReleaseManifestTest(unittest.TestCase):

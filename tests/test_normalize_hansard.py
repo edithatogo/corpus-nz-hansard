@@ -1,5 +1,6 @@
 import json
 import sys
+import tempfile
 import unittest
 import zipfile
 from pathlib import Path
@@ -11,7 +12,7 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.normalize_hansard import normalize_row, run_normalization
 
-TEST_TMP = ROOT / ".tmp" / "tests"
+TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
 
 
 class NormalizeHansardTest(unittest.TestCase):
