@@ -45,19 +45,12 @@ jobs:
           python scripts\validate_hansard_records.py --parquet generated\parquet\hansard.parquet --schema schemas\hansard_record.schema.json --report manifests\record_schema_validation.json
       - name: Stage dataset
         run: python scripts\stage_huggingface_dataset.py --output-dir generated\huggingface
-      - name: Create dataset repo
-        shell: pwsh
-        env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
-          HF_REPO_ID: ${{ inputs.hf_repo_id }}
-        run: |
-          $privateFlag = if ("${{ inputs.private }}" -eq "true") { "--private" } else { "--public" }
-          hf repo create $env:HF_REPO_ID --type dataset $privateFlag --exist-ok --token $env:HF_TOKEN
-      - name: Upload dataset
+      - name: Upload dataset to Hugging Face
         shell: pwsh
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           HF_REPO_ID: ${{ inputs.hf_repo_id }}
           HF_XET_HIGH_PERFORMANCE: "1"
         run: |
-          hf upload-large-folder $env:HF_REPO_ID generated\huggingface --repo-type dataset --token $env:HF_TOKEN
+          $privateFlag = if ("${{ inputs.private }}" -eq "true") { "--private" } else { "" }
+          python scripts\upload_huggingface_dataset.py --repo-id "$env:HF_REPO_ID" --folder generated\huggingface $privateFlag

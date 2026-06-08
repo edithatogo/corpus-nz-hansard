@@ -45,8 +45,7 @@ The source ZIP is not staged.
 After `hf auth login` or `HF_TOKEN` is configured:
 
 ```powershell
-hf repo create $env:HF_REPO_ID --type dataset --yes
-hf upload-large-folder $env:HF_REPO_ID generated\huggingface --repo-type dataset
+python scripts\upload_huggingface_dataset.py --repo-id $env:HF_REPO_ID --folder generated\huggingface
 ```
 
 Do not claim publication until the remote dataset page and uploaded files are verified.

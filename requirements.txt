@@ -2,3 +2,4 @@ duckdb==1.5.3
 pyarrow
 jsonschema>=4.22.0
 requests>=2.32.0
+huggingface_hub>=0.34.0
