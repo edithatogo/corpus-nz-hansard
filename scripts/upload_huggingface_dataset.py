@@ -19,6 +19,9 @@ class HuggingFaceApi(Protocol):
     def create_repo(self, **kwargs: Any) -> Any:
         ...
 
+    def update_repo_settings(self, **kwargs: Any) -> Any:
+        ...
+
     def upload_folder(self, **kwargs: Any) -> Any:
         ...
 
@@ -68,6 +71,13 @@ def upload_huggingface_dataset(
         exist_ok=True,
         token=token,
     )
+    api.update_repo_settings(
+        repo_id=repo_id,
+        repo_type="dataset",
+        private=private,
+        gated=False,
+        token=token,
+    )
 
     local_manifest = _read_local_manifest(folder)
     remote_manifest = None if api is not None and type(api).__name__ != "HfApi" else _remote_manifest(repo_id, token, revision)
@@ -79,6 +89,8 @@ def upload_huggingface_dataset(
     ):
         return {
             "repo_id": repo_id,
+            "gated": False,
+            "private": private,
             "uploaded": False,
             "reason": "remote_manifest_matches_local",
             "url": f"https://huggingface.co/datasets/{repo_id}/tree/{revision}",
@@ -95,6 +107,8 @@ def upload_huggingface_dataset(
     )
     return {
         "repo_id": repo_id,
+        "gated": False,
+        "private": private,
         "uploaded": True,
         "url": f"https://huggingface.co/datasets/{repo_id}/tree/{revision}",
     }

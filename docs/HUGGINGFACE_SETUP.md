@@ -64,4 +64,6 @@ After `hf auth login` or `HF_TOKEN` is configured:
 python scripts\upload_huggingface_dataset.py --repo-id $env:HF_REPO_ID --folder generated\huggingface
 ```
 
+The uploader creates the dataset repository if needed and resets the repository settings to `private=false` and `gated=false` on every run, including manifest-matching no-op uploads. This keeps the dataset page and file downloads publicly accessible without authentication.
+
 Do not claim publication until the remote dataset page and uploaded files are verified.

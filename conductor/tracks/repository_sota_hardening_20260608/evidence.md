@@ -31,6 +31,7 @@ Implemented:
 - Added `NOTICE.md` to document scope boundaries for Hansard source material, no official endorsement, and source ZIP non-redistribution.
 - Added Hugging Face YAML metadata front matter to `DATASET_CARD.md`.
 - Fixed `scripts/stage_huggingface_dataset.py` so `DATASET_CARD.md` remains the staged Hugging Face `README.md` instead of being overwritten by the repo README.
+- Updated `scripts/upload_huggingface_dataset.py` so every publish run resets the Hugging Face dataset repository to `private=false` and `gated=false`, including manifest-matching no-op uploads.
 - Added `LICENSE` and `NOTICE.md` to Hugging Face, GitHub release package, and Zenodo archive staging scripts.
 - Updated `CITATION.cff` from `NOASSERTION` to MIT for repository materials.
 - Updated release notes and publication docs to keep review-stage posture explicit while reflecting DOI-backed publication.
@@ -75,6 +76,18 @@ Result:
 - Failed in the Hugging Face upload step.
 - Cause: Hugging Face server-side YAML validation rejected free-text `license_name`; the field must match a lowercase identifier pattern.
 - Resolution: remove `license_name` from YAML metadata and keep the repository/source-material nuance in `NOTICE.md` and the dataset-card body.
+
+### Hugging Face Access Regression
+
+Observation after successful publish:
+
+- `HfApi().dataset_info("edithatogo/nz-hansard-corpus", repo_type="dataset").gated` returned `auto`.
+- The dataset page and README resolved publicly, but Parquet download returned `401 Unauthorized` with `X-Error-Code: GatedRepo`.
+
+Resolution:
+
+- The uploader now calls `update_repo_settings(repo_type="dataset", private=False, gated=False)` immediately after repo creation/update and before any manifest-match upload short-circuit.
+- `tests.test_upload_huggingface_dataset` asserts that the access settings update runs before `upload_folder`.
 
 ### Live Publication Surfaces
 

@@ -21,6 +21,10 @@ class FakeHfApi:
         self.calls.append(("create_repo", kwargs))
         return {"url": "https://huggingface.co/datasets/example/repo"}
 
+    def update_repo_settings(self, **kwargs):
+        self.calls.append(("update_repo_settings", kwargs))
+        return None
+
     def upload_folder(self, **kwargs):
         self.calls.append(("upload_folder", kwargs))
         return {"commit": "abc"}
@@ -47,9 +51,16 @@ class UploadHuggingFaceDatasetTest(unittest.TestCase):
         )
 
         self.assertTrue(result["uploaded"])
-        self.assertEqual([call[0] for call in api.calls], ["create_repo", "upload_folder"])
+        self.assertFalse(result["gated"])
+        self.assertEqual(
+            [call[0] for call in api.calls],
+            ["create_repo", "update_repo_settings", "upload_folder"],
+        )
         self.assertEqual(api.calls[0][1]["repo_type"], "dataset")
-        self.assertEqual(api.calls[1][1]["path_in_repo"], ".")
+        self.assertEqual(api.calls[1][1]["repo_type"], "dataset")
+        self.assertFalse(api.calls[1][1]["gated"])
+        self.assertFalse(api.calls[1][1]["private"])
+        self.assertEqual(api.calls[2][1]["path_in_repo"], ".")
 
     def test_upload_huggingface_dataset_requires_staged_parquet(self):
         case_dir = TEST_TMP / f"hf_missing_{uuid.uuid4().hex}"
