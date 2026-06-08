@@ -17,6 +17,7 @@
 - [x] Confirm source ZIP is not redistributed by default.
 - [x] Confirm non-authoritative speech-turn candidates are excluded from the initial public dataset.
 - [ ] Run `python scripts/check_publication_readiness.py`.
+- [ ] Run `publication_readiness.yml` in GitHub Actions.
 - [ ] Add `HF_TOKEN` and run Hugging Face upload.
 - [ ] Add `ZENODO_TOKEN` and `ARCHIVE_CREATORS_JSON`, then create Zenodo draft.
 

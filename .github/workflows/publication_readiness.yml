@@ -1,0 +1,38 @@
+name: Publication Readiness
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Publication target to check"
+        required: true
+        default: "all"
+        type: choice
+        options:
+          - all
+          - huggingface
+          - zenodo
+
+jobs:
+  readiness:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check publication inputs
+        shell: pwsh
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          SOURCE_ARCHIVE_URL: ${{ secrets.SOURCE_ARCHIVE_URL }}
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+          ARCHIVE_CREATORS_JSON: ${{ secrets.ARCHIVE_CREATORS_JSON }}
+        run: |
+          if ("${{ inputs.target }}" -eq "all") {
+            python scripts\check_publication_readiness.py
+          } else {
+            python scripts\check_publication_readiness.py --target "${{ inputs.target }}"
+          }

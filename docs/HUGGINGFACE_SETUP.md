@@ -22,6 +22,12 @@ For GitHub Actions, configure repository secrets:
 
 `SOURCE_ARCHIVE_URL` downloads are verified against SHA-256 `2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299` before any publication build continues.
 
+Check GitHub Actions readiness before publishing:
+
+```powershell
+gh workflow run publication_readiness.yml --repo edithatogo/corpus-nz-hansard -f target=huggingface
+```
+
 ## Staging
 
 Build the local Hugging Face upload folder:

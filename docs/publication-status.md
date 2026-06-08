@@ -41,6 +41,12 @@ python scripts/check_publication_readiness.py
 
 The check reports whether local environment variables for Hugging Face and Zenodo publication are present without printing secret values. A nonzero exit means at least one selected publication target is not ready.
 
+The same check is available in GitHub Actions:
+
+```powershell
+gh workflow run publication_readiness.yml --repo edithatogo/corpus-nz-hansard -f target=all
+```
+
 ## Claim Boundary
 
 The GitHub review prerelease is public. The full dataset has not been published to Hugging Face or Zenodo, and no DOI has been minted.
