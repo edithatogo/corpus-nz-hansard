@@ -21,7 +21,7 @@ Last verified: 2026-06-07
 ## Blocked
 
 - Hugging Face upload is blocked by missing/invalid Hugging Face authentication. The attempted dataset repo creation for `edithatogo/nz-hansard-corpus` returned `401 Unauthorized`. A Python upload script and manual workflow are available once `HF_TOKEN` is configured.
-- Hugging Face and Zenodo GitHub workflows also need `SOURCE_ARCHIVE_URL` because the source ZIP is intentionally ignored.
+- Hugging Face and Zenodo GitHub workflows also need `SOURCE_ARCHIVE_URL` because the source ZIP is intentionally ignored. Workflow downloads are SHA-256 verified before rebuild.
 - Zenodo draft upload is blocked because `ZENODO_TOKEN` and `ARCHIVE_CREATORS_JSON` are not configured. The workflow can build a GitHub Actions artifact without those secrets and can upload a draft when `upload_to_zenodo=true`.
 
 ## Claim Boundary

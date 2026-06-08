@@ -20,6 +20,8 @@ For GitHub Actions, configure repository secrets:
 - `HF_TOKEN`
 - `SOURCE_ARCHIVE_URL`: private/downloadable URL for `2024-09-06 Hansard Extract from DocumentsDB.zip`
 
+`SOURCE_ARCHIVE_URL` downloads are verified against SHA-256 `2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299` before any publication build continues.
+
 ## Staging
 
 Build the local Hugging Face upload folder:

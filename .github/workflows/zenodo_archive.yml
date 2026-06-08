@@ -35,9 +35,9 @@ jobs:
             throw "SOURCE_ARCHIVE_URL secret is required because the source ZIP is not committed to Git."
           }
       - name: Download source archive
-        shell: pwsh
-        run: |
-          Invoke-WebRequest -Uri "${{ secrets.SOURCE_ARCHIVE_URL }}" -OutFile "2024-09-06 Hansard Extract from DocumentsDB.zip"
+        env:
+          SOURCE_ARCHIVE_URL: ${{ secrets.SOURCE_ARCHIVE_URL }}
+        run: python scripts\fetch_source_archive.py
       - name: Rebuild Parquet
         run: |
           python scripts\inventory_archive.py --archive "2024-09-06 Hansard Extract from DocumentsDB.zip" --output manifests\source_inventory.json
