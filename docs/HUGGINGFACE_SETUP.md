@@ -18,9 +18,15 @@ $env:HF_REPO_ID = "edithatogo/nz-hansard-corpus"
 For GitHub Actions, configure repository secrets:
 
 - `HF_TOKEN`
-- `SOURCE_ARCHIVE_URL`: private/downloadable URL for `2024-09-06 Hansard Extract from DocumentsDB.zip`
+- `SOURCE_ARCHIVE_URL`: private Hugging Face `resolve/main/...` URL for `2024-09-06 Hansard Extract from DocumentsDB.zip`
 
-`SOURCE_ARCHIVE_URL` downloads are verified against SHA-256 `2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299` before any publication build continues.
+Recommended source archive URL pattern:
+
+```text
+https://huggingface.co/datasets/edithatogo/nz-hansard-source-archive/resolve/main/source/2024-09-06%20Hansard%20Extract%20from%20DocumentsDB.zip
+```
+
+`SOURCE_ARCHIVE_URL` downloads use `HF_TOKEN` when present and are verified against SHA-256 `2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299` before any publication build continues.
 
 Check GitHub Actions readiness before publishing:
 

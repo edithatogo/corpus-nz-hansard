@@ -36,6 +36,7 @@ jobs:
       - name: Download source archive
         env:
           SOURCE_ARCHIVE_URL: ${{ secrets.SOURCE_ARCHIVE_URL }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python scripts\fetch_source_archive.py
       - name: Rebuild Parquet
         run: |

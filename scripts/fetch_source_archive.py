@@ -7,7 +7,7 @@ import hashlib
 import os
 from pathlib import Path
 from typing import Protocol
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 DEFAULT_OUTPUT = Path("2024-09-06 Hansard Extract from DocumentsDB.zip")
 DEFAULT_SHA256 = "2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299"
@@ -31,12 +31,16 @@ def fetch_source_archive(
     url: str,
     output_path: Path | str = DEFAULT_OUTPUT,
     expected_sha256: str = DEFAULT_SHA256,
+    token: str | None = None,
     opener=urlopen,
 ) -> dict[str, str | int]:
     """Download the source archive and fail if the SHA-256 does not match."""
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with opener(url) as response:
+    request = Request(url)
+    if token:
+        request.add_header("Authorization", f"Bearer {token}")
+    with opener(request) as response:
         with output_path.open("wb") as stream:
             while True:
                 chunk = response.read(1024 * 1024)
@@ -73,6 +77,7 @@ def main() -> int:
         url=args.url,
         output_path=args.output,
         expected_sha256=args.sha256,
+        token=os.getenv("HF_TOKEN"),
     )
     print(f"Wrote {result['path']}")
     print(f"Bytes: {result['bytes']}")

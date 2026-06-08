@@ -31,7 +31,7 @@ class PublicationReadinessTest(unittest.TestCase):
 
         self.assertEqual(
             [result.name for result in results],
-            ["ZENODO_TOKEN", "SOURCE_ARCHIVE_URL", "ARCHIVE_CREATORS_JSON"],
+            ["ZENODO_TOKEN", "SOURCE_ARCHIVE_URL", "HF_TOKEN", "ARCHIVE_CREATORS_JSON"],
         )
         self.assertFalse(all(result.ready for result in results))
 
@@ -40,6 +40,7 @@ class PublicationReadinessTest(unittest.TestCase):
             env={
                 "ZENODO_TOKEN": "token",
                 "SOURCE_ARCHIVE_URL": "https://example.invalid/source.zip",
+                "HF_TOKEN": "hf_test",
                 "ARCHIVE_CREATORS_JSON": '[{"orcid":"0000"}]',
             },
             targets=("zenodo",),

@@ -80,6 +80,7 @@ def check_publication_readiness(
     if "zenodo" in selected:
         results.append(_check_required(env, "zenodo", "ZENODO_TOKEN", "Zenodo token"))
         results.append(_check_required(env, "zenodo", "SOURCE_ARCHIVE_URL", "Source archive URL"))
+        results.append(_check_required(env, "zenodo", "HF_TOKEN", "Source archive Hugging Face token"))
         results.append(_check_creators_json(env))
 
     return results

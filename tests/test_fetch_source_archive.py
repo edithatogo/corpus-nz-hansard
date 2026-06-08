@@ -50,6 +50,27 @@ class FetchSourceArchiveTest(unittest.TestCase):
         self.assertEqual(result["sha256"], expected)
         self.assertEqual(output.read_bytes(), payload)
 
+    def test_fetch_source_archive_adds_bearer_token_when_present(self):
+        payload = b"source zip bytes"
+        expected = hashlib.sha256(payload).hexdigest()
+        output = TEST_TMP / f"source_auth_{uuid.uuid4().hex}.zip"
+        requests = []
+
+        def opener(request):
+            requests.append(request)
+            return FakeResponse(payload)
+
+        result = fetch_source_archive(
+            url="https://huggingface.co/datasets/example/source/resolve/main/source.zip",
+            output_path=output,
+            expected_sha256=expected,
+            token="hf_test",
+            opener=opener,
+        )
+
+        self.assertEqual(result["sha256"], expected)
+        self.assertEqual(requests[0].headers["Authorization"], "Bearer hf_test")
+
     def test_fetch_source_archive_deletes_bad_hash_download(self):
         output = TEST_TMP / f"source_bad_{uuid.uuid4().hex}.zip"
 

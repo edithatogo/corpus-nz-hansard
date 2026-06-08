@@ -15,13 +15,14 @@ Use `https://sandbox.zenodo.org/api` for dry runs.
 For GitHub Actions archive builds, configure repository secrets:
 
 - `SOURCE_ARCHIVE_URL`: private/downloadable URL for `2024-09-06 Hansard Extract from DocumentsDB.zip`
+- `HF_TOKEN`: required when `SOURCE_ARCHIVE_URL` points to a private Hugging Face source archive
 - `ZENODO_TOKEN`: required only when `upload_to_zenodo=true`
 - `ARCHIVE_CREATORS_JSON`: required only when `upload_to_zenodo=true`
 - `ZENODO_DEPOSITION_ID`: optional existing draft deposition identifier
 
 The workflow builds and uploads a GitHub Actions artifact for review by default. Set `upload_to_zenodo=true` to upload the archive and manifest to a Zenodo draft. It does not publish the draft.
 
-`SOURCE_ARCHIVE_URL` downloads are verified against SHA-256 `2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299` before the archive build continues.
+`SOURCE_ARCHIVE_URL` downloads use `HF_TOKEN` when present and are verified against SHA-256 `2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299` before the archive build continues.
 
 Check GitHub Actions readiness before uploading a Zenodo draft:
 
