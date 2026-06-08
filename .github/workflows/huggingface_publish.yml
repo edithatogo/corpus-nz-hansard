@@ -53,5 +53,8 @@ jobs:
           HF_REPO_ID: ${{ inputs.hf_repo_id }}
           HF_XET_HIGH_PERFORMANCE: "1"
         run: |
-          $privateFlag = if ("${{ inputs.private }}" -eq "true") { "--private" } else { "" }
-          python scripts\upload_huggingface_dataset.py --repo-id "$env:HF_REPO_ID" --folder generated\huggingface $privateFlag
+          if ("${{ inputs.private }}" -eq "true") {
+            python scripts\upload_huggingface_dataset.py --repo-id "$env:HF_REPO_ID" --folder generated\huggingface --private
+          } else {
+            python scripts\upload_huggingface_dataset.py --repo-id "$env:HF_REPO_ID" --folder generated\huggingface
+          }
