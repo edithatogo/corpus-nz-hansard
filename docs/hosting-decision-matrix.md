@@ -23,13 +23,15 @@ GitHub has been selected for code, schemas, tests, docs, manifests, and the ligh
 ## Recommended Path
 
 1. Keep GitHub as the code and lightweight review-package host.
-2. Use Hugging Face Datasets for browsable Parquet once `HF_TOKEN` is available.
+2. Use Hugging Face Datasets for browsable document-level Parquet once `HF_TOKEN` is available.
 3. Use Zenodo for DOI/archive once `ZENODO_TOKEN` and creator metadata are available.
-4. Keep DuckDB as regenerated local output unless a reviewer explicitly needs a prebuilt database.
+4. Keep DuckDB and SQLite search as regenerated local outputs unless a reviewer explicitly needs prebuilt database files.
+5. Do not redistribute the source ZIP by default; use `SOURCE_ARCHIVE_URL` plus SHA-256 verification for trusted rebuilds.
 
-## Decisions Still Needed
+## Initial Distribution Decisions
 
-- Whether Hugging Face should publish `generated/huggingface/data/hansard.parquet` directly.
-- Whether Zenodo should use the staged archive in `generated/zenodo/`.
-- Whether source ZIP can be redistributed.
-- Whether DuckDB is included in any public dataset release or regenerated.
+- Hugging Face publishes `generated/huggingface/data/hansard.parquet` directly after credentialed publication.
+- Zenodo uses the staged archive in `generated/zenodo/` after DOI/archive review.
+- The source ZIP is not redistributed by default.
+- DuckDB and search SQLite are regenerated artifacts, not initial public dataset payloads.
+- Non-authoritative speech-turn candidates are excluded from the initial public dataset.

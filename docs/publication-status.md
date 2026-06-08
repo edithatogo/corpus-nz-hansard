@@ -18,6 +18,13 @@ Last verified: 2026-06-07
 - Zenodo archive: `generated/zenodo/nz-hansard-corpus-0.1.0-review.20260603.tar.gz`
 - Zenodo archive SHA-256: `63a7182495b4a0c45d57caf288f279ef1c92ffd6fa78b497856445cbfe6d1d00`
 
+## Initial Distribution Policy
+
+- The source ZIP is not redistributed by default.
+- Hugging Face is the intended host for the normalized document-level Parquet dataset.
+- DuckDB and SQLite search outputs remain regenerated/local convenience artifacts by default.
+- Non-authoritative speech-turn candidates are excluded from the initial public dataset.
+
 ## Blocked
 
 - Hugging Face upload is blocked by missing/invalid Hugging Face authentication. The attempted dataset repo creation for `edithatogo/nz-hansard-corpus` returned `401 Unauthorized`. A Python upload script and manual workflow are available once `HF_TOKEN` is configured.

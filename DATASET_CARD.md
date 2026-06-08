@@ -2,7 +2,7 @@
 
 ## Dataset Summary
 
-This workspace prepares a document-level corpus from New Zealand Hansard CSV extracts. The current pipeline inventories the source ZIP, discovers schema, normalizes document-level records to Parquet, and builds a local DuckDB analytical database.
+This workspace prepares a document-level corpus from New Zealand Hansard CSV extracts. The current pipeline inventories the source ZIP, discovers schema, normalizes document-level records to Parquet, validates a machine-readable record schema, and builds local DuckDB/search artifacts.
 
 This card describes the local generated dataset. It does not mean the dataset has been publicly uploaded or endorsed by New Zealand Parliament.
 
@@ -25,6 +25,11 @@ The normalized Parquet dataset is document-level, not speech-turn-level.
 
 Columns:
 
+- `stable_id`
+- `jurisdiction`
+- `country`
+- `source`
+- `source_archive`
 - `source_file`
 - `source_row_number`
 - `parliament_number`
@@ -39,12 +44,17 @@ Columns:
 - `portfolio_raw`
 - `last_modified`
 - `document_content_date`
+- `language`
+- `text_sha256`
+- `source_hash`
+- `pipeline_version`
 
 ## Current Counts
 
 - Source files: 8
 - Source/schema-discovered rows: 193,922
 - Normalized Parquet rows: 193,922
+- Record schema validation errors: 0
 - DuckDB rows: 193,922
 - Normalization warnings: 0
 
@@ -82,6 +92,15 @@ Rows by Parliament:
 - `Content` is document-level text and may contain embedded separators.
 - Licensing/provenance has been checked against official public guidance, but public release still requires final human review.
 - Generated DuckDB output may include a `.wal` file on OneDrive-backed workspaces.
+
+## Distribution Policy
+
+Initial public distribution policy:
+
+- The source ZIP is not redistributed by default. Publication workflows require `SOURCE_ARCHIVE_URL` and verify the source archive SHA-256 before rebuilding.
+- Hugging Face is the intended host for the normalized document-level Parquet dataset.
+- DuckDB and SQLite search outputs are treated as regenerated/local convenience artifacts unless a reviewer explicitly asks for prebuilt database files.
+- Non-authoritative speech-turn candidates are not part of the initial public dataset.
 
 ## Regeneration
 

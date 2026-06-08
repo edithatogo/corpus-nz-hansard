@@ -37,8 +37,9 @@ manifests/
 Potential public release layout should follow the `corpus-law-nz` split:
 
 - GitHub stores code, schemas, tests, docs, small manifests, and lightweight review packages.
-- Hugging Face stores live corpus artifacts if public release is approved.
-- Zenodo stores versioned immutable archives if DOI citation is required.
+- Hugging Face stores the normalized document-level Parquet dataset if public release is approved.
+- Zenodo stores a versioned immutable archive if DOI citation is required.
+- DuckDB, SQLite search, and speech-turn candidate outputs are regenerated/local artifacts by default.
 
 ## Safety Contract
 
@@ -48,3 +49,5 @@ Potential public release layout should follow the `corpus-law-nz` split:
 - Do not publish Zenodo automatically.
 - Do not claim speech-turn-level authority from document-level rows.
 - Do not claim source completeness beyond the supplied DocumentsDB extract.
+- Do not redistribute the source ZIP unless a later review explicitly approves it.
+- Do not include non-authoritative speech-turn candidates in the initial public dataset.

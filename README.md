@@ -95,6 +95,13 @@ python -m unittest discover tests
 - Hugging Face dataset upload: blocked until `HF_TOKEN` is available.
 - Zenodo archive upload: blocked until `ZENODO_TOKEN` and `ARCHIVE_CREATORS_JSON` are available.
 
+Initial distribution decisions:
+
+- The source ZIP is not redistributed by default.
+- Hugging Face is the intended host for the normalized document-level Parquet dataset.
+- DuckDB and SQLite search outputs remain regenerated/local convenience artifacts by default.
+- Non-authoritative speech-turn candidates are excluded from the initial public dataset.
+
 ## Limits
 
 - Party is not present as a source column.
