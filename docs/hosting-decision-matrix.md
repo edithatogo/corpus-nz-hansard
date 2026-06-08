@@ -5,7 +5,7 @@
 GitHub has been selected for code, schemas, tests, docs, manifests, and the lightweight review package.
 
 - Repository: `https://github.com/edithatogo/corpus-nz-hansard`
-- Review prerelease: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0-review.20260603`
+- Release: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`
 - Hugging Face dataset publication has occurred.
 - Hugging Face publication is complete at `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`.
 - Zenodo archive publication has occurred at `https://zenodo.org/records/20591997`.
@@ -37,4 +37,4 @@ GitHub has been selected for code, schemas, tests, docs, manifests, and the ligh
 - The source ZIP is not redistributed by default.
 - DuckDB and search SQLite are regenerated artifacts, not initial public dataset payloads.
 - Non-authoritative speech-turn candidates are excluded from the initial public dataset.
-- The current release remains `0.1.0-review.20260603`; promotion to canonical `v0.1.0` is a separate release decision.
+- The current release is the canonical document-level `0.1.0` release.

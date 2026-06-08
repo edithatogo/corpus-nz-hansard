@@ -12,10 +12,10 @@ from typing import Any, Protocol
 import requests
 
 DEFAULT_API_URL = "https://zenodo.org/api"
-DEFAULT_VERSION = "0.1.0-review.20260603"
-DEFAULT_ARCHIVE = Path("generated/zenodo/nz-hansard-corpus-0.1.0-review.20260603.tar.gz")
+DEFAULT_VERSION = "0.1.0"
+DEFAULT_ARCHIVE = Path("generated/zenodo/nz-hansard-corpus-0.1.0.tar.gz")
 DEFAULT_MANIFEST = Path(
-    "generated/zenodo/nz-hansard-corpus-0.1.0-review.20260603.manifest.json"
+    "generated/zenodo/nz-hansard-corpus-0.1.0.manifest.json"
 )
 
 
@@ -62,13 +62,31 @@ class ZenodoDraftClient:
             headers=self.headers,
         )
 
-    def ensure_draft(self, deposition_id: str | None = None) -> dict[str, Any]:
+    def new_version(self, deposition_id: str) -> dict[str, Any]:
+        result = self.request(
+            "POST",
+            f"{self.api_url}/deposit/depositions/{deposition_id}/actions/newversion",
+            headers=self.headers,
+        )
+        latest_draft = result.get("links", {}).get("latest_draft")
+        if not latest_draft:
+            raise RuntimeError("Zenodo new-version response did not include latest_draft link.")
+        return self.request("GET", latest_draft, headers=self.headers)
+
+    def ensure_draft(
+        self,
+        deposition_id: str | None = None,
+        *,
+        create_new_version: bool = False,
+    ) -> dict[str, Any]:
         if not deposition_id:
             return self.create_deposition()
         deposition = self.get_deposition(deposition_id)
         if deposition.get("submitted"):
+            if create_new_version:
+                return self.new_version(deposition_id)
             raise RuntimeError(
-                "Existing deposition is already submitted; create a new version manually first."
+                "Existing deposition is already submitted; pass create_new_version to create a draft version."
             )
         return deposition
 
@@ -130,6 +148,7 @@ def upload_zenodo_archive(
     creators: list[dict[str, Any]],
     api_url: str = DEFAULT_API_URL,
     deposition_id: str | None = None,
+    create_new_version: bool = False,
     version: str = DEFAULT_VERSION,
     publish: bool = False,
     client: ZenodoDraftClient | None = None,
@@ -139,14 +158,12 @@ def upload_zenodo_archive(
         raise FileNotFoundError(f"Archive not found: {archive_path}")
     if not manifest_path.exists():
         raise FileNotFoundError(f"Manifest not found: {manifest_path}")
-    if publish:
-        raise RuntimeError(
-            "Publication is intentionally not automated here. "
-            "Review the Zenodo draft and publish through the web UI or a separate approved step."
-        )
 
     client = client or ZenodoDraftClient(api_url=api_url, token=token)
-    draft = client.ensure_draft(deposition_id)
+    draft = client.ensure_draft(
+        deposition_id,
+        create_new_version=create_new_version,
+    )
     draft_id = str(draft["id"])
     uploaded = [
         client.upload_file(draft, archive_path),
@@ -157,8 +174,10 @@ def upload_zenodo_archive(
         title="NZ Hansard Corpus",
         creators=creators,
         description=(
-            "Review-stage document-level corpus pipeline for New Zealand Hansard records. "
-            "This draft excludes the source ZIP and does not claim official endorsement."
+            "Document-level corpus pipeline for New Zealand Hansard records. "
+            "This release excludes the source ZIP, does not claim official endorsement, "
+            "and intentionally keeps member identity, party attribution, and speech-turn "
+            "segmentation out of the canonical document-level dataset scope."
         ),
         version=version,
         license_id="other-open",
@@ -170,11 +189,13 @@ def upload_zenodo_archive(
             }
         ],
     )
+    published = client.publish(draft_id) if publish else None
     return {
         "deposition_id": draft_id,
         "draft": metadata,
         "uploaded": uploaded,
-        "published": False,
+        "published": bool(published),
+        "publication": published,
     }
 
 
@@ -185,12 +206,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--api-url", default=os.getenv("ZENODO_API_URL", DEFAULT_API_URL))
     parser.add_argument("--token", default=os.getenv("ZENODO_TOKEN"))
     parser.add_argument("--deposition-id", default=os.getenv("ZENODO_DEPOSITION_ID"))
+    parser.add_argument(
+        "--create-new-version",
+        action="store_true",
+        help="If the target deposition is submitted, create a new draft version first.",
+    )
     parser.add_argument("--creators-json", default=os.getenv("ARCHIVE_CREATORS_JSON"))
     parser.add_argument("--version", default=DEFAULT_VERSION)
     parser.add_argument(
         "--publish",
         action="store_true",
-        help="Reserved for a separate approved publication step; currently rejected.",
+        help="Publish the prepared Zenodo draft after uploading files and metadata.",
     )
     return parser.parse_args()
 
@@ -208,6 +234,7 @@ def main() -> int:
         api_url=args.api_url,
         token=args.token,
         deposition_id=args.deposition_id,
+        create_new_version=args.create_new_version,
         creators=creators,
         version=args.version,
         publish=args.publish,

@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 
 DEFAULT_OUTPUT_DIR = Path("generated/zenodo")
-DEFAULT_VERSION = "0.1.0-review.20260603"
+DEFAULT_VERSION = "0.1.0"
 DEFAULT_PARQUET = Path("generated/parquet/hansard.parquet")
 
 INCLUDE_DIRS = ("conductor", "docs", "manifests", "schemas", "scripts", "tests")

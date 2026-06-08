@@ -45,7 +45,7 @@ Potential public release layout should follow the `corpus-law-nz` split:
 
 - Do not commit generated corpus data to GitHub.
 - Do not claim Hugging Face or Zenodo publication without live remote proof.
-- Do not treat the GitHub lightweight review prerelease as full dataset publication.
+- Do not treat the GitHub lightweight release package as the full dataset; Hugging Face and Zenodo host the normalized Parquet dataset.
 - Do not publish Zenodo automatically.
 - Do not claim speech-turn-level authority from document-level rows.
 - Do not claim source completeness beyond the supplied DocumentsDB extract.

@@ -28,15 +28,14 @@ paperswithcode_id: null
 
 This workspace prepares a document-level corpus from New Zealand Hansard CSV extracts. The current pipeline inventories the source ZIP, discovers schema, normalizes document-level records to Parquet, validates a machine-readable record schema, and builds local DuckDB/search artifacts.
 
-This card describes the published review-stage dataset. Publication does not imply endorsement by New Zealand Parliament.
+This card describes the published canonical document-level dataset. Publication does not imply endorsement by New Zealand Parliament.
 
 ## Published Locations
 
 - Hugging Face dataset: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
-- Zenodo record: `https://zenodo.org/records/20591997`
-- DOI: `https://doi.org/10.5281/zenodo.20591997`
+- Zenodo concept DOI: `https://doi.org/10.5281/zenodo.20591996`
 - GitHub repository: `https://github.com/edithatogo/corpus-nz-hansard`
-- GitHub review release: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0-review.20260603`
+- GitHub release: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`
 
 ## Source
 
@@ -109,7 +108,7 @@ Rows by Parliament:
 
 - Local research over document-level Hansard text.
 - Corpus-quality checks and exploratory analysis.
-- Reproducible use of the public review-stage dataset.
+- Reproducible use of the public document-level dataset.
 - Preparation for reporting, semantic model, or search/RAG tracks.
 
 ## Out-of-Scope Uses
@@ -129,13 +128,13 @@ Rows by Parliament:
 
 ## Distribution Policy
 
-Initial public distribution policy:
+Public distribution policy:
 
 - The source ZIP is not redistributed by default. Publication workflows require `SOURCE_ARCHIVE_URL` and verify the source archive SHA-256 before rebuilding.
 - Hugging Face hosts the normalized document-level Parquet dataset.
 - Zenodo hosts the citable archive and DOI record.
 - DuckDB and SQLite search outputs are treated as regenerated/local convenience artifacts unless a reviewer explicitly asks for prebuilt database files.
-- Non-authoritative speech-turn candidates are not part of the initial public dataset.
+- Non-authoritative speech-turn candidates are not part of the canonical document-level dataset.
 
 ## Regeneration
 

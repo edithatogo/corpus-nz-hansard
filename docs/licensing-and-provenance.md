@@ -46,11 +46,11 @@ For the original repository materials, cite the Zenodo DOI and repository:
 
 ## Publication Status
 
-Status: published review-stage dataset. DOI: `https://doi.org/10.5281/zenodo.20591997`.
+Status: published canonical document-level dataset. Concept DOI: `https://doi.org/10.5281/zenodo.20591996`.
 
 Release posture:
 
 - GitHub hosts code, docs, manifests, and lightweight release assets.
 - Hugging Face hosts the normalized Parquet dataset.
 - Zenodo hosts the citable archive and DOI.
-- The version remains `0.1.0-review.20260603` until a separate promotion decision is made.
+- The version is `0.1.0` for the canonical document-level dataset.

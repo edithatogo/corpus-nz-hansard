@@ -19,7 +19,7 @@
     "schema_validated_rows": 193922,
     "source_files": 8
   },
-  "generated_at": "2026-06-08T12:38:10.545810+00:00",
+  "generated_at": "2026-06-08T13:26:45.271631+00:00",
   "license": {
     "license_file": "LICENSE",
     "notice_file": "NOTICE.md",
@@ -38,9 +38,9 @@
   "publication": {
     "conceptdoi": "10.5281/zenodo.20591996",
     "conceptdoi_url": "https://doi.org/10.5281/zenodo.20591996",
-    "doi": "10.5281/zenodo.20591997",
-    "doi_url": "https://doi.org/10.5281/zenodo.20591997",
-    "github_release": "https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0-review.20260603",
+    "doi": "10.5281/zenodo.20591996",
+    "doi_url": "https://doi.org/10.5281/zenodo.20591996",
+    "github_release": "https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0",
     "github_repository": "https://github.com/edithatogo/corpus-nz-hansard",
     "huggingface_dataset": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
     "publication_date": "2026-06-08",

@@ -91,10 +91,9 @@ python -m unittest discover tests
 ## Publication Status
 
 - GitHub repository: `https://github.com/edithatogo/corpus-nz-hansard`
-- GitHub review prerelease: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0-review.20260603`
+- GitHub release: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`
 - Hugging Face dataset: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
-- Zenodo record: `https://zenodo.org/records/20591997`
-- DOI: `https://doi.org/10.5281/zenodo.20591997`
+- Zenodo concept DOI: `https://doi.org/10.5281/zenodo.20591996`
 
 ## License and Notice
 
@@ -102,16 +101,16 @@ python -m unittest discover tests
 - The underlying Hansard text is sourced from New Zealand Parliamentary Debates/Hansard. Provenance and reuse caveats are recorded in `NOTICE.md` and `docs/licensing-and-provenance.md`.
 - This project is not an official New Zealand Parliament publication channel and is not endorsed by New Zealand Parliament.
 
-Initial distribution decisions:
+Distribution decisions:
 
 - The source ZIP is not redistributed by default.
 - Hugging Face hosts the normalized document-level Parquet dataset.
 - DuckDB and SQLite search outputs remain regenerated/local convenience artifacts by default.
-- Non-authoritative speech-turn candidates are excluded from the initial public dataset.
+- Non-authoritative speech-turn candidates are excluded from the canonical document-level dataset.
 
 ## Limits
 
 - Party is not present as a source column.
 - `MemberOfParliament` is retained as a raw semicolon-separated source field plus a count; entity resolution is deferred.
-- `Content` remains document-level text; speech-turn segmentation is deferred.
+- `Content` remains document-level text; speech-turn segmentation is deferred to a later derived-data release.
 - Power BI/reporting models are deferred tracks.

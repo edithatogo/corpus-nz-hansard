@@ -17,8 +17,8 @@ class FakeZenodoClient:
     def __init__(self):
         self.calls = []
 
-    def ensure_draft(self, deposition_id=None):
-        self.calls.append(("ensure_draft", deposition_id))
+    def ensure_draft(self, deposition_id=None, *, create_new_version=False):
+        self.calls.append(("ensure_draft", deposition_id, create_new_version))
         return {"id": deposition_id or "draft-1", "links": {"bucket": "https://bucket.invalid"}}
 
     def upload_file(self, deposition, path):
@@ -28,6 +28,10 @@ class FakeZenodoClient:
     def update_metadata(self, deposition_id, **kwargs):
         self.calls.append(("update_metadata", deposition_id, kwargs))
         return {"id": deposition_id, "metadata": kwargs}
+
+    def publish(self, deposition_id):
+        self.calls.append(("publish", deposition_id))
+        return {"id": deposition_id, "submitted": True}
 
 
 class UploadZenodoArchiveTest(unittest.TestCase):
@@ -56,22 +60,29 @@ class UploadZenodoArchiveTest(unittest.TestCase):
             ["ensure_draft", "upload_file", "upload_file", "update_metadata"],
         )
 
-    def test_upload_zenodo_archive_rejects_publish_flag(self):
+    def test_upload_zenodo_archive_can_create_new_version_and_publish_when_requested(self):
         case_dir = TEST_TMP / f"zenodo_publish_{uuid.uuid4().hex}"
         case_dir.mkdir(parents=True, exist_ok=True)
         archive_path = case_dir / "archive.tar.gz"
         manifest_path = case_dir / "archive.manifest.json"
         archive_path.write_bytes(b"archive")
         manifest_path.write_text(json.dumps({"ok": True}), encoding="utf-8")
+        client = FakeZenodoClient()
 
-        with self.assertRaises(RuntimeError):
-            upload_zenodo_archive(
-                archive_path=archive_path,
-                manifest_path=manifest_path,
-                token="token",
-                creators=[{"name": "Maintainer"}],
-                publish=True,
-            )
+        result = upload_zenodo_archive(
+            archive_path=archive_path,
+            manifest_path=manifest_path,
+            token="token",
+            creators=[{"name": "Maintainer"}],
+            deposition_id="123",
+            create_new_version=True,
+            publish=True,
+            client=client,
+        )
+
+        self.assertTrue(result["published"])
+        self.assertEqual(client.calls[0], ("ensure_draft", "123", True))
+        self.assertEqual(client.calls[-1], ("publish", "123"))
 
 
 if __name__ == "__main__":

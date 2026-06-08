@@ -1,6 +1,6 @@
 {
   "errors": [],
-  "generated_at": "2026-06-07T05:59:50.724815+00:00",
+  "generated_at": "2026-06-08T13:26:43.551330+00:00",
   "ok": true,
   "parquet_path": "generated\\parquet\\hansard.parquet",
   "record_count": 193922,

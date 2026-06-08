@@ -49,7 +49,7 @@ It excludes the source ZIP unless a redistribution decision is made later.
 
 ## Current Publication
 
-The review-stage archive has been published on Zenodo:
+The document-level archive has been published on Zenodo:
 
 - Record: `https://zenodo.org/records/20591997`
 - DOI: `https://doi.org/10.5281/zenodo.20591997`
@@ -59,7 +59,7 @@ Draft creation/upload is not the same as publication for future versions; verify
 Draft upload command:
 
 ```powershell
-python scripts\upload_zenodo_archive.py --archive generated\zenodo\nz-hansard-corpus-0.1.0-review.20260603.tar.gz --manifest generated\zenodo\nz-hansard-corpus-0.1.0-review.20260603.manifest.json
+python scripts\upload_zenodo_archive.py --archive generated\zenodo\nz-hansard-corpus-0.1.0.tar.gz --manifest generated\zenodo\nz-hansard-corpus-0.1.0.manifest.json
 ```
 
 The upload script rejects `--publish`; publication should happen as a separate reviewed step.

@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 
 DEFAULT_OUTPUT_DIR = Path("generated/release")
-DEFAULT_PACKAGE_NAME = "nz-hansard-corpus-0.1.0-review.20260603.zip"
+DEFAULT_PACKAGE_NAME = "nz-hansard-corpus-0.1.0.zip"
 DEFAULT_SOURCE_ARCHIVE = "2024-09-06 Hansard Extract from DocumentsDB.zip"
 
 INCLUDE_PREFIXES = (
@@ -128,7 +128,7 @@ def build_release_package(
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build a local review release package.")
+    parser = argparse.ArgumentParser(description="Build a local release package.")
     parser.add_argument("--project-dir", type=Path, default=Path("."))
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--package-name", default=DEFAULT_PACKAGE_NAME)

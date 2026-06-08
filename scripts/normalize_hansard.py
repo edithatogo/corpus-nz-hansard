@@ -83,7 +83,7 @@ PARQUET_SCHEMA = pa.schema(
     ]
 )
 
-DEFAULT_PIPELINE_VERSION = "0.1.0-review.20260603"
+DEFAULT_PIPELINE_VERSION = "0.1.0"
 DEFAULT_SOURCE = "New Zealand Parliament Hansard DocumentsDB extract"
 
 

@@ -71,7 +71,7 @@ def check_publication_readiness(
     results: list[CheckResult] = []
 
     if "github" in selected:
-        results.append(CheckResult("github", "review_prerelease", True, "GitHub review prerelease is already public."))
+        results.append(CheckResult("github", "release", True, "GitHub release is already public."))
 
     if "huggingface" in selected:
         results.append(_check_required(env, "huggingface", "HF_TOKEN", "Hugging Face token"))

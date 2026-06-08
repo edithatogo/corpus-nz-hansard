@@ -5,59 +5,36 @@ Last verified: 2026-06-08
 ## Completed
 
 - GitHub repository created: `https://github.com/edithatogo/corpus-nz-hansard`
-- Main branch pushed at commit `368dacd`.
-- GitHub Actions tests passed.
-- GitHub review prerelease created: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0-review.20260603`
-- Review release assets uploaded:
-  - `nz-hansard-corpus-0.1.0-review.20260603.zip`
-  - `nz-hansard-corpus-0.1.0-review.20260603.manifest.json`
 - GitHub repository secrets configured for publication workflows:
   - `HF_TOKEN`
   - `SOURCE_ARCHIVE_URL`
   - `ZENODO_TOKEN`
   - `ARCHIVE_CREATORS_JSON`
-- Publication readiness workflow passed: `https://github.com/edithatogo/corpus-nz-hansard/actions/runs/27128195716`
 - Hugging Face dataset published: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
-- Hugging Face publish workflow passed: `https://github.com/edithatogo/corpus-nz-hansard/actions/runs/27130787565`
-- Hugging Face remote files verified:
-  - `data/hansard.parquet`
-  - `manifests/`
-  - `schemas/hansard_record.schema.json`
-  - dataset card and documentation
-- Zenodo deposition created: `https://zenodo.org/deposit/20591997`
-- Zenodo archive workflow passed: `https://github.com/edithatogo/corpus-nz-hansard/actions/runs/27131023973`
-- Zenodo draft files uploaded:
-  - `nz-hansard-corpus-0.1.0-review.20260603.tar.gz`
-  - `nz-hansard-corpus-0.1.0-review.20260603.manifest.json`
-- Zenodo draft upload was initially verified from workflow response as `unsubmitted`, `published: false`.
-- The same Zenodo deposition was later published by manual approval.
-- Zenodo record published and verified: `https://zenodo.org/records/20591997`
-- DOI resolves: `https://doi.org/10.5281/zenodo.20591997`
-- Zenodo API status verified: `published`, `state: done`, `submitted: true`.
-- Zenodo public files verified:
-  - `nz-hansard-corpus-0.1.0-review.20260603.tar.gz`
-  - `nz-hansard-corpus-0.1.0-review.20260603.manifest.json`
-- Hugging Face dataset card metadata added for discovery.
+- Zenodo concept DOI created: `https://doi.org/10.5281/zenodo.20591996`
 - Repository `LICENSE` and `NOTICE.md` added for original repository materials and source provenance boundaries.
+
+## Final Document-Level Release
+
+- Version: `0.1.0`
+- GitHub release target: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`
+- Hugging Face dataset target: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
+- Zenodo concept DOI: `https://doi.org/10.5281/zenodo.20591996`
+
+This is the canonical document-level dataset release. Member identity resolution, party attribution, and authoritative speech-turn segmentation are intentionally out of scope for this release and should be handled as later derived-data releases.
 
 ## Prepared Locally
 
 - Hugging Face staging folder: `generated/huggingface`
-- Zenodo archive: `generated/zenodo/nz-hansard-corpus-0.1.0-review.20260603.tar.gz`
-- Zenodo archive SHA-256: `63a7182495b4a0c45d57caf288f279ef1c92ffd6fa78b497856445cbfe6d1d00`
+- Zenodo archive: `generated/zenodo/nz-hansard-corpus-0.1.0.tar.gz`
 
-## Initial Distribution Policy
+## Distribution Policy
 
 - The source ZIP is not redistributed by default.
 - Hugging Face is the intended host for the normalized document-level Parquet dataset.
+- Zenodo stores the citable archive and DOI.
 - DuckDB and SQLite search outputs remain regenerated/local convenience artifacts by default.
-- Non-authoritative speech-turn candidates are excluded from the initial public dataset.
-
-## Remaining
-
-- Keep Hugging Face and GitHub release metadata synchronized with the Zenodo DOI.
-- Decide separately whether to promote from `0.1.0-review.20260603` to canonical `v0.1.0`.
-- Keep source ZIP redistribution excluded unless a later explicit redistribution decision changes that policy.
+- Non-authoritative speech-turn candidates are excluded from the canonical document-level dataset.
 
 ## Readiness Check
 
@@ -77,4 +54,4 @@ gh workflow run publication_readiness.yml --repo edithatogo/corpus-nz-hansard -f
 
 ## Claim Boundary
 
-The GitHub review prerelease, Hugging Face dataset, and Zenodo DOI record are public. The source ZIP is not redistributed in public dataset artifacts.
+The GitHub release, Hugging Face dataset, and Zenodo DOI record are public release surfaces. The source ZIP is not redistributed in public dataset artifacts.

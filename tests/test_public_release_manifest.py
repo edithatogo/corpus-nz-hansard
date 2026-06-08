@@ -85,7 +85,7 @@ class PublicReleaseManifestTest(unittest.TestCase):
         self.assertTrue(manifest["quality"]["record_schema_valid"])
         self.assertEqual(manifest["publication_status"], "published")
         self.assertTrue(manifest["published"])
-        self.assertEqual(manifest["publication"]["doi"], "10.5281/zenodo.20591997")
+        self.assertEqual(manifest["publication"]["doi"], "10.5281/zenodo.20591996")
         self.assertEqual(manifest["license"]["repository_materials"], "MIT")
         self.assertFalse(manifest["license"]["source_zip_redistributed"])
         self.assertEqual(manifest["artifacts"]["notice"], "NOTICE.md")
