@@ -16,10 +16,10 @@
 - [ ] Confirm limitations around party, member identity, and speech-turn segmentation are visible.
 - [x] Confirm source ZIP is not redistributed by default.
 - [x] Confirm non-authoritative speech-turn candidates are excluded from the initial public dataset.
-- [ ] Run `python scripts/check_publication_readiness.py`.
-- [ ] Run `publication_readiness.yml` in GitHub Actions.
-- [ ] Add `HF_TOKEN` and run Hugging Face upload.
-- [ ] Add `ZENODO_TOKEN` and `ARCHIVE_CREATORS_JSON`, then create Zenodo draft.
+- [x] Run `python scripts/check_publication_readiness.py`.
+- [x] Run `publication_readiness.yml` in GitHub Actions.
+- [x] Add `HF_TOKEN` and run Hugging Face upload.
+- [x] Add `ZENODO_TOKEN` and `ARCHIVE_CREATORS_JSON`, then create Zenodo draft.
 
 ## Current Evidence
 
@@ -35,7 +35,7 @@
 - Do not claim official Parliament endorsement.
 - Do not claim speech-turn-level structure.
 - Do not claim party-level analysis is directly supported.
-- Do not claim full dataset public release has occurred.
+- Do not claim Zenodo publication has occurred.
 - Do not claim a DOI exists until Zenodo publication is verified.
 - Do not claim source ZIP redistribution is allowed.
 - Do not claim DuckDB/search SQLite are public dataset artifacts unless they are explicitly uploaded and verified.

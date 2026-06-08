@@ -1,16 +1,36 @@
 # Publication Status
 
-Last verified: 2026-06-07
+Last verified: 2026-06-08
 
 ## Completed
 
 - GitHub repository created: `https://github.com/edithatogo/corpus-nz-hansard`
-- Main branch pushed at commit `44e8121`.
+- Main branch pushed at commit `368dacd`.
 - GitHub Actions tests passed.
 - GitHub review prerelease created: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0-review.20260603`
 - Review release assets uploaded:
   - `nz-hansard-corpus-0.1.0-review.20260603.zip`
   - `nz-hansard-corpus-0.1.0-review.20260603.manifest.json`
+- GitHub repository secrets configured for publication workflows:
+  - `HF_TOKEN`
+  - `SOURCE_ARCHIVE_URL`
+  - `ZENODO_TOKEN`
+  - `ARCHIVE_CREATORS_JSON`
+- Publication readiness workflow passed: `https://github.com/edithatogo/corpus-nz-hansard/actions/runs/27128195716`
+- Hugging Face dataset published: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
+- Hugging Face publish workflow passed: `https://github.com/edithatogo/corpus-nz-hansard/actions/runs/27130787565`
+- Hugging Face remote files verified:
+  - `data/hansard.parquet`
+  - `manifests/`
+  - `schemas/hansard_record.schema.json`
+  - dataset card and documentation
+- Zenodo draft deposition created: `https://zenodo.org/deposit/20591997`
+- Zenodo archive workflow passed: `https://github.com/edithatogo/corpus-nz-hansard/actions/runs/27131023973`
+- Zenodo draft files uploaded:
+  - `nz-hansard-corpus-0.1.0-review.20260603.tar.gz`
+  - `nz-hansard-corpus-0.1.0-review.20260603.manifest.json`
+- Zenodo draft state verified from workflow response: `unsubmitted`, `published: false`.
+- Zenodo draft has reserved DOI `10.5281/zenodo.20591997`, but it is not minted until publication.
 
 ## Prepared Locally
 
@@ -25,11 +45,13 @@ Last verified: 2026-06-07
 - DuckDB and SQLite search outputs remain regenerated/local convenience artifacts by default.
 - Non-authoritative speech-turn candidates are excluded from the initial public dataset.
 
-## Blocked
+## Remaining
 
-- Hugging Face upload is blocked by missing/invalid Hugging Face authentication. The attempted dataset repo creation for `edithatogo/nz-hansard-corpus` returned `401 Unauthorized`. A Python upload script and manual workflow are available once `HF_TOKEN` is configured.
-- Hugging Face and Zenodo GitHub workflows also need `SOURCE_ARCHIVE_URL` because the source ZIP is intentionally ignored. The intended URL is a private Hugging Face source-archive `resolve/main/...` URL. Workflow downloads use `HF_TOKEN` when present and are SHA-256 verified before rebuild.
-- Zenodo draft upload is blocked because `ZENODO_TOKEN` and `ARCHIVE_CREATORS_JSON` are not configured. The workflow can build a GitHub Actions artifact without those secrets and can upload a draft when `upload_to_zenodo=true`.
+- Review `DATASET_CARD.md` and `docs/licensing-and-provenance.md`.
+- Confirm no official endorsement is implied.
+- Confirm limitations around party, member identity, and speech-turn segmentation remain visible.
+- Publish the Zenodo draft only after explicit approval. Draft upload is complete, but DOI publication has not been approved or performed.
+- Update `CITATION.cff` with a DOI only after Zenodo publication is complete and verified.
 
 ## Readiness Check
 
@@ -49,4 +71,4 @@ gh workflow run publication_readiness.yml --repo edithatogo/corpus-nz-hansard -f
 
 ## Claim Boundary
 
-The GitHub review prerelease is public. The full dataset has not been published to Hugging Face or Zenodo, and no DOI has been minted.
+The GitHub review prerelease and Hugging Face dataset are public. Zenodo has an unsubmitted draft with uploaded archive files and a reserved DOI, but no DOI has been minted because the draft has not been published.

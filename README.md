@@ -92,13 +92,14 @@ python -m unittest discover tests
 
 - GitHub repository: `https://github.com/edithatogo/corpus-nz-hansard`
 - GitHub review prerelease: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0-review.20260603`
-- Hugging Face dataset upload: blocked until `HF_TOKEN` is available.
-- Zenodo archive upload: blocked until `ZENODO_TOKEN` and `ARCHIVE_CREATORS_JSON` are available.
+- Hugging Face dataset: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
+- Zenodo draft deposition: `https://zenodo.org/deposit/20591997`
+- Zenodo DOI status: reserved in draft only; not published or minted.
 
 Initial distribution decisions:
 
 - The source ZIP is not redistributed by default.
-- Hugging Face is the intended host for the normalized document-level Parquet dataset.
+- Hugging Face hosts the normalized document-level Parquet dataset.
 - DuckDB and SQLite search outputs remain regenerated/local convenience artifacts by default.
 - Non-authoritative speech-turn candidates are excluded from the initial public dataset.
 
@@ -107,4 +108,4 @@ Initial distribution decisions:
 - Party is not present as a source column.
 - `MemberOfParliament` is retained as a raw semicolon-separated source field plus a count; entity resolution is deferred.
 - `Content` remains document-level text; speech-turn segmentation is deferred.
-- Full public dataset publication, final licensing review, and Power BI/reporting models are deferred tracks.
+- Zenodo publication, final licensing review, and Power BI/reporting models are deferred tracks.
