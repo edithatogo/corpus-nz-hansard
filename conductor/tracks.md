@@ -13,7 +13,13 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-None.
+### [ ] Track: Repository SOTA Hardening
+
+Track ID: `repository_sota_hardening_20260608`
+
+Goal: harden the published GitHub and Hugging Face repository surfaces for discoverability, citation, provenance, release posture, and metadata quality after Zenodo DOI publication.
+
+Link: [conductor/tracks/repository_sota_hardening_20260608/](./tracks/repository_sota_hardening_20260608/)
 
 ## Completed Tracks
 

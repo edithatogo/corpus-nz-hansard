@@ -1,0 +1,8 @@
+{
+  "track_id": "repository_sota_hardening_20260608",
+  "type": "feature",
+  "status": "pending",
+  "created_at": "2026-06-08T21:55:00+10:00",
+  "updated_at": "2026-06-08T21:55:00+10:00",
+  "description": "Harden the published GitHub and Hugging Face repositories toward SOTA dataset-release standards after Zenodo DOI publication."
+}
