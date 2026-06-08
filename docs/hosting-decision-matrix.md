@@ -8,8 +8,8 @@ GitHub has been selected for code, schemas, tests, docs, manifests, and the ligh
 - Release: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`
 - Hugging Face dataset publication has occurred.
 - Hugging Face publication is complete at `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`.
-- Zenodo archive publication has occurred at `https://zenodo.org/records/20591997`.
-- DOI: `https://doi.org/10.5281/zenodo.20591997`
+- Zenodo archive publication has occurred at `https://zenodo.org/records/20595194`.
+- DOI: `https://doi.org/10.5281/zenodo.20595194`
 - Repository license/provenance boundary is documented in `LICENSE` and `NOTICE.md`.
 
 ## Options

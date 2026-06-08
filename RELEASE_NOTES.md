@@ -9,7 +9,7 @@ Hugging Face hosts the normalized Parquet dataset; Zenodo hosts the citable arch
 - GitHub repository: `https://github.com/edithatogo/corpus-nz-hansard`
 - GitHub release: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`
 - Hugging Face dataset: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
-- Zenodo concept DOI: `https://doi.org/10.5281/zenodo.20591996`
+- Zenodo DOI: `https://doi.org/10.5281/zenodo.20595194`
 
 ## Summary
 

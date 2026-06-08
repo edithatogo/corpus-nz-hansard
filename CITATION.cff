@@ -3,8 +3,8 @@ message: "If you use this document-level corpus, cite the repository and source 
 title: "NZ Hansard Corpus"
 version: "0.1.0"
 type: dataset
-doi: "10.5281/zenodo.20591996"
-url: "https://doi.org/10.5281/zenodo.20591996"
+doi: "10.5281/zenodo.20595194"
+url: "https://zenodo.org/records/20595194"
 date-released: "2026-06-08"
 authors:
   - name: "Dylan Mordaunt"
@@ -17,4 +17,4 @@ keywords:
   - corpus
   - open data
 license: "MIT"
-abstract: "Document-level corpus pipeline for New Zealand Hansard records from a supplied DocumentsDB extract. The citable Zenodo concept DOI is https://doi.org/10.5281/zenodo.20591996."
+abstract: "Document-level corpus pipeline for New Zealand Hansard records from a supplied DocumentsDB extract. The citable Zenodo record is https://doi.org/10.5281/zenodo.20595194."

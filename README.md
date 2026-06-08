@@ -93,7 +93,8 @@ python -m unittest discover tests
 - GitHub repository: `https://github.com/edithatogo/corpus-nz-hansard`
 - GitHub release: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`
 - Hugging Face dataset: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
-- Zenodo concept DOI: `https://doi.org/10.5281/zenodo.20591996`
+- Zenodo record: `https://zenodo.org/records/20595194`
+- DOI: `https://doi.org/10.5281/zenodo.20595194`
 
 ## License and Notice
 

@@ -41,12 +41,12 @@ Contains New Zealand Parliamentary Debates (Hansard) material sourced from a Doc
 
 For the original repository materials, cite the Zenodo DOI and repository:
 
-- DOI: `https://doi.org/10.5281/zenodo.20591997`
+- DOI: `https://doi.org/10.5281/zenodo.20595194`
 - Repository: `https://github.com/edithatogo/corpus-nz-hansard`
 
 ## Publication Status
 
-Status: published canonical document-level dataset. Concept DOI: `https://doi.org/10.5281/zenodo.20591996`.
+Status: published canonical document-level dataset. DOI: `https://doi.org/10.5281/zenodo.20595194`.
 
 Release posture:
 

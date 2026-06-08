@@ -11,7 +11,7 @@ Last verified: 2026-06-08
   - `ZENODO_TOKEN`
   - `ARCHIVE_CREATORS_JSON`
 - Hugging Face dataset published: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
-- Zenodo concept DOI created: `https://doi.org/10.5281/zenodo.20591996`
+- Zenodo DOI created: `https://doi.org/10.5281/zenodo.20595194`
 - Repository `LICENSE` and `NOTICE.md` added for original repository materials and source provenance boundaries.
 
 ## Final Document-Level Release
@@ -19,7 +19,8 @@ Last verified: 2026-06-08
 - Version: `0.1.0`
 - GitHub release target: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`
 - Hugging Face dataset target: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
-- Zenodo concept DOI: `https://doi.org/10.5281/zenodo.20591996`
+- Zenodo record target: `https://zenodo.org/records/20595194`
+- Zenodo DOI: `https://doi.org/10.5281/zenodo.20595194`
 
 This is the canonical document-level dataset release. Member identity resolution, party attribution, and authoritative speech-turn segmentation are intentionally out of scope for this release and should be handled as later derived-data releases.
 

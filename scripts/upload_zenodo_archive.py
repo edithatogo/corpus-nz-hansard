@@ -132,6 +132,12 @@ class ZenodoDraftClient:
                 data=stream,
             )
 
+    def delete_existing_files(self, deposition: dict[str, Any]) -> None:
+        for file_info in deposition.get("files", []):
+            file_url = file_info.get("links", {}).get("self")
+            if file_url:
+                self.request("DELETE", file_url, headers=self.headers)
+
     def publish(self, deposition_id: str) -> dict[str, Any]:
         return self.request(
             "POST",
@@ -165,6 +171,7 @@ def upload_zenodo_archive(
         create_new_version=create_new_version,
     )
     draft_id = str(draft["id"])
+    client.delete_existing_files(draft)
     uploaded = [
         client.upload_file(draft, archive_path),
         client.upload_file(draft, manifest_path),

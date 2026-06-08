@@ -25,6 +25,9 @@ class FakeZenodoClient:
         self.calls.append(("upload_file", deposition["id"], path.name))
         return {"filename": path.name}
 
+    def delete_existing_files(self, deposition):
+        self.calls.append(("delete_existing_files", deposition["id"]))
+
     def update_metadata(self, deposition_id, **kwargs):
         self.calls.append(("update_metadata", deposition_id, kwargs))
         return {"id": deposition_id, "metadata": kwargs}
@@ -57,7 +60,13 @@ class UploadZenodoArchiveTest(unittest.TestCase):
         self.assertFalse(result["published"])
         self.assertEqual(
             [call[0] for call in client.calls],
-            ["ensure_draft", "upload_file", "upload_file", "update_metadata"],
+            [
+                "ensure_draft",
+                "delete_existing_files",
+                "upload_file",
+                "upload_file",
+                "update_metadata",
+            ],
         )
 
     def test_upload_zenodo_archive_can_create_new_version_and_publish_when_requested(self):
@@ -82,6 +91,7 @@ class UploadZenodoArchiveTest(unittest.TestCase):
 
         self.assertTrue(result["published"])
         self.assertEqual(client.calls[0], ("ensure_draft", "123", True))
+        self.assertEqual(client.calls[1], ("delete_existing_files", "123"))
         self.assertEqual(client.calls[-1], ("publish", "123"))
 
 
