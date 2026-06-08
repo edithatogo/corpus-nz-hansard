@@ -15,6 +15,7 @@ class DatasetCardMetadataTest(unittest.TestCase):
         self.assertIn('pretty_name: "NZ Hansard Corpus"', metadata)
         self.assertIn("license: mit", metadata)
         self.assertIn("license_link:", metadata)
+        self.assertNotIn("license_name:", metadata)
         self.assertIn("size_categories:", metadata)
         self.assertIn("task_categories:", metadata)
         self.assertIn("tags:", metadata)

@@ -3,7 +3,6 @@ pretty_name: "NZ Hansard Corpus"
 language:
   - en
 license: mit
-license_name: "MIT for original repository materials; no copyright exists in New Zealand Parliamentary Debates/Hansard"
 license_link: "https://github.com/edithatogo/corpus-nz-hansard/blob/main/NOTICE.md"
 size_categories:
   - 100K<n<1M

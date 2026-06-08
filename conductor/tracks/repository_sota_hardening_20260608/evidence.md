@@ -62,7 +62,19 @@ python -c "from huggingface_hub import DatasetCard; card=DatasetCard.load('DATAS
 Result:
 
 - Parsed successfully.
-- Metadata includes `pretty_name`, `language`, `license`, `license_name`, `license_link`, `size_categories`, `task_categories`, and discovery tags.
+- Metadata includes `pretty_name`, `language`, `license`, `license_link`, `size_categories`, `task_categories`, and discovery tags.
+
+### Failed Remote Publish Attempt
+
+Run:
+
+- `https://github.com/edithatogo/corpus-nz-hansard/actions/runs/27138350198`
+
+Result:
+
+- Failed in the Hugging Face upload step.
+- Cause: Hugging Face server-side YAML validation rejected free-text `license_name`; the field must match a lowercase identifier pattern.
+- Resolution: remove `license_name` from YAML metadata and keep the repository/source-material nuance in `NOTICE.md` and the dataset-card body.
 
 ### Live Publication Surfaces
 
