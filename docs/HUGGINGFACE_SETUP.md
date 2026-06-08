@@ -15,6 +15,11 @@ $env:HF_TOKEN = "hf_..."
 $env:HF_REPO_ID = "edithatogo/nz-hansard-corpus"
 ```
 
+For GitHub Actions, configure repository secrets:
+
+- `HF_TOKEN`
+- `SOURCE_ARCHIVE_URL`: private/downloadable URL for `2024-09-06 Hansard Extract from DocumentsDB.zip`
+
 ## Staging
 
 Build the local Hugging Face upload folder:

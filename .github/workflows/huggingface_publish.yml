@@ -1,0 +1,63 @@
+name: Hugging Face Dataset Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      hf_repo_id:
+        description: "Target Hugging Face dataset repo"
+        required: true
+        default: "edithatogo/nz-hansard-corpus"
+      private:
+        description: "Create dataset repo as private"
+        required: true
+        default: "false"
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt huggingface_hub[hf_xet]
+      - name: Check Hugging Face token
+        shell: pwsh
+        run: |
+          if (-not "${{ secrets.HF_TOKEN }}") {
+            throw "HF_TOKEN secret is required."
+          }
+          if (-not "${{ secrets.SOURCE_ARCHIVE_URL }}") {
+            throw "SOURCE_ARCHIVE_URL secret is required because the source ZIP is not committed to Git."
+          }
+      - name: Download source archive
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "${{ secrets.SOURCE_ARCHIVE_URL }}" -OutFile "2024-09-06 Hansard Extract from DocumentsDB.zip"
+      - name: Rebuild Parquet
+        run: |
+          python scripts\inventory_archive.py --archive "2024-09-06 Hansard Extract from DocumentsDB.zip" --output manifests\source_inventory.json
+          python scripts\discover_schema.py --archive "2024-09-06 Hansard Extract from DocumentsDB.zip" --output manifests\schema_discovery.json --sample-rows 5
+          python scripts\normalize_hansard.py --archive "2024-09-06 Hansard Extract from DocumentsDB.zip" --output-dir generated\parquet --manifest manifests\normalization_manifest.json --validation manifests\normalization_validation.json --batch-size 1000
+          python scripts\validate_hansard_records.py --parquet generated\parquet\hansard.parquet --schema schemas\hansard_record.schema.json --report manifests\record_schema_validation.json
+      - name: Stage dataset
+        run: python scripts\stage_huggingface_dataset.py --output-dir generated\huggingface
+      - name: Create dataset repo
+        shell: pwsh
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO_ID: ${{ inputs.hf_repo_id }}
+        run: |
+          $privateFlag = if ("${{ inputs.private }}" -eq "true") { "--private" } else { "--public" }
+          hf repo create $env:HF_REPO_ID --type dataset $privateFlag --exist-ok --token $env:HF_TOKEN
+      - name: Upload dataset
+        shell: pwsh
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO_ID: ${{ inputs.hf_repo_id }}
+          HF_XET_HIGH_PERFORMANCE: "1"
+        run: |
+          hf upload-large-folder $env:HF_REPO_ID generated\huggingface --repo-type dataset --token $env:HF_TOKEN

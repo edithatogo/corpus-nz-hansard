@@ -36,14 +36,15 @@ manifests/
 
 Potential public release layout should follow the `corpus-law-nz` split:
 
-- GitHub stores code, schemas, tests, docs, and small manifests.
+- GitHub stores code, schemas, tests, docs, small manifests, and lightweight review packages.
 - Hugging Face stores live corpus artifacts if public release is approved.
 - Zenodo stores versioned immutable archives if DOI citation is required.
 
 ## Safety Contract
 
 - Do not commit generated corpus data to GitHub.
-- Do not claim Hugging Face, GitHub release, or Zenodo publication without live remote proof.
+- Do not claim Hugging Face or Zenodo publication without live remote proof.
+- Do not treat the GitHub lightweight review prerelease as full dataset publication.
 - Do not publish Zenodo automatically.
 - Do not claim speech-turn-level authority from document-level rows.
 - Do not claim source completeness beyond the supplied DocumentsDB extract.

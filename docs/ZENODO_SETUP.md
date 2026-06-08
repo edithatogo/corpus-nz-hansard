@@ -12,6 +12,12 @@ $env:ARCHIVE_CREATORS_JSON = '[{"name":"Maintainer"}]'
 
 Use `https://sandbox.zenodo.org/api` for dry runs.
 
+For GitHub Actions archive builds, configure:
+
+- `SOURCE_ARCHIVE_URL`: private/downloadable URL for `2024-09-06 Hansard Extract from DocumentsDB.zip`
+
+The current workflow builds and uploads a GitHub Actions artifact for review. It does not publish to Zenodo.
+
 ## Archive Build
 
 Build a local archive staged for Zenodo:

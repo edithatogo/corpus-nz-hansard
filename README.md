@@ -16,7 +16,9 @@ Tracked manifests and reports:
 - `manifests/schema_discovery.json`
 - `manifests/normalization_manifest.json`
 - `manifests/normalization_validation.json`
+- `manifests/record_schema_validation.json`
 - `manifests/duckdb_validation.json`
+- `manifests/search_index_validation.json`
 - `docs/schema-discovery-report.md`
 - `docs/normalization-contract.md`
 - `docs/duckdb-analysis.md`
@@ -25,6 +27,9 @@ Generated outputs:
 
 - `generated/parquet/hansard.parquet`
 - `generated/duckdb/hansard.duckdb`
+- `generated/search/hansard_search.sqlite`
+- `generated/huggingface/`
+- `generated/zenodo/`
 - `generated/duckdb/hansard.duckdb.wal` when DuckDB cannot checkpoint away the write-ahead log on OneDrive.
 
 `generated/` is ignored by Git and can be regenerated from the source archive and scripts.
@@ -61,10 +66,16 @@ Build DuckDB:
 python scripts\build_duckdb.py --parquet generated\parquet\hansard.parquet --database generated\duckdb\hansard.duckdb --validation manifests\duckdb_validation.json --expected-rows 193922
 ```
 
+Validate records:
+
+```powershell
+python scripts\validate_hansard_records.py --parquet generated\parquet\hansard.parquet --schema schemas\hansard_record.schema.json --report manifests\record_schema_validation.json
+```
+
 Run tests:
 
 ```powershell
-python -m unittest tests.test_inventory_archive tests.test_discover_schema tests.test_normalize_hansard tests.test_build_duckdb
+python -m unittest discover tests
 ```
 
 ## Current Validation
@@ -72,12 +83,21 @@ python -m unittest tests.test_inventory_archive tests.test_discover_schema tests
 - Source inventory members: 8
 - Schema-discovered rows: 193,922
 - Normalized Parquet rows: 193,922
+- Record schema validation errors: 0
 - DuckDB rows: 193,922
+- Search index chunks: 1,018,955
 - Normalization warnings: 0
+
+## Publication Status
+
+- GitHub repository: `https://github.com/edithatogo/corpus-nz-hansard`
+- GitHub review prerelease: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0-review.20260603`
+- Hugging Face dataset upload: blocked until `HF_TOKEN` is available.
+- Zenodo archive upload: blocked until `ZENODO_TOKEN` and `ARCHIVE_CREATORS_JSON` are available.
 
 ## Limits
 
 - Party is not present as a source column.
 - `MemberOfParliament` is retained as a raw semicolon-separated source field plus a count; entity resolution is deferred.
 - `Content` remains document-level text; speech-turn segmentation is deferred.
-- Public dataset publication, licensing review, and Power BI/reporting models are deferred tracks.
+- Full public dataset publication, final licensing review, and Power BI/reporting models are deferred tracks.

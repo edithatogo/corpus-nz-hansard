@@ -1,0 +1,48 @@
+name: Zenodo Archive Draft Package
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Archive version"
+        required: true
+        default: "0.1.0-review.20260603"
+
+jobs:
+  archive:
+    runs-on: windows-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Check source archive URL
+        shell: pwsh
+        run: |
+          if (-not "${{ secrets.SOURCE_ARCHIVE_URL }}") {
+            throw "SOURCE_ARCHIVE_URL secret is required because the source ZIP is not committed to Git."
+          }
+      - name: Download source archive
+        shell: pwsh
+        run: |
+          Invoke-WebRequest -Uri "${{ secrets.SOURCE_ARCHIVE_URL }}" -OutFile "2024-09-06 Hansard Extract from DocumentsDB.zip"
+      - name: Rebuild Parquet
+        run: |
+          python scripts\inventory_archive.py --archive "2024-09-06 Hansard Extract from DocumentsDB.zip" --output manifests\source_inventory.json
+          python scripts\discover_schema.py --archive "2024-09-06 Hansard Extract from DocumentsDB.zip" --output manifests\schema_discovery.json --sample-rows 5
+          python scripts\normalize_hansard.py --archive "2024-09-06 Hansard Extract from DocumentsDB.zip" --output-dir generated\parquet --manifest manifests\normalization_manifest.json --validation manifests\normalization_validation.json --batch-size 1000
+          python scripts\validate_hansard_records.py --parquet generated\parquet\hansard.parquet --schema schemas\hansard_record.schema.json --report manifests\record_schema_validation.json
+      - name: Build Zenodo archive
+        run: python scripts\build_zenodo_archive.py --output-dir generated\zenodo --version "${{ inputs.version }}"
+      - name: Upload archive artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nz-hansard-zenodo-archive-${{ inputs.version }}
+          path: |
+            generated/zenodo/*.tar.gz
+            generated/zenodo/*.manifest.json
+          if-no-files-found: error
