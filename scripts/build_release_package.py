@@ -26,6 +26,8 @@ INCLUDE_FILES = {
     ".gitignore",
     "CITATION.cff",
     "DATASET_CARD.md",
+    "LICENSE",
+    "NOTICE.md",
     "README.md",
     "RELEASE_NOTES.md",
     "VERSION",

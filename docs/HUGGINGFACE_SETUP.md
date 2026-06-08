@@ -46,13 +46,15 @@ The staged layout is:
 
 ```text
 README.md
+CITATION.cff
+NOTICE.md
 data/hansard.parquet
 manifests/
 schemas/
 docs/
 ```
 
-The source ZIP is not staged.
+The source ZIP is not staged. The `README.md` copied to Hugging Face is generated from `DATASET_CARD.md` and must retain YAML metadata front matter so Hugging Face can populate dataset-card metadata and discovery tags.
 
 ## Upload
 

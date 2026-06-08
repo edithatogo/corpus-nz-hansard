@@ -24,6 +24,8 @@ class BuildReleasePackageTest(unittest.TestCase):
             "README.md": "readme",
             "CITATION.cff": "citation",
             "DATASET_CARD.md": "card",
+            "LICENSE": "license",
+            "NOTICE.md": "notice",
             "docs/report.md": "report",
             "manifests/source.json": "{}",
             "schemas/hansard_record.schema.json": "{}",
@@ -54,6 +56,8 @@ class BuildReleasePackageTest(unittest.TestCase):
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         self.assertIn("README.md", manifest["files"])
         self.assertIn("CITATION.cff", manifest["files"])
+        self.assertIn("LICENSE", manifest["files"])
+        self.assertIn("NOTICE.md", manifest["files"])
         self.assertIn("docs/report.md", manifest["files"])
         self.assertIn("schemas/hansard_record.schema.json", manifest["files"])
         self.assertNotIn("generated/parquet/hansard.parquet", manifest["files"])
@@ -63,6 +67,8 @@ class BuildReleasePackageTest(unittest.TestCase):
             names = set(archive.namelist())
         self.assertIn("README.md", names)
         self.assertIn("CITATION.cff", names)
+        self.assertIn("LICENSE", names)
+        self.assertIn("NOTICE.md", names)
         self.assertIn("schemas/hansard_record.schema.json", names)
         self.assertNotIn("generated/parquet/hansard.parquet", names)
         self.assertNotIn("source.zip", names)

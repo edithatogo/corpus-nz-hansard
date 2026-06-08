@@ -2,7 +2,9 @@
   "artifacts": {
     "dataset_card": "DATASET_CARD.md",
     "duckdb": "generated/duckdb/hansard.duckdb",
+    "license": "LICENSE",
     "licensing_and_provenance": "docs/licensing-and-provenance.md",
+    "notice": "NOTICE.md",
     "parquet": "generated/parquet/hansard.parquet",
     "pipeline_handoff": "docs/pipeline-handoff.md",
     "public_release_checklist": "docs/public-release-checklist.md",
@@ -17,7 +19,14 @@
     "schema_validated_rows": 193922,
     "source_files": 8
   },
-  "generated_at": "2026-06-08T10:42:42.680083+00:00",
+  "generated_at": "2026-06-08T12:38:10.545810+00:00",
+  "license": {
+    "license_file": "LICENSE",
+    "notice_file": "NOTICE.md",
+    "repository_materials": "MIT",
+    "source_material": "New Zealand Parliamentary Debates/Hansard; no copyright exists in Hansard / New Zealand Parliamentary Debates per documented Parliament guidance.",
+    "source_zip_redistributed": false
+  },
   "limitations": [
     "No explicit source Party column.",
     "MemberOfParliament is unresolved raw source text.",

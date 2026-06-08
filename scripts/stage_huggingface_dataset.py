@@ -10,7 +10,7 @@ DEFAULT_OUTPUT_DIR = Path("generated/huggingface")
 DEFAULT_PARQUET = Path("generated/parquet/hansard.parquet")
 
 COPY_DIRS = ("docs", "manifests", "schemas")
-COPY_FILES = ("DATASET_CARD.md", "README.md", "CITATION.cff", "VERSION")
+COPY_FILES = ("README.md", "CITATION.cff", "LICENSE", "NOTICE.md", "VERSION", "DATASET_CARD.md")
 
 
 def _copy_tree(source: Path, target: Path) -> None:

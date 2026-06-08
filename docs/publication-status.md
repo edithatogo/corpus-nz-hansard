@@ -37,6 +37,8 @@ Last verified: 2026-06-08
 - Zenodo public files verified:
   - `nz-hansard-corpus-0.1.0-review.20260603.tar.gz`
   - `nz-hansard-corpus-0.1.0-review.20260603.manifest.json`
+- Hugging Face dataset card metadata added for discovery.
+- Repository `LICENSE` and `NOTICE.md` added for original repository materials and source provenance boundaries.
 
 ## Prepared Locally
 
@@ -53,10 +55,8 @@ Last verified: 2026-06-08
 
 ## Remaining
 
-- Review `DATASET_CARD.md` and `docs/licensing-and-provenance.md`.
-- Confirm no official endorsement is implied.
-- Confirm limitations around party, member identity, and speech-turn segmentation remain visible.
 - Keep Hugging Face and GitHub release metadata synchronized with the Zenodo DOI.
+- Decide separately whether to promote from `0.1.0-review.20260603` to canonical `v0.1.0`.
 - Keep source ZIP redistribution excluded unless a later explicit redistribution decision changes that policy.
 
 ## Readiness Check

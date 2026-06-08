@@ -1,3 +1,28 @@
+---
+pretty_name: "NZ Hansard Corpus"
+language:
+  - en
+license: mit
+license_name: "MIT for original repository materials; no copyright exists in New Zealand Parliamentary Debates/Hansard"
+license_link: "https://github.com/edithatogo/corpus-nz-hansard/blob/main/NOTICE.md"
+size_categories:
+  - 100K<n<1M
+task_categories:
+  - text-retrieval
+tags:
+  - text
+  - tabular
+  - parquet
+  - new-zealand
+  - hansard
+  - parliament
+  - corpus
+  - open-data
+  - legal-corpus
+  - legislative-data
+paperswithcode_id: null
+---
+
 # NZ Hansard Corpus Dataset Card
 
 ## Dataset Summary
@@ -24,6 +49,8 @@ This card describes the published review-stage dataset. Publication does not imp
 ## Legal and Provenance Notes
 
 New Zealand Parliament's Parliamentary Practice material states that Hansard is the official report of debates in the House, and that no copyright exists in New Zealand Parliamentary Debates/Hansard. See `docs/licensing-and-provenance.md` for source links and caveats.
+
+Original repository code, documentation, manifests, and release tooling are distributed under the MIT License. See `NOTICE.md` for the scope boundary between original project materials and the underlying parliamentary source text.
 
 This dataset card does not provide legal advice.
 

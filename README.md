@@ -96,6 +96,12 @@ python -m unittest discover tests
 - Zenodo record: `https://zenodo.org/records/20591997`
 - DOI: `https://doi.org/10.5281/zenodo.20591997`
 
+## License and Notice
+
+- Original repository code, documentation, manifests, and release tooling are distributed under the MIT License in `LICENSE`.
+- The underlying Hansard text is sourced from New Zealand Parliamentary Debates/Hansard. Provenance and reuse caveats are recorded in `NOTICE.md` and `docs/licensing-and-provenance.md`.
+- This project is not an official New Zealand Parliament publication channel and is not endorsed by New Zealand Parliament.
+
 Initial distribution decisions:
 
 - The source ZIP is not redistributed by default.

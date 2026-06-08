@@ -10,6 +10,7 @@ GitHub has been selected for code, schemas, tests, docs, manifests, and the ligh
 - Hugging Face publication is complete at `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`.
 - Zenodo archive publication has occurred at `https://zenodo.org/records/20591997`.
 - DOI: `https://doi.org/10.5281/zenodo.20591997`
+- Repository license/provenance boundary is documented in `LICENSE` and `NOTICE.md`.
 
 ## Options
 
@@ -36,3 +37,4 @@ GitHub has been selected for code, schemas, tests, docs, manifests, and the ligh
 - The source ZIP is not redistributed by default.
 - DuckDB and search SQLite are regenerated artifacts, not initial public dataset payloads.
 - Non-authoritative speech-turn candidates are excluded from the initial public dataset.
+- The current release remains `0.1.0-review.20260603`; promotion to canonical `v0.1.0` is a separate release decision.

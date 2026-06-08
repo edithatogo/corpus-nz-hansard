@@ -56,6 +56,13 @@ def build_release_manifest(
             "conceptdoi_url": "https://doi.org/10.5281/zenodo.20591996",
             "publication_date": "2026-06-08",
         },
+        "license": {
+            "repository_materials": "MIT",
+            "license_file": "LICENSE",
+            "notice_file": "NOTICE.md",
+            "source_material": "New Zealand Parliamentary Debates/Hansard; no copyright exists in Hansard / New Zealand Parliamentary Debates per documented Parliament guidance.",
+            "source_zip_redistributed": False,
+        },
         "source": {
             "archive_name": source["source_archive"]["name"],
             "sha256": source["source_archive"]["sha256"],
@@ -79,6 +86,8 @@ def build_release_manifest(
         },
         "artifacts": {
             "dataset_card": "DATASET_CARD.md",
+            "license": "LICENSE",
+            "notice": "NOTICE.md",
             "record_schema": "schemas/hansard_record.schema.json",
             "record_schema_validation": "manifests/record_schema_validation.json",
             "licensing_and_provenance": "docs/licensing-and-provenance.md",

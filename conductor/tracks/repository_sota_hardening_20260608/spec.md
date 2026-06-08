@@ -24,13 +24,13 @@ Harden the published `corpus-nz-hansard` GitHub repository and `edithatogo/nz-ha
   - `cardData` is null.
   - Tags are not useful for dataset discovery.
   - README needs Hugging Face dataset-card YAML front matter.
-- License/provenance metadata remains weak:
-  - `CITATION.cff` uses `NOASSERTION`.
-  - Zenodo uses `other-open`.
-  - The repo lacks a machine-readable license/notice pattern that explains source Hansard status while avoiding overclaiming ownership over parliamentary material.
-- Release posture is ambiguous:
+- License/provenance metadata was weak before this track:
+  - `CITATION.cff` used `NOASSERTION`.
+  - Zenodo used `other-open`.
+  - The repo lacked a machine-readable license/notice pattern that explained source Hansard status while avoiding overclaiming ownership over parliamentary material.
+- Release posture needed an explicit decision:
   - Published DOI exists, but the GitHub release remains a prerelease and the project still uses a `0.1.0-review...` version string.
-  - Need an explicit decision whether to keep review-stage language or promote a canonical `v0.1.0`.
+  - This track records the decision to keep review-stage language until a separate canonical `v0.1.0` promotion decision.
 
 ## Required Outputs
 

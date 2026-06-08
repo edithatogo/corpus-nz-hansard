@@ -28,23 +28,29 @@ Relevant sections:
 
 ## Reuse Caveats
 
+- Original repository code, documentation, manifests, and release tooling are distributed under the MIT License in `LICENSE`.
 - This project should not imply New Zealand Parliament endorses the dataset or downstream analyses.
 - Official coverage, video, audio, website material, and third-party material may have separate rules or conditions.
 - This dataset is built from text records in the supplied DocumentsDB extract and should not be described as an official publication channel.
 - Public dataset publication should include a clear attribution and provenance statement.
+- The source ZIP is not redistributed in public artifacts.
 
 ## Suggested Attribution
 
 Contains New Zealand Parliamentary Debates (Hansard) material sourced from a DocumentsDB extract dated 2024-09-06. Hansard is the official report of debates in the New Zealand House of Representatives. This derived dataset is not endorsed by New Zealand Parliament.
 
+For the original repository materials, cite the Zenodo DOI and repository:
+
+- DOI: `https://doi.org/10.5281/zenodo.20591997`
+- Repository: `https://github.com/edithatogo/corpus-nz-hansard`
+
 ## Publication Status
 
 Status: published review-stage dataset. DOI: `https://doi.org/10.5281/zenodo.20591997`.
 
-Publication still needs:
+Release posture:
 
-- Final human licensing/provenance review.
-- Hosting decision.
-- Dataset version identifier.
-- Release artifact policy.
-- Public-facing limitations statement.
+- GitHub hosts code, docs, manifests, and lightweight release assets.
+- Hugging Face hosts the normalized Parquet dataset.
+- Zenodo hosts the citable archive and DOI.
+- The version remains `0.1.0-review.20260603` until a separate promotion decision is made.

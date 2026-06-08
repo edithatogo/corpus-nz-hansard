@@ -8,12 +8,12 @@
 - [x] Assign review version `0.1.0-review.20260603`.
 - [x] Confirm generated Parquet is uploaded to Hugging Face after credentialed publication.
 - [x] Confirm DuckDB is treated as local-only regenerated output by default.
-- [ ] Review `DATASET_CARD.md`.
-- [ ] Review `docs/licensing-and-provenance.md`.
-- [ ] Confirm no official endorsement is implied.
-- [ ] Confirm source archive hash and row counts match manifests.
+- [x] Review `DATASET_CARD.md`.
+- [x] Review `docs/licensing-and-provenance.md`.
+- [x] Confirm no official endorsement is implied.
+- [x] Confirm source archive hash and row counts match manifests.
 - [x] Confirm `manifests/record_schema_validation.json` passes with zero errors.
-- [ ] Confirm limitations around party, member identity, and speech-turn segmentation are visible.
+- [x] Confirm limitations around party, member identity, and speech-turn segmentation are visible.
 - [x] Confirm source ZIP is not redistributed by default.
 - [x] Confirm non-authoritative speech-turn candidates are excluded from the initial public dataset.
 - [x] Run `python scripts/check_publication_readiness.py`.
@@ -21,6 +21,8 @@
 - [x] Add `HF_TOKEN` and run Hugging Face upload.
 - [x] Add `ZENODO_TOKEN` and `ARCHIVE_CREATORS_JSON`, then create Zenodo draft.
 - [x] Publish Zenodo record and verify DOI resolution.
+- [x] Add Hugging Face dataset-card metadata front matter.
+- [x] Add repository license and provenance notice.
 
 ## Current Evidence
 

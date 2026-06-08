@@ -42,7 +42,8 @@ The archive includes:
 
 - tracked code, docs, schemas, tests, and manifests;
 - generated Parquet;
-- release metadata.
+- release metadata;
+- repository license and notice files.
 
 It excludes the source ZIP unless a redistribution decision is made later.
 

@@ -16,5 +16,5 @@ keywords:
   - Parliament
   - corpus
   - open data
-license: "NOASSERTION"
+license: "MIT"
 abstract: "Review-stage document-level corpus pipeline for New Zealand Hansard records from a supplied DocumentsDB extract. The citable Zenodo record is https://doi.org/10.5281/zenodo.20591997."
