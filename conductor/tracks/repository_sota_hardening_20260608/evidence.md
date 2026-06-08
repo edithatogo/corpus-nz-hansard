@@ -91,10 +91,34 @@ Resolution:
 
 ### Live Publication Surfaces
 
-To be recorded after push and remote workflow readbacks:
+Recorded after push and remote workflow readbacks:
 
-- GitHub metadata readback.
-- GitHub Actions test run.
-- Hugging Face publish workflow.
-- Hugging Face `dataset_info(...).cardData` readback.
-- Zenodo DOI resolution readback.
+- GitHub repository metadata readback:
+  - Repository: `https://github.com/edithatogo/corpus-nz-hansard`
+  - Description: `DOI-backed NZ Hansard document-level corpus pipeline and Parquet dataset`
+  - Homepage: `https://doi.org/10.5281/zenodo.20591997`
+  - License detection: MIT.
+  - Topics: `corpus`, `dataset`, `hansard`, `legal-corpus`, `legislative-data`, `new-zealand`, `open-data`, `parliament`, `parquet`.
+  - Wiki and Projects disabled; Issues enabled.
+- GitHub release readback:
+  - Release: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0-review.20260603`
+  - Draft: false.
+  - Prerelease: true.
+  - ZIP digest: `sha256:8ca3ced7024b16f276052f720b27baed581c9b34547990829d97ad582afa1370`.
+  - Manifest digest: `sha256:012a0e77a52a8b8fa5e6eaf68fbf9bb4021d4e44eb3e4898d9fb33be404e57fb`.
+- GitHub Actions:
+  - Tests run `27139174647`: success on commit `030956d90794bd6dfd81458405db7ff5bebb66bd`.
+  - Hugging Face publish run `27139214442`: success on commit `030956d90794bd6dfd81458405db7ff5bebb66bd`.
+- Hugging Face dataset readback:
+  - Dataset: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
+  - Commit SHA: `f682f8e42a01071f2ebcc2fcfea79b9eb5be5271`.
+  - `private=False`.
+  - `gated=False`.
+  - `cardData` populated.
+  - `license=mit`.
+  - Unauthenticated Parquet `HEAD` request returned `200 OK` with `Content-Length: 331036080`.
+  - Remote README contains `license: mit`, `NOTICE.md`, and `https://doi.org/10.5281/zenodo.20591997`.
+  - Remote `CITATION.cff` contains `doi: "10.5281/zenodo.20591997"` and `license: "MIT"`.
+  - Remote public manifest contains `publication.doi=10.5281/zenodo.20591997`, `license.repository_materials=MIT`, and `artifacts.notice=NOTICE.md`.
+- Zenodo DOI resolution readback:
+  - `https://doi.org/10.5281/zenodo.20591997` redirects to `https://zenodo.org/records/20591997` and returned `200 OK`.
