@@ -93,8 +93,8 @@ python -m unittest discover tests
 - GitHub repository: `https://github.com/edithatogo/corpus-nz-hansard`
 - GitHub review prerelease: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0-review.20260603`
 - Hugging Face dataset: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
-- Zenodo draft deposition: `https://zenodo.org/deposit/20591997`
-- Zenodo DOI status: reserved in draft only; not published or minted.
+- Zenodo record: `https://zenodo.org/records/20591997`
+- DOI: `https://doi.org/10.5281/zenodo.20591997`
 
 Initial distribution decisions:
 
@@ -108,4 +108,4 @@ Initial distribution decisions:
 - Party is not present as a source column.
 - `MemberOfParliament` is retained as a raw semicolon-separated source field plus a count; entity resolution is deferred.
 - `Content` remains document-level text; speech-turn segmentation is deferred.
-- Zenodo publication, final licensing review, and Power BI/reporting models are deferred tracks.
+- Power BI/reporting models are deferred tracks.

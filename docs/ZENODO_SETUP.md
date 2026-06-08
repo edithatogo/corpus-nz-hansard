@@ -1,6 +1,6 @@
 # Zenodo Setup
 
-Zenodo should be used for an immutable DOI-bearing archive only after the release package and dataset card have been reviewed.
+Zenodo is used for the immutable DOI-bearing archive after the release package and dataset card have been reviewed.
 
 ## Required Environment
 
@@ -20,7 +20,7 @@ For GitHub Actions archive builds, configure repository secrets:
 - `ARCHIVE_CREATORS_JSON`: required only when `upload_to_zenodo=true`
 - `ZENODO_DEPOSITION_ID`: optional existing draft deposition identifier
 
-The workflow builds and uploads a GitHub Actions artifact for review by default. Set `upload_to_zenodo=true` to upload the archive and manifest to a Zenodo draft. It does not publish the draft.
+The workflow builds and uploads a GitHub Actions artifact for review by default. Set `upload_to_zenodo=true` to upload the archive and manifest to a Zenodo draft. Publication remains a separate explicit action.
 
 `SOURCE_ARCHIVE_URL` downloads use `HF_TOKEN` when present and are verified against SHA-256 `2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299` before the archive build continues.
 
@@ -46,9 +46,14 @@ The archive includes:
 
 It excludes the source ZIP unless a redistribution decision is made later.
 
-## Upload Boundary
+## Current Publication
 
-Zenodo publication must be explicit. Draft creation/upload is not the same as publication, and no publication should be claimed until a DOI exists and is verified.
+The review-stage archive has been published on Zenodo:
+
+- Record: `https://zenodo.org/records/20591997`
+- DOI: `https://doi.org/10.5281/zenodo.20591997`
+
+Draft creation/upload is not the same as publication for future versions; verify the public record and DOI before claiming publication.
 
 Draft upload command:
 

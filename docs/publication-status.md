@@ -24,13 +24,19 @@ Last verified: 2026-06-08
   - `manifests/`
   - `schemas/hansard_record.schema.json`
   - dataset card and documentation
-- Zenodo draft deposition created: `https://zenodo.org/deposit/20591997`
+- Zenodo deposition created: `https://zenodo.org/deposit/20591997`
 - Zenodo archive workflow passed: `https://github.com/edithatogo/corpus-nz-hansard/actions/runs/27131023973`
 - Zenodo draft files uploaded:
   - `nz-hansard-corpus-0.1.0-review.20260603.tar.gz`
   - `nz-hansard-corpus-0.1.0-review.20260603.manifest.json`
-- Zenodo draft state verified from workflow response: `unsubmitted`, `published: false`.
-- Zenodo draft has reserved DOI `10.5281/zenodo.20591997`, but it is not minted until publication.
+- Zenodo draft upload was initially verified from workflow response as `unsubmitted`, `published: false`.
+- The same Zenodo deposition was later published by manual approval.
+- Zenodo record published and verified: `https://zenodo.org/records/20591997`
+- DOI resolves: `https://doi.org/10.5281/zenodo.20591997`
+- Zenodo API status verified: `published`, `state: done`, `submitted: true`.
+- Zenodo public files verified:
+  - `nz-hansard-corpus-0.1.0-review.20260603.tar.gz`
+  - `nz-hansard-corpus-0.1.0-review.20260603.manifest.json`
 
 ## Prepared Locally
 
@@ -50,8 +56,8 @@ Last verified: 2026-06-08
 - Review `DATASET_CARD.md` and `docs/licensing-and-provenance.md`.
 - Confirm no official endorsement is implied.
 - Confirm limitations around party, member identity, and speech-turn segmentation remain visible.
-- Publish the Zenodo draft only after explicit approval. Draft upload is complete, but DOI publication has not been approved or performed.
-- Update `CITATION.cff` with a DOI only after Zenodo publication is complete and verified.
+- Keep Hugging Face and GitHub release metadata synchronized with the Zenodo DOI.
+- Keep source ZIP redistribution excluded unless a later explicit redistribution decision changes that policy.
 
 ## Readiness Check
 
@@ -71,4 +77,4 @@ gh workflow run publication_readiness.yml --repo edithatogo/corpus-nz-hansard -f
 
 ## Claim Boundary
 
-The GitHub review prerelease and Hugging Face dataset are public. Zenodo has an unsubmitted draft with uploaded archive files and a reserved DOI, but no DOI has been minted because the draft has not been published.
+The GitHub review prerelease, Hugging Face dataset, and Zenodo DOI record are public. The source ZIP is not redistributed in public dataset artifacts.

@@ -27,7 +27,7 @@ def build_release_manifest(
     record_schema_validation_path: Path | str = DEFAULT_RECORD_SCHEMA_VALIDATION,
     duckdb_validation_path: Path | str = DEFAULT_DUCKDB_VALIDATION,
 ) -> dict[str, Any]:
-    """Combine existing pipeline evidence into a release-readiness manifest."""
+    """Combine existing pipeline evidence into a public release manifest."""
     source_inventory_path = Path(source_inventory_path)
     schema_discovery_path = Path(schema_discovery_path)
     normalization_validation_path = Path(normalization_validation_path)
@@ -43,8 +43,19 @@ def build_release_manifest(
     return {
         "manifest_version": 1,
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "publication_status": "prepared_for_review",
-        "published": False,
+        "publication_status": "published",
+        "published": True,
+        "publication": {
+            "github_repository": "https://github.com/edithatogo/corpus-nz-hansard",
+            "github_release": "https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0-review.20260603",
+            "huggingface_dataset": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+            "zenodo_record": "https://zenodo.org/records/20591997",
+            "doi": "10.5281/zenodo.20591997",
+            "doi_url": "https://doi.org/10.5281/zenodo.20591997",
+            "conceptdoi": "10.5281/zenodo.20591996",
+            "conceptdoi_url": "https://doi.org/10.5281/zenodo.20591996",
+            "publication_date": "2026-06-08",
+        },
         "source": {
             "archive_name": source["source_archive"]["name"],
             "sha256": source["source_archive"]["sha256"],
@@ -81,8 +92,8 @@ def build_release_manifest(
             "No explicit source Party column.",
             "MemberOfParliament is unresolved raw source text.",
             "Content remains document-level text, not speech-turn segmentation.",
-            "No public upload or release has occurred.",
-            "Final human licensing and hosting review is still required.",
+            "Source ZIP is not redistributed in public dataset artifacts.",
+            "Publication does not imply official Parliament endorsement.",
         ],
         "recommended_next_tracks": [
             "release_hosting_and_versioning",

@@ -83,8 +83,9 @@ class PublicReleaseManifestTest(unittest.TestCase):
         self.assertEqual(manifest["counts"]["schema_validated_rows"], 10)
         self.assertEqual(manifest["quality"]["normalization_warnings"], 0)
         self.assertTrue(manifest["quality"]["record_schema_valid"])
-        self.assertEqual(manifest["publication_status"], "prepared_for_review")
-        self.assertFalse(manifest["published"])
+        self.assertEqual(manifest["publication_status"], "published")
+        self.assertTrue(manifest["published"])
+        self.assertEqual(manifest["publication"]["doi"], "10.5281/zenodo.20591997")
 
     def test_write_manifest_creates_parent_directory(self):
         output_path = TEST_TMP / "public_release_write" / "manifest.json"

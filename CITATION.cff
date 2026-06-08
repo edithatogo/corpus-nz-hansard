@@ -3,9 +3,13 @@ message: "If you use this review-stage corpus, cite the repository and source Ne
 title: "NZ Hansard Corpus"
 version: "0.1.0-review.20260603"
 type: dataset
+doi: "10.5281/zenodo.20591997"
+url: "https://zenodo.org/records/20591997"
+date-released: "2026-06-08"
 authors:
-  - name: "Maintainer"
+  - name: "Dylan Mordaunt"
 repository-code: "https://github.com/edithatogo/corpus-nz-hansard"
+repository-artifact: "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus"
 keywords:
   - New Zealand
   - Hansard
@@ -13,4 +17,4 @@ keywords:
   - corpus
   - open data
 license: "NOASSERTION"
-abstract: "Review-stage document-level corpus pipeline for New Zealand Hansard records from a supplied DocumentsDB extract. No DOI has been minted yet."
+abstract: "Review-stage document-level corpus pipeline for New Zealand Hansard records from a supplied DocumentsDB extract. The citable Zenodo record is https://doi.org/10.5281/zenodo.20591997."

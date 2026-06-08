@@ -20,6 +20,7 @@
 - [x] Run `publication_readiness.yml` in GitHub Actions.
 - [x] Add `HF_TOKEN` and run Hugging Face upload.
 - [x] Add `ZENODO_TOKEN` and `ARCHIVE_CREATORS_JSON`, then create Zenodo draft.
+- [x] Publish Zenodo record and verify DOI resolution.
 
 ## Current Evidence
 
@@ -35,7 +36,5 @@
 - Do not claim official Parliament endorsement.
 - Do not claim speech-turn-level structure.
 - Do not claim party-level analysis is directly supported.
-- Do not claim Zenodo publication has occurred.
-- Do not claim a DOI exists until Zenodo publication is verified.
 - Do not claim source ZIP redistribution is allowed.
 - Do not claim DuckDB/search SQLite are public dataset artifacts unless they are explicitly uploaded and verified.

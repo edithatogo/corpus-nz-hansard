@@ -39,7 +39,7 @@ Contains New Zealand Parliamentary Debates (Hansard) material sourced from a Doc
 
 ## Publication Status
 
-Status: prepared for review, not published.
+Status: published review-stage dataset. DOI: `https://doi.org/10.5281/zenodo.20591997`.
 
 Publication still needs:
 
