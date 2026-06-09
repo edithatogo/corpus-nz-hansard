@@ -14,7 +14,7 @@
 
 ## Tooling checklist
 
-- [ ] `uv` frozen install/lock checks. Deferred until package/CLI migration creates authoritative project metadata and `uv.lock`.
+- [x] `uv` frozen install/lock checks.
 - [x] `ruff check` and `ruff format --check`.
 - [x] `ty check` with strict rules for Python modules and scripts.
 - [x] `typos` spelling/identifier check.
@@ -22,7 +22,7 @@
 - [x] `taplo` TOML formatting/linting where TOML config exists.
 - [x] `actionlint` workflow syntax check.
 - [x] CodeQL and OpenSSF Scorecard.
-- [ ] Artifact attestations or SLSA-style provenance for release artifacts. Tracked under `artifact_provenance_attestations_20260609`.
+- [x] Artifact attestations or SLSA-style provenance for release artifacts. Completed under `artifact_provenance_attestations_20260609`.
 
 ## Verification
 

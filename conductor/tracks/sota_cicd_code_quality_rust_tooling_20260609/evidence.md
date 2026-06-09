@@ -22,9 +22,9 @@ Verification:
 - YAML parsing succeeded for all workflow files and `.github/dependabot.yml`.
 - `rg` scan found no remaining `windows-latest` or mutable `actions/...@v*` references in `.github/workflows`.
 
-Remaining follow-up:
+Follow-up completed:
 
-- Add artifact attestation/provenance checks under the dedicated provenance track.
+- Artifact attestation/provenance checks were completed under `artifact_provenance_attestations_20260609`.
 
 ## Code Quality Tooling - 2026-06-09
 
@@ -73,7 +73,7 @@ Repo-side hardening applied:
 - Added `Makefile` targets for the full local quality gate and each individual tool: Ruff lint, Ruff format check, strict Ty type check, Typos, Zizmor, Taplo, Actionlint, quality configuration validation, and unit tests.
 - Added `scripts/check_quality_gate.py` to validate the quality configuration itself: dev-tool pins, required Quality workflow commands, local Makefile targets, pinned GitHub Actions refs, and publication workflows staying manual-only.
 - Added `tests/test_check_quality_gate.py` so the quality-gate configuration is covered by unit tests.
-- Added `docs/quality-gate.md` with local commands, CI alignment, `uv.lock` deferral, pre-commit deferral, and current Dependabot-versus-Renovate policy.
+- Added `docs/quality-gate.md` with local commands, CI alignment, pre-commit deferral, and current Dependabot-versus-Renovate policy.
 - Added the quality-gate configuration checker to `.github/workflows/quality.yml`.
 
 Verification:
@@ -90,3 +90,17 @@ Verification:
 - `python -m unittest discover tests` passed with 43 tests.
 - `make quality` passed.
 - Conductor track `metadata.json` files parse as JSON.
+
+## UV And Provenance Follow-Through - 2026-06-10
+
+Repo-side hardening applied:
+
+- Added `pyproject.toml` project/dependency metadata and committed `uv.lock`.
+- Added `uv lock --check` and `uv sync --frozen --all-groups` to the Makefile and Quality workflow.
+- Added release provenance ledger schema, builder, docs, and policy checks under `artifact_provenance_attestations_20260609`.
+- Kept the uv CLI pinned in the pyproject dev dependency group and installed it explicitly in CI before frozen sync checks, avoiding GitHub Dependency Graph treating `/requirements` as a uv project.
+
+Verification:
+
+- Local `make quality` passed with uv lock check, frozen sync, Ruff, ty, typos, zizmor, taplo, actionlint, quality configuration, release provenance policy, and 45 unit tests.
+- GitHub Actions for commit `86466f2f762a08fa5005760863d6a60beba2cea1` passed: Quality, Tests, CodeQL, OpenSSF Scorecard, and Dependency Graph.
