@@ -61,6 +61,8 @@ Target endpoint families:
 - Universal Dependencies / CoNLL-U linguistic annotations.
 - RDF linked data using PROV-O, DCAT, SKOS, and related vocabularies.
 
+Granular component requirements are defined in `docs/component-contracts.md`. Endpoint-specific requirements are defined in `docs/endpoint-contracts.md`.
+
 ## Safety Contract
 
 - Do not commit generated corpus data to GitHub.

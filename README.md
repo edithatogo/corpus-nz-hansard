@@ -23,6 +23,8 @@ Tracked manifests and reports:
 - `docs/normalization-contract.md`
 - `docs/interoperability-requirements-moscow.md`
 - `docs/interoperability-design.md`
+- `docs/component-contracts.md`
+- `docs/endpoint-contracts.md`
 - `docs/duckdb-analysis.md`
 
 Generated outputs:
