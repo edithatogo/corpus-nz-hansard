@@ -15,6 +15,8 @@
 
 Build a reproducible, inspectable New Zealand Hansard corpus that supports research, public dataset preparation, reporting datasets, search, analysis, and downstream NLP or RAG workflows.
 
+The long-term product direction is a neutral parliamentary corpus core with generated interoperability endpoints. ParlaMint-NZ is a core target, but the internal model remains standard-agnostic so the corpus can also serve civic-data, legal-document, topic-agenda, RDF, and NLP users.
+
 ## Priority Order
 
 1. Research corpus: prioritize local reproducibility, inspection, search, and defensible analytical use.
@@ -36,6 +38,7 @@ Build a reproducible, inspectable New Zealand Hansard corpus that supports resea
 - Normalize extracted records into repeatable generated outputs.
 - Produce manifests, validation reports, Parquet datasets, and a DuckDB analytical database.
 - Document assumptions, limitations, source coverage, and reproducibility commands.
+- Generate validated endpoint artifacts from neutral contracts, including ParlaMint-NZ / TEI, Popolo/Open Civic Data, Akoma Ntoso, CAP/ParlaCAP, Universal Dependencies, and RDF linked-data outputs.
 
 ## Non-Goals For Initial Setup
 
@@ -50,3 +53,4 @@ Build a reproducible, inspectable New Zealand Hansard corpus that supports resea
 - Schema discovery is recorded before transformation.
 - Generated outputs have a declared location, regeneration policy, and validation evidence.
 - Research, public-dataset, and reporting uses can all trace outputs back to the source archive.
+- Endpoint outputs can be validated independently and contributed or published without changing the neutral core schema.

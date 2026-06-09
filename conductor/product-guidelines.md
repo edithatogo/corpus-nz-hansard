@@ -11,8 +11,11 @@ This document outlines the design, documentation, and data quality guidelines fo
 
 - **Alignment with Official Terminology:** Dataset schemas, column names, and intermediate variables must align with the official terminology used by the New Zealand Parliament (e.g., `Speaker`, `Party`, `SittingDate`, `DebateTitle`, `Volume`). Avoid generic names like `col1` or `data_field`.
 - **Case and Formatting Consistency:** Schema fields must use a consistent casing convention (e.g., snake_case or PascalCase) across all normalized outputs to simplify downstream SQL querying and NLP integration.
+- **Neutral Core First:** Core contracts should use repository-owned neutral names and stable identifiers. External ontology names belong in endpoint contracts, mapping tables, or generated export artifacts.
+- **Endpoint Traceability:** Every ParlaMint, Popolo/Open Civic Data, Akoma Ntoso, CAP/ParlaCAP, Universal Dependencies, or RDF field must trace back to a neutral core field, validated derived artifact, authority source, or explicit constant.
 
 ## 3. Data Provenance & Manifest Integrity
 
 - **Provenance Tracking:** Normalized data outputs must be accompanied by a machine-readable JSON or YAML manifest recording the MD5/SHA-256 hash, file size, and row count of both the input archive and the resulting outputs.
 - **Log Automation:** Normalization pipelines must automatically direct stdout/stderr to standard log locations. Warnings related to mismatched schemas, invalid dates, or unknown speakers must be explicitly logged without halting the entire pipeline unless a fatal error occurs.
+- **Derived Assertion Provenance:** Derived member, party, speech, vote, topic, and NLP fields must record source, method, confidence or validation status, and pipeline version before publication.

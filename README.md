@@ -21,6 +21,8 @@ Tracked manifests and reports:
 - `manifests/search_index_validation.json`
 - `docs/schema-discovery-report.md`
 - `docs/normalization-contract.md`
+- `docs/interoperability-requirements-moscow.md`
+- `docs/interoperability-design.md`
 - `docs/duckdb-analysis.md`
 
 Generated outputs:
@@ -115,3 +117,9 @@ Distribution decisions:
 - `MemberOfParliament` is retained as a raw semicolon-separated source field plus a count; entity resolution is deferred.
 - `Content` remains document-level text; speech-turn segmentation is deferred to a later derived-data release.
 - Power BI/reporting models are deferred tracks.
+
+## Interoperability Direction
+
+The neutral document-level dataset remains the core contract. Future derived artifacts will generate standard-specific endpoints programmatically rather than replacing the core schema with any one external standard.
+
+ParlaMint-NZ is a core target endpoint. Additional target endpoint families include Parla-CLARIN samples, Popolo/Open Civic Data, Akoma Ntoso, Comparative Agendas Project / ParlaCAP, Universal Dependencies / CoNLL-U, RDF/PROV-O/DCAT/SKOS, and Hugging Face Parquet releases.

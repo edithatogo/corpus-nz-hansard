@@ -73,3 +73,9 @@ The pipeline records warning counts and up to five examples per code:
 ## Deferred Normalization
 
 This MVP keeps `Content` at document level. Speaker-turn segmentation, party inference, member entity resolution, and portfolio normalization are later tracks because the source schema does not include explicit party or structured speech-turn fields.
+
+## Interoperability Boundary
+
+The normalization contract is the neutral document-level base for future endpoint generation. It deliberately does not encode ParlaMint, Popolo, Akoma Ntoso, CAP, Universal Dependencies, RDF, or other external ontology requirements directly into the core row.
+
+Future endpoint-specific contracts must consume this neutral base plus validated derived component artifacts. They must not alter the meaning of the document-level columns in this contract.

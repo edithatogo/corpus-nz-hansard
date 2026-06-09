@@ -26,6 +26,22 @@ Use conservative, scriptable tools that work well on Windows and large CSV files
 - SQLite or DuckDB for local exploratory indexing once CSV schemas are known.
 - Parquet for columnar derived outputs if publication or repeated analysis requires it.
 
+## Interoperability Tooling
+
+Preferred libraries for endpoint implementation:
+
+- `pandas`, `pyarrow`, and `duckdb` for the current neutral tabular pipeline.
+- `polars` for larger derived transforms when performance pressure justifies another dependency.
+- `jsonschema`, `pydantic`, and `pandera` for schema and tabular validation.
+- `lxml` and `xmlschema` for TEI/ParlaMint and Akoma Ntoso XML generation; use external `jing` when Relax NG validation is required.
+- `rdflib`, `pyshacl`, and `linkml` for RDF, SHACL, and linked-data schema work.
+- `rapidfuzz` for authority-source name matching.
+- `spacy`, `stanza`, `conllu`, and `pyconll` for NLP, Universal Dependencies, and CoNLL-U exports.
+- `transformers`, `sentence-transformers`, and `scikit-learn` for topic classifiers, embeddings, and model-backed review workflows.
+- `bertopic` only for exploratory topic modelling unless a later validation track promotes a topic model to a governed artifact.
+
+Authority-source validation remains required for members, parties, votes, and official parliamentary structure. Generic NLP output is not enough for authoritative derived fields.
+
 ## Repository Constraints
 
 - The Git repository root appears to be higher than this project directory, so status output may include unrelated OneDrive-wide changes.
