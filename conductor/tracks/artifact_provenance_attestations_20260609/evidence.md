@@ -61,3 +61,13 @@ Validation:
 Operational note:
 
 - On this OneDrive-backed Windows workspace, uv's default user cache hit local permission issues. Validation used `UV_CACHE_DIR=C:\tmp\corpus-nz-hansard-uv-cache`; GitHub-hosted runners should use their normal writable runner cache paths.
+
+## Completion Verification - 2026-06-10
+
+Status: complete.
+
+The track plan was already fully checked before promotion. Current verification on the post-version-consistency quality gate passed:
+
+- `make quality` passed with uv lock check, frozen sync, Ruff, Ruff format, ty strict type check, typos, zizmor, taplo, actionlint, quality configuration, release provenance policy, release version consistency, and 46 unit tests.
+- Conductor metadata now marks this track as `completed`.
+- `conductor/tracks.md` now lists this track under Completed Tracks.

@@ -21,14 +21,6 @@ Goal: Adopt SOTA CI/code-quality automation using Rust-backed tools where possib
 
 Link: [conductor/tracks/sota_cicd_code_quality_rust_tooling_20260609/](./tracks/sota_cicd_code_quality_rust_tooling_20260609/)
 
-### [ ] Track: Artifact Provenance And Attestations
-
-Track ID: `artifact_provenance_attestations_20260609`
-
-Goal: Add release evidence ledgers, GitHub artifact attestations or SLSA-style provenance, and signed/checksummed artifact policy.
-
-Link: [conductor/tracks/artifact_provenance_attestations_20260609/](./tracks/artifact_provenance_attestations_20260609/)
-
 ### [ ] Track: Public Surface Audit Evidence
 
 Track ID: `public_surface_audit_evidence_20260609`
@@ -246,6 +238,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Artifact Provenance And Attestations
+
+Track ID: `artifact_provenance_attestations_20260609`
+
+Goal: Add release evidence ledgers, GitHub artifact attestations or SLSA-style provenance, and signed/checksummed artifact policy.
+
+Link: [conductor/tracks/artifact_provenance_attestations_20260609/](./tracks/artifact_provenance_attestations_20260609/)
 
 ### [x] Track: Bleeding Edge Versioning And Release Automation
 
