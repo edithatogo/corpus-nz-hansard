@@ -1,0 +1,12 @@
+Track: Artifact Provenance And Attestations
+
+Summary:
+- Completed the previously deferred uv lock and frozen dependency sync item.
+- Added pyproject project/dependency metadata and committed uv.lock.
+- Added uv lock/sync Makefile targets and Quality workflow steps.
+- Updated quality gate checks, docs, tech-stack note, and Conductor evidence.
+
+Validation:
+- uv lock --check passed.
+- uv sync --frozen --all-groups passed.
+- make quality passed locally with 45 unit tests.
