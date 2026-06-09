@@ -17,12 +17,15 @@ Last verified: 2026-06-08
 ## Final Document-Level Release
 
 - Version: `0.1.0`
+- Release ladder: immutable `document-level`, recorded in `manifests/release_ladder.json`
 - GitHub release target: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`
 - Hugging Face dataset target: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`
 - Zenodo record target: `https://zenodo.org/records/20595194`
 - Zenodo DOI: `https://doi.org/10.5281/zenodo.20595194`
 
 This is the canonical document-level dataset release. Member identity resolution, party attribution, and authoritative speech-turn segmentation are intentionally out of scope for this release and should be handled as later derived-data releases.
+
+Future `authority-source`, `neutral-component`, `endpoint`, and `upstream-contribution` artifacts use separate ladder levels and must not be described as updates to the immutable `v0.1.0` document-level data snapshot unless a new dataset release and DOI snapshot are minted.
 
 ## Prepared Locally
 

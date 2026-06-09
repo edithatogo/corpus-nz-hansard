@@ -1,0 +1,191 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "generated_at": "2026-06-10",
+  "current_public_release": {
+    "version": "0.1.0",
+    "release_level": "document-level",
+    "immutable_policy": "The v0.1.0 document-level data snapshot is immutable except for metadata, documentation, cross-reference, and provenance corrections that do not alter public rows, columns, source hashes, or intended use.",
+    "release_manifest": "manifests/public_dataset_release_manifest.json"
+  },
+  "release_levels": [
+    {
+      "level": 1,
+      "id": "document-level",
+      "description": "Canonical normalized document records from the supplied DocumentsDB extract, plus release metadata, provenance, and public-surface evidence.",
+      "validation_gates": [
+        "source inventory hash and member count match",
+        "normalization and record-schema validation pass",
+        "historical coverage audit does not claim full historical completeness",
+        "quality gate passes"
+      ],
+      "publication_gates": [
+        "GitHub release, Hugging Face dataset, and Zenodo DOI are synchronized",
+        "source ZIP is not redistributed unless a later rights review approves it",
+        "metadata-only corrections do not mutate public dataset rows"
+      ]
+    },
+    {
+      "level": 2,
+      "id": "authority-source",
+      "description": "Official-first source inventories and retrieval evidence used to support derived member, party, sitting, bill, motion, vote, and procedure assertions.",
+      "validation_gates": [
+        "authority source manifest validates against schema",
+        "official New Zealand Parliament sources are preferred where available",
+        "retrieval date, source hash, reuse note, and coverage gaps are recorded"
+      ],
+      "publication_gates": [
+        "authority source artifacts are published as manifests or evidence, not as resolved derived fields",
+        "current-only authority sources are not reused as historical proof without dated snapshots"
+      ]
+    },
+    {
+      "level": 3,
+      "id": "neutral-component",
+      "description": "Validated repository-owned component tables such as sittings, proceedings, speech turns, members, parties, motions, votes, bills, topics, and annotations.",
+      "validation_gates": [
+        "component schema includes required release-series fields",
+        "component rows cite document-level source records and authority sources where applicable",
+        "gold or focused validation proves the component is not merely candidate output"
+      ],
+      "publication_gates": [
+        "candidate components remain excluded from public endpoint exports",
+        "component release versions are independent from v0.1.0 document-level data"
+      ]
+    },
+    {
+      "level": 4,
+      "id": "endpoint",
+      "description": "Generated standard-specific endpoint artifacts such as ParlaMint/TEI, Popolo/Open Civic Data, Akoma Ntoso, CAP/ParlaCAP, CoNLL-U, RDF, Croissant, RO-Crate, Frictionless, DCAT, and PROV-O.",
+      "validation_gates": [
+        "endpoint contract declares schema or ontology version",
+        "endpoint artifacts validate with the relevant external validator",
+        "endpoint manifest cites input component releases and known exclusions"
+      ],
+      "publication_gates": [
+        "endpoint releases are not bundled into document-level releases",
+        "endpoint publication target and upstream contribution target are explicit"
+      ]
+    },
+    {
+      "level": 5,
+      "id": "upstream-contribution",
+      "description": "Reviewed samples, fixtures, mapping notes, issue-ready evidence, or contribution packages for external maintainers and standards communities.",
+      "validation_gates": [
+        "sample package is reproducible from validated endpoint or component artifacts",
+        "mapping notes document NZ-specific assumptions and exclusions",
+        "maintainer-facing package includes checksums and source manifest references"
+      ],
+      "publication_gates": [
+        "upstream contribution is separate from local endpoint publication",
+        "external acceptance or feedback does not retroactively change canonical release status"
+      ]
+    }
+  ],
+  "artifact_map": [
+    {
+      "artifact": "public dataset release manifest",
+      "path": "manifests/public_dataset_release_manifest.json",
+      "release_level": "document-level",
+      "status": "published",
+      "next_gate": "metadata-only corrections allowed; material data changes require a new dataset release and Zenodo snapshot"
+    },
+    {
+      "artifact": "normalized Parquet",
+      "path": "generated/parquet/hansard.parquet",
+      "release_level": "document-level",
+      "status": "published",
+      "next_gate": "row, column, provenance, or intended-use changes require a new release"
+    },
+    {
+      "artifact": "Hansard record schema",
+      "path": "schemas/hansard_record.schema.json",
+      "release_level": "document-level",
+      "status": "published",
+      "next_gate": "schema-breaking changes require release notes, migration notes, and manifest updates"
+    },
+    {
+      "artifact": "historical coverage audit",
+      "path": "manifests/historical_coverage_audit.json",
+      "release_level": "document-level",
+      "status": "validated-manifest",
+      "next_gate": "broader historical claims require official sitting and proceeding reconciliation"
+    },
+    {
+      "artifact": "authority source discovery",
+      "path": "manifests/authority_sources.json",
+      "release_level": "authority-source",
+      "status": "validated-manifest",
+      "next_gate": "retrieve dated official snapshots before publishing derived authoritative fields"
+    },
+    {
+      "artifact": "component contracts",
+      "path": "docs/component-contracts.md",
+      "release_level": "neutral-component",
+      "status": "planned",
+      "next_gate": "add component schemas and validation manifests before public component release"
+    },
+    {
+      "artifact": "speech-turn candidates",
+      "path": "generated/speech_turns",
+      "release_level": "neutral-component",
+      "status": "excluded",
+      "next_gate": "promote only after validation proves speaker attribution and turn boundaries"
+    },
+    {
+      "artifact": "endpoint contracts",
+      "path": "docs/endpoint-contracts.md",
+      "release_level": "endpoint",
+      "status": "planned",
+      "next_gate": "endpoint manifests must cite input component release versions and validators"
+    },
+    {
+      "artifact": "metadata packages",
+      "path": "generated/metadata",
+      "release_level": "endpoint",
+      "status": "validated-manifest",
+      "next_gate": "publish only through release upload workflows with checksums and DOI/revision references"
+    },
+    {
+      "artifact": "upstream contribution packages",
+      "path": "conductor/tracks/upstream_contribution_packages_20260609",
+      "release_level": "upstream-contribution",
+      "status": "planned",
+      "next_gate": "build sample packages after endpoint validators pass"
+    }
+  ],
+  "manifest_field_requirements": [
+    "release_series_id",
+    "release_level",
+    "artifact_name",
+    "artifact_version",
+    "input_release_versions",
+    "validation_manifest",
+    "publication_target",
+    "known_exclusions",
+    "release_status",
+    "manifest_sha256"
+  ],
+  "surface_relationships": [
+    {
+      "surface": "github",
+      "relationship": "Home for source code, release manifests, schemas, docs, checks, issues, and lightweight release assets."
+    },
+    {
+      "surface": "huggingface",
+      "relationship": "Canonical live host for document-level Parquet and, only after later validation, endpoint-specific dataset layouts."
+    },
+    {
+      "surface": "zenodo",
+      "relationship": "Immutable DOI-bearing archive for stable public release snapshots."
+    },
+    {
+      "surface": "osf",
+      "relationship": "Optional future mirror or review-bundle host; inactive for current public claims."
+    },
+    {
+      "surface": "upstream",
+      "relationship": "External standards or maintainer communities receive contribution packages after local endpoint validation, not as canonical dataset releases."
+    }
+  ]
+}

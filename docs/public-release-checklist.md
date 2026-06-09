@@ -23,6 +23,7 @@
 - [x] Publish Zenodo record and verify DOI resolution.
 - [x] Add Hugging Face dataset-card metadata front matter.
 - [x] Add repository license and provenance notice.
+- [x] Confirm `manifests/release_ladder.json` keeps `v0.1.0` as an immutable `document-level` release and separates `authority-source`, `neutral-component`, `endpoint`, and `upstream-contribution` artifacts.
 
 ## Current Evidence
 
@@ -32,6 +33,7 @@
 - Record schema validation: `manifests/record_schema_validation.json`
 - DuckDB validation: `manifests/duckdb_validation.json`
 - Public release manifest: `manifests/public_dataset_release_manifest.json`
+- Release ladder: `manifests/release_ladder.json`
 
 ## Do Not Claim Yet
 
@@ -40,3 +42,4 @@
 - Do not claim party-level analysis is directly supported.
 - Do not claim source ZIP redistribution is allowed.
 - Do not claim DuckDB/search SQLite are public dataset artifacts unless they are explicitly uploaded and verified.
+- Do not publish authority-source, neutral-component, endpoint, or upstream-contribution artifacts as part of the immutable `v0.1.0` document-level release.

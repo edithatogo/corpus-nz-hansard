@@ -38,6 +38,7 @@ REQUIRED_QUALITY_SNIPPETS = (
     "python scripts\\check_corpus_family_engineering_alignment.py",
     "python scripts\\check_authority_sources.py",
     "python scripts\\check_historical_coverage_audit.py",
+    "python scripts\\check_release_ladder.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
@@ -56,6 +57,7 @@ REQUIRED_MAKE_TARGETS = (
     "corpus-family-engineering:",
     "authority-sources:",
     "historical-coverage:",
+    "release-ladder:",
     "lint:",
     "format-check:",
     "typecheck:",

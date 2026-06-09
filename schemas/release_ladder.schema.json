@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "generated_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "current_public_release": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": "0.1.0"
+        },
+        "release_level": {
+          "const": "document-level"
+        },
+        "immutable_policy": {
+          "type": "string"
+        },
+        "release_manifest": {
+          "const": "manifests/public_dataset_release_manifest.json"
+        }
+      },
+      "required": [
+        "version",
+        "release_level",
+        "immutable_policy",
+        "release_manifest"
+      ],
+      "type": "object"
+    },
+    "release_levels": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "level": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "id": {
+            "enum": [
+              "document-level",
+              "authority-source",
+              "neutral-component",
+              "endpoint",
+              "upstream-contribution"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "validation_gates": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 3,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "publication_gates": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 2,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "level",
+          "id",
+          "description",
+          "validation_gates",
+          "publication_gates"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "artifact_map": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "release_level": {
+            "enum": [
+              "document-level",
+              "authority-source",
+              "neutral-component",
+              "endpoint",
+              "upstream-contribution"
+            ]
+          },
+          "status": {
+            "enum": [
+              "published",
+              "validated-manifest",
+              "planned",
+              "excluded"
+            ]
+          },
+          "next_gate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "artifact",
+          "path",
+          "release_level",
+          "status",
+          "next_gate"
+        ],
+        "type": "object"
+      },
+      "minItems": 10,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "manifest_field_requirements": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 8,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "surface_relationships": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "surface": {
+            "enum": [
+              "github",
+              "huggingface",
+              "zenodo",
+              "osf",
+              "upstream"
+            ]
+          },
+          "relationship": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "surface",
+          "relationship"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "manifest_version",
+    "repository",
+    "generated_at",
+    "current_public_release",
+    "release_levels",
+    "artifact_map",
+    "manifest_field_requirements",
+    "surface_relationships"
+  ],
+  "type": "object"
+}

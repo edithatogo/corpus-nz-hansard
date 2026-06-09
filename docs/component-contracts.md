@@ -207,13 +207,17 @@ Minimum neutral fields:
 
 Release-series components record which ladder step an artifact belongs to.
 
+The release ladder authority is `manifests/release_ladder.json`; the current public `v0.1.0` release remains an immutable `document-level` release, authority-source evidence uses the `authority-source` level, and future component artifacts use the `neutral-component` level unless a dedicated release manifest maps them otherwise. Component manifests must not describe themselves as `endpoint` or `upstream-contribution` artifacts.
+
 Minimum neutral fields:
 
 - `release_series_id`
 - `release_level`
 - `artifact_name`
 - `artifact_version`
+- `input_release_versions`
 - `validation_manifest`
 - `publication_target`
 - `known_exclusions`
-
+- `release_status`
+- `manifest_sha256`

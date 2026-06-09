@@ -27,6 +27,21 @@ Every endpoint must declare:
 
 Endpoint coverage language must cite `manifests/historical_coverage_audit.json`. Endpoints may describe coverage of the supplied DocumentsDB extract, but must not describe the current dataset as full historical NZ Hansard coverage unless a later audit reconciles official sitting and proceeding sources and updates the manifest.
 
+Endpoint release language must cite `manifests/release_ladder.json`. The current `v0.1.0` release is an immutable `document-level` release. Endpoint artifacts are `endpoint` level releases and must declare their input `document-level`, `authority-source`, and `neutral-component` release versions instead of being bundled into the canonical document-level release. Upstream samples, fixtures, and maintainer handoffs are `upstream-contribution` artifacts rather than endpoint releases.
+
+Required endpoint release-series fields:
+
+- `release_series_id`
+- `release_level`
+- `artifact_name`
+- `artifact_version`
+- `input_release_versions`
+- `validation_manifest`
+- `publication_target`
+- `known_exclusions`
+- `release_status`
+- `manifest_sha256`
+
 ## ParlaMint-NZ / TEI
 
 Target users: corpus linguistics and comparative parliamentary researchers.

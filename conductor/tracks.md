@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Release Ladder
-
-Track ID: `release_ladder_20260609`
-
-Goal: define document-level, authority-source, neutral-component, endpoint, and upstream-contribution release levels with publication gates.
-
-Link: [conductor/tracks/release_ladder_20260609/](./tracks/release_ladder_20260609/)
-
 ### [ ] Track: Gold Evaluation Datasets
 
 Track ID: `gold_evaluation_datasets_20260609`
@@ -150,6 +142,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Release Ladder
+
+Track ID: `release_ladder_20260609`
+
+Goal: Defined document-level, authority-source, neutral-component, endpoint, and upstream-contribution release levels with artifact mappings, manifest fields, publication gates, checker, and docs.
+
+Link: [conductor/tracks/release_ladder_20260609/](./tracks/release_ladder_20260609/)
 
 ### [x] Track: Historical Coverage Audit
 

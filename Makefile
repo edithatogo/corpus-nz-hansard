@@ -1,8 +1,8 @@
 PYTHON ?= python
 
-.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
+.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
 
-quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage test
+quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder test
 
 uv-lock:
 	uv lock --check
@@ -45,6 +45,9 @@ authority-sources:
 
 historical-coverage:
 	$(PYTHON) scripts/check_historical_coverage_audit.py
+
+release-ladder:
+	$(PYTHON) scripts/check_release_ladder.py
 
 lint:
 	$(PYTHON) -m ruff check --no-cache .

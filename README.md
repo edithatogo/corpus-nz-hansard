@@ -22,9 +22,11 @@ Tracked manifests and reports:
 - `manifests/duckdb_validation.json`
 - `manifests/search_index_validation.json`
 - `manifests/historical_coverage_audit.json`
+- `manifests/release_ladder.json`
 - `docs/schema-discovery-report.md`
 - `docs/normalization-contract.md`
 - `docs/historical-coverage-audit.md`
+- `docs/release-ladder.md`
 - `docs/interoperability-requirements-moscow.md`
 - `docs/interoperability-design.md`
 - `docs/component-contracts.md`

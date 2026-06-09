@@ -108,3 +108,6 @@ jobs:
 
       - name: Historical coverage audit
         run: python scripts\check_historical_coverage_audit.py
+
+      - name: Release ladder
+        run: python scripts\check_release_ladder.py
