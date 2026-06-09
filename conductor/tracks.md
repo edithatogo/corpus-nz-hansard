@@ -13,7 +13,37 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-None.
+### [ ] Track: Member Identity Resolution
+
+Track ID: `member_identity_resolution_20260609`
+
+Goal: resolve raw `MemberOfParliament` values into authoritative, provenance-backed member identity fields as a derived dataset layer.
+
+Link: [conductor/tracks/member_identity_resolution_20260609/](./tracks/member_identity_resolution_20260609/)
+
+### [ ] Track: Party Attribution With Provenance
+
+Track ID: `party_attribution_provenance_20260609`
+
+Goal: add provenance-backed party attribution as a temporal derived layer, dependent on validated member identity where needed.
+
+Link: [conductor/tracks/party_attribution_provenance_20260609/](./tracks/party_attribution_provenance_20260609/)
+
+### [ ] Track: Speech-Turn Validated Artifact Decision
+
+Track ID: `speech_turn_validated_artifact_20260609`
+
+Goal: promote speech-turn candidates to a validated derived artifact or explicitly keep them excluded from published final scope.
+
+Link: [conductor/tracks/speech_turn_validated_artifact_20260609/](./tracks/speech_turn_validated_artifact_20260609/)
+
+### [ ] Track: Derived Fields Validation Manifests
+
+Track ID: `derived_fields_validation_manifests_20260609`
+
+Goal: create shared validation tests and manifests for derived member, party, and speech-turn fields before any derived dataset publication.
+
+Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
 

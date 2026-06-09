@@ -1,0 +1,8 @@
+{
+  "track_id": "speech_turn_validated_artifact_20260609",
+  "type": "feature",
+  "status": "pending",
+  "created_at": "2026-06-09T00:00:00+10:00",
+  "updated_at": "2026-06-09T00:00:00+10:00",
+  "description": "Decide whether to promote speech-turn candidates into a validated derived artifact or formally keep them excluded from published final scope."
+}
