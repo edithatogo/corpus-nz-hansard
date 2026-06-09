@@ -131,3 +131,64 @@ Endpoint artifacts may be published only when their validation manifest records 
 Generic NLP libraries should support extraction and quality review, not replace authority-source validation for members, parties, votes, or official parliamentary structure.
 
 Heavy endpoint libraries should be optional dependency groups rather than base requirements.
+
+## Cross-Corpus Publication Surface Design
+
+The Hansard project should remain `corpus-nz-hansard` and should cross-reference the legislation sibling using the preferred systematic label `corpus-nz-legislation`. Existing published legislation surfaces may still use `nz-legislation-corpus-pipeline` or `edithatogo/nz-legislation-corpus` until a migration track proves that citations and redirects are safe.
+
+```mermaid
+flowchart LR
+  H["corpus-nz-hansard"] --> HGit["GitHub: corpus-nz-hansard"]
+  H --> HHF["Hugging Face: edithatogo/nz-hansard-corpus"]
+  H --> HZen["Zenodo: 10.5281/zenodo.20595194"]
+  L["corpus-nz-legislation preferred label"] --> LGit["GitHub: nz-legislation-corpus-pipeline today"]
+  L --> LHF["Hugging Face: edithatogo/nz-legislation-corpus"]
+  L --> LZen["Zenodo: 10.5281/zenodo.20592540"]
+  HGit -.sibling links and aligned topics.-> LGit
+  HHF -.dataset-card family links.-> LHF
+  HZen -.related identifiers where appropriate.-> LZen
+  H --> OSF["Optional OSF review/mirror bundle"]
+  L --> OSF
+  H --> META["Croissant / RO-Crate / Frictionless / DCAT / PROV-O"]
+  L --> META
+```
+
+### Environment gates
+
+| Environment | Required gate | Current Hansard focus | Sibling alignment focus |
+| --- | --- | --- | --- |
+| GitHub | Metadata, releases, Actions, license, security, topics, README links | Keep `corpus-nz-hansard`; add `uv`/package hardening track. | Align with `corpus-nz-legislation` preference and legislation engineering baseline. |
+| Hugging Face | Card metadata, files, access/gating, viewer health, DOI/GitHub links | Verify viewer health, file layout, and ungated access; fix any confirmed split/cast or file-layout issue. | Mirror access/card/revision checks used by legislation. |
+| Zenodo | DOI, files, license/provenance, related identifiers, version chain | Keep `20595194` as canonical and mark `20591997` as superseded review record. | Align related identifiers and license caution with legislation. |
+| OSF | Optional mirror/review policy | Decide if OSF adds value before use. | Same optional status in both repos. |
+| Future metadata | Generated metadata packages | Croissant/RO-Crate/Frictionless/DCAT/PROV-O after core stability. | Shared corpus-family metadata conventions. |
+
+## Recommended Additional Tracks
+
+```mermaid
+flowchart TD
+  A["Corpus-family publication alignment"] --> B["Public-surface audit evidence"]
+  A --> C["Zenodo rights metadata harmonisation"]
+  C --> ZD["Zenodraft-based draft workflow"]
+  A --> D["Shared NZ corpus core schema"]
+  A --> E["SOTA metadata packages"]
+  A --> F["OSF optional mirror policy"]
+  A --> G["Dataset viewer and machine-consumability gates"]
+  B --> H["Release evidence ledger"]
+  D --> H
+  E --> H
+  G --> H
+```
+
+### Zenodraft integration design
+
+Future Zenodo automation should prefer `zenodraft` (`https://github.com/zenodraft/zenodraft`) for draft deposition operations. The design target is:
+
+1. Generate archive files and `.zenodo.json` metadata locally.
+2. Run `zenodraft metadata validate .zenodo.json` before upload.
+3. Use `zenodraft deposition create concept` or `zenodraft deposition create version <concept_id>` for draft creation.
+4. Use `zenodraft file add` and `zenodraft metadata update` for draft contents.
+5. Use `zenodraft deposition show prereserved` and `show details` to capture evidence.
+6. Keep `zenodraft deposition publish` in a separate protected approval step.
+
+CI must map repository secrets to `ZENODO_ACCESS_TOKEN` or `ZENODO_SANDBOX_ACCESS_TOKEN` only for the step that needs them.

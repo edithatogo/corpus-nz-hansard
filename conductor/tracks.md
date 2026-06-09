@@ -13,6 +13,22 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
+### [ ] Track: Corpus Family Naming And Publication Alignment
+
+Track ID: `corpus_family_naming_publication_alignment_20260609`
+
+Goal: keep `corpus-nz-hansard` aligned with preferred sibling label `corpus-nz-legislation` across GitHub, Hugging Face, Zenodo, OSF, and future metadata environments.
+
+Link: [conductor/tracks/corpus_family_naming_publication_alignment_20260609/](./tracks/corpus_family_naming_publication_alignment_20260609/)
+
+### [ ] Track: Corpus Family Engineering Alignment
+
+Track ID: `corpus_family_engineering_alignment_20260609`
+
+Goal: adopt applicable legislation-project engineering standards while preserving Hansard's parliamentary interoperability roadmap.
+
+Link: [conductor/tracks/corpus_family_engineering_alignment_20260609/](./tracks/corpus_family_engineering_alignment_20260609/)
+
 ### [ ] Track: Authority Source Discovery
 
 Track ID: `authority_source_discovery_20260609`

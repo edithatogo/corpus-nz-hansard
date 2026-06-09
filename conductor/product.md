@@ -54,3 +54,12 @@ The long-term product direction is a neutral parliamentary corpus core with gene
 - Generated outputs have a declared location, regeneration policy, and validation evidence.
 - Research, public-dataset, and reporting uses can all trace outputs back to the source archive.
 - Endpoint outputs can be validated independently and contributed or published without changing the neutral core schema.
+
+## Corpus family naming and sibling alignment
+
+Preferred systematic project label: `corpus-nz-hansard`.
+
+Sibling corpus label: `corpus-nz-legislation`.
+
+Agents should use these labels in new roadmap, requirements, design, and environment-planning documents. Existing published URLs must remain stable unless a dedicated migration track verifies redirects, citations, DOI metadata, Hugging Face dataset references, and release notes.
+

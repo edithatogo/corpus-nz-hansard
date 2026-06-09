@@ -61,3 +61,14 @@ Keep `requirements.txt` as the base runtime. Add heavy XML, RDF, NLP, ML, and me
 ## Power BI Note
 
 The local AGENTS instructions include Power BI CLI skill requirements for Power BI, DAX, semantic model, and report-layer work. This setup did not perform Power BI work. Invoke the relevant Power BI skill before future Power BI-specific changes.
+
+## Publication and metadata environments
+
+Track publication alignment across:
+
+- GitHub for code, CI, releases, security posture, repository metadata, and lightweight artifacts.
+- Hugging Face Datasets for operational/canonical Parquet publication, dataset cards, Xet-backed storage, access/gating state, and viewer health.
+- Zenodo for immutable DOI snapshots, archive manifests, checksums, related identifiers, and source-rights-safe license metadata.
+- OSF as an optional review or mirror environment only after a policy exists.
+- Generated metadata packages such as Croissant, RO-Crate, Frictionless Data Package, DCAT, and PROV-O as future SOTA discovery/interoperability surfaces.
+

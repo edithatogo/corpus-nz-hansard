@@ -79,3 +79,62 @@ The core dataset must remain source-faithful and standard-agnostic. ParlaMint-NZ
 17. Universal Dependencies and NLP annotation endpoints.
 18. RDF and metadata endpoints.
 19. Upstream contribution packages and submission evidence.
+
+## Cross-Corpus Naming And Publication-Surface Requirements
+
+Preferred project labels:
+
+- Hansard corpus: `corpus-nz-hansard`.
+- Legislation corpus sibling: `corpus-nz-legislation` for future systematic naming, currently local path `C:\Users\60217257\OneDrive - Flinders\repos\corpus-law-nz` and published GitHub name `nz-legislation-corpus-pipeline`.
+
+Additional MoSCoW requirements for the corpus family:
+
+### Must
+
+- Cross-reference `corpus-nz-legislation` in naming, publication-surface, and interoperability planning.
+- Keep existing published GitHub, Hugging Face, and Zenodo URLs stable unless a migration plan protects citations, redirects, and DOI metadata.
+- Include GitHub, Hugging Face, Zenodo, OSF, and future metadata environments in release-readiness tasks.
+- Align README, DATASET_CARD, CITATION, release notes, manifests, DOI records, and repository metadata before declaring a release complete.
+- Keep Hugging Face public access, gating state, file layout, and dataset-viewer health explicit, and fix any confirmed dataset-viewer layout issue before declaring endpoint publication complete.
+
+### Should
+
+- Use the legislation project as the engineering/tooling baseline for package structure, `uv`, pytest, ruff, mypy, pre-commit, CodeQL, Scorecard, Renovate, and protected Zenodo workflows.
+- Add sibling-corpus links on GitHub, Hugging Face, and Zenodo where metadata formats allow.
+- Add Croissant, RO-Crate, Frictionless, DCAT, and PROV-O metadata as generated artifacts once release metadata stabilises.
+
+### Could
+
+- Add OSF review bundles or mirrors after file-size, checksum, citation, and update policy are documented.
+- Create a common corpus-family documentation page or Hugging Face collection.
+
+### Won't
+
+- Rename or delete published DOI records.
+- Treat OSF as the canonical operational dataset host.
+- Replace source-faithful corpus records with external-standard endpoint schemas.
+
+## Additional Implementation Recommendations
+
+The following recommendations are part of the corpus-family roadmap and should be converted into implementation evidence before release polish is considered complete:
+
+- Add a public-surface audit evidence ledger for GitHub, Hugging Face, Zenodo, OSF, and future metadata environments.
+- Add Zenodo rights/metadata harmonisation, including license-scope review for code, docs, manifests, source text, normalized Parquet, and archive bundles.
+- Add a GitHub repository-name migration assessment before moving from `nz-legislation-corpus-pipeline` toward `corpus-nz-legislation`.
+- Add a shared NZ corpus core schema compatibility track covering `record_schema_version`, canonical `text`, timestamps, hashes, and provenance fields.
+- Add generated SOTA metadata packages only through validated exporters: Croissant, RO-Crate, Frictionless Data Package, DCAT, and PROV-O.
+- Add dataset-viewer and machine-consumability gates: dataset card parses, files are public if intended, Hugging Face viewer works or is intentionally disabled, DuckDB/PyArrow examples work, and manifest hashes are cited.
+- Treat OSF as inactive until a standalone optional mirror policy is approved.
+
+## Zenodo tooling requirement
+
+Future Zenodo draft/archive implementation work should use or formally evaluate `zenodraft` from `https://github.com/zenodraft/zenodraft`.
+
+Required planning points:
+
+- `zenodraft` is a Node/npm CLI for Zenodo and Zenodo Sandbox depositions.
+- It supports creating concept/version drafts, adding/deleting files, validating/updating metadata, showing draft/prereserved DOI details, and publishing drafts.
+- It supports sandbox operations with `--sandbox`.
+- It expects `ZENODO_ACCESS_TOKEN` and/or `ZENODO_SANDBOX_ACCESS_TOKEN` rather than this repository's current `ZENODO_TOKEN` naming, so workflows must map secrets deliberately without printing values.
+- Use `npx zenodraft ...` or a pinned npm install in CI; document Node/npm version requirements before adoption.
+- Publication must remain draft-first and reviewer-approved; `zenodraft deposition publish` must be gated separately from upload/update steps.

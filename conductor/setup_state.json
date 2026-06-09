@@ -1,1 +1,15 @@
-{"last_successful_step": "3.3_initial_track_generated"}
+{
+  "last_successful_step": "3.3_initial_track_generated",
+  "corpus_family_preferred_label": "corpus-nz-hansard",
+  "corpus_family_sibling_label": "corpus-nz-legislation",
+  "publication_environments_to_track": [
+    "github",
+    "hugging_face",
+    "zenodo",
+    "osf_optional",
+    "croissant",
+    "ro_crate",
+    "frictionless",
+    "dcat_prov_o"
+  ]
+}
