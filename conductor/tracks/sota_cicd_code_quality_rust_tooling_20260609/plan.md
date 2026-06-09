@@ -18,7 +18,7 @@
 - [ ] `zizmor` workflow security audit.
 - [ ] `taplo` TOML formatting/linting where TOML config exists.
 - [ ] `actionlint` workflow syntax check.
-- [ ] CodeQL and OpenSSF Scorecard.
+- [~] CodeQL and OpenSSF Scorecard.
 - [ ] Artifact attestations or SLSA-style provenance for release artifacts.
 
 ## Verification

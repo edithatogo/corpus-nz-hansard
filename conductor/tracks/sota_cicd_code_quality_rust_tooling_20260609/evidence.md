@@ -49,3 +49,13 @@ Verification:
 - `zizmor --min-severity medium .github/workflows` passed with no findings.
 - `taplo format --check pyproject.toml typos.toml` passed.
 - Pinned local `actionlint` v1.7.12 download verified the checksum and `actionlint -color` passed.
+
+## CodeQL And Scorecard - 2026-06-09
+
+Repo-side hardening applied:
+
+- Added `.github/workflows/codeql.yml` for Python CodeQL analysis on pull requests, pushes to `main`, weekly schedule, and manual dispatch.
+- Pinned `github/codeql-action/init` and `github/codeql-action/analyze` to commit SHA `8aad20d150bbac5944a9f9d289da16a4b0d87c1e` after resolving the `v4` tag on 2026-06-09.
+- Added `.github/workflows/scorecard.yml` for OpenSSF Scorecard on pull requests, pushes to `main`, weekly schedule, and manual dispatch.
+- Pinned `ossf/scorecard-action` to commit SHA `05b42c624433fc40578a4040d5cf5e36ddca8cde` after resolving the latest `v2.4.3` tag on 2026-06-09.
+- Both workflows use least-privilege permissions for read-only checkout plus the security-event or OIDC permissions required by their scanners.
