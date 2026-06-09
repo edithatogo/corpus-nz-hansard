@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "audit_version": {
+      "const": 1
+    },
+    "corpus_family_sibling": {
+      "const": "corpus-nz-legislation"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "publication_status": {
+      "type": "string"
+    },
+    "release_manifest": {
+      "type": "string"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "surfaces": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "claims_allowed": {
+            "type": "boolean"
+          },
+          "evidence_source": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "follow_up_track": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "enum": [
+              "github",
+              "huggingface",
+              "zenodo",
+              "osf_optional",
+              "future_metadata"
+            ]
+          },
+          "label": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "notes": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "role": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "active",
+              "inactive",
+              "planned"
+            ]
+          },
+          "url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "status",
+          "url",
+          "role",
+          "evidence_source",
+          "claims_allowed",
+          "follow_up_track",
+          "notes"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array"
+    }
+  },
+  "required": [
+    "audit_version",
+    "generated_at",
+    "repository",
+    "corpus_family_sibling",
+    "publication_status",
+    "release_manifest",
+    "surfaces"
+  ],
+  "type": "object"
+}

@@ -29,6 +29,7 @@ REQUIRED_QUALITY_SNIPPETS = (
     "python scripts\\check_quality_gate.py",
     "python scripts\\check_release_provenance_policy.py",
     "python scripts\\check_release_version_consistency.py",
+    "python scripts\\check_public_surface_audit.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
@@ -38,6 +39,7 @@ REQUIRED_MAKE_TARGETS = (
     "quality-config:",
     "provenance-policy:",
     "version-consistency:",
+    "public-surface-audit:",
     "lint:",
     "format-check:",
     "typecheck:",

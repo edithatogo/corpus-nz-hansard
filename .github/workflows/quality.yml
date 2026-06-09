@@ -81,3 +81,6 @@ jobs:
 
       - name: Release version consistency
         run: python scripts\check_release_version_consistency.py
+
+      - name: Public surface audit
+        run: python scripts\check_public_surface_audit.py

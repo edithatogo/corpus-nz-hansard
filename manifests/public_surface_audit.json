@@ -1,0 +1,81 @@
+{
+  "audit_version": 1,
+  "corpus_family_sibling": "corpus-nz-legislation",
+  "generated_at": "2026-06-10T00:00:00+10:00",
+  "publication_status": "published",
+  "release_manifest": "manifests/public_dataset_release_manifest.json",
+  "repository": "corpus-nz-hansard",
+  "surfaces": [
+    {
+      "claims_allowed": true,
+      "evidence_source": "GitHub repository API, release API, and release page readbacks.",
+      "follow_up_track": null,
+      "id": "github",
+      "label": "GitHub",
+      "notes": [
+        "Canonical release: https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0",
+        "Large normalized Parquet is hosted on Hugging Face and Zenodo, not GitHub."
+      ],
+      "role": "Code, documentation, Actions, issues, and lightweight release assets.",
+      "status": "active",
+      "url": "https://github.com/edithatogo/corpus-nz-hansard"
+    },
+    {
+      "claims_allowed": true,
+      "evidence_source": "Hugging Face dataset API and datasets-server viewer readbacks.",
+      "follow_up_track": "huggingface_viewer_layout_fix_20260609",
+      "id": "huggingface",
+      "label": "Hugging Face",
+      "notes": [
+        "Viewer health is an explicit audit item and must not be inferred from repository visibility alone.",
+        "The dataset is intended to remain public and ungated."
+      ],
+      "role": "Canonical normalized document-level Parquet dataset host.",
+      "status": "active",
+      "url": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus"
+    },
+    {
+      "claims_allowed": true,
+      "evidence_source": "DOI redirect, Zenodo record page, and Zenodo record API readbacks.",
+      "follow_up_track": null,
+      "id": "zenodo",
+      "label": "Zenodo",
+      "notes": [
+        "DOI: 10.5281/zenodo.20595194",
+        "Concept DOI: 10.5281/zenodo.20591996",
+        "Publication evidence should rely on DOI redirect, record HTTP 200, state done, and submitted true."
+      ],
+      "role": "Immutable citable archive and DOI-bearing snapshot.",
+      "status": "active",
+      "url": "https://zenodo.org/records/20595194"
+    },
+    {
+      "claims_allowed": false,
+      "evidence_source": "Conductor OSF optional mirror policy and public-surface audit evidence.",
+      "follow_up_track": "osf_optional_mirror_policy_20260609",
+      "id": "osf_optional",
+      "label": "OSF",
+      "notes": [
+        "No OSF public surface is currently claimed.",
+        "Do not describe OSF as published or complete until policy, checksums, citation wording, and maintenance ownership are approved."
+      ],
+      "role": "Optional future mirror or review-bundle host only after a dedicated policy.",
+      "status": "inactive",
+      "url": null
+    },
+    {
+      "claims_allowed": false,
+      "evidence_source": "SOTA metadata packages and RDF linked-data endpoint tracks.",
+      "follow_up_track": "sota_metadata_packages_20260609",
+      "id": "future_metadata",
+      "label": "Future metadata environments",
+      "notes": [
+        "Future metadata surfaces must point back to the same GitHub, Hugging Face, and Zenodo authorities.",
+        "Do not claim external metadata publication before validated metadata packages exist."
+      ],
+      "role": "Croissant, RO-Crate, Frictionless, DCAT, PROV-O, and other machine-actionable metadata exports.",
+      "status": "planned",
+      "url": null
+    }
+  ]
+}
