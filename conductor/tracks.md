@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [!] Track: Zenodo Rights Metadata And Zenodraft Workflow
-
-Track ID: `zenodo_rights_metadata_and_zenodraft_workflow_20260609`
-
-Goal: Harmonise Zenodo rights metadata and migrate/evaluate draft operations through zenodraft. Repo-side metadata and policy work is complete; sandbox proof is blocked pending `ZENODO_SANDBOX_TOKEN` and approval to create sandbox depositions.
-
-Link: [conductor/tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/](./tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/)
-
 ### [ ] Track: Corpus Family Engineering Alignment
 
 Track ID: `corpus_family_engineering_alignment_20260609`
@@ -182,6 +174,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Zenodo Rights Metadata And Zenodraft Workflow
+
+Track ID: `zenodo_rights_metadata_and_zenodraft_workflow_20260609`
+
+Goal: Harmonised Zenodo rights metadata and completed sandbox draft/upload/update/readback proof for generated metadata packages while preserving the protected production publication gate.
+
+Link: [conductor/tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/](./tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/)
 
 ### [x] Track: SOTA Metadata Packages
 

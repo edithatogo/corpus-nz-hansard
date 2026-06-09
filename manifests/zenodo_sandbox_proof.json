@@ -1,0 +1,62 @@
+{
+  "api": "https://sandbox.zenodo.org/api",
+  "created_at": "2026-06-10T00:00:00+10:00",
+  "deposition_id": "511642",
+  "conceptrecid": "511641",
+  "state": "unsubmitted",
+  "submitted": false,
+  "published": false,
+  "title": "NZ Hansard Corpus - metadata package sandbox proof",
+  "version": "0.1.0-metadata-sandbox-proof",
+  "upload_type": "dataset",
+  "license": "other-open",
+  "token_name": "corpus-nz-hansard-sandbox-proof-20260610",
+  "token_scopes": [
+    "deposit:write"
+  ],
+  "prereserve_doi": {
+    "doi": "10.5281/zenodo.511642",
+    "recid": 511642
+  },
+  "links": {
+    "html": "https://sandbox.zenodo.org/deposit/511642",
+    "self": "https://sandbox.zenodo.org/api/deposit/depositions/511642"
+  },
+  "files": [
+    {
+      "filename": "croissant.jsonld",
+      "source_path": "generated/metadata/croissant.jsonld",
+      "sandbox_md5": "09be95bea356cee07895eeb527b80e87",
+      "filesize": 4158
+    },
+    {
+      "filename": "ro-crate-metadata.json",
+      "source_path": "generated/metadata/ro-crate-metadata.json",
+      "sandbox_md5": "addd01e686ded9a5292e4132a9c29af8",
+      "filesize": 1985
+    },
+    {
+      "filename": "datapackage.json",
+      "source_path": "generated/metadata/datapackage.json",
+      "sandbox_md5": "6f90968b011be98d5f293b4ae8cfe772",
+      "filesize": 3396
+    },
+    {
+      "filename": "dcat.ttl",
+      "source_path": "generated/metadata/dcat.ttl",
+      "sandbox_md5": "a4bfca7ab1cc657c83d077be38e73f0b",
+      "filesize": 1613
+    },
+    {
+      "filename": "prov-o.ttl",
+      "source_path": "generated/metadata/prov-o.ttl",
+      "sandbox_md5": "28771737a49690e40d050d76ccae7321",
+      "filesize": 897
+    }
+  ],
+  "notes": [
+    "Sandbox proof used Zenodo Sandbox only.",
+    "The draft remains unsubmitted and was not published.",
+    "The token value is intentionally not recorded."
+  ]
+}

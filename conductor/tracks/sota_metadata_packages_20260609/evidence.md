@@ -32,7 +32,7 @@ Evidence should capture current and target public-surface behaviour across GitHu
 
 ## Remaining Blockers
 
-- Zenodo Sandbox upload/update/readback proof remains blocked until `ZENODO_SANDBOX_TOKEN` is configured and sandbox side effects are approved.
+- Zenodo Sandbox upload/update/readback proof is now recorded in `manifests/zenodo_sandbox_proof.json` under `zenodo_rights_metadata_and_zenodraft_workflow_20260609`.
 
 ## Focused Validation
 

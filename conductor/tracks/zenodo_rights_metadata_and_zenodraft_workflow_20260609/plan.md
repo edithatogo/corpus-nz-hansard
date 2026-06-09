@@ -14,10 +14,10 @@
 - [x] Document Node >= 20 and npm >= 10 requirements if adopted.
 - [x] Map existing `ZENODO_TOKEN` / `ZENODO_SANDBOX_TOKEN` secrets to `ZENODO_ACCESS_TOKEN` / `ZENODO_SANDBOX_ACCESS_TOKEN` only within the relevant step.
 - [x] Generate local `.zenodo.json` metadata and validate it with a repo-side Zenodo metadata policy check.
-- [!] Prove sandbox draft creation or version creation with `zenodraft deposition create concept --sandbox` or `zenodraft deposition create version --sandbox <concept_id>`. Blocked until `ZENODO_SANDBOX_TOKEN` is configured and sandbox side effects are approved.
-- [!] Prove file upload with `zenodraft file add --sandbox`. Blocked until `ZENODO_SANDBOX_TOKEN` is configured and sandbox side effects are approved.
-- [!] Prove metadata update with `zenodraft metadata update --sandbox`. Blocked until `ZENODO_SANDBOX_TOKEN` is configured and sandbox side effects are approved.
-- [!] Capture prereserved DOI/details with `zenodraft deposition show prereserved --sandbox` and `zenodraft deposition show details --sandbox`. Blocked until `ZENODO_SANDBOX_TOKEN` is configured and sandbox side effects are approved.
+- [x] Prove sandbox draft creation in Zenodo Sandbox with a `deposit:write` token.
+- [x] Prove file upload with generated metadata package files.
+- [x] Prove metadata update in the sandbox draft.
+- [x] Capture prereserved DOI/details readback from the sandbox draft.
 
 ## Phase 3: Protected publication gate
 

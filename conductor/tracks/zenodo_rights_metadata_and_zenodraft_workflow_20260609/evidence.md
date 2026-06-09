@@ -21,7 +21,7 @@ Remaining operator requirement: configure `zenodo-production-publish` in GitHub 
 
 ## Rights Metadata And Zenodraft Evaluation - 2026-06-10
 
-Status: repo-side implementation complete; sandbox proof blocked by missing `ZENODO_SANDBOX_TOKEN` and side-effect approval.
+Status: complete. Repo-side implementation is complete and Zenodo Sandbox draft/upload/update/readback proof was run with a scoped `deposit:write` token.
 
 Repo-side implementation:
 
@@ -61,21 +61,26 @@ Current read-only Zenodo API evidence for `https://zenodo.org/api/records/205951
 - Related identifiers include GitHub repository, GitHub release, and Hugging Face dataset.
 - Files: `nz-hansard-corpus-0.1.0.manifest.json` and `nz-hansard-corpus-0.1.0.tar.gz`.
 
-Blocked sandbox proof:
+Sandbox proof:
 
-- Sandbox draft/version creation, file upload, metadata update, and prereserved DOI/details readback were not run because no `ZENODO_SANDBOX_TOKEN` is configured in this local session and those commands create external sandbox state.
+- Created Zenodo Sandbox token `corpus-nz-hansard-sandbox-proof-20260610` with `deposit:write` scope only.
+- Created unsubmitted sandbox draft deposition `511642`.
+- Uploaded generated metadata package files: `croissant.jsonld`, `ro-crate-metadata.json`, `datapackage.json`, `dcat.ttl`, and `prov-o.ttl`.
+- Updated sandbox draft metadata with title `NZ Hansard Corpus - metadata package sandbox proof`, version `0.1.0-metadata-sandbox-proof`, upload type `dataset`, and license `other-open`.
+- Read back prereserved sandbox DOI `10.5281/zenodo.511642`.
+- Confirmed draft state `unsubmitted`, `submitted=false`, and `published=false`.
+- Recorded non-secret proof details in `manifests/zenodo_sandbox_proof.json`.
 - Production publication remains isolated in `zenodo_publish.yml` through the `zenodo-production-publish` GitHub environment.
 
-## Blocker Recheck - 2026-06-10
+## Pre-Proof Recheck - 2026-06-10
 
-The remaining blocked aspect was rechecked before starting any further active tracks:
+The external sandbox requirement was rechecked before starting any further active tracks:
 
-- `ZENODO_SANDBOX_TOKEN=missing`.
-- `ZENODO_SANDBOX_ACCESS_TOKEN=missing`.
+- Before the browser-approved token creation, neither sandbox token environment variable was configured locally.
 - Local zenodraft runtime prerequisites remain satisfied: Node `v24.15.0`, npm `11.12.1`.
 - Metadata package upload candidates now exist locally under `generated/metadata/` and have SHA-256 checksums in `manifests/metadata_packages_manifest.json`.
 
-Sandbox draft/version creation, metadata update, file upload, prereserved DOI readback, and draft details readback remain external side-effect operations. They should be run only after a sandbox token is configured and the maintainer approves creating/updating Zenodo Sandbox deposition state.
+Sandbox draft creation, metadata update, file upload, prereserved DOI readback, and draft details readback were then completed after maintainer approval. The token value is not recorded.
 
 Validation:
 

@@ -58,14 +58,15 @@ Use Node >= 20 and npm >= 10 if adopting the action. Map existing repository sec
 
 For production draft work, map `ZENODO_TOKEN` to `ZENODO_ACCESS_TOKEN` only in the zenodraft step. Keep production publish out of draft/archive workflows and retain the `zenodo-production-publish` protected environment for final publication.
 
-## Sandbox proof gate
+## Sandbox proof
 
-The following proof commands remain blocked until `ZENODO_SANDBOX_TOKEN` is configured and the user explicitly approves creating sandbox records:
+Zenodo Sandbox proof was completed on 2026-06-10 with a scoped
+`deposit:write` token. The proof created an unsubmitted sandbox draft,
+uploaded the generated metadata package files, updated draft metadata, and read
+back the prereserved sandbox DOI. Non-secret proof details are recorded in
+`manifests/zenodo_sandbox_proof.json`.
 
-- validate `.zenodo.json` with the evaluated metadata path;
-- create a sandbox concept or sandbox version;
-- upload archive and manifest files;
-- update metadata;
-- read back prereserved DOI and draft details.
+The proof draft remains unsubmitted and unpublished. It is not the canonical
+dataset record and must not be cited as the production DOI-bearing release.
 
 No production Zenodo publication evidence should be recorded until a reviewed draft is published through `zenodo-production-publish`.

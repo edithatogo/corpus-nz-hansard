@@ -16,6 +16,7 @@ NOTICE = ROOT / "NOTICE.md"
 TRACK_EVIDENCE = (
     ROOT / "conductor/tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/evidence.md"
 )
+SANDBOX_PROOF = ROOT / "manifests/zenodo_sandbox_proof.json"
 
 REQUIRED_IDENTIFIERS = {
     "https://doi.org/10.5281/zenodo.20595194",
@@ -35,7 +36,15 @@ def _json(path: Path) -> dict[str, Any]:
 
 def _failures() -> list[str]:
     failures: list[str] = []
-    for path in (ZENODO_METADATA, RIGHTS_DOC, ZENODO_SETUP, LICENSING_DOC, NOTICE, TRACK_EVIDENCE):
+    for path in (
+        ZENODO_METADATA,
+        RIGHTS_DOC,
+        ZENODO_SETUP,
+        LICENSING_DOC,
+        NOTICE,
+        TRACK_EVIDENCE,
+        SANDBOX_PROOF,
+    ):
         if not path.exists():
             failures.append(f"{path.relative_to(ROOT).as_posix()} must exist.")
     if failures:
@@ -131,6 +140,36 @@ def _failures() -> list[str]:
     publish_workflow = _read(ROOT / ".github/workflows/zenodo_publish.yml")
     if "environment: zenodo-production-publish" not in publish_workflow:
         failures.append("zenodo_publish.yml must use the protected Zenodo publication environment.")
+
+    sandbox_proof = _json(SANDBOX_PROOF)
+    if sandbox_proof.get("api") != "https://sandbox.zenodo.org/api":
+        failures.append("zenodo_sandbox_proof.json must use Zenodo Sandbox API.")
+    if sandbox_proof.get("submitted") is not False:
+        failures.append("zenodo_sandbox_proof.json must record submitted=false.")
+    if sandbox_proof.get("published") is not False:
+        failures.append("zenodo_sandbox_proof.json must record published=false.")
+    if sandbox_proof.get("state") != "unsubmitted":
+        failures.append("zenodo_sandbox_proof.json must record an unsubmitted draft.")
+    if sandbox_proof.get("token_scopes") != ["deposit:write"]:
+        failures.append("zenodo_sandbox_proof.json must record deposit:write as the only scope.")
+    prereserve_doi = sandbox_proof.get("prereserve_doi", {})
+    if not isinstance(prereserve_doi, dict) or not prereserve_doi.get("doi"):
+        failures.append("zenodo_sandbox_proof.json must record a prereserved DOI.")
+    proof_files = {item.get("filename") for item in sandbox_proof.get("files", [])}
+    required_files = {
+        "croissant.jsonld",
+        "ro-crate-metadata.json",
+        "datapackage.json",
+        "dcat.ttl",
+        "prov-o.ttl",
+    }
+    if proof_files != required_files:
+        failures.append(
+            "zenodo_sandbox_proof.json files must include exactly: "
+            + ", ".join(sorted(required_files))
+        )
+    if "token" in sandbox_proof and sandbox_proof["token"]:
+        failures.append("zenodo_sandbox_proof.json must not include token material.")
 
     return failures
 
