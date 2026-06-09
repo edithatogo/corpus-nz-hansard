@@ -65,3 +65,28 @@ Verification:
 - GitHub Actions run `27208394000` passed `CodeQL` on commit `f40de818db77f1f567fcf8b42eae65dd4b912913`.
 - GitHub Actions run `27208394044` passed `OpenSSF Scorecard` on commit `f40de818db77f1f567fcf8b42eae65dd4b912913`.
 - GitHub Actions runs `27208394030` and `27208394054` also passed `Quality` and `Tests` on the same commit.
+
+## Quality Gate Command Surface - 2026-06-09
+
+Repo-side hardening applied:
+
+- Added `Makefile` targets for the full local quality gate and each individual tool: Ruff lint, Ruff format check, strict Ty type check, Typos, Zizmor, Taplo, Actionlint, quality configuration validation, and unit tests.
+- Added `scripts/check_quality_gate.py` to validate the quality configuration itself: dev-tool pins, required Quality workflow commands, local Makefile targets, pinned GitHub Actions refs, and publication workflows staying manual-only.
+- Added `tests/test_check_quality_gate.py` so the quality-gate configuration is covered by unit tests.
+- Added `docs/quality-gate.md` with local commands, CI alignment, `uv.lock` deferral, pre-commit deferral, and current Dependabot-versus-Renovate policy.
+- Added the quality-gate configuration checker to `.github/workflows/quality.yml`.
+
+Verification:
+
+- `python scripts\check_quality_gate.py` passed.
+- `python -m unittest tests.test_check_quality_gate` passed.
+- `python -m ruff check --no-cache .` passed.
+- `python -m ruff format --check --no-cache .` passed.
+- `ty check --error all .` passed.
+- `typos --config typos.toml` passed.
+- `zizmor --min-severity medium .github/workflows` passed with no findings.
+- `taplo format --check pyproject.toml typos.toml` passed.
+- `actionlint -color` passed.
+- `python -m unittest discover tests` passed with 43 tests.
+- `make quality` passed.
+- Conductor track `metadata.json` files parse as JSON.

@@ -63,3 +63,6 @@ jobs:
 
       - name: Actionlint workflow syntax
         run: actionlint -color
+
+      - name: Quality gate configuration
+        run: python scripts\check_quality_gate.py
