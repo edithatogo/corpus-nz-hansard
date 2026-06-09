@@ -1,0 +1,126 @@
+{
+  "alignment_version": 1,
+  "generated_at": "2026-06-10T00:00:00+10:00",
+  "repository": "corpus-nz-hansard",
+  "family": {
+    "preferred_labels": [
+      "corpus-nz-hansard",
+      "corpus-nz-legislation"
+    ],
+    "current_corpus": {
+      "label": "corpus-nz-hansard",
+      "role": "New Zealand Hansard corpus"
+    },
+    "sibling_corpus": {
+      "label": "corpus-nz-legislation",
+      "role": "New Zealand legislation corpus",
+      "local_path": "C:/Users/60217257/OneDrive - Flinders/repos/corpus-law-nz",
+      "known_current_public_name": "nz-legislation-corpus-pipeline",
+      "alignment_status": "preferred-label-recorded"
+    }
+  },
+  "release_manifest": "manifests/public_dataset_release_manifest.json",
+  "public_surface_audit": "manifests/public_surface_audit.json",
+  "environment_gates": [
+    {
+      "id": "github",
+      "label": "GitHub",
+      "systematic_label": "corpus-nz-hansard",
+      "public_url": "https://github.com/edithatogo/corpus-nz-hansard",
+      "publication_role": "Code, documentation, Actions, issues, and lightweight release assets.",
+      "claims_allowed": true,
+      "viewer_or_access_gate": "Repository remains public, release v0.1.0 remains stable, and release/docs retain sibling corpus links.",
+      "non_migration_decision": "keep-existing-url",
+      "follow_up_track": null
+    },
+    {
+      "id": "huggingface",
+      "label": "Hugging Face",
+      "systematic_label": "corpus-nz-hansard",
+      "public_url": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+      "publication_role": "Canonical normalized document-level Parquet dataset host.",
+      "claims_allowed": true,
+      "viewer_or_access_gate": "Dataset remains public and ungated, card keeps configs/default train path, and datasets-server viewer health is checked before release claims.",
+      "non_migration_decision": "keep-existing-url",
+      "follow_up_track": "huggingface_viewer_layout_fix_20260609"
+    },
+    {
+      "id": "zenodo",
+      "label": "Zenodo",
+      "systematic_label": "corpus-nz-hansard",
+      "public_url": "https://zenodo.org/records/20595194",
+      "publication_role": "Immutable citable archive and DOI-bearing snapshot.",
+      "claims_allowed": true,
+      "viewer_or_access_gate": "Canonical DOI 10.5281/zenodo.20595194 remains stable and any metadata update preserves related identifiers and rights caveats.",
+      "non_migration_decision": "keep-existing-url",
+      "follow_up_track": "zenodo_rights_metadata_and_zenodraft_workflow_20260609"
+    },
+    {
+      "id": "osf_optional",
+      "label": "OSF",
+      "systematic_label": "corpus-nz-hansard",
+      "public_url": null,
+      "publication_role": "Optional future mirror or review-bundle host only after a dedicated policy.",
+      "claims_allowed": false,
+      "viewer_or_access_gate": "No public OSF mirror is claimed until file-size, splitting, checksum, citation, and update cadence policy exists.",
+      "non_migration_decision": "not-yet-published",
+      "follow_up_track": "osf_optional_mirror_policy_20260609"
+    },
+    {
+      "id": "future_metadata",
+      "label": "Future metadata environments",
+      "systematic_label": "corpus-nz-hansard",
+      "public_url": null,
+      "publication_role": "Croissant, RO-Crate, Frictionless, DCAT, PROV-O, and other machine-actionable metadata exports.",
+      "claims_allowed": false,
+      "viewer_or_access_gate": "No external metadata publication is claimed until generated packages validate and point back to GitHub, Hugging Face, and Zenodo authorities.",
+      "non_migration_decision": "not-yet-published",
+      "follow_up_track": "sota_metadata_packages_20260609"
+    }
+  ],
+  "documentation_gates": [
+    {
+      "path": "conductor/product.md",
+      "required_terms": [
+        "corpus-nz-hansard",
+        "corpus-nz-legislation",
+        "Existing published URLs must remain stable"
+      ]
+    },
+    {
+      "path": "conductor/tech-stack.md",
+      "required_terms": [
+        "GitHub",
+        "Hugging Face",
+        "Zenodo",
+        "OSF",
+        "Croissant",
+        "RO-Crate",
+        "Frictionless Data Package",
+        "DCAT",
+        "PROV-O"
+      ]
+    },
+    {
+      "path": "docs/interoperability-requirements-moscow.md",
+      "required_terms": [
+        "corpus-nz-legislation",
+        "publication-surface",
+        "dataset-viewer health"
+      ]
+    },
+    {
+      "path": "docs/interoperability-design.md",
+      "required_terms": [
+        "Corpus-family publication alignment",
+        "Public-surface audit evidence",
+        "```mermaid"
+      ]
+    }
+  ],
+  "doi_update_rules": [
+    "Dataset card DOI, CITATION.cff, RELEASE_NOTES.md, and public release manifests must continue to point to 10.5281/zenodo.20595194 unless a separate migration track approves a replacement.",
+    "Superseded review records must remain discoverable as history, not promoted as current canonical publication surfaces.",
+    "Sibling-corpus labels may be added to docs and metadata, but existing public Hansard URLs and DOI records must not be renamed in place."
+  ]
+}

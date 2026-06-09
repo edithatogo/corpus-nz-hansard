@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alignment_version": {
+      "const": 1
+    },
+    "generated_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "family": {
+      "additionalProperties": false,
+      "properties": {
+        "preferred_labels": {
+          "contains": {
+            "const": "corpus-nz-hansard"
+          },
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2,
+          "type": "array"
+        },
+        "current_corpus": {
+          "$ref": "#/$defs/corpus"
+        },
+        "sibling_corpus": {
+          "additionalProperties": false,
+          "properties": {
+            "label": {
+              "const": "corpus-nz-legislation"
+            },
+            "role": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "local_path": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "known_current_public_name": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "alignment_status": {
+              "enum": [
+                "preferred-label-recorded",
+                "aligned",
+                "blocked"
+              ]
+            }
+          },
+          "required": [
+            "label",
+            "role",
+            "local_path",
+            "known_current_public_name",
+            "alignment_status"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "preferred_labels",
+        "current_corpus",
+        "sibling_corpus"
+      ],
+      "type": "object"
+    },
+    "release_manifest": {
+      "type": "string"
+    },
+    "public_surface_audit": {
+      "type": "string"
+    },
+    "environment_gates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "enum": [
+              "github",
+              "huggingface",
+              "zenodo",
+              "osf_optional",
+              "future_metadata"
+            ]
+          },
+          "label": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "systematic_label": {
+            "const": "corpus-nz-hansard"
+          },
+          "public_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "publication_role": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "claims_allowed": {
+            "type": "boolean"
+          },
+          "viewer_or_access_gate": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "non_migration_decision": {
+            "enum": [
+              "keep-existing-url",
+              "not-yet-published"
+            ]
+          },
+          "follow_up_track": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "systematic_label",
+          "public_url",
+          "publication_role",
+          "claims_allowed",
+          "viewer_or_access_gate",
+          "non_migration_decision",
+          "follow_up_track"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array"
+    },
+    "documentation_gates": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "required_terms": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "path",
+          "required_terms"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "doi_update_rules": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array"
+    }
+  },
+  "required": [
+    "alignment_version",
+    "generated_at",
+    "repository",
+    "family",
+    "release_manifest",
+    "public_surface_audit",
+    "environment_gates",
+    "documentation_gates",
+    "doi_update_rules"
+  ],
+  "type": "object",
+  "$defs": {
+    "corpus": {
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "const": "corpus-nz-hansard"
+        },
+        "role": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "label",
+        "role"
+      ],
+      "type": "object"
+    }
+  }
+}

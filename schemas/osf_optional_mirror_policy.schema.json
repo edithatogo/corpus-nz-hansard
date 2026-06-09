@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "canonical_surfaces": {
+      "additionalProperties": false,
+      "properties": {
+        "github": {
+          "const": "https://github.com/edithatogo/corpus-nz-hansard"
+        },
+        "huggingface": {
+          "const": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus"
+        },
+        "zenodo": {
+          "const": "https://doi.org/10.5281/zenodo.20595194"
+        }
+      },
+      "required": [
+        "github",
+        "huggingface",
+        "zenodo"
+      ],
+      "type": "object"
+    },
+    "citation": {
+      "additionalProperties": false,
+      "properties": {
+        "authoritative_target": {
+          "const": "zenodo"
+        },
+        "osf_note": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "required_text": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "authoritative_target",
+        "required_text",
+        "osf_note"
+      ],
+      "type": "object"
+    },
+    "corpus_family_sibling": {
+      "const": "corpus-nz-legislation"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "mirror_controls": {
+      "additionalProperties": false,
+      "properties": {
+        "checksum_algorithm": {
+          "const": "sha256"
+        },
+        "deprecation_process": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "maintenance_owner": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "refresh_cadence": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "required_before_activation": {
+          "items": {
+            "enum": [
+              "osf_project_url",
+              "release_version",
+              "source_commit",
+              "mirrored_artifacts",
+              "sha256_checksums",
+              "canonical_artifact_urls",
+              "citation_wording",
+              "maintenance_owner"
+            ]
+          },
+          "minItems": 8,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "checksum_algorithm",
+        "required_before_activation",
+        "maintenance_owner",
+        "refresh_cadence",
+        "deprecation_process"
+      ],
+      "type": "object"
+    },
+    "osf": {
+      "additionalProperties": false,
+      "properties": {
+        "claims_allowed": {
+          "const": false
+        },
+        "decision": {
+          "enum": [
+            "unused",
+            "review_bundle_host",
+            "optional_future_mirror"
+          ]
+        },
+        "project_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status": {
+          "enum": [
+            "inactive",
+            "planned",
+            "active"
+          ]
+        },
+        "use_cases": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "decision",
+        "status",
+        "project_url",
+        "claims_allowed",
+        "use_cases"
+      ],
+      "type": "object"
+    },
+    "policy_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    }
+  },
+  "required": [
+    "policy_version",
+    "generated_at",
+    "repository",
+    "corpus_family_sibling",
+    "canonical_surfaces",
+    "osf",
+    "mirror_controls",
+    "citation"
+  ],
+  "type": "object"
+}

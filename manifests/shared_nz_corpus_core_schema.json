@@ -1,0 +1,90 @@
+{
+  "contract_version": 1,
+  "corpus_family": [
+    "corpus-nz-hansard",
+    "corpus-nz-legislation"
+  ],
+  "core_fields": [
+    {
+      "description": "Stable corpus-local record identifier.",
+      "name": "stable_id",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Jurisdiction label for cross-corpus filtering.",
+      "name": "jurisdiction",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "ISO-style country label for shared NZ corpus queries.",
+      "name": "country",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Source system or publication family.",
+      "name": "source",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Source file or source archive member.",
+      "name": "source_file",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Raw or normalized title.",
+      "name": "title",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Document-level text content.",
+      "name": "content",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Content or document date when known.",
+      "name": "document_content_date",
+      "required": false,
+      "type": ["string", "null"]
+    },
+    {
+      "description": "Language code.",
+      "name": "language",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "SHA-256 hash of normalized text content.",
+      "name": "text_sha256",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "description": "Pipeline or dataset contract version.",
+      "name": "pipeline_version",
+      "required": true,
+      "type": "string"
+    }
+  ],
+  "hansard_extensions": [
+    "parliament_number",
+    "parliament_document_id",
+    "member_of_parliament_raw"
+  ],
+  "legislation_extensions": [
+    "work_id",
+    "expression_id",
+    "legislation_type"
+  ],
+  "migration_constraints": [
+    "Do not rename existing published Hansard fields without a compatibility alias.",
+    "Keep derived member, party, and speech-turn fields out of the shared core until validated.",
+    "Record corpus-specific extensions separately from required shared fields."
+  ]
+}

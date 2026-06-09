@@ -1,0 +1,136 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "corpus_family_sibling": "corpus-nz-legislation",
+  "release_manifest": "manifests/public_dataset_release_manifest.json",
+  "public_surface_audit": "manifests/public_surface_audit.json",
+  "publication_claims_allowed": false,
+  "publication_claims_note": "Metadata packages are target contracts only until generated files, checksums, and package-specific validators are added.",
+  "source_manifests": [
+    "manifests/public_dataset_release_manifest.json",
+    "manifests/public_surface_audit.json",
+    ".zenodo.json",
+    "CITATION.cff",
+    "DATASET_CARD.md",
+    "schemas/hansard_record.schema.json"
+  ],
+  "publication_surfaces": {
+    "github": "https://github.com/edithatogo/corpus-nz-hansard",
+    "huggingface": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+    "osf": null,
+    "zenodo": "https://zenodo.org/records/20595194"
+  },
+  "packages": [
+    {
+      "id": "croissant",
+      "label": "Croissant",
+      "standard": "MLCommons Croissant",
+      "format": "json-ld",
+      "status": "planned",
+      "output_path": "generated/metadata/croissant.jsonld",
+      "generator": "future generated metadata-package exporter",
+      "source_manifests": [
+        "manifests/public_dataset_release_manifest.json",
+        "DATASET_CARD.md",
+        "schemas/hansard_record.schema.json"
+      ],
+      "validation_command": "python scripts/check_metadata_packages.py",
+      "checksum_algorithm": "sha256",
+      "checksum": null,
+      "publication_surfaces": [
+        "github",
+        "huggingface",
+        "zenodo"
+      ]
+    },
+    {
+      "id": "ro-crate",
+      "label": "RO-Crate",
+      "standard": "RO-Crate Metadata",
+      "format": "json-ld",
+      "status": "planned",
+      "output_path": "generated/metadata/ro-crate-metadata.json",
+      "generator": "future generated metadata-package exporter",
+      "source_manifests": [
+        "manifests/public_dataset_release_manifest.json",
+        ".zenodo.json",
+        "CITATION.cff"
+      ],
+      "validation_command": "python scripts/check_metadata_packages.py",
+      "checksum_algorithm": "sha256",
+      "checksum": null,
+      "publication_surfaces": [
+        "github",
+        "zenodo"
+      ]
+    },
+    {
+      "id": "frictionless",
+      "label": "Frictionless Data Package",
+      "standard": "Frictionless Data Package",
+      "format": "json",
+      "status": "planned",
+      "output_path": "generated/metadata/datapackage.json",
+      "generator": "future generated metadata-package exporter",
+      "source_manifests": [
+        "manifests/public_dataset_release_manifest.json",
+        "schemas/hansard_record.schema.json"
+      ],
+      "validation_command": "python scripts/check_metadata_packages.py",
+      "checksum_algorithm": "sha256",
+      "checksum": null,
+      "publication_surfaces": [
+        "github",
+        "huggingface",
+        "zenodo"
+      ]
+    },
+    {
+      "id": "dcat",
+      "label": "DCAT",
+      "standard": "Data Catalog Vocabulary",
+      "format": "turtle",
+      "status": "planned",
+      "output_path": "generated/metadata/dcat.ttl",
+      "generator": "future RDF metadata exporter",
+      "source_manifests": [
+        "manifests/public_dataset_release_manifest.json",
+        "manifests/public_surface_audit.json",
+        ".zenodo.json"
+      ],
+      "validation_command": "python scripts/check_metadata_packages.py",
+      "checksum_algorithm": "sha256",
+      "checksum": null,
+      "publication_surfaces": [
+        "github",
+        "zenodo"
+      ]
+    },
+    {
+      "id": "prov-o",
+      "label": "PROV-O",
+      "standard": "PROV-O",
+      "format": "turtle",
+      "status": "planned",
+      "output_path": "generated/metadata/prov-o.ttl",
+      "generator": "future RDF metadata exporter",
+      "source_manifests": [
+        "manifests/public_dataset_release_manifest.json",
+        "manifests/public_surface_audit.json",
+        "schemas/hansard_record.schema.json"
+      ],
+      "validation_command": "python scripts/check_metadata_packages.py",
+      "checksum_algorithm": "sha256",
+      "checksum": null,
+      "publication_surfaces": [
+        "github",
+        "zenodo"
+      ]
+    }
+  ],
+  "zenodo_policy": {
+    "sandbox_first": true,
+    "draft_updates_separate_from_publish": true,
+    "protected_publish_environment": "zenodo-production-publish"
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "corpus_family_sibling": {
+      "const": "corpus-nz-legislation"
+    },
+    "manifest_version": {
+      "const": 1
+    },
+    "packages": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "checksum": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "checksum_algorithm": {
+            "const": "sha256"
+          },
+          "format": {
+            "enum": [
+              "json",
+              "json-ld",
+              "turtle"
+            ]
+          },
+          "generator": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "id": {
+            "enum": [
+              "croissant",
+              "ro-crate",
+              "frictionless",
+              "dcat",
+              "prov-o"
+            ]
+          },
+          "label": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "output_path": {
+            "pattern": "^generated/metadata/.+",
+            "type": "string"
+          },
+          "publication_surfaces": {
+            "items": {
+              "enum": [
+                "github",
+                "huggingface",
+                "zenodo"
+              ]
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "source_manifests": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "standard": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "planned",
+              "generated",
+              "published"
+            ]
+          },
+          "validation_command": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "standard",
+          "format",
+          "status",
+          "output_path",
+          "generator",
+          "source_manifests",
+          "validation_command",
+          "checksum_algorithm",
+          "checksum",
+          "publication_surfaces"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "publication_claims_allowed": {
+      "type": "boolean"
+    },
+    "publication_claims_note": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "publication_surfaces": {
+      "additionalProperties": false,
+      "properties": {
+        "github": {
+          "type": "string"
+        },
+        "huggingface": {
+          "type": "string"
+        },
+        "osf": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "zenodo": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "github",
+        "huggingface",
+        "zenodo",
+        "osf"
+      ],
+      "type": "object"
+    },
+    "public_surface_audit": {
+      "const": "manifests/public_surface_audit.json"
+    },
+    "release_manifest": {
+      "const": "manifests/public_dataset_release_manifest.json"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "source_manifests": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "zenodo_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "draft_updates_separate_from_publish": {
+          "const": true
+        },
+        "protected_publish_environment": {
+          "const": "zenodo-production-publish"
+        },
+        "sandbox_first": {
+          "const": true
+        }
+      },
+      "required": [
+        "sandbox_first",
+        "draft_updates_separate_from_publish",
+        "protected_publish_environment"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "repository",
+    "corpus_family_sibling",
+    "release_manifest",
+    "public_surface_audit",
+    "publication_claims_allowed",
+    "publication_claims_note",
+    "source_manifests",
+    "publication_surfaces",
+    "packages",
+    "zenodo_policy"
+  ],
+  "type": "object"
+}

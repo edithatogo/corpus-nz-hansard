@@ -87,3 +87,15 @@ jobs:
 
       - name: Zenodo rights metadata
         run: python scripts\check_zenodo_rights_metadata.py
+
+      - name: Shared NZ corpus core schema
+        run: python scripts\check_shared_core_schema.py
+
+      - name: SOTA metadata packages
+        run: python scripts\check_metadata_packages.py
+
+      - name: OSF optional mirror policy
+        run: python scripts\check_osf_optional_mirror_policy.py
+
+      - name: Corpus family publication alignment
+        run: python scripts\check_corpus_family_alignment.py

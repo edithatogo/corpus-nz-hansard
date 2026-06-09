@@ -1,0 +1,44 @@
+{
+  "$schema": "../schemas/osf_optional_mirror_policy.schema.json",
+  "canonical_surfaces": {
+    "github": "https://github.com/edithatogo/corpus-nz-hansard",
+    "huggingface": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+    "zenodo": "https://doi.org/10.5281/zenodo.20595194"
+  },
+  "citation": {
+    "authoritative_target": "zenodo",
+    "osf_note": "OSF is a convenience mirror only. Cite the Zenodo DOI for the authoritative archived release.",
+    "required_text": "NZ Hansard Corpus. Version 0.1.0. https://doi.org/10.5281/zenodo.20595194"
+  },
+  "corpus_family_sibling": "corpus-nz-legislation",
+  "generated_at": "2026-06-10T00:00:00+10:00",
+  "mirror_controls": {
+    "checksum_algorithm": "sha256",
+    "deprecation_process": "If OSF is activated and later retired, keep the OSF project page or tombstone pointing to GitHub, Hugging Face, and the Zenodo DOI.",
+    "maintenance_owner": null,
+    "refresh_cadence": "per public release",
+    "required_before_activation": [
+      "osf_project_url",
+      "release_version",
+      "source_commit",
+      "mirrored_artifacts",
+      "sha256_checksums",
+      "canonical_artifact_urls",
+      "citation_wording",
+      "maintenance_owner"
+    ]
+  },
+  "osf": {
+    "claims_allowed": false,
+    "decision": "optional_future_mirror",
+    "project_url": null,
+    "status": "inactive",
+    "use_cases": [
+      "checksum-verified release mirror",
+      "review-bundle host",
+      "supplementary provenance packet"
+    ]
+  },
+  "policy_version": 1,
+  "repository": "corpus-nz-hansard"
+}

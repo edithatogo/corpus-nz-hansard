@@ -1,8 +1,8 @@
 {
   "track_id": "corpus_family_naming_publication_alignment_20260609",
   "type": "chore",
-  "status": "pending",
+  "status": "completed",
   "created_at": "2026-06-09T00:00:00+10:00",
-  "updated_at": "2026-06-09T00:00:00+10:00",
+  "updated_at": "2026-06-10T00:00:00+10:00",
   "description": "Align corpus-nz-hansard with the preferred corpus-nz-legislation sibling naming and all publication environments."
 }

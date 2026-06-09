@@ -31,6 +31,10 @@ REQUIRED_QUALITY_SNIPPETS = (
     "python scripts\\check_release_version_consistency.py",
     "python scripts\\check_public_surface_audit.py",
     "python scripts\\check_zenodo_rights_metadata.py",
+    "python scripts\\check_shared_core_schema.py",
+    "python scripts\\check_metadata_packages.py",
+    "python scripts\\check_osf_optional_mirror_policy.py",
+    "python scripts\\check_corpus_family_alignment.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
@@ -42,6 +46,10 @@ REQUIRED_MAKE_TARGETS = (
     "version-consistency:",
     "public-surface-audit:",
     "zenodo-rights:",
+    "shared-core:",
+    "metadata-packages:",
+    "osf-policy:",
+    "corpus-family-alignment:",
     "lint:",
     "format-check:",
     "typecheck:",
