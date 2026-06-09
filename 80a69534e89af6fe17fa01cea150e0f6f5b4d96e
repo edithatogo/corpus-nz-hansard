@@ -1,0 +1,1 @@
+Completed Dependency Extras Policy. Added a validated dependency extras manifest, schema, checker, unit tests, docs, endpoint dependency requirements, quality workflow wiring, and Conductor completion evidence. Verification: make quality passed, including dependency extras policy check and 89 tests.
