@@ -24,11 +24,13 @@ REQUIRED_QUALITY_SNIPPETS = (
     "taplo format --check pyproject.toml typos.toml",
     "actionlint -color",
     "python scripts\\check_quality_gate.py",
+    "python scripts\\check_release_provenance_policy.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
     "quality:",
     "quality-config:",
+    "provenance-policy:",
     "lint:",
     "format-check:",
     "typecheck:",

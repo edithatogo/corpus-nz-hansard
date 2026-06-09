@@ -66,3 +66,6 @@ jobs:
 
       - name: Quality gate configuration
         run: python scripts\check_quality_gate.py
+
+      - name: Release provenance policy
+        run: python scripts\check_release_provenance_policy.py

@@ -1,11 +1,14 @@
 PYTHON ?= python
 
-.PHONY: quality quality-config lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
+.PHONY: quality quality-config provenance-policy lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
 
-quality: lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config test
+quality: lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy test
 
 quality-config:
 	$(PYTHON) scripts/check_quality_gate.py
+
+provenance-policy:
+	$(PYTHON) scripts/check_release_provenance_policy.py
 
 lint:
 	$(PYTHON) -m ruff check --no-cache .

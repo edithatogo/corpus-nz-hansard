@@ -19,10 +19,13 @@ zizmor --min-severity medium .github/workflows
 taplo format --check pyproject.toml typos.toml
 actionlint -color
 python scripts/check_quality_gate.py
+python scripts/check_release_provenance_policy.py
 python -m unittest discover tests
 ```
 
 `scripts/check_quality_gate.py` guards the quality configuration itself: dev-tool pins, required Quality workflow commands, local Makefile targets, pinned GitHub Actions, and publication workflows staying manual-only.
+
+`scripts/check_release_provenance_policy.py` guards release evidence and provenance wiring: the release evidence ledger schema, Zenodo attestation permissions, pinned attestation action, attested subject paths, documentation coverage, and publication workflows staying manual-only.
 
 `uv sync --frozen` and a committed `uv.lock` are deferred until the corpus-family engineering-alignment track migrates the repository to packaged `pyproject.toml` metadata and a stable CLI entrypoint. Pre-commit is likewise deferred until that package/CLI migration, because CI is the current source of enforcement and avoids adding another local bootstrap path before the dependency model is settled.
 
