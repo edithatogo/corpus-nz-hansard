@@ -173,6 +173,45 @@ class UpdateZenodoMetadataTest(unittest.TestCase):
         self.assertEqual(client.request("GET", "https://zenodo.example/api/test"), {"ok": True})
         self.assertEqual(session.calls, 2)
 
+    def test_update_zenodo_metadata_falls_back_to_public_record_on_transient_get_failure(self):
+        class FallbackClient(FakeZenodoMetadataClient):
+            def get_deposition(self, deposition_id):
+                response = requests.Response()
+                response.status_code = 504
+                raise requests.HTTPError("504 error", response=response)
+
+            def get_record(self, record_id):
+                self.calls.append(("get_record", record_id))
+                return {
+                    "id": record_id,
+                    "metadata": {
+                        "title": "NZ Hansard Corpus",
+                        "upload_type": "dataset",
+                        "description": "old",
+                        "creators": [{"name": "Maintainer"}],
+                        "version": "0.1.0",
+                    },
+                }
+
+            def edit_deposition(self, deposition_id):
+                self.calls.append(("edit_deposition", deposition_id))
+                return {}
+
+        client = FallbackClient()
+
+        result = update_zenodo_metadata(
+            deposition_id="20595194",
+            token="token",
+            client=client,
+            publish=False,
+        )
+
+        self.assertFalse(result["published"])
+        self.assertEqual(
+            [call[0] for call in client.calls],
+            ["get_record", "edit_deposition", "put_metadata"],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -128,6 +128,13 @@ class ZenodoMetadataClient:
             headers=self.headers,
         )
 
+    def get_record(self, record_id: str) -> dict[str, Any]:
+        return self.request(
+            "GET",
+            f"{self.api_url}/records/{record_id}",
+            headers=self.headers,
+        )
+
     def edit_deposition(self, deposition_id: str) -> dict[str, Any]:
         return self.request(
             "POST",
@@ -162,15 +169,29 @@ def update_zenodo_metadata(
     client: ZenodoMetadataClient | None = None,
 ) -> dict[str, Any]:
     client = client or ZenodoMetadataClient(api_url=api_url, token=token)
-    deposition = client.get_deposition(deposition_id)
-    if deposition.get("submitted"):
-        deposition = client.edit_deposition(deposition_id)
-        if not deposition:
-            deposition = client.get_deposition(deposition_id)
+    try:
+        deposition = client.get_deposition(deposition_id)
+    except requests.HTTPError as exc:
+        response = exc.response
+        if response is None or response.status_code < 500:
+            raise
+        record = client.get_record(deposition_id)
+        deposition = {
+            "id": deposition_id,
+            "submitted": True,
+            "metadata": record.get("metadata", {}),
+        }
 
     metadata = dict(deposition.get("metadata", {}))
     if not metadata:
         raise RuntimeError("Zenodo deposition did not include editable metadata.")
+
+    if deposition.get("submitted"):
+        editable = client.edit_deposition(deposition_id)
+        editable_metadata = editable.get("metadata", {}) if editable else {}
+        if editable_metadata:
+            metadata = dict(editable_metadata)
+
     metadata["description"] = description
     metadata["related_identifiers"] = merge_related_identifiers(
         metadata.get("related_identifiers"),
