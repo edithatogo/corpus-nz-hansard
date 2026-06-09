@@ -36,6 +36,7 @@ Repo-side hardening applied:
 - Added `pyproject.toml` Ruff configuration and `typos.toml` spelling exclusions.
 - Added `.gitattributes` LF normalization for source and config files so Windows CI checkouts match Ruff formatting expectations.
 - Added `.github/workflows/quality.yml` for Ruff lint, Ruff format check, strict Ty type checking, Typos, Zizmor workflow audit, and Taplo TOML format check.
+- Added `requirements/requirements.txt` as an aggregate optional-stack manifest so GitHub Dependency Graph has a supported pip manifest under `/requirements` without changing the base runtime install target.
 - Hardened workflow checkout steps with `persist-credentials: false`, added explicit read-only permissions for the test workflow, and moved workflow-dispatch inputs out of shell template interpolation where Zizmor reported injection risk.
 
 Verification:

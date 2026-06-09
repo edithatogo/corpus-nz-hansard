@@ -1,0 +1,10 @@
+# Aggregate optional requirements manifest for GitHub Dependency Graph.
+# Install a specific group file for endpoint work instead of installing this by default.
+-r data.txt
+-r schema.txt
+-r xml.txt
+-r rdf.txt
+-r authority.txt
+-r nlp.txt
+-r ml.txt
+-r metadata.txt
