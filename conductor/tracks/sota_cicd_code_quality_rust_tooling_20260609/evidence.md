@@ -58,4 +58,4 @@ Repo-side hardening applied:
 - Pinned `github/codeql-action/init` and `github/codeql-action/analyze` to commit SHA `8aad20d150bbac5944a9f9d289da16a4b0d87c1e` after resolving the `v4` tag on 2026-06-09.
 - Added `.github/workflows/scorecard.yml` for OpenSSF Scorecard on pull requests, pushes to `main`, weekly schedule, and manual dispatch.
 - Pinned `ossf/scorecard-action` to commit SHA `05b42c624433fc40578a4040d5cf5e36ddca8cde` after resolving the latest `v2.4.3` tag on 2026-06-09.
-- Both workflows use least-privilege permissions for read-only checkout plus the security-event or OIDC permissions required by their scanners.
+- Both workflows use least-privilege permissions for read-only checkout plus the security-event or OIDC permissions required by their scanners. Scorecard keeps global permissions read-only and scopes required write permissions to the job so Scorecard result publication can verify the workflow.
