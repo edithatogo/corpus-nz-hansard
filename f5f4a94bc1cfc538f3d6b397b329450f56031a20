@@ -1,0 +1,11 @@
+Track: Artifact Provenance And Attestations
+
+Summary:
+- Added release evidence ledger schema and builder.
+- Added provenance policy checker and wired it into Makefile and Quality workflow.
+- Documented artifact-class provenance strategy and publication gates.
+- Added unit tests for ledger generation/schema validation and policy consistency.
+
+Validation:
+- make quality passed locally.
+- GitHub Actions for f5f4a94bc1cfc538f3d6b397b329450f56031a20 passed: Tests, Quality, CodeQL, OpenSSF Scorecard.
