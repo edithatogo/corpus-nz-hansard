@@ -1,0 +1,1 @@
+Completed Neutral Parliamentary Component Model. Added neutral component model manifest, fixture schema, fixture rows for required families, validation manifest, docs, release ladder mapping, quality-gate checker, and unit tests. Verification: make quality passed with neutral component checker and 99 tests.
