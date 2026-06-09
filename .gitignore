@@ -5,6 +5,7 @@ generated/
 # Local caches
 .cache/
 .tmp/
+.tmp_*
 .test-tmp/
 .ruff_cache/
 .antigravitycli/

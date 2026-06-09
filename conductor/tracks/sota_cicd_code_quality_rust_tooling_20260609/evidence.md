@@ -24,7 +24,6 @@ Verification:
 
 Remaining follow-up:
 
-- Add `actionlint` using a pinned non-PyPI install strategy.
 - Add artifact attestation/provenance checks under the dedicated provenance track.
 
 ## Code Quality Tooling - 2026-06-09
@@ -32,6 +31,7 @@ Remaining follow-up:
 Repo-side hardening applied:
 
 - Added pinned dev requirements for `ruff==0.15.16`, `typos==1.47.2`, `zizmor==1.25.2`, and `taplo==0.9.3`.
+- Added pinned `actionlint` v1.7.12 Windows amd64 install in Quality CI, verified against SHA-256 `6e7241b51e6817ea6a047693d8e6fed13b31819c9a0dd6c5a726e1592d22f6e9`.
 - Added `pyproject.toml` Ruff configuration and `typos.toml` spelling exclusions.
 - Added `.gitattributes` LF normalization for source and config files so Windows CI checkouts match Ruff formatting expectations.
 - Added `.github/workflows/quality.yml` for Ruff lint, Ruff format check, Typos, Zizmor workflow audit, and Taplo TOML format check.
@@ -45,3 +45,4 @@ Verification:
 - `typos --config typos.toml` passed.
 - `zizmor --min-severity medium .github/workflows` passed with no findings.
 - `taplo format --check pyproject.toml typos.toml` passed.
+- Pinned local `actionlint` v1.7.12 download verified the checksum and `actionlint -color` passed.

@@ -25,6 +25,24 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r requirements.txt -r requirements/dev.txt
 
+      - name: Install actionlint
+        shell: pwsh
+        env:
+          ACTIONLINT_VERSION: "1.7.12"
+          ACTIONLINT_SHA256: "6e7241b51e6817ea6a047693d8e6fed13b31819c9a0dd6c5a726e1592d22f6e9"
+        run: |
+          $toolDir = Join-Path $env:RUNNER_TEMP "actionlint"
+          New-Item -ItemType Directory -Path $toolDir -Force | Out-Null
+          $zip = Join-Path $toolDir "actionlint.zip"
+          $url = "https://github.com/rhysd/actionlint/releases/download/v$env:ACTIONLINT_VERSION/actionlint_$($env:ACTIONLINT_VERSION)_windows_amd64.zip"
+          Invoke-WebRequest -Uri $url -OutFile $zip
+          $actual = (Get-FileHash -Algorithm SHA256 -LiteralPath $zip).Hash.ToLowerInvariant()
+          if ($actual -ne $env:ACTIONLINT_SHA256) {
+            throw "actionlint checksum mismatch: $actual"
+          }
+          Expand-Archive -LiteralPath $zip -DestinationPath $toolDir -Force
+          Add-Content -Path $env:GITHUB_PATH -Value $toolDir
+
       - name: Ruff lint
         run: python -m ruff check --no-cache .
 
@@ -39,3 +57,6 @@ jobs:
 
       - name: Taplo TOML format
         run: taplo format --check pyproject.toml typos.toml
+
+      - name: Actionlint workflow syntax
+        run: actionlint -color
