@@ -6,7 +6,7 @@ import argparse
 import hashlib
 import json
 import tarfile
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -93,7 +93,7 @@ def build_zenodo_archive(
 
     manifest = {
         "manifest_version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "version": version,
         "archive": str(archive_path),
         "archive_sha256": _sha256_path(archive_path),

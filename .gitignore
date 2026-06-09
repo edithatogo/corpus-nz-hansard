@@ -6,6 +6,7 @@ generated/
 .cache/
 .tmp/
 .test-tmp/
+.ruff_cache/
 .antigravitycli/
 __pycache__/
 *.pyc

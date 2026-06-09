@@ -6,7 +6,7 @@ import argparse
 import hashlib
 import json
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -105,7 +105,7 @@ def validate_hansard_records(
 
     report = {
         "schema_version": "1.0",
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "parquet_path": str(parquet_path),
         "schema_path": str(schema_path),
         "record_count": record_count,

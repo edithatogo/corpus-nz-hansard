@@ -64,6 +64,7 @@ class FakeZenodoMetadataClient:
         self.calls.append(("put_metadata", deposition_id, metadata))
         return {"id": deposition_id, "metadata": metadata}
 
+
 class UpdateZenodoMetadataTest(unittest.TestCase):
     def test_update_zenodo_metadata_adds_cross_references_without_publishing(self):
         client = FakeZenodoMetadataClient()

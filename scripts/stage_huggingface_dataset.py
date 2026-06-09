@@ -59,9 +59,7 @@ def stage_huggingface_dataset(
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Stage a Hugging Face Datasets upload folder."
-    )
+    parser = argparse.ArgumentParser(description="Stage a Hugging Face Datasets upload folder.")
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
     parser.add_argument("--parquet", type=Path, default=DEFAULT_PARQUET)
     return parser.parse_args()

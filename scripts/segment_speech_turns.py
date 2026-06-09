@@ -6,7 +6,7 @@ import argparse
 import json
 import re
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -149,9 +149,7 @@ def run_segmentation(
                     if len(examples) < 10:
                         examples.append(
                             {
-                                "parliament_document_id": output_row[
-                                    "parliament_document_id"
-                                ],
+                                "parliament_document_id": output_row["parliament_document_id"],
                                 "speaker_candidate": output_row["speaker_candidate"],
                                 "speech_text_prefix": output_row["speech_text"][:160],
                             }
@@ -182,7 +180,7 @@ def run_segmentation(
 
     validation = {
         "validation_version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "input": str(input_path),
         "output": str(output_path),
         "summary": {

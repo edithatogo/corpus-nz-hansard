@@ -1,5 +1,4 @@
 import sys
-import tempfile
 import unittest
 import zipfile
 from pathlib import Path
@@ -19,9 +18,7 @@ class DiscoverSchemaTest(unittest.TestCase):
         case_dir.mkdir(parents=True, exist_ok=True)
         archive_path = case_dir / "sample.zip"
 
-        with zipfile.ZipFile(
-            archive_path, "w", compression=zipfile.ZIP_DEFLATED
-        ) as archive:
+        with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.writestr(
                 "Hansard-1.csv",
                 "SittingDate,Speaker,Party,SpeechText\n"
@@ -30,8 +27,7 @@ class DiscoverSchemaTest(unittest.TestCase):
             )
             archive.writestr(
                 "Hansard-2.csv",
-                "SittingDate,Speaker,Topic,SpeechText\n"
-                "2024-01-03,Carol,Health,Third speech\n",
+                "SittingDate,Speaker,Topic,SpeechText\n2024-01-03,Carol,Health,Third speech\n",
             )
 
         discovery = build_schema_discovery(archive_path, sample_rows=2)
@@ -56,9 +52,7 @@ class DiscoverSchemaTest(unittest.TestCase):
         case_dir = TEST_TMP / "schema_write"
         case_dir.mkdir(parents=True, exist_ok=True)
         archive_path = case_dir / "sample.zip"
-        with zipfile.ZipFile(
-            archive_path, "w", compression=zipfile.ZIP_DEFLATED
-        ) as archive:
+        with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.writestr("Hansard-1.csv", "A,B\n1,2\n")
 
         output_path = case_dir / "nested" / "schema_discovery.json"
@@ -74,9 +68,7 @@ class DiscoverSchemaTest(unittest.TestCase):
         archive_path = case_dir / "sample.zip"
         large_text = "x" * 140_000
 
-        with zipfile.ZipFile(
-            archive_path, "w", compression=zipfile.ZIP_DEFLATED
-        ) as archive:
+        with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.writestr("Hansard-1.csv", f"SpeechText\n{large_text}\n")
 
         discovery = build_schema_discovery(archive_path, sample_rows=1)
@@ -89,20 +81,19 @@ class DiscoverSchemaTest(unittest.TestCase):
         case_dir.mkdir(parents=True, exist_ok=True)
         archive_path = case_dir / "sample.zip"
         payload = (
-            "ParliamentNumber,DocumentContentDate,Content\n"
-            "48,2024-01-01,Speech body\n"
+            "ParliamentNumber,DocumentContentDate,Content\n48,2024-01-01,Speech body\n"
         ).encode("utf-16")
 
-        with zipfile.ZipFile(
-            archive_path, "w", compression=zipfile.ZIP_DEFLATED
-        ) as archive:
+        with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.writestr("Hansard-48.csv", payload)
 
         discovery = build_schema_discovery(archive_path, sample_rows=1)
         file_info = discovery["files"][0]
 
         self.assertEqual(file_info["encoding"], "utf-16")
-        self.assertEqual(file_info["headers"], ["ParliamentNumber", "DocumentContentDate", "Content"])
+        self.assertEqual(
+            file_info["headers"], ["ParliamentNumber", "DocumentContentDate", "Content"]
+        )
         self.assertEqual(file_info["candidate_roles"]["date"], ["DocumentContentDate"])
         self.assertEqual(file_info["candidate_roles"]["text"], ["Content"])
 
@@ -111,20 +102,19 @@ class DiscoverSchemaTest(unittest.TestCase):
         case_dir.mkdir(parents=True, exist_ok=True)
         archive_path = case_dir / "sample.zip"
         payload = (
-            "ParliamentNumber,DocumentContentDate,Content\n"
-            "48,2024-01-01,Speech body\n"
+            "ParliamentNumber,DocumentContentDate,Content\n48,2024-01-01,Speech body\n"
         ).encode("utf-16-le")
 
-        with zipfile.ZipFile(
-            archive_path, "w", compression=zipfile.ZIP_DEFLATED
-        ) as archive:
+        with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.writestr("Hansard-48.csv", payload)
 
         discovery = build_schema_discovery(archive_path, sample_rows=1)
         file_info = discovery["files"][0]
 
         self.assertEqual(file_info["encoding"], "utf-16-le")
-        self.assertEqual(file_info["headers"], ["ParliamentNumber", "DocumentContentDate", "Content"])
+        self.assertEqual(
+            file_info["headers"], ["ParliamentNumber", "DocumentContentDate", "Content"]
+        )
 
 
 if __name__ == "__main__":

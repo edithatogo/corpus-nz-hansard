@@ -31,11 +31,13 @@ Endpoint work should add grouped requirements or package extras rather than expa
 | `requirements/nlp.txt` | `spacy`, `stanza`, `conllu`, `pyconll` | NER, tokenization, UD/CoNLL-U, token alignment. |
 | `requirements/ml.txt` | `scikit-learn`, `transformers`, `sentence-transformers`, `bertopic` | Topic classification, embeddings, exploratory models. |
 | `requirements/metadata.txt` | `frictionless`, `rocrate`, `mlcroissant` | Frictionless Data Package, RO-Crate, Croissant metadata. |
+| `requirements/dev.txt` | `ruff`, `typos`, `zizmor`, `taplo` | CI quality, workflow-security linting, spelling, and TOML formatting. |
 
 ## Dependency Rules
 
 - Keep `requirements.txt` as the base runtime unless an existing production script imports the dependency.
 - Add endpoint dependencies to grouped requirement files or package extras when implementation starts.
+- Keep CI/developer tooling in `requirements/dev.txt` rather than the base runtime.
 - Do not make GPU, transformer, or NLP model downloads part of the default test suite.
 - Pin dependencies that affect generated release artifacts once an endpoint is published.
 - Prefer a lockfile or generated constraints file before expanding CI to heavier endpoint stacks.

@@ -6,7 +6,7 @@ import argparse
 import hashlib
 import json
 import zipfile
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -110,7 +110,7 @@ def build_release_package(
     package_sha256 = _sha256_path(package_path)
     manifest = {
         "manifest_version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "package": str(package_path),
         "package_sha256": package_sha256,
         "published": False,

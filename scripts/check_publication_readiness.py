@@ -23,7 +23,9 @@ def _has_value(env: Mapping[str, str], name: str) -> bool:
     return bool(env.get(name, "").strip())
 
 
-def _check_required(env: Mapping[str, str], target: str, name: str, description: str) -> CheckResult:
+def _check_required(
+    env: Mapping[str, str], target: str, name: str, description: str
+) -> CheckResult:
     if _has_value(env, name):
         return CheckResult(target, name, True, f"{description} is configured.")
     return CheckResult(target, name, False, f"{description} is missing.")
@@ -32,7 +34,9 @@ def _check_required(env: Mapping[str, str], target: str, name: str, description:
 def _check_creators_json(env: Mapping[str, str]) -> CheckResult:
     raw_value = env.get("ARCHIVE_CREATORS_JSON", "").strip()
     if not raw_value:
-        return CheckResult("zenodo", "ARCHIVE_CREATORS_JSON", False, "Zenodo creator metadata is missing.")
+        return CheckResult(
+            "zenodo", "ARCHIVE_CREATORS_JSON", False, "Zenodo creator metadata is missing."
+        )
     try:
         creators = json.loads(raw_value)
     except json.JSONDecodeError as exc:
@@ -57,7 +61,9 @@ def _check_creators_json(env: Mapping[str, str]) -> CheckResult:
                 False,
                 f"Zenodo creator {index} must be an object with a non-empty name.",
             )
-    return CheckResult("zenodo", "ARCHIVE_CREATORS_JSON", True, "Zenodo creator metadata is configured.")
+    return CheckResult(
+        "zenodo", "ARCHIVE_CREATORS_JSON", True, "Zenodo creator metadata is configured."
+    )
 
 
 def check_publication_readiness(
@@ -75,12 +81,16 @@ def check_publication_readiness(
 
     if "huggingface" in selected:
         results.append(_check_required(env, "huggingface", "HF_TOKEN", "Hugging Face token"))
-        results.append(_check_required(env, "huggingface", "SOURCE_ARCHIVE_URL", "Source archive URL"))
+        results.append(
+            _check_required(env, "huggingface", "SOURCE_ARCHIVE_URL", "Source archive URL")
+        )
 
     if "zenodo" in selected:
         results.append(_check_required(env, "zenodo", "ZENODO_TOKEN", "Zenodo token"))
         results.append(_check_required(env, "zenodo", "SOURCE_ARCHIVE_URL", "Source archive URL"))
-        results.append(_check_required(env, "zenodo", "HF_TOKEN", "Source archive Hugging Face token"))
+        results.append(
+            _check_required(env, "zenodo", "HF_TOKEN", "Source archive Hugging Face token")
+        )
         results.append(_check_creators_json(env))
 
     return results

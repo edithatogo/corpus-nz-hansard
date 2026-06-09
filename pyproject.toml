@@ -1,0 +1,14 @@
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+exclude = [".git", ".test-tmp", ".tmp", "generated"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = ["E402"]
+
+[tool.ruff.format]
+line-ending = "lf"

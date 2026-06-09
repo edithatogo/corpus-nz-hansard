@@ -24,5 +24,23 @@ Verification:
 
 Remaining follow-up:
 
-- Add `ruff`, `typos`, `zizmor`, `taplo`, and `actionlint` jobs.
+- Add `actionlint` using a pinned non-PyPI install strategy.
 - Add artifact attestation/provenance checks under the dedicated provenance track.
+
+## Code Quality Tooling - 2026-06-09
+
+Repo-side hardening applied:
+
+- Added pinned dev requirements for `ruff==0.15.16`, `typos==1.47.2`, `zizmor==1.25.2`, and `taplo==0.9.3`.
+- Added `pyproject.toml` Ruff configuration and `typos.toml` spelling exclusions.
+- Added `.github/workflows/quality.yml` for Ruff lint, Ruff format check, Typos, Zizmor workflow audit, and Taplo TOML format check.
+- Hardened workflow checkout steps with `persist-credentials: false`, added explicit read-only permissions for the test workflow, and moved workflow-dispatch inputs out of shell template interpolation where Zizmor reported injection risk.
+
+Verification:
+
+- Tool versions were checked from PyPI on 2026-06-09 before pinning.
+- `python -m ruff check --no-cache .` passed.
+- `python -m ruff format --check --no-cache .` passed.
+- `typos --config typos.toml` passed.
+- `zizmor --min-severity medium .github/workflows` passed with no findings.
+- `taplo format --check pyproject.toml typos.toml` passed.

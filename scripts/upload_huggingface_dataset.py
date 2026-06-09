@@ -16,14 +16,11 @@ DEFAULT_REPO_ID = "edithatogo/nz-hansard-corpus"
 
 
 class HuggingFaceApi(Protocol):
-    def create_repo(self, **kwargs: Any) -> Any:
-        ...
+    def create_repo(self, **kwargs: Any) -> Any: ...
 
-    def update_repo_settings(self, **kwargs: Any) -> Any:
-        ...
+    def update_repo_settings(self, **kwargs: Any) -> Any: ...
 
-    def upload_folder(self, **kwargs: Any) -> Any:
-        ...
+    def upload_folder(self, **kwargs: Any) -> Any: ...
 
 
 def _read_local_manifest(folder: Path) -> dict[str, Any] | None:
@@ -80,13 +77,12 @@ def upload_huggingface_dataset(
     )
 
     local_manifest = _read_local_manifest(folder)
-    remote_manifest = None if api is not None and type(api).__name__ != "HfApi" else _remote_manifest(repo_id, token, revision)
-    if (
-        not force
-        and local_manifest
-        and remote_manifest
-        and local_manifest == remote_manifest
-    ):
+    remote_manifest = (
+        None
+        if api is not None and type(api).__name__ != "HfApi"
+        else _remote_manifest(repo_id, token, revision)
+    )
+    if not force and local_manifest and remote_manifest and local_manifest == remote_manifest:
         return {
             "repo_id": repo_id,
             "gated": False,

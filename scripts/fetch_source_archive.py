@@ -14,8 +14,7 @@ DEFAULT_SHA256 = "2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a172
 
 
 class BinaryResponse(Protocol):
-    def read(self, size: int = -1) -> bytes:
-        ...
+    def read(self, size: int = -1) -> bytes: ...
 
 
 def sha256_path(path: Path) -> str:

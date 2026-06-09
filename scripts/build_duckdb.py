@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -65,10 +65,7 @@ def build_duckdb_database(
         )
 
         row_count = int(connection.execute("select count(*) from hansard").fetchone()[0])
-        columns = [
-            row[1]
-            for row in connection.execute("pragma table_info('hansard')").fetchall()
-        ]
+        columns = [row[1] for row in connection.execute("pragma table_info('hansard')").fetchall()]
         rows_by_source_file = _fetch_mapping(
             connection,
             """
@@ -116,7 +113,7 @@ def build_duckdb_database(
 
     validation = {
         "validation_version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "database": str(database_path),
         "parquet": str(parquet_path),
         "summary": {

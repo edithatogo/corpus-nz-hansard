@@ -10,9 +10,10 @@ import json
 import sys
 import zipfile
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from collections.abc import Iterable
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 import pyarrow as pa
 import pyarrow.parquet as pq
@@ -234,10 +235,7 @@ def _write_json(payload: dict[str, Any], path: Path) -> None:
 
 
 def _table_from_batch(batch: list[dict[str, Any]]) -> pa.Table:
-    columns = {
-        column: [row.get(column) for row in batch]
-        for column in NORMALIZED_COLUMNS
-    }
+    columns = {column: [row.get(column) for row in batch] for column in NORMALIZED_COLUMNS}
     return pa.Table.from_pydict(columns, schema=PARQUET_SCHEMA)
 
 
@@ -322,23 +320,20 @@ def run_normalization(
 
     manifest = {
         "manifest_version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "source_archive": str(archive_path),
         "outputs": {
             "parquet": str(parquet_path),
             "validation": str(validation_path),
         },
-        "schema": [
-            {"name": field.name, "type": str(field.type)}
-            for field in PARQUET_SCHEMA
-        ],
+        "schema": [{"name": field.name, "type": str(field.type)} for field in PARQUET_SCHEMA],
         "normalization_contract": "docs/normalization-contract.md",
         "record_schema": "schemas/hansard_record.schema.json",
         "pipeline_version": pipeline_version,
     }
     validation = {
         "validation_version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "summary": {
             "input_rows": input_rows,
             "output_rows": output_rows,

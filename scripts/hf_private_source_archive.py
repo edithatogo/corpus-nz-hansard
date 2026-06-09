@@ -34,7 +34,9 @@ def upload_source_archive(
         repo_type="dataset",
         commit_message="Add Hansard source archive",
     )
-    return f"https://huggingface.co/datasets/{repo_id}/resolve/main/{path_in_repo.replace(' ', '%20')}"
+    return (
+        f"https://huggingface.co/datasets/{repo_id}/resolve/main/{path_in_repo.replace(' ', '%20')}"
+    )
 
 
 def parse_args() -> argparse.Namespace:
@@ -42,7 +44,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--repo-id", default=DEFAULT_REPO_ID)
     parser.add_argument("--archive", type=Path, default=DEFAULT_ARCHIVE)
     parser.add_argument("--path-in-repo", default=DEFAULT_PATH_IN_REPO)
-    parser.add_argument("--public", action="store_true", help="Create the source archive repo as public.")
+    parser.add_argument(
+        "--public", action="store_true", help="Create the source archive repo as public."
+    )
     return parser.parse_args()
 
 

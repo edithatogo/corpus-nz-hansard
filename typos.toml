@@ -1,0 +1,7 @@
+[files]
+extend-exclude = [".git", ".test-tmp", ".tmp", "generated", "manifests/*.json"]
+
+[default.extend-words]
+Hansard = "Hansard"
+ParlaMint = "ParlaMint"
+zizmor = "zizmor"

@@ -1,6 +1,5 @@
 import json
 import sys
-import tempfile
 import unittest
 import zipfile
 from pathlib import Path
@@ -47,9 +46,7 @@ class NormalizeHansardTest(unittest.TestCase):
         self.assertEqual(len(normalized["source_hash"]), 64)
         self.assertEqual(normalized["language"], "en")
         self.assertEqual(normalized["last_modified"], "2007-07-15T00:44:33.743000")
-        self.assertEqual(
-            normalized["document_content_date"], "2007-07-15T00:44:33.743000"
-        )
+        self.assertEqual(normalized["document_content_date"], "2007-07-15T00:44:33.743000")
 
     def test_normalize_row_records_parse_warnings(self):
         row = {
@@ -81,9 +78,7 @@ class NormalizeHansardTest(unittest.TestCase):
         manifest_path = case_dir / "manifest.json"
         validation_path = case_dir / "validation.json"
 
-        with zipfile.ZipFile(
-            archive_path, "w", compression=zipfile.ZIP_DEFLATED
-        ) as archive:
+        with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.writestr(
                 "Hansard-47.csv",
                 "ParliamentNumber,ParliamentDocumentId,DocumentType,Title,"

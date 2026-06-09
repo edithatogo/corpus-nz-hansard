@@ -8,7 +8,7 @@ import io
 import json
 import zipfile
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -143,7 +143,7 @@ def build_schema_discovery(
 
     return {
         "discovery_version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "source_archive": str(archive_path),
         "sample_rows_per_file": sample_rows,
         "summary": {

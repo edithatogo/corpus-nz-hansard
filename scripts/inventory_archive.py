@@ -6,7 +6,7 @@ import argparse
 import hashlib
 import json
 import zipfile
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, BinaryIO
 
@@ -28,11 +28,11 @@ def _sha256_path(path: Path) -> str:
 
 
 def _zip_datetime(info: zipfile.ZipInfo) -> str:
-    return datetime(*info.date_time, tzinfo=timezone.utc).isoformat()
+    return datetime(*info.date_time, tzinfo=UTC).isoformat()
 
 
 def _file_modified_time(path: Path) -> str:
-    return datetime.fromtimestamp(path.stat().st_mtime, tz=timezone.utc).isoformat()
+    return datetime.fromtimestamp(path.stat().st_mtime, tz=UTC).isoformat()
 
 
 def build_inventory(archive_path: Path | str) -> dict[str, Any]:
@@ -68,7 +68,7 @@ def build_inventory(archive_path: Path | str) -> dict[str, Any]:
 
     return {
         "inventory_version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "source_archive": {
             "path": str(archive_path),
             "name": archive_path.name,
@@ -120,10 +120,7 @@ def main() -> int:
     write_inventory(inventory, args.output)
     print(f"Wrote {args.output}")
     print(f"Members: {inventory['summary']['member_count']}")
-    print(
-        "Uncompressed bytes: "
-        f"{inventory['summary']['total_uncompressed_size']}"
-    )
+    print(f"Uncompressed bytes: {inventory['summary']['total_uncompressed_size']}")
     return 0
 
 

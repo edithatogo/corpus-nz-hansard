@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -42,7 +42,7 @@ def build_release_manifest(
 
     return {
         "manifest_version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "publication_status": "published",
         "published": True,
         "publication": {
@@ -80,9 +80,7 @@ def build_release_manifest(
             "record_schema_valid": record_schema["ok"],
             "record_schema_errors": len(record_schema["errors"]),
             "record_schema_warnings": len(record_schema["warnings"]),
-            "duckdb_row_count_matches_expected": duckdb["summary"][
-                "row_count_matches_expected"
-            ],
+            "duckdb_row_count_matches_expected": duckdb["summary"]["row_count_matches_expected"],
         },
         "artifacts": {
             "dataset_card": "DATASET_CARD.md",

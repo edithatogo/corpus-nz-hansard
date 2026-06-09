@@ -1,6 +1,5 @@
 import json
 import sys
-import tempfile
 import unittest
 import uuid
 from pathlib import Path
@@ -32,6 +31,7 @@ class FakeZenodoClient:
     def update_metadata(self, deposition_id, **kwargs):
         self.calls.append(("update_metadata", deposition_id, kwargs))
         return {"id": deposition_id, "metadata": kwargs}
+
 
 class UploadZenodoArchiveTest(unittest.TestCase):
     def test_upload_zenodo_archive_updates_draft_without_publishing(self):

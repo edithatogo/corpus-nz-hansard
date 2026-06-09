@@ -32,6 +32,8 @@ jobs:
     steps:
       # actions/checkout v6.0.3
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
+        with:
+          persist-credentials: false
       # actions/setup-python v6.2.0
       - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
         with:
@@ -56,7 +58,9 @@ jobs:
           python scripts\normalize_hansard.py --archive "2024-09-06 Hansard Extract from DocumentsDB.zip" --output-dir generated\parquet --manifest manifests\normalization_manifest.json --validation manifests\normalization_validation.json --batch-size 1000
           python scripts\validate_hansard_records.py --parquet generated\parquet\hansard.parquet --schema schemas\hansard_record.schema.json --report manifests\record_schema_validation.json
       - name: Build Zenodo archive
-        run: python scripts\build_zenodo_archive.py --output-dir generated\zenodo --version "${{ inputs.version }}"
+        env:
+          ARCHIVE_VERSION: ${{ inputs.version }}
+        run: python scripts\build_zenodo_archive.py --output-dir generated\zenodo --version "$env:ARCHIVE_VERSION"
       - name: Upload Zenodo draft
         if: ${{ inputs.upload_to_zenodo == 'true' }}
         shell: pwsh
@@ -65,6 +69,8 @@ jobs:
           ARCHIVE_CREATORS_JSON: ${{ secrets.ARCHIVE_CREATORS_JSON }}
           ZENODO_DEPOSITION_ID: ${{ inputs.existing_deposition_id }}
           ZENODO_API_URL: ${{ inputs.zenodo_api_url }}
+          ARCHIVE_VERSION: ${{ inputs.version }}
+          CREATE_NEW_VERSION: ${{ inputs.create_new_version }}
         run: |
           if (-not "$env:ZENODO_TOKEN") {
             throw "ZENODO_TOKEN secret is required when upload_to_zenodo is true."
@@ -74,15 +80,15 @@ jobs:
           }
           $args = @(
             "scripts\upload_zenodo_archive.py",
-            "--archive", "generated\zenodo\nz-hansard-corpus-${{ inputs.version }}.tar.gz",
-            "--manifest", "generated\zenodo\nz-hansard-corpus-${{ inputs.version }}.manifest.json",
+            "--archive", "generated\zenodo\nz-hansard-corpus-$env:ARCHIVE_VERSION.tar.gz",
+            "--manifest", "generated\zenodo\nz-hansard-corpus-$env:ARCHIVE_VERSION.manifest.json",
             "--api-url", "$env:ZENODO_API_URL",
-            "--version", "${{ inputs.version }}"
+            "--version", "$env:ARCHIVE_VERSION"
           )
-          if ("${{ inputs.existing_deposition_id }}") {
-            $args += @("--deposition-id", "${{ inputs.existing_deposition_id }}")
+          if ($env:ZENODO_DEPOSITION_ID) {
+            $args += @("--deposition-id", "$env:ZENODO_DEPOSITION_ID")
           }
-          if ("${{ inputs.create_new_version }}" -eq "true") {
+          if ($env:CREATE_NEW_VERSION -eq "true") {
             $args += "--create-new-version"
           }
           python @args

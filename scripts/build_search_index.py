@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import sqlite3
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -262,9 +262,7 @@ def build_search_index(
                     if len(examples) < 10:
                         examples.append(
                             {
-                                "parliament_document_id": row.get(
-                                    "parliament_document_id"
-                                ),
+                                "parliament_document_id": row.get("parliament_document_id"),
                                 "chunk_index": chunk["chunk_index"],
                                 "start_char": chunk["start_char"],
                                 "end_char": chunk["end_char"],
@@ -284,7 +282,7 @@ def build_search_index(
 
     validation = {
         "validation_version": 1,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "input": str(parquet_path),
         "database": str(database_path),
         "config": {

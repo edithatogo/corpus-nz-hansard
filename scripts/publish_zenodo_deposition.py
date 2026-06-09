@@ -13,8 +13,7 @@ DEFAULT_API_URL = "https://zenodo.org/api"
 
 
 class HttpSession(Protocol):
-    def request(self, method: str, url: str, **kwargs: Any) -> requests.Response:
-        ...
+    def request(self, method: str, url: str, **kwargs: Any) -> requests.Response: ...
 
 
 class ZenodoPublishClient:

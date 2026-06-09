@@ -73,8 +73,7 @@ def merge_related_identifiers(
 
 
 class HttpSession(Protocol):
-    def request(self, method: str, url: str, **kwargs: Any) -> requests.Response:
-        ...
+    def request(self, method: str, url: str, **kwargs: Any) -> requests.Response: ...
 
 
 class ZenodoMetadataClient:
@@ -150,6 +149,7 @@ class ZenodoMetadataClient:
             data=json.dumps({"metadata": metadata}),
         )
 
+
 def update_zenodo_metadata(
     *,
     deposition_id: str,
@@ -199,10 +199,10 @@ def update_zenodo_metadata(
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(
-        description="Update Zenodo record metadata cross-references."
+    parser = argparse.ArgumentParser(description="Update Zenodo record metadata cross-references.")
+    parser.add_argument(
+        "--deposition-id", default=os.getenv("ZENODO_DEPOSITION_ID", DEFAULT_DEPOSITION_ID)
     )
-    parser.add_argument("--deposition-id", default=os.getenv("ZENODO_DEPOSITION_ID", DEFAULT_DEPOSITION_ID))
     parser.add_argument("--api-url", default=os.getenv("ZENODO_API_URL", DEFAULT_API_URL))
     parser.add_argument("--token", default=os.getenv("ZENODO_TOKEN"))
     return parser.parse_args()

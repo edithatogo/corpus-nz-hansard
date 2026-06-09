@@ -1,6 +1,5 @@
 import hashlib
 import sys
-import tempfile
 import unittest
 import uuid
 from pathlib import Path

@@ -1,7 +1,6 @@
 import hashlib
 import json
 import sys
-import tempfile
 import unittest
 import zipfile
 from pathlib import Path
@@ -24,9 +23,7 @@ class InventoryArchiveTest(unittest.TestCase):
             first = b"alpha\n"
             second = b"beta\n"
 
-            with zipfile.ZipFile(
-                archive_path, "w", compression=zipfile.ZIP_DEFLATED
-            ) as archive:
+            with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
                 archive.writestr("folder/one.csv", first)
                 archive.writestr("folder/two.csv", second)
 
@@ -59,9 +56,7 @@ class InventoryArchiveTest(unittest.TestCase):
         root = TEST_TMP / "write_inventory"
         root.mkdir(parents=True, exist_ok=True)
         archive_path = root / "sample.zip"
-        with zipfile.ZipFile(
-            archive_path, "w", compression=zipfile.ZIP_DEFLATED
-        ) as archive:
+        with zipfile.ZipFile(archive_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             archive.writestr("sample.csv", "a,b\n1,2\n")
 
         output_path = root / "nested" / "source_inventory.json"

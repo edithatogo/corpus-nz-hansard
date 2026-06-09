@@ -1,6 +1,5 @@
 import json
 import sys
-import tempfile
 import unittest
 from pathlib import Path
 
@@ -18,11 +17,7 @@ TEST_TMP = test_tmp_dir()
 
 class SegmentSpeechTurnsTest(unittest.TestCase):
     def test_extract_turns_from_content_detects_colon_markers(self):
-        content = (
-            "Heading\t"
-            "Alice Smith\t:\t First speech text.\t"
-            "Bob Jones\t:\t Second speech text."
-        )
+        content = "Heading\tAlice Smith\t:\t First speech text.\tBob Jones\t:\t Second speech text."
 
         turns = extract_turns_from_content(content)
 

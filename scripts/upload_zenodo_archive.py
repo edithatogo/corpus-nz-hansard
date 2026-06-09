@@ -14,14 +14,11 @@ import requests
 DEFAULT_API_URL = "https://zenodo.org/api"
 DEFAULT_VERSION = "0.1.0"
 DEFAULT_ARCHIVE = Path("generated/zenodo/nz-hansard-corpus-0.1.0.tar.gz")
-DEFAULT_MANIFEST = Path(
-    "generated/zenodo/nz-hansard-corpus-0.1.0.manifest.json"
-)
+DEFAULT_MANIFEST = Path("generated/zenodo/nz-hansard-corpus-0.1.0.manifest.json")
 
 
 class HttpSession(Protocol):
-    def request(self, method: str, url: str, **kwargs: Any) -> requests.Response:
-        ...
+    def request(self, method: str, url: str, **kwargs: Any) -> requests.Response: ...
 
 
 class ZenodoDraftClient:
@@ -138,6 +135,7 @@ class ZenodoDraftClient:
             if file_url:
                 self.request("DELETE", file_url, headers=self.headers)
 
+
 def upload_zenodo_archive(
     *,
     archive_path: Path,
@@ -194,7 +192,7 @@ def upload_zenodo_archive(
                 "identifier": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
                 "relation": "isIdenticalTo",
                 "scheme": "url",
-            }
+            },
         ],
     )
     return {
