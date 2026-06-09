@@ -28,7 +28,9 @@ jobs:
   archive:
     runs-on: windows-2025-vs2026
     permissions:
+      attestations: write
       contents: read
+      id-token: write
     steps:
       # actions/checkout v6.0.3
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10
@@ -101,3 +103,10 @@ jobs:
             generated/zenodo/*.tar.gz
             generated/zenodo/*.manifest.json
           if-no-files-found: error
+      - name: Attest Zenodo archive provenance
+        # actions/attest-build-provenance v4.1.0
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32
+        with:
+          subject-path: |
+            generated/zenodo/*.tar.gz
+            generated/zenodo/*.manifest.json
