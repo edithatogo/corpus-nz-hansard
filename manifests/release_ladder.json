@@ -147,6 +147,13 @@
       "next_gate": "endpoint releases must cite required optional groups, install checks, tool/library/model versions, and pin release-affecting dependencies"
     },
     {
+      "artifact": "NZ parliamentary procedure model",
+      "path": "manifests/nz_parliamentary_procedure_model.json",
+      "release_level": "neutral-component",
+      "status": "validated-manifest",
+      "next_gate": "procedure-derived components must cite authority sources, uncertainty status, fixture coverage, and endpoint mappings before publication"
+    },
+    {
       "artifact": "speech-turn candidates",
       "path": "generated/speech_turns",
       "release_level": "neutral-component",

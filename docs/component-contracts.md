@@ -31,6 +31,24 @@ Component IDs and URIs must follow `manifests/id_uri_policy.json`. New component
 
 ## Component Families
 
+### Procedure Component
+
+Procedure components are governed by `manifests/nz_parliamentary_procedure_model.json`, with reviewed boundary fixtures in `fixtures/nz_parliamentary_procedure_samples.json`. They model `party_vote`, `personal_vote`, `question`, `supplementary_question`, `stage`, `ruling`, `interjection`, and `procedural_unit` categories before endpoint exports consume NZ-specific procedure.
+
+Minimum neutral fields:
+
+- `procedure_component_id`
+- `category`
+- `source_stable_id`
+- `text_span`
+- `authority_source_ids`
+- `uncertainty_status`
+- `component_links`
+- `document_type`
+- `not_speech_turn_by_default`
+
+Procedure components link to `document`, `sitting`, `member`, `party`, `motion`, `bill`, and `vote` components where applicable. Surface text alone remains candidate evidence; votes, questions, stages, rulings, interjections, and procedural units require authority-source references before publication as validated derived fields.
+
 ### Document
 
 The existing normalized record remains the document component. It is governed by `docs/normalization-contract.md` and `schemas/hansard_record.schema.json`.

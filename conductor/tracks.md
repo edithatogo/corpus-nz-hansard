@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: NZ Parliamentary Procedure Model
-
-Track ID: `nz_parliamentary_procedure_model_20260609`
-
-Goal: model NZ-specific parliamentary procedure for party votes, personal votes, questions, supplementary questions, stages, rulings, interjections, and procedural units.
-
-Link: [conductor/tracks/nz_parliamentary_procedure_model_20260609/](./tracks/nz_parliamentary_procedure_model_20260609/)
-
 ### [ ] Track: Neutral Parliamentary Component Model
 
 Track ID: `neutral_component_model_20260609`
@@ -118,6 +110,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: NZ Parliamentary Procedure Model
+
+Track ID: `nz_parliamentary_procedure_model_20260609`
+
+Goal: Modelled NZ-specific procedure categories, authority-source requirements, boundary fixtures, uncertainty policy, release gates, and endpoint mappings.
+
+Link: [conductor/tracks/nz_parliamentary_procedure_model_20260609/](./tracks/nz_parliamentary_procedure_model_20260609/)
 
 ### [x] Track: Dependency Extras Policy
 

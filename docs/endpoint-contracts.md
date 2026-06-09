@@ -37,6 +37,8 @@ Endpoint validation language must cite `manifests/gold_evaluation_datasets.json`
 
 Endpoint dependency language must cite `manifests/dependency_extras_policy.json`, which is guarded by `scripts/check_dependency_extras_policy.py`. Endpoint validation manifests must list `dependency_groups`, `install_commands`, `tool_versions`, `library_versions`, `model_versions`, `lock_or_constraints`, `release_affecting_dependencies`, and `validation_command`. Optional dependency install checks remain `deferred-until-implementation`; once an endpoint produces release-affecting artifacts, its dependencies and model revisions must follow `pin-before-release-artifact`. Endpoint stacks must stay out of the base `requirements.txt` runtime unless a later production import justifies moving the dependency.
 
+Endpoint procedure language must cite `manifests/nz_parliamentary_procedure_model.json` and fixture evidence in `fixtures/nz_parliamentary_procedure_samples.json`. Procedure-aware validation manifests must preserve `party_vote`, `personal_vote`, `question`, `supplementary_question`, `stage`, `ruling`, `interjection`, and `procedural_unit` categories, plus `authority_source_ids`, `uncertainty_status`, and `not_speech_turn_by_default`. Do not flatten procedural text into speech turns unless the category model allows it.
+
 Planned dependency groups by endpoint:
 
 - ParlaMint-NZ / TEI: `requirements/xml.txt`, `requirements/schema.txt`, `requirements/authority.txt`, `requirements/nlp.txt`

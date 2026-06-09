@@ -1,0 +1,316 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "generated_at": "2026-06-10",
+  "authority_source_ids": [
+    "nz-parliament-parliamentary-rules",
+    "nz-parliament-order-paper",
+    "nz-parliament-hansard-current",
+    "nz-parliament-daily-progress",
+    "nz-parliament-bills-current",
+    "nz-parliament-written-questions",
+    "nz-parliament-oral-questions"
+  ],
+  "procedural_categories": [
+    {
+      "category": "party_vote",
+      "description": "A vote where totals are reported by party or caucus grouping rather than by every individual member.",
+      "document_types": [
+        "Hansard - vote"
+      ],
+      "required_links": [
+        "document",
+        "sitting",
+        "motion",
+        "bill",
+        "party",
+        "vote"
+      ],
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-daily-progress",
+        "nz-parliament-bills-current",
+        "nz-parliament-parliamentary-rules"
+      ],
+      "uncertainty_fields": [
+        "vote_type_uncertainty_status",
+        "party_label_resolution_status",
+        "motion_scope_status"
+      ],
+      "not_speech_turn_by_default": true
+    },
+    {
+      "category": "personal_vote",
+      "description": "A vote where individual members are named and may include teller, proxy, or correction notes.",
+      "document_types": [
+        "Hansard - vote"
+      ],
+      "required_links": [
+        "document",
+        "sitting",
+        "motion",
+        "member",
+        "vote"
+      ],
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-daily-progress",
+        "nz-parliament-parliamentary-rules"
+      ],
+      "uncertainty_fields": [
+        "vote_type_uncertainty_status",
+        "member_resolution_status",
+        "correction_status"
+      ],
+      "not_speech_turn_by_default": true
+    },
+    {
+      "category": "question",
+      "description": "A primary oral or written parliamentary question, including the questioner, addressee or office where available, and answer context.",
+      "document_types": [
+        "Hansard - question"
+      ],
+      "required_links": [
+        "document",
+        "sitting",
+        "member",
+        "proceeding_item"
+      ],
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-written-questions",
+        "nz-parliament-oral-questions",
+        "nz-parliament-order-paper"
+      ],
+      "uncertainty_fields": [
+        "question_number_uncertainty_status",
+        "questioner_resolution_status",
+        "addressee_resolution_status"
+      ],
+      "not_speech_turn_by_default": false
+    },
+    {
+      "category": "supplementary_question",
+      "description": "A follow-up question inside a question proceeding, linked to the primary question and answer sequence.",
+      "document_types": [
+        "Hansard - question"
+      ],
+      "required_links": [
+        "document",
+        "sitting",
+        "member",
+        "proceeding_item"
+      ],
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-oral-questions",
+        "nz-parliament-parliamentary-rules"
+      ],
+      "uncertainty_fields": [
+        "parent_question_uncertainty_status",
+        "sequence_status",
+        "speaker_resolution_status"
+      ],
+      "not_speech_turn_by_default": false
+    },
+    {
+      "category": "stage",
+      "description": "A bill, motion, committee, reading, or procedural stage that changes the proceeding state.",
+      "document_types": [
+        "Hansard - debate",
+        "Hansard - vote"
+      ],
+      "required_links": [
+        "document",
+        "sitting",
+        "bill",
+        "motion",
+        "proceeding_item"
+      ],
+      "authority_source_ids": [
+        "nz-parliament-bills-current",
+        "nz-parliament-daily-progress",
+        "nz-parliament-hansard-current",
+        "nz-parliament-order-paper"
+      ],
+      "uncertainty_fields": [
+        "stage_label_uncertainty_status",
+        "bill_resolution_status",
+        "outcome_status"
+      ],
+      "not_speech_turn_by_default": true
+    },
+    {
+      "category": "ruling",
+      "description": "A Speaker, Chair, or presiding officer ruling or direction about procedure.",
+      "document_types": [
+        "Hansard - debate",
+        "Hansard - speech"
+      ],
+      "required_links": [
+        "document",
+        "sitting",
+        "member",
+        "proceeding_item"
+      ],
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-parliamentary-rules"
+      ],
+      "uncertainty_fields": [
+        "presiding_officer_uncertainty_status",
+        "ruling_scope_status",
+        "text_span_status"
+      ],
+      "not_speech_turn_by_default": false
+    },
+    {
+      "category": "interjection",
+      "description": "An interruption, aside, or short exchange that affects debate structure but is not automatically a validated speech turn.",
+      "document_types": [
+        "Hansard - debate",
+        "Hansard - speech"
+      ],
+      "required_links": [
+        "document",
+        "sitting",
+        "member",
+        "proceeding_item"
+      ],
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-parliamentary-rules"
+      ],
+      "uncertainty_fields": [
+        "speaker_resolution_status",
+        "interruption_scope_uncertainty_status",
+        "text_span_status"
+      ],
+      "not_speech_turn_by_default": true
+    },
+    {
+      "category": "procedural_unit",
+      "description": "A generic agenda or procedural segment such as points of order, adjournments, committee transitions, or grouped outcomes.",
+      "document_types": [
+        "Hansard - debate",
+        "Hansard - daily",
+        "Hansard - vote"
+      ],
+      "required_links": [
+        "document",
+        "sitting",
+        "proceeding_item"
+      ],
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-order-paper",
+        "nz-parliament-daily-progress",
+        "nz-parliament-parliamentary-rules"
+      ],
+      "uncertainty_fields": [
+        "unit_type_uncertainty_status",
+        "sequence_status",
+        "outcome_status"
+      ],
+      "not_speech_turn_by_default": true
+    }
+  ],
+  "component_links": [
+    "document",
+    "sitting",
+    "member",
+    "party",
+    "motion",
+    "bill",
+    "vote"
+  ],
+  "uncertainty_policy": {
+    "status_values": [
+      "validated",
+      "candidate",
+      "ambiguous",
+      "unresolved",
+      "excluded"
+    ],
+    "rule": "Procedure components must preserve uncertainty fields and authority-source references; surface text alone is candidate evidence, not authority."
+  },
+  "validation_requirements": [
+    "category",
+    "source_stable_id",
+    "text_span",
+    "authority_source_ids",
+    "uncertainty_status",
+    "component_links",
+    "document_type",
+    "not_speech_turn_by_default"
+  ],
+  "endpoint_mappings": [
+    {
+      "endpoint": "ParlaMint-NZ / TEI",
+      "track_id": "parlamint_nz_endpoint_20260609",
+      "mapped_categories": [
+        "question",
+        "supplementary_question",
+        "ruling",
+        "interjection",
+        "procedural_unit"
+      ],
+      "mapping_note": "Map NZ question and procedure structure to TEI events, notes, and utterance boundaries without flattening procedural text into speech turns.",
+      "required_validation": [
+        "speaker/member references resolve where validation asserts them",
+        "procedural text spans preserve source order"
+      ]
+    },
+    {
+      "endpoint": "Popolo / Open Civic Data",
+      "track_id": "popolo_opencivicdata_endpoint_20260609",
+      "mapped_categories": [
+        "party_vote",
+        "personal_vote",
+        "question",
+        "stage"
+      ],
+      "mapping_note": "Map voteable questions and outcomes to motion/vote structures with explicit party or individual vote type.",
+      "required_validation": [
+        "vote references a motion or procedural question through validation",
+        "party and member references remain unresolved unless authority-backed"
+      ]
+    },
+    {
+      "endpoint": "Akoma Ntoso",
+      "track_id": "akoma_ntoso_endpoint_20260609",
+      "mapped_categories": [
+        "stage",
+        "question",
+        "ruling",
+        "procedural_unit",
+        "party_vote",
+        "personal_vote"
+      ],
+      "mapping_note": "Map stages, questions, and rulings into legislative-document structure while preserving NZ-specific proceeding order.",
+      "required_validation": [
+        "bill and stage links cite validation authority sources",
+        "document hierarchy preserves source order"
+      ]
+    },
+    {
+      "endpoint": "CAP / ParlaCAP",
+      "track_id": "cap_parlacap_topic_endpoint_20260609",
+      "mapped_categories": [
+        "question",
+        "stage",
+        "procedural_unit"
+      ],
+      "mapping_note": "Exclude procedural boilerplate from topic-coded units unless a substantive proceeding item is linked.",
+      "required_validation": [
+        "topic targets use substantive validation units",
+        "procedural exclusions are counted separately"
+      ]
+    }
+  ],
+  "publication_guardrails": [
+    "Do not treat all procedural text as speech turns.",
+    "Do not infer validated voting records from surface text without procedural and authority validation.",
+    "Do not publish member, party, bill, motion, or vote links unless their authority_source_ids and uncertainty_status are recorded."
+  ]
+}

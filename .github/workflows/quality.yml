@@ -120,3 +120,6 @@ jobs:
 
       - name: Dependency extras policy
         run: python scripts\check_dependency_extras_policy.py
+
+      - name: NZ parliamentary procedure model
+        run: python scripts\check_nz_parliamentary_procedure_model.py

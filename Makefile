@@ -1,8 +1,8 @@
 PYTHON ?= python
 
-.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
+.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
 
-quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras test
+quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model test
 
 uv-lock:
 	uv lock --check
@@ -57,6 +57,9 @@ canonical-ids:
 
 dependency-extras:
 	$(PYTHON) scripts/check_dependency_extras_policy.py
+
+procedure-model:
+	$(PYTHON) scripts/check_nz_parliamentary_procedure_model.py
 
 lint:
 	$(PYTHON) -m ruff check --no-cache .

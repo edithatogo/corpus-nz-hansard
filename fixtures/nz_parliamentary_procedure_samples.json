@@ -1,0 +1,222 @@
+{
+  "fixture_version": 1,
+  "repository": "corpus-nz-hansard",
+  "reviewed_at": "2026-06-10",
+  "samples": [
+    {
+      "sample_id": "procedure-party-vote-01",
+      "category": "party_vote",
+      "document_type": "Hansard - vote",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 54,
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+        "parliament_document_id": "HansS_20240625_067140000"
+      },
+      "text_excerpt": "A party vote was called for on the question That the Land Transport (Clean Vehicle Standard) Amendment Bill be now read a second time. Ayes 68... Noes 48... Motion agreed to.",
+      "expected_component": {
+        "component_type": "procedure_component",
+        "links": [
+          "document",
+          "sitting",
+          "motion",
+          "bill",
+          "party",
+          "vote"
+        ],
+        "not_speech_turn": true
+      },
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-daily-progress",
+        "nz-parliament-bills-current",
+        "nz-parliament-parliamentary-rules"
+      ],
+      "uncertainty_status": "candidate",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual procedure fixture review against existing schema-discovery vote sample.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "procedure-personal-vote-01",
+      "category": "personal_vote",
+      "document_type": "Hansard - vote",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 54,
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+        "parliament_document_id": null
+      },
+      "text_excerpt": "A personal vote was called for on the question That the Sale and Supply of Alcohol (Harm Minimisation) Amendment Bill be now read a first time. Ayes 30... Noes 89... The result corrected after originally being announced...",
+      "expected_component": {
+        "component_type": "procedure_component",
+        "links": [
+          "document",
+          "sitting",
+          "motion",
+          "member",
+          "vote"
+        ],
+        "not_speech_turn": true
+      },
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-daily-progress",
+        "nz-parliament-parliamentary-rules"
+      ],
+      "uncertainty_status": "ambiguous",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual procedure fixture review of personal-vote correction boundary.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "procedure-question-01",
+      "category": "question",
+      "document_type": "Hansard - question",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "parliament_document_id": "47HansS_20050310_00000279"
+      },
+      "text_excerpt": "MARK PECK (Labour--Invercargill) to the Minister for State Owned Enterprises: Has he received any reports on the recent performance of Kiwibank?",
+      "expected_component": {
+        "component_type": "procedure_component",
+        "links": [
+          "document",
+          "sitting",
+          "member",
+          "proceeding_item"
+        ],
+        "not_speech_turn": false
+      },
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-written-questions",
+        "nz-parliament-oral-questions",
+        "nz-parliament-order-paper"
+      ],
+      "uncertainty_status": "candidate",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual procedure fixture review of question-time structure.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "procedure-stage-01",
+      "category": "stage",
+      "document_type": "Hansard - vote",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 54,
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+        "parliament_document_id": "HansS_20240625_067140000"
+      },
+      "text_excerpt": "Bill read a second time. SPEAKER: This bill is set down for committee stage immediately. I declare the House in committee...",
+      "expected_component": {
+        "component_type": "procedure_component",
+        "links": [
+          "document",
+          "sitting",
+          "bill",
+          "motion",
+          "proceeding_item"
+        ],
+        "not_speech_turn": true
+      },
+      "authority_source_ids": [
+        "nz-parliament-bills-current",
+        "nz-parliament-daily-progress",
+        "nz-parliament-hansard-current",
+        "nz-parliament-order-paper"
+      ],
+      "uncertainty_status": "candidate",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual procedure fixture review of bill-stage transition text.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "procedure-ruling-01",
+      "category": "ruling",
+      "document_type": "Hansard - speech",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 54,
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+        "parliament_document_id": null
+      },
+      "text_excerpt": "SPEAKER: The member will resume his seat. That is not a point of order.",
+      "expected_component": {
+        "component_type": "procedure_component",
+        "links": [
+          "document",
+          "sitting",
+          "member",
+          "proceeding_item"
+        ],
+        "not_speech_turn": false
+      },
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-parliamentary-rules"
+      ],
+      "uncertainty_status": "candidate",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual synthetic boundary fixture for ruling classification; requires source-span validation before publication.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "procedure-interjection-01",
+      "category": "interjection",
+      "document_type": "Hansard - debate",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 54,
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+        "parliament_document_id": null
+      },
+      "text_excerpt": "Hon Member: Oh!",
+      "expected_component": {
+        "component_type": "procedure_component",
+        "links": [
+          "document",
+          "sitting",
+          "member",
+          "proceeding_item"
+        ],
+        "not_speech_turn": true
+      },
+      "authority_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-parliamentary-rules"
+      ],
+      "uncertainty_status": "candidate",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual synthetic boundary fixture for interjection classification; requires source-span validation before publication.",
+        "model_generated_label": false
+      }
+    }
+  ]
+}
