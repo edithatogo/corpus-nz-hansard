@@ -59,3 +59,9 @@ Repo-side hardening applied:
 - Added `.github/workflows/scorecard.yml` for OpenSSF Scorecard on pull requests, pushes to `main`, weekly schedule, and manual dispatch.
 - Pinned `ossf/scorecard-action` to commit SHA `05b42c624433fc40578a4040d5cf5e36ddca8cde` after resolving the latest `v2.4.3` tag on 2026-06-09.
 - Both workflows use least-privilege permissions for read-only checkout plus the security-event or OIDC permissions required by their scanners. Scorecard keeps global permissions read-only and scopes required write permissions to the job so Scorecard result publication can verify the workflow.
+
+Verification:
+
+- GitHub Actions run `27208394000` passed `CodeQL` on commit `f40de818db77f1f567fcf8b42eae65dd4b912913`.
+- GitHub Actions run `27208394044` passed `OpenSSF Scorecard` on commit `f40de818db77f1f567fcf8b42eae65dd4b912913`.
+- GitHub Actions runs `27208394030` and `27208394054` also passed `Quality` and `Tests` on the same commit.
