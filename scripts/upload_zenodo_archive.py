@@ -136,6 +136,31 @@ class ZenodoDraftClient:
                 self.request("DELETE", file_url, headers=self.headers)
 
 
+class ZenodoDraftApi(Protocol):
+    def ensure_draft(
+        self,
+        deposition_id: str | None = None,
+        *,
+        create_new_version: bool = False,
+    ) -> dict[str, Any]: ...
+
+    def upload_file(self, deposition: dict[str, Any], path: Path) -> dict[str, Any]: ...
+
+    def delete_existing_files(self, deposition: dict[str, Any]) -> None: ...
+
+    def update_metadata(
+        self,
+        deposition_id: str,
+        *,
+        title: str,
+        creators: list[dict[str, Any]],
+        description: str,
+        version: str,
+        license_id: str,
+        related_identifiers: list[dict[str, Any]] | None = None,
+    ) -> dict[str, Any]: ...
+
+
 def upload_zenodo_archive(
     *,
     archive_path: Path,
@@ -146,7 +171,7 @@ def upload_zenodo_archive(
     deposition_id: str | None = None,
     create_new_version: bool = False,
     version: str = DEFAULT_VERSION,
-    client: ZenodoDraftClient | None = None,
+    client: ZenodoDraftApi | None = None,
 ) -> dict[str, Any]:
     """Create/update a Zenodo draft and upload files without publishing."""
     if not archive_path.exists():
@@ -154,18 +179,20 @@ def upload_zenodo_archive(
     if not manifest_path.exists():
         raise FileNotFoundError(f"Manifest not found: {manifest_path}")
 
-    client = client or ZenodoDraftClient(api_url=api_url, token=token)
-    draft = client.ensure_draft(
+    zenodo_client = (
+        client if client is not None else ZenodoDraftClient(api_url=api_url, token=token)
+    )
+    draft = zenodo_client.ensure_draft(
         deposition_id,
         create_new_version=create_new_version,
     )
     draft_id = str(draft["id"])
-    client.delete_existing_files(draft)
+    zenodo_client.delete_existing_files(draft)
     uploaded = [
-        client.upload_file(draft, archive_path),
-        client.upload_file(draft, manifest_path),
+        zenodo_client.upload_file(draft, archive_path),
+        zenodo_client.upload_file(draft, manifest_path),
     ]
-    metadata = client.update_metadata(
+    metadata = zenodo_client.update_metadata(
         draft_id,
         title="NZ Hansard Corpus",
         creators=creators,

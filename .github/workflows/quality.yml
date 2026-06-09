@@ -49,6 +49,9 @@ jobs:
       - name: Ruff format
         run: python -m ruff format --check --no-cache .
 
+      - name: Ty type check
+        run: ty check --error all .
+
       - name: Typos
         run: typos --config typos.toml
 

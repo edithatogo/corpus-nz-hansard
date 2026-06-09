@@ -64,7 +64,10 @@ def build_duckdb_database(
             "create index idx_hansard_parliament_number on hansard(parliament_number);"
         )
 
-        row_count = int(connection.execute("select count(*) from hansard").fetchone()[0])
+        row_count_result = connection.execute("select count(*) from hansard").fetchone()
+        if row_count_result is None:
+            raise RuntimeError("DuckDB row-count query did not return a row.")
+        row_count = int(row_count_result[0])
         columns = [row[1] for row in connection.execute("pragma table_info('hansard')").fetchall()]
         rows_by_source_file = _fetch_mapping(
             connection,

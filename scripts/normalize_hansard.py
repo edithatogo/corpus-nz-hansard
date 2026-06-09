@@ -219,7 +219,7 @@ def _csv_infos(archive: zipfile.ZipFile) -> Iterable[zipfile.ZipInfo]:
 
 def _member_reader(
     archive: zipfile.ZipFile, info: zipfile.ZipInfo
-) -> tuple[csv.DictReader, io.TextIOWrapper]:
+) -> tuple[csv.DictReader[str], io.TextIOWrapper]:
     with archive.open(info, "r") as prefix_stream:
         prefix = prefix_stream.read(min(info.file_size, 1024 * 1024))
     sample_text, encoding = _decode_sample(prefix)

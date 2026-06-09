@@ -65,7 +65,10 @@ class BuildDuckdbTest(unittest.TestCase):
         self.assertEqual(validation["rows_by_parliament_number"]["47"], 1)
 
         with duckdb.connect(str(database_path), read_only=True) as connection:
-            count = connection.execute("select count(*) from hansard").fetchone()[0]
+            count_result = connection.execute("select count(*) from hansard").fetchone()
+            self.assertIsNotNone(count_result)
+            assert count_result is not None
+            count = count_result[0]
             self.assertEqual(count, 2)
 
 

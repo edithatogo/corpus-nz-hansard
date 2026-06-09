@@ -7,6 +7,7 @@ import json
 import os
 from collections.abc import Mapping
 from dataclasses import dataclass
+from typing import Any, cast
 
 PUBLICATION_TARGETS = ("github", "huggingface", "zenodo")
 
@@ -54,7 +55,15 @@ def _check_creators_json(env: Mapping[str, str]) -> CheckResult:
             "Zenodo creator metadata must be a non-empty JSON array.",
         )
     for index, creator in enumerate(creators, start=1):
-        if not isinstance(creator, dict) or not str(creator.get("name", "")).strip():
+        if not isinstance(creator, dict):
+            return CheckResult(
+                "zenodo",
+                "ARCHIVE_CREATORS_JSON",
+                False,
+                f"Zenodo creator {index} must be an object with a non-empty name.",
+            )
+        creator_mapping = cast(Mapping[str, Any], creator)
+        if not str(creator_mapping.get("name", "")).strip():
             return CheckResult(
                 "zenodo",
                 "ARCHIVE_CREATORS_JSON",

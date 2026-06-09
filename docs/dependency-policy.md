@@ -31,7 +31,7 @@ Endpoint work should add grouped requirements or package extras rather than expa
 | `requirements/nlp.txt` | `spacy`, `stanza`, `conllu`, `pyconll` | NER, tokenization, UD/CoNLL-U, token alignment. |
 | `requirements/ml.txt` | `scikit-learn`, `transformers`, `sentence-transformers`, `bertopic` | Topic classification, embeddings, exploratory models. |
 | `requirements/metadata.txt` | `frictionless`, `rocrate`, `mlcroissant` | Frictionless Data Package, RO-Crate, Croissant metadata. |
-| `requirements/dev.txt` | `ruff`, `typos`, `zizmor`, `taplo` | CI quality, workflow-security linting, spelling, and TOML formatting. |
+| `requirements/dev.txt` | `ruff`, `ty`, `typos`, `zizmor`, `taplo` | CI quality, strict type checking, workflow-security linting, spelling, and TOML formatting. |
 
 ## Dependency Rules
 

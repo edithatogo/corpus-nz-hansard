@@ -30,11 +30,12 @@ Remaining follow-up:
 
 Repo-side hardening applied:
 
-- Added pinned dev requirements for `ruff==0.15.16`, `typos==1.47.2`, `zizmor==1.25.2`, and `taplo==0.9.3`.
+- Added pinned dev requirements for `ruff==0.15.16`, `ty==0.0.46`, `typos==1.47.2`, `zizmor==1.25.2`, and `taplo==0.9.3`.
 - Added pinned `actionlint` v1.7.12 Windows amd64 install in Quality CI, verified against SHA-256 `6e7241b51e6817ea6a047693d8e6fed13b31819c9a0dd6c5a726e1592d22f6e9`.
+- Added `.github/actionlint.yaml` so local and CI `actionlint` accept GitHub's `windows-2025-vs2026` runner label while upstream actionlint label metadata catches up.
 - Added `pyproject.toml` Ruff configuration and `typos.toml` spelling exclusions.
 - Added `.gitattributes` LF normalization for source and config files so Windows CI checkouts match Ruff formatting expectations.
-- Added `.github/workflows/quality.yml` for Ruff lint, Ruff format check, Typos, Zizmor workflow audit, and Taplo TOML format check.
+- Added `.github/workflows/quality.yml` for Ruff lint, Ruff format check, strict Ty type checking, Typos, Zizmor workflow audit, and Taplo TOML format check.
 - Hardened workflow checkout steps with `persist-credentials: false`, added explicit read-only permissions for the test workflow, and moved workflow-dispatch inputs out of shell template interpolation where Zizmor reported injection risk.
 
 Verification:
@@ -42,6 +43,7 @@ Verification:
 - Tool versions were checked from PyPI on 2026-06-09 before pinning.
 - `python -m ruff check --no-cache .` passed.
 - `python -m ruff format --check --no-cache .` passed.
+- `ty check --error all .` passed.
 - `typos --config typos.toml` passed.
 - `zizmor --min-severity medium .github/workflows` passed with no findings.
 - `taplo format --check pyproject.toml typos.toml` passed.

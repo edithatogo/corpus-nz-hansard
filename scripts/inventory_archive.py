@@ -8,14 +8,14 @@ import json
 import zipfile
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, BinaryIO
+from typing import IO, Any
 
 DEFAULT_ARCHIVE = Path("2024-09-06 Hansard Extract from DocumentsDB.zip")
 DEFAULT_OUTPUT = Path("manifests/source_inventory.json")
 BUFFER_SIZE = 1024 * 1024
 
 
-def _sha256_stream(stream: BinaryIO) -> str:
+def _sha256_stream(stream: IO[bytes]) -> str:
     digest = hashlib.sha256()
     for chunk in iter(lambda: stream.read(BUFFER_SIZE), b""):
         digest.update(chunk)

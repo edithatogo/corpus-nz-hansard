@@ -2,7 +2,7 @@
 
 ## Phase 1: Baseline comparison
 
-- [ ] Task 1.1: Compare Hansard tooling with the legislation baseline: `pyproject.toml`, `uv.lock`, `src/`, Typer CLI, pytest, ruff, mypy, pre-commit, Renovate, CodeQL, Scorecard.
+- [ ] Task 1.1: Compare Hansard tooling with the legislation baseline: `pyproject.toml`, `uv.lock`, `src/`, Typer CLI, pytest, ruff, `ty`, pre-commit, Renovate, CodeQL, Scorecard.
 - [ ] Task 1.2: Identify backwards-compatible wrapper strategy for existing scripts.
 - [ ] Task 1.3: Define target CLI commands for `nz_hansard_corpus` or equivalent.
 

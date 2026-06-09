@@ -60,15 +60,16 @@ def upload_huggingface_dataset(
     if not (folder / "data" / "hansard.parquet").exists():
         raise FileNotFoundError(f"Staged Parquet not found under: {folder / 'data'}")
 
-    api = api or HfApi(token=token)
-    api.create_repo(
+    api_was_injected = api is not None
+    hf_api = api if api is not None else HfApi(token=token)
+    hf_api.create_repo(
         repo_id=repo_id,
         repo_type="dataset",
         private=private,
         exist_ok=True,
         token=token,
     )
-    api.update_repo_settings(
+    hf_api.update_repo_settings(
         repo_id=repo_id,
         repo_type="dataset",
         private=private,
@@ -77,11 +78,7 @@ def upload_huggingface_dataset(
     )
 
     local_manifest = _read_local_manifest(folder)
-    remote_manifest = (
-        None
-        if api is not None and type(api).__name__ != "HfApi"
-        else _remote_manifest(repo_id, token, revision)
-    )
+    remote_manifest = None if api_was_injected else _remote_manifest(repo_id, token, revision)
     if not force and local_manifest and remote_manifest and local_manifest == remote_manifest:
         return {
             "repo_id": repo_id,
@@ -92,7 +89,7 @@ def upload_huggingface_dataset(
             "url": f"https://huggingface.co/datasets/{repo_id}/tree/{revision}",
         }
 
-    api.upload_folder(
+    hf_api.upload_folder(
         repo_id=repo_id,
         repo_type="dataset",
         folder_path=str(folder),

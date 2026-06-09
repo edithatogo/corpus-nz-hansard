@@ -9,4 +9,4 @@
 
 ## Goal
 
-Adopt SOTA CI/code-quality automation using Rust-backed tools where possible: uv, ruff, typos, zizmor, taplo, plus actionlint.
+Adopt SOTA CI/code-quality automation using Rust-backed tools where possible: uv, ruff, ty, typos, zizmor, taplo, plus actionlint.

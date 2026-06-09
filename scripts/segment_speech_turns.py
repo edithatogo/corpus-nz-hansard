@@ -134,7 +134,8 @@ def run_segmentation(
                 else:
                     documents_without_turns += 1
                 for turn_index, turn in enumerate(turns, start=1):
-                    output_row = {
+                    speech_text = turn["speech_text"]
+                    output_row: dict[str, Any] = {
                         "parliament_document_id": row.get("parliament_document_id"),
                         "parliament_number": row.get("parliament_number"),
                         "document_type": row.get("document_type"),
@@ -151,7 +152,7 @@ def run_segmentation(
                             {
                                 "parliament_document_id": output_row["parliament_document_id"],
                                 "speaker_candidate": output_row["speaker_candidate"],
-                                "speech_text_prefix": output_row["speech_text"][:160],
+                                "speech_text_prefix": speech_text[:160],
                             }
                         )
                     batch.append(output_row)

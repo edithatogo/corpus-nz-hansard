@@ -47,7 +47,7 @@ def _decode_sample(raw: bytes) -> tuple[str, str]:
     return raw.decode("latin-1", errors="replace"), "latin-1"
 
 
-def _sniff_dialect(text: str) -> csv.Dialect:
+def _sniff_dialect(text: str) -> Any:
     try:
         return csv.Sniffer().sniff(text, delimiters=DELIMITERS)
     except csv.Error:

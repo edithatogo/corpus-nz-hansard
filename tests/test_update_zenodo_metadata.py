@@ -64,6 +64,10 @@ class FakeZenodoMetadataClient:
         self.calls.append(("put_metadata", deposition_id, metadata))
         return {"id": deposition_id, "metadata": metadata}
 
+    def get_record(self, record_id):
+        self.calls.append(("get_record", record_id))
+        return {"id": record_id, "metadata": {}}
+
 
 class UpdateZenodoMetadataTest(unittest.TestCase):
     def test_update_zenodo_metadata_adds_cross_references_without_publishing(self):
@@ -157,7 +161,10 @@ class UpdateZenodoMetadataTest(unittest.TestCase):
         self.assertEqual(session.calls, 2)
 
     def test_update_zenodo_metadata_falls_back_to_public_record_on_transient_get_failure(self):
-        class FallbackClient(FakeZenodoMetadataClient):
+        class FallbackClient:
+            def __init__(self):
+                self.calls = []
+
             def get_deposition(self, deposition_id):
                 response = requests.Response()
                 response.status_code = 504
@@ -179,6 +186,10 @@ class UpdateZenodoMetadataTest(unittest.TestCase):
             def edit_deposition(self, deposition_id):
                 self.calls.append(("edit_deposition", deposition_id))
                 return {}
+
+            def put_metadata(self, deposition_id, metadata):
+                self.calls.append(("put_metadata", deposition_id, metadata))
+                return {"id": deposition_id, "metadata": metadata}
 
         client = FallbackClient()
 

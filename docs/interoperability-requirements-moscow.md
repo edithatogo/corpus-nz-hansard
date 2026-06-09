@@ -99,7 +99,7 @@ Additional MoSCoW requirements for the corpus family:
 
 ### Should
 
-- Use the legislation project as the engineering/tooling baseline for package structure, `uv`, pytest, ruff, mypy, pre-commit, CodeQL, Scorecard, Renovate, and protected Zenodo workflows.
+- Use the legislation project as the engineering/tooling baseline for package structure, `uv`, pytest, ruff, `ty`, pre-commit, CodeQL, Scorecard, Renovate, and protected Zenodo workflows.
 - Add sibling-corpus links on GitHub, Hugging Face, and Zenodo where metadata formats allow.
 - Add Croissant, RO-Crate, Frictionless, DCAT, and PROV-O metadata as generated artifacts once release metadata stabilises.
 

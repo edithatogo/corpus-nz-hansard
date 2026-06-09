@@ -150,6 +150,23 @@ class ZenodoMetadataClient:
         )
 
 
+class ZenodoMetadataApi(Protocol):
+    def get_deposition(self, deposition_id: str) -> dict[str, Any]: ...
+
+    def get_record(self, record_id: str) -> dict[str, Any]: ...
+
+    def edit_deposition(self, deposition_id: str) -> dict[str, Any]: ...
+
+    def put_metadata(self, deposition_id: str, metadata: dict[str, Any]) -> dict[str, Any]: ...
+
+
+def _metadata_from_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    metadata = payload.get("metadata", {})
+    if not isinstance(metadata, dict):
+        raise RuntimeError("Zenodo response metadata was not an object.")
+    return dict(metadata)
+
+
 def update_zenodo_metadata(
     *,
     deposition_id: str,
@@ -157,7 +174,7 @@ def update_zenodo_metadata(
     api_url: str = DEFAULT_API_URL,
     description: str = DEFAULT_DESCRIPTION,
     related_identifiers: list[dict[str, str]] | None = None,
-    client: ZenodoMetadataClient | None = None,
+    client: ZenodoMetadataApi | None = None,
 ) -> dict[str, Any]:
     client = client or ZenodoMetadataClient(api_url=api_url, token=token)
     try:
@@ -170,16 +187,16 @@ def update_zenodo_metadata(
         deposition = {
             "id": deposition_id,
             "submitted": True,
-            "metadata": record.get("metadata", {}),
+            "metadata": _metadata_from_payload(record),
         }
 
-    metadata = dict(deposition.get("metadata", {}))
+    metadata = _metadata_from_payload(deposition)
     if not metadata:
         raise RuntimeError("Zenodo deposition did not include editable metadata.")
 
     if deposition.get("submitted"):
         editable = client.edit_deposition(deposition_id)
-        editable_metadata = editable.get("metadata", {}) if editable else {}
+        editable_metadata = _metadata_from_payload(editable) if editable else {}
         if editable_metadata:
             metadata = dict(editable_metadata)
 

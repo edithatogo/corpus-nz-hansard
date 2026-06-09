@@ -25,7 +25,7 @@ Link: [conductor/tracks/bleeding_edge_versioning_release_automation_20260609/](.
 
 Track ID: `sota_cicd_code_quality_rust_tooling_20260609`
 
-Goal: Adopt SOTA CI/code-quality automation using Rust-backed tools where possible: uv, ruff, typos, zizmor, taplo, plus actionlint.
+Goal: Adopt SOTA CI/code-quality automation using Rust-backed tools where possible: uv, ruff, ty, typos, zizmor, taplo, plus actionlint.
 
 Link: [conductor/tracks/sota_cicd_code_quality_rust_tooling_20260609/](./tracks/sota_cicd_code_quality_rust_tooling_20260609/)
 

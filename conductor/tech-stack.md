@@ -80,13 +80,13 @@ Future Zenodo draft/archive workflow changes should use or formally evaluate htt
 
 ## Bleeding-edge automation target
 
-The corpus-family target is documented in `docs/bleeding-edge-versioning-ci-quality.md`. Prefer Rust-backed tooling where practical: `uv` for Python dependency management, `ruff` for lint/format/imports, `typos` for spelling/identifier checks, `zizmor` for GitHub Actions security linting, `taplo` for TOML linting, and local `ripgrep` for maintenance audits. Retain best-in-class non-Rust tools where needed, including `mypy` or `pyright`, CodeQL, OpenSSF Scorecard, Renovate, and `actionlint`.
+The corpus-family target is documented in `docs/bleeding-edge-versioning-ci-quality.md`. Prefer Rust-backed tooling where practical: `uv` for Python dependency management, `ruff` for lint/format/imports, `ty` for Python type checking, `typos` for spelling/identifier checks, `zizmor` for GitHub Actions security linting, `taplo` for TOML linting, and local `ripgrep` for maintenance audits. Retain best-in-class non-Rust tools where needed, including CodeQL, OpenSSF Scorecard, Renovate, and `actionlint`.
 
 Release automation should separate code/package versions, dataset versions, schema versions, Hugging Face revisions, Zenodo DOI snapshots, and manifest hashes. Zenodo draft workflows should use or formally evaluate `https://github.com/zenodraft/zenodraft`.
 
 ## Transitional packaging note
 
-`requirements.txt` remains the current runtime input until the engineering-alignment track migrates Hansard to `pyproject.toml`, `uv.lock`, `src/nz_hansard_corpus`, a Typer CLI, pytest, ruff, mypy/pyright, pre-commit, Renovate, CodeQL, Scorecard, and Rust-backed quality tooling. Treat `requirements.txt` as transitional, not the long-term standard.
+`requirements.txt` remains the current runtime input until the engineering-alignment track migrates Hansard to `pyproject.toml`, `uv.lock`, `src/nz_hansard_corpus`, a Typer CLI, pytest, ruff, `ty`, pre-commit, Renovate, CodeQL, Scorecard, and Rust-backed quality tooling. Treat `requirements.txt` as transitional, not the long-term standard.
 
 ## Arrow and Polars baseline
 

@@ -41,12 +41,16 @@ class ZenodoPublishClient:
         )
 
 
+class ZenodoPublishApi(Protocol):
+    def publish(self, deposition_id: str) -> dict[str, Any]: ...
+
+
 def publish_zenodo_deposition(
     *,
     deposition_id: str,
     token: str,
     api_url: str = DEFAULT_API_URL,
-    client: ZenodoPublishClient | None = None,
+    client: ZenodoPublishApi | None = None,
 ) -> dict[str, Any]:
     client = client or ZenodoPublishClient(api_url=api_url, token=token)
     publication = client.publish(deposition_id)
