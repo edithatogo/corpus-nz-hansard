@@ -68,6 +68,16 @@ configs:
 
 This constrains Hugging Face Datasets auto-detection so downloadable JSON manifests under `manifests/` are not treated as viewer splits.
 
+Use the same corpus-family pattern for `corpus-nz-hansard` and the sibling `corpus-nz-legislation` dataset: only viewer data belongs in explicit `configs[].data_files`, while manifests, schemas, docs, `CITATION.cff`, `NOTICE.md`, and other public-surface assets remain downloadable but outside viewer split detection.
+
+After publication, verify the datasets-server surface:
+
+```powershell
+Invoke-RestMethod "https://datasets-server.huggingface.co/splits?dataset=edithatogo/nz-hansard-corpus"
+Invoke-RestMethod "https://datasets-server.huggingface.co/first-rows?dataset=edithatogo/nz-hansard-corpus&config=default&split=train"
+Invoke-RestMethod "https://datasets-server.huggingface.co/parquet?dataset=edithatogo/nz-hansard-corpus"
+```
+
 ## Upload
 
 After `hf auth login` or `HF_TOKEN` is configured:

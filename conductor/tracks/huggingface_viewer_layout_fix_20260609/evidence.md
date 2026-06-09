@@ -68,3 +68,29 @@ Live datasets-server readback:
 - `https://datasets-server.huggingface.co/parquet?dataset=edithatogo/nz-hansard-corpus` discovers a converted Parquet file for config `default`, split `train`.
 
 Result: the confirmed viewer/file-layout defect is fixed on the live Hugging Face surface.
+
+## Completion Verification And Corpus-Family Layout Note - 2026-06-10
+
+Status: complete.
+
+Repo-side completion updates:
+
+- `DATASET_CARD.md` now links the corpus-family sibling `corpus-nz-legislation`, published today as `https://huggingface.co/datasets/edithatogo/nz-legislation-corpus`.
+- `DATASET_CARD.md` documents the corpus-family Hugging Face layout pattern: only viewer data is listed in explicit `configs[].data_files`, while docs/manifests/schemas remain downloadable assets outside viewer split detection.
+- `docs/HUGGINGFACE_SETUP.md` records the same layout pattern for `corpus-nz-hansard` and `corpus-nz-legislation`.
+- `tests/test_stage_huggingface_dataset.py` now asserts that the staged card keeps the explicit viewer config and sibling/layout wording.
+
+Current live Hugging Face readback:
+
+- Dataset API reports `private=false`, `gated=false`, repository SHA `4d7ae9d560787c50588dfbdefad509165bc779d1`.
+- `cardData.configs[0].config_name=default`.
+- `cardData.configs[0].data_files[0].split=train`.
+- `cardData.configs[0].data_files[0].path=data/hansard.parquet`.
+- `https://datasets-server.huggingface.co/splits?dataset=edithatogo/nz-hansard-corpus` reports `default:train`.
+- `https://datasets-server.huggingface.co/first-rows?dataset=edithatogo/nz-hansard-corpus&config=default&split=train` returns 32 preview rows with the expected document-level schema fields.
+- `https://datasets-server.huggingface.co/parquet?dataset=edithatogo/nz-hansard-corpus` returns one converted parquet file for config `default`, split `train`, file `0000.parquet`, size `331020366`, with `pending=[]`, `failed=[]`, and `partial=false`.
+
+Validation:
+
+- `python -m unittest tests.test_stage_huggingface_dataset` passed.
+- `make quality` passed with uv lock check, frozen sync, Ruff, Ruff format, ty strict type check, typos, zizmor, taplo, actionlint, quality configuration, release provenance policy, release version consistency, public-surface audit, and 48 unit tests.

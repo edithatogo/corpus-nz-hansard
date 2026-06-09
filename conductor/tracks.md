@@ -21,14 +21,6 @@ Goal: Adopt SOTA CI/code-quality automation using Rust-backed tools where possib
 
 Link: [conductor/tracks/sota_cicd_code_quality_rust_tooling_20260609/](./tracks/sota_cicd_code_quality_rust_tooling_20260609/)
 
-### [ ] Track: Hugging Face Viewer Layout Fix
-
-Track ID: `huggingface_viewer_layout_fix_20260609`
-
-Goal: Verify and fix any confirmed Hugging Face viewer split/cast or file-layout issue, then add layout regression checks.
-
-Link: [conductor/tracks/huggingface_viewer_layout_fix_20260609/](./tracks/huggingface_viewer_layout_fix_20260609/)
-
 ### [ ] Track: Zenodo Rights Metadata And Zenodraft Workflow
 
 Track ID: `zenodo_rights_metadata_and_zenodraft_workflow_20260609`
@@ -230,6 +222,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Hugging Face Viewer Layout Fix
+
+Track ID: `huggingface_viewer_layout_fix_20260609`
+
+Goal: Verify and fix any confirmed Hugging Face viewer split/cast or file-layout issue, then add layout regression checks.
+
+Link: [conductor/tracks/huggingface_viewer_layout_fix_20260609/](./tracks/huggingface_viewer_layout_fix_20260609/)
 
 ### [x] Track: Public Surface Audit Evidence
 

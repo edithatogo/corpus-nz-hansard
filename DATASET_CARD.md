@@ -42,6 +42,7 @@ This card describes the published canonical document-level dataset. Publication 
 - DOI: `https://doi.org/10.5281/zenodo.20595194`
 - GitHub repository: `https://github.com/edithatogo/corpus-nz-hansard`
 - GitHub release: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`
+- Corpus-family sibling: `corpus-nz-legislation`, published today as `https://huggingface.co/datasets/edithatogo/nz-legislation-corpus`
 
 ## Source
 
@@ -68,6 +69,8 @@ Hugging Face viewer configuration:
 - Split: `train`
 - Data file: `data/hansard.parquet`
 - Downloadable documentation, manifests, and schemas are intentionally excluded from viewer split detection.
+
+This is the corpus-family Hugging Face layout pattern: place only viewer data under explicit `configs[].data_files`, keep manifests/schemas/docs as downloadable assets, and verify datasets-server `splits`, `first-rows`, and `parquet` endpoints after publication.
 
 Columns:
 

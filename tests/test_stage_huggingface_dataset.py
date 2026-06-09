@@ -30,7 +30,9 @@ class StageHuggingFaceDatasetTest(unittest.TestCase):
                 "      - split: train\n"
                 "        path: data/hansard.parquet\n"
                 "---\n"
-                "# Card"
+                "# Card\n\n"
+                "This is the corpus-family Hugging Face layout pattern for "
+                "`corpus-nz-hansard` and `corpus-nz-legislation`."
             ),
             "README.md": "# Repo",
             "CITATION.cff": "doi: 10.5281/zenodo.20591997",
@@ -61,6 +63,8 @@ class StageHuggingFaceDatasetTest(unittest.TestCase):
         self.assertIn("config_name: default", readme)
         self.assertIn("split: train", readme)
         self.assertIn("path: data/hansard.parquet", readme)
+        self.assertIn("corpus-family Hugging Face layout pattern", readme)
+        self.assertIn("corpus-nz-legislation", readme)
         self.assertTrue((staged / "CITATION.cff").exists())
         self.assertTrue((staged / "LICENSE").exists())
         self.assertTrue((staged / "NOTICE.md").exists())
