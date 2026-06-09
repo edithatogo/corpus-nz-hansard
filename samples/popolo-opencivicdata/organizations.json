@@ -1,0 +1,27 @@
+[
+  {
+    "classification": "party",
+    "id": "nzhc-component-0000000000000004",
+    "identifiers": [
+      {
+        "identifier": "nzhc-component-0000000000000004",
+        "scheme": "nzhc-component"
+      }
+    ],
+    "name": "Example Party",
+    "other_names": [
+      {
+        "name": "Example"
+      }
+    ],
+    "provenance": {
+      "authority_source_id": "nz-parliament-parties-current"
+    },
+    "sources": [
+      {
+        "id": "nz-parliament-parties-current"
+      }
+    ],
+    "validation_status": "candidate"
+  }
+]

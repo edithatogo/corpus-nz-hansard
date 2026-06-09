@@ -1,8 +1,8 @@
 PYTHON ?= python
 
-.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components parlamint-nz lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
+.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components parlamint-nz popolo-ocd lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
 
-quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components parlamint-nz test
+quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components parlamint-nz popolo-ocd test
 
 uv-lock:
 	uv lock --check
@@ -66,6 +66,9 @@ neutral-components:
 
 parlamint-nz:
 	$(PYTHON) scripts/check_parlamint_nz_endpoint.py
+
+popolo-ocd:
+	$(PYTHON) scripts/check_popolo_opencivicdata_endpoint.py
 
 lint:
 	$(PYTHON) -m ruff check --no-cache .

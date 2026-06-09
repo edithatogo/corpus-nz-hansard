@@ -102,6 +102,8 @@ Upstream path:
 
 Target users: civic technology, member-history, and voting-record consumers.
 
+Current implementation surface: `samples/popolo-opencivicdata/people.json`, `samples/popolo-opencivicdata/organizations.json`, `samples/popolo-opencivicdata/memberships.json`, `samples/popolo-opencivicdata/motions.json`, `samples/popolo-opencivicdata/vote-events.json`, `samples/popolo-opencivicdata/votes.jsonl`, `samples/popolo-opencivicdata/speeches.jsonl`, `docs/popolo-opencivicdata-mapping.md`, and `manifests/popolo_opencivicdata_validation_manifest.json`. The sample package is `sample-not-release`; readiness remains `blocked-pending-validated-components` until member identity, party attribution, vote/motion extraction, and speech-turn validation produce validated component metadata. The sample distinguishes `party_vote` organization rows from future individual `person` vote rows.
+
 Inputs:
 
 - member components

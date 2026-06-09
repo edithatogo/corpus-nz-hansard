@@ -1,0 +1,26 @@
+[
+  {
+    "classification": "party_vote",
+    "counts": {
+      "abstentions": null,
+      "ayes": 68,
+      "noes": 48
+    },
+    "id": "nzhc-component-0000000000000007",
+    "motion_id": "nzhc-component-0000000000000006",
+    "provenance": {
+      "procedure_sample_id": "procedure-party-vote-01"
+    },
+    "result": "Motion agreed to",
+    "source_stable_id": "HansS_20240625_067140000",
+    "sources": [
+      {
+        "id": "nz-parliament-hansard-current"
+      },
+      {
+        "id": "nz-parliament-daily-progress"
+      }
+    ],
+    "validation_status": "candidate"
+  }
+]

@@ -182,6 +182,13 @@
       "next_gate": "sample-not-release; promote only after member identity, party attribution, speech-turn validation, and full ParlaMint schema validation pass"
     },
     {
+      "artifact": "Popolo / Open Civic Data sample package",
+      "path": "samples/popolo-opencivicdata",
+      "release_level": "upstream-contribution",
+      "status": "planned",
+      "next_gate": "sample-not-release; promote only after member identity, party attribution, vote/motion extraction, speech-turn validation, and maintainer agreement"
+    },
+    {
       "artifact": "metadata packages",
       "path": "generated/metadata",
       "release_level": "endpoint",

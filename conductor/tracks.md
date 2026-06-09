@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Popolo / Open Civic Data Endpoint
-
-Track ID: `popolo_opencivicdata_endpoint_20260609`
-
-Goal: generate civic-data member, party, membership, speech, motion, and vote artifacts compatible with Popolo/Open Civic Data patterns.
-
-Link: [conductor/tracks/popolo_opencivicdata_endpoint_20260609/](./tracks/popolo_opencivicdata_endpoint_20260609/)
-
 ### [ ] Track: Akoma Ntoso Endpoint
 
 Track ID: `akoma_ntoso_endpoint_20260609`
@@ -94,6 +86,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Popolo / Open Civic Data Endpoint
+
+Track ID: `popolo_opencivicdata_endpoint_20260609`
+
+Goal: Generated a Popolo/Open Civic Data maintainer-review sample package, mapping notes, validation manifest, checker, and readiness boundary without inferring full voting records from text patterns alone.
+
+Link: [conductor/tracks/popolo_opencivicdata_endpoint_20260609/](./tracks/popolo_opencivicdata_endpoint_20260609/)
 
 ### [x] Track: ParlaMint-NZ Endpoint
 

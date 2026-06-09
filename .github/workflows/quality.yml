@@ -129,3 +129,6 @@ jobs:
 
       - name: ParlaMint-NZ endpoint
         run: python scripts\check_parlamint_nz_endpoint.py
+
+      - name: Popolo Open Civic Data endpoint
+        run: python scripts\check_popolo_opencivicdata_endpoint.py

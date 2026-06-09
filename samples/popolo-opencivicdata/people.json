@@ -1,0 +1,26 @@
+[
+  {
+    "id": "nzhc-component-0000000000000003",
+    "identifiers": [
+      {
+        "identifier": "nzhc-component-0000000000000003",
+        "scheme": "nzhc-component"
+      }
+    ],
+    "name": "Example Member",
+    "other_names": [
+      {
+        "name": "Hon Example Member"
+      }
+    ],
+    "provenance": {
+      "authority_source_id": "nz-parliament-members-current"
+    },
+    "sources": [
+      {
+        "id": "nz-parliament-members-current"
+      }
+    ],
+    "validation_status": "candidate"
+  }
+]

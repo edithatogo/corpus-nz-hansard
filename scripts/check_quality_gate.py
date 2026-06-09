@@ -45,6 +45,7 @@ REQUIRED_QUALITY_SNIPPETS = (
     "python scripts\\check_nz_parliamentary_procedure_model.py",
     "python scripts\\check_neutral_component_model.py",
     "python scripts\\check_parlamint_nz_endpoint.py",
+    "python scripts\\check_popolo_opencivicdata_endpoint.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
@@ -70,6 +71,7 @@ REQUIRED_MAKE_TARGETS = (
     "procedure-model:",
     "neutral-components:",
     "parlamint-nz:",
+    "popolo-ocd:",
     "lint:",
     "format-check:",
     "typecheck:",
