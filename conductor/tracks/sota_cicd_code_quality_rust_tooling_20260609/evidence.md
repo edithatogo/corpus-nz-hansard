@@ -10,7 +10,7 @@ This track implements the corpus-family bleeding-edge versioning, CI/CD, code-qu
 
 Repo-side hardening applied:
 
-- Replaced `windows-latest` with explicit `windows-2025` across all workflows to avoid runner-image redirect drift.
+- Replaced `windows-latest` with explicit `windows-2025-vs2026` across all workflows to avoid runner-image redirect drift. This incorporates the 2026-06-09 GitHub Actions notice that `windows-2025` requests are being redirected to `windows-2025-vs2026` by 2026-06-15.
 - Updated `actions/checkout` from mutable `v4` to pinned `v6.0.3` commit SHA `df4cb1c069e1874edd31b4311f1884172cec0e10`.
 - Updated `actions/setup-python` from mutable `v5` to pinned `v6.2.0` SHA `a309ff8b426b58ec0e2a45f0f869d46889d02405`.
 - Updated `actions/upload-artifact` from mutable `v4` to pinned `v7.0.1` SHA `043fb46d1a93c77aae656e7c1c64a875d1fc6a0a`.
