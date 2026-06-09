@@ -3,6 +3,8 @@
 ## Tasks
 
 - [ ] Define current state and target state.
+- [ ] Define the release evidence ledger schema and required fields.
+- [ ] Map artifact classes to provenance strategy: GitHub artifact attestation, SLSA-style provenance, signed checksum, or documented deferral.
 - [ ] Add/update CI checks with least-privilege permissions.
 - [ ] Add/update local commands or Makefile targets.
 - [ ] Add documentation consistency and release evidence checks.
@@ -14,6 +16,7 @@
 
 - [ ] `uv` frozen install/lock checks.
 - [ ] `ruff check` and `ruff format --check`.
+- [ ] `ty check` with strict rules for Python modules and scripts.
 - [ ] `typos` spelling/identifier check.
 - [ ] `zizmor` workflow security audit.
 - [ ] `taplo` TOML formatting/linting where TOML config exists.
