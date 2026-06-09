@@ -1,0 +1,287 @@
+{
+  "fixture_version": 1,
+  "repository": "corpus-nz-hansard",
+  "reviewed_at": "2026-06-10",
+  "components": {
+    "sittings": [
+      {
+        "component_id": "nzhc-component-0000000000000001",
+        "component_type": "sitting",
+        "sitting_id": "nzhc-component-0000000000000001",
+        "sitting_date": "2024-06-25",
+        "parliament_number": 54,
+        "house_or_chamber": "House of Representatives",
+        "source_status": "candidate",
+        "derived_from": [
+          "manifests/schema_discovery.json",
+          "manifests/authority_sources.json"
+        ],
+        "derivation_method": "manual-fixture",
+        "derivation_version": "neutral-component-model-20260610",
+        "validation_status": "candidate",
+        "provenance": {
+          "source": "fixture",
+          "release_version": "0.1.0"
+        },
+        "authority_source_ids": [
+          "nz-parliament-hansard-current",
+          "nz-parliament-daily-progress"
+        ]
+      }
+    ],
+    "proceeding_items": [
+      {
+        "component_id": "nzhc-component-0000000000000002",
+        "component_type": "proceeding_item",
+        "proceeding_item_id": "nzhc-component-0000000000000002",
+        "sitting_id": "nzhc-component-0000000000000001",
+        "source_stable_id": "HansS_20240625_067140000",
+        "item_type": "vote",
+        "title": "Land Transport (Clean Vehicle Standard) Amendment Bill - second reading",
+        "order_index": 1,
+        "text_span": {
+          "selector_type": "text_quote",
+          "exact": "A party vote was called for on the question"
+        },
+        "derived_from": [
+          "manifests/schema_discovery.json"
+        ],
+        "derivation_method": "manual-fixture",
+        "derivation_version": "neutral-component-model-20260610",
+        "validation_status": "candidate",
+        "provenance": {
+          "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+          "release_version": "0.1.0"
+        },
+        "authority_source_ids": [
+          "nz-parliament-hansard-current"
+        ]
+      }
+    ],
+    "members": [
+      {
+        "component_id": "nzhc-component-0000000000000003",
+        "component_type": "member",
+        "member_id": "nzhc-component-0000000000000003",
+        "display_name": "Example Member",
+        "canonical_name": "Example Member",
+        "aliases": [
+          "Hon Example Member"
+        ],
+        "authority_source": "nz-parliament-members-current",
+        "authority_url": "https://www3.parliament.nz/en/mps-and-electorates/members-of-parliament/",
+        "service_periods": [
+          {
+            "start_date": "2023-10-14",
+            "end_date": null,
+            "parliament_number": 54
+          }
+        ],
+        "derived_from": [
+          "manifests/authority_sources.json"
+        ],
+        "derivation_method": "manual-fixture",
+        "derivation_version": "neutral-component-model-20260610",
+        "validation_status": "candidate",
+        "provenance": {
+          "authority_source_id": "nz-parliament-members-current"
+        },
+        "authority_source_ids": [
+          "nz-parliament-members-current"
+        ]
+      }
+    ],
+    "parties": [
+      {
+        "component_id": "nzhc-component-0000000000000004",
+        "component_type": "party",
+        "party_id": "nzhc-component-0000000000000004",
+        "party_name": "Example Party",
+        "party_aliases": [
+          "Example"
+        ],
+        "authority_source": "nz-parliament-parties-current",
+        "authority_url": "https://www3.parliament.nz/en/mps-and-electorates/political-parties/",
+        "derived_from": [
+          "manifests/authority_sources.json"
+        ],
+        "derivation_method": "manual-fixture",
+        "derivation_version": "neutral-component-model-20260610",
+        "validation_status": "candidate",
+        "provenance": {
+          "authority_source_id": "nz-parliament-parties-current"
+        },
+        "authority_source_ids": [
+          "nz-parliament-parties-current"
+        ]
+      }
+    ],
+    "speech_turns": [
+      {
+        "component_id": "nzhc-component-0000000000000005",
+        "component_type": "speech_turn",
+        "speech_turn_id": "nzhc-component-0000000000000005",
+        "source_stable_id": "HansS_20240625_067140000",
+        "proceeding_item_id": "nzhc-component-0000000000000002",
+        "speaker_member_id": "nzhc-component-0000000000000003",
+        "speaker_raw": "SPEAKER",
+        "speech_text": "This bill is set down for committee stage immediately.",
+        "text_span": {
+          "selector_type": "text_quote",
+          "exact": "This bill is set down for committee stage immediately."
+        },
+        "turn_order": 1,
+        "speaker_resolution_status": "candidate",
+        "derived_from": [
+          "manifests/speech_turn_segmentation_validation.json"
+        ],
+        "derivation_method": "manual-fixture",
+        "derivation_version": "neutral-component-model-20260610",
+        "validation_status": "candidate",
+        "provenance": {
+          "source_stable_id": "HansS_20240625_067140000"
+        },
+        "authority_source_ids": [
+          "nz-parliament-hansard-current"
+        ]
+      }
+    ],
+    "motions": [
+      {
+        "component_id": "nzhc-component-0000000000000006",
+        "component_type": "motion",
+        "motion_id": "nzhc-component-0000000000000006",
+        "source_stable_id": "HansS_20240625_067140000",
+        "motion_text": "That the Land Transport (Clean Vehicle Standard) Amendment Bill be now read a second time.",
+        "proceeding_item_id": "nzhc-component-0000000000000002",
+        "motion_scope_status": "candidate",
+        "derived_from": [
+          "fixtures/nz_parliamentary_procedure_samples.json"
+        ],
+        "derivation_method": "manual-fixture",
+        "derivation_version": "neutral-component-model-20260610",
+        "validation_status": "candidate",
+        "provenance": {
+          "procedure_sample_id": "procedure-party-vote-01"
+        },
+        "authority_source_ids": [
+          "nz-parliament-hansard-current",
+          "nz-parliament-parliamentary-rules"
+        ]
+      }
+    ],
+    "votes": [
+      {
+        "component_id": "nzhc-component-0000000000000007",
+        "component_type": "vote_event",
+        "vote_event_id": "nzhc-component-0000000000000007",
+        "motion_id": "nzhc-component-0000000000000006",
+        "source_stable_id": "HansS_20240625_067140000",
+        "vote_type": "party_vote",
+        "ayes_count": 68,
+        "noes_count": 48,
+        "abstentions_count": null,
+        "result": "Motion agreed to",
+        "party_votes": [
+          {
+            "party_id": "nzhc-component-0000000000000004",
+            "vote_position": "ayes",
+            "count": 1,
+            "resolution_status": "candidate"
+          }
+        ],
+        "individual_votes": [],
+        "derived_from": [
+          "fixtures/nz_parliamentary_procedure_samples.json"
+        ],
+        "derivation_method": "manual-fixture",
+        "derivation_version": "neutral-component-model-20260610",
+        "validation_status": "candidate",
+        "provenance": {
+          "procedure_sample_id": "procedure-party-vote-01"
+        },
+        "authority_source_ids": [
+          "nz-parliament-hansard-current",
+          "nz-parliament-daily-progress"
+        ]
+      }
+    ],
+    "bills": [
+      {
+        "component_id": "nzhc-component-0000000000000008",
+        "component_type": "bill",
+        "bill_id": "nzhc-component-0000000000000008",
+        "bill_title": "Land Transport (Clean Vehicle Standard) Amendment Bill",
+        "stage": "second reading",
+        "related_motion_id": "nzhc-component-0000000000000006",
+        "authority_source": "nz-parliament-bills-current",
+        "authority_url": "https://bills.parliament.nz/bills-proposed-laws?Tab=Current&lang=en",
+        "derived_from": [
+          "manifests/authority_sources.json"
+        ],
+        "derivation_method": "manual-fixture",
+        "derivation_version": "neutral-component-model-20260610",
+        "validation_status": "candidate",
+        "provenance": {
+          "authority_source_id": "nz-parliament-bills-current"
+        },
+        "authority_source_ids": [
+          "nz-parliament-bills-current"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "component_id": "nzhc-component-0000000000000009",
+        "component_type": "topic_assignment",
+        "topic_assignment_id": "nzhc-component-0000000000000009",
+        "target_component_id": "nzhc-component-0000000000000002",
+        "topic_scheme": "local-fixture",
+        "topic_code": "transport",
+        "topic_label": "Transport",
+        "coding_method": "manual-fixture",
+        "coder_or_model": "repository-maintainer",
+        "derived_from": [
+          "fixtures/gold_evaluation_samples.json"
+        ],
+        "derivation_method": "manual-fixture",
+        "derivation_version": "neutral-component-model-20260610",
+        "validation_status": "candidate",
+        "provenance": {
+          "gold_domain": "topic_coding"
+        },
+        "authority_source_ids": []
+      }
+    ],
+    "linguistic_annotations": [
+      {
+        "component_id": "nzhc-component-000000000000000a",
+        "component_type": "linguistic_annotation",
+        "annotation_id": "nzhc-component-000000000000000a",
+        "target_component_id": "nzhc-component-0000000000000005",
+        "annotation_scheme": "UD-fixture",
+        "token_index": 1,
+        "sentence_index": 1,
+        "surface": "This",
+        "lemma": "this",
+        "upos": "DET",
+        "xpos": null,
+        "features": {
+          "PronType": "Dem"
+        },
+        "head": 2,
+        "deprel": "det",
+        "derived_from": [
+          "conductor/tracks/ud_conllu_endpoint_20260609/spec.md"
+        ],
+        "derivation_method": "manual-fixture",
+        "derivation_version": "neutral-component-model-20260610",
+        "validation_status": "candidate",
+        "provenance": {
+          "target_component_type": "speech_turn"
+        },
+        "authority_source_ids": []
+      }
+    ]
+  }
+}

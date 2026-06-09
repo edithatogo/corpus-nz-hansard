@@ -39,6 +39,8 @@ Endpoint dependency language must cite `manifests/dependency_extras_policy.json`
 
 Endpoint procedure language must cite `manifests/nz_parliamentary_procedure_model.json` and fixture evidence in `fixtures/nz_parliamentary_procedure_samples.json`. Procedure-aware validation manifests must preserve `party_vote`, `personal_vote`, `question`, `supplementary_question`, `stage`, `ruling`, `interjection`, and `procedural_unit` categories, plus `authority_source_ids`, `uncertainty_status`, and `not_speech_turn_by_default`. Do not flatten procedural text into speech turns unless the category model allows it.
 
+Endpoint neutral-component language must cite `manifests/neutral_component_model.json`, `fixtures/neutral_components.json`, and `manifests/neutral_component_validation_manifest.json`. Endpoint inputs must name the consumed neutral families: `sittings`, `proceeding_items`, `speech_turns`, `members`, `parties`, `motions`, `votes`, `bills`, `topics`, and `linguistic_annotations`. Endpoint validation must preserve `derivation_method`, `derivation_version`, `validation_status`, `provenance`, and referential integrity evidence. The fixture model is `not-published-derived-fixtures-only`; endpoint tracks must not publish derived component data until endpoint-specific validation exists.
+
 Planned dependency groups by endpoint:
 
 - ParlaMint-NZ / TEI: `requirements/xml.txt`, `requirements/schema.txt`, `requirements/authority.txt`, `requirements/nlp.txt`

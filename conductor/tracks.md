@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Neutral Parliamentary Component Model
-
-Track ID: `neutral_component_model_20260609`
-
-Goal: define schemas, identifiers, provenance, and validation manifests for neutral derived components that feed all endpoint exports.
-
-Link: [conductor/tracks/neutral_component_model_20260609/](./tracks/neutral_component_model_20260609/)
-
 ### [ ] Track: ParlaMint-NZ Endpoint
 
 Track ID: `parlamint_nz_endpoint_20260609`
@@ -110,6 +102,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Neutral Parliamentary Component Model
+
+Track ID: `neutral_component_model_20260609`
+
+Goal: Defined machine-readable neutral component schemas, stable ID requirements, fixture rows, validation manifest, referential-integrity gates, and publication boundaries.
+
+Link: [conductor/tracks/neutral_component_model_20260609/](./tracks/neutral_component_model_20260609/)
 
 ### [x] Track: NZ Parliamentary Procedure Model
 

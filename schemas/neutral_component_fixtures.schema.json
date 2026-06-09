@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/danielmordaunt/corpus-nz-hansard/schemas/neutral_component_fixtures.schema.json",
+  "title": "Neutral Component Fixtures",
+  "type": "object",
+  "required": [
+    "fixture_version",
+    "repository",
+    "reviewed_at",
+    "components"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "fixture_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "repository": {
+      "type": "string",
+      "const": "corpus-nz-hansard"
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "components": {
+      "type": "object",
+      "minProperties": 10,
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "required": [
+            "component_id",
+            "component_type",
+            "derived_from",
+            "derivation_method",
+            "derivation_version",
+            "validation_status",
+            "provenance",
+            "authority_source_ids"
+          ],
+          "additionalProperties": true,
+          "properties": {
+            "component_id": {
+              "type": "string",
+              "pattern": "^nzhc-component-[a-f0-9]{16}$"
+            },
+            "component_type": {
+              "type": "string"
+            },
+            "derived_from": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "derivation_method": {
+              "type": "string"
+            },
+            "derivation_version": {
+              "type": "string"
+            },
+            "validation_status": {
+              "type": "string",
+              "enum": [
+                "validated",
+                "candidate",
+                "excluded",
+                "failed"
+              ]
+            },
+            "provenance": {
+              "type": "object"
+            },
+            "authority_source_ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "uniqueItems": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

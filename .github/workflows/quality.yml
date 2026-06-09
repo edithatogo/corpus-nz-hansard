@@ -123,3 +123,6 @@ jobs:
 
       - name: NZ parliamentary procedure model
         run: python scripts\check_nz_parliamentary_procedure_model.py
+
+      - name: Neutral parliamentary component model
+        run: python scripts\check_neutral_component_model.py

@@ -1,0 +1,290 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "generated_at": "2026-06-10",
+  "common_required_fields": [
+    "component_id",
+    "component_type",
+    "derived_from",
+    "derivation_method",
+    "derivation_version",
+    "validation_status",
+    "provenance",
+    "authority_source_ids"
+  ],
+  "component_families": [
+    {
+      "family_id": "sittings",
+      "component_type": "sitting",
+      "id_field": "sitting_id",
+      "id_pattern": "^nzhc-component-[a-f0-9]{16}$",
+      "required_fields": [
+        "sitting_id",
+        "sitting_date",
+        "parliament_number",
+        "house_or_chamber",
+        "source_status"
+      ],
+      "status": "planned",
+      "endpoint_consumers": [
+        "ParlaMint-NZ / TEI",
+        "Akoma Ntoso",
+        "RDF / Linked Data"
+      ]
+    },
+    {
+      "family_id": "proceeding_items",
+      "component_type": "proceeding_item",
+      "id_field": "proceeding_item_id",
+      "id_pattern": "^nzhc-component-[a-f0-9]{16}$",
+      "required_fields": [
+        "proceeding_item_id",
+        "sitting_id",
+        "source_stable_id",
+        "item_type",
+        "title",
+        "order_index",
+        "text_span"
+      ],
+      "status": "planned",
+      "endpoint_consumers": [
+        "ParlaMint-NZ / TEI",
+        "Akoma Ntoso",
+        "CAP / ParlaCAP"
+      ]
+    },
+    {
+      "family_id": "speech_turns",
+      "component_type": "speech_turn",
+      "id_field": "speech_turn_id",
+      "id_pattern": "^nzhc-component-[a-f0-9]{16}$",
+      "required_fields": [
+        "speech_turn_id",
+        "source_stable_id",
+        "proceeding_item_id",
+        "speaker_member_id",
+        "speaker_raw",
+        "speech_text",
+        "text_span",
+        "turn_order",
+        "speaker_resolution_status"
+      ],
+      "status": "planned",
+      "endpoint_consumers": [
+        "ParlaMint-NZ / TEI",
+        "Popolo / Open Civic Data",
+        "CAP / ParlaCAP"
+      ]
+    },
+    {
+      "family_id": "members",
+      "component_type": "member",
+      "id_field": "member_id",
+      "id_pattern": "^nzhc-component-[a-f0-9]{16}$",
+      "required_fields": [
+        "member_id",
+        "display_name",
+        "canonical_name",
+        "aliases",
+        "authority_source",
+        "authority_url",
+        "service_periods"
+      ],
+      "status": "planned",
+      "endpoint_consumers": [
+        "ParlaMint-NZ / TEI",
+        "Popolo / Open Civic Data",
+        "RDF / Linked Data"
+      ]
+    },
+    {
+      "family_id": "parties",
+      "component_type": "party",
+      "id_field": "party_id",
+      "id_pattern": "^nzhc-component-[a-f0-9]{16}$",
+      "required_fields": [
+        "party_id",
+        "party_name",
+        "party_aliases",
+        "authority_source",
+        "authority_url"
+      ],
+      "status": "planned",
+      "endpoint_consumers": [
+        "ParlaMint-NZ / TEI",
+        "Popolo / Open Civic Data",
+        "RDF / Linked Data"
+      ]
+    },
+    {
+      "family_id": "motions",
+      "component_type": "motion",
+      "id_field": "motion_id",
+      "id_pattern": "^nzhc-component-[a-f0-9]{16}$",
+      "required_fields": [
+        "motion_id",
+        "source_stable_id",
+        "motion_text",
+        "proceeding_item_id",
+        "motion_scope_status"
+      ],
+      "status": "planned",
+      "endpoint_consumers": [
+        "Popolo / Open Civic Data",
+        "Akoma Ntoso",
+        "RDF / Linked Data"
+      ]
+    },
+    {
+      "family_id": "votes",
+      "component_type": "vote_event",
+      "id_field": "vote_event_id",
+      "id_pattern": "^nzhc-component-[a-f0-9]{16}$",
+      "required_fields": [
+        "vote_event_id",
+        "motion_id",
+        "source_stable_id",
+        "vote_type",
+        "ayes_count",
+        "noes_count",
+        "result",
+        "party_votes",
+        "individual_votes"
+      ],
+      "status": "planned",
+      "endpoint_consumers": [
+        "Popolo / Open Civic Data",
+        "Akoma Ntoso",
+        "RDF / Linked Data"
+      ]
+    },
+    {
+      "family_id": "bills",
+      "component_type": "bill",
+      "id_field": "bill_id",
+      "id_pattern": "^nzhc-component-[a-f0-9]{16}$",
+      "required_fields": [
+        "bill_id",
+        "bill_title",
+        "stage",
+        "related_motion_id",
+        "authority_source",
+        "authority_url"
+      ],
+      "status": "planned",
+      "endpoint_consumers": [
+        "Akoma Ntoso",
+        "Popolo / Open Civic Data",
+        "RDF / Linked Data"
+      ]
+    },
+    {
+      "family_id": "topics",
+      "component_type": "topic_assignment",
+      "id_field": "topic_assignment_id",
+      "id_pattern": "^nzhc-component-[a-f0-9]{16}$",
+      "required_fields": [
+        "topic_assignment_id",
+        "target_component_id",
+        "topic_scheme",
+        "topic_code",
+        "topic_label",
+        "coding_method",
+        "coder_or_model"
+      ],
+      "status": "planned",
+      "endpoint_consumers": [
+        "CAP / ParlaCAP",
+        "RDF / Linked Data",
+        "Croissant / RO-Crate / Frictionless"
+      ]
+    },
+    {
+      "family_id": "linguistic_annotations",
+      "component_type": "linguistic_annotation",
+      "id_field": "annotation_id",
+      "id_pattern": "^nzhc-component-[a-f0-9]{16}$",
+      "required_fields": [
+        "annotation_id",
+        "target_component_id",
+        "annotation_scheme",
+        "token_index",
+        "sentence_index",
+        "surface",
+        "lemma",
+        "upos",
+        "head",
+        "deprel"
+      ],
+      "status": "planned",
+      "endpoint_consumers": [
+        "Universal Dependencies / CoNLL-U",
+        "ParlaMint-NZ / TEI",
+        "RDF / Linked Data"
+      ]
+    }
+  ],
+  "validation_manifest_requirements": [
+    "artifact_name",
+    "artifact_version",
+    "component_families",
+    "input_release_versions",
+    "schema_paths",
+    "fixture_paths",
+    "validation_command",
+    "referential_integrity_status",
+    "blocking_errors",
+    "publication_status"
+  ],
+  "referential_integrity": [
+    {
+      "source_family": "proceeding_items",
+      "field": "sitting_id",
+      "target_family": "sittings",
+      "required_when_status": "candidate-or-validated"
+    },
+    {
+      "source_family": "speech_turns",
+      "field": "proceeding_item_id",
+      "target_family": "proceeding_items",
+      "required_when_status": "candidate-or-validated"
+    },
+    {
+      "source_family": "speech_turns",
+      "field": "speaker_member_id",
+      "target_family": "members",
+      "required_when_status": "validated"
+    },
+    {
+      "source_family": "motions",
+      "field": "proceeding_item_id",
+      "target_family": "proceeding_items",
+      "required_when_status": "candidate-or-validated"
+    },
+    {
+      "source_family": "votes",
+      "field": "motion_id",
+      "target_family": "motions",
+      "required_when_status": "candidate-or-validated"
+    },
+    {
+      "source_family": "bills",
+      "field": "related_motion_id",
+      "target_family": "motions",
+      "required_when_status": "candidate-or-validated"
+    },
+    {
+      "source_family": "topics",
+      "field": "target_component_id",
+      "target_family": "proceeding_items",
+      "required_when_status": "candidate-or-validated"
+    },
+    {
+      "source_family": "linguistic_annotations",
+      "field": "target_component_id",
+      "target_family": "speech_turns",
+      "required_when_status": "candidate-or-validated"
+    }
+  ],
+  "publication_boundary": "Neutral component fixtures and schemas are validation scaffolding only; no new derived component data is published until endpoint-specific validation manifests pass."
+}

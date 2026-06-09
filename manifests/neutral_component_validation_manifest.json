@@ -1,0 +1,35 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "artifact_name": "neutral component fixture set",
+  "artifact_version": "0.1.0-planning",
+  "component_families": [
+    "sittings",
+    "proceeding_items",
+    "speech_turns",
+    "members",
+    "parties",
+    "motions",
+    "votes",
+    "bills",
+    "topics",
+    "linguistic_annotations"
+  ],
+  "input_release_versions": {
+    "document_level": "0.1.0",
+    "authority_sources": "manifests/authority_sources.json",
+    "id_uri_policy": "manifests/id_uri_policy.json",
+    "procedure_model": "manifests/nz_parliamentary_procedure_model.json"
+  },
+  "schema_paths": [
+    "schemas/neutral_component_model.schema.json",
+    "schemas/neutral_component_fixtures.schema.json"
+  ],
+  "fixture_paths": [
+    "fixtures/neutral_components.json"
+  ],
+  "validation_command": "python scripts/check_neutral_component_model.py",
+  "referential_integrity_status": "fixture-validated",
+  "blocking_errors": 0,
+  "publication_status": "not-published-derived-fixtures-only"
+}

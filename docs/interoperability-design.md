@@ -8,6 +8,8 @@ The repository should expose a neutral parliamentary corpus core and generate st
 
 The neutral core is the existing document-level Hansard record contract plus future derived component tables. It uses repository-owned stable identifiers and provenance fields. It does not embed ParlaMint, Popolo, Akoma Ntoso, CAP, or Universal Dependencies assumptions as primary data requirements.
 
+The machine-readable neutral component model is `manifests/neutral_component_model.json`, with schema/fixture examples in `fixtures/neutral_components.json` and validation evidence in `manifests/neutral_component_validation_manifest.json`. It covers `sittings`, `proceeding_items`, `speech_turns`, `members`, `parties`, `motions`, `votes`, `bills`, `topics`, and `linguistic_annotations`, and requires `derivation_method`, `derivation_version`, `validation_status`, `provenance`, and referential integrity checks. The fixture status is `not-published-derived-fixtures-only`.
+
 Core entities:
 
 - source archive

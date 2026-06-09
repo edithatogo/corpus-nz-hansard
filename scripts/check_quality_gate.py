@@ -43,6 +43,7 @@ REQUIRED_QUALITY_SNIPPETS = (
     "python scripts\\check_canonical_id_uri_policy.py",
     "python scripts\\check_dependency_extras_policy.py",
     "python scripts\\check_nz_parliamentary_procedure_model.py",
+    "python scripts\\check_neutral_component_model.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
@@ -66,6 +67,7 @@ REQUIRED_MAKE_TARGETS = (
     "canonical-ids:",
     "dependency-extras:",
     "procedure-model:",
+    "neutral-components:",
     "lint:",
     "format-check:",
     "typecheck:",

@@ -6,6 +6,8 @@ Define neutral derived component contracts that can feed multiple endpoint stand
 
 Each component artifact must be versioned, generated, validated, and traceable to the document-level core.
 
+The machine-readable neutral component authority is `manifests/neutral_component_model.json`, with fixtures in `fixtures/neutral_components.json` and the fixture validation manifest in `manifests/neutral_component_validation_manifest.json`. These artifacts cover `sittings`, `proceeding_items`, `speech_turns`, `members`, `parties`, `motions`, `votes`, `bills`, `topics`, and `linguistic_annotations`. They require `derivation_method`, `derivation_version`, `validation_status`, `provenance`, and referential integrity checks while staying `not-published-derived-fixtures-only`.
+
 ## Common Fields
 
 Every derived component row must include:

@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/danielmordaunt/corpus-nz-hansard/schemas/neutral_component_model.schema.json",
+  "title": "Neutral Parliamentary Component Model",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "repository",
+    "generated_at",
+    "common_required_fields",
+    "component_families",
+    "validation_manifest_requirements",
+    "referential_integrity",
+    "publication_boundary"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "repository": {
+      "type": "string",
+      "const": "corpus-nz-hansard"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "common_required_fields": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "component_families": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "$ref": "#/$defs/component_family"
+      },
+      "uniqueItems": true
+    },
+    "validation_manifest_requirements": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "referential_integrity": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "required": [
+          "source_family",
+          "field",
+          "target_family",
+          "required_when_status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "source_family": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "target_family": {
+            "type": "string"
+          },
+          "required_when_status": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "publication_boundary": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "component_family": {
+      "type": "object",
+      "required": [
+        "family_id",
+        "component_type",
+        "id_field",
+        "id_pattern",
+        "required_fields",
+        "status",
+        "endpoint_consumers"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "family_id": {
+          "type": "string"
+        },
+        "component_type": {
+          "type": "string"
+        },
+        "id_field": {
+          "type": "string"
+        },
+        "id_pattern": {
+          "type": "string"
+        },
+        "required_fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "planned",
+            "candidate",
+            "validated"
+          ]
+        },
+        "endpoint_consumers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

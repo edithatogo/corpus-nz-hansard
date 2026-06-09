@@ -154,6 +154,13 @@
       "next_gate": "procedure-derived components must cite authority sources, uncertainty status, fixture coverage, and endpoint mappings before publication"
     },
     {
+      "artifact": "neutral parliamentary component model",
+      "path": "manifests/neutral_component_model.json",
+      "release_level": "neutral-component",
+      "status": "validated-manifest",
+      "next_gate": "component releases must validate schemas, stable IDs, provenance, derivation metadata, validation manifests, and referential integrity before publication"
+    },
+    {
       "artifact": "speech-turn candidates",
       "path": "generated/speech_turns",
       "release_level": "neutral-component",

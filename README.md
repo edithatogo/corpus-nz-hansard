@@ -25,12 +25,15 @@ Tracked manifests and reports:
 - `manifests/release_ladder.json`
 - `manifests/gold_evaluation_datasets.json`
 - `manifests/id_uri_policy.json`
+- `manifests/neutral_component_model.json`
+- `manifests/neutral_component_validation_manifest.json`
 - `docs/schema-discovery-report.md`
 - `docs/normalization-contract.md`
 - `docs/historical-coverage-audit.md`
 - `docs/release-ladder.md`
 - `docs/gold-evaluation-datasets.md`
 - `docs/canonical-id-uri-policy.md`
+- `docs/neutral-component-model.md`
 - `docs/interoperability-requirements-moscow.md`
 - `docs/interoperability-design.md`
 - `docs/component-contracts.md`
@@ -58,6 +61,8 @@ python -m pip install -r requirements.txt
 ```
 
 Optional endpoint dependency groups are listed in `requirements/` and documented in `docs/dependency-policy.md`. Keep the base install for the document-level pipeline unless an endpoint track requires additional tooling.
+
+Neutral derived-component schemas and examples are documented in `docs/neutral-component-model.md`. The fixture set `fixtures/neutral_components.json` is `not-published-derived-fixtures-only` and covers `sittings`, `proceeding_items`, `speech_turns`, `members`, `parties`, `motions`, `votes`, `bills`, `topics`, and `linguistic_annotations` with `derivation_method`, `derivation_version`, `validation_status`, `provenance`, and referential integrity checks.
 
 Build source inventory:
 
