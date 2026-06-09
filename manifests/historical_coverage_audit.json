@@ -1,0 +1,182 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "generated_at": "2026-06-10",
+  "source_archive": {
+    "name": "2024-09-06 Hansard Extract from DocumentsDB.zip",
+    "sha256": "2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299",
+    "member_count": 8,
+    "total_rows": 193922
+  },
+  "claim_boundaries": [
+    {
+      "claim_id": "supplied-archive-member-inventory",
+      "claim": "The supplied DocumentsDB archive contains eight Hansard CSV members named Hansard-47.csv through Hansard-54.csv.",
+      "status": "verified",
+      "evidence": [
+        "manifests/source_inventory.json",
+        "manifests/schema_discovery.json"
+      ],
+      "release_language": "Verified source-file coverage is limited to the supplied DocumentsDB extract."
+    },
+    {
+      "claim_id": "normalized-row-preservation",
+      "claim": "The normalized document-level Parquet output preserves 193,922 rows from the supplied source files with zero normalization warnings.",
+      "status": "verified",
+      "evidence": [
+        "manifests/normalization_validation.json",
+        "manifests/record_schema_validation.json"
+      ],
+      "release_language": "Published row counts describe normalized rows from the supplied extract, not all historical Hansard proceedings."
+    },
+    {
+      "claim_id": "parliament-47-through-54-presence",
+      "claim": "Parliament numbers 47 through 54 are present as source-file partitions in the supplied extract.",
+      "status": "partial",
+      "evidence": [
+        "manifests/source_inventory.json",
+        "manifests/normalization_validation.json"
+      ],
+      "release_language": "Parliament 47-54 presence does not prove that every sitting, debate, vote, question, or speech for those parliaments is complete."
+    },
+    {
+      "claim_id": "full-historical-hansard-completeness",
+      "claim": "Complete historical New Zealand Hansard coverage across all parliamentary periods has not been established.",
+      "status": "unknown",
+      "evidence": [
+        "manifests/authority_sources.json",
+        "docs/authority-source-discovery.md"
+      ],
+      "release_language": "Do not describe this dataset as a full historical NZ Hansard corpus."
+    },
+    {
+      "claim_id": "out-of-extract-periods",
+      "claim": "Hansard records outside supplied Parliament 47-54 source files are outside the current canonical dataset.",
+      "status": "excluded",
+      "evidence": [
+        "manifests/public_dataset_release_manifest.json",
+        "DATASET_CARD.md"
+      ],
+      "release_language": "Periods outside the supplied extract require separate retrieval, reconciliation, validation, and publication decisions."
+    }
+  ],
+  "parliament_coverage": [
+    {
+      "parliament_number": 47,
+      "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+      "source_sha256": "ca89faaf28d8198ce82020bae50dfb777f257231e558f58c250544703e30fd8e",
+      "rows": 24378,
+      "uncompressed_size": 228464273,
+      "coverage_status": "partial",
+      "notes": "Source member and row count are verified; full sitting and historical completeness are not proven."
+    },
+    {
+      "parliament_number": 48,
+      "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-48.csv",
+      "source_sha256": "cd5fe3cc544323e1221fa20ca07235c75ff516764f6315f146384fb20c38e4ef",
+      "rows": 19709,
+      "uncompressed_size": 455157236,
+      "coverage_status": "partial",
+      "notes": "Source member and row count are verified; full sitting and historical completeness are not proven."
+    },
+    {
+      "parliament_number": 49,
+      "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-49.csv",
+      "source_sha256": "cdc2c7641f618bbca790a0e288d41223e47996193308a0a711162936a7038c46",
+      "rows": 23877,
+      "uncompressed_size": 519596192,
+      "coverage_status": "partial",
+      "notes": "Source member and row count are verified; full sitting and historical completeness are not proven."
+    },
+    {
+      "parliament_number": 50,
+      "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-50.csv",
+      "source_sha256": "2d390722113f2bbe2ccb2c74e0e034eb4fdd77df9b94f58b930805bd2e292f92",
+      "rows": 39803,
+      "uncompressed_size": 496126794,
+      "coverage_status": "partial",
+      "notes": "Source member and row count are verified; full sitting and historical completeness are not proven."
+    },
+    {
+      "parliament_number": 51,
+      "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-51.csv",
+      "source_sha256": "7495ca5d62c8772545066876b1dcb5f270cba14cc1dd2aa80c1c31adfb05e87c",
+      "rows": 34808,
+      "uncompressed_size": 379702876,
+      "coverage_status": "partial",
+      "notes": "Source member and row count are verified; full sitting and historical completeness are not proven."
+    },
+    {
+      "parliament_number": 52,
+      "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-52.csv",
+      "source_sha256": "a4a962540aae252faa34ce59c9980e267189b02b90693307da9d509ce7b23c85",
+      "rows": 21171,
+      "uncompressed_size": 166567364,
+      "coverage_status": "partial",
+      "notes": "Source member and row count are verified; full sitting and historical completeness are not proven."
+    },
+    {
+      "parliament_number": 53,
+      "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-53.csv",
+      "source_sha256": "8774fa59978d7fb94787dd5d2f6804491141b2eed3299616e1153697032c02be",
+      "rows": 23402,
+      "uncompressed_size": 164178244,
+      "coverage_status": "partial",
+      "notes": "Source member and row count are verified; full sitting and historical completeness are not proven."
+    },
+    {
+      "parliament_number": 54,
+      "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+      "source_sha256": "5b12fb15d9b0e7a12e42ce48dd434efad8d707132fee8856d7df4afae5b0aab1",
+      "rows": 6774,
+      "uncompressed_size": 46753378,
+      "coverage_status": "partial",
+      "notes": "Source member and row count are verified; full sitting and historical completeness are not proven."
+    }
+  ],
+  "document_type_coverage": {
+    "observed_sample_types": [
+      "Hansard - daily",
+      "Hansard - debate",
+      "Hansard - question",
+      "Hansard - speech",
+      "Hansard - vote"
+    ],
+    "status": "partial",
+    "notes": "Sampled DocumentType values confirm multiple Hansard document categories, but the current audit does not prove complete type coverage or sitting-level completeness."
+  },
+  "authority_cross_check": {
+    "source_ids": [
+      "nz-parliament-hansard-current",
+      "nz-parliament-order-paper",
+      "nz-parliament-daily-progress",
+      "nzlii-historical-bills",
+      "electoral-commission-election-results"
+    ],
+    "status": "available-not-yet-reconciled",
+    "notes": "Authority-source discovery identifies official and candidate inputs for sitting, proceeding, bill, member, and election-period reconciliation, but no historical sitting calendar comparison has been completed in this track."
+  },
+  "known_gaps": [
+    {
+      "range": "Before Parliament 47",
+      "status": "excluded",
+      "reason": "No source files before Hansard-47.csv are present in the supplied archive."
+    },
+    {
+      "range": "Within Parliament 47-54",
+      "status": "unknown",
+      "reason": "Row counts by source file are verified, but no official sitting calendar or proceeding ledger has been reconciled against the extracted rows."
+    },
+    {
+      "range": "After the supplied Parliament 54 extract snapshot",
+      "status": "excluded",
+      "reason": "The source archive snapshot is dated 2024-09-06 and later Hansard records require a new source extract or official website retrieval."
+    }
+  ],
+  "release_guardrails": [
+    "Claims may say the dataset covers the supplied DocumentsDB extract for Hansard-47.csv through Hansard-54.csv.",
+    "Claims must not say the dataset is a complete historical NZ Hansard corpus.",
+    "Endpoint artifacts must cite this manifest when summarising coverage.",
+    "Any broader historical claim requires official sitting/proceeding reconciliation and a refreshed coverage manifest."
+  ]
+}

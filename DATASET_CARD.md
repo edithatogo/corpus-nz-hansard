@@ -50,6 +50,9 @@ This card describes the published canonical document-level dataset. Publication 
 - Source archive SHA-256: `2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299`
 - Source files: `Hansard-47.csv` through `Hansard-54.csv`
 - Source scope: New Zealand Parliament Hansard records for Parliament numbers 47 through 54, as present in the supplied DocumentsDB extract.
+- Coverage audit: `manifests/historical_coverage_audit.json` and `docs/historical-coverage-audit.md`.
+
+The current publication verifies the supplied DocumentsDB extract and normalized row preservation. It does not claim full historical NZ Hansard completeness. Parliament 47-54 source-file presence is partial coverage evidence, not proof that every sitting, proceeding, vote, question, debate, speech, or document type for those parliaments is complete.
 
 ## Legal and Provenance Notes
 
@@ -133,12 +136,14 @@ Rows by Parliament:
 - Treating this MVP as a structured speech-turn corpus.
 - Inferring party membership directly from this dataset.
 - Claiming the dataset has been officially endorsed by Parliament.
+- Claiming this dataset is a full historical NZ Hansard corpus.
 
 ## Known Limitations
 
 - No explicit source `Party` column exists.
 - `MemberOfParliament` is raw and may contain multiple semicolon-separated names.
 - `Content` is document-level text and may contain embedded separators.
+- Coverage is limited to the supplied DocumentsDB extract. Historical completeness outside or within Parliament 47-54 remains unproven until official sitting and proceeding sources are reconciled.
 - Licensing/provenance has been checked against official public guidance, but users should review the linked provenance notes for their own use case.
 - Generated DuckDB output may include a `.wal` file on OneDrive-backed workspaces.
 

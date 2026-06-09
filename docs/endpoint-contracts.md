@@ -21,8 +21,11 @@ Every endpoint must declare:
 - release status
 - release ladder level
 - authority-source dependencies
+- historical coverage audit reference
 - stable ID or URI policy reference
 - gold/evaluation dataset dependencies where applicable
+
+Endpoint coverage language must cite `manifests/historical_coverage_audit.json`. Endpoints may describe coverage of the supplied DocumentsDB extract, but must not describe the current dataset as full historical NZ Hansard coverage unless a later audit reconciles official sitting and proceeding sources and updates the manifest.
 
 ## ParlaMint-NZ / TEI
 
@@ -203,4 +206,3 @@ Validation gates:
 - metadata parses with the relevant library or JSON validator.
 - every described data file exists in the release package or is declared as externally hosted.
 - citation, licence, DOI, repository, Hugging Face, Zenodo, and source-provenance links are present where applicable.
-

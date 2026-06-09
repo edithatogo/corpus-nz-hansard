@@ -105,3 +105,6 @@ jobs:
 
       - name: Authority source discovery
         run: python scripts\check_authority_sources.py
+
+      - name: Historical coverage audit
+        run: python scripts\check_historical_coverage_audit.py

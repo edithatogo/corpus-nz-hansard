@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Historical Coverage Audit
-
-Track ID: `historical_coverage_audit_20260609`
-
-Goal: distinguish supplied DocumentsDB extract completeness from full historical NZ Hansard completeness and publish coverage claims with evidence.
-
-Link: [conductor/tracks/historical_coverage_audit_20260609/](./tracks/historical_coverage_audit_20260609/)
-
 ### [ ] Track: Release Ladder
 
 Track ID: `release_ladder_20260609`
@@ -158,6 +150,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Historical Coverage Audit
+
+Track ID: `historical_coverage_audit_20260609`
+
+Goal: Distinguished supplied DocumentsDB extract completeness from full historical NZ Hansard completeness with coverage manifest, report, quality-gate checker, and release/endpoint guardrails.
+
+Link: [conductor/tracks/historical_coverage_audit_20260609/](./tracks/historical_coverage_audit_20260609/)
 
 ### [x] Track: Authority Source Discovery
 

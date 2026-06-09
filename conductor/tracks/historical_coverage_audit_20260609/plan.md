@@ -1,6 +1,6 @@
 # Plan: Historical Coverage Audit
 
-- [ ] Task: Define coverage dimensions and claims.
-- [ ] Task: Compare source archive inventory against authority sources.
-- [ ] Task: Emit coverage manifest and report.
-- [ ] Task: Update release and endpoint claim language.
+- [x] Task: Define coverage dimensions and claims.
+- [x] Task: Compare source archive inventory against authority sources.
+- [x] Task: Emit coverage manifest and report.
+- [x] Task: Update release and endpoint claim language.

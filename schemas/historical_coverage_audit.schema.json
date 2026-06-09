@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "generated_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "source_archive": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "const": "2024-09-06 Hansard Extract from DocumentsDB.zip"
+        },
+        "sha256": {
+          "pattern": "^[a-f0-9]{64}$",
+          "type": "string"
+        },
+        "member_count": {
+          "const": 8
+        },
+        "total_rows": {
+          "const": 193922
+        }
+      },
+      "required": [
+        "name",
+        "sha256",
+        "member_count",
+        "total_rows"
+      ],
+      "type": "object"
+    },
+    "claim_boundaries": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "claim": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "verified",
+              "partial",
+              "unknown",
+              "excluded"
+            ]
+          },
+          "evidence": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "release_language": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "claim_id",
+          "claim",
+          "status",
+          "evidence",
+          "release_language"
+        ],
+        "type": "object"
+      },
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "parliament_coverage": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "parliament_number": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "source_file": {
+            "type": "string"
+          },
+          "source_sha256": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "rows": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "uncompressed_size": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "coverage_status": {
+            "const": "partial"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "parliament_number",
+          "source_file",
+          "source_sha256",
+          "rows",
+          "uncompressed_size",
+          "coverage_status",
+          "notes"
+        ],
+        "type": "object"
+      },
+      "minItems": 8,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "document_type_coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "observed_sample_types": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 5,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "status": {
+          "const": "partial"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "observed_sample_types",
+        "status",
+        "notes"
+      ],
+      "type": "object"
+    },
+    "authority_cross_check": {
+      "additionalProperties": false,
+      "properties": {
+        "source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 3,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "status": {
+          "const": "available-not-yet-reconciled"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_ids",
+        "status",
+        "notes"
+      ],
+      "type": "object"
+    },
+    "known_gaps": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "range": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "unknown",
+              "excluded"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "range",
+          "status",
+          "reason"
+        ],
+        "type": "object"
+      },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "release_guardrails": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "manifest_version",
+    "repository",
+    "generated_at",
+    "source_archive",
+    "claim_boundaries",
+    "parliament_coverage",
+    "document_type_coverage",
+    "authority_cross_check",
+    "known_gaps",
+    "release_guardrails"
+  ],
+  "type": "object"
+}

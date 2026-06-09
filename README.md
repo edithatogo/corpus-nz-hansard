@@ -8,6 +8,8 @@ Reproducible local corpus workspace for New Zealand Hansard data extracted from 
 - Source archive SHA-256: `2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299`
 - Source CSV files: `Hansard-47.csv` through `Hansard-54.csv`
 
+Coverage claim: this repository verifies the supplied DocumentsDB extract and the normalized rows produced from it. It does not claim full historical NZ Hansard completeness. Coverage boundaries and known gaps are recorded in `manifests/historical_coverage_audit.json` and `docs/historical-coverage-audit.md`.
+
 ## Pipeline Outputs
 
 Tracked manifests and reports:
@@ -19,8 +21,10 @@ Tracked manifests and reports:
 - `manifests/record_schema_validation.json`
 - `manifests/duckdb_validation.json`
 - `manifests/search_index_validation.json`
+- `manifests/historical_coverage_audit.json`
 - `docs/schema-discovery-report.md`
 - `docs/normalization-contract.md`
+- `docs/historical-coverage-audit.md`
 - `docs/interoperability-requirements-moscow.md`
 - `docs/interoperability-design.md`
 - `docs/component-contracts.md`
@@ -122,6 +126,7 @@ Distribution decisions:
 - `MemberOfParliament` is retained as a raw semicolon-separated source field plus a count; entity resolution is deferred.
 - `Content` remains document-level text; speech-turn segmentation is deferred to a later derived-data release.
 - Power BI/reporting models are deferred tracks.
+- This dataset covers the supplied DocumentsDB extract only; do not describe it as a full historical NZ Hansard corpus without a later coverage audit that reconciles official sitting and proceeding sources.
 
 ## Interoperability Direction
 
