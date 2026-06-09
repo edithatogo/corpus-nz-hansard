@@ -3,4 +3,4 @@ pyarrow
 polars>=1.0.0
 jsonschema>=4.22.0
 requests>=2.32.0
-huggingface_hub>=0.34.0
+huggingface_hub>=1.18.0
