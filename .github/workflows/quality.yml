@@ -78,3 +78,6 @@ jobs:
 
       - name: Release provenance policy
         run: python scripts\check_release_provenance_policy.py
+
+      - name: Release version consistency
+        run: python scripts\check_release_version_consistency.py

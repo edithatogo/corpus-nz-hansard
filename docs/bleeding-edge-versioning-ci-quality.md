@@ -1,10 +1,26 @@
-﻿# Bleeding-Edge Versioning, CI/CD, Code Quality, and Automation Standard
+# Bleeding-Edge Versioning, CI/CD, Code Quality, and Automation Standard
 
 ## Purpose
 
 Define the target SOTA automation standard for the NZ corpus family: `corpus-nz-legislation` and `corpus-nz-hansard`.
 
 The target is a low-maintenance, auditable, reproducible system for package versions, dataset versions, release evidence, CI/CD, code quality, security, provenance, and publication automation.
+
+## Current state
+
+For `corpus-nz-hansard`, the current release-bearing values are:
+
+- Code/package version: `0.1.0`, recorded in `VERSION`, `pyproject.toml`, `CITATION.cff`, `RELEASE_NOTES.md`, the dataset card, and the public release manifest.
+- GitHub repository: `https://github.com/edithatogo/corpus-nz-hansard`.
+- GitHub release: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`.
+- Hugging Face dataset: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`.
+- Zenodo DOI: `10.5281/zenodo.20595194`.
+- Zenodo record: `https://zenodo.org/records/20595194`.
+- Public release manifest: `manifests/public_dataset_release_manifest.json`.
+
+## Target state
+
+The release process must keep code/package versioning, dataset publication, schema evolution, Hugging Face revisions, Zenodo DOI snapshots, and manifest hashes separate but cross-checked. A release can be prepared only when the local quality gate, publication-readiness checks, provenance policy checks, and version-consistency checks pass.
 
 ## Versioning model
 
@@ -16,6 +32,10 @@ The target is a low-maintenance, auditable, reproducible system for package vers
 - Avoid unmanaged duplicate version files unless a track explicitly synchronises them.
 - Use Conventional Commits for release-note automation.
 - Use Release Please or equivalent automation for changelog, tag, and GitHub release PRs.
+
+### Code/package version authority
+
+`VERSION` is the human-readable code/package version authority for this transitional script-based repository. `pyproject.toml` `[project].version`, `CITATION.cff` `version`, release notes, dataset card release URLs, and public manifests must match it. Tags use `v<VERSION>`.
 
 ### Dataset versions
 
@@ -36,11 +56,31 @@ The target is a low-maintenance, auditable, reproducible system for package vers
   - Schema version.
   - Source inventory or source-discovery method.
 
+### Dataset version authority
+
+The public document-level dataset version is the GitHub release tag plus the Zenodo DOI snapshot for the canonical release. Dataset changes that alter public rows, columns, provenance, or intended use require a new release tag and a new Zenodo snapshot.
+
 ### Schema versions
 
 - Version record schemas independently from code and dataset releases.
 - Require migration notes for incompatible schema changes.
 - Keep a cross-corpus core schema compatibility table for shared fields.
+
+### Schema version authority
+
+The record schema contract is `schemas/hansard_record.schema.json` plus schema and validation manifests under `manifests/`. Schema-breaking changes require explicit release notes and manifest updates before publication.
+
+### Hugging Face revision authority
+
+Hugging Face does not replace SemVer. Its immutable commit revision is publication evidence for the dataset repository, while `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus` remains the canonical dataset surface.
+
+### Zenodo DOI snapshot authority
+
+Zenodo DOI `10.5281/zenodo.20595194` identifies the canonical `0.1.0` document-level release snapshot. Future material public dataset changes require a new Zenodo version under the concept DOI and must keep `CITATION.cff`, release notes, dataset card text, and manifests synchronized.
+
+### Manifest hash authority
+
+The release manifest is the machine-readable authority for publication URLs, DOI metadata, counts, quality state, and artifact paths. Release evidence ledgers and package manifests provide SHA-256 hashes for generated release artifacts and should be regenerated for every public release candidate.
 
 ## Rust-backed and modern tooling preference
 
@@ -89,6 +129,19 @@ Use automation to create evidence, not to bypass review:
 7. Publish Zenodo only through protected approval.
 8. Attach artifact attestations or provenance where supported.
 9. Update changelog, release notes, CITATION, dataset cards, and DOI references consistently.
+
+## Release Please decision
+
+Release Please is deferred for `corpus-nz-hansard` until the next material release branch because the current public artifact is already published and the repo still uses transitional script entrypoints rather than a packaged CLI. The current equivalent policy is:
+
+- Conventional Commit messages for release-relevant changes.
+- Manual GitHub/Hugging Face/Zenodo publication workflows only.
+- `scripts/check_release_version_consistency.py` as the guard for release-bearing file consistency.
+- `scripts/check_release_provenance_policy.py` as the guard for provenance and attestation wiring.
+
+## Publication safety gates
+
+Dependency-update PRs and ordinary pushes must not publish datasets or Zenodo records. Publication workflows remain `workflow_dispatch` gated, use least-privilege permissions, and must pass the quality, provenance, and version-consistency checks before release artifacts are treated as authoritative.
 
 ## Automation anti-patterns
 

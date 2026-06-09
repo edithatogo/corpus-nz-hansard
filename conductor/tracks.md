@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Bleeding Edge Versioning And Release Automation
-
-Track ID: `bleeding_edge_versioning_release_automation_20260609`
-
-Goal: Implement SemVer/dataset/schema version governance, Release Please-style changelog automation, and consistency checks.
-
-Link: [conductor/tracks/bleeding_edge_versioning_release_automation_20260609/](./tracks/bleeding_edge_versioning_release_automation_20260609/)
-
 ### [ ] Track: SOTA CI/CD Code Quality And Rust Tooling
 
 Track ID: `sota_cicd_code_quality_rust_tooling_20260609`
@@ -254,6 +246,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Bleeding Edge Versioning And Release Automation
+
+Track ID: `bleeding_edge_versioning_release_automation_20260609`
+
+Goal: Implement SemVer/dataset/schema version governance, Release Please-style changelog automation, and consistency checks.
+
+Link: [conductor/tracks/bleeding_edge_versioning_release_automation_20260609/](./tracks/bleeding_edge_versioning_release_automation_20260609/)
 
 ### [x] Track: Repository SOTA Hardening
 

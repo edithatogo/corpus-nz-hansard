@@ -28,6 +28,7 @@ REQUIRED_QUALITY_SNIPPETS = (
     "actionlint -color",
     "python scripts\\check_quality_gate.py",
     "python scripts\\check_release_provenance_policy.py",
+    "python scripts\\check_release_version_consistency.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
@@ -36,6 +37,7 @@ REQUIRED_MAKE_TARGETS = (
     "uv-sync:",
     "quality-config:",
     "provenance-policy:",
+    "version-consistency:",
     "lint:",
     "format-check:",
     "typecheck:",
