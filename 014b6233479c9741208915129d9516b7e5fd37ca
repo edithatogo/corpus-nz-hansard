@@ -1,0 +1,1 @@
+Completed NZ Parliamentary Procedure Model. Added procedure model manifest, schemas, fixtures, documentation, endpoint/component mappings, release ladder mapping, quality-gate checker, and unit tests. Verification: make quality passed with NZ procedure checker and 94 tests.
