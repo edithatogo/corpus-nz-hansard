@@ -138,14 +138,6 @@ class ZenodoDraftClient:
             if file_url:
                 self.request("DELETE", file_url, headers=self.headers)
 
-    def publish(self, deposition_id: str) -> dict[str, Any]:
-        return self.request(
-            "POST",
-            f"{self.api_url}/deposit/depositions/{deposition_id}/actions/publish",
-            headers=self.headers,
-        )
-
-
 def upload_zenodo_archive(
     *,
     archive_path: Path,
@@ -156,10 +148,9 @@ def upload_zenodo_archive(
     deposition_id: str | None = None,
     create_new_version: bool = False,
     version: str = DEFAULT_VERSION,
-    publish: bool = False,
     client: ZenodoDraftClient | None = None,
 ) -> dict[str, Any]:
-    """Create/update a Zenodo draft, upload files, and optionally publish."""
+    """Create/update a Zenodo draft and upload files without publishing."""
     if not archive_path.exists():
         raise FileNotFoundError(f"Archive not found: {archive_path}")
     if not manifest_path.exists():
@@ -206,13 +197,12 @@ def upload_zenodo_archive(
             }
         ],
     )
-    published = client.publish(draft_id) if publish else None
     return {
         "deposition_id": draft_id,
         "draft": metadata,
         "uploaded": uploaded,
-        "published": bool(published),
-        "publication": published,
+        "published": False,
+        "publication": None,
     }
 
 
@@ -230,11 +220,6 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--creators-json", default=os.getenv("ARCHIVE_CREATORS_JSON"))
     parser.add_argument("--version", default=DEFAULT_VERSION)
-    parser.add_argument(
-        "--publish",
-        action="store_true",
-        help="Publish the prepared Zenodo draft after uploading files and metadata.",
-    )
     return parser.parse_args()
 
 
@@ -254,7 +239,6 @@ def main() -> int:
         create_new_version=args.create_new_version,
         creators=creators,
         version=args.version,
-        publish=args.publish,
     )
     print(json.dumps(result, indent=2, sort_keys=True))
     return 0

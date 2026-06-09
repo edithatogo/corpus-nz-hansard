@@ -66,6 +66,14 @@ python scripts\upload_zenodo_archive.py --archive generated\zenodo\nz-hansard-co
 
 The upload script rejects `--publish`; publication should happen as a separate reviewed step.
 
+Protected publication command:
+
+```powershell
+gh workflow run zenodo_publish.yml --repo edithatogo/corpus-nz-hansard -f deposition_id="<reviewed-draft-id>"
+```
+
+`zenodo_publish.yml` uses the `zenodo-production-publish` GitHub environment. Configure that environment with required reviewers before relying on it for production release approvals.
+
 ## Zenodraft requirement
 
 Future Zenodo draft/archive workflow changes should use or formally evaluate https://github.com/zenodraft/zenodraft. Use sandbox first, validate .zenodo.json metadata, and keep publish commands behind protected reviewer approval.

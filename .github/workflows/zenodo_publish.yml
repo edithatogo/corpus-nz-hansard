@@ -1,19 +1,20 @@
-name: Zenodo Metadata Sync
+name: Zenodo Publish Protected
 
 on:
   workflow_dispatch:
     inputs:
       deposition_id:
-        description: "Published Zenodo deposition/record id"
+        description: "Prepared Zenodo draft deposition id to publish"
         required: true
-        default: "20595194"
       zenodo_api_url:
         description: "Zenodo API URL"
         required: true
         default: "https://zenodo.org/api"
+
 jobs:
-  sync:
+  publish:
     runs-on: windows-latest
+    environment: zenodo-production-publish
     permissions:
       contents: read
     steps:
@@ -23,7 +24,7 @@ jobs:
           python-version: "3.11"
       - name: Install dependencies
         run: python -m pip install requests
-      - name: Update Zenodo metadata
+      - name: Publish Zenodo draft
         shell: pwsh
         env:
           ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
@@ -33,9 +34,6 @@ jobs:
           if (-not "$env:ZENODO_TOKEN") {
             throw "ZENODO_TOKEN secret is required."
           }
-          $args = @(
-            "scripts\update_zenodo_metadata.py",
-            "--deposition-id", "$env:ZENODO_DEPOSITION_ID",
-            "--api-url", "$env:ZENODO_API_URL"
-          )
-          python @args
+          python scripts\publish_zenodo_deposition.py `
+            --deposition-id "$env:ZENODO_DEPOSITION_ID" `
+            --api-url "$env:ZENODO_API_URL"

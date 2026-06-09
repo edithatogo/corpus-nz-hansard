@@ -64,13 +64,8 @@ class FakeZenodoMetadataClient:
         self.calls.append(("put_metadata", deposition_id, metadata))
         return {"id": deposition_id, "metadata": metadata}
 
-    def publish(self, deposition_id):
-        self.calls.append(("publish", deposition_id))
-        return {"id": deposition_id, "submitted": True}
-
-
 class UpdateZenodoMetadataTest(unittest.TestCase):
-    def test_update_zenodo_metadata_adds_cross_references_and_publishes(self):
+    def test_update_zenodo_metadata_adds_cross_references_without_publishing(self):
         client = FakeZenodoMetadataClient()
 
         result = update_zenodo_metadata(
@@ -79,10 +74,10 @@ class UpdateZenodoMetadataTest(unittest.TestCase):
             client=client,
         )
 
-        self.assertTrue(result["published"])
+        self.assertFalse(result["published"])
         self.assertEqual(
             [call[0] for call in client.calls],
-            ["get_deposition", "edit_deposition", "put_metadata", "publish"],
+            ["get_deposition", "edit_deposition", "put_metadata"],
         )
         metadata = client.calls[2][2]
         identifiers = metadata["related_identifiers"]
@@ -99,19 +94,6 @@ class UpdateZenodoMetadataTest(unittest.TestCase):
             [item["identifier"] for item in identifiers],
         )
         self.assertIn("Public surfaces:", metadata["description"])
-
-    def test_update_zenodo_metadata_can_skip_publish(self):
-        client = FakeZenodoMetadataClient()
-
-        result = update_zenodo_metadata(
-            deposition_id="20595194",
-            token="token",
-            client=client,
-            publish=False,
-        )
-
-        self.assertFalse(result["published"])
-        self.assertNotIn("publish", [call[0] for call in client.calls])
 
     def test_merge_related_identifiers_preserves_and_updates_existing_items(self):
         merged = merge_related_identifiers(
@@ -203,7 +185,6 @@ class UpdateZenodoMetadataTest(unittest.TestCase):
             deposition_id="20595194",
             token="token",
             client=client,
-            publish=False,
         )
 
         self.assertFalse(result["published"])

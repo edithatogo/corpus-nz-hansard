@@ -1,4 +1,4 @@
-"""Update published Zenodo metadata cross-references without changing files."""
+"""Update Zenodo metadata cross-references without publishing."""
 
 from __future__ import annotations
 
@@ -150,14 +150,6 @@ class ZenodoMetadataClient:
             data=json.dumps({"metadata": metadata}),
         )
 
-    def publish(self, deposition_id: str) -> dict[str, Any]:
-        return self.request(
-            "POST",
-            f"{self.api_url}/deposit/depositions/{deposition_id}/actions/publish",
-            headers=self.headers,
-        )
-
-
 def update_zenodo_metadata(
     *,
     deposition_id: str,
@@ -165,7 +157,6 @@ def update_zenodo_metadata(
     api_url: str = DEFAULT_API_URL,
     description: str = DEFAULT_DESCRIPTION,
     related_identifiers: list[dict[str, str]] | None = None,
-    publish: bool = True,
     client: ZenodoMetadataClient | None = None,
 ) -> dict[str, Any]:
     client = client or ZenodoMetadataClient(api_url=api_url, token=token)
@@ -199,12 +190,11 @@ def update_zenodo_metadata(
     )
 
     updated = client.put_metadata(deposition_id, metadata)
-    publication = client.publish(deposition_id) if publish else None
     return {
         "deposition_id": deposition_id,
         "updated": updated,
-        "published": bool(publication),
-        "publication": publication,
+        "published": False,
+        "publication": None,
     }
 
 
@@ -215,7 +205,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--deposition-id", default=os.getenv("ZENODO_DEPOSITION_ID", DEFAULT_DEPOSITION_ID))
     parser.add_argument("--api-url", default=os.getenv("ZENODO_API_URL", DEFAULT_API_URL))
     parser.add_argument("--token", default=os.getenv("ZENODO_TOKEN"))
-    parser.add_argument("--no-publish", action="store_true")
     return parser.parse_args()
 
 
@@ -227,7 +216,6 @@ def main() -> int:
         deposition_id=args.deposition_id,
         api_url=args.api_url,
         token=args.token,
-        publish=not args.no_publish,
     )
     print(json.dumps(result, indent=2, sort_keys=True))
     return 0

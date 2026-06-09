@@ -32,11 +32,6 @@ class FakeZenodoClient:
         self.calls.append(("update_metadata", deposition_id, kwargs))
         return {"id": deposition_id, "metadata": kwargs}
 
-    def publish(self, deposition_id):
-        self.calls.append(("publish", deposition_id))
-        return {"id": deposition_id, "submitted": True}
-
-
 class UploadZenodoArchiveTest(unittest.TestCase):
     def test_upload_zenodo_archive_updates_draft_without_publishing(self):
         case_dir = TEST_TMP / f"zenodo_upload_{uuid.uuid4().hex}"
@@ -69,7 +64,7 @@ class UploadZenodoArchiveTest(unittest.TestCase):
             ],
         )
 
-    def test_upload_zenodo_archive_can_create_new_version_and_publish_when_requested(self):
+    def test_upload_zenodo_archive_can_create_new_version_without_publishing(self):
         case_dir = TEST_TMP / f"zenodo_publish_{uuid.uuid4().hex}"
         case_dir.mkdir(parents=True, exist_ok=True)
         archive_path = case_dir / "archive.tar.gz"
@@ -85,14 +80,13 @@ class UploadZenodoArchiveTest(unittest.TestCase):
             creators=[{"name": "Maintainer"}],
             deposition_id="123",
             create_new_version=True,
-            publish=True,
             client=client,
         )
 
-        self.assertTrue(result["published"])
+        self.assertFalse(result["published"])
         self.assertEqual(client.calls[0], ("ensure_draft", "123", True))
         self.assertEqual(client.calls[1], ("delete_existing_files", "123"))
-        self.assertEqual(client.calls[-1], ("publish", "123"))
+        self.assertEqual(client.calls[-1][0], "update_metadata")
 
 
 if __name__ == "__main__":

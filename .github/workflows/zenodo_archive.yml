@@ -19,10 +19,6 @@ on:
         description: "Create a new version draft from existing_deposition_id"
         required: true
         default: "false"
-      publish:
-        description: "Publish the Zenodo draft after upload"
-        required: true
-        default: "false"
       zenodo_api_url:
         description: "Zenodo API URL"
         required: true
@@ -86,9 +82,6 @@ jobs:
           }
           if ("${{ inputs.create_new_version }}" -eq "true") {
             $args += "--create-new-version"
-          }
-          if ("${{ inputs.publish }}" -eq "true") {
-            $args += "--publish"
           }
           python @args
       - name: Upload archive artifact
