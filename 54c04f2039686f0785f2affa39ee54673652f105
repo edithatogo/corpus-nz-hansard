@@ -1,0 +1,1 @@
+Track: artifact_provenance_attestations_20260609. Promoted completed provenance/attestation track in Conductor registry and metadata, and recorded current completion verification. Verification: make quality passed with uv, Ruff, ty, typos, zizmor, taplo, actionlint, quality config, release provenance policy, release version consistency, and 46 unit tests.
