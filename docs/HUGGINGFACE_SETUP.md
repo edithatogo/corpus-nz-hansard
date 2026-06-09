@@ -56,6 +56,18 @@ docs/
 
 The source ZIP is not staged. The `README.md` copied to Hugging Face is generated from `DATASET_CARD.md` and must retain YAML metadata front matter so Hugging Face can populate dataset-card metadata and discovery tags.
 
+The dataset card must also retain an explicit viewer configuration:
+
+```yaml
+configs:
+  - config_name: default
+    data_files:
+      - split: train
+        path: data/hansard.parquet
+```
+
+This constrains Hugging Face Datasets auto-detection so downloadable JSON manifests under `manifests/` are not treated as viewer splits.
+
 ## Upload
 
 After `hf auth login` or `HF_TOKEN` is configured:

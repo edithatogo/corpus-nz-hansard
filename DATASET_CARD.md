@@ -20,6 +20,11 @@ tags:
   - legal-corpus
   - legislative-data
 paperswithcode_id: null
+configs:
+  - config_name: default
+    data_files:
+      - split: train
+        path: data/hansard.parquet
 ---
 
 # NZ Hansard Corpus Dataset Card
@@ -56,6 +61,13 @@ This dataset card does not provide legal advice.
 ## Dataset Structure
 
 The normalized Parquet dataset is document-level, not speech-turn-level.
+
+Hugging Face viewer configuration:
+
+- Config: `default`
+- Split: `train`
+- Data file: `data/hansard.parquet`
+- Downloadable documentation, manifests, and schemas are intentionally excluded from viewer split detection.
 
 Columns:
 

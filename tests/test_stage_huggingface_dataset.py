@@ -21,7 +21,17 @@ class StageHuggingFaceDatasetTest(unittest.TestCase):
         parquet.write_bytes(b"parquet")
 
         for relative, content in {
-            "DATASET_CARD.md": "---\nlicense: mit\n---\n# Card",
+            "DATASET_CARD.md": (
+                "---\n"
+                "license: mit\n"
+                "configs:\n"
+                "  - config_name: default\n"
+                "    data_files:\n"
+                "      - split: train\n"
+                "        path: data/hansard.parquet\n"
+                "---\n"
+                "# Card"
+            ),
             "README.md": "# Repo",
             "CITATION.cff": "doi: 10.5281/zenodo.20591997",
             "LICENSE": "MIT",
@@ -45,11 +55,18 @@ class StageHuggingFaceDatasetTest(unittest.TestCase):
             os.chdir(cwd)
 
         staged = Path(result["output_dir"])
-        self.assertTrue((staged / "README.md").read_text(encoding="utf-8").startswith("---"))
+        readme = (staged / "README.md").read_text(encoding="utf-8")
+        self.assertTrue(readme.startswith("---"))
+        self.assertIn("configs:", readme)
+        self.assertIn("config_name: default", readme)
+        self.assertIn("split: train", readme)
+        self.assertIn("path: data/hansard.parquet", readme)
         self.assertTrue((staged / "CITATION.cff").exists())
         self.assertTrue((staged / "LICENSE").exists())
         self.assertTrue((staged / "NOTICE.md").exists())
         self.assertTrue((staged / "data" / "hansard.parquet").exists())
+        self.assertTrue((staged / "manifests" / "release.json").exists())
+        self.assertTrue((staged / "schemas" / "schema.json").exists())
 
 
 if __name__ == "__main__":
