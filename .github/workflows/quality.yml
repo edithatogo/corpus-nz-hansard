@@ -111,3 +111,6 @@ jobs:
 
       - name: Release ladder
         run: python scripts\check_release_ladder.py
+
+      - name: Gold evaluation datasets
+        run: python scripts\check_gold_evaluation_datasets.py

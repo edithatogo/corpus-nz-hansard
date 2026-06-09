@@ -126,6 +126,13 @@
       "next_gate": "add component schemas and validation manifests before public component release"
     },
     {
+      "artifact": "gold evaluation datasets",
+      "path": "manifests/gold_evaluation_datasets.json",
+      "release_level": "neutral-component",
+      "status": "validated-manifest",
+      "next_gate": "future derived component and endpoint releases must cite relevant fixture IDs or a refreshed evaluation manifest"
+    },
+    {
       "artifact": "speech-turn candidates",
       "path": "generated/speech_turns",
       "release_level": "neutral-component",

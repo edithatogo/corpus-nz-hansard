@@ -29,6 +29,8 @@ Endpoint coverage language must cite `manifests/historical_coverage_audit.json`.
 
 Endpoint release language must cite `manifests/release_ladder.json`. The current `v0.1.0` release is an immutable `document-level` release. Endpoint artifacts are `endpoint` level releases and must declare their input `document-level`, `authority-source`, and `neutral-component` release versions instead of being bundled into the canonical document-level release. Upstream samples, fixtures, and maintainer handoffs are `upstream-contribution` artifacts rather than endpoint releases.
 
+Endpoint validation language must cite `manifests/gold_evaluation_datasets.json` when derived `member_resolution`, `party_attribution`, `speech_turn`, `vote`, or `topic_coding` fields are in scope. The fixture set in `fixtures/gold_evaluation_samples.json` contains `positive`, `negative`, `ambiguous`, `unresolved`, and `excluded` examples and prohibits model-generated labels as gold without review.
+
 Required endpoint release-series fields:
 
 - `release_series_id`

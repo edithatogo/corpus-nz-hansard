@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "generated_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "fixture_path": {
+      "const": "fixtures/gold_evaluation_samples.json"
+    },
+    "sample_schema": {
+      "const": "schemas/gold_evaluation_sample.schema.json"
+    },
+    "release_ladder_level": {
+      "const": "neutral-component"
+    },
+    "publication_status": {
+      "const": "validation-fixture-only"
+    },
+    "domains": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "domain": {
+            "enum": [
+              "member_resolution",
+              "party_attribution",
+              "speech_turn",
+              "vote",
+              "topic_coding"
+            ]
+          },
+          "target_track": {
+            "type": "string"
+          },
+          "required_example_classes": {
+            "items": {
+              "enum": [
+                "positive",
+                "negative",
+                "ambiguous",
+                "unresolved",
+                "excluded"
+              ]
+            },
+            "minItems": 5,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "metrics_supported": {
+            "items": {
+              "enum": [
+                "precision",
+                "recall",
+                "ambiguity_rate",
+                "unresolved_rate",
+                "exclusion_regression"
+              ]
+            },
+            "minItems": 5,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "domain",
+          "target_track",
+          "required_example_classes",
+          "metrics_supported"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "quality_gates": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "release_gate_note": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "repository",
+    "generated_at",
+    "fixture_path",
+    "sample_schema",
+    "release_ladder_level",
+    "publication_status",
+    "domains",
+    "quality_gates",
+    "release_gate_note"
+  ],
+  "type": "object"
+}

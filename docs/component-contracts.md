@@ -191,6 +191,8 @@ Minimum neutral fields:
 
 Gold/evaluation samples support precision, recall, ambiguity, and exclusion testing before publication.
 
+The current evaluation fixture authority is `manifests/gold_evaluation_datasets.json` with samples in `fixtures/gold_evaluation_samples.json`. It covers `member_resolution`, `party_attribution`, `speech_turn`, `vote`, and `topic_coding`, and every domain includes `positive`, `negative`, `ambiguous`, `unresolved`, and `excluded` examples. Treat model-generated labels as non-gold unless separately reviewed.
+
 Minimum neutral fields:
 
 - `sample_id`

@@ -1,0 +1,79 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "generated_at": "2026-06-10",
+  "fixture_path": "fixtures/gold_evaluation_samples.json",
+  "sample_schema": "schemas/gold_evaluation_sample.schema.json",
+  "release_ladder_level": "neutral-component",
+  "publication_status": "validation-fixture-only",
+  "domains": [
+    {
+      "domain": "member_resolution",
+      "target_track": "member_identity_resolution_20260609",
+      "required_example_classes": ["positive", "negative", "ambiguous", "unresolved", "excluded"],
+      "metrics_supported": [
+        "precision",
+        "recall",
+        "ambiguity_rate",
+        "unresolved_rate",
+        "exclusion_regression"
+      ]
+    },
+    {
+      "domain": "party_attribution",
+      "target_track": "party_attribution_provenance_20260609",
+      "required_example_classes": ["positive", "negative", "ambiguous", "unresolved", "excluded"],
+      "metrics_supported": [
+        "precision",
+        "recall",
+        "ambiguity_rate",
+        "unresolved_rate",
+        "exclusion_regression"
+      ]
+    },
+    {
+      "domain": "speech_turn",
+      "target_track": "speech_turn_validated_artifact_20260609",
+      "required_example_classes": ["positive", "negative", "ambiguous", "unresolved", "excluded"],
+      "metrics_supported": [
+        "precision",
+        "recall",
+        "ambiguity_rate",
+        "unresolved_rate",
+        "exclusion_regression"
+      ]
+    },
+    {
+      "domain": "vote",
+      "target_track": "popolo_opencivicdata_endpoint_20260609",
+      "required_example_classes": ["positive", "negative", "ambiguous", "unresolved", "excluded"],
+      "metrics_supported": [
+        "precision",
+        "recall",
+        "ambiguity_rate",
+        "unresolved_rate",
+        "exclusion_regression"
+      ]
+    },
+    {
+      "domain": "topic_coding",
+      "target_track": "cap_parlacap_topic_endpoint_20260609",
+      "required_example_classes": ["positive", "negative", "ambiguous", "unresolved", "excluded"],
+      "metrics_supported": [
+        "precision",
+        "recall",
+        "ambiguity_rate",
+        "unresolved_rate",
+        "exclusion_regression"
+      ]
+    }
+  ],
+  "quality_gates": [
+    "Every domain has positive, negative, ambiguous, unresolved, and excluded examples.",
+    "Every sample records sampling frame, review status, reviewer, reviewed date, and label provenance.",
+    "Model-generated labels are prohibited unless independently reviewed and recorded as non-model gold labels.",
+    "Endpoint contracts must cite this manifest before publishing derived member, party, speech, vote, or topic artifacts.",
+    "Fixtures remain small, text-excerpt based, and Git-friendly."
+  ],
+  "release_gate_note": "This manifest supplies evaluation evidence for later neutral-component and endpoint releases. It does not publish derived fields and does not change the immutable v0.1.0 document-level dataset."
+}

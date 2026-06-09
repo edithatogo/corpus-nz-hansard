@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Gold Evaluation Datasets
-
-Track ID: `gold_evaluation_datasets_20260609`
-
-Goal: create reviewed evaluation fixtures for member resolution, party attribution, speech turns, votes, and topic coding.
-
-Link: [conductor/tracks/gold_evaluation_datasets_20260609/](./tracks/gold_evaluation_datasets_20260609/)
-
 ### [ ] Track: Canonical ID and URI Policy
 
 Track ID: `canonical_id_uri_policy_20260609`
@@ -142,6 +134,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Gold Evaluation Datasets
+
+Track ID: `gold_evaluation_datasets_20260609`
+
+Goal: Created reviewed evaluation schemas, fixtures, metrics, and gates for member resolution, party attribution, speech turns, votes, and topic coding.
+
+Link: [conductor/tracks/gold_evaluation_datasets_20260609/](./tracks/gold_evaluation_datasets_20260609/)
 
 ### [x] Track: Release Ladder
 

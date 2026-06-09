@@ -1,0 +1,757 @@
+{
+  "fixture_version": 1,
+  "repository": "corpus-nz-hansard",
+  "reviewed_at": "2026-06-10",
+  "samples": [
+    {
+      "sample_id": "gold-member-resolution-01",
+      "domain": "member_resolution",
+      "example_class": "positive",
+      "target_component_type": "member",
+      "target_component_id": "member-raw-clayton-cosgrove",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - speech",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansD_20031112_00001051"
+      },
+      "text_excerpt": "CLAYTON COSGROVE: The second is a certificate of incorporation...",
+      "label": {
+        "status": "gold_positive",
+        "value": "CLAYTON COSGROVE",
+        "expected_behavior": "A resolver may emit a candidate member match for the explicit speaker string, with authority-source validation still required before publication.",
+        "label_provenance": ["manifests/speech_turn_segmentation_validation.json", "manifests/authority_sources.json"]
+      },
+      "sampling_frame": "Explicit uppercase speaker candidate from existing speech-turn validation examples.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual fixture review against tracked validation example; no automated model label accepted as gold.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-member-resolution-02",
+      "domain": "member_resolution",
+      "example_class": "negative",
+      "target_component_type": "member",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - debate",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansD_20030408"
+      },
+      "text_excerpt": "Minister of Consumer Affairs: I move",
+      "label": {
+        "status": "gold_negative",
+        "value": null,
+        "expected_behavior": "Do not resolve an office title to a member identity without a dated authority source.",
+        "label_provenance": ["docs/component-contracts.md", "manifests/authority_sources.json"]
+      },
+      "sampling_frame": "Office-title speaker candidate from existing speech-turn validation examples.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual fixture review of role-title boundary.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-member-resolution-03",
+      "domain": "member_resolution",
+      "example_class": "ambiguous",
+      "target_component_type": "member",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - speech",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansS_20031210_00001051"
+      },
+      "text_excerpt": "Hon Roger Sowry: I raise a point of order...",
+      "label": {
+        "status": "gold_ambiguous",
+        "value": "Hon Roger Sowry",
+        "expected_behavior": "Preserve honorific and name variant evidence; require authority matching before canonical member_id publication.",
+        "label_provenance": ["manifests/speech_turn_segmentation_validation.json", "manifests/authority_sources.json"]
+      },
+      "sampling_frame": "Honorific name variant from existing speech-turn validation examples.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual ambiguity review of raw speaker variant.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-member-resolution-04",
+      "domain": "member_resolution",
+      "example_class": "unresolved",
+      "target_component_type": "member",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - debate",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansD_20040908_00000864"
+      },
+      "text_excerpt": "Counting for Something: Value Added By Voluntary Agencies",
+      "label": {
+        "status": "gold_unresolved",
+        "value": null,
+        "expected_behavior": "Leave unresolved because the candidate text is a heading-like phrase, not a clear member name.",
+        "label_provenance": ["manifests/speech_turn_segmentation_validation.json"]
+      },
+      "sampling_frame": "Heading-like speaker candidate from existing speech-turn validation examples.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual unresolved-case review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-member-resolution-05",
+      "domain": "member_resolution",
+      "example_class": "excluded",
+      "target_component_type": "member",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - daily",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansD_20041005"
+      },
+      "text_excerpt": "Hansard",
+      "label": {
+        "status": "gold_excluded",
+        "value": null,
+        "expected_behavior": "Exclude generic publication headings from member-resolution metrics.",
+        "label_provenance": ["docs/component-contracts.md"]
+      },
+      "sampling_frame": "Generic heading candidate from existing speech-turn validation examples.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual exclusion review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-party-attribution-01",
+      "domain": "party_attribution",
+      "example_class": "positive",
+      "target_component_type": "party_vote",
+      "target_component_id": "party-vote-new-zealand-labour",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 51,
+        "document_type": "Hansard - vote",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-51.csv",
+        "source_row_number": null,
+        "parliament_document_id": null
+      },
+      "text_excerpt": "Ayes 93 New Zealand National 59; New Zealand Labour 30; Maori Party 2; ACT New Zealand 1; United Future 1.",
+      "label": {
+        "status": "gold_positive",
+        "value": "New Zealand Labour",
+        "expected_behavior": "Recognise explicit party labels inside a party-vote text span while preserving vote-event provenance.",
+        "label_provenance": ["manifests/schema_discovery.json", "docs/component-contracts.md"]
+      },
+      "sampling_frame": "Party-label text in sampled vote content.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual review of explicit party label in tracked schema-discovery sample.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-party-attribution-02",
+      "domain": "party_attribution",
+      "example_class": "negative",
+      "target_component_type": "party_membership",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - speech",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansD_20031112_00001051"
+      },
+      "text_excerpt": "CLAYTON COSGROVE: The second is a certificate of incorporation...",
+      "label": {
+        "status": "gold_negative",
+        "value": null,
+        "expected_behavior": "Do not infer party membership from a raw speaker name alone.",
+        "label_provenance": ["docs/component-contracts.md", "conductor/tracks/party_attribution_provenance_20260609/spec.md"]
+      },
+      "sampling_frame": "Speaker-name case without party authority evidence.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual review of no-party-source boundary.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-party-attribution-03",
+      "domain": "party_attribution",
+      "example_class": "ambiguous",
+      "target_component_type": "party_vote",
+      "target_component_id": "party-vote-green-alias",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 54,
+        "document_type": "Hansard - vote",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+        "source_row_number": null,
+        "parliament_document_id": "HansS_20240625_067140000"
+      },
+      "text_excerpt": "Noes 48 New Zealand Labour 34; Green Party of Aotearoa New Zealand 14.",
+      "label": {
+        "status": "gold_ambiguous",
+        "value": "Green Party of Aotearoa New Zealand",
+        "expected_behavior": "Preserve full party label and alias evidence; do not collapse to a shorter party name without an authority table.",
+        "label_provenance": ["manifests/schema_discovery.json", "manifests/authority_sources.json"]
+      },
+      "sampling_frame": "Current-term party-vote text with a long-form party label.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual alias-boundary review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-party-attribution-04",
+      "domain": "party_attribution",
+      "example_class": "unresolved",
+      "target_component_type": "party_membership",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - debate",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansD_20030408"
+      },
+      "text_excerpt": "Minister of Consumer Affairs: I move",
+      "label": {
+        "status": "gold_unresolved",
+        "value": null,
+        "expected_behavior": "Leave party unresolved because the member is unresolved and no dated party authority has been applied.",
+        "label_provenance": ["conductor/tracks/party_attribution_provenance_20260609/spec.md"]
+      },
+      "sampling_frame": "Office-title case dependent on unresolved member identity.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual party-dependency review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-party-attribution-05",
+      "domain": "party_attribution",
+      "example_class": "excluded",
+      "target_component_type": "party_membership",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 50,
+        "document_type": "Hansard - debate",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-50.csv",
+        "source_row_number": null,
+        "parliament_document_id": null
+      },
+      "text_excerpt": "Document-level debate text without an explicit source Party column.",
+      "label": {
+        "status": "gold_excluded",
+        "value": null,
+        "expected_behavior": "Exclude document-level party inference from party-attribution metrics where neither member identity nor party-vote text is present.",
+        "label_provenance": ["DATASET_CARD.md", "manifests/public_dataset_release_manifest.json"]
+      },
+      "sampling_frame": "Known dataset limitation: no explicit Party source column.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual limitation review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-speech-turn-01",
+      "domain": "speech_turn",
+      "example_class": "positive",
+      "target_component_type": "speech_turn",
+      "target_component_id": "speech-turn-rodney-hide-yes",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - speech",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansS_20050217_00000759"
+      },
+      "text_excerpt": "RODNEY HIDE: Yes.",
+      "label": {
+        "status": "gold_positive",
+        "value": "speaker=RODNEY HIDE; speech=Yes.",
+        "expected_behavior": "A speech-turn validator should accept this compact speaker-colon-speech boundary as a positive segmentation case.",
+        "label_provenance": ["manifests/speech_turn_segmentation_validation.json"]
+      },
+      "sampling_frame": "Short explicit speaker turn from existing speech-turn validation examples.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual turn-boundary review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-speech-turn-02",
+      "domain": "speech_turn",
+      "example_class": "negative",
+      "target_component_type": "speech_turn",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - debate",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansD_20040908_00000864"
+      },
+      "text_excerpt": "Counting for Something: Value Added By Voluntary Agencies",
+      "label": {
+        "status": "gold_negative",
+        "value": null,
+        "expected_behavior": "Do not emit a speech turn for heading-like text even if it contains a colon-like boundary.",
+        "label_provenance": ["docs/speech-turn-segmentation-contract.md"]
+      },
+      "sampling_frame": "Heading-like false positive from existing validation examples.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual false-positive review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-speech-turn-03",
+      "domain": "speech_turn",
+      "example_class": "ambiguous",
+      "target_component_type": "speech_turn",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - speech",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansS_20031210_00001051"
+      },
+      "text_excerpt": "Hon Roger Sowry: I raise a point of order Mr Speaker...",
+      "label": {
+        "status": "gold_ambiguous",
+        "value": "speaker=Hon Roger Sowry",
+        "expected_behavior": "Segmentation may preserve the turn boundary, but speaker identity remains ambiguous until member resolution validates the name.",
+        "label_provenance": ["manifests/speech_turn_segmentation_validation.json", "docs/component-contracts.md"]
+      },
+      "sampling_frame": "Speaker turn with unresolved identity variant.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual segmentation-versus-identity review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-speech-turn-04",
+      "domain": "speech_turn",
+      "example_class": "unresolved",
+      "target_component_type": "speech_turn",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - daily",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansD_20041005"
+      },
+      "text_excerpt": "Hansard",
+      "label": {
+        "status": "gold_unresolved",
+        "value": null,
+        "expected_behavior": "Leave unresolved because no turn boundary can be reviewed from the excerpt alone.",
+        "label_provenance": ["docs/speech-turn-segmentation-contract.md"]
+      },
+      "sampling_frame": "Generic text without a clear speaker turn.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual unresolved-boundary review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-speech-turn-05",
+      "domain": "speech_turn",
+      "example_class": "excluded",
+      "target_component_type": "speech_turn",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - vote",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": null
+      },
+      "text_excerpt": "A party vote was called for on the question...",
+      "label": {
+        "status": "gold_excluded",
+        "value": null,
+        "expected_behavior": "Exclude vote-procedure text from speech-turn publication unless a later component model explicitly supports proceeding narration.",
+        "label_provenance": ["manifests/speech_turn_segmentation_validation.json", "docs/component-contracts.md"]
+      },
+      "sampling_frame": "Vote text class excluded from speech-turn gold unless separately modelled.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual exclusion review for procedural vote text.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-vote-01",
+      "domain": "vote",
+      "example_class": "positive",
+      "target_component_type": "vote_event",
+      "target_component_id": "vote-clean-vehicle-second-reading",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 54,
+        "document_type": "Hansard - vote",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+        "source_row_number": null,
+        "parliament_document_id": "HansS_20240625_067140000"
+      },
+      "text_excerpt": "A party vote was called for on the question That the Land Transport (Clean Vehicle Standard) Amendment Bill be now read a second time. Ayes 68... Noes 48...",
+      "label": {
+        "status": "gold_positive",
+        "value": "ayes=68; noes=48; result=Motion agreed to",
+        "expected_behavior": "Extract a vote event with ayes, noes, question text, and result from explicit vote wording.",
+        "label_provenance": ["manifests/schema_discovery.json", "docs/component-contracts.md"]
+      },
+      "sampling_frame": "Recent explicit party-vote sample from schema discovery.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual vote-event review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-vote-02",
+      "domain": "vote",
+      "example_class": "negative",
+      "target_component_type": "vote_event",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 54,
+        "document_type": "Hansard - speech",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+        "source_row_number": null,
+        "parliament_document_id": "HansS_20240625_067080000"
+      },
+      "text_excerpt": "I commend this bill to the House.",
+      "label": {
+        "status": "gold_negative",
+        "value": null,
+        "expected_behavior": "Do not extract a vote event from generic bill-debate speech text.",
+        "label_provenance": ["manifests/schema_discovery.json"]
+      },
+      "sampling_frame": "Speech sample near a vote sample, used as a vote false-positive guard.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual negative vote review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-vote-03",
+      "domain": "vote",
+      "example_class": "ambiguous",
+      "target_component_type": "vote_event",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 51,
+        "document_type": "Hansard - vote",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-51.csv",
+        "source_row_number": null,
+        "parliament_document_id": null
+      },
+      "text_excerpt": "Ayes 96... Noes 18... Part 3 agreed to. Clause 1 agreed to. Clause 2 agreed to.",
+      "label": {
+        "status": "gold_ambiguous",
+        "value": "multiple procedural outcomes",
+        "expected_behavior": "Preserve the ambiguity and require proceeding-item segmentation before assigning one vote event per procedural question.",
+        "label_provenance": ["manifests/schema_discovery.json", "docs/component-contracts.md"]
+      },
+      "sampling_frame": "Vote text containing multiple nearby procedural outcomes.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual ambiguity review of compound vote text.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-vote-04",
+      "domain": "vote",
+      "example_class": "unresolved",
+      "target_component_type": "vote_event",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - debate",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansD_20030408"
+      },
+      "text_excerpt": "I move",
+      "label": {
+        "status": "gold_unresolved",
+        "value": null,
+        "expected_behavior": "Leave unresolved because a motion opener alone is not a recorded vote outcome.",
+        "label_provenance": ["docs/component-contracts.md"]
+      },
+      "sampling_frame": "Motion-like text without vote counts or result.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual unresolved vote review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-vote-05",
+      "domain": "vote",
+      "example_class": "excluded",
+      "target_component_type": "vote_event",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 50,
+        "document_type": "Hansard - question",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-50.csv",
+        "source_row_number": null,
+        "parliament_document_id": null
+      },
+      "text_excerpt": "Questions to Ministers",
+      "label": {
+        "status": "gold_excluded",
+        "value": null,
+        "expected_behavior": "Exclude question headings from vote extraction metrics.",
+        "label_provenance": ["docs/component-contracts.md"]
+      },
+      "sampling_frame": "Question document type exclusion for vote extraction.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual vote exclusion review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-topic-coding-01",
+      "domain": "topic_coding",
+      "example_class": "positive",
+      "target_component_type": "topic_assignment",
+      "target_component_id": "topic-health-drinking-water",
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 48,
+        "document_type": "Hansard - question",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-48.csv",
+        "source_row_number": null,
+        "parliament_document_id": null
+      },
+      "text_excerpt": "Water - Drinking Water",
+      "label": {
+        "status": "gold_positive",
+        "value": "health/drinking-water",
+        "expected_behavior": "Assign the reviewed local topic label only when the declared codebook includes this policy area.",
+        "label_provenance": ["manifests/schema_discovery.json", "docs/component-contracts.md"]
+      },
+      "sampling_frame": "Question title with clear policy topic from schema-discovery sample.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual local-topic fixture review; not CAP gold until a CAP codebook mapping is declared.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-topic-coding-02",
+      "domain": "topic_coding",
+      "example_class": "negative",
+      "target_component_type": "topic_assignment",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - daily",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansD_20041005"
+      },
+      "text_excerpt": "Hansard",
+      "label": {
+        "status": "gold_negative",
+        "value": null,
+        "expected_behavior": "Do not assign a substantive topic to a generic publication heading.",
+        "label_provenance": ["docs/component-contracts.md"]
+      },
+      "sampling_frame": "Generic heading used as topic false-positive guard.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual topic negative review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-topic-coding-03",
+      "domain": "topic_coding",
+      "example_class": "ambiguous",
+      "target_component_type": "topic_assignment",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 54,
+        "document_type": "Hansard - debate",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv",
+        "source_row_number": null,
+        "parliament_document_id": "HansS_20240625_067020000"
+      },
+      "text_excerpt": "Land Transport (Clean Vehicle Standard) Amendment Bill",
+      "label": {
+        "status": "gold_ambiguous",
+        "value": "transport/environment",
+        "expected_behavior": "Mark as ambiguous unless the codebook provides a rule for transport regulation versus climate-emissions framing.",
+        "label_provenance": ["manifests/schema_discovery.json", "conductor/tracks/cap_parlacap_topic_endpoint_20260609/spec.md"]
+      },
+      "sampling_frame": "Bill debate title spanning transport and emissions policy.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual topic ambiguity review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-topic-coding-04",
+      "domain": "topic_coding",
+      "example_class": "unresolved",
+      "target_component_type": "topic_assignment",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 47,
+        "document_type": "Hansard - debate",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv",
+        "source_row_number": null,
+        "parliament_document_id": "47HansD_20040908_00000864"
+      },
+      "text_excerpt": "Value Added By Voluntary Agencies",
+      "label": {
+        "status": "gold_unresolved",
+        "value": null,
+        "expected_behavior": "Leave unresolved until a declared topic codebook can distinguish voluntary-sector policy from procedural or heading text.",
+        "label_provenance": ["manifests/speech_turn_segmentation_validation.json"]
+      },
+      "sampling_frame": "Heading-like phrase with insufficient codebook context.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual topic unresolved review.",
+        "model_generated_label": false
+      }
+    },
+    {
+      "sample_id": "gold-topic-coding-05",
+      "domain": "topic_coding",
+      "example_class": "excluded",
+      "target_component_type": "topic_assignment",
+      "target_component_id": null,
+      "source_reference": {
+        "release_version": "0.1.0",
+        "parliament_number": 51,
+        "document_type": "Hansard - vote",
+        "source_file": "2024-09-06 Hansard Extract from DocumentsDB/Hansard-51.csv",
+        "source_row_number": null,
+        "parliament_document_id": null
+      },
+      "text_excerpt": "A party vote was called for on the question...",
+      "label": {
+        "status": "gold_excluded",
+        "value": null,
+        "expected_behavior": "Exclude procedural vote boilerplate from topic-coding gold unless linked to a separate proceeding item with a substantive subject.",
+        "label_provenance": ["docs/component-contracts.md"]
+      },
+      "sampling_frame": "Procedural vote boilerplate exclusion for topic coding.",
+      "review": {
+        "review_status": "reviewed",
+        "reviewer": "repository-maintainer",
+        "reviewed_at": "2026-06-10",
+        "review_method": "Manual topic exclusion review.",
+        "model_generated_label": false
+      }
+    }
+  ]
+}
