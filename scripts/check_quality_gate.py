@@ -30,6 +30,7 @@ REQUIRED_QUALITY_SNIPPETS = (
     "python scripts\\check_release_provenance_policy.py",
     "python scripts\\check_release_version_consistency.py",
     "python scripts\\check_public_surface_audit.py",
+    "python scripts\\check_zenodo_rights_metadata.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
@@ -40,6 +41,7 @@ REQUIRED_MAKE_TARGETS = (
     "provenance-policy:",
     "version-consistency:",
     "public-surface-audit:",
+    "zenodo-rights:",
     "lint:",
     "format-check:",
     "typecheck:",

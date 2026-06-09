@@ -25,6 +25,7 @@ python scripts/check_quality_gate.py
 python scripts/check_release_provenance_policy.py
 python scripts/check_release_version_consistency.py
 python scripts/check_public_surface_audit.py
+python scripts/check_zenodo_rights_metadata.py
 python -m unittest discover tests
 ```
 
@@ -35,6 +36,8 @@ python -m unittest discover tests
 `scripts/check_release_version_consistency.py` guards SemVer, DOI, publication URL, citation, release-note, dataset-card, and public-manifest consistency. It also keeps `docs/bleeding-edge-versioning-ci-quality.md` as the documented authority for code/package, dataset, schema, Hugging Face revision, Zenodo DOI snapshot, and manifest-hash governance.
 
 `scripts/check_public_surface_audit.py` guards the public-surface evidence ledger for GitHub, Hugging Face, Zenodo, OSF, and future metadata environments. It keeps active-public claims aligned with `manifests/public_dataset_release_manifest.json` and blocks OSF/future-metadata publication claims until their follow-up tracks land.
+
+`scripts/check_zenodo_rights_metadata.py` guards `.zenodo.json`, the mixed-rights `other-open` Zenodo metadata decision, token naming for any future `zenodraft/action@0.13.3` migration, and the protected-publication boundary.
 
 `uv lock --check` and `uv sync --frozen --all-groups` are enforced locally and in CI. The repository is configured as a non-package uv project while script entrypoints remain transitional, so lock-file enforcement can land before the future `src/` package and CLI migration. Pre-commit remains deferred until that package/CLI migration, because CI is the current source of enforcement and avoids adding another local bootstrap path before the dependency model is settled.
 

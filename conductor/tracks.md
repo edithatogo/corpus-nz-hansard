@@ -21,11 +21,11 @@ Goal: Adopt SOTA CI/code-quality automation using Rust-backed tools where possib
 
 Link: [conductor/tracks/sota_cicd_code_quality_rust_tooling_20260609/](./tracks/sota_cicd_code_quality_rust_tooling_20260609/)
 
-### [ ] Track: Zenodo Rights Metadata And Zenodraft Workflow
+### [!] Track: Zenodo Rights Metadata And Zenodraft Workflow
 
 Track ID: `zenodo_rights_metadata_and_zenodraft_workflow_20260609`
 
-Goal: Harmonise Zenodo rights metadata and migrate/evaluate draft operations through zenodraft.
+Goal: Harmonise Zenodo rights metadata and migrate/evaluate draft operations through zenodraft. Repo-side metadata and policy work is complete; sandbox proof is blocked pending `ZENODO_SANDBOX_TOKEN` and approval to create sandbox depositions.
 
 Link: [conductor/tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/](./tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/)
 

@@ -1,0 +1,48 @@
+{
+  "creators": [
+    {
+      "name": "Dylan Mordaunt"
+    }
+  ],
+  "description": "Document-level corpus pipeline for New Zealand Hansard records from a supplied DocumentsDB extract. The source ZIP is not redistributed. Public artifacts contain derived normalized Parquet output, code, documentation, schemas, manifests, and release evidence needed to audit and reproduce the dataset. The underlying source text is New Zealand Parliamentary Debates/Hansard material; project documentation records the Parliament provenance statement that no copyright exists in New Zealand Parliamentary Debates/Hansard. Original repository code, documentation, manifests, and release tooling are MIT licensed. This dataset is not an official New Zealand Parliament publication channel and is not endorsed by New Zealand Parliament.",
+  "keywords": [
+    "New Zealand",
+    "Hansard",
+    "Parliament",
+    "corpus",
+    "open data",
+    "legislative data"
+  ],
+  "license": "other-open",
+  "publication_date": "2026-06-08",
+  "related_identifiers": [
+    {
+      "identifier": "https://doi.org/10.5281/zenodo.20595194",
+      "relation": "isVersionOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://doi.org/10.5281/zenodo.20591996",
+      "relation": "isVersionOf",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "https://github.com/edithatogo/corpus-nz-hansard",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0",
+      "relation": "isSupplementedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+      "relation": "isIdenticalTo",
+      "scheme": "url"
+    }
+  ],
+  "title": "NZ Hansard Corpus",
+  "upload_type": "dataset",
+  "version": "0.1.0"
+}

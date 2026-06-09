@@ -76,10 +76,25 @@ gh workflow run zenodo_publish.yml --repo edithatogo/corpus-nz-hansard -f deposi
 
 ## Zenodraft requirement
 
-Future Zenodo draft/archive workflow changes should use or formally evaluate https://github.com/zenodraft/zenodraft. Use sandbox first, validate .zenodo.json metadata, and keep publish commands behind protected reviewer approval.
+Future Zenodo draft/archive workflow changes should use or formally evaluate https://github.com/zenodraft/zenodraft. This repository has formally evaluated `zenodraft/action@0.13.3` and keeps migration deferred until sandbox credentials and a maintainer-approved migration request exist. Use sandbox first, validate `.zenodo.json` metadata, and keep publish commands behind protected reviewer approval.
 
 Token naming boundary:
 
 - `ZENODO_TOKEN` is the current repository secret/input expected by existing Python scripts and GitHub workflows.
 - `ZENODO_ACCESS_TOKEN` and `ZENODO_SANDBOX_ACCESS_TOKEN` are the target Zenodraft-oriented names for any future Zenodraft workflow.
 - During migration, map repository secrets to the tool-specific environment variable only inside the CI step that needs it, and document whether the step targets production Zenodo or Zenodo Sandbox.
+
+Candidate sandbox-only action shape:
+
+```yaml
+- name: Draft Zenodo Sandbox deposition with zenodraft
+  uses: zenodraft/action@0.13.3
+  env:
+    ZENODO_SANDBOX_ACCESS_TOKEN: ${{ secrets.ZENODO_SANDBOX_TOKEN }}
+  with:
+    metadata: .zenodo.json
+    sandbox: true
+    publish: false
+```
+
+Do not add `publish: true` to archive or metadata update jobs. Production publication remains isolated in `zenodo_publish.yml` and protected by the `zenodo-production-publish` GitHub environment.

@@ -1,8 +1,8 @@
 PYTHON ?= python
 
-.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
+.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
 
-quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit test
+quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights test
 
 uv-lock:
 	uv lock --check
@@ -21,6 +21,9 @@ version-consistency:
 
 public-surface-audit:
 	$(PYTHON) scripts/check_public_surface_audit.py
+
+zenodo-rights:
+	$(PYTHON) scripts/check_zenodo_rights_metadata.py
 
 lint:
 	$(PYTHON) -m ruff check --no-cache .
