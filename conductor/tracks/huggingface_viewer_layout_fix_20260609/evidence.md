@@ -37,3 +37,16 @@ Required live follow-up after the next Hugging Face publish:
 - `https://datasets-server.huggingface.co/splits?dataset=edithatogo/nz-hansard-corpus` should report the configured Parquet-backed split.
 - `https://datasets-server.huggingface.co/first-rows?dataset=edithatogo/nz-hansard-corpus&config=default&split=train` should return rows.
 - `https://datasets-server.huggingface.co/parquet?dataset=edithatogo/nz-hansard-corpus` should discover `data/hansard.parquet`.
+
+## Publish Attempt - 2026-06-09
+
+GitHub Actions run `27199782809` rebuilt the corpus and completed successfully, but the upload step reported:
+
+```json
+{
+  "uploaded": false,
+  "reason": "remote_manifest_matches_local"
+}
+```
+
+Live readback after that run showed the remote `README.md` still lacked the `configs` block, and datasets-server still reported only the bad `validation` split. The workflow now passes `--force` to `scripts/upload_huggingface_dataset.py` so metadata/card-only public-surface changes are uploaded even when the release manifest content is unchanged.

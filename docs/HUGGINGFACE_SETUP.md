@@ -78,4 +78,6 @@ python scripts\upload_huggingface_dataset.py --repo-id $env:HF_REPO_ID --folder 
 
 The uploader creates the dataset repository if needed and resets the repository settings to `private=false` and `gated=false` on every run, including manifest-matching no-op uploads. This keeps the dataset page and file downloads publicly accessible without authentication.
 
+The GitHub Actions publish workflow passes `--force` so dataset-card, documentation, schema, and manifest changes are uploaded even when `manifests/public_dataset_release_manifest.json` still matches the remote copy.
+
 Do not claim publication until the remote dataset page and uploaded files are verified.

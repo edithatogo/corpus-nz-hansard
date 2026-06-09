@@ -54,7 +54,7 @@ jobs:
           HF_XET_HIGH_PERFORMANCE: "1"
         run: |
           if ("${{ inputs.private }}" -eq "true") {
-            python scripts\upload_huggingface_dataset.py --repo-id "$env:HF_REPO_ID" --folder generated\huggingface --private
+            python scripts\upload_huggingface_dataset.py --repo-id "$env:HF_REPO_ID" --folder generated\huggingface --private --force
           } else {
-            python scripts\upload_huggingface_dataset.py --repo-id "$env:HF_REPO_ID" --folder generated\huggingface
+            python scripts\upload_huggingface_dataset.py --repo-id "$env:HF_REPO_ID" --folder generated\huggingface --force
           }
