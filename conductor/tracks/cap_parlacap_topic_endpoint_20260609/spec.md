@@ -25,3 +25,7 @@
 ## Acceptance Criteria
 
 - Topic schema, codebook metadata, validation manifest, and sample outputs exist.
+
+## Dependencies
+
+- Depends on gold/evaluation datasets, CAP codebook provenance, speech/proceeding units, NZ parliamentary procedure model, and release ladder.

@@ -1,0 +1,7 @@
+{
+  "track_id": "release_ladder_20260609",
+  "title": "Release Ladder",
+  "status": "pending",
+  "created": "2026-06-09",
+  "description": "Define release levels and gates for document, authority-source, neutral-component, endpoint, and upstream-contribution artifacts."
+}

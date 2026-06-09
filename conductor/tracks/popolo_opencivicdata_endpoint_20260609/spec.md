@@ -28,3 +28,7 @@
 
 - Civic-data artifacts validate locally and include source provenance.
 - Vote artifacts have explicit motion/procedural-question linkage or are marked incomplete.
+
+## Dependencies
+
+- Depends on authority-source discovery, canonical ID/URI policy, member identity, party attribution, NZ parliamentary procedure model, vote/motion extraction, and release ladder.

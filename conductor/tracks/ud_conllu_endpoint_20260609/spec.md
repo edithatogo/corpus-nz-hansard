@@ -25,3 +25,7 @@
 ## Acceptance Criteria
 
 - CoNLL-U sample output, validator, alignment manifest, and model metadata exist.
+
+## Dependencies
+
+- Depends on dependency extras policy, text-unit policy, W3C Web Annotation-style selectors, model metadata, and release ladder.

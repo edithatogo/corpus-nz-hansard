@@ -25,3 +25,7 @@
 ## Acceptance Criteria
 
 - RDF output, SHACL shapes, URI policy, and validation manifest exist.
+
+## Dependencies
+
+- Depends on canonical ID/URI policy, authority-source discovery, neutral component model, release ladder, PROV-O/DCAT/SKOS mappings, W3C Time where temporal data is present, and optional NIF when linguistic annotations are exported.

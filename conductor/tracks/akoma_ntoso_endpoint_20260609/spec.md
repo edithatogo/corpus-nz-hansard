@@ -24,3 +24,7 @@
 ## Acceptance Criteria
 
 - Sample Akoma Ntoso output, mapping notes, and validation manifest exist.
+
+## Dependencies
+
+- Depends on neutral proceeding components, authority-source discovery, canonical ID/URI policy, NZ parliamentary procedure model, bills, motions, votes, questions, and release ladder.

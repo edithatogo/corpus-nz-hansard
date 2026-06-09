@@ -28,3 +28,7 @@
 
 - Contribution-readiness manifest exists for each target endpoint.
 - External submissions, if made, have links and evidence recorded.
+
+## Dependencies
+
+- Depends on endpoint validation, historical coverage audit, release ladder, known-exclusions documentation, and maintainer-specific contribution mechanism checks.

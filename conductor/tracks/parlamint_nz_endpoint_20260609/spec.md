@@ -28,3 +28,7 @@
 
 - ParlaMint-NZ generator, sample output, validation manifest, and mapping notes exist.
 - Generated samples trace every derived value back to neutral components.
+
+## Dependencies
+
+- Depends on neutral component model, authority-source discovery, canonical ID/URI policy, member identity, party attribution, speech-turn validation, NZ parliamentary procedure model, and release ladder.

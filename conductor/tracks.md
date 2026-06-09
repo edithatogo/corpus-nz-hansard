@@ -13,6 +13,62 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
+### [ ] Track: Authority Source Discovery
+
+Track ID: `authority_source_discovery_20260609`
+
+Goal: identify, retrieve, version, hash, and assess reuse constraints for official authority sources covering members, parties, offices, sittings, bills, motions, votes, and procedure.
+
+Link: [conductor/tracks/authority_source_discovery_20260609/](./tracks/authority_source_discovery_20260609/)
+
+### [ ] Track: Historical Coverage Audit
+
+Track ID: `historical_coverage_audit_20260609`
+
+Goal: distinguish supplied DocumentsDB extract completeness from full historical NZ Hansard completeness and publish coverage claims with evidence.
+
+Link: [conductor/tracks/historical_coverage_audit_20260609/](./tracks/historical_coverage_audit_20260609/)
+
+### [ ] Track: Release Ladder
+
+Track ID: `release_ladder_20260609`
+
+Goal: define document-level, authority-source, neutral-component, endpoint, and upstream-contribution release levels with publication gates.
+
+Link: [conductor/tracks/release_ladder_20260609/](./tracks/release_ladder_20260609/)
+
+### [ ] Track: Gold Evaluation Datasets
+
+Track ID: `gold_evaluation_datasets_20260609`
+
+Goal: create reviewed evaluation fixtures for member resolution, party attribution, speech turns, votes, and topic coding.
+
+Link: [conductor/tracks/gold_evaluation_datasets_20260609/](./tracks/gold_evaluation_datasets_20260609/)
+
+### [ ] Track: Canonical ID and URI Policy
+
+Track ID: `canonical_id_uri_policy_20260609`
+
+Goal: define stable identifier and URI policies before RDF, Popolo/Open Civic Data, ParlaMint, Akoma Ntoso, and metadata endpoint publication.
+
+Link: [conductor/tracks/canonical_id_uri_policy_20260609/](./tracks/canonical_id_uri_policy_20260609/)
+
+### [ ] Track: Dependency Extras Policy
+
+Track ID: `dependency_extras_policy_20260609`
+
+Goal: keep the base runtime minimal while governing optional XML, RDF, NLP, ML, metadata, schema, and authority-matching dependency groups.
+
+Link: [conductor/tracks/dependency_extras_policy_20260609/](./tracks/dependency_extras_policy_20260609/)
+
+### [ ] Track: NZ Parliamentary Procedure Model
+
+Track ID: `nz_parliamentary_procedure_model_20260609`
+
+Goal: model NZ-specific parliamentary procedure for party votes, personal votes, questions, supplementary questions, stages, rulings, interjections, and procedural units.
+
+Link: [conductor/tracks/nz_parliamentary_procedure_model_20260609/](./tracks/nz_parliamentary_procedure_model_20260609/)
+
 ### [ ] Track: Neutral Parliamentary Component Model
 
 Track ID: `neutral_component_model_20260609`
