@@ -1,4 +1,4 @@
-﻿# Spec: Corpus Family Engineering Alignment
+# Spec: Corpus Family Engineering Alignment
 
 ## Goal
 

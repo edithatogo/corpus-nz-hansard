@@ -1,4 +1,4 @@
-﻿# Evidence: Corpus Family Naming And Publication Alignment
+# Evidence: Corpus Family Naming And Publication Alignment
 
 ## Initial Evidence
 

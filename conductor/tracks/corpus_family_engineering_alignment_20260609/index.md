@@ -1,4 +1,4 @@
-﻿# Track corpus_family_engineering_alignment_20260609 Context
+# Track corpus_family_engineering_alignment_20260609 Context
 
 ## Documents
 

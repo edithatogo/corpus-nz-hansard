@@ -1,4 +1,4 @@
-﻿# Spec: Corpus Family Naming And Publication Alignment
+# Spec: Corpus Family Naming And Publication Alignment
 
 ## Goal
 

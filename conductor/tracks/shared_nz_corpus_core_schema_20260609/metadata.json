@@ -1,0 +1,8 @@
+{
+  "track_id": "shared_nz_corpus_core_schema_20260609",
+  "type": "feature",
+  "status": "pending",
+  "created_at": "2026-06-09T00:00:00+10:00",
+  "updated_at": "2026-06-09T00:00:00+10:00",
+  "description": "Define shared core fields and compatibility expectations across legislation and Hansard."
+}

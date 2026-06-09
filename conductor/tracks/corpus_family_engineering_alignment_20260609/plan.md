@@ -1,4 +1,4 @@
-﻿# Plan: Corpus Family Engineering Alignment
+# Plan: Corpus Family Engineering Alignment
 
 ## Phase 1: Baseline comparison
 

@@ -13,6 +13,78 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
+### [ ] Track: Bleeding Edge Versioning And Release Automation
+
+Track ID: `bleeding_edge_versioning_release_automation_20260609`
+
+Goal: Implement SemVer/dataset/schema version governance, Release Please-style changelog automation, and consistency checks.
+
+Link: [conductor/tracks/bleeding_edge_versioning_release_automation_20260609/](./tracks/bleeding_edge_versioning_release_automation_20260609/)
+
+### [ ] Track: SOTA CI/CD Code Quality And Rust Tooling
+
+Track ID: `sota_cicd_code_quality_rust_tooling_20260609`
+
+Goal: Adopt SOTA CI/code-quality automation using Rust-backed tools where possible: uv, ruff, typos, zizmor, taplo, plus actionlint.
+
+Link: [conductor/tracks/sota_cicd_code_quality_rust_tooling_20260609/](./tracks/sota_cicd_code_quality_rust_tooling_20260609/)
+
+### [ ] Track: Artifact Provenance And Attestations
+
+Track ID: `artifact_provenance_attestations_20260609`
+
+Goal: Add release evidence ledgers, GitHub artifact attestations or SLSA-style provenance, and signed/checksummed artifact policy.
+
+Link: [conductor/tracks/artifact_provenance_attestations_20260609/](./tracks/artifact_provenance_attestations_20260609/)
+
+### [ ] Track: Public Surface Audit Evidence
+
+Track ID: `public_surface_audit_evidence_20260609`
+
+Goal: Create an evidence ledger for GitHub, Hugging Face, Zenodo, OSF, and future metadata surfaces.
+
+Link: [conductor/tracks/public_surface_audit_evidence_20260609/](./tracks/public_surface_audit_evidence_20260609/)
+
+### [ ] Track: Hugging Face Viewer Layout Fix
+
+Track ID: `huggingface_viewer_layout_fix_20260609`
+
+Goal: Verify and fix any confirmed Hugging Face viewer split/cast or file-layout issue, then add layout regression checks.
+
+Link: [conductor/tracks/huggingface_viewer_layout_fix_20260609/](./tracks/huggingface_viewer_layout_fix_20260609/)
+
+### [ ] Track: Zenodo Rights Metadata And Zenodraft Workflow
+
+Track ID: `zenodo_rights_metadata_and_zenodraft_workflow_20260609`
+
+Goal: Harmonise Zenodo rights metadata and migrate/evaluate draft operations through zenodraft.
+
+Link: [conductor/tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/](./tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/)
+
+### [ ] Track: Shared NZ Corpus Core Schema
+
+Track ID: `shared_nz_corpus_core_schema_20260609`
+
+Goal: Define shared core fields and compatibility expectations across legislation and Hansard.
+
+Link: [conductor/tracks/shared_nz_corpus_core_schema_20260609/](./tracks/shared_nz_corpus_core_schema_20260609/)
+
+### [ ] Track: SOTA Metadata Packages
+
+Track ID: `sota_metadata_packages_20260609`
+
+Goal: Generate validated Croissant, RO-Crate, Frictionless, DCAT, and PROV-O metadata packages.
+
+Link: [conductor/tracks/sota_metadata_packages_20260609/](./tracks/sota_metadata_packages_20260609/)
+
+### [ ] Track: OSF Optional Mirror Policy
+
+Track ID: `osf_optional_mirror_policy_20260609`
+
+Goal: Decide whether OSF is unused, a review-bundle host, or an optional mirror with checksums and citation policy.
+
+Link: [conductor/tracks/osf_optional_mirror_policy_20260609/](./tracks/osf_optional_mirror_policy_20260609/)
+
 ### [ ] Track: Corpus Family Naming And Publication Alignment
 
 Track ID: `corpus_family_naming_publication_alignment_20260609`

@@ -1,4 +1,4 @@
-﻿# Evidence: Corpus Family Engineering Alignment
+# Evidence: Corpus Family Engineering Alignment
 
 ## Initial Evidence
 

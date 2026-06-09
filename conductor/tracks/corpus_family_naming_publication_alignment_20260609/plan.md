@@ -1,4 +1,4 @@
-﻿# Plan: Corpus Family Naming And Publication Alignment
+# Plan: Corpus Family Naming And Publication Alignment
 
 ## Phase 1: Naming and documentation
 
