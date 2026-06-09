@@ -4,6 +4,8 @@ Zenodo is used for the immutable DOI-bearing archive after the release package a
 
 ## Required Environment
 
+Current scripts and workflows use `ZENODO_TOKEN`:
+
 ```powershell
 $env:ZENODO_TOKEN = "..."
 $env:ZENODO_API_URL = "https://zenodo.org/api"
@@ -66,4 +68,10 @@ The upload script rejects `--publish`; publication should happen as a separate r
 
 ## Zenodraft requirement
 
-Future Zenodo draft/archive workflow changes should use or formally evaluate https://github.com/zenodraft/zenodraft. Use sandbox first, validate .zenodo.json metadata, map tokens to ZENODO_ACCESS_TOKEN or ZENODO_SANDBOX_ACCESS_TOKEN only inside the relevant CI step, and keep publish commands behind protected reviewer approval.
+Future Zenodo draft/archive workflow changes should use or formally evaluate https://github.com/zenodraft/zenodraft. Use sandbox first, validate .zenodo.json metadata, and keep publish commands behind protected reviewer approval.
+
+Token naming boundary:
+
+- `ZENODO_TOKEN` is the current repository secret/input expected by existing Python scripts and GitHub workflows.
+- `ZENODO_ACCESS_TOKEN` and `ZENODO_SANDBOX_ACCESS_TOKEN` are the target Zenodraft-oriented names for any future Zenodraft workflow.
+- During migration, map repository secrets to the tool-specific environment variable only inside the CI step that needs it, and document whether the step targets production Zenodo or Zenodo Sandbox.

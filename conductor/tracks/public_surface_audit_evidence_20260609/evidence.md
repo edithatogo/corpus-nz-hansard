@@ -40,3 +40,15 @@ Read-only live checks against `https://doi.org/10.5281/zenodo.20595194` and `htt
 - Record headers expose items for `nz-hansard-corpus-0.1.0.manifest.json` and `nz-hansard-corpus-0.1.0.tar.gz`.
 
 Audit note: Zenodo API fields such as `published` and `html` may be null even for the live record, so publication evidence should rely on DOI redirect, record-page HTTP 200, `state: done`, `submitted: true`, and related identifiers.
+
+## OSF Surface - 2026-06-09
+
+No OSF publication surface is currently claimed for `corpus-nz-hansard`.
+
+Current policy status:
+
+- GitHub, Hugging Face, and Zenodo are the active public surfaces for the document-level release.
+- OSF is an optional future mirror or review-bundle host only after a dedicated policy decides scope, checksums, citation wording, version mapping, and maintenance responsibility.
+- Until that policy exists, release/readiness claims should not describe OSF as published or complete.
+
+Follow-up is tracked in `osf_optional_mirror_policy_20260609`.
