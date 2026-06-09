@@ -50,3 +50,21 @@ GitHub Actions run `27199782809` rebuilt the corpus and completed successfully, 
 ```
 
 Live readback after that run showed the remote `README.md` still lacked the `configs` block, and datasets-server still reported only the bad `validation` split. The workflow now passes `--force` to `scripts/upload_huggingface_dataset.py` so metadata/card-only public-surface changes are uploaded even when the release manifest content is unchanged.
+
+## Live Verification - 2026-06-09
+
+GitHub Actions run `27200286687` completed successfully after the workflow was changed to force-upload the staged public surface.
+
+Live Hugging Face readback:
+
+- `https://huggingface.co/api/datasets/edithatogo/nz-hansard-corpus` returns `private: false`, `gated: false`, and repository SHA `4d7ae9d560787c50588dfbdefad509165bc779d1`.
+- API `cardData.configs` includes `config_name: default` with `data_files` split `train` at `data/hansard.parquet`.
+- Raw `README.md` contains the same `configs` block.
+
+Live datasets-server readback:
+
+- `https://datasets-server.huggingface.co/splits?dataset=edithatogo/nz-hansard-corpus` returns config `default`, split `train`, with no pending or failed entries.
+- `https://datasets-server.huggingface.co/first-rows?dataset=edithatogo/nz-hansard-corpus&config=default&split=train` returns HTTP 200 and the expected document-level schema fields.
+- `https://datasets-server.huggingface.co/parquet?dataset=edithatogo/nz-hansard-corpus` discovers a converted Parquet file for config `default`, split `train`.
+
+Result: the confirmed viewer/file-layout defect is fixed on the live Hugging Face surface.
