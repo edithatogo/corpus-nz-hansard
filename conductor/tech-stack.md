@@ -86,7 +86,7 @@ Release automation should separate code/package versions, dataset versions, sche
 
 ## Transitional packaging note
 
-`requirements.txt` remains the current runtime input until the engineering-alignment track migrates Hansard to `pyproject.toml`, `uv.lock`, `src/nz_hansard_corpus`, a Typer CLI, pytest, ruff, `ty`, pre-commit, Renovate, CodeQL, Scorecard, and Rust-backed quality tooling. Treat `requirements.txt` as transitional, not the long-term standard.
+`pyproject.toml` and `uv.lock` now define the locked dependency environment and CI enforces `uv lock --check` plus `uv sync --frozen --all-groups`. `requirements.txt` and `requirements/dev.txt` remain as compatibility inputs for existing workflow bootstrap steps while the engineering-alignment track migrates Hansard to `src/nz_hansard_corpus`, a Typer CLI, pytest, pre-commit, and any future grouped dependency policy.
 
 ## Arrow and Polars baseline
 

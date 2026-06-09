@@ -40,6 +40,24 @@ Validation:
 - `python scripts\check_quality_gate.py` passed.
 - `make quality` passed: Ruff lint/format, ty strict type check, typos, zizmor, taplo, actionlint, quality configuration, release provenance policy, and 45 unit tests.
 
-Deferred:
+## UV Lock And Frozen Sync Enforcement - 2026-06-10
 
-- `uv sync --frozen` and committed lock-file enforcement remain deferred to the package/CLI migration track because this repository still uses transitional script-based dependency manifests.
+Repo-side hardening applied:
+
+- Added project/dependency metadata to `pyproject.toml` and kept `package = false` while script entrypoints remain transitional.
+- Added committed `uv.lock`.
+- Added `uv==0.11.8` to `requirements/dev.txt` so CI can install the uv CLI before lock checks.
+- Added `uv-lock` and `uv-sync` Makefile targets.
+- Added `uv lock --check` and `uv sync --frozen --all-groups` to `.github/workflows/quality.yml`.
+- Updated `scripts/check_quality_gate.py` so quality checks require pinned `uv`, project metadata, committed `uv.lock`, Makefile targets, workflow commands, and documentation.
+- Updated `docs/quality-gate.md` to remove the uv deferral and document the enforced frozen sync.
+
+Validation:
+
+- `uv lock --check` passed.
+- `uv sync --frozen --all-groups` passed.
+- `make quality` passed with uv lock check, frozen sync, Ruff lint/format, ty strict type check, typos, zizmor, taplo, actionlint, quality configuration, release provenance policy, and 45 unit tests.
+
+Operational note:
+
+- On this OneDrive-backed Windows workspace, uv's default user cache hit local permission issues. Validation used `UV_CACHE_DIR=C:\tmp\corpus-nz-hansard-uv-cache`; GitHub-hosted runners should use their normal writable runner cache paths.

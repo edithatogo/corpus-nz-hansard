@@ -1,8 +1,14 @@
 PYTHON ?= python
 
-.PHONY: quality quality-config provenance-policy lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
+.PHONY: quality uv-lock uv-sync quality-config provenance-policy lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
 
-quality: lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy test
+quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy test
+
+uv-lock:
+	uv lock --check
+
+uv-sync:
+	uv sync --frozen --all-groups
 
 quality-config:
 	$(PYTHON) scripts/check_quality_gate.py

@@ -8,6 +8,7 @@ generated/
 .tmp_*
 .test-tmp/
 .ruff_cache/
+.venv/
 .antigravitycli/
 __pycache__/
 *.pyc

@@ -1,3 +1,30 @@
+[project]
+name = "corpus-nz-hansard"
+version = "0.1.0"
+description = "Document-level New Zealand Hansard corpus release tooling."
+requires-python = ">=3.11"
+dependencies = [
+  "duckdb==1.5.3",
+  "huggingface-hub>=1.18.0",
+  "jsonschema>=4.26.0",
+  "polars>=1.41.2",
+  "pyarrow",
+  "requests>=2.34.2",
+]
+
+[dependency-groups]
+dev = [
+  "ruff==0.15.16",
+  "taplo==0.9.3",
+  "ty==0.0.46",
+  "typos==1.47.2",
+  "uv==0.11.8",
+  "zizmor==1.25.2",
+]
+
+[tool.uv]
+package = false
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"

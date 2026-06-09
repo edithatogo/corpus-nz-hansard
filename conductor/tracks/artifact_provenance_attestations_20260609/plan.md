@@ -14,7 +14,7 @@
 
 ## Tooling checklist
 
-- [ ] `uv` frozen install/lock checks.
+- [x] `uv` frozen install/lock checks.
 - [x] `ruff check` and `ruff format --check`.
 - [x] `ty check` with strict rules for Python modules and scripts.
 - [x] `typos` spelling/identifier check.

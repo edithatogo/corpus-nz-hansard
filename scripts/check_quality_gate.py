@@ -11,11 +11,14 @@ REQUIRED_DEV_TOOLS = {
     "ruff",
     "ty",
     "typos",
+    "uv",
     "zizmor",
     "taplo",
 }
 
 REQUIRED_QUALITY_SNIPPETS = (
+    "uv lock --check",
+    "uv sync --frozen --all-groups",
     "python -m ruff check --no-cache .",
     "python -m ruff format --check --no-cache .",
     "ty check --error all .",
@@ -29,6 +32,8 @@ REQUIRED_QUALITY_SNIPPETS = (
 
 REQUIRED_MAKE_TARGETS = (
     "quality:",
+    "uv-lock:",
+    "uv-sync:",
     "quality-config:",
     "provenance-policy:",
     "lint:",
@@ -60,6 +65,20 @@ def _failures() -> list[str]:
     for tool in sorted(REQUIRED_DEV_TOOLS):
         if not re.search(rf"^{re.escape(tool)}==", dev_requirements, flags=re.MULTILINE):
             failures.append(f"requirements/dev.txt does not pin {tool}.")
+
+    pyproject = _read("pyproject.toml")
+    for snippet in (
+        "[project]",
+        'name = "corpus-nz-hansard"',
+        "[dependency-groups]",
+        "[tool.uv]",
+        "package = false",
+    ):
+        if snippet not in pyproject:
+            failures.append(f"pyproject.toml is missing: {snippet}")
+
+    if not (ROOT / "uv.lock").exists():
+        failures.append("uv.lock must be committed.")
 
     quality_workflow = _read(".github/workflows/quality.yml")
     for snippet in REQUIRED_QUALITY_SNIPPETS:
