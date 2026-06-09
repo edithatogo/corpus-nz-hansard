@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Dependency Extras Policy
-
-Track ID: `dependency_extras_policy_20260609`
-
-Goal: keep the base runtime minimal while governing optional XML, RDF, NLP, ML, metadata, schema, and authority-matching dependency groups.
-
-Link: [conductor/tracks/dependency_extras_policy_20260609/](./tracks/dependency_extras_policy_20260609/)
-
 ### [ ] Track: NZ Parliamentary Procedure Model
 
 Track ID: `nz_parliamentary_procedure_model_20260609`
@@ -126,6 +118,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Dependency Extras Policy
+
+Track ID: `dependency_extras_policy_20260609`
+
+Goal: Kept the base runtime minimal with a validated optional dependency-group policy, endpoint dependency citations, deferred install-check rules, and release-artifact pinning requirements.
+
+Link: [conductor/tracks/dependency_extras_policy_20260609/](./tracks/dependency_extras_policy_20260609/)
 
 ### [x] Track: Canonical ID and URI Policy
 

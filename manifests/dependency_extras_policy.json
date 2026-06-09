@@ -1,0 +1,317 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "generated_at": "2026-06-10",
+  "base_runtime": {
+    "requirements_file": "requirements.txt",
+    "pyproject_package": false,
+    "rule": "Keep the base runtime limited to libraries imported by the current production corpus pipeline or publication automation.",
+    "allowed_dependencies": [
+      "duckdb",
+      "huggingface-hub",
+      "jsonschema",
+      "polars",
+      "pyarrow",
+      "requests"
+    ],
+    "heavy_endpoint_stacks_excluded": true
+  },
+  "optional_groups": [
+    {
+      "group": "data",
+      "requirements_file": "requirements/data.txt",
+      "purpose": "Derived component joins, authority tables, and large tabular transforms.",
+      "dependencies": [
+        "pandas",
+        "polars"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
+    },
+    {
+      "group": "schema",
+      "requirements_file": "requirements/schema.txt",
+      "purpose": "Component models, tabular contracts, and generated schemas.",
+      "dependencies": [
+        "linkml",
+        "pandera",
+        "pydantic"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
+    },
+    {
+      "group": "xml",
+      "requirements_file": "requirements/xml.txt",
+      "purpose": "ParlaMint/TEI and Akoma Ntoso generation and validation.",
+      "dependencies": [
+        "lxml",
+        "xmlschema"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
+    },
+    {
+      "group": "rdf",
+      "requirements_file": "requirements/rdf.txt",
+      "purpose": "RDF, JSON-LD, SHACL, PROV-O, DCAT, and SKOS endpoint validation.",
+      "dependencies": [
+        "linkml",
+        "pyshacl",
+        "rdflib"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
+    },
+    {
+      "group": "authority",
+      "requirements_file": "requirements/authority.txt",
+      "purpose": "Member, party, bill, motion, and alias matching.",
+      "dependencies": [
+        "rapidfuzz"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
+    },
+    {
+      "group": "nlp",
+      "requirements_file": "requirements/nlp.txt",
+      "purpose": "NER, tokenization, Universal Dependencies, CoNLL-U, and token alignment.",
+      "dependencies": [
+        "conllu",
+        "pyconll",
+        "spacy",
+        "stanza"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
+    },
+    {
+      "group": "ml",
+      "requirements_file": "requirements/ml.txt",
+      "purpose": "Topic classification, embeddings, and exploratory model workflows.",
+      "dependencies": [
+        "bertopic",
+        "scikit-learn",
+        "sentence-transformers",
+        "transformers"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
+    },
+    {
+      "group": "metadata",
+      "requirements_file": "requirements/metadata.txt",
+      "purpose": "Frictionless Data Package, RO-Crate, and Croissant metadata.",
+      "dependencies": [
+        "frictionless",
+        "mlcroissant",
+        "rocrate"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
+    }
+  ],
+  "endpoint_requirements": [
+    {
+      "endpoint_track": "parlamint_nz_endpoint_20260609",
+      "endpoint_name": "ParlaMint-NZ / TEI",
+      "required_groups": [
+        "authority",
+        "nlp",
+        "schema",
+        "xml"
+      ],
+      "validation_manifest_fields": [
+        "dependency_groups",
+        "install_commands",
+        "library_versions",
+        "lock_or_constraints",
+        "model_versions",
+        "release_affecting_dependencies",
+        "tool_versions",
+        "validation_command"
+      ],
+      "install_check_command": "python -m pip install -r requirements/xml.txt -r requirements/schema.txt -r requirements/authority.txt -r requirements/nlp.txt",
+      "release_affecting_dependencies": "Pin XML validators, schema tooling, NLP libraries, and any language model versions before generating public TEI artifacts."
+    },
+    {
+      "endpoint_track": "popolo_opencivicdata_endpoint_20260609",
+      "endpoint_name": "Popolo / Open Civic Data",
+      "required_groups": [
+        "authority",
+        "data",
+        "schema"
+      ],
+      "validation_manifest_fields": [
+        "dependency_groups",
+        "install_commands",
+        "library_versions",
+        "lock_or_constraints",
+        "model_versions",
+        "release_affecting_dependencies",
+        "tool_versions",
+        "validation_command"
+      ],
+      "install_check_command": "python -m pip install -r requirements/data.txt -r requirements/schema.txt -r requirements/authority.txt",
+      "release_affecting_dependencies": "Pin schema, dataframe, and authority-matching libraries before publishing civic-data artifacts."
+    },
+    {
+      "endpoint_track": "akoma_ntoso_endpoint_20260609",
+      "endpoint_name": "Akoma Ntoso",
+      "required_groups": [
+        "authority",
+        "schema",
+        "xml"
+      ],
+      "validation_manifest_fields": [
+        "dependency_groups",
+        "install_commands",
+        "library_versions",
+        "lock_or_constraints",
+        "model_versions",
+        "release_affecting_dependencies",
+        "tool_versions",
+        "validation_command"
+      ],
+      "install_check_command": "python -m pip install -r requirements/xml.txt -r requirements/schema.txt -r requirements/authority.txt",
+      "release_affecting_dependencies": "Pin XML validators and schema tooling before generating public Akoma Ntoso artifacts."
+    },
+    {
+      "endpoint_track": "cap_parlacap_topic_endpoint_20260609",
+      "endpoint_name": "CAP / ParlaCAP Topic Endpoint",
+      "required_groups": [
+        "data",
+        "ml",
+        "nlp",
+        "schema"
+      ],
+      "validation_manifest_fields": [
+        "dependency_groups",
+        "install_commands",
+        "library_versions",
+        "lock_or_constraints",
+        "model_versions",
+        "release_affecting_dependencies",
+        "tool_versions",
+        "validation_command"
+      ],
+      "install_check_command": "python -m pip install -r requirements/data.txt -r requirements/schema.txt -r requirements/nlp.txt -r requirements/ml.txt",
+      "release_affecting_dependencies": "Pin classifier libraries, codebook tooling, and model or embedding versions before public topic-coded outputs."
+    },
+    {
+      "endpoint_track": "ud_conllu_endpoint_20260609",
+      "endpoint_name": "Universal Dependencies / CoNLL-U",
+      "required_groups": [
+        "nlp",
+        "schema"
+      ],
+      "validation_manifest_fields": [
+        "dependency_groups",
+        "install_commands",
+        "library_versions",
+        "lock_or_constraints",
+        "model_versions",
+        "release_affecting_dependencies",
+        "tool_versions",
+        "validation_command"
+      ],
+      "install_check_command": "python -m pip install -r requirements/nlp.txt -r requirements/schema.txt",
+      "release_affecting_dependencies": "Pin tokenization, parser, model, and CoNLL-U validation dependencies before public linguistic artifacts."
+    },
+    {
+      "endpoint_track": "rdf_linked_data_endpoint_20260609",
+      "endpoint_name": "RDF / Linked Data",
+      "required_groups": [
+        "authority",
+        "metadata",
+        "rdf",
+        "schema"
+      ],
+      "validation_manifest_fields": [
+        "dependency_groups",
+        "install_commands",
+        "library_versions",
+        "lock_or_constraints",
+        "model_versions",
+        "release_affecting_dependencies",
+        "tool_versions",
+        "validation_command"
+      ],
+      "install_check_command": "python -m pip install -r requirements/rdf.txt -r requirements/schema.txt -r requirements/metadata.txt -r requirements/authority.txt",
+      "release_affecting_dependencies": "Pin RDF serializers, SHACL validators, ontology tooling, and metadata libraries before public linked-data artifacts."
+    },
+    {
+      "endpoint_track": "sota_metadata_packages_20260609",
+      "endpoint_name": "Croissant / RO-Crate / Frictionless",
+      "required_groups": [
+        "metadata",
+        "rdf",
+        "schema"
+      ],
+      "validation_manifest_fields": [
+        "dependency_groups",
+        "install_commands",
+        "library_versions",
+        "lock_or_constraints",
+        "model_versions",
+        "release_affecting_dependencies",
+        "tool_versions",
+        "validation_command"
+      ],
+      "install_check_command": "python -m pip install -r requirements/metadata.txt -r requirements/rdf.txt -r requirements/schema.txt",
+      "release_affecting_dependencies": "Pin metadata libraries and JSON-LD/RDF tooling before regenerating public metadata packages."
+    }
+  ],
+  "validation_manifest_requirements": [
+    "dependency_groups",
+    "install_commands",
+    "library_versions",
+    "lock_or_constraints",
+    "model_versions",
+    "release_affecting_dependencies",
+    "tool_versions",
+    "validation_command"
+  ],
+  "pinning_policy": {
+    "planning_state": "Optional requirement files may remain broad while endpoint work is planning-only and not producing new public release artifacts.",
+    "release_artifact_rule": "Any dependency that changes generated public endpoint or metadata artifacts must be pinned exactly or resolved through a committed constraints or lockfile before publication.",
+    "model_rule": "Model names, provider identifiers, revisions, checksums where available, and download commands must be recorded in endpoint validation manifests.",
+    "constraints_rule": "Endpoint implementation tracks must add an install check and constraints evidence before their optional stack is promoted into CI or release workflows."
+  },
+  "install_check_policy": {
+    "status": "deferred-until-endpoint-implementation",
+    "rule": "Endpoint tracks must run the relevant grouped install command and record the result before generating release-affecting artifacts.",
+    "deferred_until": "first implementation commit for each endpoint track"
+  },
+  "prohibited_base_dependencies": [
+    "bertopic",
+    "conllu",
+    "frictionless",
+    "linkml",
+    "lxml",
+    "mlcroissant",
+    "pandera",
+    "pandas",
+    "pyconll",
+    "pydantic",
+    "pyshacl",
+    "rapidfuzz",
+    "rdflib",
+    "rocrate",
+    "scikit-learn",
+    "sentence-transformers",
+    "spacy",
+    "stanza",
+    "transformers",
+    "xmlschema"
+  ]
+}

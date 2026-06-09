@@ -33,12 +33,28 @@ Endpoint work should add grouped requirements or package extras rather than expa
 | `requirements/metadata.txt` | `frictionless`, `rocrate`, `mlcroissant` | Frictionless Data Package, RO-Crate, Croissant metadata. |
 | `requirements/dev.txt` | `ruff`, `ty`, `typos`, `zizmor`, `taplo` | CI quality, strict type checking, workflow-security linting, spelling, and TOML formatting. |
 
+The policy authority is `manifests/dependency_extras_policy.json`, validated by `scripts/check_dependency_extras_policy.py`. The manifest records each optional group, the endpoint tracks that cite it, and the fields that endpoint validation manifests must carry: `dependency_groups`, `install_commands`, `tool_versions`, `library_versions`, `model_versions`, `lock_or_constraints`, `release_affecting_dependencies`, and `validation_command`.
+
 ## Dependency Rules
 
 - Keep `requirements.txt` as the base runtime unless an existing production script imports the dependency.
 - Add endpoint dependencies to grouped requirement files or package extras when implementation starts.
 - Keep CI/developer tooling in `requirements/dev.txt` rather than the base runtime.
 - Do not make GPU, transformer, or NLP model downloads part of the default test suite.
-- Pin dependencies that affect generated release artifacts once an endpoint is published.
+- Pin dependencies that affect generated release artifacts once an endpoint is published. The manifest policy value is `pin-before-release-artifact`.
 - Prefer a lockfile or generated constraints file before expanding CI to heavier endpoint stacks.
 - Record tool and model versions in each endpoint validation manifest.
+- Keep optional group installation checks `deferred-until-implementation` until an endpoint track begins generating release-affecting artifacts.
+
+## Endpoint Install Checks
+
+Each endpoint implementation track must run and record the grouped install command from `manifests/dependency_extras_policy.json` before it generates public artifacts. Current planned groups are:
+
+- `requirements/data.txt`
+- `requirements/schema.txt`
+- `requirements/xml.txt`
+- `requirements/rdf.txt`
+- `requirements/authority.txt`
+- `requirements/nlp.txt`
+- `requirements/ml.txt`
+- `requirements/metadata.txt`

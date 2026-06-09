@@ -117,3 +117,6 @@ jobs:
 
       - name: Canonical ID and URI policy
         run: python scripts\check_canonical_id_uri_policy.py
+
+      - name: Dependency extras policy
+        run: python scripts\check_dependency_extras_policy.py

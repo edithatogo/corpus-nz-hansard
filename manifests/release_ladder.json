@@ -140,6 +140,13 @@
       "next_gate": "RDF, civic-data, and endpoint releases must validate generated IDs and URIs against this policy"
     },
     {
+      "artifact": "dependency extras policy",
+      "path": "manifests/dependency_extras_policy.json",
+      "release_level": "neutral-component",
+      "status": "validated-manifest",
+      "next_gate": "endpoint releases must cite required optional groups, install checks, tool/library/model versions, and pin release-affecting dependencies"
+    },
+    {
       "artifact": "speech-turn candidates",
       "path": "generated/speech_turns",
       "release_level": "neutral-component",

@@ -36,6 +36,7 @@ python scripts/check_historical_coverage_audit.py
 python scripts/check_release_ladder.py
 python scripts/check_gold_evaluation_datasets.py
 python scripts/check_canonical_id_uri_policy.py
+python scripts/check_dependency_extras_policy.py
 python -m unittest discover tests
 ```
 
@@ -49,7 +50,7 @@ python -m unittest discover tests
 
 `scripts/check_zenodo_rights_metadata.py` guards `.zenodo.json`, the mixed-rights `other-open` Zenodo metadata decision, token naming for any future `zenodraft/action@0.13.3` migration, and the protected-publication boundary.
 
-`scripts/check_shared_core_schema.py`, `scripts/check_metadata_packages.py`, `scripts/check_osf_optional_mirror_policy.py`, `scripts/check_corpus_family_alignment.py`, `scripts/check_corpus_family_engineering_alignment.py`, `scripts/check_authority_sources.py`, `scripts/check_historical_coverage_audit.py`, `scripts/check_release_ladder.py`, `scripts/check_gold_evaluation_datasets.py`, and `scripts/check_canonical_id_uri_policy.py` guard the shared corpus schema contract, planned metadata package roadmap, OSF inactive-claim boundary, corpus-family publication naming decisions, the package/CLI migration boundary, authority-source discovery coverage, the distinction between supplied DocumentsDB extract coverage and full historical NZ Hansard completeness, the document-level/authority-source/neutral-component/endpoint/upstream-contribution release ladder, reviewed gold/evaluation fixtures for derived fields, and stable ID/URI policy for endpoint publication.
+`scripts/check_shared_core_schema.py`, `scripts/check_metadata_packages.py`, `scripts/check_osf_optional_mirror_policy.py`, `scripts/check_corpus_family_alignment.py`, `scripts/check_corpus_family_engineering_alignment.py`, `scripts/check_authority_sources.py`, `scripts/check_historical_coverage_audit.py`, `scripts/check_release_ladder.py`, `scripts/check_gold_evaluation_datasets.py`, `scripts/check_canonical_id_uri_policy.py`, and `scripts/check_dependency_extras_policy.py` guard the shared corpus schema contract, planned metadata package roadmap, OSF inactive-claim boundary, corpus-family publication naming decisions, the package/CLI migration boundary, authority-source discovery coverage, the distinction between supplied DocumentsDB extract coverage and full historical NZ Hansard completeness, the document-level/authority-source/neutral-component/endpoint/upstream-contribution release ladder, reviewed gold/evaluation fixtures for derived fields, stable ID/URI policy for endpoint publication, and the optional dependency-group policy in `manifests/dependency_extras_policy.json`. Endpoint validation manifests must record `tool_versions`, `library_versions`, `model_versions`, use `pin-before-release-artifact` for release-affecting stacks, and keep install checks `deferred-until-implementation` until endpoint work begins.
 
 `uv lock --check` and `uv sync --frozen --all-groups` are enforced locally and in CI. The repository is configured as a non-package uv project while script entrypoints remain transitional, so lock-file enforcement can land before the future `src/` package and CLI migration. Pre-commit remains deferred until that package/CLI migration, because CI is the current source of enforcement and avoids adding another local bootstrap path before the dependency model is settled.
 

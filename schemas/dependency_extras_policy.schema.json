@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/danielmordaunt/corpus-nz-hansard/schemas/dependency_extras_policy.schema.json",
+  "title": "Dependency Extras Policy",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "repository",
+    "generated_at",
+    "base_runtime",
+    "optional_groups",
+    "endpoint_requirements",
+    "validation_manifest_requirements",
+    "pinning_policy",
+    "install_check_policy",
+    "prohibited_base_dependencies"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "repository": {
+      "type": "string",
+      "const": "corpus-nz-hansard"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "base_runtime": {
+      "type": "object",
+      "required": [
+        "requirements_file",
+        "pyproject_package",
+        "rule",
+        "allowed_dependencies",
+        "heavy_endpoint_stacks_excluded"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "requirements_file": {
+          "type": "string",
+          "const": "requirements.txt"
+        },
+        "pyproject_package": {
+          "type": "boolean"
+        },
+        "rule": {
+          "type": "string"
+        },
+        "allowed_dependencies": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "heavy_endpoint_stacks_excluded": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "optional_groups": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "$ref": "#/$defs/optional_group"
+      },
+      "uniqueItems": true
+    },
+    "endpoint_requirements": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "$ref": "#/$defs/endpoint_requirement"
+      },
+      "uniqueItems": true
+    },
+    "validation_manifest_requirements": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "pinning_policy": {
+      "type": "object",
+      "required": [
+        "planning_state",
+        "release_artifact_rule",
+        "model_rule",
+        "constraints_rule"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "planning_state": {
+          "type": "string"
+        },
+        "release_artifact_rule": {
+          "type": "string"
+        },
+        "model_rule": {
+          "type": "string"
+        },
+        "constraints_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "install_check_policy": {
+      "type": "object",
+      "required": [
+        "status",
+        "rule",
+        "deferred_until"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "type": "string",
+          "const": "deferred-until-endpoint-implementation"
+        },
+        "rule": {
+          "type": "string"
+        },
+        "deferred_until": {
+          "type": "string"
+        }
+      }
+    },
+    "prohibited_base_dependencies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "optional_group": {
+      "type": "object",
+      "required": [
+        "group",
+        "requirements_file",
+        "purpose",
+        "dependencies",
+        "install_check_status",
+        "pin_policy",
+        "default_runtime_allowed"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "group": {
+          "type": "string"
+        },
+        "requirements_file": {
+          "type": "string",
+          "pattern": "^requirements/[a-z-]+\\.txt$"
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "dependencies": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "install_check_status": {
+          "type": "string",
+          "const": "deferred-until-implementation"
+        },
+        "pin_policy": {
+          "type": "string",
+          "const": "pin-before-release-artifact"
+        },
+        "default_runtime_allowed": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "endpoint_requirement": {
+      "type": "object",
+      "required": [
+        "endpoint_track",
+        "endpoint_name",
+        "required_groups",
+        "validation_manifest_fields",
+        "install_check_command",
+        "release_affecting_dependencies"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "endpoint_track": {
+          "type": "string"
+        },
+        "endpoint_name": {
+          "type": "string"
+        },
+        "required_groups": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "validation_manifest_fields": {
+          "type": "array",
+          "minItems": 8,
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "install_check_command": {
+          "type": "string"
+        },
+        "release_affecting_dependencies": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

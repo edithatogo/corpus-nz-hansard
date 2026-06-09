@@ -1,7 +1,7 @@
 {
   "track_id": "dependency_extras_policy_20260609",
   "title": "Dependency Extras Policy",
-  "status": "pending",
+  "status": "complete",
   "created": "2026-06-09",
   "description": "Govern optional dependency groups for endpoint-specific XML, RDF, NLP, ML, metadata, schema, and authority tooling."
 }

@@ -24,6 +24,8 @@ Every endpoint must declare:
 - historical coverage audit reference
 - stable ID or URI policy reference
 - gold/evaluation dataset dependencies where applicable
+- dependency groups from `manifests/dependency_extras_policy.json`
+- dependency validation manifest fields: `tool_versions`, `library_versions`, `model_versions`, `lock_or_constraints`, `install_commands`, and `release_affecting_dependencies`
 
 Stable ID and URI policy references must point to `manifests/id_uri_policy.json`. Endpoint-generated IDs should reuse document `stable_id` values where document identity is sufficient and must not depend on transient file paths or row positions alone. RDF, Popolo, and linked metadata outputs must use the planned `https://w3id.org/nz-hansard/` namespace, document SPARQL prefixes when RDF is emitted, and use `manifests/id_uri_deprecations.json` for any replacement or redirect mapping.
 
@@ -32,6 +34,18 @@ Endpoint coverage language must cite `manifests/historical_coverage_audit.json`.
 Endpoint release language must cite `manifests/release_ladder.json`. The current `v0.1.0` release is an immutable `document-level` release. Endpoint artifacts are `endpoint` level releases and must declare their input `document-level`, `authority-source`, and `neutral-component` release versions instead of being bundled into the canonical document-level release. Upstream samples, fixtures, and maintainer handoffs are `upstream-contribution` artifacts rather than endpoint releases.
 
 Endpoint validation language must cite `manifests/gold_evaluation_datasets.json` when derived `member_resolution`, `party_attribution`, `speech_turn`, `vote`, or `topic_coding` fields are in scope. The fixture set in `fixtures/gold_evaluation_samples.json` contains `positive`, `negative`, `ambiguous`, `unresolved`, and `excluded` examples and prohibits model-generated labels as gold without review.
+
+Endpoint dependency language must cite `manifests/dependency_extras_policy.json`, which is guarded by `scripts/check_dependency_extras_policy.py`. Endpoint validation manifests must list `dependency_groups`, `install_commands`, `tool_versions`, `library_versions`, `model_versions`, `lock_or_constraints`, `release_affecting_dependencies`, and `validation_command`. Optional dependency install checks remain `deferred-until-implementation`; once an endpoint produces release-affecting artifacts, its dependencies and model revisions must follow `pin-before-release-artifact`. Endpoint stacks must stay out of the base `requirements.txt` runtime unless a later production import justifies moving the dependency.
+
+Planned dependency groups by endpoint:
+
+- ParlaMint-NZ / TEI: `requirements/xml.txt`, `requirements/schema.txt`, `requirements/authority.txt`, `requirements/nlp.txt`
+- Popolo / Open Civic Data: `requirements/data.txt`, `requirements/schema.txt`, `requirements/authority.txt`
+- Akoma Ntoso: `requirements/xml.txt`, `requirements/schema.txt`, `requirements/authority.txt`
+- CAP / ParlaCAP: `requirements/data.txt`, `requirements/schema.txt`, `requirements/nlp.txt`, `requirements/ml.txt`
+- Universal Dependencies / CoNLL-U: `requirements/nlp.txt`, `requirements/schema.txt`
+- RDF / Linked Data: `requirements/rdf.txt`, `requirements/schema.txt`, `requirements/metadata.txt`, `requirements/authority.txt`
+- Croissant / RO-Crate / Frictionless: `requirements/metadata.txt`, `requirements/rdf.txt`, `requirements/schema.txt`
 
 Required endpoint release-series fields:
 
