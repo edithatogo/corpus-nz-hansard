@@ -18,3 +18,6 @@ Verification:
 
 - Latest official `actions/attest-build-provenance` release was checked on 2026-06-09; `v4.1.0` was published on 2026-02-26.
 - The pinned action metadata was inspected to confirm the `subject-path` input.
+- Live non-upload archive verification succeeded on GitHub Actions run `27203903098` for commit `70b7870cc552297967297527dfe5056d7ef18e20`.
+- In run `27203903098`, `Upload Zenodo draft` was skipped as intended, `Upload archive artifact` succeeded, and `Attest Zenodo archive provenance` succeeded.
+- The workflow produced artifact `nz-hansard-zenodo-archive-0.1.0` with reported size `327428061` bytes and `expired: false` at verification time.
