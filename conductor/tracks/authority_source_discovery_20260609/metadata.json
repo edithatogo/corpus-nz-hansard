@@ -1,7 +1,7 @@
 {
   "track_id": "authority_source_discovery_20260609",
   "title": "Authority Source Discovery",
-  "status": "pending",
+  "status": "completed",
   "created": "2026-06-09",
   "description": "Identify, retrieve, version, hash, and assess official authority sources for parliamentary derived data."
 }

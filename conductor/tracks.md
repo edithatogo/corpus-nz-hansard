@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Authority Source Discovery
-
-Track ID: `authority_source_discovery_20260609`
-
-Goal: identify, retrieve, version, hash, and assess reuse constraints for official authority sources covering members, parties, offices, sittings, bills, motions, votes, and procedure.
-
-Link: [conductor/tracks/authority_source_discovery_20260609/](./tracks/authority_source_discovery_20260609/)
-
 ### [ ] Track: Historical Coverage Audit
 
 Track ID: `historical_coverage_audit_20260609`
@@ -166,6 +158,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Authority Source Discovery
+
+Track ID: `authority_source_discovery_20260609`
+
+Goal: Identified official-first authority source candidates for members, parties, offices, sittings, bills, motions, votes, and procedure, with manifest schema, reuse/coverage notes, hashes, and downstream unblockers.
+
+Link: [conductor/tracks/authority_source_discovery_20260609/](./tracks/authority_source_discovery_20260609/)
 
 ### [x] Track: Corpus Family Engineering Alignment
 

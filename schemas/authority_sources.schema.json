@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "retrieved_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "hash_scope": {
+      "const": "discovery-record-sha256"
+    },
+    "domains": {
+      "items": {
+        "enum": [
+          "members",
+          "parties",
+          "offices",
+          "sittings",
+          "bills",
+          "motions",
+          "votes",
+          "procedure"
+        ]
+      },
+      "minItems": 8,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "format": "uri",
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "classification": {
+            "enum": [
+              "authoritative",
+              "supporting",
+              "candidate",
+              "rejected"
+            ]
+          },
+          "domains": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "coverage_period": {
+            "type": "string"
+          },
+          "retrieval_date": {
+            "format": "date",
+            "type": "string"
+          },
+          "source_hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "type": "string"
+          },
+          "reuse_note": {
+            "type": "string"
+          },
+          "access_constraints": {
+            "type": "string"
+          },
+          "refresh_cadence": {
+            "type": "string"
+          },
+          "coverage_gaps": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "downstream_tracks": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "url",
+          "publisher",
+          "classification",
+          "domains",
+          "coverage_period",
+          "retrieval_date",
+          "source_hash",
+          "reuse_note",
+          "access_constraints",
+          "refresh_cadence",
+          "coverage_gaps",
+          "downstream_tracks"
+        ],
+        "type": "object"
+      },
+      "minItems": 8,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "domain_coverage": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "minimum_classification": {
+            "enum": [
+              "authoritative",
+              "supporting",
+              "candidate"
+            ]
+          },
+          "primary_source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "downstream_track": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "minimum_classification",
+          "primary_source_ids",
+          "downstream_track",
+          "notes"
+        ],
+        "type": "object"
+      },
+      "type": "object"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "text_derived_inference_not_authority": {
+          "const": true
+        },
+        "publish_authoritative_fields_requires_declared_inputs": {
+          "const": true
+        },
+        "official_sources_first": {
+          "const": true
+        }
+      },
+      "required": [
+        "text_derived_inference_not_authority",
+        "publish_authoritative_fields_requires_declared_inputs",
+        "official_sources_first"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "repository",
+    "retrieved_at",
+    "hash_scope",
+    "domains",
+    "sources",
+    "domain_coverage",
+    "policy"
+  ],
+  "type": "object"
+}

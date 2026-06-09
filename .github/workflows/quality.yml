@@ -102,3 +102,6 @@ jobs:
 
       - name: Corpus family engineering alignment
         run: python scripts\check_corpus_family_engineering_alignment.py
+
+      - name: Authority source discovery
+        run: python scripts\check_authority_sources.py
