@@ -126,3 +126,6 @@ jobs:
 
       - name: Neutral parliamentary component model
         run: python scripts\check_neutral_component_model.py
+
+      - name: ParlaMint-NZ endpoint
+        run: python scripts\check_parlamint_nz_endpoint.py

@@ -175,6 +175,13 @@
       "next_gate": "endpoint manifests must cite input component release versions and validators"
     },
     {
+      "artifact": "ParlaMint-NZ sample package",
+      "path": "samples/parlamint-nz",
+      "release_level": "upstream-contribution",
+      "status": "planned",
+      "next_gate": "sample-not-release; promote only after member identity, party attribution, speech-turn validation, and full ParlaMint schema validation pass"
+    },
+    {
       "artifact": "metadata packages",
       "path": "generated/metadata",
       "release_level": "endpoint",

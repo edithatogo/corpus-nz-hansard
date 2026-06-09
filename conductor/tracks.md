@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: ParlaMint-NZ Endpoint
-
-Track ID: `parlamint_nz_endpoint_20260609`
-
-Goal: generate validated ParlaMint-NZ / TEI artifacts from neutral components without making ParlaMint the internal core schema.
-
-Link: [conductor/tracks/parlamint_nz_endpoint_20260609/](./tracks/parlamint_nz_endpoint_20260609/)
-
 ### [ ] Track: Popolo / Open Civic Data Endpoint
 
 Track ID: `popolo_opencivicdata_endpoint_20260609`
@@ -102,6 +94,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: ParlaMint-NZ Endpoint
+
+Track ID: `parlamint_nz_endpoint_20260609`
+
+Goal: Generated a ParlaMint-NZ maintainer-review TEI sample package, mapping notes, validation manifest, checker, and readiness boundary without making ParlaMint the internal core schema.
+
+Link: [conductor/tracks/parlamint_nz_endpoint_20260609/](./tracks/parlamint_nz_endpoint_20260609/)
 
 ### [x] Track: Neutral Parliamentary Component Model
 

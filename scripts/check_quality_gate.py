@@ -44,6 +44,7 @@ REQUIRED_QUALITY_SNIPPETS = (
     "python scripts\\check_dependency_extras_policy.py",
     "python scripts\\check_nz_parliamentary_procedure_model.py",
     "python scripts\\check_neutral_component_model.py",
+    "python scripts\\check_parlamint_nz_endpoint.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
@@ -68,6 +69,7 @@ REQUIRED_MAKE_TARGETS = (
     "dependency-extras:",
     "procedure-model:",
     "neutral-components:",
+    "parlamint-nz:",
     "lint:",
     "format-check:",
     "typecheck:",

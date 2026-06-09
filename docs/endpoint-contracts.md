@@ -68,6 +68,8 @@ Required endpoint release-series fields:
 
 Target users: corpus linguistics and comparative parliamentary researchers.
 
+Current implementation surface: `samples/parlamint-nz/ParlaMint-NZ.sample.xml`, `samples/parlamint-nz/ParlaMint-NZ.metadata.xml`, `docs/parlamint-nz-mapping.md`, and `manifests/parlamint_nz_validation_manifest.json`. The sample package is `sample-not-release`; readiness remains `blocked-pending-validated-components` until member identity, party attribution, and speech-turn validation produce validated component metadata. The sample maps `speaker_member_id` to TEI speaker references and `party_id` to TEI organization references.
+
 Inputs:
 
 - normalized document records

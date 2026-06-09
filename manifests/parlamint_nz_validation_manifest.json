@@ -1,0 +1,86 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "generated_at": "2026-06-10",
+  "endpoint": "ParlaMint-NZ / TEI",
+  "endpoint_track": "parlamint_nz_endpoint_20260609",
+  "release_series_id": "parlamint-nz-sample",
+  "release_level": "upstream-contribution",
+  "artifact_name": "ParlaMint-NZ maintainer-review sample package",
+  "artifact_version": "0.1.0-sample.20260610",
+  "release_status": "sample-not-release",
+  "publication_target": "local maintainer-review package",
+  "upstream_contribution_target": "ParlaMint / Parla-CLARIN maintainer review after validated component releases",
+  "input_release_versions": {
+    "document_level": "0.1.0",
+    "neutral_components": "manifests/neutral_component_model.json",
+    "authority_sources": "manifests/authority_sources.json",
+    "procedure_model": "manifests/nz_parliamentary_procedure_model.json",
+    "id_uri_policy": "manifests/id_uri_policy.json"
+  },
+  "input_artifacts": [
+    "fixtures/neutral_components.json",
+    "manifests/neutral_component_model.json",
+    "manifests/nz_parliamentary_procedure_model.json",
+    "manifests/dependency_extras_policy.json"
+  ],
+  "output_artifacts": [
+    "samples/parlamint-nz/ParlaMint-NZ.sample.xml",
+    "samples/parlamint-nz/ParlaMint-NZ.metadata.xml",
+    "samples/parlamint-nz/README.md"
+  ],
+  "mapping_notes": "docs/parlamint-nz-mapping.md",
+  "validation_command": "python scripts/check_parlamint_nz_endpoint.py",
+  "schema_or_ontology_version": "TEI P5 / ParlaMint-compatible sample contract; full ParlaMint schema validation deferred until endpoint dependencies are validated",
+  "dependency_groups": [
+    "xml",
+    "schema",
+    "authority",
+    "nlp"
+  ],
+  "install_commands": [
+    "python -m pip install -r requirements/xml.txt -r requirements/schema.txt -r requirements/authority.txt -r requirements/nlp.txt"
+  ],
+  "tool_versions": {
+    "python_xml_etree": "stdlib",
+    "jsonschema": "runtime"
+  },
+  "library_versions": {
+    "lxml": "deferred-until-release-artifact",
+    "xmlschema": "deferred-until-release-artifact"
+  },
+  "model_versions": {},
+  "lock_or_constraints": "Optional endpoint stack install checks are deferred-until-implementation; release-affecting dependencies must follow pin-before-release-artifact.",
+  "release_affecting_dependencies": "Pin XML validators, schema tooling, NLP libraries, and model revisions before public ParlaMint-NZ artifacts.",
+  "known_exclusions": [
+    "No public ParlaMint-NZ release is claimed.",
+    "Member identity, party attribution, and speech-turn validation tracks are still pending.",
+    "Full ParlaMint schema validation is deferred until validated neutral component releases exist.",
+    "Optional linguistic annotations are excluded until UD/CoNLL-U artifacts exist."
+  ],
+  "validation_results": {
+    "xml_well_formed": true,
+    "metadata_xml_well_formed": true,
+    "tei_namespace_present": true,
+    "neutral_reference_resolution": true,
+    "speaker_reference_resolves": true,
+    "party_reference_resolves": true,
+    "component_metadata_validated": false,
+    "blocking_errors": 0,
+    "readiness_status": "blocked-pending-validated-components"
+  },
+  "traceability": [
+    {
+      "output": "samples/parlamint-nz/ParlaMint-NZ.sample.xml",
+      "neutral_component_ids": [
+        "nzhc-component-0000000000000001",
+        "nzhc-component-0000000000000002",
+        "nzhc-component-0000000000000003",
+        "nzhc-component-0000000000000004",
+        "nzhc-component-0000000000000005",
+        "nzhc-component-0000000000000007"
+      ]
+    }
+  ],
+  "manifest_sha256": "deferred-sample-manifest"
+}

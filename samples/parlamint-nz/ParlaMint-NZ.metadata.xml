@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<teiCorpus xmlns="http://www.tei-c.org/ns/1.0" xml:id="ParlaMint-NZ.metadata"><teiHeader><fileDesc><titleStmt><title>ParlaMint-NZ sample metadata</title></titleStmt><publicationStmt><p>Metadata sample for maintainer review only.</p></publicationStmt><sourceDesc><p>Generated from fixtures/neutral_components.json.</p></sourceDesc></fileDesc></teiHeader></teiCorpus>
