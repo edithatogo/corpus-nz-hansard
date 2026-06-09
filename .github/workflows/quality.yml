@@ -99,3 +99,6 @@ jobs:
 
       - name: Corpus family publication alignment
         run: python scripts\check_corpus_family_alignment.py
+
+      - name: Corpus family engineering alignment
+        run: python scripts\check_corpus_family_engineering_alignment.py

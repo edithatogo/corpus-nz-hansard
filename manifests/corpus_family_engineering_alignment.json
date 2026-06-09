@@ -1,0 +1,180 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "sibling_repository": {
+    "preferred_label": "corpus-nz-legislation",
+    "local_path": "C:/Users/60217257/OneDrive - Flinders/repos/corpus-law-nz",
+    "observed_package_name": "nz-legislation-corpus",
+    "observed_cli": "nzlc",
+    "observed_source_layout": "src/nz_legislation_corpus"
+  },
+  "quality_baseline": {
+    "status": "strict-script-workspace",
+    "current_gate": "make quality",
+    "commands": [
+      "uv lock --check",
+      "uv sync --frozen --all-groups",
+      "python -m ruff check --no-cache .",
+      "python -m ruff format --check --no-cache .",
+      "ty check --error all .",
+      "typos --config typos.toml",
+      "zizmor --min-severity medium .github/workflows",
+      "taplo format --check pyproject.toml typos.toml",
+      "actionlint -color",
+      "python -m unittest discover tests"
+    ]
+  },
+  "standards": [
+    {
+      "id": "pyproject",
+      "legislation_baseline": "project metadata, dependencies, optional dev extras, scripts, hatchling build backend",
+      "hansard_current": "project metadata and dependency groups with package=false script workspace",
+      "target": "keep current pyproject while future package track adds build backend and CLI entry point",
+      "status": "partial"
+    },
+    {
+      "id": "uv-lock",
+      "legislation_baseline": "committed uv.lock",
+      "hansard_current": "committed uv.lock with frozen sync in quality gate",
+      "target": "continue frozen uv sync through package migration",
+      "status": "adopted"
+    },
+    {
+      "id": "src-layout",
+      "legislation_baseline": "src/nz_legislation_corpus package",
+      "hansard_current": "scripts/ workspace plus repository-root tests",
+      "target": "future src/nz_hansard_corpus package with compatibility wrappers for existing scripts",
+      "status": "future"
+    },
+    {
+      "id": "typer-cli",
+      "legislation_baseline": "nzlc CLI entry point backed by Typer",
+      "hansard_current": "direct python scripts/*.py commands",
+      "target": "future nzhc CLI with wrappers documented before any script removal",
+      "status": "future"
+    },
+    {
+      "id": "pytest",
+      "legislation_baseline": "pytest test runner and pytest.ini options",
+      "hansard_current": "unittest discovery in make quality",
+      "target": "future pytest migration while unittest remains supported during transition",
+      "status": "future"
+    },
+    {
+      "id": "ruff",
+      "legislation_baseline": "ruff lint and format",
+      "hansard_current": "ruff lint and format in local and CI quality gates",
+      "target": "keep ruff as canonical lint and format tool",
+      "status": "adopted"
+    },
+    {
+      "id": "ty",
+      "legislation_baseline": "strict type checking target",
+      "hansard_current": "ty check --error all .",
+      "target": "narrow ty roots to src/tests after package migration",
+      "status": "adopted"
+    },
+    {
+      "id": "pre-commit",
+      "legislation_baseline": ".pre-commit-config.yaml exists",
+      "hansard_current": "no pre-commit config",
+      "target": "future pre-commit config mirroring quality gate tools without replacing CI",
+      "status": "future"
+    },
+    {
+      "id": "renovate",
+      "legislation_baseline": "renovate.json exists",
+      "hansard_current": "no renovate.json",
+      "target": "future Renovate config with protected publication jobs isolated from dependency PRs",
+      "status": "future"
+    },
+    {
+      "id": "codeql",
+      "legislation_baseline": "CodeQL workflow",
+      "hansard_current": "CodeQL workflow",
+      "target": "keep CodeQL workflow pinned and separate from publication jobs",
+      "status": "adopted"
+    },
+    {
+      "id": "scorecard",
+      "legislation_baseline": "OpenSSF Scorecard workflow",
+      "hansard_current": "OpenSSF Scorecard workflow",
+      "target": "keep Scorecard workflow pinned and separate from publication jobs",
+      "status": "adopted"
+    },
+    {
+      "id": "zenodo-protection",
+      "legislation_baseline": "protected Zenodo archive workflow posture",
+      "hansard_current": "draft-first archive/metadata workflows and protected zenodo-production-publish workflow",
+      "target": "preserve protected production publish boundary through package migration",
+      "status": "adopted"
+    }
+  ],
+  "migration": {
+    "target_package": "nz_hansard_corpus",
+    "target_cli": "nzhc",
+    "script_wrapper_policy": "Existing python scripts/*.py commands remain supported until replacement CLI commands exist, tests cover wrapper parity, and release docs list deprecation windows.",
+    "requirements_policy": "requirements.txt and requirements/dev.txt remain supported during transition; dependency authority moves to pyproject.toml and uv.lock only after CI, docs, and wrappers agree.",
+    "target_commands": [
+      {
+        "command": "nzhc build-manifest",
+        "replaces": "python scripts/build_public_surface_audit.py and release manifest builders as applicable",
+        "status": "compatibility-wrapper-required"
+      },
+      {
+        "command": "nzhc validate",
+        "replaces": "python scripts/check_*.py quality policy checks",
+        "status": "compatibility-wrapper-required"
+      },
+      {
+        "command": "nzhc metadata build",
+        "replaces": "python scripts/build_metadata_packages.py",
+        "status": "compatibility-wrapper-required"
+      },
+      {
+        "command": "nzhc hf stage",
+        "replaces": "python scripts/stage_huggingface_dataset.py",
+        "status": "compatibility-wrapper-required"
+      },
+      {
+        "command": "nzhc zenodo draft",
+        "replaces": "python scripts/upload_zenodo_archive.py and python scripts/update_zenodo_metadata.py",
+        "status": "compatibility-wrapper-required"
+      }
+    ]
+  },
+  "ci_security": {
+    "primary_ci": "windows-2025-vs2026-current-with-future-ubuntu-primary-assessment",
+    "optional_ci": "ubuntu-primary-with-windows-compatibility",
+    "publication_job_boundary": "Quality, dependency update, CodeQL, Scorecard, and Renovate jobs must not publish to Hugging Face, Zenodo, OSF, or future metadata surfaces.",
+    "planned_adoptions": [
+      "pytest",
+      "pre-commit",
+      "renovate",
+      "src-layout",
+      "typer-cli"
+    ]
+  },
+  "publication_surfaces": [
+    {
+      "surface": "github",
+      "engineering_constraint": "Preserve current script commands and release evidence while adding package/CLI wrappers."
+    },
+    {
+      "surface": "huggingface",
+      "engineering_constraint": "Preserve staged viewer layout and Xet/access checks when moving upload commands behind CLI wrappers."
+    },
+    {
+      "surface": "zenodo",
+      "engineering_constraint": "Keep draft/update operations separate from protected production publish; sandbox proof evidence remains non-secret."
+    },
+    {
+      "surface": "osf",
+      "engineering_constraint": "Keep OSF inactive unless a future optional mirror manifest records files, checksums, owner, and citation text."
+    },
+    {
+      "surface": "future_metadata",
+      "engineering_constraint": "Generated metadata packages remain validated artifacts and must be regenerated through package or CLI commands after migration."
+    }
+  ]
+}

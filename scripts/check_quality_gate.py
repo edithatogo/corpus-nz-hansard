@@ -35,6 +35,7 @@ REQUIRED_QUALITY_SNIPPETS = (
     "python scripts\\check_metadata_packages.py",
     "python scripts\\check_osf_optional_mirror_policy.py",
     "python scripts\\check_corpus_family_alignment.py",
+    "python scripts\\check_corpus_family_engineering_alignment.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
@@ -50,6 +51,7 @@ REQUIRED_MAKE_TARGETS = (
     "metadata-packages:",
     "osf-policy:",
     "corpus-family-alignment:",
+    "corpus-family-engineering:",
     "lint:",
     "format-check:",
     "typecheck:",

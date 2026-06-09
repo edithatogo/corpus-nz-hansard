@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "sibling_repository": {
+      "additionalProperties": false,
+      "properties": {
+        "preferred_label": {
+          "const": "corpus-nz-legislation"
+        },
+        "local_path": {
+          "type": "string"
+        },
+        "observed_package_name": {
+          "const": "nz-legislation-corpus"
+        },
+        "observed_cli": {
+          "const": "nzlc"
+        },
+        "observed_source_layout": {
+          "const": "src/nz_legislation_corpus"
+        }
+      },
+      "required": [
+        "preferred_label",
+        "local_path",
+        "observed_package_name",
+        "observed_cli",
+        "observed_source_layout"
+      ],
+      "type": "object"
+    },
+    "quality_baseline": {
+      "additionalProperties": false,
+      "properties": {
+        "current_gate": {
+          "type": "string"
+        },
+        "status": {
+          "const": "strict-script-workspace"
+        },
+        "commands": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 5,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "status",
+        "current_gate",
+        "commands"
+      ],
+      "type": "object"
+    },
+    "standards": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "legislation_baseline": {
+            "type": "string"
+          },
+          "hansard_current": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "adopted",
+              "partial",
+              "future"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "legislation_baseline",
+          "hansard_current",
+          "target",
+          "status"
+        ],
+        "type": "object"
+      },
+      "minItems": 10,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "migration": {
+      "additionalProperties": false,
+      "properties": {
+        "target_package": {
+          "const": "nz_hansard_corpus"
+        },
+        "target_cli": {
+          "const": "nzhc"
+        },
+        "script_wrapper_policy": {
+          "type": "string"
+        },
+        "requirements_policy": {
+          "type": "string"
+        },
+        "target_commands": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "command": {
+                "type": "string"
+              },
+              "replaces": {
+                "type": "string"
+              },
+              "status": {
+                "enum": [
+                  "future",
+                  "compatibility-wrapper-required"
+                ]
+              }
+            },
+            "required": [
+              "command",
+              "replaces",
+              "status"
+            ],
+            "type": "object"
+          },
+          "minItems": 5,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "target_package",
+        "target_cli",
+        "script_wrapper_policy",
+        "requirements_policy",
+        "target_commands"
+      ],
+      "type": "object"
+    },
+    "ci_security": {
+      "additionalProperties": false,
+      "properties": {
+        "primary_ci": {
+          "const": "windows-2025-vs2026-current-with-future-ubuntu-primary-assessment"
+        },
+        "optional_ci": {
+          "const": "ubuntu-primary-with-windows-compatibility"
+        },
+        "publication_job_boundary": {
+          "type": "string"
+        },
+        "planned_adoptions": {
+          "items": {
+            "enum": [
+              "pytest",
+              "pre-commit",
+              "renovate",
+              "src-layout",
+              "typer-cli"
+            ]
+          },
+          "minItems": 5,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "primary_ci",
+        "optional_ci",
+        "publication_job_boundary",
+        "planned_adoptions"
+      ],
+      "type": "object"
+    },
+    "publication_surfaces": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "surface": {
+            "enum": [
+              "github",
+              "huggingface",
+              "zenodo",
+              "osf",
+              "future_metadata"
+            ]
+          },
+          "engineering_constraint": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "surface",
+          "engineering_constraint"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "manifest_version",
+    "repository",
+    "sibling_repository",
+    "quality_baseline",
+    "standards",
+    "migration",
+    "ci_security",
+    "publication_surfaces"
+  ],
+  "type": "object"
+}

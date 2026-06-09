@@ -1,7 +1,7 @@
 {
   "track_id": "corpus_family_engineering_alignment_20260609",
   "type": "chore",
-  "status": "pending",
+  "status": "completed",
   "created_at": "2026-06-09T00:00:00+10:00",
   "updated_at": "2026-06-09T00:00:00+10:00",
   "description": "Adopt legislation-project engineering standards in Hansard while preserving Hansard-specific interoperability scope."

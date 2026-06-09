@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Corpus Family Engineering Alignment
-
-Track ID: `corpus_family_engineering_alignment_20260609`
-
-Goal: adopt applicable legislation-project engineering standards while preserving Hansard's parliamentary interoperability roadmap.
-
-Link: [conductor/tracks/corpus_family_engineering_alignment_20260609/](./tracks/corpus_family_engineering_alignment_20260609/)
-
 ### [ ] Track: Authority Source Discovery
 
 Track ID: `authority_source_discovery_20260609`
@@ -174,6 +166,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Corpus Family Engineering Alignment
+
+Track ID: `corpus_family_engineering_alignment_20260609`
+
+Goal: Recorded the legislation-project engineering baseline and an implementation-ready package/CLI migration plan while preserving Hansard's strict script-workspace quality gate and publication boundaries.
+
+Link: [conductor/tracks/corpus_family_engineering_alignment_20260609/](./tracks/corpus_family_engineering_alignment_20260609/)
 
 ### [x] Track: Zenodo Rights Metadata And Zenodraft Workflow
 
