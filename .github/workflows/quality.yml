@@ -114,3 +114,6 @@ jobs:
 
       - name: Gold evaluation datasets
         run: python scripts\check_gold_evaluation_datasets.py
+
+      - name: Canonical ID and URI policy
+        run: python scripts\check_canonical_id_uri_policy.py

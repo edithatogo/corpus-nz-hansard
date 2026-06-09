@@ -1,0 +1,42 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "generated_at": "2026-06-10",
+  "document_identity": {
+    "existing_field": "stable_id",
+    "reuse_policy": "Reuse the published document-level stable_id when a document record is the identity target. Do not rewrite v0.1.0 stable_id values.",
+    "legacy_fallback_policy": "The existing source-file and source-row fallback is accepted only as a published document-level legacy fallback. New neutral components and endpoint artifacts must include a hash-backed payload and must not depend on transient file paths or row positions alone."
+  },
+  "id_patterns": [
+    {"artifact_class": "document", "pattern": "stable_id from schemas/hansard_record.schema.json, or nzhc-document-{sha256(payload)[0:16]} for non-row document views", "payload_fields": ["release_version", "stable_id"], "forbidden_inputs": ["transient local path alone", "source row position alone"]},
+    {"artifact_class": "neutral-component", "pattern": "nzhc-{component-type}-{sha256(canonical-json-payload)[0:16]}", "payload_fields": ["release_version", "component_type", "source_stable_id", "local_key", "validation_manifest"], "forbidden_inputs": ["generated file path alone", "source row position alone"]},
+    {"artifact_class": "endpoint-artifact", "pattern": "nzhc-endpoint-artifact-{sha256(canonical-json-payload)[0:16]}", "payload_fields": ["endpoint", "artifact_type", "input_component_id", "version"], "forbidden_inputs": ["export file path alone", "array index alone"]},
+    {"artifact_class": "authority-source", "pattern": "nzhc-authority-source-{sha256(canonical-json-payload)[0:16]}", "payload_fields": ["source_id", "retrieval_date", "source_hash"], "forbidden_inputs": ["URL alone without retrieval date", "page title alone"]},
+    {"artifact_class": "gold-evaluation-sample", "pattern": "existing sample_id, or nzhc-gold-evaluation-sample-{sha256(canonical-json-payload)[0:16]} for generated sample views", "payload_fields": ["fixture_version", "sample_id", "domain", "example_class"], "forbidden_inputs": ["list index alone", "review file path alone"]}
+  ],
+  "uri_policy": {
+    "namespace": "https://w3id.org/nz-hansard/",
+    "namespace_status": "planned-stable-namespace",
+    "patterns": [
+      {"kind": "document", "pattern": "https://w3id.org/nz-hansard/document/{id}"},
+      {"kind": "component", "pattern": "https://w3id.org/nz-hansard/component/{id}"},
+      {"kind": "endpoint", "pattern": "https://w3id.org/nz-hansard/endpoint/{id}"},
+      {"kind": "authority", "pattern": "https://w3id.org/nz-hansard/authority/{id}"},
+      {"kind": "sample", "pattern": "https://w3id.org/nz-hansard/sample/{id}"}
+    ],
+    "sparql_guidance": "Use short prefixes such as nzh: <https://w3id.org/nz-hansard/> and nzhc: <https://w3id.org/nz-hansard/component/> in RDF examples. Do not mint RDF URIs outside the declared namespace without adding a compatibility note."
+  },
+  "deprecation_policy": {
+    "requires_mapping_manifest": true,
+    "mapping_manifest_path": "manifests/id_uri_deprecations.json",
+    "redirect_policy": "If an ID or URI changes after publication, keep the old ID resolvable or documented as deprecated, add old_id, new_id, old_uri, new_uri, reason, effective_date, and replacement_status to the mapping manifest, and preserve DOI/release references that used the old identifier.",
+    "minimum_fields": ["old_id", "new_id", "old_uri", "new_uri", "reason", "effective_date", "replacement_status"]
+  },
+  "examples": [
+    {"name": "document view", "artifact_class": "document", "payload": {"release_version": "0.1.0", "stable_id": "47HansS_20050217_00000759"}, "expected_id": "nzhc-document-8e93abc58c9b722f", "expected_uri": "https://w3id.org/nz-hansard/document/nzhc-document-8e93abc58c9b722f"},
+    {"name": "speech turn component", "artifact_class": "neutral-component", "payload": {"release_version": "0.1.0", "component_type": "speech-turn", "source_stable_id": "47HansS_20050217_00000759", "local_key": "turn-0001", "validation_manifest": "manifests/speech_turn_validated_artifact_validation.json"}, "expected_id": "nzhc-component-0dc17fbde51c939f", "expected_uri": "https://w3id.org/nz-hansard/component/nzhc-component-0dc17fbde51c939f"},
+    {"name": "Popolo vote endpoint artifact", "artifact_class": "endpoint-artifact", "payload": {"endpoint": "popolo", "artifact_type": "vote-event", "input_component_id": "nzhc-component-0000000000000000", "version": "0.1.0"}, "expected_id": "nzhc-endpoint-artifact-1198084efe0e38e7", "expected_uri": "https://w3id.org/nz-hansard/endpoint/nzhc-endpoint-artifact-1198084efe0e38e7"},
+    {"name": "authority source snapshot", "artifact_class": "authority-source", "payload": {"source_id": "nz-parliament-hansard-current", "retrieval_date": "2026-06-10", "source_hash": "bb76ce7604ca0a48d93a320c6f19c1b4bef02636f9469c373777c8ddc5dd16e1"}, "expected_id": "nzhc-authority-source-d89cb3c98830032d", "expected_uri": "https://w3id.org/nz-hansard/authority/nzhc-authority-source-d89cb3c98830032d"}
+  ],
+  "endpoint_tracks": ["parlamint_nz_endpoint_20260609", "popolo_opencivicdata_endpoint_20260609", "akoma_ntoso_endpoint_20260609", "cap_parlacap_topic_endpoint_20260609", "ud_conllu_endpoint_20260609", "rdf_linked_data_endpoint_20260609"]
+}

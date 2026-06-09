@@ -40,6 +40,7 @@ REQUIRED_QUALITY_SNIPPETS = (
     "python scripts\\check_historical_coverage_audit.py",
     "python scripts\\check_release_ladder.py",
     "python scripts\\check_gold_evaluation_datasets.py",
+    "python scripts\\check_canonical_id_uri_policy.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
@@ -60,6 +61,7 @@ REQUIRED_MAKE_TARGETS = (
     "historical-coverage:",
     "release-ladder:",
     "gold-evaluation:",
+    "canonical-ids:",
     "lint:",
     "format-check:",
     "typecheck:",

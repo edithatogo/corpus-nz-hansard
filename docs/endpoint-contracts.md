@@ -25,6 +25,8 @@ Every endpoint must declare:
 - stable ID or URI policy reference
 - gold/evaluation dataset dependencies where applicable
 
+Stable ID and URI policy references must point to `manifests/id_uri_policy.json`. Endpoint-generated IDs should reuse document `stable_id` values where document identity is sufficient and must not depend on transient file paths or row positions alone. RDF, Popolo, and linked metadata outputs must use the planned `https://w3id.org/nz-hansard/` namespace, document SPARQL prefixes when RDF is emitted, and use `manifests/id_uri_deprecations.json` for any replacement or redirect mapping.
+
 Endpoint coverage language must cite `manifests/historical_coverage_audit.json`. Endpoints may describe coverage of the supplied DocumentsDB extract, but must not describe the current dataset as full historical NZ Hansard coverage unless a later audit reconciles official sitting and proceeding sources and updates the manifest.
 
 Endpoint release language must cite `manifests/release_ladder.json`. The current `v0.1.0` release is an immutable `document-level` release. Endpoint artifacts are `endpoint` level releases and must declare their input `document-level`, `authority-source`, and `neutral-component` release versions instead of being bundled into the canonical document-level release. Upstream samples, fixtures, and maintainer handoffs are `upstream-contribution` artifacts rather than endpoint releases.

@@ -1,6 +1,6 @@
 # Plan: Canonical ID and URI Policy
 
-- [ ] Task: Define ID and URI patterns.
-- [ ] Task: Add deterministic ID examples and tests.
-- [ ] Task: Add namespace and deprecation policy.
-- [ ] Task: Update endpoint contracts to reference the policy.
+- [x] Task: Define ID and URI patterns.
+- [x] Task: Add deterministic ID examples and tests.
+- [x] Task: Add namespace and deprecation policy.
+- [x] Task: Update endpoint contracts to reference the policy.

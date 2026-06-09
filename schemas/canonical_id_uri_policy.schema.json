@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "generated_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "document_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "existing_field": {
+          "const": "stable_id"
+        },
+        "reuse_policy": {
+          "type": "string"
+        },
+        "legacy_fallback_policy": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "existing_field",
+        "reuse_policy",
+        "legacy_fallback_policy"
+      ],
+      "type": "object"
+    },
+    "id_patterns": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "artifact_class": {
+            "enum": [
+              "document",
+              "neutral-component",
+              "endpoint-artifact",
+              "authority-source",
+              "gold-evaluation-sample"
+            ]
+          },
+          "pattern": {
+            "type": "string"
+          },
+          "payload_fields": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "forbidden_inputs": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "artifact_class",
+          "pattern",
+          "payload_fields",
+          "forbidden_inputs"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "uri_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "namespace": {
+          "format": "uri",
+          "type": "string"
+        },
+        "namespace_status": {
+          "const": "planned-stable-namespace"
+        },
+        "patterns": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "enum": [
+                  "document",
+                  "component",
+                  "endpoint",
+                  "authority",
+                  "sample"
+                ]
+              },
+              "pattern": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "pattern"
+            ],
+            "type": "object"
+          },
+          "minItems": 5,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "sparql_guidance": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "namespace",
+        "namespace_status",
+        "patterns",
+        "sparql_guidance"
+      ],
+      "type": "object"
+    },
+    "deprecation_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "requires_mapping_manifest": {
+          "const": true
+        },
+        "mapping_manifest_path": {
+          "const": "manifests/id_uri_deprecations.json"
+        },
+        "redirect_policy": {
+          "type": "string"
+        },
+        "minimum_fields": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 5,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "requires_mapping_manifest",
+        "mapping_manifest_path",
+        "redirect_policy",
+        "minimum_fields"
+      ],
+      "type": "object"
+    },
+    "examples": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "artifact_class": {
+            "type": "string"
+          },
+          "payload": {
+            "type": "object"
+          },
+          "expected_id": {
+            "type": "string"
+          },
+          "expected_uri": {
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "artifact_class",
+          "payload",
+          "expected_id",
+          "expected_uri"
+        ],
+        "type": "object"
+      },
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "endpoint_tracks": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "manifest_version",
+    "repository",
+    "generated_at",
+    "document_identity",
+    "id_patterns",
+    "uri_policy",
+    "deprecation_policy",
+    "examples",
+    "endpoint_tracks"
+  ],
+  "type": "object"
+}

@@ -133,6 +133,13 @@
       "next_gate": "future derived component and endpoint releases must cite relevant fixture IDs or a refreshed evaluation manifest"
     },
     {
+      "artifact": "canonical ID and URI policy",
+      "path": "manifests/id_uri_policy.json",
+      "release_level": "neutral-component",
+      "status": "validated-manifest",
+      "next_gate": "RDF, civic-data, and endpoint releases must validate generated IDs and URIs against this policy"
+    },
+    {
       "artifact": "speech-turn candidates",
       "path": "generated/speech_turns",
       "release_level": "neutral-component",

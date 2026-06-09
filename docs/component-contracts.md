@@ -27,6 +27,8 @@ Every derived component row must include:
 | `authority_source_id` | Authority source reference when the row depends on an external authority. |
 | `text_selector` | W3C Web Annotation-style selector or pointer when the row targets a text span. |
 
+Component IDs and URIs must follow `manifests/id_uri_policy.json`. New component identifiers must include a hash-backed payload and must not depend on transient file paths or row positions alone. RDF, Popolo, and other endpoint consumers should use the planned `https://w3id.org/nz-hansard/` namespace and the SPARQL-friendly prefixes documented in `docs/canonical-id-uri-policy.md`. Identifier replacements require `manifests/id_uri_deprecations.json`.
+
 ## Component Families
 
 ### Document

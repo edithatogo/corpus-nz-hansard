@@ -24,11 +24,13 @@ Tracked manifests and reports:
 - `manifests/historical_coverage_audit.json`
 - `manifests/release_ladder.json`
 - `manifests/gold_evaluation_datasets.json`
+- `manifests/id_uri_policy.json`
 - `docs/schema-discovery-report.md`
 - `docs/normalization-contract.md`
 - `docs/historical-coverage-audit.md`
 - `docs/release-ladder.md`
 - `docs/gold-evaluation-datasets.md`
+- `docs/canonical-id-uri-policy.md`
 - `docs/interoperability-requirements-moscow.md`
 - `docs/interoperability-design.md`
 - `docs/component-contracts.md`

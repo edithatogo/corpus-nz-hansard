@@ -65,3 +65,5 @@ Generated endpoint work and future metadata packages can add fields around this 
 2. publishing a compatibility window;
 3. preserving existing published URLs and DOI records where possible;
 4. recording the manifest hash and release commit that introduced the change.
+
+Stable ID and URI policy is governed by `manifests/id_uri_policy.json`. Reuse `stable_id` for document-level identity; new component and endpoint IDs must not depend on transient file paths or row positions alone. RDF, Popolo, and linked metadata outputs use the planned `https://w3id.org/nz-hansard/` namespace with SPARQL-friendly prefixes, and replacements must be recorded in `manifests/id_uri_deprecations.json`.

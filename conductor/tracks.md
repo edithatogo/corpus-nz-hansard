@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Canonical ID and URI Policy
-
-Track ID: `canonical_id_uri_policy_20260609`
-
-Goal: define stable identifier and URI policies before RDF, Popolo/Open Civic Data, ParlaMint, Akoma Ntoso, and metadata endpoint publication.
-
-Link: [conductor/tracks/canonical_id_uri_policy_20260609/](./tracks/canonical_id_uri_policy_20260609/)
-
 ### [ ] Track: Dependency Extras Policy
 
 Track ID: `dependency_extras_policy_20260609`
@@ -134,6 +126,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: Canonical ID and URI Policy
+
+Track ID: `canonical_id_uri_policy_20260609`
+
+Goal: Defined stable ID and URI patterns, deterministic examples, namespace guidance, deprecation mapping policy, and endpoint validation gates.
+
+Link: [conductor/tracks/canonical_id_uri_policy_20260609/](./tracks/canonical_id_uri_policy_20260609/)
 
 ### [x] Track: Gold Evaluation Datasets
 
