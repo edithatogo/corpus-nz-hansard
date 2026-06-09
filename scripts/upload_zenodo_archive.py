@@ -191,7 +191,17 @@ def upload_zenodo_archive(
         related_identifiers=[
             {
                 "identifier": "https://github.com/edithatogo/corpus-nz-hansard",
-                "relation": "isSupplementTo",
+                "relation": "isSupplementedBy",
+                "scheme": "url",
+            },
+            {
+                "identifier": "https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0",
+                "relation": "isSupplementedBy",
+                "scheme": "url",
+            },
+            {
+                "identifier": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+                "relation": "isIdenticalTo",
                 "scheme": "url",
             }
         ],
