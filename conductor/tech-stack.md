@@ -87,3 +87,7 @@ Release automation should separate code/package versions, dataset versions, sche
 ## Transitional packaging note
 
 `requirements.txt` remains the current runtime input until the engineering-alignment track migrates Hansard to `pyproject.toml`, `uv.lock`, `src/nz_hansard_corpus`, a Typer CLI, pytest, ruff, mypy/pyright, pre-commit, Renovate, CodeQL, Scorecard, and Rust-backed quality tooling. Treat `requirements.txt` as transitional, not the long-term standard.
+
+## Arrow and Polars baseline
+
+Both `pyarrow` and `polars` are baseline tabular/dataframe dependencies for corpus work. Use Arrow/PyArrow for Parquet/Arrow interoperability and stable artifact writing; use Polars for high-performance lazy/eager transformations, profiling, and larger derived-table workflows where it simplifies or accelerates the pipeline.
