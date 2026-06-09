@@ -1,0 +1,7 @@
+{
+  "track_id": "rdf_linked_data_endpoint_20260609",
+  "title": "RDF Linked Data Endpoint",
+  "status": "pending",
+  "created": "2026-06-09",
+  "description": "Publish RDF/JSON-LD views with PROV-O, DCAT, SKOS, stable URIs, and SHACL validation."
+}

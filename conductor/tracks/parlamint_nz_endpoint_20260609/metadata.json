@@ -1,0 +1,7 @@
+{
+  "track_id": "parlamint_nz_endpoint_20260609",
+  "title": "ParlaMint-NZ Endpoint",
+  "status": "pending",
+  "created": "2026-06-09",
+  "description": "Generate validated ParlaMint-NZ / TEI artifacts from neutral components."
+}

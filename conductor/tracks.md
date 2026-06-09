@@ -13,6 +13,70 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
+### [ ] Track: Neutral Parliamentary Component Model
+
+Track ID: `neutral_component_model_20260609`
+
+Goal: define schemas, identifiers, provenance, and validation manifests for neutral derived components that feed all endpoint exports.
+
+Link: [conductor/tracks/neutral_component_model_20260609/](./tracks/neutral_component_model_20260609/)
+
+### [ ] Track: ParlaMint-NZ Endpoint
+
+Track ID: `parlamint_nz_endpoint_20260609`
+
+Goal: generate validated ParlaMint-NZ / TEI artifacts from neutral components without making ParlaMint the internal core schema.
+
+Link: [conductor/tracks/parlamint_nz_endpoint_20260609/](./tracks/parlamint_nz_endpoint_20260609/)
+
+### [ ] Track: Popolo / Open Civic Data Endpoint
+
+Track ID: `popolo_opencivicdata_endpoint_20260609`
+
+Goal: generate civic-data member, party, membership, speech, motion, and vote artifacts compatible with Popolo/Open Civic Data patterns.
+
+Link: [conductor/tracks/popolo_opencivicdata_endpoint_20260609/](./tracks/popolo_opencivicdata_endpoint_20260609/)
+
+### [ ] Track: Akoma Ntoso Endpoint
+
+Track ID: `akoma_ntoso_endpoint_20260609`
+
+Goal: generate Akoma Ntoso-style legislative and parliamentary document structure from validated neutral proceeding components.
+
+Link: [conductor/tracks/akoma_ntoso_endpoint_20260609/](./tracks/akoma_ntoso_endpoint_20260609/)
+
+### [ ] Track: CAP / ParlaCAP Topic Endpoint
+
+Track ID: `cap_parlacap_topic_endpoint_20260609`
+
+Goal: create Comparative Agendas Project and ParlaCAP-compatible topic outputs with codebook provenance and validation.
+
+Link: [conductor/tracks/cap_parlacap_topic_endpoint_20260609/](./tracks/cap_parlacap_topic_endpoint_20260609/)
+
+### [ ] Track: Universal Dependencies / CoNLL-U Endpoint
+
+Track ID: `ud_conllu_endpoint_20260609`
+
+Goal: create validated Universal Dependencies and CoNLL-U linguistic annotation outputs with token-to-source alignment.
+
+Link: [conductor/tracks/ud_conllu_endpoint_20260609/](./tracks/ud_conllu_endpoint_20260609/)
+
+### [ ] Track: RDF Linked Data Endpoint
+
+Track ID: `rdf_linked_data_endpoint_20260609`
+
+Goal: publish RDF/JSON-LD views with PROV-O, DCAT, SKOS, stable URIs, and SHACL validation.
+
+Link: [conductor/tracks/rdf_linked_data_endpoint_20260609/](./tracks/rdf_linked_data_endpoint_20260609/)
+
+### [ ] Track: Upstream Contribution Packages
+
+Track ID: `upstream_contribution_packages_20260609`
+
+Goal: prepare validation-backed samples, mapping notes, and contribution evidence for ParlaMint/Parla-CLARIN, ParlaCAP/CAP, mySociety-style parser references, and related ecosystems.
+
+Link: [conductor/tracks/upstream_contribution_packages_20260609/](./tracks/upstream_contribution_packages_20260609/)
+
 ### [ ] Track: Member Identity Resolution
 
 Track ID: `member_identity_resolution_20260609`
