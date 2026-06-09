@@ -11,12 +11,12 @@ REQUIRED_DEV_TOOLS = {
     "ruff",
     "ty",
     "typos",
-    "uv",
     "zizmor",
     "taplo",
 }
 
 REQUIRED_QUALITY_SNIPPETS = (
+    "python -m pip install uv==0.11.8",
     "uv lock --check",
     "uv sync --frozen --all-groups",
     "python -m ruff check --no-cache .",
@@ -71,6 +71,7 @@ def _failures() -> list[str]:
         "[project]",
         'name = "corpus-nz-hansard"',
         "[dependency-groups]",
+        '"uv==0.11.8"',
         "[tool.uv]",
         "package = false",
     ):

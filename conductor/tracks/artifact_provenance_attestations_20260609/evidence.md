@@ -46,7 +46,7 @@ Repo-side hardening applied:
 
 - Added project/dependency metadata to `pyproject.toml` and kept `package = false` while script entrypoints remain transitional.
 - Added committed `uv.lock`.
-- Added `uv==0.11.8` to `requirements/dev.txt` so CI can install the uv CLI before lock checks.
+- Added `uv==0.11.8` to the `pyproject.toml` dev dependency group and `uv.lock`, and added an explicit CI bootstrap step so CI can install the uv CLI before lock checks.
 - Added `uv-lock` and `uv-sync` Makefile targets.
 - Added `uv lock --check` and `uv sync --frozen --all-groups` to `.github/workflows/quality.yml`.
 - Updated `scripts/check_quality_gate.py` so quality checks require pinned `uv`, project metadata, committed `uv.lock`, Makefile targets, workflow commands, and documentation.

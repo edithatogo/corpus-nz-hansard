@@ -11,6 +11,7 @@ make quality
 Equivalent commands:
 
 ```powershell
+python -m pip install uv==0.11.8
 uv lock --check
 uv sync --frozen --all-groups
 python -m ruff check --no-cache .
@@ -25,7 +26,7 @@ python scripts/check_release_provenance_policy.py
 python -m unittest discover tests
 ```
 
-`scripts/check_quality_gate.py` guards the quality configuration itself: dev-tool pins, required Quality workflow commands, local Makefile targets, committed `uv.lock`, packaged `pyproject.toml` metadata, pinned GitHub Actions, and publication workflows staying manual-only.
+`scripts/check_quality_gate.py` guards the quality configuration itself: dev-tool pins, required Quality workflow commands, local Makefile targets, committed `uv.lock`, packaged `pyproject.toml` metadata with a pinned uv tool dependency, pinned GitHub Actions, and publication workflows staying manual-only.
 
 `scripts/check_release_provenance_policy.py` guards release evidence and provenance wiring: the release evidence ledger schema, Zenodo attestation permissions, pinned attestation action, attested subject paths, documentation coverage, and publication workflows staying manual-only.
 
