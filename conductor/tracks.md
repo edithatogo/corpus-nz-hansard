@@ -21,14 +21,6 @@ Goal: Harmonise Zenodo rights metadata and migrate/evaluate draft operations thr
 
 Link: [conductor/tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/](./tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/)
 
-### [!] Track: SOTA Metadata Packages
-
-Track ID: `sota_metadata_packages_20260609`
-
-Goal: Generate validated Croissant, RO-Crate, Frictionless, DCAT, and PROV-O metadata packages. Contract and roadmap are recorded; actual generated package files, checksums, package-specific validators, and Zenodo Sandbox proof are still blocked.
-
-Link: [conductor/tracks/sota_metadata_packages_20260609/](./tracks/sota_metadata_packages_20260609/)
-
 ### [ ] Track: Corpus Family Engineering Alignment
 
 Track ID: `corpus_family_engineering_alignment_20260609`
@@ -190,6 +182,14 @@ Goal: create shared validation tests and manifests for derived member, party, an
 Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/derived_fields_validation_manifests_20260609/)
 
 ## Completed Tracks
+
+### [x] Track: SOTA Metadata Packages
+
+Track ID: `sota_metadata_packages_20260609`
+
+Goal: Generated validated Croissant, RO-Crate, Frictionless, DCAT, and PROV-O metadata packages with checksums, deterministic exporter, and package-specific quality-gate validation. Live Zenodo Sandbox proof remains tracked by `zenodo_rights_metadata_and_zenodraft_workflow_20260609`.
+
+Link: [conductor/tracks/sota_metadata_packages_20260609/](./tracks/sota_metadata_packages_20260609/)
 
 ### [x] Track: Corpus Family Naming And Publication Alignment
 

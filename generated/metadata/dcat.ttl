@@ -1,0 +1,19 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://github.com/edithatogo/corpus-nz-hansard#dataset>
+  a dcat:Dataset ;
+  dcterms:title "NZ Hansard Corpus" ;
+  dcterms:description "Document-level corpus pipeline for New Zealand Hansard records from a supplied DocumentsDB extract. The source ZIP is not redistributed. Public artifacts contain derived normalized Parquet output, code, documentation, schemas, manifests, and release evidence needed to audit and reproduce the dataset. The underlying source text is New Zealand Parliamentary Debates/Hansard material; project documentation records the Parliament provenance statement that no copyright exists in New Zealand Parliamentary Debates/Hansard. Original repository code, documentation, manifests, and release tooling are MIT licensed. This dataset is not an official New Zealand Parliament publication channel and is not endorsed by New Zealand Parliament." ;
+  dcterms:identifier "10.5281/zenodo.20595194" ;
+  dcterms:issued "2026-06-08"^^xsd:date ;
+  dcterms:license "other-open" ;
+  dcat:landingPage <https://huggingface.co/datasets/edithatogo/nz-hansard-corpus> ;
+  dcat:distribution <https://github.com/edithatogo/corpus-nz-hansard#parquet> .
+
+<https://github.com/edithatogo/corpus-nz-hansard#parquet>
+  a dcat:Distribution ;
+  dcterms:title "Normalized Hansard Parquet" ;
+  dcat:mediaType "application/vnd.apache.parquet" ;
+  dcat:downloadURL <https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0/generated/parquet/hansard.parquet> .

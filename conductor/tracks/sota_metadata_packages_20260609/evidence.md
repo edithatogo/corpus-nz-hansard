@@ -11,7 +11,7 @@ Evidence should capture current and target public-surface behaviour across GitHu
 - Active public release metadata already exists in `manifests/public_dataset_release_manifest.json`, `manifests/public_surface_audit.json`, `.zenodo.json`, `CITATION.cff`, `DATASET_CARD.md`, and `schemas/hansard_record.schema.json`.
 - GitHub, Hugging Face, and Zenodo are active public surfaces for release `0.1.0`.
 - OSF remains optional and inactive.
-- Croissant, RO-Crate, Frictionless, DCAT, and PROV-O package files are not yet generated release artifacts.
+- Croissant, RO-Crate, Frictionless, DCAT, and PROV-O package files are generated local release artifacts under `generated/metadata/`.
 
 ## Target State
 
@@ -20,21 +20,19 @@ Evidence should capture current and target public-surface behaviour across GitHu
 - Added `docs/sota-metadata-packages.md` as the human-readable package policy and migration note.
 - Added `scripts/check_metadata_packages.py` to validate package IDs, source-manifest references, active-public-surface URLs, checksum policy, planned output paths, documentation coverage, and publication-claim boundaries.
 - Added `tests/test_metadata_packages.py` for focused validation.
+- Added `scripts/build_metadata_packages.py` to generate Croissant, RO-Crate, Frictionless, DCAT, and PROV-O outputs from the public release manifest, `.zenodo.json`, and the record schema.
 
 ## Public Surface Implications
 
-- GitHub: future generated package files may be published from `generated/metadata/` once checksums and package validators are added.
+- GitHub: generated package files can be published from `generated/metadata/` once included in a normal release upload.
 - Hugging Face: Croissant and Frictionless metadata may describe the hosted `default/train` dataset once generated.
 - Zenodo: future package files must follow the existing sandbox-first, draft-update-only, protected-production-publish policy.
 - OSF: remains null in the metadata-package manifest until the optional mirror track lands.
-- Future metadata environments: publication claims remain disabled until generated files, checksums, and package-specific validators exist.
+- Future metadata environments: publication claims remain disabled for any surface until generated files are uploaded to that surface and read back.
 
 ## Remaining Blockers
 
-- Package exporters are not yet implemented.
-- Generated package files under `generated/metadata/` do not yet exist.
-- Package-specific validators for Croissant, RO-Crate, Frictionless, DCAT, and PROV-O are not yet wired into shared quality gates.
-- This worker did not edit `conductor/tracks.md`, `Makefile`, CI, or shared quality-gate files by ownership instruction.
+- Zenodo Sandbox upload/update/readback proof remains blocked until `ZENODO_SANDBOX_TOKEN` is configured and sandbox side effects are approved.
 
 ## Focused Validation
 
@@ -49,3 +47,20 @@ Central integration completed:
 - Added shared quality-gate wiring for `python scripts\check_metadata_packages.py`.
 - Registered this track as blocked in `conductor/tracks.md`.
 - Blocker remains real package generation: Croissant, RO-Crate, Frictionless, DCAT, and PROV-O package files, checksums, and package-specific validators do not yet exist.
+
+## Blocker Reduction - 2026-06-10
+
+Repo-side metadata package blockers were addressed:
+
+- Added deterministic metadata generation via `python scripts\build_metadata_packages.py`.
+- Generated `generated/metadata/croissant.jsonld`, `generated/metadata/ro-crate-metadata.json`, `generated/metadata/datapackage.json`, `generated/metadata/dcat.ttl`, and `generated/metadata/prov-o.ttl`.
+- Updated `manifests/metadata_packages_manifest.json` to mark all five packages `generated` and record SHA-256 checksums.
+- Strengthened `scripts/check_metadata_packages.py` and `tests/test_metadata_packages.py` so the quality gate verifies output existence, checksums, JSON package structure, Turtle snippets, and generator provenance.
+
+Focused validation after these changes:
+
+- `python scripts\build_metadata_packages.py`
+- `python scripts\check_metadata_packages.py`
+- `python -m unittest tests.test_metadata_packages`
+
+No metadata-package repo-side blocker remains. Live Zenodo Sandbox proof still requires `ZENODO_SANDBOX_TOKEN` and approval to create/update sandbox deposition state, and remains tracked by `zenodo_rights_metadata_and_zenodraft_workflow_20260609`.

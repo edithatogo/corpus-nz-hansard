@@ -1,8 +1,8 @@
 # SOTA Metadata Packages
 
-This document defines the metadata-package contract for `corpus-nz-hansard`.
-The repository will publish Croissant, RO-Crate, Frictionless Data Package,
-DCAT, and PROV-O metadata from canonical release inputs, not as hand-maintained
+This document defines the generated metadata packages for `corpus-nz-hansard`.
+The repository exports Croissant, RO-Crate, Frictionless Data Package, DCAT,
+and PROV-O metadata from canonical release inputs, not as hand-maintained
 release descriptions.
 
 ## Current State
@@ -18,7 +18,8 @@ The public dataset release is already anchored by:
 
 GitHub, Hugging Face, and Zenodo are active public surfaces for the `0.1.0`
 release. OSF remains optional and inactive. Future metadata environments must
-not be described as published until validated metadata-package outputs exist.
+not be described as published until generated metadata-package outputs are
+uploaded to that surface and read back.
 
 ## Target Packages
 
@@ -26,7 +27,7 @@ The package contract is recorded in
 `manifests/metadata_packages_manifest.json` and validated by
 `scripts/check_metadata_packages.py`.
 
-| Package | Format | Planned Output | Validation Command |
+| Package | Format | Generated Output | Validation Command |
 | --- | --- | --- | --- |
 | Croissant | JSON-LD | `generated/metadata/croissant.jsonld` | `python scripts/check_metadata_packages.py` |
 | RO-Crate | JSON-LD | `generated/metadata/ro-crate-metadata.json` | `python scripts/check_metadata_packages.py` |
@@ -36,7 +37,14 @@ The package contract is recorded in
 
 Each package entry must name its source manifests, validation command, checksum
 algorithm, checksum field, output path, and publication-surface links. The
-checksum values remain `null` until package files are generated and validated.
+generated files live under `generated/metadata/`, and
+`manifests/metadata_packages_manifest.json` records their SHA-256 checksums.
+
+Regenerate package files and manifest checksums with:
+
+```powershell
+python scripts\build_metadata_packages.py
+```
 
 ## Migration Constraints
 
@@ -45,7 +53,8 @@ checksum values remain `null` until package files are generated and validated.
 - Preserve existing GitHub, Hugging Face, and Zenodo URLs and DOI records unless
   a migration plan is recorded first.
 - Do not claim OSF or future metadata publication until generated package files
-  exist, checksums are populated, and the active public surfaces are updated.
+  are uploaded to that surface and the active public surface manifests are
+  updated.
 - Keep Zenodo draft and publication workflows separate. Any Zenodo-related
   package upload workflow must use the existing sandbox-first and protected
   production-publication policy.
@@ -58,4 +67,3 @@ Run the focused metadata package checks with:
 python -m unittest tests.test_metadata_packages
 python scripts\check_metadata_packages.py
 ```
-

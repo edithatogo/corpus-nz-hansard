@@ -1,0 +1,118 @@
+{
+  "description": "Document-level corpus pipeline for New Zealand Hansard records from a supplied DocumentsDB extract. The source ZIP is not redistributed. Public artifacts contain derived normalized Parquet output, code, documentation, schemas, manifests, and release evidence needed to audit and reproduce the dataset. The underlying source text is New Zealand Parliamentary Debates/Hansard material; project documentation records the Parliament provenance statement that no copyright exists in New Zealand Parliamentary Debates/Hansard. Original repository code, documentation, manifests, and release tooling are MIT licensed. This dataset is not an official New Zealand Parliament publication channel and is not endorsed by New Zealand Parliament.",
+  "homepage": "https://github.com/edithatogo/corpus-nz-hansard",
+  "licenses": [
+    {
+      "name": "other-open",
+      "path": "https://zenodo.org/records/20595194"
+    }
+  ],
+  "name": "corpus-nz-hansard",
+  "profile": "data-package",
+  "resources": [
+    {
+      "format": "parquet",
+      "mediatype": "application/vnd.apache.parquet",
+      "name": "hansard",
+      "path": "generated/parquet/hansard.parquet",
+      "schema": {
+        "fields": [
+          {
+            "name": "stable_id",
+            "type": "string"
+          },
+          {
+            "name": "jurisdiction",
+            "type": "string"
+          },
+          {
+            "name": "country",
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "type": "string"
+          },
+          {
+            "name": "source_archive",
+            "type": "string"
+          },
+          {
+            "name": "source_file",
+            "type": "string"
+          },
+          {
+            "name": "source_row_number",
+            "type": "integer"
+          },
+          {
+            "name": "parliament_number",
+            "type": "integer"
+          },
+          {
+            "name": "parliament_document_id",
+            "type": "string"
+          },
+          {
+            "name": "document_type",
+            "type": "string"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "abbreviated_title",
+            "type": "string"
+          },
+          {
+            "name": "status",
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "type": "string"
+          },
+          {
+            "name": "member_of_parliament_raw",
+            "type": "string"
+          },
+          {
+            "name": "member_of_parliament_count",
+            "type": "integer"
+          },
+          {
+            "name": "portfolio_raw",
+            "type": "string"
+          },
+          {
+            "name": "last_modified",
+            "type": "string"
+          },
+          {
+            "name": "document_content_date",
+            "type": "string"
+          },
+          {
+            "name": "language",
+            "type": "string"
+          },
+          {
+            "name": "text_sha256",
+            "type": "string"
+          },
+          {
+            "name": "source_hash",
+            "type": "string"
+          },
+          {
+            "name": "pipeline_version",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "title": "NZ Hansard Corpus",
+  "version": "0.1.0"
+}

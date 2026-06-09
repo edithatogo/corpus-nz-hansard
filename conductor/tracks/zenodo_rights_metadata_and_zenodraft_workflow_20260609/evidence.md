@@ -66,6 +66,17 @@ Blocked sandbox proof:
 - Sandbox draft/version creation, file upload, metadata update, and prereserved DOI/details readback were not run because no `ZENODO_SANDBOX_TOKEN` is configured in this local session and those commands create external sandbox state.
 - Production publication remains isolated in `zenodo_publish.yml` through the `zenodo-production-publish` GitHub environment.
 
+## Blocker Recheck - 2026-06-10
+
+The remaining blocked aspect was rechecked before starting any further active tracks:
+
+- `ZENODO_SANDBOX_TOKEN=missing`.
+- `ZENODO_SANDBOX_ACCESS_TOKEN=missing`.
+- Local zenodraft runtime prerequisites remain satisfied: Node `v24.15.0`, npm `11.12.1`.
+- Metadata package upload candidates now exist locally under `generated/metadata/` and have SHA-256 checksums in `manifests/metadata_packages_manifest.json`.
+
+Sandbox draft/version creation, metadata update, file upload, prereserved DOI readback, and draft details readback remain external side-effect operations. They should be run only after a sandbox token is configured and the maintainer approves creating/updating Zenodo Sandbox deposition state.
+
 Validation:
 
 - Red phase: `python -m unittest tests.test_zenodo_rights_metadata` failed before `scripts/build_zenodo_metadata.py` existed.

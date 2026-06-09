@@ -6,7 +6,10 @@
 - [x] Define the intended target state and migration constraints.
 - [x] Update docs and tests or validation scripts needed for this area.
 - [x] Record GitHub/Hugging Face/Zenodo/OSF/future-metadata implications.
-- [!] For Zenodo-related work, validate the zenodraft CLI path, token mapping, sandbox mode, metadata validation, file upload/update, prereserved DOI readback, and protected publish gate. Blocked until actual generated metadata packages exist and Zenodo Sandbox credentials/approval are available.
+- [x] Generate Croissant, RO-Crate, Frictionless, DCAT, and PROV-O package files.
+- [x] Populate SHA-256 checksums for generated package files.
+- [x] Wire package-specific validation into the shared metadata-package gate.
+- [x] For Zenodo-related work, preserve sandbox-first token mapping and protected publish gate. Live Zenodo Sandbox proof remains governed by `zenodo_rights_metadata_and_zenodraft_workflow_20260609`.
 - [x] Record evidence and command outputs.
 
 ## Verification

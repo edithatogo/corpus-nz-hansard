@@ -1,7 +1,8 @@
-"""Validate the SOTA metadata-package contract."""
+"""Validate generated SOTA metadata packages and their manifest."""
 
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 from typing import Any
@@ -14,6 +15,7 @@ SCHEMA_PATH = ROOT / "schemas/metadata_packages_manifest.schema.json"
 DOC_PATH = ROOT / "docs/sota-metadata-packages.md"
 TRACK_PATH = ROOT / "conductor/tracks/sota_metadata_packages_20260609/evidence.md"
 RELEASE_MANIFEST_PATH = ROOT / "manifests/public_dataset_release_manifest.json"
+GENERATED_DIR = ROOT / "generated/metadata"
 
 REQUIRED_PACKAGE_IDS = {"croissant", "ro-crate", "frictionless", "dcat", "prov-o"}
 REQUIRED_SOURCE_MANIFESTS = {
@@ -32,6 +34,51 @@ def _read(path: Path) -> str:
 
 def _json(path: Path) -> dict[str, Any]:
     return json.loads(_read(path))
+
+
+def _sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _validate_json_package(path: Path, package_id: str) -> list[str]:
+    failures: list[str] = []
+    try:
+        payload = _json(path)
+    except json.JSONDecodeError as error:
+        return [f"{path.relative_to(ROOT).as_posix()} is invalid JSON: {error}"]
+
+    if package_id == "croissant":
+        for key in ("@context", "@type", "name", "description", "distribution", "recordSet"):
+            if key not in payload:
+                failures.append(f"croissant metadata is missing {key}.")
+        if not payload.get("distribution"):
+            failures.append("croissant metadata must include at least one distribution.")
+    elif package_id == "ro-crate":
+        if payload.get("@context") != "https://w3id.org/ro/crate/1.1/context":
+            failures.append("ro-crate metadata must use the RO-Crate 1.1 context.")
+        graph = payload.get("@graph", [])
+        if not isinstance(graph, list) or not any(item.get("@id") == "./" for item in graph):
+            failures.append("ro-crate metadata must include the root dataset graph node.")
+    elif package_id == "frictionless":
+        if payload.get("profile") != "data-package":
+            failures.append("frictionless metadata must use profile=data-package.")
+        resources = payload.get("resources", [])
+        if not isinstance(resources, list) or not resources:
+            failures.append("frictionless metadata must include resources.")
+    return failures
+
+
+def _validate_turtle_package(path: Path, package_id: str) -> list[str]:
+    text = _read(path)
+    required_by_id = {
+        "dcat": ("@prefix dcat:", "dcat:Dataset", "dcat:Distribution"),
+        "prov-o": ("@prefix prov:", "prov:Entity", "prov:Activity"),
+    }
+    return [
+        f"{path.relative_to(ROOT).as_posix()} is missing {snippet}."
+        for snippet in required_by_id[package_id]
+        if snippet not in text
+    ]
 
 
 def _failures() -> list[str]:
@@ -87,10 +134,25 @@ def _failures() -> list[str]:
             failures.append(f"{package_id} turtle package must not use a JSON output path.")
         if package["output_path"].endswith(".ttl") and package["format"] != "turtle":
             failures.append(f"{package_id} TTL package must use turtle format.")
-        if package["status"] == "planned" and package["checksum"] is not None:
-            failures.append(f"{package_id} planned package must not have a checksum yet.")
-        if package["status"] in {"generated", "published"} and not package["checksum"]:
-            failures.append(f"{package_id} generated or published package must have a checksum.")
+        if package["status"] != "generated":
+            failures.append(f"{package_id} must be generated before this track can complete.")
+        if not package["checksum"]:
+            failures.append(f"{package_id} must have a checksum.")
+            continue
+        output_path = ROOT / package["output_path"]
+        if not output_path.exists():
+            failures.append(f"{package_id} output does not exist: {package['output_path']}")
+            continue
+        actual_checksum = _sha256(output_path)
+        if package["checksum"] != actual_checksum:
+            failures.append(
+                f"{package_id} checksum mismatch: manifest has {package['checksum']}, "
+                f"file has {actual_checksum}."
+            )
+        if package["format"] in {"json", "json-ld"}:
+            failures.extend(_validate_json_package(output_path, package_id))
+        if package["format"] == "turtle":
+            failures.extend(_validate_turtle_package(output_path, package_id))
         if (
             package["status"] == "published"
             and manifest.get("publication_claims_allowed") is not True
@@ -105,10 +167,16 @@ def _failures() -> list[str]:
             failures.append(
                 f"{package_id} validation command must use scripts/check_metadata_packages.py."
             )
+        if package["generator"] != "python scripts/build_metadata_packages.py":
+            failures.append(f"{package_id} generator must use scripts/build_metadata_packages.py.")
+
+    if not GENERATED_DIR.exists():
+        failures.append("generated/metadata must exist.")
 
     doc = _read(DOC_PATH)
     track = _read(TRACK_PATH)
     for required in (
+        "build_metadata_packages.py",
         "Croissant",
         "RO-Crate",
         "Frictionless",

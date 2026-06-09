@@ -1,0 +1,52 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "about": {
+        "@id": "./"
+      },
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "datePublished": "2026-06-08",
+      "description": "Document-level corpus pipeline for New Zealand Hansard records from a supplied DocumentsDB extract. The source ZIP is not redistributed. Public artifacts contain derived normalized Parquet output, code, documentation, schemas, manifests, and release evidence needed to audit and reproduce the dataset. The underlying source text is New Zealand Parliamentary Debates/Hansard material; project documentation records the Parliament provenance statement that no copyright exists in New Zealand Parliamentary Debates/Hansard. Original repository code, documentation, manifests, and release tooling are MIT licensed. This dataset is not an official New Zealand Parliament publication channel and is not endorsed by New Zealand Parliament.",
+      "hasPart": [
+        {
+          "@id": "generated/parquet/hansard.parquet"
+        },
+        {
+          "@id": "generated/duckdb/hansard.duckdb"
+        },
+        {
+          "@id": "schemas/hansard_record.schema.json"
+        }
+      ],
+      "identifier": "10.5281/zenodo.20595194",
+      "license": "other-open",
+      "name": "NZ Hansard Corpus",
+      "url": "https://zenodo.org/records/20595194",
+      "version": "0.1.0"
+    },
+    {
+      "@id": "generated/parquet/hansard.parquet",
+      "@type": "File",
+      "encodingFormat": "application/vnd.apache.parquet"
+    },
+    {
+      "@id": "generated/duckdb/hansard.duckdb",
+      "@type": "File",
+      "encodingFormat": "application/vnd.duckdb"
+    },
+    {
+      "@id": "schemas/hansard_record.schema.json",
+      "@type": "File",
+      "encodingFormat": "application/schema+json"
+    }
+  ]
+}

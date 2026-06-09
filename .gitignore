@@ -1,5 +1,7 @@
 # Generated corpus outputs
-generated/
+generated/*
+!generated/metadata/
+!generated/metadata/**
 2024-09-06 Hansard Extract from DocumentsDB.zip
 
 # Local caches

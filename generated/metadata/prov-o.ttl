@@ -1,0 +1,18 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<https://github.com/edithatogo/corpus-nz-hansard#release-v0.1.0>
+  a prov:Entity ;
+  dcterms:identifier "10.5281/zenodo.20595194" ;
+  prov:wasGeneratedBy <https://github.com/edithatogo/corpus-nz-hansard#pipeline-run> ;
+  prov:wasDerivedFrom <https://github.com/edithatogo/corpus-nz-hansard#source-archive> .
+
+<https://github.com/edithatogo/corpus-nz-hansard#source-archive>
+  a prov:Entity ;
+  dcterms:title "2024-09-06 Hansard Extract from DocumentsDB.zip" ;
+  dcterms:identifier "sha256:2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299" .
+
+<https://github.com/edithatogo/corpus-nz-hansard#pipeline-run>
+  a prov:Activity ;
+  prov:used <https://github.com/edithatogo/corpus-nz-hansard#source-archive> ;
+  prov:generated <https://github.com/edithatogo/corpus-nz-hansard#release-v0.1.0> .

@@ -1,11 +1,125 @@
 {
-  "manifest_version": 1,
-  "repository": "corpus-nz-hansard",
   "corpus_family_sibling": "corpus-nz-legislation",
-  "release_manifest": "manifests/public_dataset_release_manifest.json",
+  "manifest_version": 1,
+  "packages": [
+    {
+      "checksum": "dec154c86c3e5254f52443b9300d5fb95791160c61884512644cc23583ae7825",
+      "checksum_algorithm": "sha256",
+      "format": "json-ld",
+      "generator": "python scripts/build_metadata_packages.py",
+      "id": "croissant",
+      "label": "Croissant",
+      "output_path": "generated/metadata/croissant.jsonld",
+      "publication_surfaces": [
+        "github",
+        "huggingface",
+        "zenodo"
+      ],
+      "source_manifests": [
+        "manifests/public_dataset_release_manifest.json",
+        "DATASET_CARD.md",
+        "schemas/hansard_record.schema.json"
+      ],
+      "standard": "MLCommons Croissant",
+      "status": "generated",
+      "validation_command": "python scripts/check_metadata_packages.py"
+    },
+    {
+      "checksum": "874594326281a8f454f2678c7127da0bea0032c9c95a50457ceb3b2da0cbc62d",
+      "checksum_algorithm": "sha256",
+      "format": "json-ld",
+      "generator": "python scripts/build_metadata_packages.py",
+      "id": "ro-crate",
+      "label": "RO-Crate",
+      "output_path": "generated/metadata/ro-crate-metadata.json",
+      "publication_surfaces": [
+        "github",
+        "zenodo"
+      ],
+      "source_manifests": [
+        "manifests/public_dataset_release_manifest.json",
+        ".zenodo.json",
+        "CITATION.cff"
+      ],
+      "standard": "RO-Crate Metadata",
+      "status": "generated",
+      "validation_command": "python scripts/check_metadata_packages.py"
+    },
+    {
+      "checksum": "ead70a9577f6e0115920680e2963ef67ecb1b8fef62dea9c15da81d2974c99b5",
+      "checksum_algorithm": "sha256",
+      "format": "json",
+      "generator": "python scripts/build_metadata_packages.py",
+      "id": "frictionless",
+      "label": "Frictionless Data Package",
+      "output_path": "generated/metadata/datapackage.json",
+      "publication_surfaces": [
+        "github",
+        "huggingface",
+        "zenodo"
+      ],
+      "source_manifests": [
+        "manifests/public_dataset_release_manifest.json",
+        "schemas/hansard_record.schema.json"
+      ],
+      "standard": "Frictionless Data Package",
+      "status": "generated",
+      "validation_command": "python scripts/check_metadata_packages.py"
+    },
+    {
+      "checksum": "647b409faed3944817cc3ae80e75b00f0ebcc6c330093e73adb69a451c6ce364",
+      "checksum_algorithm": "sha256",
+      "format": "turtle",
+      "generator": "python scripts/build_metadata_packages.py",
+      "id": "dcat",
+      "label": "DCAT",
+      "output_path": "generated/metadata/dcat.ttl",
+      "publication_surfaces": [
+        "github",
+        "zenodo"
+      ],
+      "source_manifests": [
+        "manifests/public_dataset_release_manifest.json",
+        "manifests/public_surface_audit.json",
+        ".zenodo.json"
+      ],
+      "standard": "Data Catalog Vocabulary",
+      "status": "generated",
+      "validation_command": "python scripts/check_metadata_packages.py"
+    },
+    {
+      "checksum": "6f685006df7e98e8de0a53cfdda8b0233da515e8aa348bc1d642cedd74b6dc74",
+      "checksum_algorithm": "sha256",
+      "format": "turtle",
+      "generator": "python scripts/build_metadata_packages.py",
+      "id": "prov-o",
+      "label": "PROV-O",
+      "output_path": "generated/metadata/prov-o.ttl",
+      "publication_surfaces": [
+        "github",
+        "zenodo"
+      ],
+      "source_manifests": [
+        "manifests/public_dataset_release_manifest.json",
+        "manifests/public_surface_audit.json",
+        "schemas/hansard_record.schema.json"
+      ],
+      "standard": "PROV-O",
+      "status": "generated",
+      "validation_command": "python scripts/check_metadata_packages.py"
+    }
+  ],
   "public_surface_audit": "manifests/public_surface_audit.json",
-  "publication_claims_allowed": false,
-  "publication_claims_note": "Metadata packages are target contracts only until generated files, checksums, and package-specific validators are added.",
+  "publication_claims_allowed": true,
+  "publication_claims_note": "Metadata packages are generated local release artifacts with SHA-256 checksums. Public-surface publication still follows the normal release upload and Zenodo sandbox-first policies.",
+  "publication_surfaces": {
+    "github": "https://github.com/edithatogo/corpus-nz-hansard",
+    "huggingface": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+    "osf": null,
+    "zenodo": "https://zenodo.org/records/20595194"
+  },
+  "release_manifest": "manifests/public_dataset_release_manifest.json",
+  "repository": "corpus-nz-hansard",
   "source_manifests": [
     "manifests/public_dataset_release_manifest.json",
     "manifests/public_surface_audit.json",
@@ -14,123 +128,9 @@
     "DATASET_CARD.md",
     "schemas/hansard_record.schema.json"
   ],
-  "publication_surfaces": {
-    "github": "https://github.com/edithatogo/corpus-nz-hansard",
-    "huggingface": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
-    "osf": null,
-    "zenodo": "https://zenodo.org/records/20595194"
-  },
-  "packages": [
-    {
-      "id": "croissant",
-      "label": "Croissant",
-      "standard": "MLCommons Croissant",
-      "format": "json-ld",
-      "status": "planned",
-      "output_path": "generated/metadata/croissant.jsonld",
-      "generator": "future generated metadata-package exporter",
-      "source_manifests": [
-        "manifests/public_dataset_release_manifest.json",
-        "DATASET_CARD.md",
-        "schemas/hansard_record.schema.json"
-      ],
-      "validation_command": "python scripts/check_metadata_packages.py",
-      "checksum_algorithm": "sha256",
-      "checksum": null,
-      "publication_surfaces": [
-        "github",
-        "huggingface",
-        "zenodo"
-      ]
-    },
-    {
-      "id": "ro-crate",
-      "label": "RO-Crate",
-      "standard": "RO-Crate Metadata",
-      "format": "json-ld",
-      "status": "planned",
-      "output_path": "generated/metadata/ro-crate-metadata.json",
-      "generator": "future generated metadata-package exporter",
-      "source_manifests": [
-        "manifests/public_dataset_release_manifest.json",
-        ".zenodo.json",
-        "CITATION.cff"
-      ],
-      "validation_command": "python scripts/check_metadata_packages.py",
-      "checksum_algorithm": "sha256",
-      "checksum": null,
-      "publication_surfaces": [
-        "github",
-        "zenodo"
-      ]
-    },
-    {
-      "id": "frictionless",
-      "label": "Frictionless Data Package",
-      "standard": "Frictionless Data Package",
-      "format": "json",
-      "status": "planned",
-      "output_path": "generated/metadata/datapackage.json",
-      "generator": "future generated metadata-package exporter",
-      "source_manifests": [
-        "manifests/public_dataset_release_manifest.json",
-        "schemas/hansard_record.schema.json"
-      ],
-      "validation_command": "python scripts/check_metadata_packages.py",
-      "checksum_algorithm": "sha256",
-      "checksum": null,
-      "publication_surfaces": [
-        "github",
-        "huggingface",
-        "zenodo"
-      ]
-    },
-    {
-      "id": "dcat",
-      "label": "DCAT",
-      "standard": "Data Catalog Vocabulary",
-      "format": "turtle",
-      "status": "planned",
-      "output_path": "generated/metadata/dcat.ttl",
-      "generator": "future RDF metadata exporter",
-      "source_manifests": [
-        "manifests/public_dataset_release_manifest.json",
-        "manifests/public_surface_audit.json",
-        ".zenodo.json"
-      ],
-      "validation_command": "python scripts/check_metadata_packages.py",
-      "checksum_algorithm": "sha256",
-      "checksum": null,
-      "publication_surfaces": [
-        "github",
-        "zenodo"
-      ]
-    },
-    {
-      "id": "prov-o",
-      "label": "PROV-O",
-      "standard": "PROV-O",
-      "format": "turtle",
-      "status": "planned",
-      "output_path": "generated/metadata/prov-o.ttl",
-      "generator": "future RDF metadata exporter",
-      "source_manifests": [
-        "manifests/public_dataset_release_manifest.json",
-        "manifests/public_surface_audit.json",
-        "schemas/hansard_record.schema.json"
-      ],
-      "validation_command": "python scripts/check_metadata_packages.py",
-      "checksum_algorithm": "sha256",
-      "checksum": null,
-      "publication_surfaces": [
-        "github",
-        "zenodo"
-      ]
-    }
-  ],
   "zenodo_policy": {
-    "sandbox_first": true,
     "draft_updates_separate_from_publish": true,
-    "protected_publish_environment": "zenodo-production-publish"
+    "protected_publish_environment": "zenodo-production-publish",
+    "sandbox_first": true
   }
 }

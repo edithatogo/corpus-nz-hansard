@@ -1,0 +1,146 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "sc": "https://schema.org/"
+  },
+  "@type": "sc:Dataset",
+  "creator": [
+    {
+      "name": "Dylan Mordaunt"
+    }
+  ],
+  "datePublished": "2026-06-08",
+  "description": "Document-level corpus pipeline for New Zealand Hansard records from a supplied DocumentsDB extract. The source ZIP is not redistributed. Public artifacts contain derived normalized Parquet output, code, documentation, schemas, manifests, and release evidence needed to audit and reproduce the dataset. The underlying source text is New Zealand Parliamentary Debates/Hansard material; project documentation records the Parliament provenance statement that no copyright exists in New Zealand Parliamentary Debates/Hansard. Original repository code, documentation, manifests, and release tooling are MIT licensed. This dataset is not an official New Zealand Parliament publication channel and is not endorsed by New Zealand Parliament.",
+  "distribution": [
+    {
+      "contentUrl": "https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0/generated/parquet/hansard.parquet",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "name": "Normalized Hansard Parquet"
+    },
+    {
+      "contentUrl": "https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0/generated/duckdb/hansard.duckdb",
+      "encodingFormat": "application/vnd.duckdb",
+      "name": "Hansard DuckDB database"
+    },
+    {
+      "contentUrl": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+      "encodingFormat": "text/html",
+      "name": "Hugging Face dataset viewer"
+    }
+  ],
+  "identifier": "10.5281/zenodo.20595194",
+  "keywords": [
+    "New Zealand",
+    "Hansard",
+    "Parliament",
+    "corpus",
+    "open data",
+    "legislative data"
+  ],
+  "license": "other-open",
+  "name": "NZ Hansard Corpus",
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "field": [
+        {
+          "dataType": "string",
+          "name": "stable_id"
+        },
+        {
+          "dataType": "string",
+          "name": "jurisdiction"
+        },
+        {
+          "dataType": "string",
+          "name": "country"
+        },
+        {
+          "dataType": "string",
+          "name": "source"
+        },
+        {
+          "dataType": "string",
+          "name": "source_archive"
+        },
+        {
+          "dataType": "string",
+          "name": "source_file"
+        },
+        {
+          "dataType": "integer",
+          "name": "source_row_number"
+        },
+        {
+          "dataType": "integer",
+          "name": "parliament_number"
+        },
+        {
+          "dataType": "string",
+          "name": "parliament_document_id"
+        },
+        {
+          "dataType": "string",
+          "name": "document_type"
+        },
+        {
+          "dataType": "string",
+          "name": "title"
+        },
+        {
+          "dataType": "string",
+          "name": "abbreviated_title"
+        },
+        {
+          "dataType": "string",
+          "name": "status"
+        },
+        {
+          "dataType": "string",
+          "name": "content"
+        },
+        {
+          "dataType": "string",
+          "name": "member_of_parliament_raw"
+        },
+        {
+          "dataType": "integer",
+          "name": "member_of_parliament_count"
+        },
+        {
+          "dataType": "string",
+          "name": "portfolio_raw"
+        },
+        {
+          "dataType": "string",
+          "name": "last_modified"
+        },
+        {
+          "dataType": "string",
+          "name": "document_content_date"
+        },
+        {
+          "dataType": "string",
+          "name": "language"
+        },
+        {
+          "dataType": "string",
+          "name": "text_sha256"
+        },
+        {
+          "dataType": "string",
+          "name": "source_hash"
+        },
+        {
+          "dataType": "string",
+          "name": "pipeline_version"
+        }
+      ],
+      "name": "hansard_records"
+    }
+  ],
+  "url": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+  "version": "0.1.0"
+}
