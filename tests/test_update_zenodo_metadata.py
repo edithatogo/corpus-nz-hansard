@@ -2,10 +2,13 @@ import sys
 import unittest
 from pathlib import Path
 
+import requests
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.update_zenodo_metadata import (
+    ZenodoMetadataClient,
     merge_related_identifiers,
     update_zenodo_metadata,
 )
@@ -134,6 +137,41 @@ class UpdateZenodoMetadataTest(unittest.TestCase):
             if item["identifier"] == "https://github.com/edithatogo/corpus-nz-hansard"
         )
         self.assertEqual(github["relation"], "isSupplementedBy")
+
+    def test_client_retries_transient_server_errors(self):
+        class FakeResponse:
+            def __init__(self, status_code, body):
+                self.status_code = status_code
+                self.text = body
+
+            def raise_for_status(self):
+                if self.status_code >= 400:
+                    raise requests.HTTPError(f"{self.status_code} error", response=self)
+
+            def json(self):
+                return {"ok": True}
+
+        class FakeSession:
+            def __init__(self):
+                self.calls = 0
+
+            def request(self, method, url, **kwargs):
+                self.calls += 1
+                if self.calls == 1:
+                    return FakeResponse(504, "timeout")
+                return FakeResponse(200, "{}")
+
+        session = FakeSession()
+        client = ZenodoMetadataClient(
+            api_url="https://zenodo.example/api",
+            token="token",
+            session=session,
+            max_retries=1,
+            retry_sleep=0,
+        )
+
+        self.assertEqual(client.request("GET", "https://zenodo.example/api/test"), {"ok": True})
+        self.assertEqual(session.calls, 2)
 
 
 if __name__ == "__main__":

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import time
 from typing import Any, Protocol
 
 import requests
@@ -77,10 +78,20 @@ class HttpSession(Protocol):
 
 
 class ZenodoMetadataClient:
-    def __init__(self, api_url: str, token: str, session: HttpSession | None = None) -> None:
+    def __init__(
+        self,
+        api_url: str,
+        token: str,
+        session: HttpSession | None = None,
+        *,
+        max_retries: int = 3,
+        retry_sleep: float = 2.0,
+    ) -> None:
         self.api_url = api_url.rstrip("/")
         self.token = token
         self.session = session or requests.Session()
+        self.max_retries = max_retries
+        self.retry_sleep = retry_sleep
 
     @property
     def headers(self) -> dict[str, str]:
@@ -91,11 +102,24 @@ class ZenodoMetadataClient:
         return {**self.headers, "Content-Type": "application/json"}
 
     def request(self, method: str, url: str, **kwargs: Any) -> dict[str, Any]:
-        response = self.session.request(method, url, timeout=120, **kwargs)
-        response.raise_for_status()
-        if not response.text:
-            return {}
-        return response.json()
+        last_error: requests.RequestException | None = None
+        for attempt in range(self.max_retries + 1):
+            try:
+                response = self.session.request(method, url, timeout=120, **kwargs)
+                if response.status_code < 500:
+                    response.raise_for_status()
+                    if not response.text:
+                        return {}
+                    return response.json()
+                response.raise_for_status()
+            except requests.RequestException as exc:
+                last_error = exc
+                if attempt >= self.max_retries:
+                    raise
+                time.sleep(self.retry_sleep * (attempt + 1))
+        if last_error:
+            raise last_error
+        raise RuntimeError("Zenodo request failed without a response.")
 
     def get_deposition(self, deposition_id: str) -> dict[str, Any]:
         return self.request(
