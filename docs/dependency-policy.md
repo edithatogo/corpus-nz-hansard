@@ -12,9 +12,10 @@ The current `requirements.txt` is the base runtime:
 | --- | --- |
 | `duckdb==1.5.3` | Local analytical database generation and validation. |
 | `pyarrow` | Parquet and Arrow table generation. |
-| `jsonschema>=4.22.0` | JSON Schema validation. |
-| `requests>=2.32.0` | Zenodo and metadata API calls. |
-| `huggingface_hub>=0.34.0` | Hugging Face dataset publication. |
+| `polars>=1.41.2` | Dataframe transforms and larger derived-table workflows. |
+| `jsonschema>=4.26.0` | JSON Schema validation. |
+| `requests>=2.34.2` | Zenodo and metadata API calls. |
+| `huggingface_hub>=1.18.0` | Hugging Face dataset publication. |
 
 ## Optional Dependency Groups
 
@@ -37,4 +38,5 @@ Endpoint work should add grouped requirements or package extras rather than expa
 - Add endpoint dependencies to grouped requirement files or package extras when implementation starts.
 - Do not make GPU, transformer, or NLP model downloads part of the default test suite.
 - Pin dependencies that affect generated release artifacts once an endpoint is published.
+- Prefer a lockfile or generated constraints file before expanding CI to heavier endpoint stacks.
 - Record tool and model versions in each endpoint validation manifest.

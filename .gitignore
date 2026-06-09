@@ -5,6 +5,7 @@ generated/
 # Local caches
 .cache/
 .tmp/
+.test-tmp/
 .antigravitycli/
 __pycache__/
 *.pyc

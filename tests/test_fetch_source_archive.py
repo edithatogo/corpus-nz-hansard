@@ -9,8 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.fetch_source_archive import fetch_source_archive
+from test_support import test_tmp_dir
 
-TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
+TEST_TMP = test_tmp_dir()
 
 
 class FakeResponse:

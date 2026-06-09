@@ -9,8 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.upload_zenodo_archive import upload_zenodo_archive
+from test_support import test_tmp_dir
 
-TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
+TEST_TMP = test_tmp_dir()
 
 
 class FakeZenodoClient:

@@ -14,8 +14,9 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.normalize_hansard import normalize_row
 from scripts.validate_hansard_records import validate_hansard_records
+from test_support import test_tmp_dir
 
-TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
+TEST_TMP = test_tmp_dir()
 
 
 class ValidateHansardRecordsTest(unittest.TestCase):

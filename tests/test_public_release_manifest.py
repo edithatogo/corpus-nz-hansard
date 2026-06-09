@@ -8,8 +8,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.build_public_release_manifest import build_release_manifest, write_manifest
+from test_support import test_tmp_dir
 
-TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
+TEST_TMP = test_tmp_dir()
 
 
 class PublicReleaseManifestTest(unittest.TestCase):

@@ -7,8 +7,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.stage_huggingface_dataset import stage_huggingface_dataset
+from test_support import test_tmp_dir
 
-TEST_TMP = Path(tempfile.gettempdir()) / "corpus-nz-hansard-tests"
+TEST_TMP = test_tmp_dir()
 
 
 class StageHuggingFaceDatasetTest(unittest.TestCase):
