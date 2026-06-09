@@ -19,6 +19,10 @@ Every endpoint must declare:
 - upstream contribution target
 - known exclusions
 - release status
+- release ladder level
+- authority-source dependencies
+- stable ID or URI policy reference
+- gold/evaluation dataset dependencies where applicable
 
 ## ParlaMint-NZ / TEI
 
@@ -176,4 +180,27 @@ Validation gates:
 - RDF parses with `rdflib`.
 - SHACL validation passes for required shapes.
 - every generated URI is stable and documented.
+
+## Croissant / RO-Crate / Frictionless
+
+Target users: ML dataset consumers, archival users, and tabular-data tooling.
+
+Inputs:
+
+- release-series metadata.
+- dataset files and manifests.
+- DataCite, DCAT, provenance, and licensing metadata.
+
+Outputs:
+
+- Croissant JSON-LD metadata.
+- RO-Crate metadata.
+- Frictionless Data Package descriptors.
+- validation manifest.
+
+Validation gates:
+
+- metadata parses with the relevant library or JSON validator.
+- every described data file exists in the release package or is declared as externally hosted.
+- citation, licence, DOI, repository, Hugging Face, Zenodo, and source-provenance links are present where applicable.
 

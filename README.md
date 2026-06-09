@@ -25,6 +25,7 @@ Tracked manifests and reports:
 - `docs/interoperability-design.md`
 - `docs/component-contracts.md`
 - `docs/endpoint-contracts.md`
+- `docs/dependency-policy.md`
 - `docs/duckdb-analysis.md`
 
 Generated outputs:

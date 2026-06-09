@@ -24,6 +24,8 @@ Every derived component row must include:
 | `validation_status` | `validated`, `candidate`, `excluded`, or `failed`. |
 | `confidence` | Numeric confidence when a non-authoritative method is used. |
 | `provenance` | Structured provenance object or pointer to provenance artifact. |
+| `authority_source_id` | Authority source reference when the row depends on an external authority. |
+| `text_selector` | W3C Web Annotation-style selector or pointer when the row targets a text span. |
 
 ## Component Families
 
@@ -167,4 +169,51 @@ Minimum neutral fields:
 - `features`
 - `head`
 - `deprel`
+
+### Authority Source
+
+Authority-source components represent official or curated sources used to validate derived assertions.
+
+Minimum neutral fields:
+
+- `authority_source_id`
+- `authority_type`
+- `title`
+- `publisher`
+- `source_url`
+- `retrieved_at`
+- `licence_or_reuse_note`
+- `source_hash`
+- `coverage_start`
+- `coverage_end`
+
+### Gold Or Evaluation Sample
+
+Gold/evaluation samples support precision, recall, ambiguity, and exclusion testing before publication.
+
+Minimum neutral fields:
+
+- `sample_id`
+- `target_component_type`
+- `target_component_id`
+- `label`
+- `review_status`
+- `reviewer`
+- `reviewed_at`
+- `sampling_frame`
+- `notes`
+
+### Release Series
+
+Release-series components record which ladder step an artifact belongs to.
+
+Minimum neutral fields:
+
+- `release_series_id`
+- `release_level`
+- `artifact_name`
+- `artifact_version`
+- `validation_manifest`
+- `publication_target`
+- `known_exclusions`
 

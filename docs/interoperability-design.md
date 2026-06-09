@@ -27,6 +27,10 @@ Core entities:
 - topic code
 - linguistic annotation
 - derived assertion
+- authority source
+- gold/evaluation sample
+- release series
+- stable URI
 
 ## Endpoint Families
 
@@ -39,6 +43,7 @@ Core entities:
 | CAP / ParlaCAP | agenda-setting and policy-topic research | speech turn, document, topic code | target |
 | Universal Dependencies / CoNLL-U | NLP researchers | validated sentence/token annotations | target |
 | RDF linked data | semantic-web users | neutral component tables plus provenance | target |
+| Croissant / RO-Crate / Frictionless | ML, archival, and tabular-data users | release metadata and component descriptors | target |
 | Hugging Face / Parquet | dataset consumers and ML users | neutral and validated derived tables | existing and target |
 
 ## Data Flow
@@ -59,7 +64,20 @@ flowchart LR
   F --> J["CAP / ParlaCAP endpoint"]
   F --> K["UD / CoNLL-U endpoint"]
   C --> L["RDF / DCAT / PROV-O endpoint"]
+  C --> M["Croissant / RO-Crate / Frictionless metadata"]
 ```
+
+## Release Ladder
+
+Endpoint publication should follow this ladder:
+
+1. Document-level release: source-faithful normalized records only.
+2. Authority-source release: versioned official source inventories and hashes.
+3. Neutral component release: validated member, party, sitting, proceeding, speech, vote, bill, topic, or annotation components.
+4. Endpoint release: generated ParlaMint-NZ, Popolo/Open Civic Data, Akoma Ntoso, CAP/ParlaCAP, UD/CoNLL-U, RDF, or metadata packages.
+5. Upstream contribution package: validated samples, mapping notes, known exclusions, and submission evidence for external maintainers.
+
+Each ladder step must keep source-archive completeness, historical completeness, validation status, and authority-source coverage separate.
 
 ## Validation Gates
 
@@ -84,6 +102,16 @@ Endpoint artifacts may be published only when their validation manifest records 
 - Comparative Agendas Project and ParlaCAP: publish CAP-coded NZ outputs and prepare mapping notes; upstream submission depends on the maintainers' current intake process.
 - Open Civic Data and Popolo ecosystems: produce compatible JSON/RDF outputs and feed back schema issues if NZ parliamentary practice exposes gaps.
 
+## SOTA Metadata And Annotation Targets
+
+- Croissant metadata for ML-ready dataset discovery.
+- RO-Crate metadata for research-object packaging and archival context.
+- Frictionless Data Package descriptors for tabular endpoint resources.
+- W3C Web Annotation selectors for source spans, offsets, and annotation targets.
+- NIF/RDF linguistic annotation views only after RDF and UD/CoNLL-U validation mature.
+- W3C Time for temporal parliamentary memberships, offices, sittings, and periods.
+- OntoLex-Lemon only for a later terminology or lexicon layer.
+
 ## Recommended Libraries
 
 | Use | Libraries |
@@ -97,7 +125,9 @@ Endpoint artifacts may be published only when their validation manifest records 
 | NLP pipelines | `spacy`, `stanza`, `conllu`, `pyconll` |
 | ML classification and embeddings | `transformers`, `sentence-transformers`, `scikit-learn` |
 | Topic modelling | `bertopic` for exploratory analysis only |
+| Metadata packaging | `frictionless`, `rocrate`, `mlcroissant` |
 | Testing | `unittest` in the existing suite, with fixtures for each endpoint contract |
 
 Generic NLP libraries should support extraction and quality review, not replace authority-source validation for members, parties, votes, or official parliamentary structure.
 
+Heavy endpoint libraries should be optional dependency groups rather than base requirements.

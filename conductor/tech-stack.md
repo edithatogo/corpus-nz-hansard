@@ -39,8 +39,11 @@ Preferred libraries for endpoint implementation:
 - `spacy`, `stanza`, `conllu`, and `pyconll` for NLP, Universal Dependencies, and CoNLL-U exports.
 - `transformers`, `sentence-transformers`, and `scikit-learn` for topic classifiers, embeddings, and model-backed review workflows.
 - `bertopic` only for exploratory topic modelling unless a later validation track promotes a topic model to a governed artifact.
+- `frictionless`, `rocrate`, and `mlcroissant` for Frictionless Data Package, RO-Crate, and Croissant metadata.
 
 Authority-source validation remains required for members, parties, votes, and official parliamentary structure. Generic NLP output is not enough for authoritative derived fields.
+
+Keep `requirements.txt` as the base runtime. Add heavy XML, RDF, NLP, ML, and metadata libraries through grouped requirements or package extras when the relevant endpoint track begins.
 
 ## Repository Constraints
 

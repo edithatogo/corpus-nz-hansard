@@ -19,6 +19,10 @@ The core dataset must remain source-faithful and standard-agnostic. ParlaMint-NZ
 - Keep `v0.1.0` document-level release immutable except for metadata and cross-reference corrections.
 - Include explicit contribution-readiness checks for ParlaMint/Parla-CLARIN, ParlaCAP/CAP, and civic-data formats before upstream submission.
 - Avoid claiming authoritative speech turns, party attribution, member identity, or voting records until validated against declared authority sources.
+- Discover and version official authority sources for members, parties, offices, sittings, bills, motions, votes, and procedural structures before authoritative derived releases.
+- Distinguish supplied-archive completeness from full historical NZ Hansard completeness in all release and endpoint claims.
+- Define stable ID and URI policies before publishing RDF, Popolo/Open Civic Data, ParlaMint, Akoma Ntoso, or linked metadata exports.
+- Maintain a release ladder that separates document-level releases, neutral component releases, endpoint releases, and upstream contribution packages.
 
 ### Should
 
@@ -29,6 +33,10 @@ The core dataset must remain source-faithful and standard-agnostic. ParlaMint-NZ
 - Align member and party authorities with official New Zealand Parliament sources when available.
 - Add topic-coding support using the Comparative Agendas Project codebook and ParlaCAP-compatible outputs.
 - Publish endpoint artifacts as separate versioned releases when their validation gates pass.
+- Add gold/evaluation datasets for member resolution, party attribution, speech turns, votes, and topic coding.
+- Add MLCommons Croissant, RO-Crate, and Frictionless Data Package metadata for dataset discovery and research-object packaging.
+- Use W3C Web Annotation selectors for source text spans and offsets in speech, topic, and NLP annotation layers.
+- Model NZ parliamentary procedure explicitly before treating votes, questions, stages, rulings, and interjections as validated components.
 
 ### Could
 
@@ -37,6 +45,9 @@ The core dataset must remain source-faithful and standard-agnostic. ParlaMint-NZ
 - Add speech-act, question-answer, interjection, procedural-ruling, and debate-segment classifiers after speech-turn validation.
 - Add researcher packages or client helpers for Python, R, DuckDB, and SPARQL/RDF use.
 - Add static documentation pages showing the export model, validation status, and citation patterns.
+- Add NIF/RDF linguistic annotation views when RDF and UD/CoNLL-U layers are mature.
+- Add W3C Time modeling for temporal memberships, offices, sittings, and parliamentary periods.
+- Add OntoLex-Lemon terminology or lexicon layers if a later controlled-vocabulary track needs lexical semantics.
 
 ### Won't
 
@@ -45,20 +56,26 @@ The core dataset must remain source-faithful and standard-agnostic. ParlaMint-NZ
 - Treat generic NLP output as a substitute for official authority sources.
 - Submit upstream contributions until the relevant endpoint passes its local contract and sample-validation gate.
 - Backfill new derived fields into the immutable `v0.1.0` document-level release.
+- Add heavy NLP, ML, XML, or RDF dependencies to the base install when they can be scoped to optional endpoint groups.
 
 ## Priority Order
 
 1. Neutral component model and export architecture.
 2. Authority-source discovery for members, parties, sittings, bills, and votes.
-3. Shared derived-artifact validation manifests.
-4. Member identity resolution.
-5. Party attribution.
-6. Speech-turn validation decision.
-7. Vote, motion, bill, and question-answer extraction.
-8. ParlaMint-NZ endpoint.
-9. Popolo/Open Civic Data endpoint.
-10. Akoma Ntoso endpoint.
-11. CAP/ParlaCAP topic endpoint.
-12. Universal Dependencies and NLP annotation endpoints.
-13. Upstream contribution packages and submission evidence.
-
+3. Historical coverage and completeness audit.
+4. Stable ID and URI policy.
+5. Release ladder and dependency/extras policy.
+6. Shared derived-artifact validation manifests.
+7. Gold/evaluation datasets.
+8. Member identity resolution.
+9. Party attribution.
+10. Speech-turn validation decision.
+11. NZ parliamentary procedure model.
+12. Vote, motion, bill, and question-answer extraction.
+13. ParlaMint-NZ endpoint.
+14. Popolo/Open Civic Data endpoint.
+15. Akoma Ntoso endpoint.
+16. CAP/ParlaCAP topic endpoint.
+17. Universal Dependencies and NLP annotation endpoints.
+18. RDF and metadata endpoints.
+19. Upstream contribution packages and submission evidence.
