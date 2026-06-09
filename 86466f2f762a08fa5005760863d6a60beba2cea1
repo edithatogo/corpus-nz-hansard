@@ -1,0 +1,9 @@
+Track: Artifact Provenance And Attestations
+
+Summary:
+- Moved uv CLI bootstrap out of requirements/dev.txt to avoid GitHub dependency graph treating /requirements as a uv project.
+- Kept uv pinned in pyproject.toml/uv.lock and quality-gate policy.
+- Updated Quality workflow, docs, and Conductor evidence.
+
+Validation:
+- make quality passed locally with uv lock check, frozen sync, and 45 unit tests.
