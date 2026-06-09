@@ -22,14 +22,14 @@ Endpoint work should add grouped requirements or package extras rather than expa
 
 | Group | Dependencies | Use |
 | --- | --- | --- |
-| `data` | `pandas`, `polars` | Derived component joins, authority tables, large transforms. |
-| `schema` | `pydantic`, `pandera`, `linkml` | Component models, tabular contracts, generated schemas. |
-| `xml` | `lxml`, `xmlschema` | ParlaMint/TEI and Akoma Ntoso generation and validation. |
-| `rdf` | `rdflib`, `pyshacl`, `linkml` | RDF, JSON-LD, SHACL, PROV-O, DCAT, SKOS. |
-| `authority` | `rapidfuzz` | Member, party, bill, motion, and alias matching. |
-| `nlp` | `spacy`, `stanza`, `conllu`, `pyconll` | NER, tokenization, UD/CoNLL-U, token alignment. |
-| `ml` | `scikit-learn`, `transformers`, `sentence-transformers`, `bertopic` | Topic classification, embeddings, exploratory models. |
-| `metadata` | `frictionless`, `rocrate`, `mlcroissant` | Frictionless Data Package, RO-Crate, Croissant metadata. |
+| `requirements/data.txt` | `pandas`, `polars` | Derived component joins, authority tables, large transforms. |
+| `requirements/schema.txt` | `pydantic`, `pandera`, `linkml` | Component models, tabular contracts, generated schemas. |
+| `requirements/xml.txt` | `lxml`, `xmlschema` | ParlaMint/TEI and Akoma Ntoso generation and validation. |
+| `requirements/rdf.txt` | `rdflib`, `pyshacl`, `linkml` | RDF, JSON-LD, SHACL, PROV-O, DCAT, SKOS. |
+| `requirements/authority.txt` | `rapidfuzz` | Member, party, bill, motion, and alias matching. |
+| `requirements/nlp.txt` | `spacy`, `stanza`, `conllu`, `pyconll` | NER, tokenization, UD/CoNLL-U, token alignment. |
+| `requirements/ml.txt` | `scikit-learn`, `transformers`, `sentence-transformers`, `bertopic` | Topic classification, embeddings, exploratory models. |
+| `requirements/metadata.txt` | `frictionless`, `rocrate`, `mlcroissant` | Frictionless Data Package, RO-Crate, Croissant metadata. |
 
 ## Dependency Rules
 
@@ -38,4 +38,3 @@ Endpoint work should add grouped requirements or package extras rather than expa
 - Do not make GPU, transformer, or NLP model downloads part of the default test suite.
 - Pin dependencies that affect generated release artifacts once an endpoint is published.
 - Record tool and model versions in each endpoint validation manifest.
-

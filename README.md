@@ -47,6 +47,8 @@ Install dependencies:
 python -m pip install -r requirements.txt
 ```
 
+Optional endpoint dependency groups are listed in `requirements/` and documented in `docs/dependency-policy.md`. Keep the base install for the document-level pipeline unless an endpoint track requires additional tooling.
+
 Build source inventory:
 
 ```powershell

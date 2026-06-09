@@ -1,0 +1,3 @@
+pydantic
+pandera
+linkml
