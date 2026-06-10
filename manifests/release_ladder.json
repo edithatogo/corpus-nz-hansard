@@ -189,6 +189,13 @@
       "next_gate": "sample-not-release; promote only after member identity, party attribution, vote/motion extraction, speech-turn validation, and maintainer agreement"
     },
     {
+      "artifact": "Akoma Ntoso sample package",
+      "path": "samples/akoma-ntoso",
+      "release_level": "upstream-contribution",
+      "status": "planned",
+      "next_gate": "sample-not-release; promote only after validated member, party, speech-turn, motion, and vote components plus schema/profile selection"
+    },
+    {
       "artifact": "metadata packages",
       "path": "generated/metadata",
       "release_level": "endpoint",

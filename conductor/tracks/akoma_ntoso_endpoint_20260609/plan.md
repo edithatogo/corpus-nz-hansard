@@ -1,6 +1,6 @@
 # Plan: Akoma Ntoso Endpoint
 
-- [ ] Task: Select Akoma Ntoso profile/subset.
-- [ ] Task: Map proceeding components to XML structure.
-- [ ] Task: Implement sample exporter and validation.
-- [ ] Task: Record NZ-specific limitations.
+- [x] Task: Select Akoma Ntoso profile/subset.
+- [x] Task: Map proceeding components to XML structure.
+- [x] Task: Implement sample exporter and validation.
+- [x] Task: Record NZ-specific limitations.

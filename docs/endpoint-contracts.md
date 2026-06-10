@@ -135,6 +135,8 @@ Upstream path:
 
 Target users: legal informatics and legislative-document workflows.
 
+Current implementation surface: `samples/akoma-ntoso/Akoma-Ntoso.sample.xml`, `samples/akoma-ntoso/Akoma-Ntoso.metadata.xml`, `docs/akoma-ntoso-mapping.md`, and `manifests/akoma_ntoso_validation_manifest.json`. The sample package is `sample-not-release`; readiness remains `blocked-pending-validated-components` until validated member, party, speech-turn, motion, and vote components are available. The sample preserves source order and source provenance and records a narrow Akoma Ntoso profile/subset selection for maintainer review.
+
 Inputs:
 
 - document records
@@ -156,6 +158,8 @@ Validation gates:
 - XML well-formedness.
 - schema validation where a selected Akoma Ntoso profile is available.
 - document hierarchy preserves source order and source provenance.
+- mapping notes must record NZ-specific limitations and the maintainer-review boundary.
+- sample packages remain separate from canonical document-level releases.
 
 ## CAP / ParlaCAP
 

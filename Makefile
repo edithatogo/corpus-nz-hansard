@@ -1,8 +1,8 @@
 PYTHON ?= python
 
-.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components parlamint-nz popolo-ocd lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
+.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
 
-quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components parlamint-nz popolo-ocd test
+quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd test
 
 uv-lock:
 	uv lock --check
@@ -63,6 +63,9 @@ procedure-model:
 
 neutral-components:
 	$(PYTHON) scripts/check_neutral_component_model.py
+
+akoma-ntoso:
+	$(PYTHON) scripts/check_akoma_ntoso_endpoint.py
 
 parlamint-nz:
 	$(PYTHON) scripts/check_parlamint_nz_endpoint.py

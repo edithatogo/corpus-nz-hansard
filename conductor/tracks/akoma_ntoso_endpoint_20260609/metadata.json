@@ -1,7 +1,7 @@
 {
   "track_id": "akoma_ntoso_endpoint_20260609",
   "title": "Akoma Ntoso Endpoint",
-  "status": "pending",
+  "status": "completed",
   "created": "2026-06-09",
   "description": "Generate Akoma Ntoso-style legislative and parliamentary document structure from neutral components."
 }

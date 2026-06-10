@@ -13,7 +13,7 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Akoma Ntoso Endpoint
+### [x] Track: Akoma Ntoso Endpoint
 
 Track ID: `akoma_ntoso_endpoint_20260609`
 

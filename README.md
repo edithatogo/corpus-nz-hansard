@@ -151,4 +151,4 @@ Distribution decisions:
 
 The neutral document-level dataset remains the core contract. Future derived artifacts will generate standard-specific endpoints programmatically rather than replacing the core schema with any one external standard.
 
-ParlaMint-NZ is a core target endpoint. Additional target endpoint families include Parla-CLARIN samples, Popolo/Open Civic Data, Akoma Ntoso, Comparative Agendas Project / ParlaCAP, Universal Dependencies / CoNLL-U, RDF/PROV-O/DCAT/SKOS, and Hugging Face Parquet releases.
+ParlaMint-NZ is a core target endpoint. Additional target endpoint families include Parla-CLARIN samples, Popolo/Open Civic Data, Akoma Ntoso, Comparative Agendas Project / ParlaCAP, Universal Dependencies / CoNLL-U, RDF/PROV-O/DCAT/SKOS, and Hugging Face Parquet releases. Akoma Ntoso is currently represented by a maintainer-review sample package only; it remains sample-not-release pending validated components.

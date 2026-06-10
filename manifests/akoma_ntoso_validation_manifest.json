@@ -1,0 +1,74 @@
+{
+  "track_id": "akoma_ntoso_endpoint_20260609",
+  "artifact_name": "Akoma Ntoso sample package",
+  "artifact_version": "0.1.0",
+  "release_series_id": "akoma-ntoso-sample",
+  "release_level": "upstream-contribution",
+  "release_status": "sample-not-release",
+  "publication_target": "local maintainer-review package",
+  "upstream_contribution_target": "Akoma Ntoso maintainers after validated component releases and profile selection",
+  "validation_manifest": "manifests/akoma_ntoso_validation_manifest.json",
+  "input_release_versions": {
+    "document_level": "0.1.0",
+    "neutral_component_model": "neutral_component_model_20260610",
+    "nz_parliamentary_procedure_model": "nz_parliamentary_procedure_model_20260610",
+    "authority_sources": "manifests/authority_sources.json",
+    "id_uri_policy": "manifests/id_uri_policy.json"
+  },
+  "known_exclusions": [
+    "full NZ historical legislative-document coverage",
+    "schema/profile selection beyond the current sample subset",
+    "validated member and party metadata"
+  ],
+  "dependency_groups": [
+    "xml",
+    "schema",
+    "authority"
+  ],
+  "dependency_validation": {
+    "tool_versions": {
+      "python": "3.13"
+    },
+    "library_versions": {
+      "xml.etree.ElementTree": "stdlib"
+    },
+    "model_versions": {
+      "neutral_component_model": "neutral_component_model_20260610"
+    },
+    "lock_or_constraints": "requirements/xml.txt, requirements/schema.txt, requirements/authority.txt",
+    "install_commands": [
+      "python -m pip install -r requirements/xml.txt -r requirements/schema.txt -r requirements/authority.txt"
+    ],
+    "release_affecting_dependencies": [
+      "xml.etree.ElementTree",
+      "manifested neutral component fixtures",
+      "Akoma Ntoso profile subset"
+    ]
+  },
+  "validation_command": "python scripts/check_akoma_ntoso_endpoint.py",
+  "output_artifacts": [
+    "samples/akoma-ntoso/Akoma-Ntoso.sample.xml",
+    "samples/akoma-ntoso/Akoma-Ntoso.metadata.xml",
+    "samples/akoma-ntoso/README.md"
+  ],
+  "validation_results": {
+    "component_metadata_validated": false,
+    "readiness_status": "blocked-pending-validated-components",
+    "blocking_errors": 0
+  },
+  "traceability": [
+    {
+      "neutral_component_ids": [
+        "nzhc-component-0000000000000001",
+        "nzhc-component-0000000000000002",
+        "nzhc-component-0000000000000003",
+        "nzhc-component-0000000000000004",
+        "nzhc-component-0000000000000005",
+        "nzhc-component-0000000000000006",
+        "nzhc-component-0000000000000007",
+        "nzhc-component-0000000000000008"
+      ]
+    }
+  ],
+  "manifest_sha256": "deferred-sample-manifest"
+}
