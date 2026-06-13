@@ -1,0 +1,8 @@
+{
+  "track_id": "ontolex_lemon_terminology_layer_20260610",
+  "type": "feature",
+  "status": "blocked",
+  "created_at": "2026-06-10T00:00:00+10:00",
+  "updated_at": "2026-06-11T00:00:00+10:00",
+  "description": "Add an optional OntoLex-Lemon terminology layer for parliamentary and legal vocabulary."
+}

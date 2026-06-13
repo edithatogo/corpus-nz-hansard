@@ -51,7 +51,7 @@
       "speech_text_prefix": "Yes the Government will support sending this bill to a select committee. Whether section 59 should be repealed or amended is still an open question that can onl"
     }
   ],
-  "generated_at": "2026-06-02T14:12:38.073426+00:00",
+  "generated_at": "2026-06-12T04:12:55.695206+00:00",
   "input": "generated\\parquet\\hansard.parquet",
   "limitations": [
     "Heuristic candidates only.",

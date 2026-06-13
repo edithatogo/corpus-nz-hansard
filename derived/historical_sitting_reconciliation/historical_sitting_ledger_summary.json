@@ -1,0 +1,52 @@
+{
+  "artifact_name": "historical_sitting_reconciliation",
+  "artifact_version": "0.1.0",
+  "document_type_counts": {
+    "Hansard - daily": 1963,
+    "Hansard - debate": 21345,
+    "Hansard - draft": 366,
+    "Hansard - event": 98,
+    "Hansard - question": 23303,
+    "Hansard - speech": 133616,
+    "Hansard - vote": 13231
+  },
+  "generated_at": "2026-06-12T12:42:09.765507+00:00",
+  "ledger_parquet": "derived/historical_sitting_reconciliation/historical_sitting_ledger.parquet",
+  "ledger_summary": "derived/historical_sitting_reconciliation/historical_sitting_ledger_summary.json",
+  "notes": [
+    "This ledger is a normalized comparison input, not a completed official reconciliation.",
+    "Comparison against official inventory surfaces still happens in the next pass."
+  ],
+  "parliament_counts": {
+    "47": 24378,
+    "48": 19709,
+    "49": 23877,
+    "50": 39803,
+    "51": 34808,
+    "52": 21171,
+    "53": 23402,
+    "54": 6774
+  },
+  "publication_surface_counts": {
+    "Hansard": 175204,
+    "Journals": 1950,
+    "Order Paper": 16768
+  },
+  "row_count": 193922,
+  "sitting_date_extracted_rows": 40067,
+  "sitting_date_missing_rows": 153855,
+  "source_file_counts": {
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-47.csv": 24378,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-48.csv": 19709,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-49.csv": 23877,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-50.csv": 39803,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-51.csv": 34808,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-52.csv": 21171,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-53.csv": 23402,
+    "2024-09-06 Hansard Extract from DocumentsDB/Hansard-54.csv": 6774
+  },
+  "source_parquet": "generated/parquet/hansard.parquet",
+  "source_row_count": 193922,
+  "volume_page_extracted_rows": 104088,
+  "volume_page_missing_rows": 89834
+}

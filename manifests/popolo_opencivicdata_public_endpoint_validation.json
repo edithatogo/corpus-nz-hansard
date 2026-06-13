@@ -1,0 +1,117 @@
+{
+  "artifact_name": "Popolo / Open Civic Data public endpoint release",
+  "artifact_version": "0.1.0-deferred.20260610",
+  "dependency_groups": [
+    "data",
+    "schema",
+    "authority"
+  ],
+  "dependency_validation": {
+    "install_commands": [
+      "python -m pip install -r requirements/data.txt -r requirements/schema.txt -r requirements/authority.txt"
+    ],
+    "library_versions": {
+      "pandas": "deferred-until-release-artifact",
+      "pydantic": "deferred-until-release-artifact",
+      "rapidfuzz": "deferred-until-release-artifact"
+    },
+    "lock_or_constraints": "requirements/data.txt, requirements/schema.txt, requirements/authority.txt",
+    "model_versions": {
+      "neutral_component_model": "manifests/neutral_component_model.json",
+      "procedure_model": "manifests/nz_parliamentary_procedure_model.json",
+      "sample_package": "0.1.0-sample.20260610"
+    },
+    "release_affecting_dependencies": [
+      "dataframe tooling",
+      "schema validation tooling",
+      "authority matching tooling"
+    ],
+    "tool_versions": {
+      "csv": "stdlib",
+      "python_json": "stdlib"
+    }
+  },
+  "endpoint": "Popolo / Open Civic Data",
+  "endpoint_track": "popolo_opencivicdata_public_endpoint_release_20260610",
+  "generated_at": "2026-06-12T04:28:43.487389+00:00",
+  "input_release_versions": {
+    "authority_sources": "manifests/authority_sources.json",
+    "document_level": "0.1.0",
+    "id_uri_policy": "manifests/id_uri_policy.json",
+    "neutral_components": "manifests/neutral_component_model.json",
+    "procedure_model": "manifests/nz_parliamentary_procedure_model.json",
+    "sample_package": "0.1.0-sample.20260610"
+  },
+  "known_exclusions": [
+    "No public Popolo/Open Civic Data release is claimed.",
+    "Validated member identity, party attribution, vote/motion extraction, and speech-turn inputs are missing.",
+    "Full voting records are not inferred from text patterns alone.",
+    "RDF output is excluded until the RDF endpoint exists."
+  ],
+  "manifest_sha256": "deferred-public-endpoint-manifest",
+  "manifest_version": 1,
+  "output_artifacts": [
+    "samples/popolo-opencivicdata/people.json",
+    "samples/popolo-opencivicdata/organizations.json",
+    "samples/popolo-opencivicdata/memberships.json",
+    "samples/popolo-opencivicdata/motions.json",
+    "samples/popolo-opencivicdata/vote-events.json",
+    "samples/popolo-opencivicdata/votes.jsonl",
+    "samples/popolo-opencivicdata/speeches.jsonl",
+    "samples/popolo-opencivicdata/README.md"
+  ],
+  "public_claim": {
+    "reason": "Validated member identity, validated party attribution, validated vote/motion extraction, and validated speech-turn components are not all available for a public Popolo/Open Civic Data release.",
+    "sample_only": true,
+    "status": "deferred"
+  },
+  "publication_target": "public endpoint release package deferred",
+  "release_level": "endpoint",
+  "release_series_id": "popolo-opencivicdata-public-endpoint",
+  "release_status": "blocked-pending-validated-components",
+  "repository": "corpus-nz-hansard",
+  "source_hashes": {
+    "authority_sources": "referenced-in-source-manifests",
+    "neutral_component_model": "referenced-in-source-manifests",
+    "procedure_model": "referenced-in-source-manifests",
+    "release_ladder": "referenced-in-source-manifests",
+    "sample_manifest": "referenced-in-sample-manifest"
+  },
+  "source_manifests": [
+    "manifests/popolo_opencivicdata_validation_manifest.json",
+    "manifests/neutral_component_model.json",
+    "manifests/neutral_component_validation_manifest.json",
+    "manifests/nz_parliamentary_procedure_model.json",
+    "manifests/authority_sources.json",
+    "manifests/release_ladder.json",
+    "manifests/dependency_extras_policy.json",
+    "docs/popolo-opencivicdata-mapping.md",
+    "docs/endpoint-contracts.md",
+    "docs/popolo-opencivicdata-public-endpoint-release.md"
+  ],
+  "traceability": [
+    {
+      "neutral_component_ids": [
+        "nzhc-component-0000000000000003",
+        "nzhc-component-0000000000000004",
+        "nzhc-component-0000000000000006",
+        "nzhc-component-0000000000000007"
+      ],
+      "output": "samples/popolo-opencivicdata/vote-events.json"
+    }
+  ],
+  "upstream_contribution_target": "mySociety/PublicWhip-style parser comparison after validated component releases and maintainer agreement",
+  "validation_command": "python scripts/check_popolo_opencivicdata_public_endpoint.py",
+  "validation_manifest": "manifests/popolo_opencivicdata_public_endpoint_validation.json",
+  "validation_results": {
+    "blocking_errors": 0,
+    "component_metadata_validated": false,
+    "date_ranges_valid": true,
+    "individual_votes_present": false,
+    "json_valid": true,
+    "jsonl_valid": true,
+    "party_vote_distinguished": true,
+    "readiness_status": "blocked-pending-validated-components",
+    "referential_integrity": true
+  }
+}

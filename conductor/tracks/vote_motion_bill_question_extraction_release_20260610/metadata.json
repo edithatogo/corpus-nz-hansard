@@ -1,0 +1,8 @@
+{
+  "track_id": "vote_motion_bill_question_extraction_release_20260610",
+  "type": "feature",
+  "status": "blocked",
+  "created_at": "2026-06-10T00:00:00+10:00",
+  "updated_at": "2026-06-10T00:00:00+10:00",
+  "description": "Repo-side vote, motion, bill, and question extraction builder/checker are implemented; release is blocked pending validated member identity, party attribution, and sitting/proceeding components."
+}

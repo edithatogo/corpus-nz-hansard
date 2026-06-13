@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_version",
+    "track_id",
+    "repository",
+    "generated_at",
+    "site_root",
+    "build_outputs",
+    "sources",
+    "current_public_release",
+    "release_ladder_snapshot",
+    "track_snapshot",
+    "reference_catalog",
+    "validation_results"
+  ],
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "track_id": {
+      "const": "static_documentation_portal_20260610"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "site_root": {
+      "type": "string"
+    },
+    "build_outputs": {
+      "type": "object",
+      "required": ["html", "source_doc"],
+      "additionalProperties": false,
+      "properties": {
+        "html": {
+          "type": "string"
+        },
+        "source_doc": {
+          "type": "string"
+        }
+      }
+    },
+    "sources": {
+      "type": "object",
+      "required": [
+        "release_ladder",
+        "public_release_manifest",
+        "track_registry",
+        "publication_status",
+        "public_release_checklist"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "release_ladder": {"type": "string"},
+        "public_release_manifest": {"type": "string"},
+        "track_registry": {"type": "string"},
+        "publication_status": {"type": "string"},
+        "public_release_checklist": {"type": "string"}
+      }
+    },
+    "current_public_release": {
+      "type": "object",
+      "required": [
+        "version",
+        "release_level",
+        "publication_status",
+        "github_release",
+        "huggingface_dataset",
+        "zenodo_record"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version": {"type": "string"},
+        "release_level": {"type": "string"},
+        "publication_status": {"type": "string"},
+        "github_release": {"type": "string"},
+        "huggingface_dataset": {"type": "string"},
+        "zenodo_record": {"type": "string"}
+      }
+    },
+    "release_ladder_snapshot": {
+      "type": "object",
+      "required": ["current_public_release", "release_levels", "artifact_map_count"],
+      "additionalProperties": false,
+      "properties": {
+        "current_public_release": {
+          "type": "object",
+          "required": ["version", "release_level"],
+          "additionalProperties": false,
+          "properties": {
+            "version": {"type": "string"},
+            "release_level": {"type": "string"},
+            "immutable_policy": {"type": "string"},
+            "release_manifest": {"type": "string"}
+          }
+        },
+        "release_levels": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["level", "id", "status"],
+            "additionalProperties": false,
+            "properties": {
+              "level": {"type": "integer"},
+              "id": {"type": "string"},
+              "status": {"type": "string"}
+            }
+          }
+        },
+        "artifact_map_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "track_snapshot": {
+      "type": "object",
+      "required": ["summary_counts", "tracks"],
+      "additionalProperties": false,
+      "properties": {
+        "summary_counts": {
+          "type": "object",
+          "required": ["complete", "blocked", "pending"],
+          "additionalProperties": false,
+          "properties": {
+            "complete": {"type": "integer", "minimum": 0},
+            "blocked": {"type": "integer", "minimum": 0},
+            "pending": {"type": "integer", "minimum": 0}
+          }
+        },
+        "tracks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["status", "title", "track_id", "goal", "link"],
+            "additionalProperties": false,
+            "properties": {
+              "status": {"type": "string"},
+              "title": {"type": "string"},
+              "track_id": {"type": "string"},
+              "goal": {"type": "string"},
+              "link": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "reference_catalog": {
+      "type": "object",
+      "required": ["citation_guidance", "data_dictionary"],
+      "additionalProperties": false,
+      "properties": {
+        "citation_guidance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "path"],
+            "additionalProperties": false,
+            "properties": {
+              "label": {"type": "string"},
+              "path": {"type": "string"}
+            }
+          }
+        },
+        "data_dictionary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "path"],
+            "additionalProperties": false,
+            "properties": {
+              "label": {"type": "string"},
+              "path": {"type": "string"}
+            }
+          }
+        }
+      }
+    },
+    "validation_results": {
+      "type": "object",
+      "required": [
+        "portal_built",
+        "current_public_release_version",
+        "track_rows",
+        "public_release_urls_recorded"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "portal_built": {"const": true},
+        "current_public_release_version": {"const": "0.1.0"},
+        "track_rows": {"type": "integer", "minimum": 0},
+        "public_release_urls_recorded": {"const": true}
+      }
+    }
+  }
+}

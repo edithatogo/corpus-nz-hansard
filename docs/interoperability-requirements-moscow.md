@@ -80,6 +80,37 @@ The core dataset must remain source-faithful and standard-agnostic. ParlaMint-NZ
 18. RDF and metadata endpoints.
 19. Upstream contribution packages and submission evidence.
 
+## Dataset Integration Requirements
+
+### Must
+
+- Integrate Bills API (ills.parliament.nz/api/) as an open REST authority source for bill-stage metadata, member sponsors, select committees, and legislation.govt.nz cross-references.
+- Integrate HathiTrust collection 71329709 (510 full-view NZ Hansard volumes, 1854-1990) for pre-Parliament-47 coverage.
+- Integrate Wikipedia MP lists (47th-54th Parliaments) as a supporting member identity source.
+- Integrate Wikidata SPARQL (1,500+ NZ MP records) as a supporting member identity source with provenance chains.
+- Use Playwright stealth browser for Radware-protected Parliament website pages (members list, former members, Daily Progress, Order Paper, Hansard).
+- Maintain manifests/authority_sources.json as the single source of truth for all dataset sources.
+- Cross-reference all member identity sources (Wikipedia, Wikidata, Bills API, Parliament website, Electoral Commission) before publishing authoritative member fields.
+
+### Should
+
+- Integrate Electoral Commission (elections.nz) candidate and election result data for member-term resolution.
+- Integrate HathiTrust full-text OCR for historical Hansard volumes once OAuth access is obtained.
+- Add Papers Past and Te Ara biographical data for historical MP verification.
+- Convert older Wikipedia Parliament articles (47th-51st) from wikitable format to structured MP records.
+
+### Could
+
+- Access NZLII historical bills (1854-2008) as a supplementary parliamentary record source.
+- Add DNZB (Dictionary of New Zealand Biography) as a supporting biographical source.
+
+### Won't
+
+- Claim official Parliament endorsement for any scraped or derived data.
+- Replace official Parliament sources with Wikipedia or Wikidata as primary authorities.
+- Attempt to bypass Radware protection through exploits or non-public methods.
+
+
 ## Cross-Corpus Naming And Publication-Surface Requirements
 
 Preferred project labels:

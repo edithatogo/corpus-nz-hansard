@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "artifact_name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifact_version": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "generated_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "ok": {
+      "type": "boolean"
+    },
+    "validation_status": {
+      "enum": [
+        "blocked",
+        "ok",
+        "excluded"
+      ]
+    },
+    "release_gate_status": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "counts": {
+      "additionalProperties": {
+        "type": "integer"
+      },
+      "type": "object"
+    },
+    "errors": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "warnings": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "source_hashes": {
+      "additionalProperties": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "source_manifests": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "artifact_name",
+    "artifact_version",
+    "generated_at",
+    "ok",
+    "validation_status",
+    "release_gate_status",
+    "counts",
+    "errors",
+    "warnings",
+    "source_hashes",
+    "source_manifests"
+  ],
+  "title": "Derived fields validation manifest schema",
+  "type": "object"
+}

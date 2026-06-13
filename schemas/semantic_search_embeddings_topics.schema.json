@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "dependency_groups": {
+      "items": {
+        "enum": [
+          "ml"
+        ]
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "input_scope": {
+      "additionalProperties": false,
+      "properties": {
+        "embedding_dimension": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "input_hash": {
+          "type": "string"
+        },
+        "source_document_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "source_row_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "topic_count": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source_row_count",
+        "source_document_count",
+        "embedding_dimension",
+        "topic_count",
+        "input_hash"
+      ],
+      "type": "object"
+    },
+    "install_commands": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "library_versions": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "manifest_version": {
+      "const": 1
+    },
+    "model_versions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "generated_at": {
+            "type": "string"
+          },
+          "input_scope": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "library": {
+            "type": "string"
+          },
+          "library_version": {
+            "type": "string"
+          },
+          "model_family": {
+            "enum": [
+              "embedding",
+              "topic-model"
+            ]
+          },
+          "model_hash": {
+            "type": "string"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "model_name": {
+            "type": "string"
+          },
+          "model_version": {
+            "type": "string"
+          },
+          "parameters": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "model_id",
+          "model_name",
+          "model_version",
+          "model_family",
+          "library",
+          "library_version",
+          "parameters",
+          "input_scope",
+          "model_hash",
+          "generated_at"
+        ],
+        "type": "object"
+      },
+      "minItems": 2,
+      "type": "array"
+    },
+    "outputs": {
+      "additionalProperties": false,
+      "properties": {
+        "docs": {
+          "type": "string"
+        },
+        "jsonl": {
+          "type": "string"
+        },
+        "readme": {
+          "type": "string"
+        },
+        "review_csv": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "jsonl",
+        "review_csv",
+        "readme",
+        "docs"
+      ],
+      "type": "object"
+    },
+    "release_affecting_dependencies": {
+      "type": "string"
+    },
+    "release_status": {
+      "const": "sample-not-release"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "sample_package": {
+      "const": "samples/semantic-search-embeddings"
+    },
+    "source_inputs": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 2,
+      "type": "array"
+    },
+    "tool_versions": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "track_id": {
+      "const": "semantic_search_embeddings_topics_20260610"
+    },
+    "validation_command": {
+      "type": "string"
+    },
+    "validation_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "embedding_dimension": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "record_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "review_row_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "topic_count": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "record_count",
+        "review_row_count",
+        "embedding_dimension",
+        "topic_count"
+      ],
+      "type": "object"
+    },
+    "validation_results": {
+      "additionalProperties": false,
+      "properties": {
+        "human_validation_required": {
+          "const": true
+        },
+        "non_authoritative": {
+          "const": true
+        },
+        "outputs_written": {
+          "const": true
+        },
+        "reproducibility_guidance_recorded": {
+          "const": true
+        },
+        "review_sample_written": {
+          "const": true
+        }
+      },
+      "required": [
+        "outputs_written",
+        "review_sample_written",
+        "non_authoritative",
+        "reproducibility_guidance_recorded",
+        "human_validation_required"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "track_id",
+    "repository",
+    "generated_at",
+    "release_status",
+    "sample_package",
+    "dependency_groups",
+    "install_commands",
+    "tool_versions",
+    "library_versions",
+    "model_versions",
+    "release_affecting_dependencies",
+    "validation_command",
+    "outputs",
+    "source_inputs",
+    "input_scope",
+    "validation_counts",
+    "validation_results"
+  ],
+  "type": "object"
+}

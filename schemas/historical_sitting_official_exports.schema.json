@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_name": { "const": "historical_sitting_official_exports" },
+    "artifact_version": { "const": "0.1.0" },
+    "generated_at": { "type": "string" },
+    "repository": { "const": "corpus-nz-hansard" },
+    "publication_stages": {
+      "items": { "enum": ["draft", "weekly", "sessional"] },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "coverage_note": { "type": "string" },
+          "id": { "type": "string" },
+          "publication_stage": { "enum": ["draft", "weekly", "sessional"] },
+          "title": { "type": "string" },
+          "url": { "type": "string" }
+        },
+        "required": ["id", "title", "url", "publication_stage", "coverage_note"],
+        "type": "object"
+      },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "authoritative_statements": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "claim": { "type": "string" },
+          "id": { "type": "string" },
+          "url": { "type": "string" }
+        },
+        "required": ["id", "url", "claim"],
+        "type": "object"
+      },
+      "minItems": 2,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "notes": {
+      "items": { "type": "string" },
+      "minItems": 2,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "artifact_name",
+    "artifact_version",
+    "generated_at",
+    "repository",
+    "publication_stages",
+    "sources",
+    "authoritative_statements",
+    "notes"
+  ],
+  "type": "object"
+}

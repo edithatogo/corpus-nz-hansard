@@ -40,6 +40,37 @@ The long-term product direction is a neutral parliamentary corpus core with gene
 - Document assumptions, limitations, source coverage, and reproducibility commands.
 - Generate validated endpoint artifacts from neutral contracts, including ParlaMint-NZ / TEI, Popolo/Open Civic Data, Akoma Ntoso, CAP/ParlaCAP, Universal Dependencies, and RDF linked-data outputs.
 
+## Cross-Repo Dataset Architecture
+
+The Hansard corpus now integrates datasets from multiple sources across three sibling corpora:
+
+`mermaid
+flowchart LR
+    subgraph Hansard[corpus-nz-hansard]
+        DB[(DocumentsDB)]
+        BA[Bills API]
+        HT[HathiTrust]
+        WP[Wikipedia]
+        WD[Wikidata]
+        PW[Parliament Website]
+        EC[Electoral Commission]
+    end
+    subgraph Legislation[corpus-law-nz]
+        LA[NZ Legislation API]
+        NZ[NZLII]
+    end
+    subgraph NLP[corpus-nlp - planned]
+        EM[Embeddings]
+        UD[UD/CoNLL-U]
+        NF[NIF/RDF]
+    end
+    Hansard -.->|cross-ref| Legislation
+    Legislation -.->|derived| NLP
+    Hansard -.->|derived| NLP
+`
+
+Dataset ownership is documented in docs/cross-repo-dataset-architecture.md. The authority source inventory is in manifests/authority_sources.json (23 sources).
+
 ## Non-Goals For Initial Setup
 
 - Do not treat the ZIP contents as extracted, normalized, or validated until a track proves that work.

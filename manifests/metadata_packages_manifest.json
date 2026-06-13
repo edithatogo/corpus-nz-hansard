@@ -107,6 +107,28 @@
       "standard": "PROV-O",
       "status": "generated",
       "validation_command": "python scripts/check_metadata_packages.py"
+    },
+    {
+      "checksum": "b64e2a979948101917657cc67aeae8c9ac725e5aae718b0a170bb9b48eb1fcfb",
+      "checksum_algorithm": "sha256",
+      "format": "json",
+      "generator": "python scripts/build_metadata_packages.py",
+      "id": "datacite",
+      "label": "DataCite",
+      "output_path": "generated/metadata/datacite.json",
+      "publication_surfaces": [
+        "github",
+        "zenodo"
+      ],
+      "source_manifests": [
+        "manifests/public_dataset_release_manifest.json",
+        ".zenodo.json",
+        "CITATION.cff",
+        "docs/datacite-export-contract.md"
+      ],
+      "standard": "DataCite Metadata Schema",
+      "status": "generated",
+      "validation_command": "python scripts/check_metadata_packages.py"
     }
   ],
   "public_surface_audit": "manifests/public_surface_audit.json",
@@ -126,7 +148,8 @@
     ".zenodo.json",
     "CITATION.cff",
     "DATASET_CARD.md",
-    "schemas/hansard_record.schema.json"
+    "schemas/hansard_record.schema.json",
+    "docs/datacite-export-contract.md"
   ],
   "zenodo_policy": {
     "draft_updates_separate_from_publish": true,

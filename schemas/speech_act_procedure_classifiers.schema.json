@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blocked_reason": {
+      "type": "string"
+    },
+    "dependency_manifests": {
+      "additionalProperties": false,
+      "properties": {
+        "nz_parliamentary_procedure_model": {
+          "type": "string"
+        },
+        "validated_speech_turn_component_validation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "validated_speech_turn_component_validation",
+        "nz_parliamentary_procedure_model"
+      ],
+      "type": "object"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "label_families": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "labels": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "task": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "task",
+          "labels"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "manifest_version": {
+      "const": 1
+    },
+    "model_plan": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "library": {
+            "type": "string"
+          },
+          "model_id": {
+            "type": "string"
+          },
+          "model_name": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "release_gate": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "model_id",
+          "model_name",
+          "purpose",
+          "library",
+          "release_gate"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "release_status": {
+      "const": "blocked-pending-validated-speech-turn"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "review_correction_files": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "source_inputs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "status": {
+      "enum": [
+        "blocked"
+      ]
+    },
+    "track_id": {
+      "const": "speech_act_procedure_classifiers_20260610"
+    },
+    "validation_results": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_by_speech_turn_gate": {
+          "const": true
+        },
+        "human_validation_required": {
+          "const": true
+        },
+        "procedure_model_recorded": {
+          "const": true
+        },
+        "review_correction_files_defined": {
+          "const": true
+        },
+        "speech_turn_dependency_recorded": {
+          "const": true
+        }
+      },
+      "required": [
+        "blocked_by_speech_turn_gate",
+        "speech_turn_dependency_recorded",
+        "procedure_model_recorded",
+        "review_correction_files_defined",
+        "human_validation_required"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "track_id",
+    "repository",
+    "generated_at",
+    "status",
+    "release_status",
+    "blocked_reason",
+    "dependency_manifests",
+    "label_families",
+    "model_plan",
+    "source_inputs",
+    "review_correction_files",
+    "validation_results"
+  ],
+  "type": "object"
+}

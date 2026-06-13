@@ -1,0 +1,168 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "manifest_version",
+    "track_id",
+    "repository",
+    "generated_at",
+    "release_status",
+    "supported_artifacts",
+    "helper_status",
+    "limitations",
+    "validation_results"
+  ],
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "track_id": {
+      "const": "researcher_client_helpers_20260610"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "release_status": {
+      "const": "local-review-only"
+    },
+    "supported_artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document_sample",
+        "rdf_sample"
+      ],
+      "properties": {
+        "document_sample": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "version",
+            "language_surfaces",
+            "row_count",
+            "document_types"
+          ],
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "language_surfaces": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "row_count": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "document_types": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "rdf_sample": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "version",
+            "language_surfaces",
+            "dataset_title",
+            "triple_count"
+          ],
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "language_surfaces": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "dataset_title": {
+              "type": "string"
+            },
+            "triple_count": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        }
+      }
+    },
+    "helper_status": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "python_examples",
+        "duckdb_examples",
+        "r_examples",
+        "sparql_examples"
+      ],
+      "properties": {
+        "python_examples": {
+          "const": "implemented"
+        },
+        "duckdb_examples": {
+          "const": "implemented"
+        },
+        "r_examples": {
+          "const": "deferred"
+        },
+        "sparql_examples": {
+          "const": "deferred"
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation_results": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "python_example_runs",
+        "duckdb_example_runs",
+        "rdf_sample_example_runs",
+        "r_examples_deferred",
+        "sparql_examples_deferred"
+      ],
+      "properties": {
+        "python_example_runs": {
+          "const": true
+        },
+        "duckdb_example_runs": {
+          "const": true
+        },
+        "rdf_sample_example_runs": {
+          "const": true
+        },
+        "r_examples_deferred": {
+          "const": true
+        },
+        "sparql_examples_deferred": {
+          "const": true
+        }
+      }
+    }
+  }
+}

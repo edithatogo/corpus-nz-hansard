@@ -1,0 +1,32 @@
+{
+  "track_id": "member_identity_resolution_20260609",
+  "artifact_name": "Member Identity Resolution Sample Package",
+  "artifact_version": "0.1.0",
+  "release_level": "upstream-contribution",
+  "release_status": "sample-not-release",
+  "publication_target": "local maintainer-review package",
+  "submission_status": "not-submitted",
+  "validation_manifest": "manifests/member_identity_resolution_validation.json",
+  "input_release_versions": {
+    "document_level": "0.1.0",
+    "gold_evaluation_datasets": "manifests/gold_evaluation_datasets.json",
+    "authority_sources": "manifests/authority_sources.json"
+  },
+  "package_contents": [
+    "derived/member_identity_authority.json",
+    "samples/member-identity/member_identity_review.csv",
+    "samples/member-identity/README.md",
+    "docs/member-identity-resolution.md",
+    "manifests/member_identity_resolution_validation.json"
+  ],
+  "known_exclusions": [
+    "No corpus-wide member identity dataset is published.",
+    "Office titles and generic headings remain unresolved or excluded.",
+    "Validated member identity release promotion still requires broader validation coverage."
+  ],
+  "readiness_status": "blocked-pending-validated-components",
+  "readiness_notes": [
+    "The package resolves the reviewed gold fixtures only.",
+    "Publication remains blocked until corpus-wide validation and full authority coverage are complete."
+  ]
+}

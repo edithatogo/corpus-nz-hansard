@@ -1,6 +1,6 @@
 # Plan: RDF Linked Data Endpoint
 
-- [ ] Task: Define URI policy and vocabulary mappings.
-- [ ] Task: Implement sample RDF/JSON-LD exporter.
-- [ ] Task: Add SHACL validation.
-- [ ] Task: Add documentation and SPARQL examples.
+- [x] Task: Define URI policy and vocabulary mappings.
+- [x] Task: Implement sample RDF/JSON-LD exporter.
+- [x] Task: Add SHACL validation.
+- [x] Task: Add documentation and SPARQL examples.

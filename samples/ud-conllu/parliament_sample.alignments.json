@@ -1,0 +1,82 @@
+{
+  "sample_id": "ud-conllu-sample-20260610",
+  "source_component_id": "nzhc-component-0000000000000005",
+  "source_proceeding_item_id": "nzhc-component-0000000000000002",
+  "source_sitting_id": "nzhc-component-0000000000000001",
+  "source_stable_id": "HansS_20240625_067140000",
+  "source_text": "This bill is set down for committee stage immediately.",
+  "target_text_unit": "speech_turn",
+  "tokenizer": {
+    "name": "manual-fixture-whitespace",
+    "policy": "Preserve source offsets and keep punctuation as a separate token.",
+    "version": "ud-fixture-20260610"
+  },
+  "tokens": [
+    {
+      "end_offset": 4,
+      "form": "This",
+      "id": 1,
+      "start_offset": 0
+    },
+    {
+      "end_offset": 9,
+      "form": "bill",
+      "id": 2,
+      "start_offset": 5
+    },
+    {
+      "end_offset": 12,
+      "form": "is",
+      "id": 3,
+      "start_offset": 10
+    },
+    {
+      "end_offset": 16,
+      "form": "set",
+      "id": 4,
+      "start_offset": 13
+    },
+    {
+      "end_offset": 21,
+      "form": "down",
+      "id": 5,
+      "start_offset": 17
+    },
+    {
+      "end_offset": 25,
+      "form": "for",
+      "id": 6,
+      "start_offset": 22
+    },
+    {
+      "end_offset": 35,
+      "form": "committee",
+      "id": 7,
+      "start_offset": 26
+    },
+    {
+      "end_offset": 41,
+      "form": "stage",
+      "id": 8,
+      "start_offset": 36
+    },
+    {
+      "end_offset": 53,
+      "form": "immediately",
+      "id": 9,
+      "start_offset": 42
+    },
+    {
+      "end_offset": 54,
+      "form": ".",
+      "id": 10,
+      "start_offset": 53
+    }
+  ],
+  "track_id": "ud_conllu_endpoint_20260609",
+  "validation": {
+    "offset_alignment": "preserved",
+    "readiness_status": "blocked-pending-validated-components",
+    "status": "sample-not-release"
+  }
+}

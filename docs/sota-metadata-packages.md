@@ -2,7 +2,7 @@
 
 This document defines the generated metadata packages for `corpus-nz-hansard`.
 The repository exports Croissant, RO-Crate, Frictionless Data Package, DCAT,
-and PROV-O metadata from canonical release inputs, not as hand-maintained
+DataCite, and PROV-O metadata from canonical release inputs, not as hand-maintained
 release descriptions.
 
 ## Current State
@@ -21,6 +21,10 @@ release. OSF remains optional and inactive. Future metadata environments must
 not be described as published until generated metadata-package outputs are
 uploaded to that surface and read back.
 
+The DataCite export contract is documented separately in
+`docs/datacite-export-contract.md` and is generated alongside the other
+metadata-package outputs.
+
 ## Target Packages
 
 The package contract is recorded in
@@ -33,6 +37,7 @@ The package contract is recorded in
 | RO-Crate | JSON-LD | `generated/metadata/ro-crate-metadata.json` | `python scripts/check_metadata_packages.py` |
 | Frictionless | JSON | `generated/metadata/datapackage.json` | `python scripts/check_metadata_packages.py` |
 | DCAT | Turtle | `generated/metadata/dcat.ttl` | `python scripts/check_metadata_packages.py` |
+| DataCite | JSON | `generated/metadata/datacite.json` | `python scripts/check_metadata_packages.py` |
 | PROV-O | Turtle | `generated/metadata/prov-o.ttl` | `python scripts/check_metadata_packages.py` |
 
 Each package entry must name its source manifests, validation command, checksum

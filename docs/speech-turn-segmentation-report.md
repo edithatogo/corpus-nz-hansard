@@ -4,6 +4,10 @@
 
 Heuristic MVP. Not authoritative.
 
+## Release Decision
+
+Speech-turn candidates are explicitly excluded from the public final scope. See `docs/speech-turn-release-decision.md`.
+
 ## Input
 
 - `generated/parquet/hansard.parquet`

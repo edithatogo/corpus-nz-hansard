@@ -1,0 +1,91 @@
+{
+  "blocked_reason": "Validated speech-turn components are not available, so classifier outputs remain blocked pending the upstream release gate.",
+  "dependency_manifests": {
+    "nz_parliamentary_procedure_model": "manifests/nz_parliamentary_procedure_model.json",
+    "validated_speech_turn_component_validation": "manifests/validated_speech_turn_component_validation.json"
+  },
+  "generated_at": "2026-06-11T00:00:00+10:00",
+  "label_families": [
+    {
+      "labels": [
+        "statement",
+        "question",
+        "answer",
+        "interjection",
+        "ruling",
+        "procedural_direction",
+        "vote_call",
+        "debate_segment"
+      ],
+      "task": "speech_act"
+    },
+    {
+      "labels": [
+        "question",
+        "answer",
+        "follow_up",
+        "adjacent_context"
+      ],
+      "task": "question_answer_structure"
+    },
+    {
+      "labels": [
+        "interjection",
+        "not_interjection"
+      ],
+      "task": "interjection"
+    },
+    {
+      "labels": [
+        "ruling",
+        "not_ruling"
+      ],
+      "task": "procedural_ruling"
+    },
+    {
+      "labels": [
+        "substantive_debate",
+        "procedure",
+        "mixed"
+      ],
+      "task": "debate_segment"
+    }
+  ],
+  "manifest_version": 1,
+  "model_plan": [
+    {
+      "library": "scikit-learn",
+      "model_id": "tfidf-linear-svc",
+      "model_name": "TF-IDF + LinearSVC",
+      "purpose": "baseline multiclass text classifier for speech-act family assignment",
+      "release_gate": "blocked-pending-validated-speech-turn"
+    },
+    {
+      "library": "scikit-learn",
+      "model_id": "tfidf-logistic-regression",
+      "model_name": "TF-IDF + LogisticRegression",
+      "purpose": "calibrated probability baseline for review tooling and correction files",
+      "release_gate": "blocked-pending-validated-speech-turn"
+    }
+  ],
+  "release_status": "blocked-pending-validated-speech-turn",
+  "repository": "corpus-nz-hansard",
+  "review_correction_files": [
+    "derived/speech-act-procedure-classifiers/speech_act_correction_queue.csv",
+    "derived/speech-act-procedure-classifiers/procedure_correction_queue.csv"
+  ],
+  "source_inputs": [
+    "manifests/validated_speech_turn_component_validation.json",
+    "manifests/nz_parliamentary_procedure_model.json",
+    "fixtures/nz_parliamentary_procedure_samples.json"
+  ],
+  "status": "blocked",
+  "track_id": "speech_act_procedure_classifiers_20260610",
+  "validation_results": {
+    "blocked_by_speech_turn_gate": true,
+    "human_validation_required": true,
+    "procedure_model_recorded": true,
+    "review_correction_files_defined": true,
+    "speech_turn_dependency_recorded": true
+  }
+}

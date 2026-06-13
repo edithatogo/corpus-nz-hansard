@@ -1,0 +1,402 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e4]:
+      - list [ref=e9]:
+        - listitem [ref=e10]:
+          - link "Calendar" [ref=e11] [cursor=pointer]:
+            - /url: https://www.parliament.nz/calendar?lang=en
+            - img [ref=e12]:
+              - img [ref=e14]
+            - text: Calendar
+        - listitem [ref=e16]:
+          - link "Watch" [ref=e17] [cursor=pointer]:
+            - /url: https://videos.parliament.nz
+            - img [ref=e18]:
+              - img [ref=e20]
+            - text: Watch
+        - listitem [ref=e23]:
+          - button "Listen" [disabled] [ref=e24]:
+            - img [ref=e25]:
+              - img [ref=e27]
+            - text: Listen
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - link "New Zealand Parliament Homepage" [ref=e31] [cursor=pointer]:
+            - /url: https://www.parliament.nz/
+            - img "parliament logo" [ref=e33]
+            - generic [ref=e34]:
+              - generic [ref=e35]: New Zealand Parliament
+              - generic [ref=e36]: Pāremata Aotearoa
+          - generic [ref=e37]:
+            - radiogroup "Language Options" [ref=e39]:
+              - generic [ref=e40]: Language
+              - generic [ref=e41]:
+                - radio "English" [checked] [ref=e42]
+                - generic [ref=e43]: English
+              - generic [ref=e44]:
+                - radio "Māori" [ref=e45]
+                - generic [ref=e46]: Māori
+            - generic [ref=e48]:
+              - generic [ref=e50]: Search
+              - generic [ref=e51]:
+                - searchbox "Search Field" [ref=e52]
+                - button "Search" [ref=e53] [cursor=pointer]:
+                  - img [ref=e54]:
+                    - img [ref=e56]
+        - list [ref=e61]:
+          - listitem [ref=e62]:
+            - link "New Zealand Parliament Homepage" [ref=e63] [cursor=pointer]:
+              - /url: https://www.parliament.nz/
+              - img:
+                - generic:
+                  - img
+          - listitem [ref=e64]:
+            - button "Parliamentary Business Menu" [ref=e65] [cursor=pointer]:
+              - text: Parliamentary Business
+              - img [ref=e66]:
+                - img [ref=e68]
+          - listitem [ref=e70]:
+            - button "MPs and Electorates Menu" [ref=e71] [cursor=pointer]:
+              - text: MPs and Electorates
+              - img [ref=e72]:
+                - img [ref=e74]
+          - listitem [ref=e76]:
+            - button "Get Involved Menu" [ref=e77] [cursor=pointer]:
+              - text: Get Involved
+              - img [ref=e78]:
+                - img [ref=e80]
+          - listitem [ref=e82]:
+            - button "Visit and Learn Menu" [ref=e83] [cursor=pointer]:
+              - text: Visit and Learn
+              - img [ref=e84]:
+                - img [ref=e86]
+  - main [ref=e88]:
+    - article [ref=e89]:
+      - generic [ref=e91]:
+        - generic [ref=e93]:
+          - heading "Bills and Laws" [level=2] [ref=e94]
+          - list [ref=e95]:
+            - listitem [ref=e96]:
+              - link "Bills (proposed laws)" [ref=e97] [cursor=pointer]:
+                - /url: https://bills.parliament.nz/bills-proposed-laws?Tab=Current%26lang=en&lang=en
+            - listitem [ref=e98]:
+              - link "Amendment Papers (previously SOPs)" [ref=e99] [cursor=pointer]:
+                - /url: https://bills.parliament.nz/amendment-papers?Tab=Current%26lang=en&lang=en
+            - listitem [ref=e100]:
+              - link "Proposed Members' Bills" [ref=e101] [cursor=pointer]:
+                - /url: https://bills.parliament.nz/proposed-members-bills?Tab=Current%26lang=en&lang=en
+            - listitem [ref=e102]:
+              - link "Members' Bills Ballot" [ref=e103] [cursor=pointer]:
+                - /url: https://bills.parliament.nz/members-bills-ballots?Tab=Current%26lang=en&lang=en
+        - generic [ref=e105]:
+          - heading "Bills (proposed laws)" [level=1] [ref=e106]
+          - navigation "Breadcrumb" [ref=e108]:
+            - list [ref=e109]:
+              - listitem [ref=e110]:
+                - link "Home" [ref=e111] [cursor=pointer]:
+                  - /url: https://www.parliament.nz/en
+              - listitem [ref=e112]:
+                - text: »
+                - link "Parliamentary Business" [ref=e113] [cursor=pointer]:
+                  - /url: https://www.parliament.nz/en/pb/
+              - listitem [ref=e114]:
+                - text: »
+                - link "Bills and Laws" [ref=e115] [cursor=pointer]:
+                  - /url: https://www.parliament.nz/en/pb/bills-and-laws/
+              - listitem [ref=e116]:
+                - text: »
+                - link "Bills (proposed laws)" [ref=e117] [cursor=pointer]:
+                  - /url: https://bills.parliament.nz/bills-proposed-laws
+          - generic [ref=e118]:
+            - paragraph [ref=e119]: Bills are proposals to make a new law or to change an existing one. Only Parliament can pass a bill. Each bill goes through several stages, giving MPs and the public the chance to have their say.
+            - paragraph [ref=e120]:
+              - text: You can view the
+              - strong [ref=e121]:
+                - link "schedule of divided bills" [ref=e122] [cursor=pointer]:
+                  - /url: https://www.parliament.nz/en/pb/bills-and-laws/schedule-of-divided-bills/
+              - text: ", or read more about the"
+              - strong [ref=e123]:
+                - link "progress of legislation" [ref=e124] [cursor=pointer]:
+                  - /url: https://www.parliament.nz/en/pb/bills-and-laws/progress-of-legislation/
+              - text: . To find out more about bills before select committees, see the
+              - strong [ref=e125]:
+                - link "business before committees" [ref=e126] [cursor=pointer]:
+                  - /url: https://www.parliament.nz/en/pb/sc/business-before-committees/
+              - text: page.
+            - paragraph [ref=e127]:
+              - link "Historical bills from 1854 to 2008 are available from NZLII" [ref=e128] [cursor=pointer]:
+                - /url: http://www.nzlii.org/nz/legis/hist_bill/
+                - strong [ref=e129]: Historical bills from 1854 to 2008 are available from NZLII
+              - strong [ref=e130]: .
+            - paragraph [ref=e131]:
+              - strong [ref=e132]: Following our recent Hansard website changes, links to Hansard on the Bills pages are not being updated with the latest links. We are working to return this functionality as soon as we can.
+      - generic [ref=e133]:
+        - list [ref=e137]:
+          - listitem [ref=e138]:
+            - button "Current Bills" [ref=e139] [cursor=pointer]
+          - listitem [ref=e140]:
+            - button "Previous Bills" [ref=e141] [cursor=pointer]
+          - listitem [ref=e142]:
+            - button "All Bills" [ref=e143] [cursor=pointer]
+        - generic [ref=e144]:
+          - generic [ref=e147]:
+            - generic [ref=e148]: Filtering
+            - generic [ref=e149]:
+              - paragraph [ref=e150]: Use the filter to refine listing items
+              - generic [ref=e152]:
+                - generic [ref=e153]: Keyword
+                - searchbox "Keyword" [ref=e154]
+              - button "Date range" [ref=e156] [cursor=pointer]:
+                - generic [ref=e157]:
+                  - generic [ref=e158]: Date range
+                  - img [ref=e159]:
+                    - img [ref=e161]
+              - generic [ref=e164]:
+                - generic [ref=e165]: Parliament
+                - combobox "Parliament" [ref=e166]:
+                  - option "All" [selected]
+                  - option "54 (2023 - Current)"
+                  - option "53 (2020 - 2023)"
+                  - option "52 (2017 - 2020)"
+                  - option "51 (2014 - 2017)"
+                  - option "50 (2011 - 2014)"
+                  - option "49 (2008 - 2011)"
+                  - option "48 (2005 - 2008)"
+                  - option "47 (2002 - 2005)"
+                  - option "46 (1999 - 2002)"
+                  - option "45 (1996 - 1999)"
+                  - option "44 (1993 - 1996)"
+                  - option "43 (1990 - 1993)"
+              - button "Document types" [ref=e168] [cursor=pointer]:
+                - generic [ref=e169]:
+                  - generic [ref=e170]: Document types
+                  - img [ref=e171]:
+                    - img [ref=e173]
+              - generic [ref=e176]:
+                - generic [ref=e177]:
+                  - text: Select Committee
+                  - generic [ref=e178]: (All)
+                - combobox "Select Committee (All)" [ref=e179]:
+                  - option "All" [selected]
+                  - option "Abortion Legislation Committee"
+                  - option "Auckland Governance Legislation Committee"
+                  - option "Business Committee"
+                  - option "Commerce Committee"
+                  - option "Committee on the Accident Insurance (Transitional Provisions) Bill Committee"
+                  - option "Committee on the Accident Insurance Bill Committee"
+                  - option "Committee on the Bill Committee"
+                  - option "Committee on the Producers Industry Restructuring Bills Committee"
+                  - option "Economic Development, Science and Innovation Committee"
+                  - option "Education and Science Committee"
+                  - option "Education and Workforce Committee"
+                  - option "Electoral Law Committee"
+                  - option "Electoral Legislation Committee"
+                  - option "Emissions Trading Scheme Review Committee"
+                  - option "Employment and Accident Insurance Legislation Committee"
+                  - option "Environment Committee"
+                  - option "Epidemic Response Committee"
+                  - option "Finance and Expenditure Committee"
+                  - option "Fisheries and Other Sea-related Legislation Committee"
+                  - option "Foreign Affairs, Defence and Trade Committee"
+                  - option "Governance and Administration Committee"
+                  - option "Government Administration Committee"
+                  - option "Health Committee"
+                  - option "Intelligence and Security Committee"
+                  - option "Internal Affairs and Local Government Committee"
+                  - option "Justice and Electoral Committee"
+                  - option "Justice and Law Reform Committee"
+                  - option "Justice Committee"
+                  - option "Law and Order Committee"
+                  - option "Local Government and Environment Committee"
+                  - option "Maori Affairs Committee"
+                  - option "Pae Ora Legislation Committee Committee"
+                  - option "Primary Production Committee"
+                  - option "Privileges Committee"
+                  - option "Regulations Review Committee"
+                  - option "Social Services and Community Committee"
+                  - option "Social Services Committee"
+                  - option "Standing Orders Committee"
+                  - option "Transport and Environment Committee"
+                  - option "Transport and Industrial Relations Committee"
+                  - option "Transport and Infrastructure Committee"
+              - generic [ref=e181]:
+                - generic [ref=e182]: Stage
+                - combobox "Stage" [ref=e183]:
+                  - option "All" [selected]
+                  - option "First Reading"
+                  - option "Select Committee"
+                  - option "Second Reading"
+                  - option "Committee of Whole House"
+                  - option "Third Reading"
+                  - option "Royal Assent"
+                  - option "Terminated"
+              - button "Apply Filter" [ref=e185] [cursor=pointer]
+          - generic [ref=e187]:
+            - generic [ref=e188]:
+              - generic [ref=e190]: Displaying 1-10 of 3513
+              - link "RSS" [ref=e192] [cursor=pointer]:
+                - /url: /rss?set=Bills
+                - img [ref=e193]:
+                  - img [ref=e195]
+                - generic [ref=e199]: RSS
+            - table [ref=e201]:
+              - rowgroup [ref=e202]:
+                - row "Name of bill Bill no. Stage Select Committee Last activity" [ref=e203]:
+                  - columnheader "Name of bill" [ref=e204] [cursor=pointer]:
+                    - button "Name of bill" [ref=e205]:
+                      - generic [ref=e206]: Name of bill
+                      - generic [ref=e207]:
+                        - img [ref=e208]:
+                          - img [ref=e210]
+                        - img [ref=e212]:
+                          - img [ref=e214]
+                  - columnheader "Bill no." [ref=e216] [cursor=pointer]:
+                    - generic [ref=e218]: Bill no.
+                  - columnheader "Stage" [ref=e219] [cursor=pointer]:
+                    - generic [ref=e221]: Stage
+                  - columnheader "Select Committee" [ref=e222] [cursor=pointer]:
+                    - button "Select Committee" [ref=e223]:
+                      - generic [ref=e224]: Select Committee
+                      - generic [ref=e225]:
+                        - img [ref=e226]:
+                          - img [ref=e228]
+                        - img [ref=e230]:
+                          - img [ref=e232]
+                  - columnheader "Last activity" [ref=e234] [cursor=pointer]:
+                    - button "Last activity" [ref=e235]:
+                      - generic [ref=e236]: Last activity
+                      - img [ref=e237]:
+                        - img [ref=e239]
+              - rowgroup [ref=e241]:
+                - row "Gas (Market Transparency) Amendment Bill Government Bill 322-1 RA 05 June 2026" [ref=e242] [cursor=pointer]:
+                  - cell "Gas (Market Transparency) Amendment Bill Government Bill" [ref=e243]:
+                    - link "Gas (Market Transparency) Amendment Bill" [ref=e244]:
+                      - /url: https://bills.parliament.nz/v/6/b94264a6-d579-4ac0-0cd7-08debc50a5d9
+                    - generic [ref=e245]: Government Bill
+                  - cell "322-1" [ref=e246]
+                  - cell "RA" [ref=e247]:
+                    - generic [ref=e248]: RA
+                  - cell [ref=e249]
+                  - cell "05 June 2026" [ref=e250]
+                - row "Credit Contracts and Consumer Finance Amendment Bill Government Bill 137-3 RA Finance and Expenditure 05 June 2026" [ref=e251] [cursor=pointer]:
+                  - cell "Credit Contracts and Consumer Finance Amendment Bill Government Bill" [ref=e252]:
+                    - link "Credit Contracts and Consumer Finance Amendment Bill" [ref=e253]:
+                      - /url: https://bills.parliament.nz/v/6/6193a33c-40d6-4354-0d5a-08dd6ff875cc
+                    - generic [ref=e254]: Government Bill
+                  - cell "137-3" [ref=e255]
+                  - cell "RA" [ref=e256]:
+                    - generic [ref=e257]: RA
+                  - cell "Finance and Expenditure" [ref=e258]
+                  - cell "05 June 2026" [ref=e259]
+                - row "Social Security (Modernisation) Amendment Bill Government Bill 313-1 RA 05 June 2026" [ref=e260] [cursor=pointer]:
+                  - cell "Social Security (Modernisation) Amendment Bill Government Bill" [ref=e261]:
+                    - link "Social Security (Modernisation) Amendment Bill" [ref=e262]:
+                      - /url: https://bills.parliament.nz/v/6/ca91ca83-0bdd-417f-0cd6-08debc50a5d9
+                    - generic [ref=e263]: Government Bill
+                  - cell "313-1" [ref=e264]
+                  - cell "RA" [ref=e265]:
+                    - generic [ref=e266]: RA
+                  - cell [ref=e267]
+                  - cell "05 June 2026" [ref=e268]
+                - row "Taxation (Budget Measures) Bill (No 3) Government Bill 320-1 RA 05 June 2026" [ref=e269] [cursor=pointer]:
+                  - cell "Taxation (Budget Measures) Bill (No 3) Government Bill" [ref=e270]:
+                    - link "Taxation (Budget Measures) Bill (No 3)" [ref=e271]:
+                      - /url: https://bills.parliament.nz/v/6/d2891839-1400-4bd2-0cd5-08debc50a5d9
+                    - generic [ref=e272]: Government Bill
+                  - cell "320-1" [ref=e273]
+                  - cell "RA" [ref=e274]:
+                    - generic [ref=e275]: RA
+                  - cell [ref=e276]
+                  - cell "05 June 2026" [ref=e277]
+                - row "Patents Amendment Bill Government Bill 154-1 RA Economic Development, Science and Innovation 05 June 2026" [ref=e278] [cursor=pointer]:
+                  - cell "Patents Amendment Bill Government Bill" [ref=e279]:
+                    - link "Patents Amendment Bill" [ref=e280]:
+                      - /url: https://bills.parliament.nz/v/6/2a75d2b2-33ee-494e-fede-08dd98c831fd
+                    - generic [ref=e281]: Government Bill
+                  - cell "154-1" [ref=e282]
+                  - cell "RA" [ref=e283]:
+                    - generic [ref=e284]: RA
+                  - cell "Economic Development, Science and Innovation" [ref=e285]
+                  - cell "05 June 2026" [ref=e286]
+                - row "Regulatory Systems (Internal Affairs) Amendment Bill Government Bill 188-2 RA Governance and Administration 05 June 2026" [ref=e287] [cursor=pointer]:
+                  - cell "Regulatory Systems (Internal Affairs) Amendment Bill Government Bill" [ref=e288]:
+                    - link "Regulatory Systems (Internal Affairs) Amendment Bill" [ref=e289]:
+                      - /url: https://bills.parliament.nz/v/6/78d4ac6c-3126-45ce-07af-08ddca376b22
+                    - generic [ref=e290]: Government Bill
+                  - cell "188-2" [ref=e291]
+                  - cell "RA" [ref=e292]:
+                    - generic [ref=e293]: RA
+                  - cell "Governance and Administration" [ref=e294]
+                  - cell "05 June 2026" [ref=e295]
+                - row "Financial Service Providers (Registration and Dispute Resolution) Amendment Bill Government Bill 136-2 RA Finance and Expenditure 05 June 2026" [ref=e296] [cursor=pointer]:
+                  - cell "Financial Service Providers (Registration and Dispute Resolution) Amendment Bill Government Bill" [ref=e297]:
+                    - link "Financial Service Providers (Registration and Dispute Resolution) Amendment Bill" [ref=e298]:
+                      - /url: https://bills.parliament.nz/v/6/a4d89cb0-ce82-4d28-0d59-08dd6ff875cc
+                    - generic [ref=e299]: Government Bill
+                  - cell "136-2" [ref=e300]
+                  - cell "RA" [ref=e301]:
+                    - generic [ref=e302]: RA
+                  - cell "Finance and Expenditure" [ref=e303]
+                  - cell "05 June 2026" [ref=e304]
+                - row "Building and Construction Sector (Self-certification by Plumbers and Drainlayers) Amendment Bill Government Bill 221-3 RA Transport and Infrastructure 02 June 2026" [ref=e305] [cursor=pointer]:
+                  - cell "Building and Construction Sector (Self-certification by Plumbers and Drainlayers) Amendment Bill Government Bill" [ref=e306]:
+                    - link "Building and Construction Sector (Self-certification by Plumbers and Drainlayers) Amendment Bill" [ref=e307]:
+                      - /url: https://bills.parliament.nz/v/6/1c7fdacd-9d4e-4dd6-6c2d-08de20b5b51d
+                    - generic [ref=e308]: Government Bill
+                  - cell "221-3" [ref=e309]
+                  - cell "RA" [ref=e310]:
+                    - generic [ref=e311]: RA
+                  - cell "Transport and Infrastructure" [ref=e312]
+                  - cell "02 June 2026" [ref=e313]
+                - row "Public Service Amendment Bill Government Bill 190-2 RA Governance and Administration 02 June 2026" [ref=e314] [cursor=pointer]:
+                  - cell "Public Service Amendment Bill Government Bill" [ref=e315]:
+                    - link "Public Service Amendment Bill" [ref=e316]:
+                      - /url: https://bills.parliament.nz/v/6/426f1977-0722-4148-423f-08ddcd89e002
+                    - generic [ref=e317]: Government Bill
+                  - cell "190-2" [ref=e318]
+                  - cell "RA" [ref=e319]:
+                    - generic [ref=e320]: RA
+                  - cell "Governance and Administration" [ref=e321]
+                  - cell "02 June 2026" [ref=e322]
+                - row "Environment (Disestablishment of Ministry for the Environment) Amendment Bill Government Bill 249-2 RA Environment 02 June 2026" [ref=e323] [cursor=pointer]:
+                  - cell "Environment (Disestablishment of Ministry for the Environment) Amendment Bill Government Bill" [ref=e324]:
+                    - link "Environment (Disestablishment of Ministry for the Environment) Amendment Bill" [ref=e325]:
+                      - /url: https://bills.parliament.nz/v/6/27caed65-2904-433f-f467-08de6d0eb023
+                    - generic [ref=e326]: Government Bill
+                  - cell "249-2" [ref=e327]
+                  - cell "RA" [ref=e328]:
+                    - generic [ref=e329]: RA
+                  - cell "Environment" [ref=e330]
+                  - cell "02 June 2026" [ref=e331]
+            - generic [ref=e333]:
+              - button "1" [ref=e334] [cursor=pointer]
+              - button "2" [ref=e335] [cursor=pointer]
+              - button "3" [ref=e336] [cursor=pointer]
+              - button "Next" [ref=e337] [cursor=pointer]:
+                - text: Next
+                - img [ref=e338]:
+                  - img [ref=e340]
+  - contentinfo [ref=e342]:
+    - generic [ref=e344]:
+      - generic [ref=e345]:
+        - generic [ref=e346]:
+          - link "About Us" [ref=e348] [cursor=pointer]:
+            - /url: https://www.parliament.nz/about-us
+          - link "Careers" [ref=e350] [cursor=pointer]:
+            - /url: https://jobs.parliament.nz/
+          - link "Parliamentary Engagement" [ref=e352] [cursor=pointer]:
+            - /url: https://www.parliament.nz/Parliamentary-Engagement
+          - link "Accessibility" [ref=e354] [cursor=pointer]:
+            - /url: https://www.parliament.nz/Accessibility
+          - link "Copyright" [ref=e356] [cursor=pointer]:
+            - /url: https://www.parliament.nz/Copyright
+          - link "Privacy" [ref=e358] [cursor=pointer]:
+            - /url: https://www.parliament.nz/Privacy
+          - link "Contact us" [ref=e360] [cursor=pointer]:
+            - /url: https://www.parliament.nz/Contact-us
+          - link "Parliament Bill" [ref=e362] [cursor=pointer]:
+            - /url: https://www.parliament.nz/Parliament-Bill
+        - link "shielded" [ref=e363] [cursor=pointer]:
+          - /url: "#"
+          - img "shielded" [ref=e364]
+      - button "Back to top ▲" [ref=e366] [cursor=pointer]

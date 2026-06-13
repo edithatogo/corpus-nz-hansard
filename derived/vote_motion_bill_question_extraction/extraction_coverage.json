@@ -1,0 +1,39 @@
+{
+  "artifact_name": "vote_motion_bill_question_extraction_coverage",
+  "artifact_version": "0.1.0",
+  "blocked_dependencies": [
+    "validated_member_identity",
+    "validated_party_attribution",
+    "validated_sitting_proceeding"
+  ],
+  "generated_at": "2026-06-12T04:25:05.549338+00:00",
+  "gold_vote_domain": {
+    "ambiguous": 1,
+    "excluded": 1,
+    "negative": 1,
+    "positive": 1,
+    "sample_total": 5,
+    "unresolved": 1
+  },
+  "neutral_input_counts": {
+    "bills": 1,
+    "motions": 1,
+    "votes": 1
+  },
+  "reason": "Validated member identity, validated party attribution, and validated sitting/proceeding components are not yet all available for release.",
+  "sample_counts": {
+    "boundary_samples": 1,
+    "excluded_boundary_samples": 1,
+    "extractable_samples": 5,
+    "procedural_decision_samples": 2,
+    "procedure_samples_reviewed": 6,
+    "question_samples": 1,
+    "vote_samples": 2
+  },
+  "status": "blocked",
+  "track_id": "vote_motion_bill_question_extraction_release_20260610",
+  "warnings": [
+    "Procedure samples are reviewed boundary fixtures, not published extraction outputs.",
+    "Vote and question extraction remains blocked until the dependent component releases are validated."
+  ]
+}

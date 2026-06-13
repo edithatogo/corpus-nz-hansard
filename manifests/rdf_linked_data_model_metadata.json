@@ -1,0 +1,33 @@
+{
+  "track_id": "rdf_linked_data_endpoint_20260609",
+  "annotation_family": "RDF / Linked Data",
+  "namespace": "https://w3id.org/nz-hansard/",
+  "component_namespace": "https://w3id.org/nz-hansard/component/",
+  "sample_namespace": "https://w3id.org/nz-hansard/sample/",
+  "vocabularies": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "time": "http://www.w3.org/2006/time#"
+  },
+  "concept_schemes": [
+    "party",
+    "role",
+    "proceeding-type",
+    "vote-type",
+    "topic"
+  ],
+  "prototype_tools": {
+    "rdflib": {
+      "status": "planned",
+      "comparison_note": "Used for RDF parsing and graph inspection in the local validator."
+    },
+    "pyshacl": {
+      "status": "planned",
+      "comparison_note": "Used for SHACL validation of the sample graph."
+    }
+  },
+  "selection_note": "The sample graph is hand-assembled from neutral fixtures while the RDF and SHACL tooling contract is being locked in.",
+  "comparison_status": "deferred-manual-fixture"
+}

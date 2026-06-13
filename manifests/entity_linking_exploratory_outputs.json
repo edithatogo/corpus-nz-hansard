@@ -1,0 +1,56 @@
+{
+  "authority_sources": [
+    "nz-parliament-members-current",
+    "nz-parliament-parties-current",
+    "nz-parliament-bills-current",
+    "nz-parliament-order-paper",
+    "nz-parliament-hansard-current",
+    "nz-parliament-daily-progress",
+    "nz-parliament-parliamentary-rules"
+  ],
+  "generated_at": "2026-06-11T00:00:00+10:00",
+  "manifest_version": 1,
+  "outputs": {
+    "jsonl": "samples/entity-linking-exploratory/entity_linking_exploratory.jsonl",
+    "review_csv": "samples/entity-linking-exploratory/entity_linking_exploratory_review.csv"
+  },
+  "release_status": "sample-not-release",
+  "repository": "corpus-nz-hansard",
+  "sample_package": "samples/entity-linking-exploratory",
+  "source_inputs": [
+    "samples/researcher-client-helpers/hansard-mini.csv",
+    "samples/member-identity/member_identity_review.csv",
+    "samples/party-attribution/party_attribution_review.csv",
+    "samples/parlamint-nz/ParlaMint-NZ.sample.xml",
+    "samples/popolo-opencivicdata/speeches.jsonl",
+    "samples/rdf-linked-data/linked-data.ttl",
+    "manifests/authority_sources.json",
+    "manifests/schema_discovery.json"
+  ],
+  "supported_entity_types": [
+    "person",
+    "organisation",
+    "place",
+    "legislation",
+    "ministry",
+    "portfolio",
+    "committee"
+  ],
+  "track_id": "entity_linking_exploratory_outputs_20260610",
+  "validation_counts": {
+    "ambiguous": 1,
+    "excluded": 1,
+    "linked": 2,
+    "negative": 1,
+    "record_count": 7,
+    "review_row_count": 7,
+    "unresolved": 2
+  },
+  "validation_results": {
+    "false_positive_analysis_recorded": true,
+    "human_validation_required": true,
+    "non_authoritative": true,
+    "outputs_written": true,
+    "review_sample_written": true
+  }
+}

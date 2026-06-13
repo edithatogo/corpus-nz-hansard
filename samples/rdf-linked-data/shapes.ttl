@@ -1,0 +1,56 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix nzh: <https://w3id.org/nz-hansard/> .
+@prefix nzhc: <https://w3id.org/nz-hansard/component/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+nzh:DatasetShape a sh:NodeShape ;
+  sh:targetClass dcat:Dataset ;
+  sh:property [
+    sh:path dcterms:title ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path dcterms:issued ;
+    sh:minCount 1 ;
+    sh:datatype xsd:date ;
+  ] ;
+  sh:property [
+    sh:path dcat:distribution ;
+    sh:minCount 1 ;
+  ] .
+
+nzh:SpeechTurnShape a sh:NodeShape ;
+  sh:targetClass nzh:SpeechTurn ;
+  sh:property [
+    sh:path dcterms:identifier ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path nzh:sourceStableId ;
+    sh:minCount 1 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    sh:path nzh:proceedingItem ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path nzh:speaker ;
+    sh:minCount 1 ;
+  ] ;
+  sh:property [
+    sh:path dcterms:subject ;
+    sh:minCount 1 ;
+  ] .
+
+nzh:ProvenanceShape a sh:NodeShape ;
+  sh:targetClass prov:Entity ;
+  sh:property [
+    sh:path prov:wasDerivedFrom ;
+    sh:minCount 1 ;
+  ] .

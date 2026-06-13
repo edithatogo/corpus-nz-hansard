@@ -1,0 +1,191 @@
+{
+  "evidence_sources": [
+    "conductor/tracks/upstream_contribution_packages_20260609/evidence.md",
+    "conductor/tracks/parlamint_nz_public_endpoint_release_20260610/evidence.md",
+    "conductor/tracks/popolo_opencivicdata_public_endpoint_release_20260610/evidence.md",
+    "conductor/tracks/akoma_ntoso_public_endpoint_release_20260610/evidence.md",
+    "conductor/tracks/cap_parlacap_public_endpoint_release_20260610/evidence.md",
+    "conductor/tracks/ud_conllu_public_endpoint_release_20260610/evidence.md",
+    "conductor/tracks/rdf_linked_data_public_endpoint_release_20260610/evidence.md"
+  ],
+  "generated_at": "2026-06-11T00:00:00+10:00",
+  "known_exclusions": [
+    "No external submission has been made from this repository.",
+    "Submission URLs are intentionally null while all targets remain blocked locally.",
+    "Upstream acceptance is not claimed for any package."
+  ],
+  "manifest_version": 1,
+  "release_ladder": "manifests/release_ladder.json",
+  "repository": "corpus-nz-hansard",
+  "submission_state": "not-submitted",
+  "submission_targets": [
+    {
+      "blocker_reason": "Endpoint release is blocked pending validated member identity, party attribution, speech-turn, and sitting/proceeding components.",
+      "follow_up_track": null,
+      "local_artifacts": [
+        "conductor/tracks/parlamint_nz_public_endpoint_release_20260610/evidence.md",
+        "samples/parlamint-nz/ParlaMint-NZ.sample.xml",
+        "samples/parlamint-nz/ParlaMint-NZ.metadata.xml",
+        "samples/parlamint-nz/README.md",
+        "docs/parlamint-nz-mapping.md",
+        "manifests/parlamint_nz_validation_manifest.json"
+      ],
+      "mechanism": "fork-plus-data-branch-pull-request",
+      "prerequisite_track": "parlamint_nz_public_endpoint_release_20260610",
+      "response_status": null,
+      "submission_status": "blocked",
+      "submission_url": null,
+      "submitted_at": null,
+      "target": "ParlaMint-NZ / TEI"
+    },
+    {
+      "blocker_reason": "Endpoint release is blocked pending validated member identity, party attribution, vote/motion extraction, and speech-turn components.",
+      "follow_up_track": null,
+      "local_artifacts": [
+        "conductor/tracks/popolo_opencivicdata_public_endpoint_release_20260610/evidence.md",
+        "samples/popolo-opencivicdata/people.json",
+        "samples/popolo-opencivicdata/organizations.json",
+        "samples/popolo-opencivicdata/memberships.json",
+        "samples/popolo-opencivicdata/motions.json",
+        "samples/popolo-opencivicdata/vote-events.json",
+        "samples/popolo-opencivicdata/votes.jsonl",
+        "samples/popolo-opencivicdata/speeches.jsonl",
+        "samples/popolo-opencivicdata/README.md",
+        "docs/popolo-opencivicdata-mapping.md",
+        "manifests/popolo_opencivicdata_validation_manifest.json"
+      ],
+      "mechanism": "github-issues-or-pull-requests",
+      "prerequisite_track": "popolo_opencivicdata_public_endpoint_release_20260610",
+      "response_status": null,
+      "submission_status": "blocked",
+      "submission_url": null,
+      "submitted_at": null,
+      "target": "Popolo / Open Civic Data"
+    },
+    {
+      "blocker_reason": "Endpoint release is blocked pending validated member identity, party attribution, speech-turn, motion, and vote components.",
+      "follow_up_track": null,
+      "local_artifacts": [
+        "conductor/tracks/akoma_ntoso_public_endpoint_release_20260610/evidence.md",
+        "samples/akoma-ntoso/Akoma-Ntoso.sample.xml",
+        "samples/akoma-ntoso/Akoma-Ntoso.metadata.xml",
+        "samples/akoma-ntoso/README.md",
+        "docs/akoma-ntoso-mapping.md",
+        "manifests/akoma_ntoso_validation_manifest.json"
+      ],
+      "mechanism": "maintainer-review-package-or-issue",
+      "prerequisite_track": "akoma_ntoso_public_endpoint_release_20260610",
+      "response_status": null,
+      "submission_status": "blocked",
+      "submission_url": null,
+      "submitted_at": null,
+      "target": "Akoma Ntoso"
+    },
+    {
+      "blocker_reason": "Endpoint release is blocked pending validated speech-turn components and maintainer-confirmed codebook intake.",
+      "follow_up_track": null,
+      "local_artifacts": [
+        "conductor/tracks/cap_parlacap_public_endpoint_release_20260610/evidence.md",
+        "samples/cap-parlacap/cap_parlacap_topics.csv",
+        "samples/cap-parlacap/README.md",
+        "docs/cap-parlacap-topic-mapping.md",
+        "manifests/cap_parlacap_topic_validation_manifest.json",
+        "manifests/cap_parlacap_topic_codebook.json"
+      ],
+      "mechanism": "maintainer-confirmed-review-path",
+      "prerequisite_track": "cap_parlacap_public_endpoint_release_20260610",
+      "response_status": null,
+      "submission_status": "blocked",
+      "submission_url": null,
+      "submitted_at": null,
+      "target": "CAP / ParlaCAP"
+    },
+    {
+      "blocker_reason": "Endpoint release is blocked pending validated speech-turn text and completed Stanza/spaCy comparison evidence.",
+      "follow_up_track": null,
+      "local_artifacts": [
+        "conductor/tracks/ud_conllu_public_endpoint_release_20260610/evidence.md",
+        "samples/ud-conllu/parliament_sample.conllu",
+        "samples/ud-conllu/parliament_sample.alignments.json",
+        "samples/ud-conllu/README.md",
+        "docs/ud-conllu-mapping.md",
+        "manifests/ud_conllu_validation_manifest.json",
+        "manifests/ud_conllu_model_metadata.json"
+      ],
+      "mechanism": "reviewed-sample-or-issue",
+      "prerequisite_track": "ud_conllu_public_endpoint_release_20260610",
+      "response_status": null,
+      "submission_status": "blocked",
+      "submission_url": null,
+      "submitted_at": null,
+      "target": "Universal Dependencies / CoNLL-U"
+    },
+    {
+      "blocker_reason": "Endpoint release is blocked pending validated component exports, stable URI review, and SHACL evidence.",
+      "follow_up_track": null,
+      "local_artifacts": [
+        "conductor/tracks/rdf_linked_data_public_endpoint_release_20260610/evidence.md",
+        "samples/rdf-linked-data/linked-data.ttl",
+        "samples/rdf-linked-data/linked-data.jsonld",
+        "samples/rdf-linked-data/shapes.ttl",
+        "samples/rdf-linked-data/sparql-queries.rq",
+        "samples/rdf-linked-data/README.md",
+        "docs/rdf-linked-data-mapping.md",
+        "manifests/rdf_linked_data_validation_manifest.json",
+        "manifests/rdf_linked_data_model_metadata.json"
+      ],
+      "mechanism": "maintainer-review-package-or-issue",
+      "prerequisite_track": "rdf_linked_data_public_endpoint_release_20260610",
+      "response_status": null,
+      "submission_status": "blocked",
+      "submission_url": null,
+      "submitted_at": null,
+      "target": "RDF / Linked Data"
+    }
+  ],
+  "submission_templates": [
+    {
+      "review_gate": "validated endpoint release",
+      "target": "ParlaMint-NZ / TEI",
+      "template_location": "docs/parlamint-nz-mapping.md",
+      "template_type": "fork-pull-request"
+    },
+    {
+      "review_gate": "validated endpoint release",
+      "target": "Popolo / Open Civic Data",
+      "template_location": "docs/popolo-opencivicdata-mapping.md",
+      "template_type": "issue-or-pull-request"
+    },
+    {
+      "review_gate": "validated endpoint release",
+      "target": "Akoma Ntoso",
+      "template_location": "docs/akoma-ntoso-mapping.md",
+      "template_type": "review-package-or-issue"
+    },
+    {
+      "review_gate": "maintainer-confirmed codebook intake",
+      "target": "CAP / ParlaCAP",
+      "template_location": "docs/cap-parlacap-topic-mapping.md",
+      "template_type": "review-map-submission"
+    },
+    {
+      "review_gate": "validated speech-turn text and model comparison",
+      "target": "Universal Dependencies / CoNLL-U",
+      "template_location": "docs/ud-conllu-mapping.md",
+      "template_type": "sample-or-issue"
+    },
+    {
+      "review_gate": "validated component exports and stable URI review",
+      "target": "RDF / Linked Data",
+      "template_location": "docs/rdf-linked-data-mapping.md",
+      "template_type": "review-package-or-issue"
+    }
+  ],
+  "track_id": "upstream_submission_execution_20260610",
+  "validation_results": {
+    "blocked_targets": 6,
+    "external_submission_links_recorded": false,
+    "readiness_boundary": "local-review-only",
+    "targets_catalogued": true
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "track_id": "upstream_contribution_packages_20260609",
+  "artifact_name": "Upstream contribution packages",
+  "artifact_version": "0.1.0",
+  "release_level": "upstream-contribution",
+  "release_status": "local-review-only",
+  "publication_target": "maintainer-facing local review package",
+  "submission_status": "not-submitted",
+  "package_contents": [
+    {
+      "target": "ParlaMint-NZ / TEI",
+      "contribution_mechanism": "fork-plus-data-branch-pull-request",
+      "source_evidence": "https://github.com/clarin-eric/ParlaMint/blob/main/CONTRIBUTING.md",
+      "local_artifacts": [
+        "samples/parlamint-nz/ParlaMint-NZ.sample.xml",
+        "samples/parlamint-nz/ParlaMint-NZ.metadata.xml",
+        "samples/parlamint-nz/README.md",
+        "docs/parlamint-nz-mapping.md",
+        "manifests/parlamint_nz_validation_manifest.json"
+      ],
+      "readiness_status": "ready-for-maintainer-review"
+    },
+    {
+      "target": "Popolo / Open Civic Data",
+      "contribution_mechanism": "github-issues-or-pull-requests",
+      "source_evidence": "https://github.com/mysociety/parlparse",
+      "local_artifacts": [
+        "samples/popolo-opencivicdata/people.json",
+        "samples/popolo-opencivicdata/organizations.json",
+        "samples/popolo-opencivicdata/memberships.json",
+        "samples/popolo-opencivicdata/motions.json",
+        "samples/popolo-opencivicdata/vote-events.json",
+        "samples/popolo-opencivicdata/votes.jsonl",
+        "samples/popolo-opencivicdata/speeches.jsonl",
+        "samples/popolo-opencivicdata/README.md",
+        "docs/popolo-opencivicdata-mapping.md",
+        "manifests/popolo_opencivicdata_validation_manifest.json"
+      ],
+      "readiness_status": "ready-for-parser-comparison"
+    },
+    {
+      "target": "CAP / ParlaCAP",
+      "contribution_mechanism": "unconfirmed-maintainer-path",
+      "source_evidence": "live repository path not confirmed in this review",
+      "local_artifacts": [
+        "docs/endpoint-contracts.md",
+        "docs/neutral-component-model.md",
+        "docs/nz-parliamentary-procedure-model.md",
+        "manifests/nz_parliamentary_procedure_model.json",
+        "manifests/neutral_component_model.json"
+      ],
+      "readiness_status": "blocked-pending-mechanism-confirmation"
+    }
+  ],
+  "known_exclusions": [
+    "No external submission has been made from this repository.",
+    "CAP / ParlaCAP remains blocked until a maintainer-confirmed contribution path is identified.",
+    "Upstream acceptance is not claimed for any package."
+  ],
+  "validation_results": {
+    "package_catalogued": true,
+    "mechanisms_checked": true,
+    "external_submission_links_recorded": false,
+    "readiness_boundary": "local-review-only"
+  }
+}

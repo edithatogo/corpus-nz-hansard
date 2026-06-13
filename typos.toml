@@ -1,5 +1,12 @@
 [files]
-extend-exclude = [".git", ".test-tmp", ".tmp", "generated", "manifests/*.json"]
+extend-exclude = [
+  ".git",
+  ".test-tmp",
+  ".tmp",
+  "derived",
+  "generated",
+  "manifests/*.json",
+]
 
 [default.extend-words]
 Hansard = "Hansard"

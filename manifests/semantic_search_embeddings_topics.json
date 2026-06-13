@@ -1,0 +1,109 @@
+{
+  "dependency_groups": [
+    "ml"
+  ],
+  "generated_at": "2026-06-11T00:00:00+10:00",
+  "input_scope": {
+    "embedding_dimension": 4,
+    "input_hash": "sha256:1e2f9762010eb1c3dae6a0505de92f862bdda663b8e99d4ebd09e8ac03251f26",
+    "source_document_count": 7,
+    "source_row_count": 10,
+    "topic_count": 3
+  },
+  "install_commands": [
+    "python -m pip install -r requirements/ml.txt"
+  ],
+  "library_versions": {
+    "jsonschema": "4.26.0",
+    "scikit-learn": "1.8.0"
+  },
+  "manifest_version": 1,
+  "model_versions": [
+    {
+      "generated_at": "2026-06-11T00:00:00+10:00",
+      "input_scope": [
+        "samples/member-identity/member_identity_review.csv",
+        "samples/party-attribution/party_attribution_review.csv"
+      ],
+      "library": "scikit-learn",
+      "library_version": "1.8.0",
+      "model_family": "embedding",
+      "model_hash": "sha256:3dfb73e1c78d769a2a86b7c7fcba15f234ffac00d1e7596e00a0ad988da10ac0",
+      "model_id": "tfidf-truncated-svd",
+      "model_name": "TF-IDF + TruncatedSVD",
+      "model_version": "1.0.0",
+      "parameters": {
+        "svd": {
+          "n_components": 4,
+          "random_state": 42
+        },
+        "tfidf": {
+          "min_df": 1,
+          "ngram_range": [
+            1,
+            2
+          ],
+          "stop_words": "english"
+        }
+      }
+    },
+    {
+      "generated_at": "2026-06-11T00:00:00+10:00",
+      "input_scope": [
+        "samples/member-identity/member_identity_review.csv",
+        "samples/party-attribution/party_attribution_review.csv"
+      ],
+      "library": "scikit-learn",
+      "library_version": "1.8.0",
+      "model_family": "topic-model",
+      "model_hash": "sha256:e077b7532f56d1e99d022de147960ec457a3eaafecfa830ad61df94064e75bd7",
+      "model_id": "lda-topic-model",
+      "model_name": "LatentDirichletAllocation",
+      "model_version": "1.0.0",
+      "parameters": {
+        "count_vectorizer": {
+          "min_df": 1,
+          "stop_words": "english"
+        },
+        "lda": {
+          "learning_method": "batch",
+          "max_iter": 25,
+          "n_components": 3,
+          "random_state": 42
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "docs": "docs/semantic-search-embeddings-topics.md",
+    "jsonl": "samples/semantic-search-embeddings/semantic_search_embeddings_topics.jsonl",
+    "readme": "samples/semantic-search-embeddings/README.md",
+    "review_csv": "samples/semantic-search-embeddings/semantic_search_embeddings_topics_review.csv"
+  },
+  "release_affecting_dependencies": "Pin ML libraries and model revisions before any future public vector or topic artifact.",
+  "release_status": "sample-not-release",
+  "repository": "corpus-nz-hansard",
+  "sample_package": "samples/semantic-search-embeddings",
+  "source_inputs": [
+    "samples/member-identity/member_identity_review.csv",
+    "samples/party-attribution/party_attribution_review.csv"
+  ],
+  "tool_versions": {
+    "python": "3.11.15"
+  },
+  "track_id": "semantic_search_embeddings_topics_20260610",
+  "validation_command": "python scripts/check_semantic_search_embeddings_topics.py",
+  "validation_counts": {
+    "embedding_dimension": 4,
+    "record_count": 10,
+    "review_row_count": 10,
+    "topic_count": 3
+  },
+  "validation_results": {
+    "human_validation_required": true,
+    "non_authoritative": true,
+    "outputs_written": true,
+    "reproducibility_guidance_recorded": true,
+    "review_sample_written": true
+  }
+}

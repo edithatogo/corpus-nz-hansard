@@ -1,0 +1,7 @@
+{
+  "track_id": "cross_repo_dataset_architecture_20260612",
+  "title": "Cross-Repo Dataset Architecture",
+  "status": "completed",
+  "created": "2026-06-12",
+  "description": "Define dataset ownership boundaries between corpus-nz-hansard, corpus-law-nz, and planned corpus-nlp."
+}

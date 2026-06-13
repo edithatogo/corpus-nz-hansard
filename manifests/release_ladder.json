@@ -133,6 +133,13 @@
       "next_gate": "future derived component and endpoint releases must cite relevant fixture IDs or a refreshed evaluation manifest"
     },
     {
+      "artifact": "CAP / ParlaCAP sample package",
+      "path": "samples/cap-parlacap/README.md",
+      "release_level": "upstream-contribution",
+      "status": "planned",
+      "next_gate": "maintainer-confirmed codebook intake and validated topic components are required before any public endpoint release"
+    },
+    {
       "artifact": "canonical ID and URI policy",
       "path": "manifests/id_uri_policy.json",
       "release_level": "neutral-component",
@@ -194,6 +201,20 @@
       "release_level": "upstream-contribution",
       "status": "planned",
       "next_gate": "sample-not-release; promote only after validated member, party, speech-turn, motion, and vote components plus schema/profile selection"
+    },
+    {
+      "artifact": "UD / CoNLL-U sample package",
+      "path": "samples/ud-conllu",
+      "release_level": "upstream-contribution",
+      "status": "planned",
+      "next_gate": "sample-not-release; promote only after validated speech-turn text, offset alignment, and model metadata plus tokenizer/parser comparison evidence"
+    },
+    {
+      "artifact": "RDF / Linked Data sample package",
+      "path": "samples/rdf-linked-data",
+      "release_level": "upstream-contribution",
+      "status": "planned",
+      "next_gate": "sample-not-release; promote only after validated component exports, stable URI review, and SHACL plus SPARQL evidence"
     },
     {
       "artifact": "metadata packages",

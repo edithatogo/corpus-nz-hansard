@@ -2,33 +2,32 @@
 
 ## Phase 1: Authority Source and Contract
 
-- [ ] Task: Identify authoritative member source(s).
-    - [ ] Document source URLs, access method, update cadence, and licensing/provenance.
-    - [ ] Define the member authority schema and version/hash contract.
-- [ ] Task: Define derived output contract.
-    - [ ] Specify output fields, statuses, confidence levels, and non-claims.
-    - [ ] Add schema documentation under `docs/`.
+- [x] Task: Identify authoritative member source(s).
+    - [x] Document source URLs, access method, update cadence, and licensing/provenance.
+    - [x] Define the member authority schema and version/hash contract.
+- [x] Task: Define derived output contract.
+    - [x] Specify output fields, statuses, confidence levels, and non-claims.
+    - [x] Add schema documentation under `docs/`.
 
-## Phase 2: Resolver Design and Tests
+## Phase 2: Review Package and Tests
 
-- [ ] Task: Add fixture-driven tests.
-    - [ ] Exact raw-name match.
-    - [ ] Alias/honorific normalized match.
-    - [ ] Multiple members in one raw field.
-    - [ ] Unresolved raw member.
-    - [ ] Ambiguous raw member.
-- [ ] Task: Implement resolver.
-    - [ ] Read normalized Hansard Parquet.
-    - [ ] Read authority table.
-    - [ ] Emit derived member identity output.
-    - [ ] Emit validation manifest.
+- [x] Task: Add fixture-driven tests.
+    - [x] Exact raw-name match.
+    - [x] Alias/honorific normalized match.
+    - [x] Multiple members in one raw field.
+    - [x] Unresolved raw member.
+    - [x] Ambiguous raw member.
+- [x] Task: Implement local review-package builder and checker.
+    - [x] Read reviewed gold fixtures.
+    - [x] Read authority table.
+    - [x] Emit local member identity review output.
+    - [x] Emit validation manifest.
 
 ## Phase 3: Review and Publication Gate
 
-- [ ] Task: Generate full derived output.
-    - [ ] Record match, unresolved, ambiguous, and conflict counts.
-    - [ ] Produce review report for unresolved/ambiguous cases.
-- [ ] Task: Decide release readiness.
-    - [ ] Keep local-only if ambiguity is too high.
-    - [ ] Publish as separate derived dataset only after validation acceptance.
-
+- [x] Task: Generate local review package.
+    - [x] Record match, unresolved, ambiguous, and conflict counts.
+    - [x] Produce review report for unresolved/ambiguous cases.
+- [x] Task: Decide release readiness.
+    - [x] Keep local-only until broader validation exists.
+    - [x] Do not publish as a separate derived dataset yet.

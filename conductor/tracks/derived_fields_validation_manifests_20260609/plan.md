@@ -2,35 +2,34 @@
 
 ## Phase 1: Framework Contract
 
-- [ ] Task: Define shared manifest contract.
-    - [ ] Required top-level fields.
-    - [ ] Error/warning structure.
-    - [ ] Source linkage and hash fields.
-    - [ ] Release gate status.
-- [ ] Task: Document derived-field validation policy.
-    - [ ] Add `docs/derived-fields-validation.md`.
-    - [ ] Define publication-blocking conditions.
+- [x] Task: Define shared manifest contract.
+    - [x] Required top-level fields.
+    - [x] Error/warning structure.
+    - [x] Source linkage and hash fields.
+    - [x] Release gate status.
+- [x] Task: Document derived-field validation policy.
+    - [x] Add `docs/derived-fields-validation.md`.
+    - [x] Define publication-blocking conditions.
 
 ## Phase 2: Test Harness
 
-- [ ] Task: Add test fixtures.
-    - [ ] Valid derived row.
-    - [ ] Missing provenance.
-    - [ ] Invalid confidence/status.
-    - [ ] Broken source linkage.
-    - [ ] Cross-artifact inconsistency.
-- [ ] Task: Implement validation helper.
-    - [ ] Validate member identity outputs.
-    - [ ] Validate party attribution outputs.
-    - [ ] Validate speech-turn outputs.
+- [x] Task: Add test fixtures.
+    - [x] Valid derived row.
+    - [x] Missing provenance.
+    - [x] Invalid confidence/status.
+    - [x] Broken source linkage.
+    - [x] Cross-artifact inconsistency.
+- [x] Task: Implement validation helper.
+    - [x] Validate member identity outputs.
+    - [x] Validate party attribution outputs.
+    - [x] Validate speech-turn outputs.
 
 ## Phase 3: Integration
 
-- [ ] Task: Wire validation into derived tracks.
-    - [ ] Member identity track consumes shared validation.
-    - [ ] Party attribution track consumes shared validation.
-    - [ ] Speech-turn decision track consumes shared validation if promoted.
-- [ ] Task: Record evidence.
-    - [ ] Run tests.
-    - [ ] Record manifest outputs and release gate status.
-
+- [x] Task: Wire validation into derived tracks.
+    - [x] Member identity track consumes shared validation.
+    - [x] Party attribution track consumes shared validation.
+    - [x] Speech-turn decision track consumes shared validation if promoted.
+- [x] Task: Record evidence.
+    - [x] Run tests.
+    - [x] Record manifest outputs and release gate status.

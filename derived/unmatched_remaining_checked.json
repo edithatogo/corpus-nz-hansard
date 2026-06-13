@@ -1,0 +1,66 @@
+[
+  {
+    "hansard_name": "Anae Neru Leavasa",
+    "wikidata_id": "Q99746551",
+    "wikidata_label": "Neru Leavasa",
+    "party": "New Zealand Labour Party",
+    "start_date": "",
+    "end_date": "",
+    "method": "partial: {'neru', 'leavasa'}",
+    "url": "https://www.wikidata.org/wiki/Q99746551"
+  },
+  {
+    "hansard_name": "Anahila Kanongata'a",
+    "found": false
+  },
+  {
+    "hansard_name": "Asenati Lole-Taylor",
+    "found": false
+  },
+  {
+    "hansard_name": "Brent Hudson",
+    "found": false
+  },
+  {
+    "hansard_name": "Gerrard Eckhoff",
+    "found": false
+  },
+  {
+    "hansard_name": "H V Ross Robertson",
+    "wikidata_id": "Q7369613",
+    "wikidata_label": "Ross Robertson",
+    "party": "New Zealand Labour Party",
+    "start_date": "",
+    "end_date": "",
+    "method": "partial: {'robertson', 'ross'}",
+    "url": "https://www.wikidata.org/wiki/Q7369613"
+  },
+  {
+    "hansard_name": "Laura Trask",
+    "found": false
+  },
+  {
+    "hansard_name": "Peseta Sam Lotu-Iiga",
+    "wikidata_id": "Q7407811",
+    "wikidata_label": "Sam Lotu-Iiga",
+    "party": "New Zealand National Party",
+    "start_date": "",
+    "end_date": "",
+    "method": "partial: {'sam', 'lotu-iiga'}",
+    "url": "https://www.wikidata.org/wiki/Q7407811"
+  },
+  {
+    "hansard_name": "R Doug Woolerton",
+    "wikidata_id": "Q5301028",
+    "wikidata_label": "Doug Woolerton",
+    "party": "New Zealand National Party",
+    "start_date": "",
+    "end_date": "",
+    "method": "partial: {'doug', 'woolerton'}",
+    "url": "https://www.wikidata.org/wiki/Q5301028"
+  },
+  {
+    "hansard_name": "Richard Posser",
+    "found": false
+  }
+]

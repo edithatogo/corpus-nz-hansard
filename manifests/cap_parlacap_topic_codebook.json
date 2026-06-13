@@ -1,0 +1,41 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "generated_at": "2026-06-10",
+  "endpoint": "CAP / ParlaCAP Topic Endpoint",
+  "endpoint_track": "cap_parlacap_topic_endpoint_20260609",
+  "codebook_name": "CAP topic review map",
+  "codebook_version": "cap-review-map-20260610",
+  "codebook_status": "repository-declared-review-mapping",
+  "upstream_confirmation_status": "pending-maintainer-confirmation",
+  "codebook_source_note": "Local review mapping for sample validation. The repository does not yet claim a maintainer-confirmed external CAP intake path.",
+  "topic_scheme": "cap-review-map-20260610",
+  "declared_codes": [
+    {
+      "topic_code": "health/drinking-water",
+      "topic_label": "Health / drinking water",
+      "coding_class": "human-coded",
+      "authority_status": "reviewed",
+      "publication_status": "sample-not-release"
+    },
+    {
+      "topic_code": "transport",
+      "topic_label": "Transport",
+      "coding_class": "rule-coded",
+      "authority_status": "reviewed",
+      "publication_status": "sample-not-release"
+    },
+    {
+      "topic_code": "procedure/cleanup",
+      "topic_label": "Procedure / cleanup",
+      "coding_class": "model-coded",
+      "authority_status": "exploratory-only",
+      "publication_status": "sample-not-release"
+    }
+  ],
+  "notes": [
+    "Human-coded and rule-coded rows are treated as review artifacts.",
+    "Model-coded labels remain non-authoritative and are excluded from validated publication.",
+    "ParlaCAP-compatible speech/topic outputs may be generated once validated speech-turn components are available."
+  ]
+}

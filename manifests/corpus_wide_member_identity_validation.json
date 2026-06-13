@@ -1,0 +1,66 @@
+{
+  "artifact_name": "corpus_wide_member_identity",
+  "artifact_version": "0.1.0",
+  "counts": {
+    "alias": 1462,
+    "ambiguous": 0,
+    "conflict": 0,
+    "derived_rows": 137797,
+    "exact": 30959,
+    "multi-person": 105360,
+    "review_queue_rows": 16,
+    "source_files_from_schema_discovery": 8,
+    "source_rows_from_schema_discovery": 193922,
+    "source_rows_read": 193922,
+    "source_rows_with_member_field": 157640,
+    "unresolved": 16
+  },
+  "errors": [
+    "Authority snapshot is corpus-derived and not yet human-validated against official sources; coverage review at docs/corpus-wide-member-identity-coverage-review.md identifies 5 must-fix items and 5 should-fix items before gate advancement."
+  ],
+  "generated_at": "2026-06-12T20:30:00+00:00",
+  "input_artifacts": {
+    "normalized_parquet": "generated/parquet/hansard.parquet"
+  },
+  "ok": false,
+  "outputs": {
+    "member_identity_csv": "derived/corpus_wide_member_identity/member_identity.csv",
+    "review_overrides_csv": "derived/corpus_wide_member_identity/member_identity_review_overrides.csv",
+    "review_queue_csv": "derived/corpus_wide_member_identity/member_identity_review_queue.csv",
+    "schema": "schemas/corpus_wide_member_identity.schema.json"
+  },
+  "release_decision": {
+    "decision": "defer",
+    "public_claim": "This is a corpus-wide blocked derived component, not a validated public member identity release.",
+    "reason": "Generated output remains blocked until authority coverage, unresolved cases, and human review gates are complete."
+  },
+  "release_gate_status": "blocked-pending-authority-coverage-review",
+  "source_hashes": {
+    "authority_snapshot": "6990ddbbde8cda08c91ca6cf6b9d00a1c3ed4c99fafa062771a3314eb249c73d",
+    "normalized_parquet": "334b8a2a790c67c80025854ee57f4db200d654921c53160089f825a61f35f892",
+    "schema_discovery": "84c7eeef71e6da57c59d0b21c7115bab619eaeebd7315da0db8ac4b96833db10",
+    "source_inventory": "60a17d42da7cea9d4ffc0134916adaf23cec1b12cbaaee839d66ec65bbc1a6dc"
+  },
+  "source_manifests": [
+    "manifests/source_inventory.json",
+    "manifests/schema_discovery.json",
+    "derived/corpus_wide_member_identity_authority.json"
+  ],
+  "source_summary": {
+    "file_count": 8,
+    "member_bearing_fields": [
+      "member_of_parliament_raw"
+    ],
+    "schema_discovery_manifest": "manifests/schema_discovery.json",
+    "source_archive": "2024-09-06 Hansard Extract from DocumentsDB.zip",
+    "source_archive_sha256": "2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299",
+    "source_inventory_manifest": "manifests/source_inventory.json",
+    "total_rows_from_schema_discovery": 193922,
+    "upstream_member_field": "MemberOfParliament"
+  },
+  "track_id": "corpus_wide_member_identity_release_20260610",
+  "validation_status": "blocked",
+  "warnings": [
+    "Artifact is generated as blocked-pending-validation and must not be published as a validated component."
+  ]
+}

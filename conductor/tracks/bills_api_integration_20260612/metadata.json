@@ -1,0 +1,7 @@
+{
+  "track_id": "bills_api_integration_20260612",
+  "title": "Bills API Integration",
+  "status": "in_progress",
+  "created": "2026-06-12",
+  "description": "Integrate open REST API from bills.parliament.nz: 3,513 bills with structured member sponsors, stages, committees."
+}

@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "manifest_version",
+    "repository",
+    "generated_at",
+    "endpoint",
+    "endpoint_track",
+    "release_series_id",
+    "release_level",
+    "artifact_name",
+    "artifact_version",
+    "release_status",
+    "codebook_version",
+    "codebook_metadata",
+    "publication_target",
+    "upstream_contribution_target",
+    "input_release_versions",
+    "input_artifacts",
+    "output_artifacts",
+    "validation_command",
+    "schema_or_ontology_version",
+    "dependency_groups",
+    "install_commands",
+    "tool_versions",
+    "library_versions",
+    "model_versions",
+    "lock_or_constraints",
+    "release_affecting_dependencies",
+    "known_exclusions",
+    "validation_results",
+    "traceability",
+    "manifest_sha256"
+  ],
+  "properties": {
+    "manifest_version": { "type": "integer" },
+    "repository": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "endpoint": { "type": "string" },
+    "endpoint_track": { "type": "string" },
+    "release_series_id": { "type": "string" },
+    "release_level": { "type": "string" },
+    "artifact_name": { "type": "string" },
+    "artifact_version": { "type": "string" },
+    "release_status": { "type": "string" },
+    "codebook_version": { "type": "string" },
+    "codebook_metadata": { "type": "string" },
+    "publication_target": { "type": "string" },
+    "upstream_contribution_target": { "type": "string" },
+    "input_release_versions": { "type": "object" },
+    "input_artifacts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "output_artifacts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "validation_command": { "type": "string" },
+    "schema_or_ontology_version": { "type": "string" },
+    "dependency_groups": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "install_commands": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "tool_versions": { "type": "object" },
+    "library_versions": { "type": "object" },
+    "model_versions": { "type": "object" },
+    "lock_or_constraints": { "type": "string" },
+    "release_affecting_dependencies": { "type": "string" },
+    "known_exclusions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "validation_results": { "type": "object" },
+    "traceability": { "type": "array" },
+    "manifest_sha256": { "type": "string" }
+  }
+}

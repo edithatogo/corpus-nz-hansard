@@ -1,0 +1,262 @@
+Parliament 52: 125 MPs
+  ACT: 1
+    David Seymour - Epsom
+  Green: 8
+    James Shaw - List
+    Julie Anne Genter - List
+    Eugenie Sage - List
+    Jan Logie - List
+    Marama Davidson - List
+    Gareth Hughes - List
+    Chlöe Swarbrick - List
+    Golriz Ghahraman - List
+  Independent: 1
+    Jami-Lee Ross - Botany
+  Labour: 46
+    Jacinda Ardern - Mount Albert
+    Kelvin Davis - Te Tai Tokerau
+    Grant Robertson - Wellington Central
+    Phil Twyford - Te Atatū
+    Megan Woods - Wigram
+    Chris Hipkins - Rimutaka
+    Andrew Little - List
+    Carmel Sepuloni - Kelston
+    David Parker - List
+    Nanaia Mahuta - Hauraki-Waikato
+    Stuart Nash - Napier
+    Jenny Salesa - Manukau East
+    Damien O'Connor - West Coast-Tasman
+    Kris Faafoi - Mana
+    Peeni Henare - Tāmaki Makaurau
+    Willie Jackson - List
+    William Sio - Māngere
+    Poto Williams - Christchurch East
+    Trevor Mallard - List
+    Adrian Rurawhe - Te Tai Hauauru
+    Ruth Dyson - Port Hills
+    Michael Wood - Mount Roskill
+    Kieran McAnulty - List
+    Kiri Allan - List
+    David Clark - Dunedin North
+    Clare Curran - Dunedin South
+    Meka Whaitiri - Ikaroa-Rawhiti
+    Rino Tirikatene - Te Tai Tonga
+    Louisa Wall - Manurewa
+    Raymond Huo - List
+    Priyanca Radhakrishnan - List
+    Jan Tinetti - List
+    Willow-Jean Prime - List
+    Ginny Andersen - List
+    Jo Luxton - List
+    Deborah Russell - New Lynn
+    Liz Craig - List
+    Marja Lubeck - List
+    Paul Eagle - Rongotai
+    Tāmati Coffey - Waiariki
+    Jamie Strange - List
+    Anahila Kanongata'a-Suisuiki - List
+    Angie Warren-Clark - List
+    Greg O'Connor - Ohariu
+    Duncan Webb - Christchurch Central
+    Iain Lees-Galloway - Palmerston North
+  NZ First: 9
+    Winston Peters - List
+    Ron Mark - List
+    Tracey Martin - List
+    Shane Jones - List
+    Fletcher Tabuteau - List
+    Darroch Ball - List
+    Clayton Mitchell - List
+    Mark Patterson - List
+    Jenny Marcroft - List
+  National: 60
+    Judith Collins - Papakura
+    Gerry Brownlee - Ilam
+    Paul Goldsmith - List
+    Simon Bridges - Tauranga
+    Shane Reti - Whangarei
+    Todd McClay - Rotorua
+    Chris Bishop - Hutt South
+    Todd Muller - Bay of Plenty
+    Louise Upston - Taupo
+    Scott Simpson - Coromandel
+    David Bennett - Hamilton East
+    Michael Woodhouse - List
+    Nicola Willis - List
+    Jacqui Dean - Waitaki
+    Mark Mitchell - Rodney
+    Melissa Lee - List
+    Andrew Bayly - Hunua
+    Nick Smith - Nelson
+    Alfred Ngaro - List
+    Barbara Kuriger - Taranaki-King Country
+    Harete Hipango - Whanganui
+    Jonathan Young - New Plymouth
+    Tim Macindoe - Hamilton West
+    Kanwaljit Singh Bakshi - List
+    Matt Doocey - Waimakariri
+    Stuart Smith - Kaikōura
+    Simon O'Connor - Tāmaki
+    Lawrence Yule - Tukituki
+    Denise Lee - Maungakiekie
+    Parmjeet Parmar - List
+    Brett Hudson - List
+    Simeon Brown - Pakuranga
+    Ian McKelvie - Rangitīkei
+    Jo Hayes - List
+    Matt King - Northland
+    Chris Penk - Helensville
+    Erica Stanford - East Coast Bays
+    Tim van de Molen - Waikato
+    Maureen Pugh - List
+    Dan Bidois - Northcote
+    Agnes Loheni - List
+    Paulo Garcia - List
+    Nikki Kaye - Auckland Central
+    Amy Adams - Selwyn
+    Anne Tolley - East Coast
+    Paula Bennett - Upper Harbour
+    David Carter - List
+    Nicky Wagner - List
+    Nathan Guy - Otaki
+    Maggie Barry - North Shore
+    Jian Yang - List
+    Sarah Dowie - Invercargill
+    Alastair Scott - Wairarapa
+    Hamish Walker - Clutha-Southland
+    Bill English - List
+    Steven Joyce - List
+    Jonathan Coleman - Northcote
+    Chris Finlayson - List
+    Nuk Korako - List
+    Andrew Falloon - Rangitata
+Parliament 53: 124 MPs
+  ACT: 10
+    David Seymour - Epsom
+    Brooke van Velden - List
+    Nicole McKee - List
+    Chris Baillie - List
+    Simon Court - List
+    James McDowall - List
+    Karen Chhour - List
+    Mark Cameron - List
+    Toni Severin - List
+    Damien Smith - List
+  Green: 9
+    Marama Davidson - List
+    James Shaw - List
+    Chlöe Swarbrick - Auckland Central
+    Julie Anne Genter - List
+    Jan Logie - List
+    Eugenie Sage - List
+    Golriz Ghahraman - List
+    Teanau Tuiono - List
+    Ricardo Menéndez March - List
+  Independent: 3
+    Meka Whaitiri - Ikaroa-Rawhiti
+    Elizabeth Kerekere - List
+    Gaurav Sharma - Hamilton West
+  Labour: 66
+    Chris Hipkins - Remutaka
+    Carmel Sepuloni - Kelston
+    Kelvin Davis - Te Tai Tokerau
+    Grant Robertson - Wellington Central
+    Megan Woods - Wigram
+    Jan Tinetti - List
+    Michael Wood - Mount Roskill
+    Ayesha Verrall - List
+    Willie Jackson - List
+    Kiri Allan - East Coast
+    Damien O'Connor - West Coast-Tasman
+    Andrew Little - List
+    David Parker - List
+    Peeni Henare - Tāmaki Makaurau
+    Nanaia Mahuta - Hauraki-Waikato
+    Priyanca Radhakrishnan - Maungakiekie
+    Kieran McAnulty - Wairarapa
+    Ginny Andersen - Hutt South
+    Barbara Edmonds - Mana
+    Willow-Jean Prime - Northland
+    Duncan Webb - Christchurch Central
+    Rino Tirikatene - Te Tai Tonga
+    Deborah Russell - New Lynn
+    Rachel Brooking - List
+    Jo Luxton - Rangitata
+    Adrian Rurawhe - Te Tai Hauauru
+    Greg O'Connor - Ohariu
+    Jenny Salesa - Panmure-Ōtāhuhu
+    Tangi Utikere - Palmerston North
+    Camilla Belich - List
+    Tracey McLellan - Banks Peninsula
+    Shanan Halbert - Northcote
+    Phil Twyford - Te Atatū
+    David Clark - Dunedin
+    William Sio - Māngere
+    Poto Williams - Christchurch East
+    Vanushi Walters - Upper Harbour
+    Marja Lubeck - List
+    Angie Warren-Clark - List
+    Tāmati Coffey - List
+    Naisi Chen - List
+    Jamie Strange - Hamilton East
+    Liz Craig - List
+    Ibrahim Omer - List
+    Anahila Kanongata'a-Suisuiki - List
+    Paul Eagle - Rongotai
+    Helen White - List
+    Angela Roberts - List
+    Neru Leavasa - Takanini
+    Lemauga Lydia Sosene - List
+    Steph Lewis - Whanganui
+    Dan Rosewarne - List
+    Rachel Boyack - Nelson
+    Arena Williams - Manurewa
+    Ingrid Leary - Taieri
+    Soraya Peke-Mason - List
+    Sarah Pallett - Ilam
+    Emily Henderson - Whangārei
+    Terisa Ngobi - Ōtaki
+    Glen Bennett - New Plymouth
+    Anna Lorck - Tukituki
+    Stuart Nash - Napier
+    Louisa Wall - List
+    Kris Faafoi - List
+    Trevor Mallard - List
+    Jacinda Ardern - Mount Albert
+  National: 36
+    Christopher Luxon - Botany
+    Nicola Willis - List
+    Chris Bishop - List
+    Shane Reti - List
+    Paul Goldsmith - List
+    Louise Upston - Taupō
+    Erica Stanford - East Coast Bays
+    Matt Doocey - Waimakariri
+    Simeon Brown - Pakuranga
+    Judith Collins - Papakura
+    Mark Mitchell - Whangaparāoa
+    Todd Muller - Bay of Plenty
+    Melissa Lee - List
+    Andrew Bayly - Port Waikato
+    Gerry Brownlee - List
+    Todd McClay - Rotorua
+    Michael Woodhouse - List
+    Stuart Smith - Kaikōura
+    Scott Simpson - Coromandel
+    Penny Simmonds - Invercargill
+    Simon O'Connor - Tāmaki
+    Barbara Kuriger - Taranaki-King Country
+    Maureen Pugh - List
+    Harete Hipango - List
+    Chris Penk - Kaipara ki Mahurangi
+    Tim van de Molen - Waikato
+    Nicola Grigg - Selwyn
+    Joseph Mooney - Southland
+    Simon Watts - North Shore
+    Sam Uffindell - Tauranga
+    Tama Potaka - Hamilton West
+    David Bennett - List
+    Jacqui Dean - Waitaki
+    Ian McKelvie - Rangitīkei
+    Nick Smith - List
+    Simon Bridges - Tauranga

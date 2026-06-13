@@ -1,0 +1,32 @@
+{
+  "artifact_name": "speech_turn_release_decision",
+  "artifact_version": "0.1.0",
+  "generated_at": "2026-06-10",
+  "decision": "explicitly excluded",
+  "status": "excluded",
+  "release_scope": "public final scope",
+  "release_gate_status": "excluded",
+  "decision_basis": [
+    "The current speech-turn pipeline is a heuristic MVP and is not authoritative.",
+    "Speaker names are not identity-resolved.",
+    "Party and electorate details are not extracted.",
+    "Validated member identity is not yet available."
+  ],
+  "source_manifests": [
+    "docs/speech-turn-release-decision.md",
+    "docs/speech-turn-segmentation-contract.md",
+    "docs/speech-turn-segmentation-report.md",
+    "manifests/speech_turn_segmentation_validation.json"
+  ],
+  "source_hashes": {
+    "docs/speech-turn-release-decision.md": "2FAA9EFA339CCFDD9DAA53ECB2F00F4C3C0627BAEF207F5D3144EA46D2135D44",
+    "docs/speech-turn-segmentation-contract.md": "0369897047CA42BE2358AA80862D74610C9221042DC010B3B672981D9FC14E62",
+    "docs/speech-turn-segmentation-report.md": "647E0F32E633C2344693DD5AA92A0E0A03FAD639E312E491E42790E2572D3BE3",
+    "manifests/speech_turn_segmentation_validation.json": "221ED851B49C488F229CE89E9906571E4BAC5ED927C3883F47EF070B92D5FD64"
+  },
+  "future_validation_requirements": [
+    "Validated member identity must exist before any speech-turn component can be authoritative.",
+    "Segmentation and identity attribution must be evaluated separately.",
+    "Hand-reviewed stratified samples must cover hard colon-marker, embedded-heading, no-speaker fallback, and multi-speaker cases."
+  ]
+}

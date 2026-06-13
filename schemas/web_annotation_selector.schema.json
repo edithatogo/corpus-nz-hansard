@@ -1,0 +1,296 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "selector_type": {
+            "const": "TextQuoteSelector"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "text_quote"
+        ],
+        "properties": {
+          "text_quote": {
+            "required": [
+              "exact"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "selector_type": {
+            "const": "TextPositionSelector"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "text_position"
+        ],
+        "properties": {
+          "text_position": {
+            "required": [
+              "start_offset",
+              "end_offset"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "selector_type": {
+            "const": "FragmentSelector"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "fragment"
+        ],
+        "properties": {
+          "fragment": {
+            "required": [
+              "value"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "selector_type": {
+            "const": "LinePositionSelector"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "line_position"
+        ],
+        "properties": {
+          "line_position": {
+            "required": [
+              "start_line",
+              "end_line"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "selector_type": {
+            "const": "PagePositionSelector"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "page_position"
+        ],
+        "properties": {
+          "page_position": {
+            "required": [
+              "start_page",
+              "end_page"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "annotation_purpose": {
+      "enum": [
+        "speech_turn",
+        "topic_unit",
+        "ud_token",
+        "rdf_annotation",
+        "search_chunk"
+      ],
+      "type": "string"
+    },
+    "fragment": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "type": "object"
+    },
+    "line_position": {
+      "additionalProperties": false,
+      "properties": {
+        "start_line": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "end_line": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start_line",
+        "end_line"
+      ],
+      "type": "object"
+    },
+    "normalization_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "case_sensitivity": {
+          "enum": [
+            "source-preserving",
+            "case-insensitive"
+          ],
+          "type": "string"
+        },
+        "offset_basis": {
+          "enum": [
+            "utf-8-codepoints",
+            "source-line-number",
+            "source-page-number"
+          ],
+          "type": "string"
+        },
+        "unicode_normalization": {
+          "enum": [
+            "preserve-source",
+            "NFC",
+            "NFKC"
+          ],
+          "type": "string"
+        },
+        "whitespace_policy": {
+          "enum": [
+            "preserve-source",
+            "normalize-collapsed-whitespace"
+          ],
+          "type": "string"
+        }
+      },
+      "required": [
+        "unicode_normalization",
+        "whitespace_policy",
+        "offset_basis",
+        "case_sensitivity"
+      ],
+      "type": "object"
+    },
+    "page_position": {
+      "additionalProperties": false,
+      "properties": {
+        "start_page": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "end_page": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start_page",
+        "end_page"
+      ],
+      "type": "object"
+    },
+    "selector_type": {
+      "enum": [
+        "TextQuoteSelector",
+        "TextPositionSelector",
+        "FragmentSelector",
+        "LinePositionSelector",
+        "PagePositionSelector"
+      ],
+      "type": "string"
+    },
+    "source_component_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_document_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_document_uri": {
+      "format": "uri",
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_hash": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_stable_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "text_position": {
+      "additionalProperties": false,
+      "properties": {
+        "start_offset": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "end_offset": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "start_offset",
+        "end_offset"
+      ],
+      "type": "object"
+    },
+    "text_quote": {
+      "additionalProperties": false,
+      "properties": {
+        "exact": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "prefix": {
+          "type": "string"
+        },
+        "suffix": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "exact"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "selector_type",
+    "source_document_id",
+    "source_document_uri",
+    "source_hash",
+    "source_stable_id",
+    "source_component_id",
+    "annotation_purpose",
+    "normalization_policy"
+  ],
+  "type": "object"
+}

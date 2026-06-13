@@ -1,0 +1,87 @@
+{
+  "artifact_name": "sitting_proceeding_component_validation",
+  "artifact_version": "0.1.0",
+  "counts": {
+    "fixture_proceeding_items": 1,
+    "fixture_sittings": 1,
+    "inferred_proceeding_items": 1,
+    "inferred_sittings": 1,
+    "missing_official_proceeding_items": 1,
+    "missing_official_sittings": 1,
+    "reconciled_proceeding_items": 0,
+    "reconciled_sittings": 0,
+    "review_rows": 2,
+    "validated_rows": 0
+  },
+  "coverage": {
+    "artifact_name": "sitting_proceeding_component_coverage",
+    "artifact_version": "0.1.0",
+    "authority_source_count": 15,
+    "coverage_counts": {
+      "inferred_proceedings": 1,
+      "inferred_sittings": 1,
+      "missing_official_proceedings": 1,
+      "missing_official_sittings": 1,
+      "reconciled_proceedings": 0,
+      "reconciled_sittings": 0
+    },
+    "fixture_counts": {
+      "proceeding_items": 1,
+      "sittings": 1
+    },
+    "generated_at": "2026-06-12T04:23:51.720126+00:00",
+    "historical_audit_status": "available-not-yet-reconciled",
+    "historical_coverage_status": "partial",
+    "reason": "Official sitting and proceeding reconciliation has not been completed; the track remains blocked pending historical coverage alignment.",
+    "status": "blocked",
+    "track_id": "sitting_proceeding_component_release_20260610",
+    "warnings": [
+      "Fixture rows demonstrate the component shape, not official reconciliation.",
+      "Endpoint consumers must not treat these components as validated release inputs."
+    ]
+  },
+  "errors": [
+    "Official sitting and proceeding reconciliation has not been completed; the track remains blocked pending historical coverage alignment."
+  ],
+  "generated_at": "2026-06-12T04:23:51.670031+00:00",
+  "input_artifacts": {
+    "authority_sources": "manifests/authority_sources.json",
+    "historical_coverage_audit": "manifests/historical_coverage_audit.json",
+    "neutral_component_fixtures": "fixtures/neutral_components.json",
+    "neutral_component_model": "manifests/neutral_component_model.json",
+    "neutral_component_validation": "manifests/neutral_component_validation_manifest.json"
+  },
+  "ok": false,
+  "outputs": {
+    "coverage_report": "derived/sitting_proceeding_components/sitting_proceeding_coverage.json",
+    "review_queue": "derived/sitting_proceeding_components/sitting_proceeding_review.csv"
+  },
+  "release_decision": {
+    "decision": "defer",
+    "public_claim": "No validated sitting/proceeding release is published from this blocked manifest.",
+    "reason": "Official sitting and proceeding reconciliation has not been completed; the track remains blocked pending historical coverage alignment."
+  },
+  "release_gate_status": "blocked-pending-official-reconciliation",
+  "source_hashes": {
+    "authority_sources": "6d26729cf9f98b827cf26edb3fc11fc6e53165f7aea1ca8a0a12a91d77edd22b",
+    "historical_coverage_audit": "a54764479130809b20760d9fc9f33b8a78e5d3eec539cce9399498d40443bb72",
+    "neutral_component_fixtures": "305468425d3d569c7e7bf90fa89fe103dd15031fd2adf04f736ed08652b3c8d8",
+    "neutral_component_model": "58471befa683b4547dfe02cb7f6b9862127eed0b87cc4c10c0026ce67dafc6f0",
+    "neutral_component_validation": "450932084e414d61e1ac0edac2f792a4675c5de3db68b4a4c658398cc628fcab"
+  },
+  "source_manifests": [
+    "manifests/neutral_component_model.json",
+    "manifests/neutral_component_validation_manifest.json",
+    "fixtures/neutral_components.json",
+    "manifests/historical_coverage_audit.json",
+    "manifests/authority_sources.json",
+    "docs/neutral-component-model.md",
+    "docs/historical-coverage-audit.md"
+  ],
+  "track_id": "sitting_proceeding_component_release_20260610",
+  "validation_status": "blocked",
+  "warnings": [
+    "The neutral fixture set proves shape and referential integrity, not official reconciliation.",
+    "Downstream endpoint publication remains blocked until official sitting and proceeding evidence is aligned."
+  ]
+}

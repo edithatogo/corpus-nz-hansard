@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "candidate_links": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "authority_source_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "authority_source_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "candidate_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "candidate_label": {
+            "type": "string"
+          },
+          "candidate_uri": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "linking_status": {
+            "enum": [
+              "linked",
+              "ambiguous",
+              "unresolved",
+              "negative",
+              "excluded"
+            ]
+          },
+          "match_method": {
+            "type": "string"
+          },
+          "score": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          }
+        },
+        "required": [
+          "candidate_id",
+          "candidate_label",
+          "candidate_uri",
+          "authority_source_id",
+          "authority_source_url",
+          "score",
+          "match_method",
+          "linking_status"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "entity_type": {
+      "enum": [
+        "person",
+        "organisation",
+        "place",
+        "legislation",
+        "ministry",
+        "portfolio",
+        "committee"
+      ]
+    },
+    "example_class": {
+      "enum": [
+        "positive",
+        "negative",
+        "ambiguous",
+        "unresolved",
+        "excluded"
+      ]
+    },
+    "linking_status": {
+      "enum": [
+        "linked",
+        "ambiguous",
+        "unresolved",
+        "negative",
+        "excluded"
+      ]
+    },
+    "mention_text": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "parliament_number": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_sources": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "human_validation": {
+          "type": "boolean"
+        },
+        "method": {
+          "type": "string"
+        },
+        "rule_bundle": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "method",
+        "rule_bundle",
+        "authority_sources",
+        "human_validation"
+      ],
+      "type": "object"
+    },
+    "record_id": {
+      "type": "string"
+    },
+    "release_status": {
+      "const": "sample-not-release"
+    },
+    "review_status": {
+      "const": "reviewed"
+    },
+    "selector": {
+      "additionalProperties": false,
+      "properties": {
+        "exact": {
+          "type": "string"
+        },
+        "selector_type": {
+          "const": "exact"
+        },
+        "source_stable_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "selector_type",
+        "exact",
+        "source_stable_id"
+      ],
+      "type": "object"
+    },
+    "source_document_type": {
+      "type": "string"
+    },
+    "source_excerpt": {
+      "type": "string"
+    },
+    "source_stable_id": {
+      "type": "string"
+    },
+    "validation_status": {
+      "const": "exploratory-only"
+    }
+  },
+  "required": [
+    "record_id",
+    "entity_type",
+    "example_class",
+    "mention_text",
+    "source_document_type",
+    "parliament_number",
+    "source_stable_id",
+    "source_excerpt",
+    "selector",
+    "candidate_links",
+    "linking_status",
+    "provenance",
+    "validation_status",
+    "review_status",
+    "release_status",
+    "notes"
+  ],
+  "type": "object"
+}

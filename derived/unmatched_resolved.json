@@ -1,0 +1,314 @@
+{
+  "source_wikidata": "C:\\Users\\60217257\\OneDrive - Flinders\\repos\\corpus-nz-hansard\\derived\\wikidata_nz_mps.json",
+  "source_unmatched": "C:\\Users\\60217257\\OneDrive - Flinders\\repos\\corpus-nz-hansard\\_unmatched.txt",
+  "total_unmatched": 51,
+  "resolved_count": 5,
+  "unresolved_count": 46,
+  "match_rate_pct": 9.8,
+  "resolved": [
+    {
+      "hansard_name": "Anae Neru Leavasa",
+      "hansard_aliases": [
+        "Dr Anae Neru Leavasa"
+      ],
+      "wikidata_id": "Q61045148",
+      "wikidata_label": "Agnes Loheni",
+      "match_method": "partial",
+      "matched_on": "neru leavasa anae",
+      "party": "New Zealand National Party",
+      "start_date": "2019-01-31T00:00:00Z",
+      "end_date": "2020-09-06T00:00:00Z",
+      "parliament_label": "52nd New Zealand Parliament",
+      "parliament_number": "",
+      "aliases": [
+        "Akenese Loreta Loheni",
+        "Agnes Loreta Loheni"
+      ],
+      "provenance": {
+        "described_at_url": "",
+        "reference_urls": [
+          "https://www.parliament.nz/en/mps-and-electorates/members-of-parliament/loheni-agnes/"
+        ],
+        "wikidata_item_url": "https://www.wikidata.org/wiki/Q61045148"
+      },
+      "confidence_score": 5
+    },
+    {
+      "hansard_name": "H V Ross Robertson",
+      "hansard_aliases": [],
+      "wikidata_id": "Q7369613",
+      "wikidata_label": "Ross Robertson",
+      "match_method": "partial",
+      "matched_on": "ross robertson",
+      "party": "New Zealand Labour Party",
+      "start_date": "",
+      "end_date": "",
+      "parliament_label": "50th New Zealand Parliament",
+      "parliament_number": "",
+      "aliases": [
+        "Harold Valentine Ross Robertson"
+      ],
+      "provenance": {
+        "described_at_url": "",
+        "reference_urls": [],
+        "wikidata_item_url": "https://www.wikidata.org/wiki/Q7369613"
+      },
+      "confidence_score": 3
+    },
+    {
+      "hansard_name": "Paul Tamatha",
+      "hansard_aliases": [
+        "Tamatha Paul"
+      ],
+      "wikidata_id": "Q61045148",
+      "wikidata_label": "Agnes Loheni",
+      "match_method": "partial",
+      "matched_on": "paul tamatha",
+      "party": "New Zealand National Party",
+      "start_date": "2019-01-31T00:00:00Z",
+      "end_date": "2020-09-06T00:00:00Z",
+      "parliament_label": "52nd New Zealand Parliament",
+      "parliament_number": "",
+      "aliases": [
+        "Akenese Loreta Loheni",
+        "Agnes Loreta Loheni"
+      ],
+      "provenance": {
+        "described_at_url": "",
+        "reference_urls": [
+          "https://www.parliament.nz/en/mps-and-electorates/members-of-parliament/loheni-agnes/"
+        ],
+        "wikidata_item_url": "https://www.wikidata.org/wiki/Q61045148"
+      },
+      "confidence_score": 5
+    },
+    {
+      "hansard_name": "Peseta Sam Lotu-Iiga",
+      "hansard_aliases": [],
+      "wikidata_id": "Q7407811",
+      "wikidata_label": "Sam Lotu-Iiga",
+      "match_method": "partial",
+      "matched_on": "lotu-iiga sam",
+      "party": "New Zealand National Party",
+      "start_date": "",
+      "end_date": "",
+      "parliament_label": "51st New Zealand Parliament",
+      "parliament_number": "",
+      "aliases": [],
+      "provenance": {
+        "described_at_url": "",
+        "reference_urls": [
+          "https://gazette.govt.nz/notice/id/2014-au6200"
+        ],
+        "wikidata_item_url": "https://www.wikidata.org/wiki/Q7407811"
+      },
+      "confidence_score": 3
+    },
+    {
+      "hansard_name": "R Doug Woolerton",
+      "hansard_aliases": [],
+      "wikidata_id": "Q5301028",
+      "wikidata_label": "Doug Woolerton",
+      "match_method": "partial",
+      "matched_on": "doug woolerton",
+      "party": "New Zealand National Party",
+      "start_date": "",
+      "end_date": "",
+      "parliament_label": "48th New Zealand Parliament",
+      "parliament_number": "",
+      "aliases": [],
+      "provenance": {
+        "described_at_url": "",
+        "reference_urls": [],
+        "wikidata_item_url": "https://www.wikidata.org/wiki/Q5301028"
+      },
+      "confidence_score": 3
+    }
+  ],
+  "unresolved": [
+    {
+      "hansard_name": "Anahila Kanongata'a",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Andrew Hoggard",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Andy Foster",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Asenati Lole-Taylor",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Brent Hudson",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Cameron Brewer",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Cameron Luxton",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Carl Bates",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Carlos Cheung",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Catherine Wedd",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Celia Wade-Brown",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Cushla Tangaere-Manuel",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Dana Kirkpatrick",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Darleen Tana",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "David MacLeod",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Francisco Hernandez",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Gerrard Eckhoff",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Grant McCallum",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Greg Fleming",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Hamish Campbell",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Hana-Rawhiti Maipi-Clarke",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Hūhana Lyndon",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "James Meager",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Jamie Arbuckle",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Kahurangi Carter",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Katie Nimon",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Lan Pham",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Laura Trask",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Lawrence Xu-Nan",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Mariameno Kapa-Kingi",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Mike Butterick",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Miles Anderson",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Nancy Lu",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Reuben Davidson",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Richard Posser",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Rima Nakhle",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Ryan Hamilton",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Scott Willis",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Steve Abel",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Suze Redmayne",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Tanya Unkovich",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Tim Costley",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Todd Stephenson",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Tom Rutherford",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Tākuta Ferris",
+      "hansard_aliases": []
+    },
+    {
+      "hansard_name": "Vanessa Weenink",
+      "hansard_aliases": []
+    }
+  ]
+}

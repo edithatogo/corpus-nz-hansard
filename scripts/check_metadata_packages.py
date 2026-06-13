@@ -17,13 +17,14 @@ TRACK_PATH = ROOT / "conductor/tracks/sota_metadata_packages_20260609/evidence.m
 RELEASE_MANIFEST_PATH = ROOT / "manifests/public_dataset_release_manifest.json"
 GENERATED_DIR = ROOT / "generated/metadata"
 
-REQUIRED_PACKAGE_IDS = {"croissant", "ro-crate", "frictionless", "dcat", "prov-o"}
+REQUIRED_PACKAGE_IDS = {"croissant", "ro-crate", "frictionless", "dcat", "prov-o", "datacite"}
 REQUIRED_SOURCE_MANIFESTS = {
     "manifests/public_dataset_release_manifest.json",
     "manifests/public_surface_audit.json",
     ".zenodo.json",
     "CITATION.cff",
     "DATASET_CARD.md",
+    "docs/datacite-export-contract.md",
     "schemas/hansard_record.schema.json",
 }
 
@@ -65,6 +66,51 @@ def _validate_json_package(path: Path, package_id: str) -> list[str]:
         resources = payload.get("resources", [])
         if not isinstance(resources, list) or not resources:
             failures.append("frictionless metadata must include resources.")
+    elif package_id == "datacite":
+        for key in (
+            "schemaVersion",
+            "identifier",
+            "creators",
+            "titles",
+            "publisher",
+            "publicationYear",
+            "types",
+            "version",
+            "descriptions",
+            "contributors",
+            "dates",
+            "subjects",
+            "language",
+            "rightsList",
+            "relatedIdentifiers",
+            "fundingReferences",
+        ):
+            if key not in payload:
+                failures.append(f"datacite metadata is missing {key}.")
+        identifier = payload.get("identifier", {})
+        if identifier.get("identifierType") != "DOI":
+            failures.append("datacite metadata identifier must be a DOI.")
+        if payload.get("publisher") != "Zenodo":
+            failures.append("datacite metadata publisher must be Zenodo.")
+        if payload.get("publicationYear") != 2026:
+            failures.append("datacite metadata publicationYear must be 2026.")
+        types = payload.get("types", {})
+        if types.get("resourceTypeGeneral") != "Dataset":
+            failures.append("datacite metadata resourceTypeGeneral must be Dataset.")
+        if not payload.get("titles"):
+            failures.append("datacite metadata must include titles.")
+        if not payload.get("creators"):
+            failures.append("datacite metadata must include creators.")
+        if not payload.get("contributors"):
+            failures.append("datacite metadata must include contributors.")
+        if not payload.get("descriptions"):
+            failures.append("datacite metadata must include descriptions.")
+        if not payload.get("rightsList"):
+            failures.append("datacite metadata must include rightsList.")
+        if not payload.get("relatedIdentifiers"):
+            failures.append("datacite metadata must include relatedIdentifiers.")
+        if not isinstance(payload.get("fundingReferences"), list):
+            failures.append("datacite metadata must include fundingReferences as a list.")
     return failures
 
 
@@ -181,9 +227,11 @@ def _failures() -> list[str]:
         "RO-Crate",
         "Frictionless",
         "DCAT",
+        "DataCite",
         "PROV-O",
         "corpus-nz-legislation",
         "metadata_packages_manifest.json",
+        "datacite-export-contract.md",
         "ZENODO",
     ):
         if required not in doc and required.lower() not in doc.lower():

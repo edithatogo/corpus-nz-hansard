@@ -29,6 +29,8 @@ Every endpoint must declare:
 
 Stable ID and URI policy references must point to `manifests/id_uri_policy.json`. Endpoint-generated IDs should reuse document `stable_id` values where document identity is sufficient and must not depend on transient file paths or row positions alone. RDF, Popolo, and linked metadata outputs must use the planned `https://w3id.org/nz-hansard/` namespace, document SPARQL prefixes when RDF is emitted, and use `manifests/id_uri_deprecations.json` for any replacement or redirect mapping.
 
+Source-span selectors must reference `manifests/web_annotation_selector_contract.json` and `schemas/web_annotation_selector.schema.json`. Endpoint specs should use the shared selector contract for text quotes, text positions, fragments, and optional line or page selectors rather than inventing endpoint-specific span payloads.
+
 Endpoint coverage language must cite `manifests/historical_coverage_audit.json`. Endpoints may describe coverage of the supplied DocumentsDB extract, but must not describe the current dataset as full historical NZ Hansard coverage unless a later audit reconciles official sitting and proceeding sources and updates the manifest.
 
 Endpoint release language must cite `manifests/release_ladder.json`. The current `v0.1.0` release is an immutable `document-level` release. Endpoint artifacts are `endpoint` level releases and must declare their input `document-level`, `authority-source`, and `neutral-component` release versions instead of being bundled into the canonical document-level release. Upstream samples, fixtures, and maintainer handoffs are `upstream-contribution` artifacts rather than endpoint releases.
@@ -40,6 +42,10 @@ Endpoint dependency language must cite `manifests/dependency_extras_policy.json`
 Endpoint procedure language must cite `manifests/nz_parliamentary_procedure_model.json` and fixture evidence in `fixtures/nz_parliamentary_procedure_samples.json`. Procedure-aware validation manifests must preserve `party_vote`, `personal_vote`, `question`, `supplementary_question`, `stage`, `ruling`, `interjection`, and `procedural_unit` categories, plus `authority_source_ids`, `uncertainty_status`, and `not_speech_turn_by_default`. Do not flatten procedural text into speech turns unless the category model allows it.
 
 Endpoint neutral-component language must cite `manifests/neutral_component_model.json`, `fixtures/neutral_components.json`, and `manifests/neutral_component_validation_manifest.json`. Endpoint inputs must name the consumed neutral families: `sittings`, `proceeding_items`, `speech_turns`, `members`, `parties`, `motions`, `votes`, `bills`, `topics`, and `linguistic_annotations`. Endpoint validation must preserve `derivation_method`, `derivation_version`, `validation_status`, `provenance`, and referential integrity evidence. The fixture model is `not-published-derived-fixtures-only`; endpoint tracks must not publish derived component data until endpoint-specific validation exists.
+
+Endpoint member-identity language must cite `manifests/corpus_wide_member_identity_validation.json` once a public endpoint consumes member identity. The current corpus-wide member identity gate is blocked, so ParlaMint-NZ, Popolo/Open Civic Data, RDF, Akoma Ntoso, party attribution, and speech-turn tracks must not treat member references as validated component inputs until that manifest changes to a release-ready state.
+
+Endpoint party-attribution language must cite `manifests/corpus_wide_party_attribution_validation.json` once a public endpoint consumes party attribution. The current corpus-wide party attribution gate is blocked, so endpoints that need party labels from member-linked membership data must not claim validated party attribution until both the member-identity and party-attribution corpus-wide manifests change to release-ready state.
 
 Planned dependency groups by endpoint:
 
@@ -165,6 +171,8 @@ Validation gates:
 
 Target users: agenda-setting, policy-topic, and comparative politics researchers.
 
+Current implementation surface for the CAP / ParlaCAP Topic Endpoint: `manifests/cap_parlacap_topic_codebook.json`, `manifests/cap_parlacap_topic_validation_manifest.json`, `samples/cap-parlacap/cap_parlacap_topics.csv`, `samples/cap-parlacap/README.md`, and `docs/cap-parlacap-topic-mapping.md`. The sample package is `sample-not-release`; readiness remains `blocked-pending-validated-components` until validated topic components and maintainer-confirmed codebook intake exist.
+
 Inputs:
 
 - document records
@@ -188,6 +196,8 @@ Validation gates:
 
 Target users: NLP researchers.
 
+Current implementation surface: `samples/ud-conllu/parliament_sample.conllu`, `samples/ud-conllu/parliament_sample.alignments.json`, `samples/ud-conllu/README.md`, `manifests/ud_conllu_model_metadata.json`, and `manifests/ud_conllu_validation_manifest.json`. The sample package is `sample-not-release`; readiness remains `blocked-pending-validated-components` until validated speech-turn text, offset alignment, and model metadata are available. The current sample preserves source offsets for a single speech turn and records `stanza` and `spacy` as prototype comparison candidates.
+
 Inputs:
 
 - validated speech turns or document text segments.
@@ -204,10 +214,14 @@ Validation gates:
 - CoNLL-U parses with `conllu` or equivalent validator.
 - token offsets map back to source text.
 - language, tokenizer, parser, and model versions are recorded.
+- alignment manifests must preserve source offsets for each token.
+- model metadata must record the prototype comparison status for Stanza and spaCy.
 
 ## RDF / Linked Data
 
 Target users: semantic-web and linked-data researchers.
+
+Current implementation surface: `samples/rdf-linked-data/linked-data.ttl`, `samples/rdf-linked-data/linked-data.jsonld`, `samples/rdf-linked-data/shapes.ttl`, `samples/rdf-linked-data/sparql-queries.rq`, `samples/rdf-linked-data/README.md`, `docs/rdf-linked-data-mapping.md`, `manifests/rdf_linked_data_model_metadata.json`, and `manifests/rdf_linked_data_validation_manifest.json`. The sample package is `sample-not-release`; readiness remains `blocked-pending-validated-components` until validated component exports, namespace mappings, and SHACL evidence are available. The current sample stays within `https://w3id.org/nz-hansard/` and records PROV-O, DCAT, SKOS, and W3C Time mappings while treating `stanza` and `spacy` as prototype comparison candidates.
 
 Inputs:
 
@@ -228,6 +242,9 @@ Validation gates:
 - RDF parses with `rdflib`.
 - SHACL validation passes for required shapes.
 - every generated URI is stable and documented.
+- Turtle and JSON-LD outputs must describe the same graph.
+- SPARQL examples must be present for sample graph inspection.
+- the mapping notes must record W3C Time usage and Stanza/spaCy comparison status.
 
 ## Croissant / RO-Crate / Frictionless
 

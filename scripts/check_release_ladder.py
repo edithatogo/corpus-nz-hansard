@@ -43,6 +43,8 @@ REQUIRED_ARTIFACTS = {
     "component contracts": "neutral-component",
     "endpoint contracts": "endpoint",
     "upstream contribution packages": "upstream-contribution",
+    "UD / CoNLL-U sample package": "upstream-contribution",
+    "RDF / Linked Data sample package": "upstream-contribution",
 }
 
 

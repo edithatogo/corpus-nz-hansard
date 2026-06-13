@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-06-10T23:31:46.852891+00:00",
+  "helper_status": {
+    "duckdb_examples": "implemented",
+    "python_examples": "implemented",
+    "r_examples": "deferred",
+    "sparql_examples": "deferred"
+  },
+  "limitations": [
+    "Helper examples are read-only and do not modify canonical generation scripts.",
+    "R and standalone SPARQL examples remain deferred until RDF endpoint release artifacts are ready.",
+    "The document sample is a tiny local-review fixture and not a corpus release artifact."
+  ],
+  "manifest_version": 1,
+  "release_status": "local-review-only",
+  "repository": "corpus-nz-hansard",
+  "supported_artifacts": {
+    "document_sample": {
+      "document_types": [
+        "answer",
+        "debate",
+        "question"
+      ],
+      "language_surfaces": [
+        "python",
+        "duckdb"
+      ],
+      "path": "samples/researcher-client-helpers/hansard-mini.csv",
+      "row_count": 3,
+      "version": "sample-0.1.0"
+    },
+    "rdf_sample": {
+      "dataset_title": "RDF linked-data sample package",
+      "language_surfaces": [
+        "python"
+      ],
+      "path": "samples/rdf-linked-data/linked-data.ttl",
+      "triple_count": 114,
+      "version": "sample-not-release"
+    }
+  },
+  "track_id": "researcher_client_helpers_20260610",
+  "validation_results": {
+    "duckdb_example_runs": true,
+    "python_example_runs": true,
+    "r_examples_deferred": true,
+    "rdf_sample_example_runs": true,
+    "sparql_examples_deferred": true
+  }
+}

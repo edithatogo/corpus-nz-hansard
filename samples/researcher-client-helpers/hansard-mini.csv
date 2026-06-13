@@ -1,0 +1,4 @@
+source_file,source_row_number,parliament_number,parliament_document_id,document_type,title,content,document_content_date
+Hansard-47.csv,1,47,47HansS_20240625_067140000,debate,Land Transport (Clean Vehicle Standard) Amendment Bill - second reading,Sample debate text for helper examples.,2024-06-25
+Hansard-47.csv,2,47,47HansS_20240625_067140001,question,Oral question,Sample question text for helper examples.,2024-06-25
+Hansard-48.csv,1,48,48HansS_20240626_067140002,answer,Answer to oral question,Sample answer text for helper examples.,2024-06-26

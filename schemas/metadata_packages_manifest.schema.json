@@ -38,7 +38,8 @@
               "ro-crate",
               "frictionless",
               "dcat",
-              "prov-o"
+              "prov-o",
+              "datacite"
             ]
           },
           "label": {
@@ -101,7 +102,7 @@
         ],
         "type": "object"
       },
-      "minItems": 5,
+      "minItems": 6,
       "type": "array",
       "uniqueItems": true
     },

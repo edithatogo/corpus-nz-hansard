@@ -1,8 +1,8 @@
 {
   "track_id": "derived_fields_validation_manifests_20260609",
   "type": "quality",
-  "status": "pending",
+  "status": "completed",
   "created_at": "2026-06-09T00:00:00+10:00",
-  "updated_at": "2026-06-09T00:00:00+10:00",
+  "updated_at": "2026-06-10T18:45:18.1216649+10:00",
   "description": "Create shared validation tests and manifests for derived member, party, and speech-turn fields before any derived dataset publication."
 }

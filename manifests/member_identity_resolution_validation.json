@@ -1,0 +1,51 @@
+{
+  "artifact_name": "member_identity_resolution_validation",
+  "artifact_version": "0.1.0",
+  "generated_at": "2026-06-10T18:33:44.0961243+10:00",
+  "ok": false,
+  "validation_status": "blocked",
+  "release_gate_status": "blocked-pending-validation",
+  "counts": {
+    "sample_total": 5,
+    "positive": 1,
+    "negative": 1,
+    "ambiguous": 1,
+    "unresolved": 1,
+    "excluded": 1,
+    "derived_rows": 0,
+    "errors": 1,
+    "warnings": 2
+  },
+  "errors": [
+    "Member identity review package exists, but corpus-wide derived output is not yet published."
+  ],
+  "warnings": [
+    "Reviewed gold fixtures define the validation contract for the local review package.",
+    "Office titles and generic headings remain unresolved or excluded."
+  ],
+  "source_hashes": {
+    "manifests/gold_evaluation_datasets.json": "14D018E9FB9BF16644D5F234D6DF683DDFEF6D4D097BBABB0691BF81A4D89B77",
+    "fixtures/gold_evaluation_samples.json": "08F5D3C9E1881B3A85EBEB18457DB5950AEF1C63FF3EAED6CCD53A06E30ACCDE",
+    "manifests/authority_sources.json": "6D26729CF9F98B827CF26EDB3FC11FC6E53165F7AEA1CA8A0A12A91D77EDD22B",
+    "derived/member_identity_authority.json": "A53B0AA91646DA6731D7B90180CA3C91908C1DD093AE81B248765DF54C2D6AD7",
+    "samples/member-identity/member_identity_review.csv": "0E86A6D0A9549F981D7C10012C05CAD14452C7D4FBFD3351245367D09ED07D55",
+    "samples/member-identity/README.md": "CA9312E5D4FA2D5F878CC55B8606C7BBA2C402DE2618969BDC0F1EE74F171352",
+    "docs/member-identity-resolution.md": "59A06C390CF7218A2237F9107585032CA8D47E56F4F2AB8818D53A155819BAB2",
+    "manifests/member_identity_resolution_package.json": "9DC6BD0B0A95343CAA3C07D69BA8D72FF963228EDE77FC9D146C9D6914211D7A"
+  },
+  "source_manifests": [
+    "manifests/gold_evaluation_datasets.json",
+    "fixtures/gold_evaluation_samples.json",
+    "manifests/authority_sources.json",
+    "derived/member_identity_authority.json",
+    "samples/member-identity/member_identity_review.csv",
+    "samples/member-identity/README.md",
+    "docs/member-identity-resolution.md",
+    "manifests/member_identity_resolution_package.json"
+  ],
+  "future_validation_requirements": [
+    "Validated member identity output must be implemented before this manifest can turn ok.",
+    "Raw member text, normalized name, and authority linkage must remain explicit.",
+    "Ambiguous and unresolved member cases must stay visible in review outputs."
+  ]
+}

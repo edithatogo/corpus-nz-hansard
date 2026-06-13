@@ -1,0 +1,63 @@
+{
+  "artifact_name": "validated_speech_turn_component",
+  "artifact_version": "0.1.0",
+  "counts": {
+    "blocked_speaker_identity": 439,
+    "candidate_medium_confidence": 439,
+    "candidate_turns_written": 439,
+    "documents_read": 193922,
+    "documents_with_turns": 360,
+    "documents_without_turns": 193562,
+    "review_queue_rows": 439,
+    "validated_rows": 439,
+    "validated_speaker_identity": 0
+  },
+  "errors": [
+    "Validated member identity is not available, so speech-turn promotion remains blocked."
+  ],
+  "generated_at": "2026-06-12T04:20:34.976285+00:00",
+  "input_artifacts": {
+    "candidate_parquet": "generated/parquet/hansard_speech_turns.parquet",
+    "member_identity_validation": "manifests/corpus_wide_member_identity_validation.json"
+  },
+  "ok": false,
+  "outputs": {
+    "review_queue_csv": "derived/validated_speech_turns/speech_turn_review_queue.csv",
+    "validated_parquet": "generated/derived/hansard_speech_turns_validated.parquet"
+  },
+  "release_decision": {
+    "decision": "defer",
+    "public_claim": "No validated speech-turn release is published from this blocked manifest.",
+    "reason": "Validated member identity is not available"
+  },
+  "release_gate_status": "blocked-pending-validated-member-identity",
+  "source_hashes": {
+    "candidate_parquet": "b77e08ac71f832dc570ca25aea334c54a00c1063fca4848e2f715aed8bc996ef",
+    "member_identity_validation": "a793c9594a80ed5e4f4e4aa6c5e0d344e39c623944e7eb4f35b1d8ee52ba55f6",
+    "segmentation_validation": "605de7748ac7cd8c3b77454265aea0b802d3d4ffc4df8349b4f0d7d8b0b17add",
+    "speech_turn_release_decision": "79c19b970018df62ef33dbf88606f6832d60803f23f43b99f70406fa4a4a5764"
+  },
+  "source_manifests": [
+    "generated/parquet/hansard_speech_turns.parquet",
+    "manifests/speech_turn_segmentation_validation.json",
+    "manifests/speech_turn_release_decision.json",
+    "docs/speech-turn-release-decision.md",
+    "manifests/corpus_wide_member_identity_validation.json"
+  ],
+  "source_summary": {
+    "candidate_medium_confidence": 439,
+    "candidate_turns_written": 439,
+    "documents_read": 193922,
+    "documents_with_turns": 360,
+    "documents_without_turns": 193562,
+    "member_identity_ok": false,
+    "member_identity_validation_manifest": "manifests/corpus_wide_member_identity_validation.json",
+    "release_decision_manifest": "manifests/speech_turn_release_decision.json",
+    "segmentation_validation_manifest": "manifests/speech_turn_segmentation_validation.json"
+  },
+  "track_id": "validated_speech_turn_component_release_20260610",
+  "validation_status": "blocked",
+  "warnings": [
+    "Heuristic speech-turn candidates remain non-authoritative until member identity is validated."
+  ]
+}

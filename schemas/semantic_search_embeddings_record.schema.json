@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "document_text": {
+      "type": "string"
+    },
+    "embedding_dimension": {
+      "const": 4
+    },
+    "embedding_hash": {
+      "type": "string"
+    },
+    "embedding_model_id": {
+      "type": "string"
+    },
+    "embedding_vector": {
+      "items": {
+        "type": "number"
+      },
+      "maxItems": 4,
+      "minItems": 4,
+      "type": "array"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "parliament_number": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "record_id": {
+      "type": "string"
+    },
+    "release_status": {
+      "const": "sample-not-release"
+    },
+    "review_status": {
+      "const": "reviewed"
+    },
+    "sample_id": {
+      "type": "string"
+    },
+    "selector": {
+      "additionalProperties": false,
+      "properties": {
+        "exact": {
+          "type": "string"
+        },
+        "selector_type": {
+          "const": "exact"
+        },
+        "source_stable_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "selector_type",
+        "exact",
+        "source_stable_id"
+      ],
+      "type": "object"
+    },
+    "source_document_link": {
+      "type": "string"
+    },
+    "source_document_type": {
+      "type": "string"
+    },
+    "source_file": {
+      "type": "string"
+    },
+    "source_input_id": {
+      "type": "string"
+    },
+    "source_row_number": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "source_stable_id": {
+      "type": "string"
+    },
+    "topic_id": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "topic_label": {
+      "type": "string"
+    },
+    "topic_model_id": {
+      "type": "string"
+    },
+    "topic_probability": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "number"
+    },
+    "topic_terms": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "validation_status": {
+      "const": "exploratory-only"
+    }
+  },
+  "required": [
+    "record_id",
+    "sample_id",
+    "source_input_id",
+    "source_file",
+    "source_row_number",
+    "source_document_type",
+    "parliament_number",
+    "source_stable_id",
+    "source_document_link",
+    "selector",
+    "document_text",
+    "embedding_model_id",
+    "embedding_dimension",
+    "embedding_vector",
+    "embedding_hash",
+    "topic_model_id",
+    "topic_id",
+    "topic_label",
+    "topic_probability",
+    "topic_terms",
+    "validation_status",
+    "review_status",
+    "release_status",
+    "notes"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,137 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix nzh: <https://w3id.org/nz-hansard/> .
+@prefix nzhc: <https://w3id.org/nz-hansard/component/> .
+@prefix nzhs: <https://w3id.org/nz-hansard/sample/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+nzhs:rdf-linked-data-sample a dcat:Dataset, prov:Entity ;
+  dcterms:title "RDF linked-data sample package" ;
+  dcterms:description "Maintainer-review linked-data sample generated from the neutral component fixture set." ;
+  dcterms:issued "2026-06-10"^^xsd:date ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:source <https://github.com/edithatogo/corpus-nz-hansard> ;
+  dcat:distribution nzhs:distribution-ttl, nzhs:distribution-jsonld ;
+  prov:wasDerivedFrom nzhc:nzhc-component-0000000000000001,
+    nzhc:nzhc-component-0000000000000002,
+    nzhc:nzhc-component-0000000000000003,
+    nzhc:nzhc-component-0000000000000004,
+    nzhc:nzhc-component-0000000000000005,
+    nzhc:nzhc-component-0000000000000006,
+    nzhc:nzhc-component-0000000000000007,
+    nzhc:nzhc-component-0000000000000008,
+    nzhc:nzhc-component-0000000000000009 .
+
+nzhs:distribution-ttl a dcat:Distribution ;
+  dcterms:title "RDF Turtle sample" ;
+  dcterms:format "text/turtle" ;
+  dcat:downloadURL <https://w3id.org/nz-hansard/sample/rdf-linked-data-sample/linked-data.ttl> .
+
+nzhs:distribution-jsonld a dcat:Distribution ;
+  dcterms:title "RDF JSON-LD sample" ;
+  dcterms:format "application/ld+json" ;
+  dcat:downloadURL <https://w3id.org/nz-hansard/sample/rdf-linked-data-sample/linked-data.jsonld> .
+
+nzhs:party-scheme a skos:ConceptScheme ;
+  dcterms:title "Party concept scheme" .
+
+nzhs:role-scheme a skos:ConceptScheme ;
+  dcterms:title "Role concept scheme" .
+
+nzhs:proceeding-type-scheme a skos:ConceptScheme ;
+  dcterms:title "Proceeding type concept scheme" .
+
+nzhs:vote-type-scheme a skos:ConceptScheme ;
+  dcterms:title "Vote type concept scheme" .
+
+nzhs:topic-scheme a skos:ConceptScheme ;
+  dcterms:title "Topic code concept scheme" .
+
+nzhs:party-example-party a skos:Concept, nzh:Party ;
+  skos:inScheme nzhs:party-scheme ;
+  skos:prefLabel "Example Party"@en ;
+  dcterms:identifier "nzhc-component-0000000000000004" ;
+  prov:wasDerivedFrom nzhc:nzhc-component-0000000000000004 .
+
+nzhs:role-member a skos:Concept ;
+  skos:inScheme nzhs:role-scheme ;
+  skos:prefLabel "Member"@en .
+
+nzhs:proceeding-type-vote a skos:Concept ;
+  skos:inScheme nzhs:proceeding-type-scheme ;
+  skos:prefLabel "Vote"@en .
+
+nzhs:vote-type-party-vote a skos:Concept ;
+  skos:inScheme nzhs:vote-type-scheme ;
+  skos:prefLabel "Party vote"@en .
+
+nzhs:topic-transport a skos:Concept ;
+  skos:inScheme nzhs:topic-scheme ;
+  skos:prefLabel "Transport"@en ;
+  skos:notation "transport" .
+
+nzhc:nzhc-component-0000000000000001 a nzh:Session, prov:Entity ;
+  dcterms:identifier "nzhc-component-0000000000000001" ;
+  time:hasTime nzhs:sitting-time-2024-06-25 ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/document/47HansS_20240625_067140000> .
+
+nzhs:sitting-time-2024-06-25 a time:Instant ;
+  time:inXSDDate "2024-06-25"^^xsd:date .
+
+nzhc:nzhc-component-0000000000000002 a nzh:ProceedingItem, prov:Entity ;
+  dcterms:identifier "nzhc-component-0000000000000002" ;
+  dcterms:title "Land Transport (Clean Vehicle Standard) Amendment Bill - second reading" ;
+  dcterms:isPartOf nzhc:nzhc-component-0000000000000001 ;
+  dcterms:type nzhs:proceeding-type-vote ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/document/47HansS_20240625_067140000> .
+
+nzhc:nzhc-component-0000000000000003 a foaf:Person, prov:Entity ;
+  dcterms:identifier "nzhc-component-0000000000000003" ;
+  foaf:name "Example Member" ;
+  nzh:role nzhs:role-member ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/authority/nzhc-authority-source-d89cb3c98830032d> .
+
+nzhc:nzhc-component-0000000000000004 a nzh:Party, skos:Concept, prov:Entity ;
+  dcterms:identifier "nzhc-component-0000000000000004" ;
+  skos:inScheme nzhs:party-scheme ;
+  skos:prefLabel "Example Party"@en ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/authority/nzhc-authority-source-d89cb3c98830032d> .
+
+nzhc:nzhc-component-0000000000000005 a nzh:SpeechTurn, prov:Entity ;
+  dcterms:identifier "nzhc-component-0000000000000005" ;
+  dcterms:subject nzhs:topic-transport ;
+  nzh:sourceStableId "HansS_20240625_067140000" ;
+  nzh:proceedingItem nzhc:nzhc-component-0000000000000002 ;
+  nzh:speaker nzhc:nzhc-component-0000000000000003 ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> .
+
+nzhc:nzhc-component-0000000000000006 a nzh:Motion, prov:Entity ;
+  dcterms:identifier "nzhc-component-0000000000000006" ;
+  dcterms:title "That the Land Transport (Clean Vehicle Standard) Amendment Bill be now read a second time." ;
+  dcterms:isPartOf nzhc:nzhc-component-0000000000000002 ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000006> .
+
+nzhc:nzhc-component-0000000000000007 a nzh:VoteEvent, prov:Entity ;
+  dcterms:identifier "nzhc-component-0000000000000007" ;
+  nzh:motion nzhc:nzhc-component-0000000000000006 ;
+  nzh:voteType nzhs:vote-type-party-vote ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000007> .
+
+nzhc:nzhc-component-0000000000000008 a nzh:Bill, prov:Entity ;
+  dcterms:identifier "nzhc-component-0000000000000008" ;
+  dcterms:title "Land Transport (Clean Vehicle Standard) Amendment Bill" ;
+  dcterms:isPartOf nzhc:nzhc-component-0000000000000002 ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000008> .
+
+nzhc:nzhc-component-0000000000000009 a nzh:TopicAssignment, prov:Entity ;
+  dcterms:identifier "nzhc-component-0000000000000009" ;
+  dcterms:subject nzhs:topic-transport ;
+  nzh:targetComponent nzhc:nzhc-component-0000000000000002 ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000009> .

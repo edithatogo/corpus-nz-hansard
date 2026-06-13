@@ -1,0 +1,39 @@
+{
+  "artifact_name": "speech_turn_validated_artifact_validation",
+  "artifact_version": "0.1.0",
+  "generated_at": "2026-06-10T18:33:44.0961243+10:00",
+  "ok": false,
+  "validation_status": "blocked",
+  "release_gate_status": "blocked-pending-validated-components",
+  "counts": {
+    "documents_read": 193922,
+    "documents_with_turns": 360,
+    "documents_without_turns": 193562,
+    "turns_written": 439,
+    "medium_confidence": 439,
+    "derived_rows": 439,
+    "errors": 1,
+    "warnings": 3
+  },
+  "errors": [
+    "Heuristic speech-turn candidates are not authoritative."
+  ],
+  "warnings": [
+    "Speaker names are not identity-resolved.",
+    "Party and electorate details are not extracted.",
+    "Documents without tab-colon markers emit no turns."
+  ],
+  "source_hashes": {
+    "manifests/speech_turn_segmentation_validation.json": "221ED851B49C488F229CE89E9906571E4BAC5ED927C3883F47EF070B92D5FD64",
+    "docs/speech-turn-segmentation-report.md": "647E0F32E633C2344693DD5AA92A0E0A03FAD639E312E491E42790E2572D3BE3"
+  },
+  "source_manifests": [
+    "manifests/speech_turn_segmentation_validation.json",
+    "docs/speech-turn-segmentation-report.md"
+  ],
+  "future_validation_requirements": [
+    "Validated member identity must exist before any speaker turn can be authoritative.",
+    "Segmentation and identity attribution must be evaluated separately.",
+    "Hand-reviewed stratified samples must cover hard colon-marker, embedded-heading, no-speaker fallback, and multi-speaker cases."
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "track_id": "ud_conllu_endpoint_20260609",
+  "artifact_name": "UD / CoNLL-U sample package",
+  "artifact_version": "0.1.0",
+  "release_series_id": "ud-conllu-sample",
+  "release_level": "upstream-contribution",
+  "release_status": "sample-not-release",
+  "publication_target": "local maintainer-review package",
+  "upstream_contribution_target": "UD maintainers after validated speech-turn text and review",
+  "validation_manifest": "manifests/ud_conllu_validation_manifest.json",
+  "input_release_versions": {
+    "document_level": "0.1.0",
+    "neutral_component_model": "neutral_component_model_20260610",
+    "speech_turn_source": "nzhc-component-0000000000000005",
+    "model_metadata": "manifests/ud_conllu_model_metadata.json",
+    "id_uri_policy": "manifests/id_uri_policy.json"
+  },
+  "known_exclusions": [
+    "full corpus linguistic coverage",
+    "gold-standard UD trees",
+    "multi-sentence discourse alignment"
+  ],
+  "dependency_groups": [
+    "nlp",
+    "schema"
+  ],
+  "dependency_validation": {
+    "tool_versions": {
+      "python": "3.13"
+    },
+    "library_versions": {
+      "conllu": "manual-validator",
+      "spacy": "planned",
+      "stanza": "planned"
+    },
+    "model_versions": {
+      "parser": "ud-fixture-20260610",
+      "tokenizer": "ud-fixture-20260610"
+    },
+    "lock_or_constraints": "requirements/nlp.txt, requirements/schema.txt",
+    "install_commands": [
+      "python -m pip install -r requirements/nlp.txt -r requirements/schema.txt"
+    ],
+    "release_affecting_dependencies": [
+      "tokenization libraries",
+      "parser model revisions",
+      "CoNLL-U validation tooling"
+    ]
+  },
+  "validation_command": "python scripts/check_ud_conllu_endpoint.py",
+  "output_artifacts": [
+    "samples/ud-conllu/parliament_sample.conllu",
+    "samples/ud-conllu/parliament_sample.alignments.json",
+    "samples/ud-conllu/README.md"
+  ],
+  "validation_results": {
+    "component_metadata_validated": false,
+    "readiness_status": "blocked-pending-validated-components",
+    "blocking_errors": 0
+  },
+  "traceability": [
+    {
+      "neutral_component_ids": [
+        "nzhc-component-0000000000000001",
+        "nzhc-component-0000000000000002",
+        "nzhc-component-0000000000000005"
+      ]
+    }
+  ],
+  "manifest_sha256": "deferred-sample-manifest"
+}

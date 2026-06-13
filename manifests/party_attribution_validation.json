@@ -1,0 +1,41 @@
+{
+  "artifact_name": "party_attribution_validation",
+  "artifact_version": "0.1.0",
+  "generated_at": "2026-06-10T18:33:44.0961243+10:00",
+  "ok": false,
+  "validation_status": "blocked",
+  "release_gate_status": "blocked-pending-validated-components",
+  "counts": {
+    "sample_total": 5,
+    "positive": 1,
+    "negative": 1,
+    "ambiguous": 1,
+    "unresolved": 1,
+    "excluded": 1,
+    "derived_rows": 0,
+    "errors": 1,
+    "warnings": 2
+  },
+  "errors": [
+    "Party attribution depends on validated member identity and temporal authority inputs."
+  ],
+  "warnings": [
+    "No derived party attribution output exists yet.",
+    "Office-title and speaker-name cases remain unresolved until member identity is validated."
+  ],
+  "source_hashes": {
+    "manifests/gold_evaluation_datasets.json": "14D018E9FB9BF16644D5F234D6DF683DDFEF6D4D097BBABB0691BF81A4D89B77",
+    "fixtures/gold_evaluation_samples.json": "08F5D3C9E1881B3A85EBEB18457DB5950AEF1C63FF3EAED6CCD53A06E30ACCDE",
+    "manifests/authority_sources.json": "EF144B599803F467938CF6D6465552BCA290759A084F17401A98146440BF8C64"
+  },
+  "source_manifests": [
+    "manifests/gold_evaluation_datasets.json",
+    "fixtures/gold_evaluation_samples.json",
+    "manifests/authority_sources.json"
+  ],
+  "future_validation_requirements": [
+    "Validated member identity output must be available before party attribution can be promoted.",
+    "Temporal party assignments must cite authority sources and document dates.",
+    "Ambiguous party labels must remain visible instead of being collapsed."
+  ]
+}

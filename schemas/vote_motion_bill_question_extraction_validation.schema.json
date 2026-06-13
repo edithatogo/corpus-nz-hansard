@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/danielmordaunt/corpus-nz-hansard/schemas/vote_motion_bill_question_extraction_validation.schema.json",
+  "title": "Vote Motion Bill Question Extraction Validation Manifest",
+  "type": "object",
+  "required": [
+    "artifact_name",
+    "artifact_version",
+    "generated_at",
+    "ok",
+    "validation_status",
+    "release_gate_status",
+    "counts",
+    "errors",
+    "warnings",
+    "source_hashes",
+    "source_manifests"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "artifact_name": {
+      "type": "string",
+      "const": "vote_motion_bill_question_extraction_validation"
+    },
+    "artifact_version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ok": {
+      "type": "boolean"
+    },
+    "validation_status": {
+      "type": "string",
+      "enum": [
+        "blocked",
+        "ok",
+        "excluded"
+      ]
+    },
+    "release_gate_status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "counts": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "integer"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_hashes": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "source_manifests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

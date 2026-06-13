@@ -1,0 +1,67 @@
+{
+  "artifact_name": "corpus_wide_party_attribution",
+  "artifact_version": "0.1.0",
+  "counts": {
+    "alias": 0,
+    "ambiguous": 0,
+    "authoritative": 87128,
+    "blocked": 0,
+    "derived_rows": 87128,
+    "excluded": 0,
+    "explicit_party_labels": 87128,
+    "review_queue_rows": 156673,
+    "source_files_from_schema_discovery": 8,
+    "source_rows_from_schema_discovery": 193922,
+    "source_rows_read": 193922,
+    "unresolved": 0,
+    "unresolved_member_dependency": 156673
+  },
+  "errors": [
+    "Validated member identity output must be available before corpus-wide party attribution can be promoted."
+  ],
+  "generated_at": "2026-06-12T04:04:24.205449+00:00",
+  "input_artifacts": {
+    "member_identity_validation": "manifests/corpus_wide_member_identity_validation.json",
+    "normalized_parquet": "generated/parquet/hansard.parquet"
+  },
+  "ok": false,
+  "outputs": {
+    "party_attribution_csv": "derived/corpus_wide_party_attribution/party_attribution.csv",
+    "review_overrides_csv": "derived/corpus_wide_party_attribution/party_attribution_review_overrides.csv",
+    "review_queue_csv": "derived/corpus_wide_party_attribution/party_attribution_review_queue.csv",
+    "schema": "schemas/corpus_wide_party_attribution.schema.json"
+  },
+  "release_decision": {
+    "decision": "defer",
+    "public_claim": "This is a corpus-wide blocked derived component, not a validated public party attribution release.",
+    "reason": "Validated member identity is not available in this working tree."
+  },
+  "release_gate_status": "blocked-pending-validated-member-identity",
+  "source_hashes": {
+    "authority_snapshot": "c7eb450138eacabb3748296f94d1fe6cad9b86cf173f8320177aff4e0dffcfe1",
+    "member_identity_validation": "0e5cd7bfccc0b429df6fd027f26d95723c3457d53975a1cc06d6801f6e8a71c2",
+    "normalized_parquet": "29e9ada1f18a9e6b09355432b90433b634be595f12ee01f3877e071f8843f7ec",
+    "schema_discovery": "84c7eeef71e6da57c59d0b21c7115bab619eaeebd7315da0db8ac4b96833db10",
+    "source_inventory": "60a17d42da7cea9d4ffc0134916adaf23cec1b12cbaaee839d66ec65bbc1a6dc"
+  },
+  "source_manifests": [
+    "manifests/source_inventory.json",
+    "manifests/schema_discovery.json",
+    "derived/party_attribution_authority.json",
+    "manifests/corpus_wide_member_identity_validation.json"
+  ],
+  "source_summary": {
+    "explicit_party_vote_labels": true,
+    "file_count": 8,
+    "schema_discovery_manifest": "manifests/schema_discovery.json",
+    "source_archive": "2024-09-06 Hansard Extract from DocumentsDB.zip",
+    "source_archive_sha256": "2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299",
+    "source_inventory_manifest": "manifests/source_inventory.json",
+    "total_rows_from_schema_discovery": 193922
+  },
+  "track_id": "corpus_wide_party_attribution_release_20260610",
+  "validation_status": "blocked",
+  "warnings": [
+    "Explicit party-vote labels can be extracted, but the release remains blocked until member identity is validated."
+  ]
+}

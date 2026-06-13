@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "manifest_version",
+    "repository",
+    "generated_at",
+    "endpoint",
+    "endpoint_track",
+    "release_series_id",
+    "release_level",
+    "artifact_name",
+    "artifact_version",
+    "release_status",
+    "publication_target",
+    "upstream_contribution_target",
+    "validation_manifest",
+    "input_release_versions",
+    "known_exclusions",
+    "dependency_groups",
+    "dependency_validation",
+    "validation_command",
+    "output_artifacts",
+    "validation_results",
+    "traceability",
+    "public_claim",
+    "source_manifests",
+    "source_hashes",
+    "manifest_sha256"
+  ],
+  "properties": {
+    "manifest_version": { "type": "integer" },
+    "repository": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "endpoint": { "type": "string" },
+    "endpoint_track": { "type": "string" },
+    "release_series_id": { "type": "string" },
+    "release_level": { "type": "string" },
+    "artifact_name": { "type": "string" },
+    "artifact_version": { "type": "string" },
+    "release_status": { "type": "string" },
+    "publication_target": { "type": "string" },
+    "upstream_contribution_target": { "type": "string" },
+    "validation_manifest": { "type": "string" },
+    "input_release_versions": { "type": "object" },
+    "known_exclusions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "dependency_groups": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "dependency_validation": { "type": "object" },
+    "validation_command": { "type": "string" },
+    "output_artifacts": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "validation_results": { "type": "object" },
+    "traceability": { "type": "array" },
+    "public_claim": { "type": "object" },
+    "source_manifests": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "source_hashes": { "type": "object" },
+    "manifest_sha256": { "type": "string" }
+  }
+}

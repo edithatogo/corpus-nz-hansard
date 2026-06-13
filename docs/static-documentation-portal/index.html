@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Static Documentation Portal</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f7f2;
+      --panel: #ffffff;
+      --ink: #1f2328;
+      --muted: #5f6b7a;
+      --line: #d7dde5;
+      --accent: #2856a7;
+      --good: #20744f;
+      --warn: #8a5a00;
+    }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    h1, h2, h3 {
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    h2 {
+      margin-top: 32px;
+      font-size: 1.15rem;
+    }
+    p, li {
+      line-height: 1.5;
+      color: var(--muted);
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fcfcfb;
+    }
+    .stat strong {
+      display: block;
+      font-size: 1.4rem;
+      color: var(--ink);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border-top: 1px solid var(--line);
+      padding: 10px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      font-size: 0.9em;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .note {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 900px) {
+      .stats, .grid-two {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Static Documentation Portal</h1>
+    <p class="note">
+      Generated from repository docs and manifests. This page is a static status surface, not a separate source of truth.
+    </p>
+
+    <section class="panel">
+      <h2>Current Public Release</h2>
+      <div class="stats">
+        <div class="stat"><span>Version</span><strong>0.1.0</strong></div>
+        <div class="stat"><span>Level</span><strong>document-level</strong></div>
+        <div class="stat"><span>Status</span><strong>published</strong></div>
+        <div class="stat"><span>Track rows</span><strong>61</strong></div>
+      </div>
+      <table>
+        <thead><tr><th>Surface</th><th>URL</th></tr></thead>
+        <tbody>
+          <tr><td>GitHub release</td><td><a href="https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0">https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0</a></td></tr>
+          <tr><td>Hugging Face dataset</td><td><a href="https://huggingface.co/datasets/edithatogo/nz-hansard-corpus">https://huggingface.co/datasets/edithatogo/nz-hansard-corpus</a></td></tr>
+          <tr><td>Zenodo record</td><td><a href="https://zenodo.org/records/20595194">https://zenodo.org/records/20595194</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>Release Ladder</h2>
+      <p class="note">The ladder separates document-level release, authority-source evidence, neutral components, endpoints, and upstream contribution packages.</p>
+      <table>
+        <thead><tr><th>Level</th><th>ID</th><th>Status</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><code>document-level</code></td><td>published</td><td>Canonical normalized document records from the supplied DocumentsDB extract, plus release metadata, provenance, and public-surface evidence.</td></tr>
+<tr><td>2</td><td><code>authority-source</code></td><td>validated-manifest</td><td>Official-first source inventories and retrieval evidence used to support derived member, party, sitting, bill, motion, vote, and procedure assertions.</td></tr>
+<tr><td>3</td><td><code>neutral-component</code></td><td>validated-manifest</td><td>Validated repository-owned component tables such as sittings, proceedings, speech turns, members, parties, motions, votes, bills, topics, and annotations.</td></tr>
+<tr><td>4</td><td><code>endpoint</code></td><td>planned</td><td>Generated standard-specific endpoint artifacts such as ParlaMint/TEI, Popolo/Open Civic Data, Akoma Ntoso, CAP/ParlaCAP, CoNLL-U, RDF, Croissant, RO-Crate, Frictionless, DCAT, and PROV-O.</td></tr>
+<tr><td>5</td><td><code>upstream-contribution</code></td><td>planned</td><td>Reviewed samples, fixtures, mapping notes, issue-ready evidence, or contribution packages for external maintainers and standards communities.</td></tr>
+        </tbody>
+      </table>
+      <h3>Artifact Map</h3>
+      <table>
+        <thead><tr><th>Artifact</th><th>Path</th><th>Level</th><th>Status</th><th>Next gate</th></tr></thead>
+        <tbody>
+          <tr><td>public dataset release manifest</td><td><code>manifests/public_dataset_release_manifest.json</code></td><td>document-level</td><td>published</td><td>metadata-only corrections allowed; material data changes require a new dataset release and Zenodo snapshot</td></tr>
+<tr><td>normalized Parquet</td><td><code>generated/parquet/hansard.parquet</code></td><td>document-level</td><td>published</td><td>row, column, provenance, or intended-use changes require a new release</td></tr>
+<tr><td>Hansard record schema</td><td><code>schemas/hansard_record.schema.json</code></td><td>document-level</td><td>published</td><td>schema-breaking changes require release notes, migration notes, and manifest updates</td></tr>
+<tr><td>historical coverage audit</td><td><code>manifests/historical_coverage_audit.json</code></td><td>document-level</td><td>validated-manifest</td><td>broader historical claims require official sitting and proceeding reconciliation</td></tr>
+<tr><td>authority source discovery</td><td><code>manifests/authority_sources.json</code></td><td>authority-source</td><td>validated-manifest</td><td>retrieve dated official snapshots before publishing derived authoritative fields</td></tr>
+<tr><td>component contracts</td><td><code>docs/component-contracts.md</code></td><td>neutral-component</td><td>planned</td><td>add component schemas and validation manifests before public component release</td></tr>
+<tr><td>gold evaluation datasets</td><td><code>manifests/gold_evaluation_datasets.json</code></td><td>neutral-component</td><td>validated-manifest</td><td>future derived component and endpoint releases must cite relevant fixture IDs or a refreshed evaluation manifest</td></tr>
+<tr><td>CAP / ParlaCAP sample package</td><td><code>samples/cap-parlacap/README.md</code></td><td>upstream-contribution</td><td>planned</td><td>maintainer-confirmed codebook intake and validated topic components are required before any public endpoint release</td></tr>
+<tr><td>canonical ID and URI policy</td><td><code>manifests/id_uri_policy.json</code></td><td>neutral-component</td><td>validated-manifest</td><td>RDF, civic-data, and endpoint releases must validate generated IDs and URIs against this policy</td></tr>
+<tr><td>dependency extras policy</td><td><code>manifests/dependency_extras_policy.json</code></td><td>neutral-component</td><td>validated-manifest</td><td>endpoint releases must cite required optional groups, install checks, tool/library/model versions, and pin release-affecting dependencies</td></tr>
+<tr><td>NZ parliamentary procedure model</td><td><code>manifests/nz_parliamentary_procedure_model.json</code></td><td>neutral-component</td><td>validated-manifest</td><td>procedure-derived components must cite authority sources, uncertainty status, fixture coverage, and endpoint mappings before publication</td></tr>
+<tr><td>neutral parliamentary component model</td><td><code>manifests/neutral_component_model.json</code></td><td>neutral-component</td><td>validated-manifest</td><td>component releases must validate schemas, stable IDs, provenance, derivation metadata, validation manifests, and referential integrity before publication</td></tr>
+<tr><td>speech-turn candidates</td><td><code>generated/speech_turns</code></td><td>neutral-component</td><td>excluded</td><td>promote only after validation proves speaker attribution and turn boundaries</td></tr>
+<tr><td>endpoint contracts</td><td><code>docs/endpoint-contracts.md</code></td><td>endpoint</td><td>planned</td><td>endpoint manifests must cite input component release versions and validators</td></tr>
+<tr><td>ParlaMint-NZ sample package</td><td><code>samples/parlamint-nz</code></td><td>upstream-contribution</td><td>planned</td><td>sample-not-release; promote only after member identity, party attribution, speech-turn validation, and full ParlaMint schema validation pass</td></tr>
+<tr><td>Popolo / Open Civic Data sample package</td><td><code>samples/popolo-opencivicdata</code></td><td>upstream-contribution</td><td>planned</td><td>sample-not-release; promote only after member identity, party attribution, vote/motion extraction, speech-turn validation, and maintainer agreement</td></tr>
+<tr><td>Akoma Ntoso sample package</td><td><code>samples/akoma-ntoso</code></td><td>upstream-contribution</td><td>planned</td><td>sample-not-release; promote only after validated member, party, speech-turn, motion, and vote components plus schema/profile selection</td></tr>
+<tr><td>UD / CoNLL-U sample package</td><td><code>samples/ud-conllu</code></td><td>upstream-contribution</td><td>planned</td><td>sample-not-release; promote only after validated speech-turn text, offset alignment, and model metadata plus tokenizer/parser comparison evidence</td></tr>
+<tr><td>RDF / Linked Data sample package</td><td><code>samples/rdf-linked-data</code></td><td>upstream-contribution</td><td>planned</td><td>sample-not-release; promote only after validated component exports, stable URI review, and SHACL plus SPARQL evidence</td></tr>
+<tr><td>metadata packages</td><td><code>generated/metadata</code></td><td>endpoint</td><td>validated-manifest</td><td>publish only through release upload workflows with checksums and DOI/revision references</td></tr>
+<tr><td>upstream contribution packages</td><td><code>conductor/tracks/upstream_contribution_packages_20260609</code></td><td>upstream-contribution</td><td>planned</td><td>build sample packages after endpoint validators pass</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="grid-two">
+      <section class="panel">
+        <h2>Track Status</h2>
+        <div class="stats">
+          <div class="stat"><span>Complete</span><strong>44</strong></div>
+          <div class="stat"><span>Blocked</span><strong>17</strong></div>
+          <div class="stat"><span>Pending</span><strong>0</strong></div>
+          <div class="stat"><span>Total</span><strong>61</strong></div>
+        </div>
+        <table>
+          <thead><tr><th>Status</th><th>Track</th><th>Track ID</th><th>Goal</th><th>Link</th></tr></thead>
+          <tbody>
+            <tr><td>blocked</td><td>Corpus-Wide Member Identity Release</td><td><code>corpus_wide_member_identity_release_20260610</code></td><td>promote the local member identity review package into a corpus-wide validated derived component with release gates, schemas, manifests, and non-overclaiming docs. Repo-side builder/checker are implemented; publication remains blocked pending normalized corpus input and authority coverage review.</td><td><a href='../../tracks/corpus_wide_member_identity_release_20260610/'>./tracks/corpus_wide_member_identity_release_20260610/</a></td></tr>
+<tr><td>blocked</td><td>Corpus-Wide Party Attribution Release</td><td><code>corpus_wide_party_attribution_release_20260610</code></td><td>promote party attribution from local/provenance fixtures into a temporal corpus-wide derived component that depends on validated member identity. Repo-side builder/checker are implemented; release remains blocked until corpus-wide member identity exists.</td><td><a href='../../tracks/corpus_wide_party_attribution_release_20260610/'>./tracks/corpus_wide_party_attribution_release_20260610/</a></td></tr>
+<tr><td>blocked</td><td>Validated Speech-Turn Component Release</td><td><code>validated_speech_turn_component_release_20260610</code></td><td>promote speech-turn candidates into a validated derived component only when the candidate artifact and validated member identity are both available. Repo-side builder/checker are implemented and candidate artifact exists (439 turns); release remains blocked pending validated member identity.</td><td><a href='../../tracks/validated_speech_turn_component_release_20260610/'>./tracks/validated_speech_turn_component_release_20260610/</a></td></tr>
+<tr><td>blocked</td><td>Sitting And Proceeding Component Release</td><td><code>sitting_proceeding_component_release_20260610</code></td><td>promote sitting/proceeding structures from design fixtures into validated corpus-wide neutral components reconciled to official sitting and proceeding evidence. Repo-side builder/checker and the comparison-ready historical ledger are implemented; release remains blocked until official historical comparison exists.</td><td><a href='../../tracks/sitting_proceeding_component_release_20260610/'>./tracks/sitting_proceeding_component_release_20260610/</a></td></tr>
+<tr><td>blocked</td><td>Vote Motion Bill Question Extraction Release</td><td><code>vote_motion_bill_question_extraction_release_20260610</code></td><td>implement validated corpus-wide extraction for votes, motions, bills, oral/written questions, answers, and procedural decisions with provenance. Repo-side builder/checker are implemented; release remains blocked until validated member identity, party attribution, and sitting/proceeding components exist.</td><td><a href='../../tracks/vote_motion_bill_question_extraction_release_20260610/'>./tracks/vote_motion_bill_question_extraction_release_20260610/</a></td></tr>
+<tr><td>blocked</td><td>ParlaMint-NZ Public Endpoint Release</td><td><code>parlamint_nz_public_endpoint_release_20260610</code></td><td>move ParlaMint-NZ from endpoint contract/sample readiness to a scope-declared public release package with schema validation and maintainer-facing evidence. Repo-side builder/checker are implemented; release remains blocked until validated member identity, party attribution, speech-turn, and sitting/proceeding components exist.</td><td><a href='../../tracks/parlamint_nz_public_endpoint_release_20260610/'>./tracks/parlamint_nz_public_endpoint_release_20260610/</a></td></tr>
+<tr><td>blocked</td><td>Popolo/Open Civic Data Public Endpoint Release</td><td><code>popolo_opencivicdata_public_endpoint_release_20260610</code></td><td>move Popolo/Open Civic Data from sample output to a validated public endpoint release. Repo-side builder/checker are implemented; release remains blocked pending validated member identity, party attribution, vote/motion extraction, and speech-turn components.</td><td><a href='../../tracks/popolo_opencivicdata_public_endpoint_release_20260610/'>./tracks/popolo_opencivicdata_public_endpoint_release_20260610/</a></td></tr>
+<tr><td>blocked</td><td>Akoma Ntoso Public Endpoint Release</td><td><code>akoma_ntoso_public_endpoint_release_20260610</code></td><td>move Akoma Ntoso from sample output to a validated public endpoint release with selected profile/schema evidence and source-span preservation. Repo-side builder/checker are implemented; release is blocked pending validated member identity, party attribution, speech-turn, motion, and vote components.</td><td><a href='../../tracks/akoma_ntoso_public_endpoint_release_20260610/'>./tracks/akoma_ntoso_public_endpoint_release_20260610/</a></td></tr>
+<tr><td>blocked</td><td>CAP/ParlaCAP Public Endpoint Release</td><td><code>cap_parlacap_public_endpoint_release_20260610</code></td><td>move CAP/ParlaCAP from sample topic output to a validated public release after topic codebooks, speech/proceeding units, and maintainer expectations are settled. Repo-side builder/checker are implemented; release is blocked pending validated speech-turn components and maintainer-confirmed codebook intake.</td><td><a href='../../tracks/cap_parlacap_public_endpoint_release_20260610/'>./tracks/cap_parlacap_public_endpoint_release_20260610/</a></td></tr>
+<tr><td>blocked</td><td>UD/CoNLL-U Public Endpoint Release</td><td><code>ud_conllu_public_endpoint_release_20260610</code></td><td>move UD/CoNLL-U from sample output to a validated NLP endpoint release with tokenizer/parser pinning, offset fidelity, and scope-declared coverage. Repo-side builder/checker are implemented; release is blocked pending validated speech-turn text and completed Stanza/spaCy comparison evidence.</td><td><a href='../../tracks/ud_conllu_public_endpoint_release_20260610/'>./tracks/ud_conllu_public_endpoint_release_20260610/</a></td></tr>
+<tr><td>blocked</td><td>RDF Linked Data Public Endpoint Release</td><td><code>rdf_linked_data_public_endpoint_release_20260610</code></td><td>move RDF/JSON-LD from sample graph output to a validated public linked-data release with SHACL, stable URIs, PROV-O/DCAT/SKOS/W3C Time, and SPARQL examples.</td><td><a href='../../tracks/rdf_linked_data_public_endpoint_release_20260610/'>./tracks/rdf_linked_data_public_endpoint_release_20260610/</a></td></tr>
+<tr><td>complete</td><td>DataCite Export Contract</td><td><code>datacite_export_contract_20260610</code></td><td>add the missing DataCite export contract and generated metadata payload so publication packages can target DOI-hosting workflows cleanly.</td><td><a href='../../tracks/datacite_export_contract_20260610/'>./tracks/datacite_export_contract_20260610/</a></td></tr>
+<tr><td>complete</td><td>W3C Web Annotation Selector Contract</td><td><code>web_annotation_selector_contract_20260610</code></td><td>standardize text/source-span selectors across derived components, endpoint annotations, search chunks, RDF links, and NLP outputs.</td><td><a href='../../tracks/web_annotation_selector_contract_20260610/'>./tracks/web_annotation_selector_contract_20260610/</a></td></tr>
+<tr><td>complete</td><td>Upstream Submission Execution</td><td><code>upstream_submission_execution_20260610</code></td><td>convert maintainer-review package drafts into real upstream submission handoffs only after endpoint release gates pass, with submission and feedback evidence.</td><td><a href='../../tracks/upstream_submission_execution_20260610/'>./tracks/upstream_submission_execution_20260610/</a></td></tr>
+<tr><td>complete</td><td>Researcher Client Helpers</td><td><code>researcher_client_helpers_20260610</code></td><td>add practical Python, R, DuckDB, and SPARQL helper examples for consuming document-level and endpoint artifacts without changing core data semantics.</td><td><a href='../../tracks/researcher_client_helpers_20260610/'>./tracks/researcher_client_helpers_20260610/</a></td></tr>
+<tr><td>complete</td><td>Static Documentation Portal</td><td><code>static_documentation_portal_20260610</code></td><td>publish a static documentation surface showing export models, validation status, citation patterns, release ladder state, and endpoint readiness.</td><td><a href='../../tracks/static_documentation_portal_20260610/'>./tracks/static_documentation_portal_20260610/</a></td></tr>
+<tr><td>complete</td><td>Entity Linking Exploratory Outputs</td><td><code>entity_linking_exploratory_outputs_20260610</code></td><td>add non-authoritative entity-linking outputs for people, organisations, places, legislation, ministries, portfolios, and committees with explicit exploratory status.</td><td><a href='../../tracks/entity_linking_exploratory_outputs_20260610/'>./tracks/entity_linking_exploratory_outputs_20260610/</a></td></tr>
+<tr><td>complete</td><td>Semantic Search Embeddings And Topic Models</td><td><code>semantic_search_embeddings_topics_20260610</code></td><td>add exploratory embeddings and topic-model outputs with model cards, manifests, optional dependencies, and non-authoritative publication boundaries.</td><td><a href='../../tracks/semantic_search_embeddings_topics_20260610/'>./tracks/semantic_search_embeddings_topics_20260610/</a></td></tr>
+<tr><td>blocked</td><td>Speech-Act And Procedure Classifiers</td><td><code>speech_act_procedure_classifiers_20260610</code></td><td>add validated classifiers for speech acts, question/answer structure, interjections, procedural rulings, and debate segments after speech-turn components mature. Blocked until validated speech-turn components and procedure readiness are available.</td><td><a href='../../tracks/speech_act_procedure_classifiers_20260610/'>./tracks/speech_act_procedure_classifiers_20260610/</a></td></tr>
+<tr><td>blocked</td><td>NIF/RDF Linguistic Annotation Views</td><td><code>nif_rdf_linguistic_views_20260610</code></td><td>add NIF/RDF linguistic annotation views that connect token and sentence annotations to stable selectors once RDF and UD layers mature.</td><td><a href='../../tracks/nif_rdf_linguistic_views_20260610/'>./tracks/nif_rdf_linguistic_views_20260610/</a></td></tr>
+<tr><td>blocked</td><td>W3C Time Temporal Model</td><td><code>w3c_time_temporal_model_20260610</code></td><td>model parliamentary periods, sittings, offices, party memberships, and role intervals using W3C Time-compatible structures.</td><td><a href='../../tracks/w3c_time_temporal_model_20260610/'>./tracks/w3c_time_temporal_model_20260610/</a></td></tr>
+<tr><td>blocked</td><td>OntoLex-Lemon Terminology Layer</td><td><code>ontolex_lemon_terminology_layer_20260610</code></td><td>add an optional terminology/lexicon layer for NZ parliamentary and legal vocabulary if downstream RDF and NLP use cases need it.</td><td><a href='../../tracks/ontolex_lemon_terminology_layer_20260610/'>./tracks/ontolex_lemon_terminology_layer_20260610/</a></td></tr>
+<tr><td>blocked</td><td>Full Historical Sitting Reconciliation</td><td><code>full_historical_sitting_reconciliation_20260610</code></td><td>move from supplied-archive coverage auditing to official full historical sitting/proceeding reconciliation before making completeness claims.</td><td><a href='../../tracks/full_historical_sitting_reconciliation_20260610/'>./tracks/full_historical_sitting_reconciliation_20260610/</a></td></tr>
+<tr><td>blocked</td><td>Package And CLI Migration Execution</td><td><code>package_cli_migration_execution_20260610</code></td><td>execute the package/CLI migration plan from corpus-family engineering alignment while preserving existing quality gates and release behaviour.</td><td><a href='../../tracks/package_cli_migration_execution_20260610/'>./tracks/package_cli_migration_execution_20260610/</a></td></tr>
+<tr><td>complete</td><td>Akoma Ntoso Endpoint</td><td><code>akoma_ntoso_endpoint_20260609</code></td><td>generate Akoma Ntoso-style legislative and parliamentary document structure from validated neutral proceeding components.</td><td><a href='../../tracks/akoma_ntoso_endpoint_20260609/'>./tracks/akoma_ntoso_endpoint_20260609/</a></td></tr>
+<tr><td>complete</td><td>CAP / ParlaCAP Topic Endpoint</td><td><code>cap_parlacap_topic_endpoint_20260609</code></td><td>create Comparative Agendas Project and ParlaCAP-compatible topic outputs with codebook provenance and validation.</td><td><a href='../../tracks/cap_parlacap_topic_endpoint_20260609/'>./tracks/cap_parlacap_topic_endpoint_20260609/</a></td></tr>
+<tr><td>complete</td><td>Universal Dependencies / CoNLL-U Endpoint</td><td><code>ud_conllu_endpoint_20260609</code></td><td>create validated Universal Dependencies and CoNLL-U linguistic annotation outputs with token-to-source alignment.</td><td><a href='../../tracks/ud_conllu_endpoint_20260609/'>./tracks/ud_conllu_endpoint_20260609/</a></td></tr>
+<tr><td>complete</td><td>RDF Linked Data Endpoint</td><td><code>rdf_linked_data_endpoint_20260609</code></td><td>publish RDF/JSON-LD views with PROV-O, DCAT, SKOS, stable URIs, and SHACL validation.</td><td><a href='../../tracks/rdf_linked_data_endpoint_20260609/'>./tracks/rdf_linked_data_endpoint_20260609/</a></td></tr>
+<tr><td>complete</td><td>Upstream Contribution Packages</td><td><code>upstream_contribution_packages_20260609</code></td><td>prepare validation-backed samples, mapping notes, and contribution evidence for ParlaMint/Parla-CLARIN, ParlaCAP/CAP, mySociety-style parser references, and related ecosystems.</td><td><a href='../../tracks/upstream_contribution_packages_20260609/'>./tracks/upstream_contribution_packages_20260609/</a></td></tr>
+<tr><td>complete</td><td>Member Identity Resolution</td><td><code>member_identity_resolution_20260609</code></td><td>resolve raw `MemberOfParliament` values into authoritative, provenance-backed member identity fields as a derived dataset layer.</td><td><a href='../../tracks/member_identity_resolution_20260609/'>./tracks/member_identity_resolution_20260609/</a></td></tr>
+<tr><td>complete</td><td>Party Attribution With Provenance</td><td><code>party_attribution_provenance_20260609</code></td><td>add provenance-backed party attribution as a temporal derived layer, dependent on validated member identity where needed.</td><td><a href='../../tracks/party_attribution_provenance_20260609/'>./tracks/party_attribution_provenance_20260609/</a></td></tr>
+<tr><td>complete</td><td>Speech-Turn Validated Artifact Decision</td><td><code>speech_turn_validated_artifact_20260609</code></td><td>promote speech-turn candidates to a validated derived artifact or explicitly keep them excluded from published final scope.</td><td><a href='../../tracks/speech_turn_validated_artifact_20260609/'>./tracks/speech_turn_validated_artifact_20260609/</a></td></tr>
+<tr><td>complete</td><td>Derived Fields Validation Manifests</td><td><code>derived_fields_validation_manifests_20260609</code></td><td>create shared validation tests and manifests for derived member, party, and speech-turn fields before any derived dataset publication.</td><td><a href='../../tracks/derived_fields_validation_manifests_20260609/'>./tracks/derived_fields_validation_manifests_20260609/</a></td></tr>
+<tr><td>complete</td><td>Popolo / Open Civic Data Endpoint</td><td><code>popolo_opencivicdata_endpoint_20260609</code></td><td>Generated a Popolo/Open Civic Data maintainer-review sample package, mapping notes, validation manifest, checker, and readiness boundary without inferring full voting records from text patterns alone.</td><td><a href='../../tracks/popolo_opencivicdata_endpoint_20260609/'>./tracks/popolo_opencivicdata_endpoint_20260609/</a></td></tr>
+<tr><td>complete</td><td>ParlaMint-NZ Endpoint</td><td><code>parlamint_nz_endpoint_20260609</code></td><td>Generated a ParlaMint-NZ maintainer-review TEI sample package, mapping notes, validation manifest, checker, and readiness boundary without making ParlaMint the internal core schema.</td><td><a href='../../tracks/parlamint_nz_endpoint_20260609/'>./tracks/parlamint_nz_endpoint_20260609/</a></td></tr>
+<tr><td>complete</td><td>Neutral Parliamentary Component Model</td><td><code>neutral_component_model_20260609</code></td><td>Defined machine-readable neutral component schemas, stable ID requirements, fixture rows, validation manifest, referential-integrity gates, and publication boundaries.</td><td><a href='../../tracks/neutral_component_model_20260609/'>./tracks/neutral_component_model_20260609/</a></td></tr>
+<tr><td>complete</td><td>NZ Parliamentary Procedure Model</td><td><code>nz_parliamentary_procedure_model_20260609</code></td><td>Modelled NZ-specific procedure categories, authority-source requirements, boundary fixtures, uncertainty policy, release gates, and endpoint mappings.</td><td><a href='../../tracks/nz_parliamentary_procedure_model_20260609/'>./tracks/nz_parliamentary_procedure_model_20260609/</a></td></tr>
+<tr><td>complete</td><td>Dependency Extras Policy</td><td><code>dependency_extras_policy_20260609</code></td><td>Kept the base runtime minimal with a validated optional dependency-group policy, endpoint dependency citations, deferred install-check rules, and release-artifact pinning requirements.</td><td><a href='../../tracks/dependency_extras_policy_20260609/'>./tracks/dependency_extras_policy_20260609/</a></td></tr>
+<tr><td>complete</td><td>Canonical ID and URI Policy</td><td><code>canonical_id_uri_policy_20260609</code></td><td>Defined stable ID and URI patterns, deterministic examples, namespace guidance, deprecation mapping policy, and endpoint validation gates.</td><td><a href='../../tracks/canonical_id_uri_policy_20260609/'>./tracks/canonical_id_uri_policy_20260609/</a></td></tr>
+<tr><td>complete</td><td>Gold Evaluation Datasets</td><td><code>gold_evaluation_datasets_20260609</code></td><td>Created reviewed evaluation schemas, fixtures, metrics, and gates for member resolution, party attribution, speech turns, votes, and topic coding.</td><td><a href='../../tracks/gold_evaluation_datasets_20260609/'>./tracks/gold_evaluation_datasets_20260609/</a></td></tr>
+<tr><td>complete</td><td>Release Ladder</td><td><code>release_ladder_20260609</code></td><td>Defined document-level, authority-source, neutral-component, endpoint, and upstream-contribution release levels with artifact mappings, manifest fields, publication gates, checker, and docs.</td><td><a href='../../tracks/release_ladder_20260609/'>./tracks/release_ladder_20260609/</a></td></tr>
+<tr><td>complete</td><td>Historical Coverage Audit</td><td><code>historical_coverage_audit_20260609</code></td><td>Distinguished supplied DocumentsDB extract completeness from full historical NZ Hansard completeness with coverage manifest, report, quality-gate checker, and release/endpoint guardrails.</td><td><a href='../../tracks/historical_coverage_audit_20260609/'>./tracks/historical_coverage_audit_20260609/</a></td></tr>
+<tr><td>complete</td><td>Authority Source Discovery</td><td><code>authority_source_discovery_20260609</code></td><td>Identified official-first authority source candidates for members, parties, offices, sittings, bills, motions, votes, and procedure, with manifest schema, reuse/coverage notes, hashes, and downstream unblockers.</td><td><a href='../../tracks/authority_source_discovery_20260609/'>./tracks/authority_source_discovery_20260609/</a></td></tr>
+<tr><td>complete</td><td>Corpus Family Engineering Alignment</td><td><code>corpus_family_engineering_alignment_20260609</code></td><td>Recorded the legislation-project engineering baseline and an implementation-ready package/CLI migration plan while preserving Hansard&#x27;s strict script-workspace quality gate and publication boundaries.</td><td><a href='../../tracks/corpus_family_engineering_alignment_20260609/'>./tracks/corpus_family_engineering_alignment_20260609/</a></td></tr>
+<tr><td>complete</td><td>Zenodo Rights Metadata And Zenodraft Workflow</td><td><code>zenodo_rights_metadata_and_zenodraft_workflow_20260609</code></td><td>Harmonised Zenodo rights metadata and completed sandbox draft/upload/update/readback proof for generated metadata packages while preserving the protected production publication gate.</td><td><a href='../../tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/'>./tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/</a></td></tr>
+<tr><td>complete</td><td>SOTA Metadata Packages</td><td><code>sota_metadata_packages_20260609</code></td><td>Generated validated Croissant, RO-Crate, Frictionless, DCAT, and PROV-O metadata packages with checksums, deterministic exporter, and package-specific quality-gate validation. Live Zenodo Sandbox proof remains tracked by `zenodo_rights_metadata_and_zenodraft_workflow_20260609`.</td><td><a href='../../tracks/sota_metadata_packages_20260609/'>./tracks/sota_metadata_packages_20260609/</a></td></tr>
+<tr><td>complete</td><td>Corpus Family Naming And Publication Alignment</td><td><code>corpus_family_naming_publication_alignment_20260609</code></td><td>keep `corpus-nz-hansard` aligned with preferred sibling label `corpus-nz-legislation` across GitHub, Hugging Face, Zenodo, OSF, and future metadata environments.</td><td><a href='../../tracks/corpus_family_naming_publication_alignment_20260609/'>./tracks/corpus_family_naming_publication_alignment_20260609/</a></td></tr>
+<tr><td>complete</td><td>OSF Optional Mirror Policy</td><td><code>osf_optional_mirror_policy_20260609</code></td><td>Decide whether OSF is unused, a review-bundle host, or an optional mirror with checksums and citation policy.</td><td><a href='../../tracks/osf_optional_mirror_policy_20260609/'>./tracks/osf_optional_mirror_policy_20260609/</a></td></tr>
+<tr><td>complete</td><td>Shared NZ Corpus Core Schema</td><td><code>shared_nz_corpus_core_schema_20260609</code></td><td>Define shared core fields and compatibility expectations across legislation and Hansard.</td><td><a href='../../tracks/shared_nz_corpus_core_schema_20260609/'>./tracks/shared_nz_corpus_core_schema_20260609/</a></td></tr>
+<tr><td>complete</td><td>SOTA CI/CD Code Quality And Rust Tooling</td><td><code>sota_cicd_code_quality_rust_tooling_20260609</code></td><td>Adopt SOTA CI/code-quality automation using Rust-backed tools where possible: uv, ruff, ty, typos, zizmor, taplo, plus actionlint.</td><td><a href='../../tracks/sota_cicd_code_quality_rust_tooling_20260609/'>./tracks/sota_cicd_code_quality_rust_tooling_20260609/</a></td></tr>
+<tr><td>complete</td><td>Hugging Face Viewer Layout Fix</td><td><code>huggingface_viewer_layout_fix_20260609</code></td><td>Verify and fix any confirmed Hugging Face viewer split/cast or file-layout issue, then add layout regression checks.</td><td><a href='../../tracks/huggingface_viewer_layout_fix_20260609/'>./tracks/huggingface_viewer_layout_fix_20260609/</a></td></tr>
+<tr><td>complete</td><td>Public Surface Audit Evidence</td><td><code>public_surface_audit_evidence_20260609</code></td><td>Create an evidence ledger for GitHub, Hugging Face, Zenodo, OSF, and future metadata surfaces.</td><td><a href='../../tracks/public_surface_audit_evidence_20260609/'>./tracks/public_surface_audit_evidence_20260609/</a></td></tr>
+<tr><td>complete</td><td>Artifact Provenance And Attestations</td><td><code>artifact_provenance_attestations_20260609</code></td><td>Add release evidence ledgers, GitHub artifact attestations or SLSA-style provenance, and signed/checksummed artifact policy.</td><td><a href='../../tracks/artifact_provenance_attestations_20260609/'>./tracks/artifact_provenance_attestations_20260609/</a></td></tr>
+<tr><td>complete</td><td>Bleeding Edge Versioning And Release Automation</td><td><code>bleeding_edge_versioning_release_automation_20260609</code></td><td>Implement SemVer/dataset/schema version governance, Release Please-style changelog automation, and consistency checks.</td><td><a href='../../tracks/bleeding_edge_versioning_release_automation_20260609/'>./tracks/bleeding_edge_versioning_release_automation_20260609/</a></td></tr>
+<tr><td>complete</td><td>Repository SOTA Hardening</td><td><code>repository_sota_hardening_20260608</code></td><td>hardened the published GitHub and Hugging Face repository surfaces for discoverability, citation, provenance, release posture, and metadata quality after Zenodo DOI publication.</td><td><a href='../../tracks/repository_sota_hardening_20260608/'>./tracks/repository_sota_hardening_20260608/</a></td></tr>
+<tr><td>complete</td><td>Search and RAG Index MVP</td><td><code>search_rag_index_20260603</code></td><td>built a local lexical search and citation-ready chunk index from the normalized Hansard Parquet without external embedding services.</td><td><a href='../../tracks/search_rag_index_20260603/'>./tracks/search_rag_index_20260603/</a></td></tr>
+<tr><td>complete</td><td>Speech Turn Segmentation MVP</td><td><code>speech_turn_segmentation_20260603</code></td><td>built conservative document-level speech-turn segmentation tooling and validation outputs without claiming authoritative speaker attribution.</td><td><a href='../../tracks/speech_turn_segmentation_20260603/'>./tracks/speech_turn_segmentation_20260603/</a></td></tr>
+<tr><td>complete</td><td>Release Hosting and Versioning</td><td><code>release_hosting_and_versioning_20260603</code></td><td>created local release/versioning artifacts and a review package without uploading or publishing any dataset.</td><td><a href='../../tracks/release_hosting_and_versioning_20260603/'>./tracks/release_hosting_and_versioning_20260603/</a></td></tr>
+<tr><td>complete</td><td>Public Dataset Readiness</td><td><code>public_dataset_readiness_20260602</code></td><td>prepared repo-side public dataset release documentation, provenance, limitations, and release manifest without uploading or publishing.</td><td><a href='../../tracks/public_dataset_readiness_20260602/'>./tracks/public_dataset_readiness_20260602/</a></td></tr>
+<tr><td>complete</td><td>Hansard Corpus Pipeline MVP</td><td><code>hansard_corpus_pipeline_mvp_20260602</code></td><td>built the first evidence-backed corpus pipeline from source inventory through schema discovery to manifest, Parquet, and DuckDB outputs.</td><td><a href='../../tracks/hansard_corpus_pipeline_mvp_20260602/'>./tracks/hansard_corpus_pipeline_mvp_20260602/</a></td></tr>
+<tr><td>complete</td><td>Source Inventory Verification and Manifest Generation</td><td><code>source_inventory_20260602</code></td><td>auxiliary source-inventory track created during Phase 1. Implementation evidence is aligned with `hansard_corpus_pipeline_mvp_20260602` Phase 1.</td><td><a href='../../tracks/source_inventory_20260602/'>./tracks/source_inventory_20260602/</a></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h2>Citation Guidance</h2>
+        <p class="note">Use these surfaces when citing release posture, provenance, or publication status.</p>
+        <table>
+          <thead><tr><th>Label</th><th>Path</th></tr></thead>
+          <tbody>
+            <tr><td>Release ladder</td><td><a href='../release-ladder.md'>release-ladder.md</a></td></tr>
+<tr><td>Publication status</td><td><a href='../publication-status.md'>publication-status.md</a></td></tr>
+<tr><td>Public release checklist</td><td><a href='../public-release-checklist.md'>public-release-checklist.md</a></td></tr>
+<tr><td>Release evidence ledger</td><td><a href='../release-evidence-ledger.md'>release-evidence-ledger.md</a></td></tr>
+<tr><td>Licensing and provenance</td><td><a href='../licensing-and-provenance.md'>licensing-and-provenance.md</a></td></tr>
+<tr><td>Canonical ID and URI policy</td><td><a href='../canonical-id-uri-policy.md'>canonical-id-uri-policy.md</a></td></tr>
+          </tbody>
+        </table>
+
+        <h2>Data Dictionaries</h2>
+        <p class="note">These are the primary repo docs for data model, endpoint, and derived-field semantics.</p>
+        <table>
+          <thead><tr><th>Label</th><th>Path</th></tr></thead>
+          <tbody>
+            <tr><td>Shared NZ corpus core schema</td><td><a href='../shared-nz-corpus-core-schema.md'>shared-nz-corpus-core-schema.md</a></td></tr>
+<tr><td>Neutral component model</td><td><a href='../neutral-component-model.md'>neutral-component-model.md</a></td></tr>
+<tr><td>Endpoint contracts</td><td><a href='../endpoint-contracts.md'>endpoint-contracts.md</a></td></tr>
+<tr><td>Derived fields validation</td><td><a href='../derived-fields-validation.md'>derived-fields-validation.md</a></td></tr>
+<tr><td>Member identity resolution</td><td><a href='../member-identity-resolution.md'>member-identity-resolution.md</a></td></tr>
+<tr><td>Party attribution provenance</td><td><a href='../party-attribution-provenance.md'>party-attribution-provenance.md</a></td></tr>
+<tr><td>Speech-turn segmentation contract</td><td><a href='../speech-turn-segmentation-contract.md'>speech-turn-segmentation-contract.md</a></td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <section class="panel">
+      <h2>Claim Boundary</h2>
+      <p class="note">
+        Public release surfaces are the GitHub release, Hugging Face dataset, and Zenodo record shown above.
+        Sample-only endpoints, local review packages, and blocked tracks remain outside the public release claim.
+      </p>
+      <p class="note">
+        Build source: docs/static-documentation-portal.md, conductor/tracks.md,
+        manifests/release_ladder.json, and manifests/public_dataset_release_manifest.json.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

@@ -106,6 +106,18 @@ jobs:
       - name: Authority source discovery
         run: python scripts\check_authority_sources.py
 
+      - name: Historical sitting inventory
+        run: python scripts\check_historical_sitting_inventory.py
+
+      - name: Historical sitting official exports
+        run: python scripts\check_historical_sitting_official_exports.py
+
+      - name: Historical sitting official exports coverage
+        run: python scripts\build_historical_sitting_official_exports_coverage.py
+
+      - name: Historical sitting reconciliation
+        run: python scripts\check_historical_sitting_reconciliation.py
+
       - name: Historical coverage audit
         run: python scripts\check_historical_coverage_audit.py
 
@@ -135,3 +147,12 @@ jobs:
 
       - name: Popolo Open Civic Data endpoint
         run: python scripts\check_popolo_opencivicdata_endpoint.py
+
+      - name: Universal Dependencies CoNLL-U endpoint
+        run: python scripts\check_ud_conllu_endpoint.py
+
+      - name: RDF Linked Data endpoint
+        run: python scripts\check_rdf_linked_data_endpoint.py
+
+      - name: Derived fields validation manifests
+        run: python scripts\validate_derived_fields.py

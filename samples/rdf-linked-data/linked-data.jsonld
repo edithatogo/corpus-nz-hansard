@@ -1,0 +1,327 @@
+{
+  "@context": {
+    "@vocab": "https://w3id.org/nz-hansard/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "description": "dcterms:description",
+    "distribution": {
+      "@id": "dcat:distribution",
+      "@type": "@id"
+    },
+    "downloadURL": {
+      "@id": "dcat:downloadURL",
+      "@type": "@id"
+    },
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "format": "dcterms:format",
+    "hasTime": {
+      "@id": "time:hasTime",
+      "@type": "@id"
+    },
+    "identifier": "dcterms:identifier",
+    "inScheme": {
+      "@id": "skos:inScheme",
+      "@type": "@id"
+    },
+    "inXSDDate": {
+      "@id": "time:inXSDDate",
+      "@type": "xsd:date"
+    },
+    "isPartOf": {
+      "@id": "dcterms:isPartOf",
+      "@type": "@id"
+    },
+    "issued": {
+      "@id": "dcterms:issued",
+      "@type": "xsd:date"
+    },
+    "license": {
+      "@id": "dcterms:license",
+      "@type": "@id"
+    },
+    "motion": {
+      "@id": "nzh:motion",
+      "@type": "@id"
+    },
+    "name": "foaf:name",
+    "notation": "skos:notation",
+    "nzh": "https://w3id.org/nz-hansard/",
+    "nzhc": "https://w3id.org/nz-hansard/component/",
+    "nzhs": "https://w3id.org/nz-hansard/sample/",
+    "prefLabel": "skos:prefLabel",
+    "proceedingItem": {
+      "@id": "nzh:proceedingItem",
+      "@type": "@id"
+    },
+    "prov": "http://www.w3.org/ns/prov#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "role": {
+      "@id": "nzh:role",
+      "@type": "@id"
+    },
+    "schema": "https://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "source": {
+      "@id": "dcterms:source",
+      "@type": "@id"
+    },
+    "sourceStableId": "nzh:sourceStableId",
+    "speaker": {
+      "@id": "nzh:speaker",
+      "@type": "@id"
+    },
+    "subject": {
+      "@id": "dcterms:subject",
+      "@type": "@id"
+    },
+    "targetComponent": {
+      "@id": "nzh:targetComponent",
+      "@type": "@id"
+    },
+    "time": "http://www.w3.org/2006/time#",
+    "title": "dcterms:title",
+    "type": {
+      "@id": "dcterms:type",
+      "@type": "@id"
+    },
+    "voteType": {
+      "@id": "nzh:voteType",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "nzhs:rdf-linked-data-sample",
+      "@type": [
+        "dcat:Dataset",
+        "prov:Entity"
+      ],
+      "description": "Maintainer-review linked-data sample generated from the neutral component fixture set.",
+      "distribution": [
+        "nzhs:distribution-ttl",
+        "nzhs:distribution-jsonld"
+      ],
+      "issued": "2026-06-10",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "source": "https://github.com/edithatogo/corpus-nz-hansard",
+      "title": "RDF linked-data sample package",
+      "wasDerivedFrom": [
+        "nzhc:nzhc-component-0000000000000001",
+        "nzhc:nzhc-component-0000000000000002",
+        "nzhc:nzhc-component-0000000000000003",
+        "nzhc:nzhc-component-0000000000000004",
+        "nzhc:nzhc-component-0000000000000005",
+        "nzhc:nzhc-component-0000000000000006",
+        "nzhc:nzhc-component-0000000000000007",
+        "nzhc:nzhc-component-0000000000000008",
+        "nzhc:nzhc-component-0000000000000009"
+      ]
+    },
+    {
+      "@id": "nzhs:distribution-ttl",
+      "@type": "dcat:Distribution",
+      "downloadURL": "https://w3id.org/nz-hansard/sample/rdf-linked-data-sample/linked-data.ttl",
+      "format": "text/turtle",
+      "title": "RDF Turtle sample"
+    },
+    {
+      "@id": "nzhs:distribution-jsonld",
+      "@type": "dcat:Distribution",
+      "downloadURL": "https://w3id.org/nz-hansard/sample/rdf-linked-data-sample/linked-data.jsonld",
+      "format": "application/ld+json",
+      "title": "RDF JSON-LD sample"
+    },
+    {
+      "@id": "nzhs:party-scheme",
+      "@type": "skos:ConceptScheme",
+      "title": "Party concept scheme"
+    },
+    {
+      "@id": "nzhs:role-scheme",
+      "@type": "skos:ConceptScheme",
+      "title": "Role concept scheme"
+    },
+    {
+      "@id": "nzhs:proceeding-type-scheme",
+      "@type": "skos:ConceptScheme",
+      "title": "Proceeding type concept scheme"
+    },
+    {
+      "@id": "nzhs:vote-type-scheme",
+      "@type": "skos:ConceptScheme",
+      "title": "Vote type concept scheme"
+    },
+    {
+      "@id": "nzhs:topic-scheme",
+      "@type": "skos:ConceptScheme",
+      "title": "Topic code concept scheme"
+    },
+    {
+      "@id": "nzhs:party-example-party",
+      "@type": [
+        "skos:Concept",
+        "nzh:Party"
+      ],
+      "identifier": "nzhc-component-0000000000000004",
+      "inScheme": "nzhs:party-scheme",
+      "prefLabel": {
+        "@language": "en",
+        "@value": "Example Party"
+      },
+      "wasDerivedFrom": "nzhc:nzhc-component-0000000000000004"
+    },
+    {
+      "@id": "nzhs:role-member",
+      "@type": "skos:Concept",
+      "inScheme": "nzhs:role-scheme",
+      "prefLabel": {
+        "@language": "en",
+        "@value": "Member"
+      }
+    },
+    {
+      "@id": "nzhs:proceeding-type-vote",
+      "@type": "skos:Concept",
+      "inScheme": "nzhs:proceeding-type-scheme",
+      "prefLabel": {
+        "@language": "en",
+        "@value": "Vote"
+      }
+    },
+    {
+      "@id": "nzhs:vote-type-party-vote",
+      "@type": "skos:Concept",
+      "inScheme": "nzhs:vote-type-scheme",
+      "prefLabel": {
+        "@language": "en",
+        "@value": "Party vote"
+      }
+    },
+    {
+      "@id": "nzhs:topic-transport",
+      "@type": "skos:Concept",
+      "inScheme": "nzhs:topic-scheme",
+      "notation": "transport",
+      "prefLabel": {
+        "@language": "en",
+        "@value": "Transport"
+      }
+    },
+    {
+      "@id": "nzhs:sitting-time-2024-06-25",
+      "@type": "time:Instant",
+      "inXSDDate": "2024-06-25"
+    },
+    {
+      "@id": "nzhc:nzhc-component-0000000000000001",
+      "@type": [
+        "nzh:Session",
+        "prov:Entity"
+      ],
+      "hasTime": "nzhs:sitting-time-2024-06-25",
+      "identifier": "nzhc-component-0000000000000001",
+      "wasDerivedFrom": "https://w3id.org/nz-hansard/document/47HansS_20240625_067140000"
+    },
+    {
+      "@id": "nzhc:nzhc-component-0000000000000002",
+      "@type": [
+        "nzh:ProceedingItem",
+        "prov:Entity"
+      ],
+      "identifier": "nzhc-component-0000000000000002",
+      "isPartOf": "nzhc:nzhc-component-0000000000000001",
+      "title": "Land Transport (Clean Vehicle Standard) Amendment Bill - second reading",
+      "type": "nzhs:proceeding-type-vote",
+      "wasDerivedFrom": "https://w3id.org/nz-hansard/document/47HansS_20240625_067140000"
+    },
+    {
+      "@id": "nzhc:nzhc-component-0000000000000003",
+      "@type": [
+        "foaf:Person",
+        "prov:Entity"
+      ],
+      "identifier": "nzhc-component-0000000000000003",
+      "name": "Example Member",
+      "role": "nzhs:role-member",
+      "wasDerivedFrom": "https://w3id.org/nz-hansard/authority/nzhc-authority-source-d89cb3c98830032d"
+    },
+    {
+      "@id": "nzhc:nzhc-component-0000000000000004",
+      "@type": [
+        "nzh:Party",
+        "skos:Concept",
+        "prov:Entity"
+      ],
+      "identifier": "nzhc-component-0000000000000004",
+      "inScheme": "nzhs:party-scheme",
+      "prefLabel": {
+        "@language": "en",
+        "@value": "Example Party"
+      },
+      "wasDerivedFrom": "https://w3id.org/nz-hansard/authority/nzhc-authority-source-d89cb3c98830032d"
+    },
+    {
+      "@id": "nzhc:nzhc-component-0000000000000005",
+      "@type": [
+        "nzh:SpeechTurn",
+        "prov:Entity"
+      ],
+      "identifier": "nzhc-component-0000000000000005",
+      "proceedingItem": "nzhc:nzhc-component-0000000000000002",
+      "sourceStableId": "HansS_20240625_067140000",
+      "speaker": "nzhc:nzhc-component-0000000000000003",
+      "subject": "nzhs:topic-transport",
+      "wasDerivedFrom": "https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005"
+    },
+    {
+      "@id": "nzhc:nzhc-component-0000000000000006",
+      "@type": [
+        "nzh:Motion",
+        "prov:Entity"
+      ],
+      "identifier": "nzhc-component-0000000000000006",
+      "isPartOf": "nzhc:nzhc-component-0000000000000002",
+      "title": "That the Land Transport (Clean Vehicle Standard) Amendment Bill be now read a second time.",
+      "wasDerivedFrom": "https://w3id.org/nz-hansard/component/nzhc-component-0000000000000006"
+    },
+    {
+      "@id": "nzhc:nzhc-component-0000000000000007",
+      "@type": [
+        "nzh:VoteEvent",
+        "prov:Entity"
+      ],
+      "identifier": "nzhc-component-0000000000000007",
+      "motion": "nzhc:nzhc-component-0000000000000006",
+      "voteType": "nzhs:vote-type-party-vote",
+      "wasDerivedFrom": "https://w3id.org/nz-hansard/component/nzhc-component-0000000000000007"
+    },
+    {
+      "@id": "nzhc:nzhc-component-0000000000000008",
+      "@type": [
+        "nzh:Bill",
+        "prov:Entity"
+      ],
+      "identifier": "nzhc-component-0000000000000008",
+      "isPartOf": "nzhc:nzhc-component-0000000000000002",
+      "title": "Land Transport (Clean Vehicle Standard) Amendment Bill",
+      "wasDerivedFrom": "https://w3id.org/nz-hansard/component/nzhc-component-0000000000000008"
+    },
+    {
+      "@id": "nzhc:nzhc-component-0000000000000009",
+      "@type": [
+        "nzh:TopicAssignment",
+        "prov:Entity"
+      ],
+      "identifier": "nzhc-component-0000000000000009",
+      "subject": "nzhs:topic-transport",
+      "targetComponent": "nzhc:nzhc-component-0000000000000002",
+      "wasDerivedFrom": "https://w3id.org/nz-hansard/component/nzhc-component-0000000000000009"
+    }
+  ]
+}

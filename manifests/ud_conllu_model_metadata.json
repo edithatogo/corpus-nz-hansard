@@ -1,0 +1,32 @@
+{
+  "track_id": "ud_conllu_endpoint_20260609",
+  "annotation_family": "Universal Dependencies / CoNLL-U",
+  "annotation_version": "2.x",
+  "language": "en",
+  "target_text_unit": "speech_turn",
+  "source_component_ids": [
+    "nzhc-component-0000000000000001",
+    "nzhc-component-0000000000000002",
+    "nzhc-component-0000000000000005"
+  ],
+  "tokenizer": {
+    "name": "manual-fixture-whitespace",
+    "version": "ud-fixture-20260610"
+  },
+  "parser": {
+    "name": "manual-ud-tree",
+    "version": "ud-fixture-20260610"
+  },
+  "prototype_tools": {
+    "spacy": {
+      "status": "planned",
+      "comparison_note": "Candidate comparison target for a later fixture benchmark."
+    },
+    "stanza": {
+      "status": "planned",
+      "comparison_note": "Candidate comparison target for a later fixture benchmark."
+    }
+  },
+  "default_pipeline": "manual-fixture",
+  "selection_note": "Manual fixture output preserves source offsets and parseability while the Stanza/spaCy comparison is still pending."
+}

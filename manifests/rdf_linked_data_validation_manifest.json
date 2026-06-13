@@ -1,0 +1,80 @@
+{
+  "track_id": "rdf_linked_data_endpoint_20260609",
+  "artifact_name": "RDF / Linked Data sample package",
+  "artifact_version": "0.1.0",
+  "release_series_id": "rdf-linked-data-sample",
+  "release_level": "upstream-contribution",
+  "release_status": "sample-not-release",
+  "publication_target": "local maintainer-review package",
+  "upstream_contribution_target": "RDF / linked-data maintainers after validated component exports and SHACL review",
+  "validation_manifest": "manifests/rdf_linked_data_validation_manifest.json",
+  "input_release_versions": {
+    "document_level": "0.1.0",
+    "neutral_component_model": "neutral_component_model_20260610",
+    "authority_sources": "manifests/authority_sources.json",
+    "id_uri_policy": "manifests/id_uri_policy.json",
+    "model_metadata": "manifests/rdf_linked_data_model_metadata.json"
+  },
+  "known_exclusions": [
+    "full historical RDF coverage",
+    "NIF export",
+    "external ontology acceptance"
+  ],
+  "dependency_groups": [
+    "authority",
+    "metadata",
+    "rdf",
+    "schema"
+  ],
+  "dependency_validation": {
+    "tool_versions": {
+      "python": "3.13"
+    },
+    "library_versions": {
+      "pyshacl": "manual-validator",
+      "rdflib": "manual-validator"
+    },
+    "model_versions": {
+      "vocabulary": "rdf-linked-data-fixture-20260610"
+    },
+    "lock_or_constraints": "requirements/rdf.txt, requirements/schema.txt, requirements/metadata.txt, requirements/authority.txt",
+    "install_commands": [
+      "python -m pip install -r requirements/rdf.txt -r requirements/schema.txt -r requirements/metadata.txt -r requirements/authority.txt"
+    ],
+    "release_affecting_dependencies": [
+      "RDF serializer versions",
+      "SHACL validator versions",
+      "ontology/mapping libraries",
+      "metadata export tooling"
+    ]
+  },
+  "validation_command": "python scripts/check_rdf_linked_data_endpoint.py",
+  "output_artifacts": [
+    "samples/rdf-linked-data/linked-data.ttl",
+    "samples/rdf-linked-data/linked-data.jsonld",
+    "samples/rdf-linked-data/shapes.ttl",
+    "samples/rdf-linked-data/sparql-queries.rq",
+    "samples/rdf-linked-data/README.md"
+  ],
+  "validation_results": {
+    "component_metadata_validated": false,
+    "readiness_status": "blocked-pending-validated-components",
+    "blocking_errors": 0
+  },
+  "traceability": [
+    {
+      "neutral_component_ids": [
+        "nzhc-component-0000000000000001",
+        "nzhc-component-0000000000000002",
+        "nzhc-component-0000000000000003",
+        "nzhc-component-0000000000000004",
+        "nzhc-component-0000000000000005",
+        "nzhc-component-0000000000000006",
+        "nzhc-component-0000000000000007",
+        "nzhc-component-0000000000000008",
+        "nzhc-component-0000000000000009"
+      ]
+    }
+  ],
+  "manifest_sha256": "deferred-sample-manifest"
+}

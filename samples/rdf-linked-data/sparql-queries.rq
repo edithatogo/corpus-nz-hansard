@@ -1,0 +1,19 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX nzh: <https://w3id.org/nz-hansard/>
+PREFIX nzhc: <https://w3id.org/nz-hansard/component/>
+PREFIX nzhs: <https://w3id.org/nz-hansard/sample/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT ?speechTurn ?topicLabel ?speakerName WHERE {
+  ?speechTurn a nzh:SpeechTurn ;
+    dcterms:subject ?topic ;
+    nzh:speaker ?speaker .
+  ?topic skos:prefLabel ?topicLabel .
+  ?speaker <http://xmlns.com/foaf/0.1/name> ?speakerName .
+}
+
+SELECT ?dataset ?distribution WHERE {
+  ?dataset a <http://www.w3.org/ns/dcat#Dataset> ;
+    <http://www.w3.org/ns/dcat#distribution> ?distribution .
+}

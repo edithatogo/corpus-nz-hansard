@@ -1,0 +1,717 @@
+{
+  "total_members": 51,
+  "resolved": 51,
+  "unresolved": 0,
+  "resolution_rate_pct": 100.0,
+  "generated_at": "2026-06-13",
+  "sources_integrated": [
+    "unmatched_final_resolution.json (50/51 resolved)",
+    "wikidata_nz_mps.json (1,514 records)",
+    "bills_members API (351 unique members)",
+    "triangulated_member_authority.json",
+    "parliament_current_mps.json",
+    "Hansard corpus (193,922 rows)"
+  ],
+  "members": {
+    "Anae Neru Leavasa": {
+      "hansard_name": "Anae Neru Leavasa",
+      "canonical_name": "Neru Leavasa",
+      "party": "Labour",
+      "parliament_numbers": [
+        53
+      ],
+      "sources_used": [
+        "Wikidata",
+        "Wikidata SPARQL"
+      ],
+      "confidence": "high",
+      "resolved": true
+    },
+    "Anahila Kanongata'a": {
+      "hansard_name": "Anahila Kanongata'a",
+      "canonical_name": "Anahila Kanongata'a-Suisuiki",
+      "party": "Labour",
+      "parliament_numbers": [
+        53
+      ],
+      "sources_used": [
+        "Wikipedia 52nd-53rd Parliaments",
+        "Bills API",
+        "Wikidata SPARQL",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "notes": "Incomplete surname in Hansard. Full: Kanongata'a-Suisuiki."
+    },
+    "Andrew Hoggard": {
+      "hansard_name": "Andrew Hoggard",
+      "canonical_name": "Andrew Hoggard",
+      "party": "ACT",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Andy Foster": {
+      "hansard_name": "Andy Foster",
+      "canonical_name": "Andy Foster",
+      "party": "NZ First",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Asenati Lole-Taylor": {
+      "hansard_name": "Asenati Lole-Taylor",
+      "canonical_name": "Asenati Taylor",
+      "party": "NZ First",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 50th Parliament",
+        "Wikidata SPARQL"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "notes": "Full name includes middle name. NZ First MP 2011-2014."
+    },
+    "Brent Hudson": {
+      "hansard_name": "Brent Hudson",
+      "canonical_name": "Brett Hudson",
+      "party": "National",
+      "parliament_numbers": [
+        51
+      ],
+      "sources_used": [
+        "Wikipedia 51st-52nd Parliaments",
+        "Bills API",
+        "Wikidata SPARQL",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "notes": "Hansard typo: Brent -> Brett. National MP 2014-2020."
+    },
+    "Cameron Brewer": {
+      "hansard_name": "Cameron Brewer",
+      "canonical_name": "Cameron Brewer",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Upper Harbour"
+    },
+    "Cameron Luxton": {
+      "hansard_name": "Cameron Luxton",
+      "canonical_name": "Cameron Luxton",
+      "party": "ACT",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Carl Bates": {
+      "hansard_name": "Carl Bates",
+      "canonical_name": "Carl Bates",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Whanganui"
+    },
+    "Carlos Cheung": {
+      "hansard_name": "Carlos Cheung",
+      "canonical_name": "Carlos Cheung",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Mount Roskill"
+    },
+    "Catherine Wedd": {
+      "hansard_name": "Catherine Wedd",
+      "canonical_name": "Catherine Wedd",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Tukituki"
+    },
+    "Celia Wade-Brown": {
+      "hansard_name": "Celia Wade-Brown",
+      "canonical_name": "Celia Wade-Brown",
+      "party": "Green",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Cushla Tangaere-Manuel": {
+      "hansard_name": "Cushla Tangaere-Manuel",
+      "canonical_name": "Cushla Tangaere-Manuel",
+      "party": "Labour",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Ikaroa-Rawhiti"
+    },
+    "Dana Kirkpatrick": {
+      "hansard_name": "Dana Kirkpatrick",
+      "canonical_name": "Dana Kirkpatrick",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "East Coast"
+    },
+    "Darleen Tana": {
+      "hansard_name": "Darleen Tana",
+      "canonical_name": "Darleen Tana",
+      "party": "Green",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "David MacLeod": {
+      "hansard_name": "David MacLeod",
+      "canonical_name": "David MacLeod",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "New Plymouth"
+    },
+    "Francisco Hernandez": {
+      "hansard_name": "Francisco Hernandez",
+      "canonical_name": "Francisco Hernandez",
+      "party": "Green",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Gerrard Eckhoff": {
+      "hansard_name": "Gerrard Eckhoff",
+      "canonical_name": "Gerry Eckhoff",
+      "party": "ACT",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 47th-49th Parliaments",
+        "Wikidata SPARQL"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "notes": "Name variant: Gerry/Gerrard. ACT MP 2002-2011."
+    },
+    "Grant McCallum": {
+      "hansard_name": "Grant McCallum",
+      "canonical_name": "Grant McCallum",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Northland"
+    },
+    "Greg Fleming": {
+      "hansard_name": "Greg Fleming",
+      "canonical_name": "Greg Fleming",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Maungakiekie"
+    },
+    "H V Ross Robertson": {
+      "hansard_name": "H V Ross Robertson",
+      "canonical_name": "Ross Robertson",
+      "party": "Labour",
+      "parliament_numbers": [
+        50
+      ],
+      "sources_used": [
+        "Wikidata",
+        "Wikidata SPARQL"
+      ],
+      "confidence": "high",
+      "resolved": true
+    },
+    "Hamish Campbell": {
+      "hansard_name": "Hamish Campbell",
+      "canonical_name": "Hamish Campbell",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Ilam"
+    },
+    "Hana-Rawhiti Maipi-Clarke": {
+      "hansard_name": "Hana-Rawhiti Maipi-Clarke",
+      "canonical_name": "Hana-Rawhiti Maipi-Clarke",
+      "party": "Te Pati Maori",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Hūhana Lyndon": {
+      "hansard_name": "Hūhana Lyndon",
+      "canonical_name": "Huhana Lyndon",
+      "party": "Green",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament"
+      ],
+      "confidence": "medium",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "James Meager": {
+      "hansard_name": "James Meager",
+      "canonical_name": "James Meager",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Rangitata"
+    },
+    "Jamie Arbuckle": {
+      "hansard_name": "Jamie Arbuckle",
+      "canonical_name": "Jamie Arbuckle",
+      "party": "NZ First",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Kahurangi Carter": {
+      "hansard_name": "Kahurangi Carter",
+      "canonical_name": "Kahurangi Carter",
+      "party": "Green",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Katie Nimon": {
+      "hansard_name": "Katie Nimon",
+      "canonical_name": "Katie Nimon",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Napier"
+    },
+    "Lan Pham": {
+      "hansard_name": "Lan Pham",
+      "canonical_name": "Lan Pham",
+      "party": "Green",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Laura Trask": {
+      "hansard_name": "Laura Trask",
+      "canonical_name": "Laura McClure",
+      "party": "ACT",
+      "parliament_numbers": [
+        54
+      ],
+      "sources_used": [
+        "Bills API",
+        "Hansard Context (54th Parl, ACT colleagues)"
+      ],
+      "confidence": "medium",
+      "resolved": true,
+      "notes": "Laura Trask mapped to Laura McClure (ACT MP). Bills API lists Laura McClure, not Laura Trask. Hansard shows her in 54th Parl (2024) alongside ACT MPs David Seymour, Simon Court, Karen Chhour, Brooke van Velden."
+    },
+    "Lawrence Xu-Nan": {
+      "hansard_name": "Lawrence Xu-Nan",
+      "canonical_name": "Lawrence Xu-Nan",
+      "party": "Green",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Mariameno Kapa-Kingi": {
+      "hansard_name": "Mariameno Kapa-Kingi",
+      "canonical_name": "Mariameno Kapa-Kingi",
+      "party": "Te Pati Maori",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Te Tai Tokerau"
+    },
+    "Mike Butterick": {
+      "hansard_name": "Mike Butterick",
+      "canonical_name": "Mike Butterick",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Wairarapa"
+    },
+    "Miles Anderson": {
+      "hansard_name": "Miles Anderson",
+      "canonical_name": "Miles Anderson",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Waitaki"
+    },
+    "Nancy Lu": {
+      "hansard_name": "Nancy Lu",
+      "canonical_name": "Nancy Lu",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Paul Tamatha": {
+      "hansard_name": "Paul Tamatha",
+      "canonical_name": "Tamatha Paul",
+      "party": "Green",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Wellington Central"
+    },
+    "Peseta Sam Lotu-Iiga": {
+      "hansard_name": "Peseta Sam Lotu-Iiga",
+      "canonical_name": "Sam Lotu-Iiga",
+      "party": "National",
+      "parliament_numbers": [
+        51
+      ],
+      "sources_used": [
+        "Wikidata",
+        "Wikidata SPARQL",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true
+    },
+    "R Doug Woolerton": {
+      "hansard_name": "R Doug Woolerton",
+      "canonical_name": "Doug Woolerton",
+      "party": "National",
+      "parliament_numbers": [
+        48
+      ],
+      "sources_used": [
+        "Wikidata",
+        "Wikidata SPARQL"
+      ],
+      "confidence": "high",
+      "resolved": true
+    },
+    "Reuben Davidson": {
+      "hansard_name": "Reuben Davidson",
+      "canonical_name": "Reuben Davidson",
+      "party": "Labour",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Christchurch East"
+    },
+    "Richard Posser": {
+      "hansard_name": "Richard Posser",
+      "canonical_name": "Richard Prosser",
+      "party": "NZ First",
+      "parliament_numbers": [
+        51
+      ],
+      "sources_used": [
+        "Wikipedia 50th-51st Parliaments",
+        "Wikidata SPARQL",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "notes": "Spelling variant: Posser/Prosser. NZ First MP 2011-2017."
+    },
+    "Rima Nakhle": {
+      "hansard_name": "Rima Nakhle",
+      "canonical_name": "Rima Nakhle",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Takanini"
+    },
+    "Ryan Hamilton": {
+      "hansard_name": "Ryan Hamilton",
+      "canonical_name": "Ryan Hamilton",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Hamilton East"
+    },
+    "Scott Willis": {
+      "hansard_name": "Scott Willis",
+      "canonical_name": "Scott Willis",
+      "party": "Green",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Steve Abel": {
+      "hansard_name": "Steve Abel",
+      "canonical_name": "Steve Abel",
+      "party": "Green",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Suze Redmayne": {
+      "hansard_name": "Suze Redmayne",
+      "canonical_name": "Suze Redmayne",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Rangitikei"
+    },
+    "Tanya Unkovich": {
+      "hansard_name": "Tanya Unkovich",
+      "canonical_name": "Tanya Unkovich",
+      "party": "NZ First",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Tim Costley": {
+      "hansard_name": "Tim Costley",
+      "canonical_name": "Tim Costley",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Otaki"
+    },
+    "Todd Stephenson": {
+      "hansard_name": "Todd Stephenson",
+      "canonical_name": "Todd Stephenson",
+      "party": "ACT",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "List"
+    },
+    "Tom Rutherford": {
+      "hansard_name": "Tom Rutherford",
+      "canonical_name": "Tom Rutherford",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Bay of Plenty"
+    },
+    "Tākuta Ferris": {
+      "hansard_name": "Tākuta Ferris",
+      "canonical_name": "Takuta Ferris",
+      "party": "Te Pati Maori",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament"
+      ],
+      "confidence": "medium",
+      "resolved": true,
+      "electorate": "Te Tai Tonga"
+    },
+    "Vanessa Weenink": {
+      "hansard_name": "Vanessa Weenink",
+      "canonical_name": "Vanessa Weenink",
+      "party": "National",
+      "parliament_numbers": [],
+      "sources_used": [
+        "Wikipedia 54th Parliament",
+        "Bills API",
+        "Triangulated Authority"
+      ],
+      "confidence": "high",
+      "resolved": true,
+      "electorate": "Banks Peninsula"
+    }
+  }
+}

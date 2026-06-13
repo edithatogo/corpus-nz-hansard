@@ -1,0 +1,281 @@
+{
+  "parliaments": [
+    {
+      "number": 43,
+      "name": "Forty-third Parliament",
+      "numberDateRangeDisplay": "43 (1990 - 1993)",
+      "electionDate": "1990-10-26T11:00:00+00:00",
+      "endDate": "1993-11-04T11:00:00+00:00"
+    },
+    {
+      "number": 44,
+      "name": "Forty-fourth Parliament",
+      "numberDateRangeDisplay": "44 (1993 - 1996)",
+      "electionDate": "1993-11-05T11:00:00+00:00",
+      "endDate": "1996-10-10T11:00:00+00:00"
+    },
+    {
+      "number": 45,
+      "name": "Forty-fifth Parliament",
+      "numberDateRangeDisplay": "45 (1996 - 1999)",
+      "electionDate": "1996-10-11T11:00:00+00:00",
+      "endDate": "1999-11-25T11:00:00+00:00"
+    },
+    {
+      "number": 46,
+      "name": "Forty-sixth Parliament",
+      "numberDateRangeDisplay": "46 (1999 - 2002)",
+      "electionDate": "1999-11-26T11:00:00+00:00",
+      "endDate": "2002-07-25T12:00:00+00:00"
+    },
+    {
+      "number": 47,
+      "name": "Forty-seventh Parliament",
+      "numberDateRangeDisplay": "47 (2002 - 2005)",
+      "electionDate": "2002-07-26T12:00:00+00:00",
+      "endDate": "2005-09-15T12:00:00+00:00"
+    },
+    {
+      "number": 48,
+      "name": "Forty-eighth Parliament",
+      "numberDateRangeDisplay": "48 (2005 - 2008)",
+      "electionDate": "2005-09-16T12:00:00+00:00",
+      "endDate": "2008-11-06T11:00:00+00:00"
+    },
+    {
+      "number": 49,
+      "name": "Forty-ninth Parliament",
+      "numberDateRangeDisplay": "49 (2008 - 2011)",
+      "electionDate": "2008-11-07T11:00:00+00:00",
+      "endDate": "2011-11-24T11:00:00+00:00"
+    },
+    {
+      "number": 50,
+      "name": "Fiftieth Parliament",
+      "numberDateRangeDisplay": "50 (2011 - 2014)",
+      "electionDate": "2011-11-25T11:00:00+00:00",
+      "endDate": "2014-09-18T12:00:00+00:00"
+    },
+    {
+      "number": 51,
+      "name": "Fifty-first Parliament",
+      "numberDateRangeDisplay": "51 (2014 - 2017)",
+      "electionDate": "2014-09-19T12:00:00+00:00",
+      "endDate": "2017-09-21T12:00:00+00:00"
+    },
+    {
+      "number": 52,
+      "name": "Fifty-second Parliament",
+      "numberDateRangeDisplay": "52 (2017 - 2020)",
+      "electionDate": "2017-09-22T12:00:00+00:00",
+      "endDate": "2020-10-15T11:00:00+00:00"
+    },
+    {
+      "number": 53,
+      "name": "Fifty-third Parliament",
+      "numberDateRangeDisplay": "53 (2020 - 2023)",
+      "electionDate": "2020-10-16T11:00:00+00:00",
+      "endDate": "2023-10-12T11:00:00+00:00"
+    },
+    {
+      "number": 54,
+      "name": "Fifty-fourth Parliament",
+      "numberDateRangeDisplay": "54 (2023 - Current)",
+      "electionDate": "2023-10-13T11:00:00+00:00",
+      "endDate": null
+    }
+  ],
+  "documentSubTypes": [
+    "Government",
+    "Local",
+    "Member's",
+    "Private"
+  ],
+  "committees": [
+    {
+      "id": "c0448fd4-a93e-485e-990e-8c1ae60b13dc",
+      "name": "Abortion Legislation Committee"
+    },
+    {
+      "id": "f6ef1a63-8c55-4c04-86c1-5e4be244f266",
+      "name": "Auckland Governance Legislation Committee"
+    },
+    {
+      "id": "2bcb0d37-bee1-4d9a-bc50-8c7355f76ee8",
+      "name": "Business Committee"
+    },
+    {
+      "id": "38357371-0a31-4b42-8eac-2834e307eece",
+      "name": "Commerce Committee"
+    },
+    {
+      "id": "d048d2be-7a13-4252-935e-41a07e54623f",
+      "name": "Committee on the Accident Insurance (Transitional Provisions) Bill Committee"
+    },
+    {
+      "id": "0cc2898a-904c-4656-bf20-5ba8bba36e86",
+      "name": "Committee on the Accident Insurance Bill Committee"
+    },
+    {
+      "id": "ebb66600-9522-417b-bf70-813d183f3334",
+      "name": "Committee on the Bill Committee"
+    },
+    {
+      "id": "a30260c2-5a77-4146-94d9-57df69acda48",
+      "name": "Committee on the Producers Industry Restructuring Bills Committee"
+    },
+    {
+      "id": "7e79a0a4-078f-45de-9a41-ece9fc7a6956",
+      "name": "Economic Development, Science and Innovation Committee"
+    },
+    {
+      "id": "75b6b43b-bc1c-4d93-a084-e79fa6a767e4",
+      "name": "Education and Science Committee"
+    },
+    {
+      "id": "5731a456-d70b-4589-908f-7b85dbe80008",
+      "name": "Education and Workforce Committee"
+    },
+    {
+      "id": "eb188c0d-e3eb-4802-b478-e3db4091b754",
+      "name": "Electoral Law Committee"
+    },
+    {
+      "id": "ea04c379-f329-411e-9c9b-d28367184150",
+      "name": "Electoral Legislation Committee"
+    },
+    {
+      "id": "d4e9e805-6baf-4083-90cf-f73883319a18",
+      "name": "Emissions Trading Scheme Review Committee"
+    },
+    {
+      "id": "cbd93607-4012-475b-893f-4cd24bb5767e",
+      "name": "Employment and Accident Insurance Legislation Committee"
+    },
+    {
+      "id": "d58dc405-2759-42b7-aa21-cd23e721ebb1",
+      "name": "Environment Committee"
+    },
+    {
+      "id": "28fdfd45-a242-4bf0-8a36-be78d0103b3b",
+      "name": "Epidemic Response Committee"
+    },
+    {
+      "id": "a0f103be-0902-4480-9778-93a5229dca71",
+      "name": "Finance and Expenditure Committee"
+    },
+    {
+      "id": "77ccaccf-2a3c-43a8-a8e9-8fecd37505cb",
+      "name": "Fisheries and Other Sea-related Legislation Committee"
+    },
+    {
+      "id": "2fa28d41-50ee-438f-bc46-38ed6cd03ef8",
+      "name": "Foreign Affairs, Defence and Trade Committee"
+    },
+    {
+      "id": "b0319fc5-485c-4eb5-8672-0497a2228d07",
+      "name": "Governance and Administration Committee"
+    },
+    {
+      "id": "26296686-523e-46ee-ba1c-37f8b27277fd",
+      "name": "Government Administration Committee"
+    },
+    {
+      "id": "565aaaa0-4bde-4af2-80b4-98cb1a9c9ca6",
+      "name": "Health Committee"
+    },
+    {
+      "id": "d0c3cfa0-ebc6-4a73-acd9-761312bdcb74",
+      "name": "Intelligence and Security Committee"
+    },
+    {
+      "id": "02445952-d7e9-49c3-8e77-346777b6cc00",
+      "name": "Internal Affairs and Local Government Committee"
+    },
+    {
+      "id": "9a33e852-b75a-45b7-8d33-92f963f20cb8",
+      "name": "Justice and Electoral Committee"
+    },
+    {
+      "id": "898c63bf-3aad-49b4-976b-c6c45460d746",
+      "name": "Justice and Law Reform Committee"
+    },
+    {
+      "id": "40964214-f3db-4238-a5cf-e0aee91d8fa6",
+      "name": "Justice Committee"
+    },
+    {
+      "id": "27f0f7c1-9e38-4b24-8dc3-9fe9770b74ab",
+      "name": "Law and Order Committee"
+    },
+    {
+      "id": "d9e913ea-e42c-409a-a1d8-66666eedc6dd",
+      "name": "Local Government and Environment Committee"
+    },
+    {
+      "id": "412386a6-c417-4d4f-9529-e3e54ab5c8fc",
+      "name": "Maori Affairs Committee"
+    },
+    {
+      "id": "59a67f60-a6ef-4cca-b62b-bbad109df6cf",
+      "name": "Pae Ora Legislation Committee Committee"
+    },
+    {
+      "id": "fd09e871-7e8a-4389-a75c-5db568b3c4fd",
+      "name": "Primary Production Committee"
+    },
+    {
+      "id": "af5e14b5-5388-4607-8925-e27cf3bf8aee",
+      "name": "Privileges Committee"
+    },
+    {
+      "id": "5cefad39-3a97-4774-a635-cdebad63c1e8",
+      "name": "Regulations Review Committee"
+    },
+    {
+      "id": "ff89c4c4-d211-4246-8ad2-6907a9154598",
+      "name": "Social Services and Community Committee"
+    },
+    {
+      "id": "7994704b-e412-473b-bea8-fd0d31319184",
+      "name": "Social Services Committee"
+    },
+    {
+      "id": "8fabc97f-0c94-4ce2-8bd8-30db8a51a561",
+      "name": "Standing Orders Committee"
+    },
+    {
+      "id": "b2781893-5580-4ebd-80f6-b31230c1aa2f",
+      "name": "Transport and Environment Committee"
+    },
+    {
+      "id": "555e4ba1-d978-4308-8a6f-d50c2877d1ba",
+      "name": "Transport and Industrial Relations Committee"
+    },
+    {
+      "id": "a46e700c-0785-4db1-a454-856909a0ab28",
+      "name": "Transport and Infrastructure Committee"
+    }
+  ],
+  "members": [],
+  "documentStages": [
+    "Committee of whole House",
+    "First Reading",
+    "Royal Assent",
+    "Second Reading",
+    "Select Committee",
+    "Terminated",
+    "Third Reading"
+  ],
+  "billTerminatedReasons": [
+    "Assented",
+    "Discharged",
+    "Divided",
+    "Lapsed",
+    "Not Agreed",
+    "Not available (record is from previous database)",
+    "Rejected",
+    "Terminated",
+    "Withdrawn"
+  ]
+}

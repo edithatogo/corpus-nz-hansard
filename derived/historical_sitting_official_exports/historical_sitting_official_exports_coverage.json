@@ -1,0 +1,481 @@
+{
+  "acquisition_priority_years": [
+    "2003",
+    "2004",
+    "2007",
+    "2008",
+    "2009",
+    "2012",
+    "2013"
+  ],
+  "artifact_name": "historical_sitting_official_exports_coverage",
+  "artifact_version": "0.1.0",
+  "generated_at": "2026-06-12T15:43:13.008786+00:00",
+  "index_path": "derived/historical_sitting_official_exports/historical_sitting_official_export_index.json",
+  "ledger_date_count": 409,
+  "ledger_path": "derived/historical_sitting_reconciliation/historical_sitting_ledger.parquet",
+  "ledger_years": [
+    "2003",
+    "2004",
+    "2007",
+    "2008",
+    "2009",
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016"
+  ],
+  "notes": [
+    "This is a date-level comparison probe, not the final row-by-row historical reconciliation.",
+    "It uses page-header dates extracted from the confirmed official PDF exports.",
+    "Years marked ledger-only are acquisition priorities for the next reconciliation pass."
+  ],
+  "official_date_count": 191,
+  "official_years": [
+    "2010",
+    "2011",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020"
+  ],
+  "page_header_date_count": 656,
+  "shared_date_count": 29,
+  "sources": [
+    {
+      "header_date_count": 572,
+      "id": "nz-parliament-journals-49th-weekly-pdf",
+      "missing_in_ledger": [
+        "2010-07-20",
+        "2010-07-22",
+        "2010-07-27",
+        "2010-07-28",
+        "2010-07-29",
+        "2010-08-04",
+        "2010-08-05",
+        "2010-08-17",
+        "2010-08-19",
+        "2010-08-24",
+        "2010-08-26",
+        "2010-09-07",
+        "2010-09-08",
+        "2010-09-09",
+        "2010-09-14",
+        "2010-09-15",
+        "2010-09-16",
+        "2010-09-21",
+        "2010-09-22",
+        "2010-09-23",
+        "2010-10-12",
+        "2010-10-13",
+        "2010-10-14",
+        "2010-10-19",
+        "2010-10-20"
+      ],
+      "missing_in_official": [
+        "2003-06-10",
+        "2003-06-19",
+        "2003-10-15",
+        "2004-06-16",
+        "2004-12-14",
+        "2007-02-21",
+        "2007-02-27",
+        "2007-07-24",
+        "2007-08-22",
+        "2007-09-11",
+        "2007-10-10",
+        "2007-10-11",
+        "2007-10-24",
+        "2008-03-13",
+        "2008-05-15",
+        "2008-06-19",
+        "2008-07-01",
+        "2008-07-24",
+        "2008-09-02",
+        "2008-09-23",
+        "2008-12-09",
+        "2009-05-05",
+        "2009-06-17",
+        "2009-07-28",
+        "2009-10-20"
+      ],
+      "most_common_header_dates": [
+        [
+          "2011-03-16",
+          70
+        ],
+        [
+          "2010-11-16",
+          32
+        ],
+        [
+          "2010-12-09",
+          26
+        ],
+        [
+          "2011-08-16",
+          23
+        ],
+        [
+          "2011-03-17",
+          22
+        ],
+        [
+          "2011-04-12",
+          22
+        ],
+        [
+          "2010-08-24",
+          10
+        ],
+        [
+          "2010-10-28",
+          10
+        ],
+        [
+          "2011-05-10",
+          10
+        ],
+        [
+          "2010-08-17",
+          9
+        ]
+      ],
+      "page_count": 576,
+      "publication_stage": "weekly",
+      "shared_dates_with_ledger": 13,
+      "title": "Journals of the House of Representatives of New Zealand 2010-2011",
+      "unique_header_date_count": 113
+    },
+    {
+      "header_date_count": 47,
+      "id": "nz-parliament-journals-51st-sessional-pdf",
+      "missing_in_ledger": [
+        "2014-09-20",
+        "2014-11-21",
+        "2015-03-30",
+        "2015-05-04",
+        "2015-05-29",
+        "2015-10-30",
+        "2015-12-10",
+        "2016-02-26",
+        "2016-08-18",
+        "2016-08-24",
+        "2016-09-06",
+        "2016-09-21",
+        "2016-10-06",
+        "2016-10-12",
+        "2016-11-01",
+        "2016-11-17",
+        "2016-11-29",
+        "2016-12-07",
+        "2016-12-08",
+        "2016-12-31",
+        "2017-03-14",
+        "2017-03-22",
+        "2017-04-13",
+        "2017-05-31",
+        "2017-06-07"
+      ],
+      "missing_in_official": [
+        "2003-06-10",
+        "2003-06-19",
+        "2003-10-15",
+        "2004-06-16",
+        "2004-12-14",
+        "2007-02-21",
+        "2007-02-27",
+        "2007-07-24",
+        "2007-08-22",
+        "2007-09-11",
+        "2007-10-10",
+        "2007-10-11",
+        "2007-10-24",
+        "2008-03-13",
+        "2008-05-15",
+        "2008-06-19",
+        "2008-07-01",
+        "2008-07-24",
+        "2008-09-02",
+        "2008-09-23",
+        "2008-12-09",
+        "2009-05-05",
+        "2009-06-17",
+        "2009-07-28",
+        "2009-10-20"
+      ],
+      "most_common_header_dates": [
+        [
+          "2016-09-21",
+          2
+        ],
+        [
+          "2017-05-31",
+          2
+        ],
+        [
+          "2017-08-08",
+          2
+        ],
+        [
+          "2014-09-20",
+          1
+        ],
+        [
+          "2016-10-06",
+          1
+        ],
+        [
+          "2015-10-30",
+          1
+        ],
+        [
+          "2016-12-31",
+          1
+        ],
+        [
+          "2016-11-01",
+          1
+        ],
+        [
+          "2014-11-04",
+          1
+        ],
+        [
+          "2014-10-21",
+          1
+        ]
+      ],
+      "page_count": 636,
+      "publication_stage": "sessional",
+      "shared_dates_with_ledger": 16,
+      "title": "Journals of the House of Representatives of New Zealand 2014-2017",
+      "unique_header_date_count": 44
+    },
+    {
+      "header_date_count": 37,
+      "id": "nz-parliament-journals-52nd-sessional-pdf",
+      "missing_in_ledger": [
+        "2017-09-23",
+        "2017-12-19",
+        "2018-02-20",
+        "2018-02-22",
+        "2018-02-27",
+        "2018-03-29",
+        "2018-04-15",
+        "2018-05-02",
+        "2018-05-11",
+        "2018-07-31",
+        "2018-08-14",
+        "2018-09-19",
+        "2018-12-18",
+        "2019-01-30",
+        "2019-02-20",
+        "2019-03-20",
+        "2019-05-15",
+        "2019-05-29",
+        "2019-05-30",
+        "2019-08-08",
+        "2019-09-11",
+        "2019-09-17",
+        "2019-10-22",
+        "2019-12-18",
+        "2020-03-25"
+      ],
+      "missing_in_official": [
+        "2003-06-10",
+        "2003-06-19",
+        "2003-10-15",
+        "2004-06-16",
+        "2004-12-14",
+        "2007-02-21",
+        "2007-02-27",
+        "2007-07-24",
+        "2007-08-22",
+        "2007-09-11",
+        "2007-10-10",
+        "2007-10-11",
+        "2007-10-24",
+        "2008-03-13",
+        "2008-05-15",
+        "2008-06-19",
+        "2008-07-01",
+        "2008-07-24",
+        "2008-09-02",
+        "2008-09-23",
+        "2008-12-09",
+        "2009-05-05",
+        "2009-06-17",
+        "2009-07-28",
+        "2009-10-20"
+      ],
+      "most_common_header_dates": [
+        [
+          "2017-12-19",
+          2
+        ],
+        [
+          "2018-03-29",
+          2
+        ],
+        [
+          "2018-07-31",
+          2
+        ],
+        [
+          "2017-09-23",
+          1
+        ],
+        [
+          "2018-04-15",
+          1
+        ],
+        [
+          "2019-01-30",
+          1
+        ],
+        [
+          "2019-05-15",
+          1
+        ],
+        [
+          "2018-02-22",
+          1
+        ],
+        [
+          "2018-02-20",
+          1
+        ],
+        [
+          "2018-05-02",
+          1
+        ]
+      ],
+      "page_count": 544,
+      "publication_stage": "sessional",
+      "shared_dates_with_ledger": 0,
+      "title": "Journals of the House of Representatives of New Zealand 2017-2020",
+      "unique_header_date_count": 34
+    }
+  ],
+  "year_summary": [
+    {
+      "ledger_dates": 3,
+      "official_dates": 0,
+      "shared_dates": 0,
+      "status": "ledger-only",
+      "year": "2003"
+    },
+    {
+      "ledger_dates": 2,
+      "official_dates": 0,
+      "shared_dates": 0,
+      "status": "ledger-only",
+      "year": "2004"
+    },
+    {
+      "ledger_dates": 8,
+      "official_dates": 0,
+      "shared_dates": 0,
+      "status": "ledger-only",
+      "year": "2007"
+    },
+    {
+      "ledger_dates": 8,
+      "official_dates": 0,
+      "shared_dates": 0,
+      "status": "ledger-only",
+      "year": "2008"
+    },
+    {
+      "ledger_dates": 7,
+      "official_dates": 0,
+      "shared_dates": 0,
+      "status": "ledger-only",
+      "year": "2009"
+    },
+    {
+      "ledger_dates": 9,
+      "official_dates": 44,
+      "shared_dates": 4,
+      "status": "covered",
+      "year": "2010"
+    },
+    {
+      "ledger_dates": 11,
+      "official_dates": 69,
+      "shared_dates": 9,
+      "status": "covered",
+      "year": "2011"
+    },
+    {
+      "ledger_dates": 80,
+      "official_dates": 0,
+      "shared_dates": 0,
+      "status": "ledger-only",
+      "year": "2012"
+    },
+    {
+      "ledger_dates": 85,
+      "official_dates": 0,
+      "shared_dates": 0,
+      "status": "ledger-only",
+      "year": "2013"
+    },
+    {
+      "ledger_dates": 69,
+      "official_dates": 7,
+      "shared_dates": 5,
+      "status": "covered",
+      "year": "2014"
+    },
+    {
+      "ledger_dates": 88,
+      "official_dates": 12,
+      "shared_dates": 7,
+      "status": "covered",
+      "year": "2015"
+    },
+    {
+      "ledger_dates": 39,
+      "official_dates": 17,
+      "shared_dates": 4,
+      "status": "covered",
+      "year": "2016"
+    },
+    {
+      "ledger_dates": 0,
+      "official_dates": 10,
+      "shared_dates": 0,
+      "status": "official-only",
+      "year": "2017"
+    },
+    {
+      "ledger_dates": 0,
+      "official_dates": 11,
+      "shared_dates": 0,
+      "status": "official-only",
+      "year": "2018"
+    },
+    {
+      "ledger_dates": 0,
+      "official_dates": 11,
+      "shared_dates": 0,
+      "status": "official-only",
+      "year": "2019"
+    },
+    {
+      "ledger_dates": 0,
+      "official_dates": 10,
+      "shared_dates": 0,
+      "status": "official-only",
+      "year": "2020"
+    }
+  ]
+}

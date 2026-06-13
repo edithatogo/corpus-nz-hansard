@@ -1,0 +1,50 @@
+{
+  "artifact_name": "historical_sitting_official_exports",
+  "artifact_version": "0.1.0",
+  "generated_at": "2026-06-13T00:00:00+00:00",
+  "repository": "corpus-nz-hansard",
+  "publication_stages": [
+    "draft",
+    "weekly",
+    "sessional"
+  ],
+  "sources": [
+    {
+      "id": "nz-parliament-journals-49th-weekly-pdf",
+      "title": "Journals of the House of Representatives of New Zealand 2010-2011",
+      "url": "https://www3.parliament.nz/media/11245/journals-of-the-house-49th-parliament-vol-2-journals-20-july-2010-to-4-october-2011.pdf",
+      "publication_stage": "weekly",
+      "coverage_note": "Weekly Journal PDF with sitting-date pages and clause-by-clause proceedings."
+    },
+    {
+      "id": "nz-parliament-journals-51st-sessional-pdf",
+      "title": "Journals of the House of Representatives of New Zealand 2014-2017",
+      "url": "https://www3.parliament.nz/media/4766/journals-of-the-house-51-parliament-vol-2-schedules-to-the-journals.pdf",
+      "publication_stage": "sessional",
+      "coverage_note": "Sessional schedules volume for the 51st Parliament, with index and tables of proceedings."
+    },
+    {
+      "id": "nz-parliament-journals-52nd-sessional-pdf",
+      "title": "Journals of the House of Representatives of New Zealand 2017-2020",
+      "url": "https://www3.parliament.nz/media/8377/journals-of-the-house-for-the-52nd-parliament-volume-2-schedules.pdf",
+      "publication_stage": "sessional",
+      "coverage_note": "Sessional schedules volume for the 52nd Parliament, including comparative table of sittings."
+    }
+  ],
+  "authoritative_statements": [
+    {
+      "id": "standing-orders-2023",
+      "url": "https://www3.parliament.nz/media/10573/standing-orders-2023.pdf",
+      "claim": "The Clerk notes all proceedings of the House and publishes them as the Journals of the House."
+    },
+    {
+      "id": "ppnz-2023-administering",
+      "url": "https://www3.parliament.nz/media/10624/part-2-administering-and-supporting-parliament-ppnz-2023.pdf",
+      "claim": "The Journals are published in draft, weekly, and sessional stages."
+    }
+  ],
+  "notes": [
+    "These are confirmed official PDF export surfaces, not the final reconciliation result.",
+    "They provide a stable machine-readable path around the HTML challenge layer."
+  ]
+}

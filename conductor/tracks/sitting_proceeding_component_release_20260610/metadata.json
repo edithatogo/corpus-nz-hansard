@@ -1,0 +1,8 @@
+{
+  "track_id": "sitting_proceeding_component_release_20260610",
+  "type": "feature",
+  "status": "blocked",
+  "created_at": "2026-06-10T00:00:00+10:00",
+  "updated_at": "2026-06-10T00:00:00+10:00",
+  "description": "Repo-side sitting and proceeding builder/checker are implemented; release is blocked pending official historical reconciliation."
+}

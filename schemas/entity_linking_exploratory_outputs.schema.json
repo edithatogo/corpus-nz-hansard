@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_sources": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "manifest_version": {
+      "const": 1
+    },
+    "outputs": {
+      "additionalProperties": false,
+      "properties": {
+        "jsonl": {
+          "type": "string"
+        },
+        "review_csv": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "jsonl",
+        "review_csv"
+      ],
+      "type": "object"
+    },
+    "release_status": {
+      "const": "sample-not-release"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "sample_package": {
+      "type": "string"
+    },
+    "source_inputs": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "supported_entity_types": {
+      "items": {
+        "enum": [
+          "person",
+          "organisation",
+          "place",
+          "legislation",
+          "ministry",
+          "portfolio",
+          "committee"
+        ]
+      },
+      "type": "array"
+    },
+    "track_id": {
+      "const": "entity_linking_exploratory_outputs_20260610"
+    },
+    "validation_counts": {
+      "additionalProperties": false,
+      "properties": {
+        "ambiguous": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "excluded": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "linked": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "negative": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "record_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "review_row_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "unresolved": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "record_count",
+        "review_row_count",
+        "linked",
+        "ambiguous",
+        "unresolved",
+        "negative",
+        "excluded"
+      ],
+      "type": "object"
+    },
+    "validation_results": {
+      "additionalProperties": false,
+      "properties": {
+        "false_positive_analysis_recorded": {
+          "const": true
+        },
+        "human_validation_required": {
+          "const": true
+        },
+        "non_authoritative": {
+          "const": true
+        },
+        "outputs_written": {
+          "const": true
+        },
+        "review_sample_written": {
+          "const": true
+        }
+      },
+      "required": [
+        "outputs_written",
+        "review_sample_written",
+        "non_authoritative",
+        "false_positive_analysis_recorded",
+        "human_validation_required"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "track_id",
+    "repository",
+    "generated_at",
+    "release_status",
+    "sample_package",
+    "outputs",
+    "source_inputs",
+    "supported_entity_types",
+    "validation_counts",
+    "authority_sources",
+    "validation_results"
+  ],
+  "type": "object"
+}

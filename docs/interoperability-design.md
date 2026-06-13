@@ -194,3 +194,71 @@ Future Zenodo automation should prefer `zenodraft` (`https://github.com/zenodraf
 6. Keep `zenodraft deposition publish` in a separate protected approval step.
 
 CI must map repository secrets to `ZENODO_ACCESS_TOKEN` or `ZENODO_SANDBOX_ACCESS_TOKEN` only for the step that needs them.
+
+## Dataset Architecture
+
+`mermaid
+flowchart TD
+    subgraph Sources[Authority Sources]
+        A[DocumentsDB Extract] -->|Parl 47-54| CORE[core Hansard corpus]
+        B[Bills API] -->|3,513 bills, members| CORE
+        C[HathiTrust] -->|510 vols 1854-1990| CORE
+        D[Wikipedia 47-54] -->|MP lists| ID[Member Identity]
+        E[Wikidata SPARQL] -->|1,514 MP records| ID
+        F[Parliament website] -->|Playwright stealth| ID
+        G[Electoral Commission] -->|Election data| ID
+        H[NZLII] -->|Historical bills| LEG[Legislation Corpus]
+        I[NZ Legislation API] -->|Enacted law| LEG
+    end
+
+    subgraph Processing[Pipeline]
+        CORE --> NORM[normalize_hansard.py]
+        CORE --> SPEECH[segment_speech_turns.py]
+        ID --> RESOLVE[member identity resolution]
+        ID --> PARTY[party attribution]
+    end
+
+    subgraph Outputs[Generated Outputs]
+        NORM --> PARQUET[Parquet dataset]
+        SPEECH --> PARQUET
+        RESOLVE --> REGISTRY[member_registry.json]
+        PARQUET --> SEARCH[Search / RAG index]
+        PARQUET --> DUCKDB[DuckDB analytics]
+        PARQUET --> EP[Endpoint exports]
+    end
+
+    subgraph Endpoints[Interoperability Endpoints]
+        EP --> PM[ParlaMint-NZ / TEI]
+        EP --> PO[Popolo / Open Civic Data]
+        EP --> AN[Akoma Ntoso]
+        EP --> CAP[CAP / ParlaCAP]
+        EP --> UD[Universal Dependencies]
+        EP --> RDF[RDF / Linked Data]
+    end
+
+    subgraph Family[Corpus Family]
+        CORE -.->|sibling| LEG
+        LEG -.->|planned| NLP[NLP Corpus]
+        CORE -.->|planned| NLP
+    end
+`
+
+## Cross-Reference Pipeline
+
+`mermaid
+flowchart LR
+    subgraph Members[Member Identity Triangulation]
+        W[Wikipedia 54th] -->|41 resolved| MERGE
+        X[Wikipedia 47-53] -->|5 resolved| MERGE
+        Y[Wikidata] -->|4 resolved| MERGE
+        Z[Bills API] -->|351 validated| MERGE
+        MERGE --> REG[member_registry.json]
+    end
+
+    subgraph Coverage[Historical Coverage]
+        DB[DocumentsDB] -->|Parl 47-54 2008-2024| GAP[Coverage Gap]
+        HT[HathiTrust] -->|Parl 1-46 1854-1990 510 vols| GAP
+        GAP --> FULL[Full Historical Corpus]
+    end
+end
+`

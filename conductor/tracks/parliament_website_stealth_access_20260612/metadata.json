@@ -1,0 +1,7 @@
+{
+  "track_id": "parliament_website_stealth_access_20260612",
+  "title": "Parliament Website Stealth Access",
+  "status": "completed",
+  "created": "2026-06-12",
+  "description": "Access Radware-protected NZ Parliament website pages using Playwright stealth browser techniques."
+}

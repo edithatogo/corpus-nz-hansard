@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "artifact_name": { "const": "historical_sitting_reconciliation" },
+    "artifact_version": { "const": "0.1.0" },
+    "comparison_status": {
+      "enum": ["pending-comparison", "comparison-ready", "comparison-complete"]
+    },
+    "generated_at": { "type": "string" },
+    "repository": { "const": "corpus-nz-hansard" },
+    "official_inventory": {
+      "additionalProperties": false,
+      "properties": {
+        "path": { "const": "manifests/historical_sitting_inventory.json" },
+        "source_count": { "type": "integer", "minimum": 8 },
+        "source_ids": {
+          "items": { "type": "string" },
+          "minItems": 8,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": ["path", "source_count", "source_ids"],
+      "type": "object"
+    },
+    "corpus_reference": {
+      "additionalProperties": false,
+      "properties": {
+        "historical_coverage_audit": { "const": "manifests/historical_coverage_audit.json" },
+        "source_inventory": { "const": "manifests/source_inventory.json" },
+        "normalization_validation": { "const": "manifests/normalization_validation.json" },
+        "record_schema_validation": { "const": "manifests/record_schema_validation.json" }
+      },
+      "required": [
+        "historical_coverage_audit",
+        "source_inventory",
+        "normalization_validation",
+        "record_schema_validation"
+      ],
+      "type": "object"
+    },
+    "comparison_keys": {
+      "items": { "type": "string" },
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "tolerance_rules": {
+      "items": { "type": "string" },
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "gap_taxonomy": {
+      "items": {
+        "enum": [
+          "missing",
+          "duplicate",
+          "partial",
+          "malformed",
+          "unavailable",
+          "inconsistent",
+          "out_of_scope"
+        ]
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "current_state": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": ["comparison-not-yet-run", "comparison-ready", "comparison-complete"]
+        },
+        "official_source_surfaces": { "type": "integer", "minimum": 8 },
+        "corpus_archive_rows": { "type": "integer", "minimum": 1 },
+        "corpus_archive_members": { "type": "integer", "minimum": 1 },
+        "reconciled_sittings": { "type": "integer", "minimum": 0 },
+        "reconciled_proceedings": { "type": "integer", "minimum": 0 }
+      },
+      "required": [
+        "status",
+        "official_source_surfaces",
+        "corpus_archive_rows",
+        "corpus_archive_members",
+        "reconciled_sittings",
+        "reconciled_proceedings"
+      ],
+      "type": "object"
+    },
+    "ledger": {
+      "additionalProperties": false,
+      "properties": {
+        "parquet": { "const": "derived/historical_sitting_reconciliation/historical_sitting_ledger.parquet" },
+        "summary": { "const": "derived/historical_sitting_reconciliation/historical_sitting_ledger_summary.json" }
+      },
+      "required": ["parquet", "summary"],
+      "type": "object"
+    },
+    "next_actions": {
+      "items": { "type": "string" },
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "notes": {
+      "items": { "type": "string" },
+      "minItems": 2,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "artifact_name",
+    "artifact_version",
+    "comparison_status",
+    "generated_at",
+    "repository",
+    "official_inventory",
+    "corpus_reference",
+    "comparison_keys",
+    "tolerance_rules",
+    "gap_taxonomy",
+    "current_state",
+    "ledger",
+    "next_actions",
+    "notes"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,562 @@
+{
+  "build_outputs": {
+    "html": "docs/static-documentation-portal/index.html",
+    "source_doc": "docs/static-documentation-portal.md"
+  },
+  "current_public_release": {
+    "github_release": "https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0",
+    "huggingface_dataset": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+    "publication_status": "published",
+    "release_level": "document-level",
+    "version": "0.1.0",
+    "zenodo_record": "https://zenodo.org/records/20595194"
+  },
+  "generated_at": "2026-06-12T12:57:29.789976+00:00",
+  "manifest_version": 1,
+  "reference_catalog": {
+    "citation_guidance": [
+      {
+        "label": "Release ladder",
+        "path": "docs/release-ladder.md"
+      },
+      {
+        "label": "Publication status",
+        "path": "docs/publication-status.md"
+      },
+      {
+        "label": "Public release checklist",
+        "path": "docs/public-release-checklist.md"
+      },
+      {
+        "label": "Release evidence ledger",
+        "path": "docs/release-evidence-ledger.md"
+      },
+      {
+        "label": "Licensing and provenance",
+        "path": "docs/licensing-and-provenance.md"
+      },
+      {
+        "label": "Canonical ID and URI policy",
+        "path": "docs/canonical-id-uri-policy.md"
+      }
+    ],
+    "data_dictionary": [
+      {
+        "label": "Shared NZ corpus core schema",
+        "path": "docs/shared-nz-corpus-core-schema.md"
+      },
+      {
+        "label": "Neutral component model",
+        "path": "docs/neutral-component-model.md"
+      },
+      {
+        "label": "Endpoint contracts",
+        "path": "docs/endpoint-contracts.md"
+      },
+      {
+        "label": "Derived fields validation",
+        "path": "docs/derived-fields-validation.md"
+      },
+      {
+        "label": "Member identity resolution",
+        "path": "docs/member-identity-resolution.md"
+      },
+      {
+        "label": "Party attribution provenance",
+        "path": "docs/party-attribution-provenance.md"
+      },
+      {
+        "label": "Speech-turn segmentation contract",
+        "path": "docs/speech-turn-segmentation-contract.md"
+      }
+    ]
+  },
+  "release_ladder_snapshot": {
+    "artifact_map_count": 21,
+    "current_public_release": {
+      "immutable_policy": "The v0.1.0 document-level data snapshot is immutable except for metadata, documentation, cross-reference, and provenance corrections that do not alter public rows, columns, source hashes, or intended use.",
+      "release_level": "document-level",
+      "release_manifest": "manifests/public_dataset_release_manifest.json",
+      "version": "0.1.0"
+    },
+    "release_levels": [
+      {
+        "id": "document-level",
+        "level": 1,
+        "status": "published"
+      },
+      {
+        "id": "authority-source",
+        "level": 2,
+        "status": "validated-manifest"
+      },
+      {
+        "id": "neutral-component",
+        "level": 3,
+        "status": "validated-manifest"
+      },
+      {
+        "id": "endpoint",
+        "level": 4,
+        "status": "planned"
+      },
+      {
+        "id": "upstream-contribution",
+        "level": 5,
+        "status": "planned"
+      }
+    ]
+  },
+  "repository": "corpus-nz-hansard",
+  "site_root": "docs/static-documentation-portal/index.html",
+  "sources": {
+    "public_release_checklist": "docs/public-release-checklist.md",
+    "public_release_manifest": "manifests/public_dataset_release_manifest.json",
+    "publication_status": "docs/publication-status.md",
+    "release_ladder": "manifests/release_ladder.json",
+    "track_registry": "conductor/tracks.md"
+  },
+  "track_id": "static_documentation_portal_20260610",
+  "track_snapshot": {
+    "summary_counts": {
+      "blocked": 17,
+      "complete": 44,
+      "pending": 0
+    },
+    "tracks": [
+      {
+        "goal": "promote the local member identity review package into a corpus-wide validated derived component with release gates, schemas, manifests, and non-overclaiming docs. Repo-side builder/checker are implemented; publication remains blocked pending normalized corpus input and authority coverage review.",
+        "link": "./tracks/corpus_wide_member_identity_release_20260610/",
+        "status": "!",
+        "title": "Corpus-Wide Member Identity Release",
+        "track_id": "corpus_wide_member_identity_release_20260610"
+      },
+      {
+        "goal": "promote party attribution from local/provenance fixtures into a temporal corpus-wide derived component that depends on validated member identity. Repo-side builder/checker are implemented; release remains blocked until corpus-wide member identity exists.",
+        "link": "./tracks/corpus_wide_party_attribution_release_20260610/",
+        "status": "!",
+        "title": "Corpus-Wide Party Attribution Release",
+        "track_id": "corpus_wide_party_attribution_release_20260610"
+      },
+      {
+        "goal": "promote speech-turn candidates into a validated derived component only when the candidate artifact and validated member identity are both available. Repo-side builder/checker are implemented and candidate artifact exists (439 turns); release remains blocked pending validated member identity.",
+        "link": "./tracks/validated_speech_turn_component_release_20260610/",
+        "status": "!",
+        "title": "Validated Speech-Turn Component Release",
+        "track_id": "validated_speech_turn_component_release_20260610"
+      },
+      {
+        "goal": "promote sitting/proceeding structures from design fixtures into validated corpus-wide neutral components reconciled to official sitting and proceeding evidence. Repo-side builder/checker and the comparison-ready historical ledger are implemented; release remains blocked until official historical comparison exists.",
+        "link": "./tracks/sitting_proceeding_component_release_20260610/",
+        "status": "!",
+        "title": "Sitting And Proceeding Component Release",
+        "track_id": "sitting_proceeding_component_release_20260610"
+      },
+      {
+        "goal": "implement validated corpus-wide extraction for votes, motions, bills, oral/written questions, answers, and procedural decisions with provenance. Repo-side builder/checker are implemented; release remains blocked until validated member identity, party attribution, and sitting/proceeding components exist.",
+        "link": "./tracks/vote_motion_bill_question_extraction_release_20260610/",
+        "status": "!",
+        "title": "Vote Motion Bill Question Extraction Release",
+        "track_id": "vote_motion_bill_question_extraction_release_20260610"
+      },
+      {
+        "goal": "move ParlaMint-NZ from endpoint contract/sample readiness to a scope-declared public release package with schema validation and maintainer-facing evidence. Repo-side builder/checker are implemented; release remains blocked until validated member identity, party attribution, speech-turn, and sitting/proceeding components exist.",
+        "link": "./tracks/parlamint_nz_public_endpoint_release_20260610/",
+        "status": "!",
+        "title": "ParlaMint-NZ Public Endpoint Release",
+        "track_id": "parlamint_nz_public_endpoint_release_20260610"
+      },
+      {
+        "goal": "move Popolo/Open Civic Data from sample output to a validated public endpoint release. Repo-side builder/checker are implemented; release remains blocked pending validated member identity, party attribution, vote/motion extraction, and speech-turn components.",
+        "link": "./tracks/popolo_opencivicdata_public_endpoint_release_20260610/",
+        "status": "!",
+        "title": "Popolo/Open Civic Data Public Endpoint Release",
+        "track_id": "popolo_opencivicdata_public_endpoint_release_20260610"
+      },
+      {
+        "goal": "move Akoma Ntoso from sample output to a validated public endpoint release with selected profile/schema evidence and source-span preservation. Repo-side builder/checker are implemented; release is blocked pending validated member identity, party attribution, speech-turn, motion, and vote components.",
+        "link": "./tracks/akoma_ntoso_public_endpoint_release_20260610/",
+        "status": "!",
+        "title": "Akoma Ntoso Public Endpoint Release",
+        "track_id": "akoma_ntoso_public_endpoint_release_20260610"
+      },
+      {
+        "goal": "move CAP/ParlaCAP from sample topic output to a validated public release after topic codebooks, speech/proceeding units, and maintainer expectations are settled. Repo-side builder/checker are implemented; release is blocked pending validated speech-turn components and maintainer-confirmed codebook intake.",
+        "link": "./tracks/cap_parlacap_public_endpoint_release_20260610/",
+        "status": "!",
+        "title": "CAP/ParlaCAP Public Endpoint Release",
+        "track_id": "cap_parlacap_public_endpoint_release_20260610"
+      },
+      {
+        "goal": "move UD/CoNLL-U from sample output to a validated NLP endpoint release with tokenizer/parser pinning, offset fidelity, and scope-declared coverage. Repo-side builder/checker are implemented; release is blocked pending validated speech-turn text and completed Stanza/spaCy comparison evidence.",
+        "link": "./tracks/ud_conllu_public_endpoint_release_20260610/",
+        "status": "!",
+        "title": "UD/CoNLL-U Public Endpoint Release",
+        "track_id": "ud_conllu_public_endpoint_release_20260610"
+      },
+      {
+        "goal": "move RDF/JSON-LD from sample graph output to a validated public linked-data release with SHACL, stable URIs, PROV-O/DCAT/SKOS/W3C Time, and SPARQL examples.",
+        "link": "./tracks/rdf_linked_data_public_endpoint_release_20260610/",
+        "status": "!",
+        "title": "RDF Linked Data Public Endpoint Release",
+        "track_id": "rdf_linked_data_public_endpoint_release_20260610"
+      },
+      {
+        "goal": "add the missing DataCite export contract and generated metadata payload so publication packages can target DOI-hosting workflows cleanly.",
+        "link": "./tracks/datacite_export_contract_20260610/",
+        "status": "x",
+        "title": "DataCite Export Contract",
+        "track_id": "datacite_export_contract_20260610"
+      },
+      {
+        "goal": "standardize text/source-span selectors across derived components, endpoint annotations, search chunks, RDF links, and NLP outputs.",
+        "link": "./tracks/web_annotation_selector_contract_20260610/",
+        "status": "x",
+        "title": "W3C Web Annotation Selector Contract",
+        "track_id": "web_annotation_selector_contract_20260610"
+      },
+      {
+        "goal": "convert maintainer-review package drafts into real upstream submission handoffs only after endpoint release gates pass, with submission and feedback evidence.",
+        "link": "./tracks/upstream_submission_execution_20260610/",
+        "status": "x",
+        "title": "Upstream Submission Execution",
+        "track_id": "upstream_submission_execution_20260610"
+      },
+      {
+        "goal": "add practical Python, R, DuckDB, and SPARQL helper examples for consuming document-level and endpoint artifacts without changing core data semantics.",
+        "link": "./tracks/researcher_client_helpers_20260610/",
+        "status": "x",
+        "title": "Researcher Client Helpers",
+        "track_id": "researcher_client_helpers_20260610"
+      },
+      {
+        "goal": "publish a static documentation surface showing export models, validation status, citation patterns, release ladder state, and endpoint readiness.",
+        "link": "./tracks/static_documentation_portal_20260610/",
+        "status": "x",
+        "title": "Static Documentation Portal",
+        "track_id": "static_documentation_portal_20260610"
+      },
+      {
+        "goal": "add non-authoritative entity-linking outputs for people, organisations, places, legislation, ministries, portfolios, and committees with explicit exploratory status.",
+        "link": "./tracks/entity_linking_exploratory_outputs_20260610/",
+        "status": "x",
+        "title": "Entity Linking Exploratory Outputs",
+        "track_id": "entity_linking_exploratory_outputs_20260610"
+      },
+      {
+        "goal": "add exploratory embeddings and topic-model outputs with model cards, manifests, optional dependencies, and non-authoritative publication boundaries.",
+        "link": "./tracks/semantic_search_embeddings_topics_20260610/",
+        "status": "x",
+        "title": "Semantic Search Embeddings And Topic Models",
+        "track_id": "semantic_search_embeddings_topics_20260610"
+      },
+      {
+        "goal": "add validated classifiers for speech acts, question/answer structure, interjections, procedural rulings, and debate segments after speech-turn components mature. Blocked until validated speech-turn components and procedure readiness are available.",
+        "link": "./tracks/speech_act_procedure_classifiers_20260610/",
+        "status": "!",
+        "title": "Speech-Act And Procedure Classifiers",
+        "track_id": "speech_act_procedure_classifiers_20260610"
+      },
+      {
+        "goal": "add NIF/RDF linguistic annotation views that connect token and sentence annotations to stable selectors once RDF and UD layers mature.",
+        "link": "./tracks/nif_rdf_linguistic_views_20260610/",
+        "status": "!",
+        "title": "NIF/RDF Linguistic Annotation Views",
+        "track_id": "nif_rdf_linguistic_views_20260610"
+      },
+      {
+        "goal": "model parliamentary periods, sittings, offices, party memberships, and role intervals using W3C Time-compatible structures.",
+        "link": "./tracks/w3c_time_temporal_model_20260610/",
+        "status": "!",
+        "title": "W3C Time Temporal Model",
+        "track_id": "w3c_time_temporal_model_20260610"
+      },
+      {
+        "goal": "add an optional terminology/lexicon layer for NZ parliamentary and legal vocabulary if downstream RDF and NLP use cases need it.",
+        "link": "./tracks/ontolex_lemon_terminology_layer_20260610/",
+        "status": "!",
+        "title": "OntoLex-Lemon Terminology Layer",
+        "track_id": "ontolex_lemon_terminology_layer_20260610"
+      },
+      {
+        "goal": "move from supplied-archive coverage auditing to official full historical sitting/proceeding reconciliation before making completeness claims.",
+        "link": "./tracks/full_historical_sitting_reconciliation_20260610/",
+        "status": "!",
+        "title": "Full Historical Sitting Reconciliation",
+        "track_id": "full_historical_sitting_reconciliation_20260610"
+      },
+      {
+        "goal": "execute the package/CLI migration plan from corpus-family engineering alignment while preserving existing quality gates and release behaviour.",
+        "link": "./tracks/package_cli_migration_execution_20260610/",
+        "status": "!",
+        "title": "Package And CLI Migration Execution",
+        "track_id": "package_cli_migration_execution_20260610"
+      },
+      {
+        "goal": "generate Akoma Ntoso-style legislative and parliamentary document structure from validated neutral proceeding components.",
+        "link": "./tracks/akoma_ntoso_endpoint_20260609/",
+        "status": "x",
+        "title": "Akoma Ntoso Endpoint",
+        "track_id": "akoma_ntoso_endpoint_20260609"
+      },
+      {
+        "goal": "create Comparative Agendas Project and ParlaCAP-compatible topic outputs with codebook provenance and validation.",
+        "link": "./tracks/cap_parlacap_topic_endpoint_20260609/",
+        "status": "x",
+        "title": "CAP / ParlaCAP Topic Endpoint",
+        "track_id": "cap_parlacap_topic_endpoint_20260609"
+      },
+      {
+        "goal": "create validated Universal Dependencies and CoNLL-U linguistic annotation outputs with token-to-source alignment.",
+        "link": "./tracks/ud_conllu_endpoint_20260609/",
+        "status": "x",
+        "title": "Universal Dependencies / CoNLL-U Endpoint",
+        "track_id": "ud_conllu_endpoint_20260609"
+      },
+      {
+        "goal": "publish RDF/JSON-LD views with PROV-O, DCAT, SKOS, stable URIs, and SHACL validation.",
+        "link": "./tracks/rdf_linked_data_endpoint_20260609/",
+        "status": "x",
+        "title": "RDF Linked Data Endpoint",
+        "track_id": "rdf_linked_data_endpoint_20260609"
+      },
+      {
+        "goal": "prepare validation-backed samples, mapping notes, and contribution evidence for ParlaMint/Parla-CLARIN, ParlaCAP/CAP, mySociety-style parser references, and related ecosystems.",
+        "link": "./tracks/upstream_contribution_packages_20260609/",
+        "status": "x",
+        "title": "Upstream Contribution Packages",
+        "track_id": "upstream_contribution_packages_20260609"
+      },
+      {
+        "goal": "resolve raw `MemberOfParliament` values into authoritative, provenance-backed member identity fields as a derived dataset layer.",
+        "link": "./tracks/member_identity_resolution_20260609/",
+        "status": "x",
+        "title": "Member Identity Resolution",
+        "track_id": "member_identity_resolution_20260609"
+      },
+      {
+        "goal": "add provenance-backed party attribution as a temporal derived layer, dependent on validated member identity where needed.",
+        "link": "./tracks/party_attribution_provenance_20260609/",
+        "status": "x",
+        "title": "Party Attribution With Provenance",
+        "track_id": "party_attribution_provenance_20260609"
+      },
+      {
+        "goal": "promote speech-turn candidates to a validated derived artifact or explicitly keep them excluded from published final scope.",
+        "link": "./tracks/speech_turn_validated_artifact_20260609/",
+        "status": "x",
+        "title": "Speech-Turn Validated Artifact Decision",
+        "track_id": "speech_turn_validated_artifact_20260609"
+      },
+      {
+        "goal": "create shared validation tests and manifests for derived member, party, and speech-turn fields before any derived dataset publication.",
+        "link": "./tracks/derived_fields_validation_manifests_20260609/",
+        "status": "x",
+        "title": "Derived Fields Validation Manifests",
+        "track_id": "derived_fields_validation_manifests_20260609"
+      },
+      {
+        "goal": "Generated a Popolo/Open Civic Data maintainer-review sample package, mapping notes, validation manifest, checker, and readiness boundary without inferring full voting records from text patterns alone.",
+        "link": "./tracks/popolo_opencivicdata_endpoint_20260609/",
+        "status": "x",
+        "title": "Popolo / Open Civic Data Endpoint",
+        "track_id": "popolo_opencivicdata_endpoint_20260609"
+      },
+      {
+        "goal": "Generated a ParlaMint-NZ maintainer-review TEI sample package, mapping notes, validation manifest, checker, and readiness boundary without making ParlaMint the internal core schema.",
+        "link": "./tracks/parlamint_nz_endpoint_20260609/",
+        "status": "x",
+        "title": "ParlaMint-NZ Endpoint",
+        "track_id": "parlamint_nz_endpoint_20260609"
+      },
+      {
+        "goal": "Defined machine-readable neutral component schemas, stable ID requirements, fixture rows, validation manifest, referential-integrity gates, and publication boundaries.",
+        "link": "./tracks/neutral_component_model_20260609/",
+        "status": "x",
+        "title": "Neutral Parliamentary Component Model",
+        "track_id": "neutral_component_model_20260609"
+      },
+      {
+        "goal": "Modelled NZ-specific procedure categories, authority-source requirements, boundary fixtures, uncertainty policy, release gates, and endpoint mappings.",
+        "link": "./tracks/nz_parliamentary_procedure_model_20260609/",
+        "status": "x",
+        "title": "NZ Parliamentary Procedure Model",
+        "track_id": "nz_parliamentary_procedure_model_20260609"
+      },
+      {
+        "goal": "Kept the base runtime minimal with a validated optional dependency-group policy, endpoint dependency citations, deferred install-check rules, and release-artifact pinning requirements.",
+        "link": "./tracks/dependency_extras_policy_20260609/",
+        "status": "x",
+        "title": "Dependency Extras Policy",
+        "track_id": "dependency_extras_policy_20260609"
+      },
+      {
+        "goal": "Defined stable ID and URI patterns, deterministic examples, namespace guidance, deprecation mapping policy, and endpoint validation gates.",
+        "link": "./tracks/canonical_id_uri_policy_20260609/",
+        "status": "x",
+        "title": "Canonical ID and URI Policy",
+        "track_id": "canonical_id_uri_policy_20260609"
+      },
+      {
+        "goal": "Created reviewed evaluation schemas, fixtures, metrics, and gates for member resolution, party attribution, speech turns, votes, and topic coding.",
+        "link": "./tracks/gold_evaluation_datasets_20260609/",
+        "status": "x",
+        "title": "Gold Evaluation Datasets",
+        "track_id": "gold_evaluation_datasets_20260609"
+      },
+      {
+        "goal": "Defined document-level, authority-source, neutral-component, endpoint, and upstream-contribution release levels with artifact mappings, manifest fields, publication gates, checker, and docs.",
+        "link": "./tracks/release_ladder_20260609/",
+        "status": "x",
+        "title": "Release Ladder",
+        "track_id": "release_ladder_20260609"
+      },
+      {
+        "goal": "Distinguished supplied DocumentsDB extract completeness from full historical NZ Hansard completeness with coverage manifest, report, quality-gate checker, and release/endpoint guardrails.",
+        "link": "./tracks/historical_coverage_audit_20260609/",
+        "status": "x",
+        "title": "Historical Coverage Audit",
+        "track_id": "historical_coverage_audit_20260609"
+      },
+      {
+        "goal": "Identified official-first authority source candidates for members, parties, offices, sittings, bills, motions, votes, and procedure, with manifest schema, reuse/coverage notes, hashes, and downstream unblockers.",
+        "link": "./tracks/authority_source_discovery_20260609/",
+        "status": "x",
+        "title": "Authority Source Discovery",
+        "track_id": "authority_source_discovery_20260609"
+      },
+      {
+        "goal": "Recorded the legislation-project engineering baseline and an implementation-ready package/CLI migration plan while preserving Hansard's strict script-workspace quality gate and publication boundaries.",
+        "link": "./tracks/corpus_family_engineering_alignment_20260609/",
+        "status": "x",
+        "title": "Corpus Family Engineering Alignment",
+        "track_id": "corpus_family_engineering_alignment_20260609"
+      },
+      {
+        "goal": "Harmonised Zenodo rights metadata and completed sandbox draft/upload/update/readback proof for generated metadata packages while preserving the protected production publication gate.",
+        "link": "./tracks/zenodo_rights_metadata_and_zenodraft_workflow_20260609/",
+        "status": "x",
+        "title": "Zenodo Rights Metadata And Zenodraft Workflow",
+        "track_id": "zenodo_rights_metadata_and_zenodraft_workflow_20260609"
+      },
+      {
+        "goal": "Generated validated Croissant, RO-Crate, Frictionless, DCAT, and PROV-O metadata packages with checksums, deterministic exporter, and package-specific quality-gate validation. Live Zenodo Sandbox proof remains tracked by `zenodo_rights_metadata_and_zenodraft_workflow_20260609`.",
+        "link": "./tracks/sota_metadata_packages_20260609/",
+        "status": "x",
+        "title": "SOTA Metadata Packages",
+        "track_id": "sota_metadata_packages_20260609"
+      },
+      {
+        "goal": "keep `corpus-nz-hansard` aligned with preferred sibling label `corpus-nz-legislation` across GitHub, Hugging Face, Zenodo, OSF, and future metadata environments.",
+        "link": "./tracks/corpus_family_naming_publication_alignment_20260609/",
+        "status": "x",
+        "title": "Corpus Family Naming And Publication Alignment",
+        "track_id": "corpus_family_naming_publication_alignment_20260609"
+      },
+      {
+        "goal": "Decide whether OSF is unused, a review-bundle host, or an optional mirror with checksums and citation policy.",
+        "link": "./tracks/osf_optional_mirror_policy_20260609/",
+        "status": "x",
+        "title": "OSF Optional Mirror Policy",
+        "track_id": "osf_optional_mirror_policy_20260609"
+      },
+      {
+        "goal": "Define shared core fields and compatibility expectations across legislation and Hansard.",
+        "link": "./tracks/shared_nz_corpus_core_schema_20260609/",
+        "status": "x",
+        "title": "Shared NZ Corpus Core Schema",
+        "track_id": "shared_nz_corpus_core_schema_20260609"
+      },
+      {
+        "goal": "Adopt SOTA CI/code-quality automation using Rust-backed tools where possible: uv, ruff, ty, typos, zizmor, taplo, plus actionlint.",
+        "link": "./tracks/sota_cicd_code_quality_rust_tooling_20260609/",
+        "status": "x",
+        "title": "SOTA CI/CD Code Quality And Rust Tooling",
+        "track_id": "sota_cicd_code_quality_rust_tooling_20260609"
+      },
+      {
+        "goal": "Verify and fix any confirmed Hugging Face viewer split/cast or file-layout issue, then add layout regression checks.",
+        "link": "./tracks/huggingface_viewer_layout_fix_20260609/",
+        "status": "x",
+        "title": "Hugging Face Viewer Layout Fix",
+        "track_id": "huggingface_viewer_layout_fix_20260609"
+      },
+      {
+        "goal": "Create an evidence ledger for GitHub, Hugging Face, Zenodo, OSF, and future metadata surfaces.",
+        "link": "./tracks/public_surface_audit_evidence_20260609/",
+        "status": "x",
+        "title": "Public Surface Audit Evidence",
+        "track_id": "public_surface_audit_evidence_20260609"
+      },
+      {
+        "goal": "Add release evidence ledgers, GitHub artifact attestations or SLSA-style provenance, and signed/checksummed artifact policy.",
+        "link": "./tracks/artifact_provenance_attestations_20260609/",
+        "status": "x",
+        "title": "Artifact Provenance And Attestations",
+        "track_id": "artifact_provenance_attestations_20260609"
+      },
+      {
+        "goal": "Implement SemVer/dataset/schema version governance, Release Please-style changelog automation, and consistency checks.",
+        "link": "./tracks/bleeding_edge_versioning_release_automation_20260609/",
+        "status": "x",
+        "title": "Bleeding Edge Versioning And Release Automation",
+        "track_id": "bleeding_edge_versioning_release_automation_20260609"
+      },
+      {
+        "goal": "hardened the published GitHub and Hugging Face repository surfaces for discoverability, citation, provenance, release posture, and metadata quality after Zenodo DOI publication.",
+        "link": "./tracks/repository_sota_hardening_20260608/",
+        "status": "x",
+        "title": "Repository SOTA Hardening",
+        "track_id": "repository_sota_hardening_20260608"
+      },
+      {
+        "goal": "built a local lexical search and citation-ready chunk index from the normalized Hansard Parquet without external embedding services.",
+        "link": "./tracks/search_rag_index_20260603/",
+        "status": "x",
+        "title": "Search and RAG Index MVP",
+        "track_id": "search_rag_index_20260603"
+      },
+      {
+        "goal": "built conservative document-level speech-turn segmentation tooling and validation outputs without claiming authoritative speaker attribution.",
+        "link": "./tracks/speech_turn_segmentation_20260603/",
+        "status": "x",
+        "title": "Speech Turn Segmentation MVP",
+        "track_id": "speech_turn_segmentation_20260603"
+      },
+      {
+        "goal": "created local release/versioning artifacts and a review package without uploading or publishing any dataset.",
+        "link": "./tracks/release_hosting_and_versioning_20260603/",
+        "status": "x",
+        "title": "Release Hosting and Versioning",
+        "track_id": "release_hosting_and_versioning_20260603"
+      },
+      {
+        "goal": "prepared repo-side public dataset release documentation, provenance, limitations, and release manifest without uploading or publishing.",
+        "link": "./tracks/public_dataset_readiness_20260602/",
+        "status": "x",
+        "title": "Public Dataset Readiness",
+        "track_id": "public_dataset_readiness_20260602"
+      },
+      {
+        "goal": "built the first evidence-backed corpus pipeline from source inventory through schema discovery to manifest, Parquet, and DuckDB outputs.",
+        "link": "./tracks/hansard_corpus_pipeline_mvp_20260602/",
+        "status": "x",
+        "title": "Hansard Corpus Pipeline MVP",
+        "track_id": "hansard_corpus_pipeline_mvp_20260602"
+      },
+      {
+        "goal": "auxiliary source-inventory track created during Phase 1. Implementation evidence is aligned with `hansard_corpus_pipeline_mvp_20260602` Phase 1.",
+        "link": "./tracks/source_inventory_20260602/",
+        "status": "x",
+        "title": "Source Inventory Verification and Manifest Generation",
+        "track_id": "source_inventory_20260602"
+      }
+    ]
+  },
+  "validation_results": {
+    "current_public_release_version": "0.1.0",
+    "portal_built": true,
+    "public_release_urls_recorded": true,
+    "track_rows": 61
+  }
+}

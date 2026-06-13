@@ -1,0 +1,115 @@
+{
+  "artifact_name": "CAP / ParlaCAP public endpoint release",
+  "artifact_version": "0.1.0-deferred.20260610",
+  "codebook_metadata": "manifests/cap_parlacap_topic_codebook.json",
+  "codebook_version": "cap-review-map-20260610",
+  "dependency_groups": [
+    "data",
+    "ml",
+    "nlp",
+    "schema"
+  ],
+  "endpoint": "CAP / ParlaCAP Topic Endpoint",
+  "endpoint_track": "cap_parlacap_public_endpoint_release_20260610",
+  "generated_at": "2026-06-12T04:36:03.301372+00:00",
+  "input_artifacts": [
+    "fixtures/neutral_components.json",
+    "fixtures/gold_evaluation_samples.json",
+    "manifests/cap_parlacap_topic_codebook.json",
+    "manifests/gold_evaluation_datasets.json",
+    "manifests/neutral_component_model.json",
+    "manifests/dependency_extras_policy.json"
+  ],
+  "input_release_versions": {
+    "authority_sources": "manifests/authority_sources.json",
+    "dependency_extras_policy": "manifests/dependency_extras_policy.json",
+    "document_level": "0.1.0",
+    "gold_evaluation_datasets": "manifests/gold_evaluation_datasets.json",
+    "id_uri_policy": "manifests/id_uri_policy.json",
+    "neutral_components": "manifests/neutral_component_model.json",
+    "release_ladder": "manifests/release_ladder.json"
+  },
+  "install_commands": [
+    "python -m pip install -r requirements/data.txt -r requirements/schema.txt -r requirements/nlp.txt -r requirements/ml.txt"
+  ],
+  "known_exclusions": [
+    "No public CAP / ParlaCAP release is claimed.",
+    "Model-coded topic rows remain exploratory and non-authoritative.",
+    "Validated speech-turn exports are still required before ParlaCAP-compatible speech/topic packages can be treated as endpoint releases.",
+    "The codebook mapping is repository-declared and awaits maintainer confirmation."
+  ],
+  "library_versions": {
+    "pandas": "deferred-until-release-artifact",
+    "scikit-learn": "deferred-until-release-artifact"
+  },
+  "lock_or_constraints": "Optional endpoint stack install checks are deferred-until-implementation; release-affecting dependencies must follow pin-before-release-artifact.",
+  "manifest_sha256": "deferred-public-endpoint-manifest",
+  "manifest_version": 1,
+  "model_versions": {
+    "prototype_review_model": "deferred-until-release-artifact"
+  },
+  "output_artifacts": [
+    "samples/cap-parlacap/cap_parlacap_topics.csv",
+    "samples/cap-parlacap/README.md",
+    "docs/cap-parlacap-topic-mapping.md"
+  ],
+  "public_claim": {
+    "reason": "Validated speech-turn components are not yet available for ParlaCAP-compatible public output, and the repository-declared codebook awaits maintainer confirmation.",
+    "sample_only": true,
+    "status": "deferred"
+  },
+  "publication_target": "public endpoint release package deferred",
+  "release_affecting_dependencies": "Pin classifier libraries, codebook tooling, and model or embedding versions before public topic-coded outputs.",
+  "release_level": "endpoint",
+  "release_series_id": "cap-parlacap-public-endpoint",
+  "release_status": "blocked-pending-validated-components",
+  "repository": "corpus-nz-hansard",
+  "schema_or_ontology_version": "CAP topic review map / ParlaCAP-compatible tabular contract",
+  "source_hashes": {
+    "codebook": "referenced-in-source-manifests",
+    "gold_evaluation_datasets": "referenced-in-source-manifests",
+    "release_ladder": "referenced-in-source-manifests",
+    "sample_manifest": "referenced-in-sample-manifest"
+  },
+  "source_manifests": [
+    "manifests/cap_parlacap_topic_validation_manifest.json",
+    "manifests/cap_parlacap_topic_codebook.json",
+    "manifests/neutral_component_model.json",
+    "manifests/gold_evaluation_datasets.json",
+    "manifests/dependency_extras_policy.json",
+    "manifests/release_ladder.json",
+    "docs/cap-parlacap-topic-mapping.md",
+    "docs/endpoint-contracts.md",
+    "docs/cap-parlacap-public-endpoint-release.md"
+  ],
+  "tool_versions": {
+    "python_csv": "stdlib",
+    "python_json": "stdlib"
+  },
+  "traceability": [
+    {
+      "output": "samples/cap-parlacap/cap_parlacap_topics.csv",
+      "sample_ids": [
+        "cap-topic-01",
+        "cap-topic-02",
+        "cap-topic-03"
+      ],
+      "source_component_ids": [
+        "nzhc-component-0000000000000002",
+        "nzhc-component-0000000000000005",
+        "nzhc-component-0000000000000009"
+      ]
+    }
+  ],
+  "upstream_contribution_target": "CAP / ParlaCAP maintainer review after validated topic components and codebook confirmation",
+  "validation_command": "python scripts/check_cap_parlacap_public_endpoint.py",
+  "validation_results": {
+    "blocking_errors": 0,
+    "codebook_codes_validate": true,
+    "codebook_declared": true,
+    "human_rule_model_separated": true,
+    "readiness_status": "blocked-pending-validated-components",
+    "release_ladder_mapping_present": true,
+    "sample_csv_readable": true
+  }
+}

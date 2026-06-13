@@ -8,6 +8,10 @@ Create a derived candidate speech-turn dataset from document-level Hansard `Cont
 
 Heuristic MVP. Not authoritative.
 
+## Release Decision
+
+Speech-turn candidates are explicitly excluded from the public final scope. See `docs/speech-turn-release-decision.md`.
+
 ## Inputs
 
 - `generated/parquet/hansard.parquet`
@@ -62,3 +66,4 @@ The MVP splits document content into tab-delimited fragments and looks for `spea
 - Procedural headings and question text may be mixed with speaker turns.
 - Hansard editorial structure is not fully parsed.
 - This output is suitable for exploratory review, not definitive quotation attribution.
+- Candidate speech-turn output remains local and non-authoritative until a later track can validate member identity and segmentation separately.

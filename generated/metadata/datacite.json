@@ -1,0 +1,93 @@
+{
+  "contributors": [
+    {
+      "contributorType": "DataCurator",
+      "name": "NZ Hansard release automation"
+    }
+  ],
+  "creators": [
+    {
+      "name": "Dylan Mordaunt",
+      "nameType": "Personal"
+    }
+  ],
+  "dates": [
+    {
+      "date": "2026-06-08",
+      "dateType": "Issued"
+    }
+  ],
+  "descriptions": [
+    {
+      "description": "Document-level corpus pipeline for New Zealand Hansard records from a supplied DocumentsDB extract. The source ZIP is not redistributed. Public artifacts contain derived normalized Parquet output, code, documentation, schemas, manifests, and release evidence needed to audit and reproduce the dataset. The underlying source text is New Zealand Parliamentary Debates/Hansard material; project documentation records the Parliament provenance statement that no copyright exists in New Zealand Parliamentary Debates/Hansard. Original repository code, documentation, manifests, and release tooling are MIT licensed. This dataset is not an official New Zealand Parliament publication channel and is not endorsed by New Zealand Parliament.",
+      "descriptionType": "Abstract"
+    }
+  ],
+  "fundingReferences": [],
+  "identifier": {
+    "identifier": "10.5281/zenodo.20595194",
+    "identifierType": "DOI"
+  },
+  "language": "en",
+  "publicationYear": 2026,
+  "publisher": "Zenodo",
+  "relatedIdentifiers": [
+    {
+      "relatedIdentifier": "10.5281/zenodo.20591996",
+      "relatedIdentifierType": "DOI",
+      "relationType": "IsVersionOf"
+    },
+    {
+      "relatedIdentifier": "https://github.com/edithatogo/corpus-nz-hansard",
+      "relatedIdentifierType": "URL",
+      "relationType": "IsSupplementedBy"
+    },
+    {
+      "relatedIdentifier": "https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0",
+      "relatedIdentifierType": "URL",
+      "relationType": "IsSupplementedBy"
+    },
+    {
+      "relatedIdentifier": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+      "relatedIdentifierType": "URL",
+      "relationType": "IsIdenticalTo"
+    }
+  ],
+  "rightsList": [
+    {
+      "rights": "other-open",
+      "rightsUri": "https://github.com/edithatogo/corpus-nz-hansard/blob/main/NOTICE.md"
+    }
+  ],
+  "schemaVersion": "http://datacite.org/schema/kernel-4",
+  "subjects": [
+    {
+      "subject": "New Zealand"
+    },
+    {
+      "subject": "Hansard"
+    },
+    {
+      "subject": "Parliament"
+    },
+    {
+      "subject": "corpus"
+    },
+    {
+      "subject": "open data"
+    },
+    {
+      "subject": "legislative data"
+    }
+  ],
+  "titles": [
+    {
+      "title": "NZ Hansard Corpus"
+    }
+  ],
+  "types": {
+    "resourceType": "NZ Hansard Corpus",
+    "resourceTypeGeneral": "Dataset"
+  },
+  "version": "0.1.0"
+}

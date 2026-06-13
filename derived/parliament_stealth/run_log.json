@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-06-13T02:35:37.761Z",
+  "targets": [
+    "members-current",
+    "former-members",
+    "daily-progress",
+    "order-paper",
+    "hansard-current"
+  ],
+  "successful": 5,
+  "total": 5,
+  "results": [
+    {
+      "title": "Members of Parliament - New Zealand Parliament",
+      "textLength": 6699
+    },
+    {
+      "title": "Former Members of Parliament - New Zealand Parliament",
+      "textLength": 16494
+    },
+    {
+      "title": "Daily progress in the House - New Zealand Parliament",
+      "textLength": 1353
+    },
+    {
+      "title": "Order Paper - New Zealand Parliament",
+      "textLength": 2541
+    },
+    {
+      "title": "Hansard - New Zealand Parliament",
+      "textLength": 1349
+    }
+  ]
+}

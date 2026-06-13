@@ -1,0 +1,40 @@
+{
+  "track_id": "party_attribution_provenance_20260609",
+  "generated_at": "2026-06-10",
+  "purpose": "Authority and provenance references for the party attribution review package.",
+  "authority_sources": [
+    {
+      "authority_source_id": "nz-parliament-members-current",
+      "usage": "Member identity dependency for time-bounded party attribution.",
+      "note": "Current-term member list only; dated snapshots are required for history."
+    },
+    {
+      "authority_source_id": "nz-parliament-parties-current",
+      "usage": "Current party labels and canonical party names.",
+      "note": "Current parliamentary parties only."
+    },
+    {
+      "authority_source_id": "nz-parliament-house-seating-plan",
+      "usage": "Supporting current caucus/seating context.",
+      "note": "Supporting source only, not sole authority."
+    },
+    {
+      "authority_source_id": "nz-parliament-hansard-current",
+      "usage": "Explicit party-vote text and proceeding context.",
+      "note": "Use with dated snapshots and source-row provenance."
+    }
+  ],
+  "temporal_rules": [
+    "Use document_content_date when present.",
+    "Never infer party from speech content alone.",
+    "Mark unresolved cases explicitly when validated member identity is missing.",
+    "Preserve ambiguous long-form party labels rather than collapsing them."
+  ],
+  "provenance_fields": [
+    "party_attribution_source",
+    "party_attribution_url",
+    "party_attribution_method",
+    "party_attribution_confidence",
+    "party_attribution_status"
+  ]
+}

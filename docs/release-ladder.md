@@ -12,7 +12,7 @@ The current public dataset is `v0.1.0` at the `document-level` ladder step. That
 | ---: | --- | --- |
 | 1 | `document-level` | Normalized document records from the supplied DocumentsDB extract, plus release metadata and public-surface evidence. |
 | 2 | `authority-source` | Official-first source inventories and retrieval evidence for future derived assertions. |
-| 3 | `neutral-component` | Validated repository-owned components such as sittings, speech turns, members, parties, motions, votes, bills, topics, and annotations. |
+| 3 | `neutral-component` | Validated repository-owned components such as sittings, proceedings, speech turns, members, parties, motions, votes, bills, topics, and annotations. |
 | 4 | `endpoint` | Generated standard-specific artifacts such as ParlaMint/TEI, Popolo/Open Civic Data, Akoma Ntoso, CAP/ParlaCAP, CoNLL-U, RDF, Croissant, RO-Crate, Frictionless, DCAT, and PROV-O. |
 | 5 | `upstream-contribution` | Reviewed samples, fixtures, mapping notes, and contribution evidence for external maintainers or standards communities. |
 
@@ -31,9 +31,12 @@ Current validated planning or evidence artifacts sit at later ladder levels:
 - `manifests/authority_sources.json` is `authority-source`.
 - `docs/component-contracts.md` is `neutral-component` planning.
 - `docs/endpoint-contracts.md` and generated metadata packages are `endpoint`.
+- `docs/derived-fields-validation.md` and the derived-field validation manifests are `endpoint`-adjacent planning and evidence artifacts for later derived releases.
 - `conductor/tracks/upstream_contribution_packages_20260609` is `upstream-contribution` planning.
 
 Candidate speech-turn output remains excluded until a later validation track promotes it.
+
+Sitting and proceeding component release scaffolding remains blocked until official historical reconciliation is complete.
 
 ## Manifest Fields
 
@@ -67,4 +70,3 @@ Upstream contribution packages are maintainer-facing artifacts derived from vali
 ## Gate Rule
 
 Do not publish endpoint artifacts as part of document-level releases. A later endpoint release must cite its input document release, component release, validation manifest, known exclusions, and publication target.
-

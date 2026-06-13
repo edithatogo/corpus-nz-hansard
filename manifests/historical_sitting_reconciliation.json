@@ -1,0 +1,75 @@
+{
+  "artifact_name": "historical_sitting_reconciliation",
+  "artifact_version": "0.1.0",
+  "comparison_status": "comparison-ready",
+  "generated_at": "2026-06-12T00:00:00+00:00",
+  "repository": "corpus-nz-hansard",
+  "official_inventory": {
+    "path": "manifests/historical_sitting_inventory.json",
+    "source_count": 8,
+    "source_ids": [
+      "nz-parliament-parliamentary-business-hub",
+      "nz-parliament-historic-journals-of-the-house",
+      "nz-parliament-daily-progress",
+      "nz-parliament-journals-indexes",
+      "nz-parliament-order-paper",
+      "nz-parliament-weekly-journals-archive",
+      "nz-parliament-sessional-journals-archive",
+      "nz-parliament-hansard-current"
+    ]
+  },
+  "corpus_reference": {
+    "historical_coverage_audit": "manifests/historical_coverage_audit.json",
+    "source_inventory": "manifests/source_inventory.json",
+    "normalization_validation": "manifests/normalization_validation.json",
+    "record_schema_validation": "manifests/record_schema_validation.json"
+  },
+  "comparison_keys": [
+    "sitting_date",
+    "parliament_number",
+    "publication_surface",
+    "source_stable_id",
+    "publication_title_normalized",
+    "issue_or_volume",
+    "entry_sequence"
+  ],
+  "tolerance_rules": [
+    "Normalize whitespace, punctuation, and title casing before comparing publication titles.",
+    "Treat Daily Progress and Order Paper as sitting-day level sources and allow same-day publication lag between provisional and final pages.",
+    "Treat Weekly Journals and Sessional Journals as journal-ledger sources and compare on sitting week or sessional index scope rather than exact HTML/page presentation.",
+    "Treat Historic Journals of the House as volume-level archival evidence and compare on year, volume, and page references when present.",
+    "Treat Hansard as the canonical text record for debate-level reconciliation and compare against sitting date plus debate or item sequence.",
+    "Classify any source missing from the official inventory as unavailable rather than inferred."
+  ],
+  "gap_taxonomy": [
+    "missing",
+    "duplicate",
+    "partial",
+    "malformed",
+    "unavailable",
+    "inconsistent",
+    "out_of_scope"
+  ],
+  "current_state": {
+    "status": "comparison-ready",
+    "official_source_surfaces": 8,
+    "corpus_archive_rows": 193922,
+    "corpus_archive_members": 8,
+    "reconciled_sittings": 0,
+    "reconciled_proceedings": 0
+  },
+  "ledger": {
+    "parquet": "derived/historical_sitting_reconciliation/historical_sitting_ledger.parquet",
+    "summary": "derived/historical_sitting_reconciliation/historical_sitting_ledger_summary.json"
+  },
+  "next_actions": [
+    "derive a sitting ledger from the normalized corpus extract",
+    "map each sitting ledger row to the best matching official source surface",
+    "generate missing, duplicate, partial, malformed, and unavailable gap reports",
+    "publish the reconciled coverage manifest only after the official comparison completes"
+  ],
+  "notes": [
+    "This artifact defines the comparison contract only.",
+    "It does not claim that the row-by-row historical reconciliation has already been executed."
+  ]
+}

@@ -55,6 +55,11 @@ The following tracks may cite authority source IDs from
 - `akoma_ntoso_endpoint_20260609`
 - `derived_fields_validation_manifests_20260609`
 - `historical_coverage_audit_20260609`
+- `full_historical_sitting_reconciliation_20260610`
+
+The concrete official sitting inventory now lives in
+`manifests/historical_sitting_inventory.json` and is validated by
+`scripts/check_historical_sitting_inventory.py`.
 
 ## Validation
 
@@ -62,3 +67,8 @@ The following tracks may cite authority source IDs from
 python scripts\check_authority_sources.py
 python -m unittest tests.test_authority_sources
 ```
+
+For historical sitting/proceeding reconciliation, start from the official
+Parliamentary Business hub, Daily Progress, Order Paper, Weekly Journals
+Archive, Sessional Journals archive, Historic Journals of the House, Indexes to
+the Journals, and Hansard guidance pages in `manifests/authority_sources.json`.

@@ -1,0 +1,27 @@
+{
+  "artifact_name": "sitting_proceeding_component_coverage",
+  "artifact_version": "0.1.0",
+  "authority_source_count": 15,
+  "coverage_counts": {
+    "inferred_proceedings": 1,
+    "inferred_sittings": 1,
+    "missing_official_proceedings": 1,
+    "missing_official_sittings": 1,
+    "reconciled_proceedings": 0,
+    "reconciled_sittings": 0
+  },
+  "fixture_counts": {
+    "proceeding_items": 1,
+    "sittings": 1
+  },
+  "generated_at": "2026-06-12T04:23:51.720126+00:00",
+  "historical_audit_status": "available-not-yet-reconciled",
+  "historical_coverage_status": "partial",
+  "reason": "Official sitting and proceeding reconciliation has not been completed; the track remains blocked pending historical coverage alignment.",
+  "status": "blocked",
+  "track_id": "sitting_proceeding_component_release_20260610",
+  "warnings": [
+    "Fixture rows demonstrate the component shape, not official reconciliation.",
+    "Endpoint consumers must not treat these components as validated release inputs."
+  ]
+}

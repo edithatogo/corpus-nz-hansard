@@ -1,0 +1,308 @@
+{
+  "source": "Wikipedia 54th Parliament MP list",
+  "total_unmatched": 51,
+  "resolved_count": 41,
+  "unresolved_count": 10,
+  "match_rate_pct": 80.4,
+  "resolved": [
+    {
+      "hansard_name": "Andrew Hoggard",
+      "wiki_name": "Andrew Hoggard",
+      "party": "ACT",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Andy Foster",
+      "wiki_name": "Andy Foster",
+      "party": "NZ First",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Cameron Brewer",
+      "wiki_name": "Cameron Brewer",
+      "party": "National",
+      "electorate": "Upper Harbour",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Cameron Luxton",
+      "wiki_name": "Cameron Luxton",
+      "party": "ACT",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Carl Bates",
+      "wiki_name": "Carl Bates",
+      "party": "National",
+      "electorate": "Whanganui",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Carlos Cheung",
+      "wiki_name": "Carlos Cheung",
+      "party": "National",
+      "electorate": "Mount Roskill",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Catherine Wedd",
+      "wiki_name": "Catherine Wedd",
+      "party": "National",
+      "electorate": "Tukituki",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Celia Wade-Brown",
+      "wiki_name": "Celia Wade-Brown",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Cushla Tangaere-Manuel",
+      "wiki_name": "Cushla Tangaere-Manuel",
+      "party": "Labour",
+      "electorate": "Ikaroa-Rawhiti",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Dana Kirkpatrick",
+      "wiki_name": "Dana Kirkpatrick",
+      "party": "National",
+      "electorate": "East Coast",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Darleen Tana",
+      "wiki_name": "Darleen Tana",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "David MacLeod",
+      "wiki_name": "David MacLeod",
+      "party": "National",
+      "electorate": "New Plymouth",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Francisco Hernandez",
+      "wiki_name": "Francisco Hernandez",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Grant McCallum",
+      "wiki_name": "Grant McCallum",
+      "party": "National",
+      "electorate": "Northland",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Greg Fleming",
+      "wiki_name": "Greg Fleming",
+      "party": "National",
+      "electorate": "Maungakiekie",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Hamish Campbell",
+      "wiki_name": "Hamish Campbell",
+      "party": "National",
+      "electorate": "Ilam",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Hana-Rawhiti Maipi-Clarke",
+      "wiki_name": "Hana-Rawhiti Maipi-Clarke",
+      "party": "Te Pati Maori",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Hūhana Lyndon",
+      "wiki_name": "Huhana Lyndon",
+      "party": "Green",
+      "electorate": "List",
+      "method": "normalized"
+    },
+    {
+      "hansard_name": "James Meager",
+      "wiki_name": "James Meager",
+      "party": "National",
+      "electorate": "Rangitata",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Jamie Arbuckle",
+      "wiki_name": "Jamie Arbuckle",
+      "party": "NZ First",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Kahurangi Carter",
+      "wiki_name": "Kahurangi Carter",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Katie Nimon",
+      "wiki_name": "Katie Nimon",
+      "party": "National",
+      "electorate": "Napier",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Lan Pham",
+      "wiki_name": "Lan Pham",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Lawrence Xu-Nan",
+      "wiki_name": "Lawrence Xu-Nan",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Mariameno Kapa-Kingi",
+      "wiki_name": "Mariameno Kapa-Kingi",
+      "party": "Te Pati Maori",
+      "electorate": "Te Tai Tokerau",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Mike Butterick",
+      "wiki_name": "Mike Butterick",
+      "party": "National",
+      "electorate": "Wairarapa",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Miles Anderson",
+      "wiki_name": "Miles Anderson",
+      "party": "National",
+      "electorate": "Waitaki",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Nancy Lu",
+      "wiki_name": "Nancy Lu",
+      "party": "National",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Paul Tamatha",
+      "wiki_name": "Tamatha Paul",
+      "party": "Green",
+      "electorate": "Wellington Central",
+      "method": "partial: paul tamatha"
+    },
+    {
+      "hansard_name": "Reuben Davidson",
+      "wiki_name": "Reuben Davidson",
+      "party": "Labour",
+      "electorate": "Christchurch East",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Rima Nakhle",
+      "wiki_name": "Rima Nakhle",
+      "party": "National",
+      "electorate": "Takanini",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Ryan Hamilton",
+      "wiki_name": "Ryan Hamilton",
+      "party": "National",
+      "electorate": "Hamilton East",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Scott Willis",
+      "wiki_name": "Scott Willis",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Steve Abel",
+      "wiki_name": "Steve Abel",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Suze Redmayne",
+      "wiki_name": "Suze Redmayne",
+      "party": "National",
+      "electorate": "Rangitikei",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Tanya Unkovich",
+      "wiki_name": "Tanya Unkovich",
+      "party": "NZ First",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Tim Costley",
+      "wiki_name": "Tim Costley",
+      "party": "National",
+      "electorate": "Otaki",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Todd Stephenson",
+      "wiki_name": "Todd Stephenson",
+      "party": "ACT",
+      "electorate": "List",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Tom Rutherford",
+      "wiki_name": "Tom Rutherford",
+      "party": "National",
+      "electorate": "Bay of Plenty",
+      "method": "exact"
+    },
+    {
+      "hansard_name": "Tākuta Ferris",
+      "wiki_name": "Takuta Ferris",
+      "party": "Te Pati Maori",
+      "electorate": "Te Tai Tonga",
+      "method": "normalized"
+    },
+    {
+      "hansard_name": "Vanessa Weenink",
+      "wiki_name": "Vanessa Weenink",
+      "party": "National",
+      "electorate": "Banks Peninsula",
+      "method": "exact"
+    }
+  ],
+  "unresolved": [
+    "Anae Neru Leavasa",
+    "Anahila Kanongata'a",
+    "Asenati Lole-Taylor",
+    "Brent Hudson",
+    "Gerrard Eckhoff",
+    "H V Ross Robertson",
+    "Laura Trask",
+    "Peseta Sam Lotu-Iiga",
+    "R Doug Woolerton",
+    "Richard Posser"
+  ]
+}

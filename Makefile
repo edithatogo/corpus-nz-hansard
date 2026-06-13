@@ -1,8 +1,8 @@
 PYTHON ?= python
 
-.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd lint format-check typecheck spell workflow-audit toml-check workflow-syntax test
+.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn lint format-check typecheck spell workflow-audit toml-check workflow-syntax test derived-fields-validation
 
-quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd test
+quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation test
 
 uv-lock:
 	uv lock --check
@@ -43,6 +43,15 @@ corpus-family-engineering:
 authority-sources:
 	$(PYTHON) scripts/check_authority_sources.py
 
+historical-sitting-inventory:
+	$(PYTHON) scripts/check_historical_sitting_inventory.py
+
+historical-sitting-official-exports:
+	$(PYTHON) scripts/check_historical_sitting_official_exports.py
+
+historical-sitting-official-exports-coverage:
+	$(PYTHON) scripts/build_historical_sitting_official_exports_coverage.py
+
 historical-coverage:
 	$(PYTHON) scripts/check_historical_coverage_audit.py
 
@@ -72,6 +81,24 @@ parlamint-nz:
 
 popolo-ocd:
 	$(PYTHON) scripts/check_popolo_opencivicdata_endpoint.py
+
+corpus-wide-member-identity:
+	$(PYTHON) scripts/check_corpus_wide_member_identity.py
+
+corpus-wide-party-attribution:
+	$(PYTHON) scripts/check_corpus_wide_party_attribution.py
+
+validated-speech-turn:
+	$(PYTHON) scripts/check_validated_speech_turn_component.py
+
+ud-conllu:
+	$(PYTHON) scripts/check_ud_conllu_endpoint.py
+
+rdf-linked-data:
+	$(PYTHON) scripts/check_rdf_linked_data_endpoint.py
+
+derived-fields-validation:
+	$(PYTHON) scripts/validate_derived_fields.py
 
 lint:
 	$(PYTHON) -m ruff check --no-cache .

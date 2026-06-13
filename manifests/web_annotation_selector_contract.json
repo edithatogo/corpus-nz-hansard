@@ -1,0 +1,104 @@
+{
+  "contract_id": "web_annotation_selector_contract_20260610",
+  "contract_version": 1,
+  "documentation": [
+    "docs/web-annotation-selector-contract.md",
+    "docs/web-annotation-selector-migration.md",
+    "docs/endpoint-contracts.md"
+  ],
+  "examples": [
+    {
+      "annotation_purpose": "speech_turn",
+      "normalization_policy": {
+        "case_sensitivity": "source-preserving",
+        "offset_basis": "utf-8-codepoints",
+        "unicode_normalization": "preserve-source",
+        "whitespace_policy": "preserve-source"
+      },
+      "selector_type": "TextQuoteSelector",
+      "source_component_id": "nzhc-component-0000000000000005",
+      "source_document_id": "47HansS_20240625_067140000",
+      "source_document_uri": "https://w3id.org/nz-hansard/document/47HansS_20240625_067140000",
+      "source_hash": "2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299",
+      "source_stable_id": "HansS_20240625_067140000",
+      "text_position": {
+        "end_offset": 54,
+        "start_offset": 0
+      },
+      "text_quote": {
+        "exact": "This bill is set down for committee stage immediately.",
+        "prefix": "",
+        "suffix": ""
+      }
+    },
+    {
+      "annotation_purpose": "ud_token",
+      "normalization_policy": {
+        "case_sensitivity": "source-preserving",
+        "offset_basis": "utf-8-codepoints",
+        "unicode_normalization": "preserve-source",
+        "whitespace_policy": "preserve-source"
+      },
+      "selector_type": "TextPositionSelector",
+      "source_component_id": "nzhc-component-0000000000000005",
+      "source_document_id": "47HansS_20240625_067140000",
+      "source_document_uri": "https://w3id.org/nz-hansard/document/47HansS_20240625_067140000",
+      "source_hash": "2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299",
+      "source_stable_id": "HansS_20240625_067140000",
+      "text_position": {
+        "end_offset": 16,
+        "start_offset": 13
+      }
+    },
+    {
+      "annotation_purpose": "rdf_annotation",
+      "fragment": {
+        "value": "#nzhc-component-0000000000000009"
+      },
+      "normalization_policy": {
+        "case_sensitivity": "source-preserving",
+        "offset_basis": "utf-8-codepoints",
+        "unicode_normalization": "preserve-source",
+        "whitespace_policy": "preserve-source"
+      },
+      "selector_type": "FragmentSelector",
+      "source_component_id": "nzhc-component-0000000000000009",
+      "source_document_id": "47HansS_20240625_067140000",
+      "source_document_uri": "https://w3id.org/nz-hansard/component/nzhc-component-0000000000000009",
+      "source_hash": "2ac02c0042a4fb291fd8e401db5f469de2539e42c9e07c4c72eca16be9a17299",
+      "source_stable_id": "HansS_20240625_067140000"
+    }
+  ],
+  "generated_at": "2026-06-10T14:56:58.041323+00:00",
+  "known_exclusions": [
+    "Selectors must not depend on transient row numbers or file paths alone.",
+    "The contract does not require full W3C annotation graphs.",
+    "Source spans remain source-linked and do not imply gold annotation."
+  ],
+  "selector_normalization_policy": {
+    "case_sensitivity": "source-preserving",
+    "offset_basis": "utf-8-codepoints",
+    "unicode_normalization": "preserve-source",
+    "whitespace_policy": "preserve-source"
+  },
+  "selector_schema": "schemas/web_annotation_selector.schema.json",
+  "supported_annotation_purposes": [
+    "speech_turn",
+    "topic_unit",
+    "ud_token",
+    "rdf_annotation",
+    "search_chunk"
+  ],
+  "supported_selector_types": [
+    "TextQuoteSelector",
+    "TextPositionSelector",
+    "FragmentSelector",
+    "LinePositionSelector",
+    "PagePositionSelector"
+  ],
+  "validation_results": {
+    "blocking_errors": 0,
+    "examples_valid": true,
+    "schema_valid": true
+  }
+}

@@ -1,6 +1,13 @@
 # Evidence: Party Attribution With Provenance
 
-Status: pending.
+Evidence for the party-attribution review package:
 
-Evidence will be recorded when party authority sources, attribution rules, tests, validation output, and release-readiness decision are implemented.
+- Package manifest: `manifests/party_attribution_provenance_package.json`
+- Validation manifest: `manifests/party_attribution_validation.json`
+- Authority table: `derived/party_attribution_authority.json`
+- Review table: `samples/party-attribution/party_attribution_review.csv`
+- Package README: `samples/party-attribution/README.md`
+- Provenance doc: `docs/party-attribution-provenance.md`
 
+The package is `sample-not-release`, remains `blocked-pending-validated-components`, and does not claim a derived public release.
+Validated member identity is still required before promotion.

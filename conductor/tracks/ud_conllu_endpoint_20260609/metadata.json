@@ -1,7 +1,7 @@
 {
   "track_id": "ud_conllu_endpoint_20260609",
   "title": "Universal Dependencies / CoNLL-U Endpoint",
-  "status": "pending",
+  "status": "completed",
   "created": "2026-06-09",
   "description": "Create validated Universal Dependencies and CoNLL-U linguistic annotation outputs."
 }

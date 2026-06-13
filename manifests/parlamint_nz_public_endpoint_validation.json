@@ -1,0 +1,107 @@
+{
+  "artifact_name": "ParlaMint-NZ public endpoint release",
+  "artifact_version": "0.1.0-deferred.20260610",
+  "dependency_groups": [
+    "xml",
+    "schema",
+    "authority",
+    "nlp"
+  ],
+  "dependency_validation": {
+    "install_commands": [
+      "python -m pip install -r requirements/xml.txt -r requirements/schema.txt -r requirements/authority.txt -r requirements/nlp.txt"
+    ],
+    "library_versions": {
+      "lxml": "deferred-until-release-artifact",
+      "xmlschema": "deferred-until-release-artifact"
+    },
+    "lock_or_constraints": "requirements/xml.txt, requirements/schema.txt, requirements/authority.txt, requirements/nlp.txt",
+    "model_versions": {
+      "neutral_component_model": "manifests/neutral_component_model.json",
+      "sample_package": "0.1.0-sample.20260610"
+    },
+    "release_affecting_dependencies": [
+      "XML validation tooling",
+      "TEI / ParlaMint schema tooling",
+      "NLP libraries for optional linguistic annotations"
+    ],
+    "tool_versions": {
+      "jsonschema": "runtime",
+      "python_xml_etree": "stdlib"
+    }
+  },
+  "endpoint": "ParlaMint-NZ / TEI",
+  "endpoint_track": "parlamint_nz_public_endpoint_release_20260610",
+  "generated_at": "2026-06-12T04:27:05.170695+00:00",
+  "input_release_versions": {
+    "authority_sources": "manifests/authority_sources.json",
+    "document_level": "0.1.0",
+    "id_uri_policy": "manifests/id_uri_policy.json",
+    "neutral_components": "manifests/neutral_component_model.json",
+    "procedure_model": "manifests/nz_parliamentary_procedure_model.json",
+    "sample_package": "0.1.0-sample.20260610"
+  },
+  "known_exclusions": [
+    "No public ParlaMint-NZ release is claimed.",
+    "Validated member identity, party attribution, speech-turn, and sitting/proceeding inputs are missing.",
+    "Full ParlaMint schema validation remains deferred until validated neutral component releases exist.",
+    "Optional linguistic annotations are excluded until UD/CoNLL-U artifacts exist."
+  ],
+  "manifest_sha256": "deferred-public-endpoint-manifest",
+  "manifest_version": 1,
+  "output_artifacts": [
+    "samples/parlamint-nz/ParlaMint-NZ.sample.xml",
+    "samples/parlamint-nz/ParlaMint-NZ.metadata.xml",
+    "samples/parlamint-nz/README.md"
+  ],
+  "public_claim": {
+    "reason": "Validated member identity, party attribution, speech-turn, and sitting/proceeding components are not all available for a public ParlaMint-NZ release.",
+    "sample_only": true,
+    "status": "deferred"
+  },
+  "publication_target": "public endpoint release package deferred",
+  "release_level": "endpoint",
+  "release_series_id": "parlamint-nz-public-endpoint",
+  "release_status": "blocked-pending-validated-components",
+  "repository": "corpus-nz-hansard",
+  "source_hashes": {
+    "authority_sources": "referenced-in-source-manifests",
+    "neutral_component_model": "referenced-in-source-manifests",
+    "procedure_model": "referenced-in-source-manifests",
+    "release_ladder": "referenced-in-source-manifests",
+    "sample_manifest": "referenced-in-sample-manifest"
+  },
+  "source_manifests": [
+    "manifests/parlamint_nz_validation_manifest.json",
+    "manifests/neutral_component_model.json",
+    "manifests/neutral_component_validation_manifest.json",
+    "manifests/nz_parliamentary_procedure_model.json",
+    "manifests/authority_sources.json",
+    "manifests/release_ladder.json",
+    "manifests/dependency_extras_policy.json",
+    "docs/parlamint-nz-mapping.md",
+    "docs/endpoint-contracts.md",
+    "docs/parlamint-nz-public-endpoint-release.md"
+  ],
+  "traceability": [
+    {
+      "neutral_component_ids": [
+        "nzhc-component-0000000000000001",
+        "nzhc-component-0000000000000002",
+        "nzhc-component-0000000000000003",
+        "nzhc-component-0000000000000004",
+        "nzhc-component-0000000000000005",
+        "nzhc-component-0000000000000007"
+      ],
+      "sample_package": "samples/parlamint-nz"
+    }
+  ],
+  "upstream_contribution_target": "ParlaMint / Parla-CLARIN maintainer review after validated component releases",
+  "validation_command": "python scripts/check_parlamint_nz_public_endpoint.py",
+  "validation_manifest": "manifests/parlamint_nz_validation_manifest.json",
+  "validation_results": {
+    "blocking_errors": 0,
+    "component_metadata_validated": false,
+    "readiness_status": "blocked-pending-validated-components"
+  }
+}

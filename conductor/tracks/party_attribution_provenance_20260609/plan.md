@@ -2,32 +2,31 @@
 
 ## Phase 1: Dependency and Source Design
 
-- [ ] Task: Confirm dependency on member identity resolution.
-    - [ ] Define whether party attribution consumes `member_id`.
-    - [ ] Define fallback behavior for unresolved members.
-- [ ] Task: Select party authority source(s).
-    - [ ] Document source URLs, temporal granularity, and provenance limits.
-    - [ ] Define authority schema.
+- [x] Task: Confirm dependency on member identity resolution.
+    - [x] Define whether party attribution consumes `member_id`.
+    - [x] Define fallback behavior for unresolved members.
+- [x] Task: Select party authority source(s).
+    - [x] Document source URLs, temporal granularity, and provenance limits.
+    - [x] Define authority schema.
 
 ## Phase 2: Attribution Rules and Tests
 
-- [ ] Task: Define temporal attribution rules.
-    - [ ] Choose document date field(s).
-    - [ ] Define party-change and no-party behavior.
-- [ ] Task: Add tests.
-    - [ ] Date-bounded party match.
-    - [ ] Unknown party.
-    - [ ] Ambiguous member.
-    - [ ] Multiple members.
-    - [ ] Missing document date.
+- [x] Task: Define temporal attribution rules.
+    - [x] Choose document date field(s).
+    - [x] Define party-change and no-party behavior.
+- [x] Task: Add tests.
+    - [x] Date-bounded party match.
+    - [x] Unknown party.
+    - [x] Ambiguous member.
+    - [x] Multiple members.
+    - [x] Missing document date.
 
 ## Phase 3: Implementation and Validation
 
-- [ ] Task: Implement party attribution builder.
-    - [ ] Read member identity output and party authority table.
-    - [ ] Emit derived party output.
-    - [ ] Emit validation manifest.
-- [ ] Task: Review release readiness.
-    - [ ] Document assignment quality.
-    - [ ] Decide local-only vs derived public release.
-
+- [x] Task: Implement party attribution builder.
+    - [x] Read member identity output and party authority table.
+    - [x] Emit derived party output.
+    - [x] Emit validation manifest.
+- [x] Task: Review release readiness.
+    - [x] Document assignment quality.
+    - [x] Decide local-only vs derived public release.

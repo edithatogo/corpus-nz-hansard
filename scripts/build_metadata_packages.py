@@ -229,11 +229,118 @@ def _prov(release: dict[str, Any]) -> str:
 """
 
 
+def _datacite(release: dict[str, Any], zenodo: dict[str, Any]) -> dict[str, Any]:
+    publication = release["publication"]
+    publication_date = publication["publication_date"]
+    publication_year = int(publication_date.split("-", 1)[0])
+    return {
+        "schemaVersion": "http://datacite.org/schema/kernel-4",
+        "identifier": {
+            "identifier": publication["doi"],
+            "identifierType": "DOI",
+        },
+        "creators": [
+            {
+                "name": creator["name"],
+                "nameType": "Personal" if " " in creator["name"] else "Organizational",
+            }
+            for creator in zenodo.get("creators", [])
+        ],
+        "titles": [
+            {
+                "title": zenodo["title"],
+            }
+        ],
+        "publisher": "Zenodo",
+        "publicationYear": publication_year,
+        "types": {
+            "resourceTypeGeneral": "Dataset",
+            "resourceType": zenodo["title"],
+        },
+        "version": zenodo["version"],
+        "descriptions": [
+            {
+                "description": zenodo["description"],
+                "descriptionType": "Abstract",
+            }
+        ],
+        "contributors": [
+            {
+                "name": "NZ Hansard release automation",
+                "contributorType": "DataCurator",
+            }
+        ],
+        "dates": [
+            {
+                "date": publication_date,
+                "dateType": "Issued",
+            }
+        ],
+        "subjects": [{"subject": keyword} for keyword in zenodo.get("keywords", [])],
+        "language": "en",
+        "rightsList": [
+            {
+                "rights": zenodo["license"],
+                "rightsUri": "https://github.com/edithatogo/corpus-nz-hansard/blob/main/NOTICE.md",
+            }
+        ],
+        "relatedIdentifiers": [
+            {
+                "relatedIdentifier": publication["conceptdoi"],
+                "relatedIdentifierType": "DOI",
+                "relationType": "IsVersionOf",
+            },
+            {
+                "relatedIdentifier": publication["github_repository"],
+                "relatedIdentifierType": "URL",
+                "relationType": "IsSupplementedBy",
+            },
+            {
+                "relatedIdentifier": publication["github_release"],
+                "relatedIdentifierType": "URL",
+                "relationType": "IsSupplementedBy",
+            },
+            {
+                "relatedIdentifier": publication["huggingface_dataset"],
+                "relatedIdentifierType": "URL",
+                "relationType": "IsIdenticalTo",
+            },
+        ],
+        "fundingReferences": [],
+    }
+
+
 def main() -> int:
     manifest = _json(MANIFEST_PATH)
     release = _json(RELEASE_MANIFEST_PATH)
     zenodo = _json(ZENODO_PATH)
     schema = _json(SCHEMA_PATH)
+
+    package_by_id = {package["id"]: package for package in manifest["packages"]}
+    if "datacite" not in package_by_id:
+        manifest["packages"].append(
+            {
+                "id": "datacite",
+                "label": "DataCite",
+                "standard": "DataCite Metadata Schema",
+                "format": "json",
+                "status": "planned",
+                "output_path": "generated/metadata/datacite.json",
+                "generator": "python scripts/build_metadata_packages.py",
+                "source_manifests": [
+                    "manifests/public_dataset_release_manifest.json",
+                    ".zenodo.json",
+                    "CITATION.cff",
+                    "docs/datacite-export-contract.md",
+                ],
+                "validation_command": "python scripts/check_metadata_packages.py",
+                "checksum_algorithm": "sha256",
+                "checksum": None,
+                "publication_surfaces": ["github", "zenodo"],
+            }
+        )
+    if "docs/datacite-export-contract.md" not in manifest["source_manifests"]:
+        manifest["source_manifests"].append("docs/datacite-export-contract.md")
 
     output_by_id = {
         "croissant": lambda path: _write_json(path, _croissant(release, zenodo, schema)),
@@ -241,6 +348,7 @@ def main() -> int:
         "frictionless": lambda path: _write_json(path, _frictionless(release, zenodo, schema)),
         "dcat": lambda path: _write_text(path, _dcat(release, zenodo)),
         "prov-o": lambda path: _write_text(path, _prov(release)),
+        "datacite": lambda path: _write_json(path, _datacite(release, zenodo)),
     }
 
     for package in manifest["packages"]:

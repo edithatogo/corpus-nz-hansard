@@ -19,12 +19,13 @@ class MetadataPackagesTest(unittest.TestCase):
         packages = {package["id"]: package for package in manifest["packages"]}
         self.assertEqual(
             set(packages),
-            {"croissant", "ro-crate", "frictionless", "dcat", "prov-o"},
+            {"croissant", "ro-crate", "frictionless", "dcat", "prov-o", "datacite"},
         )
         self.assertEqual(packages["croissant"]["format"], "json-ld")
         self.assertEqual(packages["frictionless"]["format"], "json")
         self.assertEqual(packages["dcat"]["format"], "turtle")
         self.assertEqual(packages["prov-o"]["format"], "turtle")
+        self.assertEqual(packages["datacite"]["format"], "json")
         self.assertEqual({package["status"] for package in packages.values()}, {"generated"})
         self.assertTrue(all(package["checksum"] for package in packages.values()))
 
@@ -50,6 +51,11 @@ class MetadataPackagesTest(unittest.TestCase):
 
         prov = (ROOT / packages["prov-o"]["output_path"]).read_text(encoding="utf-8")
         self.assertIn("prov:Activity", prov)
+
+        datacite = _json(ROOT / packages["datacite"]["output_path"])
+        self.assertEqual(datacite["identifier"]["identifierType"], "DOI")
+        self.assertEqual(datacite["types"]["resourceTypeGeneral"], "Dataset")
+        self.assertEqual(datacite["publisher"], "Zenodo")
 
 
 if __name__ == "__main__":

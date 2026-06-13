@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-08T13:25:15.036417+00:00",
+  "generated_at": "2026-06-12T04:16:34.788231+00:00",
   "manifest_version": 1,
   "normalization_contract": "docs/normalization-contract.md",
   "outputs": {
@@ -102,5 +102,5 @@
       "type": "string"
     }
   ],
-  "source_archive": "2024-09-06 Hansard Extract from DocumentsDB.zip"
+  "source_archive": "C:\\tmp\\2024-09-06 Hansard Extract from DocumentsDB.zip"
 }

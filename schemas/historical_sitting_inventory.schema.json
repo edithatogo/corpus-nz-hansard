@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "generated_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "inventory_status": {
+      "const": "source-inventory-only"
+    },
+    "reconciliation_status": {
+      "const": "pending-comparison"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "format": "uri",
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "classification": {
+            "enum": ["authoritative", "supporting", "candidate", "rejected"]
+          },
+          "domains": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "retrieval_date": {
+            "format": "date",
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "url",
+          "publisher",
+          "classification",
+          "domains",
+          "retrieval_date",
+          "purpose"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "coverage_notes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "manifest_version",
+    "repository",
+    "generated_at",
+    "inventory_status",
+    "reconciliation_status",
+    "sources",
+    "coverage_notes"
+  ],
+  "type": "object"
+}

@@ -1,0 +1,51 @@
+{
+  "artifact_name": "historical_sitting_official_exports_index",
+  "artifact_version": "0.1.0",
+  "generated_at": "2026-06-12T15:25:08.021709+00:00",
+  "notes": [
+    "This derived index records the confirmed official PDF export surfaces.",
+    "It is a machine-readable starting point for PDF-backed reconciliation."
+  ],
+  "source_manifest": "manifests/historical_sitting_official_exports.json",
+  "sources": [
+    {
+      "byte_size": 2546564,
+      "cached_pdf": "derived/historical_sitting_official_exports/pdf/nz-parliament-journals-49th-weekly-pdf.pdf",
+      "coverage_note": "Weekly Journal PDF with sitting-date pages and clause-by-clause proceedings.",
+      "has_text": true,
+      "id": "nz-parliament-journals-49th-weekly-pdf",
+      "page_count": 576,
+      "publication_stage": "weekly",
+      "sha256": "cfb685d25a38622955e1c38c29d65b3769cf5b15064433f0f23c168ea5e256b4",
+      "text_excerpt": "783 Tuesday, 20 July 2010 Tuesday, 20 July 2010 The House met at 2.00 pm. Prayers 1 Papers Four papers were announced as published under the authority of the House ( see Schedule for papers published under the authority of the House). 2 Select committee reports The presentation of 48 reports was announced. The Limitation Bill was set down for second reading. The following reports were set down for consideration: \u2022 Visit of the Parliamentary Committee System Review Committee of the Queensland Parliament \u2022 Report from the Controller and Auditor-General on Department of Corrections: Managing offenders on parole \u2022 Report from the Controller and Auditor-General on Response of the New Zealand Police to the Commission of Inquiry into Police Conduct: First monitoring report (see Schedule for selec",
+      "title": "Journals of the House of Representatives of New Zealand 2010-2011",
+      "url": "https://www3.parliament.nz/media/11245/journals-of-the-house-49th-parliament-vol-2-journals-20-july-2010-to-4-october-2011.pdf"
+    },
+    {
+      "byte_size": 5333051,
+      "cached_pdf": "derived/historical_sitting_official_exports/pdf/nz-parliament-journals-51st-sessional-pdf.pdf",
+      "coverage_note": "Sessional schedules volume for the 51st Parliament, with index and tables of proceedings.",
+      "has_text": true,
+      "id": "nz-parliament-journals-51st-sessional-pdf",
+      "page_count": 636,
+      "publication_stage": "sessional",
+      "sha256": "0081d26fc977c3da6f9bb6ba694781b5d6c564f5989251175d17e4dbafbdada4",
+      "text_excerpt": "Journals of the House of Representatives of New Zealand 2014\u20132017 Volume 2\nIn the Reign of Her Majesty Queen Elizabeth the Second Being the Fifty-first Parliament of New Zealand From 20 October 2014 to 22 August 2017, inclusive Volume 2 Schedules to the Journals ISSN 0110\u20133415 Wellington, New Zealand Published under the authority of the House of Representatives\u20142018 Journals of the House of Representatives of New Zealand 2014\u20132017",
+      "title": "Journals of the House of Representatives of New Zealand 2014-2017",
+      "url": "https://www3.parliament.nz/media/4766/journals-of-the-house-51-parliament-vol-2-schedules-to-the-journals.pdf"
+    },
+    {
+      "byte_size": 6106800,
+      "cached_pdf": "derived/historical_sitting_official_exports/pdf/nz-parliament-journals-52nd-sessional-pdf.pdf",
+      "coverage_note": "Sessional schedules volume for the 52nd Parliament, including comparative table of sittings.",
+      "has_text": true,
+      "id": "nz-parliament-journals-52nd-sessional-pdf",
+      "page_count": 544,
+      "publication_stage": "sessional",
+      "sha256": "1d91c46cee3ffcad7d9a859e2c0522aac32352d512a72c7424bf416af4371b6a",
+      "text_excerpt": "Journals of the House of Representatives of New Zealand 2017\u20132020 Volume 2\nJournals of the House of Representatives of New Zealand 2017\u20132020 In the Reign of Her Majesty Queen Elizabeth the Second Being the Fifty-second Parliament of New Zealand From 7 November 2017 to 6 September 2020, inclusive Volume 2 Schedules to the Journals ISSN 0110\u20133415 Wellington, New Zealand Published under the authority of the House of Representatives\u20132021",
+      "title": "Journals of the House of Representatives of New Zealand 2017-2020",
+      "url": "https://www3.parliament.nz/media/8377/journals-of-the-house-for-the-52nd-parliament-volume-2-schedules.pdf"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "artifact_name": "RDF / Linked Data public endpoint release",
+  "artifact_version": "0.1.0-deferred.20260610",
+  "dependency_groups": [
+    "authority",
+    "metadata",
+    "rdf",
+    "schema"
+  ],
+  "dependency_validation": {
+    "install_commands": [
+      "python -m pip install -r requirements/rdf.txt -r requirements/schema.txt -r requirements/metadata.txt -r requirements/authority.txt"
+    ],
+    "library_versions": {
+      "pyshacl": "manual-validator",
+      "rdflib": "manual-validator"
+    },
+    "lock_or_constraints": "requirements/rdf.txt, requirements/schema.txt, requirements/metadata.txt, requirements/authority.txt",
+    "model_versions": {
+      "vocabulary": "rdf-linked-data-fixture-20260610"
+    },
+    "release_affecting_dependencies": [
+      "RDF serializer versions",
+      "SHACL validator versions",
+      "ontology/mapping libraries",
+      "metadata export tooling"
+    ],
+    "tool_versions": {
+      "python": "3.13"
+    }
+  },
+  "endpoint": "RDF / Linked Data",
+  "endpoint_track": "rdf_linked_data_public_endpoint_release_20260610",
+  "generated_at": "2026-06-11T00:00:00+10:00",
+  "input_release_versions": {
+    "authority_sources": "manifests/authority_sources.json",
+    "document_level": "0.1.0",
+    "id_uri_policy": "manifests/id_uri_policy.json",
+    "model_metadata": "manifests/rdf_linked_data_model_metadata.json",
+    "neutral_components": "manifests/neutral_component_model.json"
+  },
+  "known_exclusions": [
+    "No public RDF / linked-data release is claimed.",
+    "NIF export is excluded.",
+    "External ontology acceptance is excluded.",
+    "Stable URI review is pending."
+  ],
+  "manifest_sha256": "deferred-public-endpoint-manifest",
+  "manifest_version": 1,
+  "output_artifacts": [
+    "samples/rdf-linked-data/linked-data.ttl",
+    "samples/rdf-linked-data/linked-data.jsonld",
+    "samples/rdf-linked-data/shapes.ttl",
+    "samples/rdf-linked-data/sparql-queries.rq",
+    "samples/rdf-linked-data/README.md"
+  ],
+  "public_claim": {
+    "reason": "Validated component exports are not yet available for a public RDF/linked-data release, and stable URI review remains pending.",
+    "sample_only": true,
+    "status": "deferred"
+  },
+  "publication_target": "public endpoint release package deferred",
+  "release_level": "endpoint",
+  "release_series_id": "rdf-linked-data-public-endpoint",
+  "release_status": "blocked-pending-validated-components",
+  "repository": "corpus-nz-hansard",
+  "source_hashes": {
+    "model_metadata": "referenced-in-source-manifests",
+    "release_ladder": "referenced-in-source-manifests",
+    "sample_manifest": "referenced-in-sample-manifest"
+  },
+  "source_manifests": [
+    "manifests/rdf_linked_data_validation_manifest.json",
+    "manifests/rdf_linked_data_model_metadata.json",
+    "manifests/neutral_component_model.json",
+    "manifests/dependency_extras_policy.json",
+    "manifests/release_ladder.json",
+    "docs/rdf-linked-data-mapping.md",
+    "docs/endpoint-contracts.md",
+    "docs/rdf-linked-data-public-endpoint-release.md"
+  ],
+  "traceability": [
+    {
+      "neutral_component_ids": [
+        "nzhc-component-0000000000000001",
+        "nzhc-component-0000000000000002",
+        "nzhc-component-0000000000000003",
+        "nzhc-component-0000000000000004",
+        "nzhc-component-0000000000000005",
+        "nzhc-component-0000000000000006",
+        "nzhc-component-0000000000000007",
+        "nzhc-component-0000000000000008",
+        "nzhc-component-0000000000000009"
+      ]
+    }
+  ],
+  "upstream_contribution_target": "RDF / linked-data maintainers after validated component exports and SHACL review",
+  "validation_command": "python scripts/check_rdf_linked_data_public_endpoint.py",
+  "validation_manifest": "manifests/rdf_linked_data_public_endpoint_validation.json",
+  "validation_results": {
+    "blocking_errors": 0,
+    "component_metadata_validated": false,
+    "readiness_status": "blocked-pending-validated-components"
+  }
+}

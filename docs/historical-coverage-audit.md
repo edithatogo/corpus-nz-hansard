@@ -55,3 +55,11 @@ Excluded claims:
 
 Those sources are available for follow-up reconciliation, but this track does not complete a sitting-level historical comparison. Any endpoint or release surface that describes coverage must cite `manifests/historical_coverage_audit.json` and preserve the distinction between supplied archive coverage and historical Hansard completeness.
 
+The current reconciliation inventory also includes the historic journals archive,
+sessional journals archive, and indexes to the journals so that older periods
+can be compared against the official parliamentary record rather than only the
+live parliamentary business entrypoints.
+
+The comparison contract itself is recorded in
+`manifests/historical_sitting_reconciliation.json` and documented in
+`docs/historical-sitting-reconciliation.md`.

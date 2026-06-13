@@ -1,0 +1,449 @@
+{
+  "total": 51,
+  "resolved": 50,
+  "unresolved": 1,
+  "results": {
+    "Anae Neru Leavasa": {
+      "hansard_name": "Anae Neru Leavasa",
+      "resolved": true,
+      "source": "Wikidata",
+      "matched_name": "Neru Leavasa",
+      "party": "New Zealand Labour Party"
+    },
+    "Anahila Kanongata'a": {
+      "hansard_name": "Anahila Kanongata'a",
+      "resolved": true,
+      "source": "Wikipedia 52nd-53rd Parliaments",
+      "matched_name": "Anahila Kanongata'a-Suisuiki",
+      "party": "Labour",
+      "notes": "Incomplete surname in Hansard. Full: Kanongata'a-Suisuiki."
+    },
+    "Andrew Hoggard": {
+      "hansard_name": "Andrew Hoggard",
+      "wiki_name": "Andrew Hoggard",
+      "party": "ACT",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Andy Foster": {
+      "hansard_name": "Andy Foster",
+      "wiki_name": "Andy Foster",
+      "party": "NZ First",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Asenati Lole-Taylor": {
+      "hansard_name": "Asenati Lole-Taylor",
+      "resolved": true,
+      "source": "Wikipedia 50th Parliament",
+      "matched_name": "Asenati Taylor",
+      "party": "NZ First",
+      "notes": "Full name includes middle name. NZ First MP 2011-2014."
+    },
+    "Brent Hudson": {
+      "hansard_name": "Brent Hudson",
+      "resolved": true,
+      "source": "Wikipedia 51st-52nd Parliaments",
+      "matched_name": "Brett Hudson",
+      "party": "National",
+      "notes": "Hansard typo: Brent -> Brett. National MP 2014-2020."
+    },
+    "Cameron Brewer": {
+      "hansard_name": "Cameron Brewer",
+      "wiki_name": "Cameron Brewer",
+      "party": "National",
+      "electorate": "Upper Harbour",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Cameron Luxton": {
+      "hansard_name": "Cameron Luxton",
+      "wiki_name": "Cameron Luxton",
+      "party": "ACT",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Carl Bates": {
+      "hansard_name": "Carl Bates",
+      "wiki_name": "Carl Bates",
+      "party": "National",
+      "electorate": "Whanganui",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Carlos Cheung": {
+      "hansard_name": "Carlos Cheung",
+      "wiki_name": "Carlos Cheung",
+      "party": "National",
+      "electorate": "Mount Roskill",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Catherine Wedd": {
+      "hansard_name": "Catherine Wedd",
+      "wiki_name": "Catherine Wedd",
+      "party": "National",
+      "electorate": "Tukituki",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Celia Wade-Brown": {
+      "hansard_name": "Celia Wade-Brown",
+      "wiki_name": "Celia Wade-Brown",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Cushla Tangaere-Manuel": {
+      "hansard_name": "Cushla Tangaere-Manuel",
+      "wiki_name": "Cushla Tangaere-Manuel",
+      "party": "Labour",
+      "electorate": "Ikaroa-Rawhiti",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Dana Kirkpatrick": {
+      "hansard_name": "Dana Kirkpatrick",
+      "wiki_name": "Dana Kirkpatrick",
+      "party": "National",
+      "electorate": "East Coast",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Darleen Tana": {
+      "hansard_name": "Darleen Tana",
+      "wiki_name": "Darleen Tana",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "David MacLeod": {
+      "hansard_name": "David MacLeod",
+      "wiki_name": "David MacLeod",
+      "party": "National",
+      "electorate": "New Plymouth",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Francisco Hernandez": {
+      "hansard_name": "Francisco Hernandez",
+      "wiki_name": "Francisco Hernandez",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Gerrard Eckhoff": {
+      "hansard_name": "Gerrard Eckhoff",
+      "resolved": true,
+      "source": "Wikipedia 47th-49th Parliaments",
+      "matched_name": "Gerry Eckhoff",
+      "party": "ACT",
+      "notes": "Name variant: Gerry/Gerrard. ACT MP 2002-2011."
+    },
+    "Grant McCallum": {
+      "hansard_name": "Grant McCallum",
+      "wiki_name": "Grant McCallum",
+      "party": "National",
+      "electorate": "Northland",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Greg Fleming": {
+      "hansard_name": "Greg Fleming",
+      "wiki_name": "Greg Fleming",
+      "party": "National",
+      "electorate": "Maungakiekie",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "H V Ross Robertson": {
+      "hansard_name": "H V Ross Robertson",
+      "resolved": true,
+      "source": "Wikidata",
+      "matched_name": "Ross Robertson",
+      "party": "New Zealand Labour Party"
+    },
+    "Hamish Campbell": {
+      "hansard_name": "Hamish Campbell",
+      "wiki_name": "Hamish Campbell",
+      "party": "National",
+      "electorate": "Ilam",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Hana-Rawhiti Maipi-Clarke": {
+      "hansard_name": "Hana-Rawhiti Maipi-Clarke",
+      "wiki_name": "Hana-Rawhiti Maipi-Clarke",
+      "party": "Te Pati Maori",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Hūhana Lyndon": {
+      "hansard_name": "Hūhana Lyndon",
+      "wiki_name": "Huhana Lyndon",
+      "party": "Green",
+      "electorate": "List",
+      "method": "normalized",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "James Meager": {
+      "hansard_name": "James Meager",
+      "wiki_name": "James Meager",
+      "party": "National",
+      "electorate": "Rangitata",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Jamie Arbuckle": {
+      "hansard_name": "Jamie Arbuckle",
+      "wiki_name": "Jamie Arbuckle",
+      "party": "NZ First",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Kahurangi Carter": {
+      "hansard_name": "Kahurangi Carter",
+      "wiki_name": "Kahurangi Carter",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Katie Nimon": {
+      "hansard_name": "Katie Nimon",
+      "wiki_name": "Katie Nimon",
+      "party": "National",
+      "electorate": "Napier",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Lan Pham": {
+      "hansard_name": "Lan Pham",
+      "wiki_name": "Lan Pham",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Laura Trask": {
+      "hansard_name": "Laura Trask",
+      "resolved": false,
+      "notes": "Not in any Wikipedia MP list (47-54). May be select committee witness or non-MP."
+    },
+    "Lawrence Xu-Nan": {
+      "hansard_name": "Lawrence Xu-Nan",
+      "wiki_name": "Lawrence Xu-Nan",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Mariameno Kapa-Kingi": {
+      "hansard_name": "Mariameno Kapa-Kingi",
+      "wiki_name": "Mariameno Kapa-Kingi",
+      "party": "Te Pati Maori",
+      "electorate": "Te Tai Tokerau",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Mike Butterick": {
+      "hansard_name": "Mike Butterick",
+      "wiki_name": "Mike Butterick",
+      "party": "National",
+      "electorate": "Wairarapa",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Miles Anderson": {
+      "hansard_name": "Miles Anderson",
+      "wiki_name": "Miles Anderson",
+      "party": "National",
+      "electorate": "Waitaki",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Nancy Lu": {
+      "hansard_name": "Nancy Lu",
+      "wiki_name": "Nancy Lu",
+      "party": "National",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Paul Tamatha": {
+      "hansard_name": "Paul Tamatha",
+      "wiki_name": "Tamatha Paul",
+      "party": "Green",
+      "electorate": "Wellington Central",
+      "method": "partial: paul tamatha",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Peseta Sam Lotu-Iiga": {
+      "hansard_name": "Peseta Sam Lotu-Iiga",
+      "resolved": true,
+      "source": "Wikidata",
+      "matched_name": "Sam Lotu-Iiga",
+      "party": "New Zealand National Party"
+    },
+    "R Doug Woolerton": {
+      "hansard_name": "R Doug Woolerton",
+      "resolved": true,
+      "source": "Wikidata",
+      "matched_name": "Doug Woolerton",
+      "party": "New Zealand National Party"
+    },
+    "Reuben Davidson": {
+      "hansard_name": "Reuben Davidson",
+      "wiki_name": "Reuben Davidson",
+      "party": "Labour",
+      "electorate": "Christchurch East",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Richard Posser": {
+      "hansard_name": "Richard Posser",
+      "resolved": true,
+      "source": "Wikipedia 50th-51st Parliaments",
+      "matched_name": "Richard Prosser",
+      "party": "NZ First",
+      "notes": "Spelling variant: Posser/Prosser. NZ First MP 2011-2017."
+    },
+    "Rima Nakhle": {
+      "hansard_name": "Rima Nakhle",
+      "wiki_name": "Rima Nakhle",
+      "party": "National",
+      "electorate": "Takanini",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Ryan Hamilton": {
+      "hansard_name": "Ryan Hamilton",
+      "wiki_name": "Ryan Hamilton",
+      "party": "National",
+      "electorate": "Hamilton East",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Scott Willis": {
+      "hansard_name": "Scott Willis",
+      "wiki_name": "Scott Willis",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Steve Abel": {
+      "hansard_name": "Steve Abel",
+      "wiki_name": "Steve Abel",
+      "party": "Green",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Suze Redmayne": {
+      "hansard_name": "Suze Redmayne",
+      "wiki_name": "Suze Redmayne",
+      "party": "National",
+      "electorate": "Rangitikei",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Tanya Unkovich": {
+      "hansard_name": "Tanya Unkovich",
+      "wiki_name": "Tanya Unkovich",
+      "party": "NZ First",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Tim Costley": {
+      "hansard_name": "Tim Costley",
+      "wiki_name": "Tim Costley",
+      "party": "National",
+      "electorate": "Otaki",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Todd Stephenson": {
+      "hansard_name": "Todd Stephenson",
+      "wiki_name": "Todd Stephenson",
+      "party": "ACT",
+      "electorate": "List",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Tom Rutherford": {
+      "hansard_name": "Tom Rutherford",
+      "wiki_name": "Tom Rutherford",
+      "party": "National",
+      "electorate": "Bay of Plenty",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Tākuta Ferris": {
+      "hansard_name": "Tākuta Ferris",
+      "wiki_name": "Takuta Ferris",
+      "party": "Te Pati Maori",
+      "electorate": "Te Tai Tonga",
+      "method": "normalized",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    },
+    "Vanessa Weenink": {
+      "hansard_name": "Vanessa Weenink",
+      "wiki_name": "Vanessa Weenink",
+      "party": "National",
+      "electorate": "Banks Peninsula",
+      "method": "exact",
+      "resolved": true,
+      "source": "Wikipedia 54th Parliament"
+    }
+  }
+}

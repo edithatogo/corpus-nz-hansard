@@ -91,3 +91,23 @@ Release automation should separate code/package versions, dataset versions, sche
 ## Arrow and Polars baseline
 
 Both `pyarrow` and `polars` are baseline tabular/dataframe dependencies for corpus work. Use Arrow/PyArrow for Parquet/Arrow interoperability and stable artifact writing; use Polars for high-performance lazy/eager transformations, profiling, and larger derived-table workflows where it simplifies or accelerates the pipeline.
+
+## Python Tooling (v0.2.0, converged with corpus-law-nz v0.5.0)
+
+| Tool | Version | Purpose |
+|---|---|---|
+| Python | >=3.11 | Runtime |
+| uv | 0.11.8 | Package manager, pip-compat |
+| ruff | 0.15.16 | Linter + formatter (50+ rule sets, strict) |
+| ty | 0.0.46 | Type checker (strict mode) |
+| pytest | >=8.2 | Test runner (unit/integration/smoke/hypothesis markers) |
+| pytest-cov | >=6.0 | Coverage (60% threshold, branch mode) |
+| hypothesis | >=6.100 | Property-based testing |
+| scalene | >=1.5.44 | CPU/memory profiler |
+| pre-commit | >=4.0 | Git hooks (ruff check + format) |
+| pydantic v2 | >=2.0 | Data validation (models/settings) |
+| taplo | 0.9.3 | TOML linter |
+| typos | 1.47.2 | Spell checker |
+| zizmor | 1.25.2 | GitHub Actions security audit |
+| vale | (external) | Prose linter (.vale.ini configured) |
+| Coverage | >=60% | Branch coverage, show missing |

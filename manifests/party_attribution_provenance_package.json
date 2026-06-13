@@ -1,0 +1,33 @@
+{
+  "track_id": "party_attribution_provenance_20260609",
+  "artifact_name": "party_attribution_provenance_package",
+  "artifact_version": "0.1.0",
+  "release_level": "upstream-contribution",
+  "release_status": "sample-not-release",
+  "publication_target": "local maintainer-review package",
+  "submission_status": "not-submitted",
+  "validation_manifest": "manifests/party_attribution_validation.json",
+  "input_release_versions": {
+    "document_level": "0.1.0",
+    "member_identity_validation": "manifests/member_identity_resolution_validation.json",
+    "gold_evaluation_datasets": "manifests/gold_evaluation_datasets.json",
+    "authority_sources": "manifests/authority_sources.json"
+  },
+  "package_contents": [
+    "derived/party_attribution_authority.json",
+    "samples/party-attribution/party_attribution_review.csv",
+    "samples/party-attribution/README.md",
+    "docs/party-attribution-provenance.md",
+    "manifests/party_attribution_validation.json"
+  ],
+  "known_exclusions": [
+    "No derived party attribution output is published.",
+    "Validated member identity output is still required before release promotion.",
+    "Party inference from speech content alone is excluded."
+  ],
+  "readiness_status": "blocked-pending-validated-components",
+  "readiness_notes": [
+    "Party attribution remains blocked until validated member identity exists.",
+    "Temporal authority inputs are documented, but no public release is claimed."
+  ]
+}

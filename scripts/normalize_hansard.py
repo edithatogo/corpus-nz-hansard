@@ -86,6 +86,7 @@ PARQUET_SCHEMA = pa.schema(
 
 DEFAULT_PIPELINE_VERSION = "0.1.0"
 DEFAULT_SOURCE = "New Zealand Parliament Hansard DocumentsDB extract"
+PARQUET_COMPRESSION = "zstd"
 
 
 def _clean(value: str | None) -> str | None:
@@ -295,7 +296,7 @@ def run_normalization(
                                 writer = pq.ParquetWriter(
                                     parquet_path,
                                     PARQUET_SCHEMA,
-                                    compression="zstd",
+                                    compression=PARQUET_COMPRESSION,
                                 )
                             writer.write_table(table)
                             output_rows += len(batch)
@@ -309,7 +310,7 @@ def run_normalization(
                 writer = pq.ParquetWriter(
                     parquet_path,
                     PARQUET_SCHEMA,
-                    compression="zstd",
+                    compression=PARQUET_COMPRESSION,
                 )
             writer.write_table(table)
             output_rows += len(batch)

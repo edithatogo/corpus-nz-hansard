@@ -1,0 +1,95 @@
+{
+  "manifest_version": 1,
+  "repository": "corpus-nz-hansard",
+  "generated_at": "2026-06-12",
+  "inventory_status": "source-inventory-only",
+  "reconciliation_status": "pending-comparison",
+  "sources": [
+    {
+      "id": "nz-parliament-parliamentary-business-hub",
+      "title": "Parliamentary Business",
+      "url": "https://www3.parliament.nz/en/pb/",
+      "publisher": "New Zealand Parliament",
+      "classification": "authoritative",
+      "domains": ["sittings", "motions", "votes", "procedure"],
+      "retrieval_date": "2026-06-10",
+      "purpose": "Top-level entrypoint for official sitting and proceeding inventory discovery."
+    },
+    {
+      "id": "nz-parliament-historic-journals-of-the-house",
+      "title": "Historic Journals of the House",
+      "url": "https://www3.parliament.nz/en/pb/journals-of-the-house/historic-journals-of-the-house/",
+      "publisher": "New Zealand Parliament",
+      "classification": "authoritative",
+      "domains": ["sittings", "procedure"],
+      "retrieval_date": "2026-06-12",
+      "purpose": "Historic digitised journals archive for older sitting and proceeding reconciliation."
+    },
+    {
+      "id": "nz-parliament-daily-progress",
+      "title": "Daily progress in the House",
+      "url": "https://www3.parliament.nz/en/pb/daily-progress-in-the-house/",
+      "publisher": "New Zealand Parliament",
+      "classification": "authoritative",
+      "domains": ["sittings", "bills", "motions", "votes"],
+      "retrieval_date": "2026-06-10",
+      "purpose": "Outcome and progression record for sitting-day reconciliation."
+    },
+    {
+      "id": "nz-parliament-order-paper",
+      "title": "Order Paper",
+      "url": "https://www3.parliament.nz/en/pb/order-paper-questions/order-paper/",
+      "publisher": "New Zealand Parliament",
+      "classification": "authoritative",
+      "domains": ["sittings", "bills", "motions", "procedure"],
+      "retrieval_date": "2026-06-10",
+      "purpose": "Agenda source for scheduled business and reconciling planned versus actual proceedings."
+    },
+    {
+      "id": "nz-parliament-journals-indexes",
+      "title": "Indexes to the Journals",
+      "url": "https://www3.parliament.nz/en/pb/journals-of-the-house/journals-indexes/",
+      "publisher": "New Zealand Parliament",
+      "classification": "authoritative",
+      "domains": ["sittings", "procedure"],
+      "retrieval_date": "2026-06-12",
+      "purpose": "Cumulative and sessional index surface for reconciling procedural records."
+    },
+    {
+      "id": "nz-parliament-weekly-journals-archive",
+      "title": "Weekly Journals Archive",
+      "url": "https://www3.parliament.nz/en/pb/journals-of-the-house/weekly-journals-archive/",
+      "publisher": "New Zealand Parliament",
+      "classification": "authoritative",
+      "domains": ["sittings", "procedure"],
+      "retrieval_date": "2026-06-10",
+      "purpose": "Weekly official record for reconciling sitting and proceeding completeness."
+    },
+    {
+      "id": "nz-parliament-sessional-journals-archive",
+      "title": "Sessional Journals archive",
+      "url": "https://www3.parliament.nz/en/pb/journals-of-the-house/sessional-journals-archive/",
+      "publisher": "New Zealand Parliament",
+      "classification": "authoritative",
+      "domains": ["sittings", "procedure"],
+      "retrieval_date": "2026-06-12",
+      "purpose": "Sessional official record for reconciliations spanning completed Parliaments."
+    },
+    {
+      "id": "nz-parliament-hansard-current",
+      "title": "Hansard",
+      "url": "https://hansard.parliament.nz/hansard-debates/rhr?lang=en",
+      "publisher": "New Zealand Parliament",
+      "classification": "authoritative",
+      "domains": ["sittings", "motions", "votes", "procedure"],
+      "retrieval_date": "2026-06-10",
+      "purpose": "Current official proceedings text for final comparison and coverage language."
+    }
+  ],
+  "coverage_notes": [
+    "This manifest records the official inventory sources needed for historical sitting/proceeding reconciliation.",
+    "It does not assert that full reconciliation has been completed.",
+    "Historical completeness claims remain blocked until the corpus is compared against these official sources.",
+    "Historic Journals, Sessional Journals, Weekly Journals, Daily Progress, Order Paper, and Hansard must be reconciled together before a completeness claim can be made."
+  ]
+}

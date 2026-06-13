@@ -1,0 +1,117 @@
+{
+  "artifact_name": "Akoma Ntoso public endpoint release",
+  "artifact_version": "0.1.0-deferred.20260610",
+  "dependency_groups": [
+    "xml",
+    "schema",
+    "authority"
+  ],
+  "dependency_validation": {
+    "install_commands": [
+      "python -m pip install -r requirements/xml.txt -r requirements/schema.txt -r requirements/authority.txt"
+    ],
+    "library_versions": {
+      "lxml": "deferred-until-release-artifact",
+      "xmlschema": "deferred-until-release-artifact"
+    },
+    "lock_or_constraints": "requirements/xml.txt, requirements/schema.txt, requirements/authority.txt",
+    "model_versions": {
+      "neutral_component_model": "manifests/neutral_component_model.json",
+      "procedure_model": "manifests/nz_parliamentary_procedure_model.json",
+      "sample_package": "0.1.0"
+    },
+    "release_affecting_dependencies": [
+      "XML validators",
+      "schema tooling",
+      "authority matching tooling"
+    ],
+    "tool_versions": {
+      "python_json": "stdlib",
+      "python_xml": "stdlib"
+    }
+  },
+  "endpoint": "Akoma Ntoso",
+  "endpoint_track": "akoma_ntoso_public_endpoint_release_20260610",
+  "generated_at": "2026-06-12T04:30:37.214213+00:00",
+  "input_release_versions": {
+    "authority_sources": "manifests/authority_sources.json",
+    "document_level": "0.1.0",
+    "id_uri_policy": "manifests/id_uri_policy.json",
+    "neutral_components": "manifests/neutral_component_model.json",
+    "procedure_model": "manifests/nz_parliamentary_procedure_model.json",
+    "sample_package": "0.1.0"
+  },
+  "known_exclusions": [
+    "No public Akoma Ntoso release is claimed.",
+    "Validated member identity, party attribution, speech-turn, motion, and vote inputs are missing.",
+    "The sample uses a narrow profile subset rather than full schema coverage.",
+    "The package is sample-only until validated component releases exist."
+  ],
+  "manifest_sha256": "deferred-public-endpoint-manifest",
+  "manifest_version": 1,
+  "output_artifacts": [
+    "samples/akoma-ntoso/Akoma-Ntoso.sample.xml",
+    "samples/akoma-ntoso/Akoma-Ntoso.metadata.xml",
+    "samples/akoma-ntoso/README.md"
+  ],
+  "profile": {
+    "conformance_boundary": "sample-only maintainer-review package until validated member, party, speech-turn, motion, and vote components exist",
+    "namespace": "http://docs.oasis-open.org/legaldocml/ns/akn/3.0",
+    "selection": "debate-oriented sample subset",
+    "selection_status": "blocked-pending-validated-components"
+  },
+  "public_claim": {
+    "reason": "Validated member identity, validated party attribution, validated speech-turn, validated motion, and validated vote components are not all available for a public Akoma Ntoso release.",
+    "sample_only": true,
+    "status": "deferred"
+  },
+  "publication_target": "public endpoint release package deferred",
+  "release_level": "endpoint",
+  "release_series_id": "akoma-ntoso-public-endpoint",
+  "release_status": "blocked-pending-validated-components",
+  "repository": "corpus-nz-hansard",
+  "source_hashes": {
+    "authority_sources": "referenced-in-source-manifests",
+    "neutral_component_model": "referenced-in-source-manifests",
+    "procedure_model": "referenced-in-source-manifests",
+    "release_ladder": "referenced-in-source-manifests",
+    "sample_manifest": "referenced-in-sample-manifest"
+  },
+  "source_manifests": [
+    "manifests/akoma_ntoso_validation_manifest.json",
+    "manifests/neutral_component_model.json",
+    "manifests/neutral_component_validation_manifest.json",
+    "manifests/nz_parliamentary_procedure_model.json",
+    "manifests/authority_sources.json",
+    "manifests/release_ladder.json",
+    "manifests/dependency_extras_policy.json",
+    "docs/akoma-ntoso-mapping.md",
+    "docs/endpoint-contracts.md",
+    "docs/akoma-ntoso-public-endpoint-release.md"
+  ],
+  "traceability": [
+    {
+      "neutral_component_ids": [
+        "nzhc-component-0000000000000001",
+        "nzhc-component-0000000000000002",
+        "nzhc-component-0000000000000003",
+        "nzhc-component-0000000000000004",
+        "nzhc-component-0000000000000005",
+        "nzhc-component-0000000000000006",
+        "nzhc-component-0000000000000007",
+        "nzhc-component-0000000000000008"
+      ]
+    }
+  ],
+  "upstream_contribution_target": "Akoma Ntoso maintainers after validated component releases and profile selection",
+  "validation_command": "python scripts/check_akoma_ntoso_public_endpoint.py",
+  "validation_manifest": "manifests/akoma_ntoso_public_endpoint_validation.json",
+  "validation_results": {
+    "blocking_errors": 0,
+    "component_metadata_validated": false,
+    "json_valid": true,
+    "profile_selected": true,
+    "readiness_status": "blocked-pending-validated-components",
+    "xml_valid": true
+  }
+}

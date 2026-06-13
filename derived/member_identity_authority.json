@@ -1,0 +1,81 @@
+{
+  "authority_sources": [
+    {
+      "authority_source_id": "nz-parliament-former-members",
+      "coverage_note": "Historical member register with service ranges for former MPs.",
+      "publisher": "New Zealand Parliament",
+      "source_hash": "7a7e6c320aec15354287cf757bf930ed407d46faf60b4938243af5b9df2b6b10",
+      "title": "Former Members of Parliament",
+      "url": "https://www3.parliament.nz/en/mps-and-electorates/former-members-of-parliament/"
+    },
+    {
+      "authority_source_id": "nz-parliament-roll-of-members",
+      "coverage_note": "Historical roll with dates of service for member identity resolution.",
+      "publisher": "New Zealand Parliament",
+      "source_hash": "61b3fb2a406769efbb0620700aedef497d00c8a7ff510a7b3eb0748f426230e8",
+      "title": "Roll of members of the New Zealand House of Representatives, 1854 onwards",
+      "url": "https://www3.parliament.nz/media/11482/roll-of-members-of-the-new-zealand-house-of-representatives-1854-onwards.pdf"
+    }
+  ],
+  "generated_at": "2026-06-10",
+  "member_records": [
+    {
+      "aliases": [
+        "CLAYTON COSGROVE",
+        "Hon Clayton Cosgrove"
+      ],
+      "authority_source_id": "nz-parliament-former-members",
+      "authority_url": "https://www3.parliament.nz/en/mps-and-electorates/former-members-of-parliament/cosgrove-clayton/",
+      "canonical_name": "Clayton Cosgrove",
+      "component_id": "nzhc-component-ccd958a07a626b10",
+      "display_name": "Clayton Cosgrove",
+      "member_id": "nzhc-component-ccd958a07a626b10",
+      "resolution_scope": "exact-name-match",
+      "service_periods": [
+        {
+          "end_date": "2017-09-23",
+          "parliament_numbers": "46-51",
+          "start_date": "1999-11-27"
+        }
+      ]
+    },
+    {
+      "aliases": [
+        "Hon Roger Sowry",
+        "Roger Sowry"
+      ],
+      "authority_source_id": "nz-parliament-roll-of-members",
+      "authority_url": "https://www3.parliament.nz/media/11482/roll-of-members-of-the-new-zealand-house-of-representatives-1854-onwards.pdf",
+      "canonical_name": "Roger Morrison Sowry",
+      "component_id": "nzhc-component-374e3296ea91340b",
+      "display_name": "Roger Morrison Sowry",
+      "member_id": "nzhc-component-374e3296ea91340b",
+      "resolution_scope": "honorific-normalized-match",
+      "service_periods": [
+        {
+          "end_date": "2005-09-17",
+          "parliament_numbers": "43-47",
+          "start_date": "1990-10-27"
+        }
+      ]
+    }
+  ],
+  "purpose": "Local member identity authority table for the reviewed sample package.",
+  "resolution_rules": [
+    "Exact member-name matches resolve to canonical member records.",
+    "Honorifics such as Hon, Rt Hon, Dr, Sir, Dame, Mr, Mrs, Ms, Miss, and Prof are stripped before comparison.",
+    "Semicolon-delimited raw member values are resolved as separate member tokens.",
+    "Office titles and generic publication headings are not resolved as member identities.",
+    "Ambiguous variants remain explicit and require authority matching before canonical publication."
+  ],
+  "review_notes": [
+    "This authority table is local-review-only and does not publish a full corpus-wide member identity dataset.",
+    "The sample package resolves the reviewed gold fixtures only.",
+    "Broader publication still requires corpus-wide validation and the full historical authority surface."
+  ],
+  "source_hashes": {
+    "nz-parliament-former-members": "7a7e6c320aec15354287cf757bf930ed407d46faf60b4938243af5b9df2b6b10",
+    "nz-parliament-roll-of-members": "61b3fb2a406769efbb0620700aedef497d00c8a7ff510a7b3eb0748f426230e8"
+  },
+  "track_id": "member_identity_resolution_20260609"
+}

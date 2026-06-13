@@ -49,3 +49,8 @@ The first fixture set is intentionally compact and Git-friendly. It is suitable 
 
 Endpoint contracts must cite `manifests/gold_evaluation_datasets.json` before publishing derived member, party, speech-turn, vote, or topic artifacts. Future endpoint manifests must list the relevant fixture IDs or a refreshed evaluation manifest under their gold/evaluation dataset dependencies.
 
+Derived-field validation manifests are defined in `docs/derived-fields-validation.md` and tracked in:
+
+- `manifests/member_identity_resolution_validation.json`
+- `manifests/party_attribution_validation.json`
+- `manifests/speech_turn_validated_artifact_validation.json`

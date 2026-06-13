@@ -1,0 +1,8 @@
+{
+  "track_id": "package_cli_migration_execution_20260610",
+  "type": "feature",
+  "status": "blocked",
+  "created_at": "2026-06-10T00:00:00+10:00",
+  "updated_at": "2026-06-11T00:00:00+10:00",
+  "description": "Execute package and CLI migration while preserving existing quality gates and release behaviour."
+}
