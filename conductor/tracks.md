@@ -565,3 +565,18 @@ Link: [conductor/tracks/source_inventory_20260602/](./tracks/source_inventory_20
 ## Archived Tracks
 
 None.
+
+### [~] Track: Multi-Git and Multi-Archive Mirroring Setup
+
+Track ID: `multi_git_archive_mirroring_20260614`
+
+Goal: Establish multi-git and multi-archive mirroring setup to prevent single-point-of-failure repository/dataset takedowns.
+
+- [x] Phase 1 Task 1: Write .github/workflows/mirror_sync.yml (evidence in conductor/tracks/multi_git_archive_mirroring_20260614/evidence.md)
+- [ ] Phase 1 Task 2: Configure repository secrets GIT_MIRROR_URL and GIT_MIRROR_SSH_PRIVATE_KEY on GitHub (requires GitHub access)
+- [ ] Phase 1 Task 3: Verify successful manual and push triggers for mirror sync (requires GitHub Actions)
+- [x] Phase 2 Task 1: Run python scripts/check_osf_optional_mirror_policy.py — PASSED (OSF policy is consistent)
+- [ ] Phase 2 Task 2: Conductor - User Manual Verification (requires user approval)
+
+Link: [conductor/tracks/multi_git_archive_mirroring_20260614/](./tracks/multi_git_archive_mirroring_20260614/)
+

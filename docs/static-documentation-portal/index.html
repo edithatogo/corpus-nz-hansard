@@ -123,7 +123,7 @@
         <div class="stat"><span>Version</span><strong>0.1.0</strong></div>
         <div class="stat"><span>Level</span><strong>document-level</strong></div>
         <div class="stat"><span>Status</span><strong>published</strong></div>
-        <div class="stat"><span>Track rows</span><strong>61</strong></div>
+        <div class="stat"><span>Track rows</span><strong>69</strong></div>
       </div>
       <table>
         <thead><tr><th>Surface</th><th>URL</th></tr></thead>
@@ -181,10 +181,10 @@
       <section class="panel">
         <h2>Track Status</h2>
         <div class="stats">
-          <div class="stat"><span>Complete</span><strong>44</strong></div>
-          <div class="stat"><span>Blocked</span><strong>17</strong></div>
-          <div class="stat"><span>Pending</span><strong>0</strong></div>
-          <div class="stat"><span>Total</span><strong>61</strong></div>
+          <div class="stat"><span>Complete</span><strong>45</strong></div>
+          <div class="stat"><span>Blocked</span><strong>18</strong></div>
+          <div class="stat"><span>Pending</span><strong>2</strong></div>
+          <div class="stat"><span>Total</span><strong>69</strong></div>
         </div>
         <table>
           <thead><tr><th>Status</th><th>Track</th><th>Track ID</th><th>Goal</th><th>Link</th></tr></thead>
@@ -222,6 +222,13 @@
 <tr><td>complete</td><td>Party Attribution With Provenance</td><td><code>party_attribution_provenance_20260609</code></td><td>add provenance-backed party attribution as a temporal derived layer, dependent on validated member identity where needed.</td><td><a href='../../tracks/party_attribution_provenance_20260609/'>./tracks/party_attribution_provenance_20260609/</a></td></tr>
 <tr><td>complete</td><td>Speech-Turn Validated Artifact Decision</td><td><code>speech_turn_validated_artifact_20260609</code></td><td>promote speech-turn candidates to a validated derived artifact or explicitly keep them excluded from published final scope.</td><td><a href='../../tracks/speech_turn_validated_artifact_20260609/'>./tracks/speech_turn_validated_artifact_20260609/</a></td></tr>
 <tr><td>complete</td><td>Derived Fields Validation Manifests</td><td><code>derived_fields_validation_manifests_20260609</code></td><td>create shared validation tests and manifests for derived member, party, and speech-turn fields before any derived dataset publication.</td><td><a href='../../tracks/derived_fields_validation_manifests_20260609/'>./tracks/derived_fields_validation_manifests_20260609/</a></td></tr>
+<tr><td>in progress</td><td>Bills API Integration</td><td><code></code></td><td>Integrate open REST API from bills.parliament.nz as an authority source for bill-stage metadata, member sponsors, select committees, and legislation.govt.nz cross-references. 3,513 bills extracted, 351 unique member names.</td><td><a href='../../tracks/bills_api_integration_20260612/'>./tracks/bills_api_integration_20260612/</a></td></tr>
+<tr><td>in progress</td><td>Wikipedia MP Lists Acquisition</td><td><code></code></td><td>Extract structured MP name, party, and electorate data from Wikipedia articles for Parliaments 47-53. 249 MPs extracted from Parliaments 52-53.</td><td><a href='../../tracks/wikipedia_mp_lists_acquisition_20260612/'>./tracks/wikipedia_mp_lists_acquisition_20260612/</a></td></tr>
+<tr><td>pending</td><td>HathiTrust Hansard Acquisition</td><td><code></code></td><td>Acquire 510 full-view NZ Parliamentary Debates volumes (1854-1990) from HathiTrust collection 71329709 via OAuth API.</td><td><a href='../../tracks/hathitrust_hansard_acquisition_20260612/'>./tracks/hathitrust_hansard_acquisition_20260612/</a></td></tr>
+<tr><td>in progress</td><td>Parliament Website Stealth Access</td><td><code></code></td><td>Access Radware-protected NZ Parliament website pages using Playwright stealth browser techniques. All 5 target pages successfully fetched.</td><td><a href='../../tracks/parliament_website_stealth_access_20260612/'>./tracks/parliament_website_stealth_access_20260612/</a></td></tr>
+<tr><td>in progress</td><td>Member Identity Triangulation</td><td><code></code></td><td>Cross-reference multiple authority sources (Wikipedia, Wikidata, Bills API, Parliament website, Electoral Commission) to resolve and validate member identity. 51/51 names resolved (100%).</td><td><a href='../../tracks/member_identity_triangulation_20260612/'>./tracks/member_identity_triangulation_20260612/</a></td></tr>
+<tr><td>complete</td><td>Cross-Repo Dataset Architecture</td><td><code></code></td><td>Define dataset ownership boundaries between corpus-nz-hansard, corpus-law-nz (legislation), and planned corpus-nlp (NLP). Documented in docs/cross-repo-dataset-architecture.md.</td><td><a href='../../tracks/cross_repo_dataset_architecture_20260612/'>./tracks/cross_repo_dataset_architecture_20260612/</a></td></tr>
+<tr><td>blocked</td><td>NZLII Historical Acquisition</td><td><code></code></td><td>Access historical NZ parliamentary content from NZLII (1854-2008 bills). Currently blocked (HTTP 403). Deferred in favour of HathiTrust.</td><td><a href='../../tracks/nzlii_historical_acquisition_20260612/'>./tracks/nzlii_historical_acquisition_20260612/</a></td></tr>
 <tr><td>complete</td><td>Popolo / Open Civic Data Endpoint</td><td><code>popolo_opencivicdata_endpoint_20260609</code></td><td>Generated a Popolo/Open Civic Data maintainer-review sample package, mapping notes, validation manifest, checker, and readiness boundary without inferring full voting records from text patterns alone.</td><td><a href='../../tracks/popolo_opencivicdata_endpoint_20260609/'>./tracks/popolo_opencivicdata_endpoint_20260609/</a></td></tr>
 <tr><td>complete</td><td>ParlaMint-NZ Endpoint</td><td><code>parlamint_nz_endpoint_20260609</code></td><td>Generated a ParlaMint-NZ maintainer-review TEI sample package, mapping notes, validation manifest, checker, and readiness boundary without making ParlaMint the internal core schema.</td><td><a href='../../tracks/parlamint_nz_endpoint_20260609/'>./tracks/parlamint_nz_endpoint_20260609/</a></td></tr>
 <tr><td>complete</td><td>Neutral Parliamentary Component Model</td><td><code>neutral_component_model_20260609</code></td><td>Defined machine-readable neutral component schemas, stable ID requirements, fixture rows, validation manifest, referential-integrity gates, and publication boundaries.</td><td><a href='../../tracks/neutral_component_model_20260609/'>./tracks/neutral_component_model_20260609/</a></td></tr>
@@ -250,6 +257,7 @@
 <tr><td>complete</td><td>Public Dataset Readiness</td><td><code>public_dataset_readiness_20260602</code></td><td>prepared repo-side public dataset release documentation, provenance, limitations, and release manifest without uploading or publishing.</td><td><a href='../../tracks/public_dataset_readiness_20260602/'>./tracks/public_dataset_readiness_20260602/</a></td></tr>
 <tr><td>complete</td><td>Hansard Corpus Pipeline MVP</td><td><code>hansard_corpus_pipeline_mvp_20260602</code></td><td>built the first evidence-backed corpus pipeline from source inventory through schema discovery to manifest, Parquet, and DuckDB outputs.</td><td><a href='../../tracks/hansard_corpus_pipeline_mvp_20260602/'>./tracks/hansard_corpus_pipeline_mvp_20260602/</a></td></tr>
 <tr><td>complete</td><td>Source Inventory Verification and Manifest Generation</td><td><code>source_inventory_20260602</code></td><td>auxiliary source-inventory track created during Phase 1. Implementation evidence is aligned with `hansard_corpus_pipeline_mvp_20260602` Phase 1.</td><td><a href='../../tracks/source_inventory_20260602/'>./tracks/source_inventory_20260602/</a></td></tr>
+<tr><td>pending</td><td>Multi-Git and Multi-Archive Mirroring Setup</td><td><code>multi_git_archive_mirroring_20260614</code></td><td>Establish multi-git and multi-archive mirroring setup to prevent single-point-of-failure repository/dataset takedowns.</td><td><a href='../../tracks/multi_git_archive_mirroring_20260614/'>./tracks/multi_git_archive_mirroring_20260614/</a></td></tr>
           </tbody>
         </table>
       </section>
