@@ -19,7 +19,7 @@ dependencies = [
 dev = [
   "pytest>=8.2.0",
   "pytest-cov>=6.0.0",
-  "ruff==0.15.16",
+  "ruff==0.15.17",
   "taplo==0.9.3",
   "ty==0.0.46",
   "typos==1.47.2",
