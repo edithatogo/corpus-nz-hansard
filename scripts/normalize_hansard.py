@@ -23,10 +23,10 @@ except ModuleNotFoundError:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from scripts.discover_schema import _decode_sample, _sniff_dialect
 
-# Ensure workspace root is on sys.path so we can import shared utilities
-_WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
-if str(_WORKSPACE_ROOT) not in sys.path:
-    sys.path.insert(0, str(_WORKSPACE_ROOT))
+# Ensure repo root is on sys.path so CI checkouts can import shared utilities.
+_REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
 
 import shared_utils  # noqa: E402
 
