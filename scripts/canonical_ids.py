@@ -2,10 +2,18 @@
 
 from __future__ import annotations
 
-import hashlib
 import json
 import re
+import sys
+from pathlib import Path
 from typing import Any
+
+# Ensure workspace root is on sys.path so we can import shared utilities
+_WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
+if str(_WORKSPACE_ROOT) not in sys.path:
+    sys.path.insert(0, str(_WORKSPACE_ROOT))
+
+import shared_utils  # noqa: E402
 
 NAMESPACE = "https://w3id.org/nz-hansard/"
 ID_PATTERN = re.compile(r"^nzhc-[a-z][a-z0-9-]*-[a-f0-9]{16}$")
@@ -23,7 +31,7 @@ def _slug(value: str) -> str:
 
 def _digest(payload: dict[str, Any]) -> str:
     encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-    return hashlib.sha256(encoded.encode("utf-8")).hexdigest()[:16]
+    return shared_utils.sha256_text(encoded)[:16]
 
 
 def canonical_id(artifact_class: str, payload: dict[str, Any]) -> str:

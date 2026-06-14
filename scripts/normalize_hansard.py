@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import csv
-import hashlib
 import io
 import json
 import sys
@@ -23,6 +22,13 @@ try:
 except ModuleNotFoundError:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from scripts.discover_schema import _decode_sample, _sniff_dialect
+
+# Ensure workspace root is on sys.path so we can import shared utilities
+_WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
+if str(_WORKSPACE_ROOT) not in sys.path:
+    sys.path.insert(0, str(_WORKSPACE_ROOT))
+
+import shared_utils  # noqa: E402
 
 DEFAULT_ARCHIVE = Path("2024-09-06 Hansard Extract from DocumentsDB.zip")
 DEFAULT_OUTPUT_DIR = Path("generated/parquet")
@@ -122,10 +128,6 @@ def _member_count(value: str | None) -> int:
     return len([part for part in (item.strip() for item in cleaned.split(";")) if part])
 
 
-def _sha256_text(value: str) -> str:
-    return hashlib.sha256(value.encode("utf-8")).hexdigest()
-
-
 def _stable_id(document_id: str | None, source_file: str, source_row_number: int) -> str:
     if document_id:
         return document_id
@@ -204,8 +206,8 @@ def normalize_row(
             "last_modified": last_modified,
             "document_content_date": document_content_date,
             "language": "en",
-            "text_sha256": _sha256_text(text_for_hash),
-            "source_hash": _sha256_text(source_hash_payload),
+            "text_sha256": shared_utils.sha256_text(text_for_hash),
+            "source_hash": shared_utils.sha256_text(source_hash_payload),
             "pipeline_version": pipeline_version,
         },
         warnings,

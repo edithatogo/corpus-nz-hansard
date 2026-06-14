@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
+import sys
 from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
@@ -13,18 +13,16 @@ from typing import Any
 import pyarrow.parquet as pq
 from jsonschema import Draft202012Validator
 
+# Ensure workspace root is on sys.path so we can import shared utilities
+_WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
+if str(_WORKSPACE_ROOT) not in sys.path:
+    sys.path.insert(0, str(_WORKSPACE_ROOT))
+
+import shared_utils  # noqa: E402
+
 DEFAULT_PARQUET = Path("generated/parquet/hansard.parquet")
 DEFAULT_SCHEMA = Path("schemas/hansard_record.schema.json")
 DEFAULT_REPORT = Path("manifests/record_schema_validation.json")
-
-
-def _write_json(payload: dict[str, Any], path: Path) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-
-
-def _sha256_text(value: str) -> str:
-    return hashlib.sha256(value.encode("utf-8")).hexdigest()
 
 
 def validate_hansard_records(
@@ -73,7 +71,7 @@ def validate_hansard_records(
                 )
 
             content = str(record.get("content") or "")
-            if record.get("text_sha256") != _sha256_text(content):
+            if record.get("text_sha256") != shared_utils.sha256_text(content):
                 errors.append(
                     {
                         "type": "text_hash_mismatch",
@@ -114,7 +112,7 @@ def validate_hansard_records(
         "ok": not errors,
     }
     if report_path:
-        _write_json(report, Path(report_path))
+        shared_utils.write_json(Path(report_path), report)
     return report
 
 

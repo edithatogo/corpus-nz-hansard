@@ -137,8 +137,7 @@ def extract_mp_tables(html: str) -> list[dict]:
     party_markers.sort(key=lambda x: x[0])
 
     if not party_markers:
-        print("    Warning: No party headers found in HTML")
-        return []
+        return _extract_mp_tables_per_row(html)
 
     print(f"    Found {len(party_markers)} party sections: {[p for _, p in party_markers]}")
 
@@ -154,60 +153,65 @@ def extract_mp_tables(html: str) -> list[dict]:
         section_html = html[pos:end_pos]
 
         # Find all <tr> rows in this section that contain MP name links
-        for tr_match in re.finditer(
-            r"<tr[^>]*>(.*?)</tr>", section_html, re.IGNORECASE | re.DOTALL
-        ):
-            tr_content = tr_match.group(1)
-
-            # Skip header rows and sub-headers
-            if "<th" in tr_content or "<td" not in tr_content:
-                continue
-
-            # Find MP name link: <a href="/wiki/Name" ...>Name</a>
-            for a_match in re.finditer(
-                r'<a\s+(?:[^>]*?\s)?href="(?:\./|/wiki/)([^"]+)"[^>]*>([^<]+)</a>',
-                tr_content,
-                re.IGNORECASE,
-            ):
-                name = a_match.group(2).strip()
-                wiki_slug = a_match.group(1).strip()
-
-                # Filter out non-MP links
-                words = name.split()
-                if len(words) < 2 or len(name) > 60 or len(name) < 4:
-                    continue
-                if any(w in SKIP_WORDS for w in words[:2]):
-                    continue
-                if name.startswith(("List of", "Template:", "Category:", "File:")):
-                    continue
-
-                # Extract electorate from the next <td> after the name link
-                electorate = ""
-                after_name = tr_content[a_match.end() :]
-                td_match = re.search(r"<td[^>]*>(.*?)</td>", after_name, re.IGNORECASE | re.DOTALL)
-                if td_match:
-                    td_content = td_match.group(1).strip()
-                    elec_link = re.search(r"<a[^>]*>([^<]+)</a>", td_content, re.IGNORECASE)
-                    if elec_link:
-                        electorate = elec_link.group(1).strip()
-                    elif td_content and td_content not in ("\u2014", "\u2013", ""):
-                        electorate = td_content
-
-                if not electorate or electorate.lower() == "list":
-                    electorate = "List"
-
-                mps.append(
-                    {
-                        "name": name,
-                        "party": party,
-                        "electorate": electorate,
-                        "wiki_slug": wiki_slug,
-                    }
-                )
-                # Only take the first name link per row
-                break
+        _extract_mp_rows(section_html, party, mps)
 
     return mps
+
+
+def _extract_mp_rows(section_html: str, party: str, mps: list[dict]) -> None:
+    """Extract MP rows from a section of HTML scoped to a single party header."""
+    for tr_match in re.finditer(
+        r"<tr[^>]*>(.*?)</tr>", section_html, re.IGNORECASE | re.DOTALL
+    ):
+        tr_content = tr_match.group(1)
+
+        # Skip header rows and sub-headers
+        if "<th" in tr_content or "<td" not in tr_content:
+            continue
+
+        # Find MP name link: <a href="/wiki/Name" ...>Name</a>
+        for a_match in re.finditer(
+            r'<a\s+(?:[^>]*?\s)?href="(?:\./|/wiki/)([^"]+)"[^>]*>([^<]+)</a>',
+            tr_content,
+            re.IGNORECASE,
+        ):
+            name = a_match.group(2).strip()
+            wiki_slug = a_match.group(1).strip()
+
+            # Filter out non-MP links
+            words = name.split()
+            if len(words) < 2 or len(name) > 60 or len(name) < 4:
+                continue
+            if any(w in SKIP_WORDS for w in words[:2]):
+                continue
+            if name.startswith(("List of", "Template:", "Category:", "File:")):
+                continue
+
+            # Extract electorate from the next <td> after the name link
+            electorate = ""
+            after_name = tr_content[a_match.end() :]
+            td_match = re.search(r"<td[^>]*>(.*?)</td>", after_name, re.IGNORECASE | re.DOTALL)
+            if td_match:
+                td_content = td_match.group(1).strip()
+                elec_link = re.search(r"<a[^>]*>([^<]+)</a>", td_content, re.IGNORECASE)
+                if elec_link:
+                    electorate = elec_link.group(1).strip()
+                elif td_content and td_content not in ("\u2014", "\u2013", ""):
+                    electorate = td_content
+
+            if not electorate or electorate.lower() == "list":
+                electorate = "List"
+
+            mps.append(
+                {
+                    "name": name,
+                    "party": party,
+                    "electorate": electorate,
+                    "wiki_slug": wiki_slug,
+                }
+            )
+            # Only take the first name link per row
+            break
 
 
 def main():
