@@ -82,7 +82,8 @@ def _failures() -> list[str]:
             )
         if source["classification"] == "rejected" and source["downstream_tracks"]:
             failures.append(f"{source['id']} is rejected but still unblocks downstream tracks.")
-        if len(source["source_hash"]) != 64:
+        source_hash = source.get("source_hash", "")
+        if len(source_hash) != 64:
             failures.append(f"{source['id']} source_hash must be a SHA-256 hex string.")
 
     domain_coverage = manifest["domain_coverage"]

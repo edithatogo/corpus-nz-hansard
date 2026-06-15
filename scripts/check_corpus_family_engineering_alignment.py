@@ -63,14 +63,22 @@ def _failures() -> list[str]:
     future_standards = {
         standard["id"] for standard in manifest["standards"] if standard["status"] == "future"
     }
-    for required_future in ("src-layout", "typer-cli", "pytest", "pre-commit", "renovate"):
+    for required_future in ("src-layout", "typer-cli", "pytest", "renovate"):
         if required_future not in future_standards:
             failures.append(f"{required_future} must remain marked future in this planning track.")
 
     adopted_standards = {
         standard["id"] for standard in manifest["standards"] if standard["status"] == "adopted"
     }
-    for required_adopted in ("uv-lock", "ruff", "ty", "codeql", "scorecard", "zenodo-protection"):
+    for required_adopted in (
+        "uv-lock",
+        "ruff",
+        "ty",
+        "pre-commit",
+        "codeql",
+        "scorecard",
+        "zenodo-protection",
+    ):
         if required_adopted not in adopted_standards:
             failures.append(f"{required_adopted} must be marked adopted.")
 
@@ -80,8 +88,8 @@ def _failures() -> list[str]:
         failures.append(
             "src/ package layout exists; update this planning track to implementation mode."
         )
-    if (ROOT / ".pre-commit-config.yaml").exists():
-        failures.append("pre-commit exists; update this planning track to implementation mode.")
+    if not (ROOT / ".pre-commit-config.yaml").exists():
+        failures.append("pre-commit is marked adopted but .pre-commit-config.yaml is missing.")
     if (ROOT / "renovate.json").exists():
         failures.append("renovate exists; update this planning track to implementation mode.")
 

@@ -1,8 +1,91 @@
 {
-  "manifest_version": 1,
-  "repository": "corpus-nz-hansard",
-  "retrieved_at": "2026-06-10",
-  "hash_scope": "discovery-record-sha256",
+  "domain_coverage": {
+    "bills": {
+      "downstream_track": "akoma_ntoso_endpoint_20260609",
+      "minimum_classification": "authoritative",
+      "notes": "Current bill metadata starts from Parliament; 1854-2008 historical bills require NZLII reconciliation.",
+      "primary_source_ids": [
+        "nz-parliament-bills-current",
+        "nzlii-historical-bills"
+      ]
+    },
+    "members": {
+      "downstream_track": "member_identity_resolution_20260609",
+      "minimum_classification": "authoritative",
+      "notes": "Current MP identity starts from the official Parliament members list; historical service periods are resolved from the former-members page and roll-of-members PDF. Contact and election sources are supporting.",
+      "primary_source_ids": [
+        "nz-parliament-members-current",
+        "nz-parliament-former-members",
+        "nz-parliament-roll-of-members",
+        "nz-parliament-member-contact-downloads",
+        "electoral-commission-election-results"
+      ]
+    },
+    "motions": {
+      "downstream_track": "popolo_opencivicdata_endpoint_20260609",
+      "minimum_classification": "authoritative",
+      "notes": "Motions require proceeding text, planned business, actual progress, and rules context.",
+      "primary_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-order-paper",
+        "nz-parliament-daily-progress",
+        "nz-parliament-parliamentary-rules"
+      ]
+    },
+    "offices": {
+      "downstream_track": "member_identity_resolution_20260609",
+      "minimum_classification": "supporting",
+      "notes": "Office/contact fields need dated downloadable files and should not drive identity alone.",
+      "primary_source_ids": [
+        "nz-parliament-member-contact-downloads",
+        "nz-parliament-members-current",
+        "electoral-commission-election-results"
+      ]
+    },
+    "parties": {
+      "downstream_track": "party_attribution_provenance_20260609",
+      "minimum_classification": "authoritative",
+      "notes": "Current parliamentary party labels come from Parliament; historical party attribution needs term snapshots.",
+      "primary_source_ids": [
+        "nz-parliament-parties-current",
+        "nz-parliament-members-current",
+        "electoral-commission-election-results"
+      ]
+    },
+    "procedure": {
+      "downstream_track": "nz_parliamentary_procedure_model_20260609",
+      "minimum_classification": "authoritative",
+      "notes": "Procedure model must cite rules plus proceeding/question sources before derived procedure fields are published.",
+      "primary_source_ids": [
+        "nz-parliament-parliamentary-rules",
+        "nz-parliament-order-paper",
+        "nz-parliament-hansard-current",
+        "nz-parliament-written-questions",
+        "nz-parliament-oral-questions"
+      ]
+    },
+    "sittings": {
+      "downstream_track": "neutral_component_model_20260609",
+      "minimum_classification": "authoritative",
+      "notes": "Actual sitting/proceeding components need Hansard and daily progress readback.",
+      "primary_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-order-paper",
+        "nz-parliament-daily-progress"
+      ]
+    },
+    "votes": {
+      "downstream_track": "popolo_opencivicdata_endpoint_20260609",
+      "minimum_classification": "authoritative",
+      "notes": "Vote events require Hansard/daily progress and bill-stage cross-checks; party/individual vote components must cite source IDs.",
+      "primary_source_ids": [
+        "nz-parliament-hansard-current",
+        "nz-parliament-daily-progress",
+        "nz-parliament-bills-current",
+        "nz-parliament-parliamentary-rules"
+      ]
+    }
+  },
   "domains": [
     "members",
     "parties",
@@ -13,460 +96,471 @@
     "votes",
     "procedure"
   ],
+  "hash_scope": "discovery-record-sha256",
+  "manifest_version": 1,
+  "policy": {
+    "official_sources_first": true,
+    "publish_authoritative_fields_requires_declared_inputs": true,
+    "text_derived_inference_not_authority": true
+  },
+  "repository": "corpus-nz-hansard",
+  "retrieved_at": "2026-06-10",
   "sources": [
     {
-      "id": "nz-parliament-members-current",
-      "title": "Members of Parliament",
-      "url": "https://www3.parliament.nz/en/mps-and-electorates/members-of-parliament/",
-      "publisher": "New Zealand Parliament",
+      "access_constraints": "Public web page; dynamic page structure may change.",
       "classification": "authoritative",
+      "coverage_gaps": [
+        "Current page is not a complete historical member register.",
+        "Party changes and resignations require dated snapshots."
+      ],
+      "coverage_period": "Current 54th Parliament member list; page reports 123 MPs across six parliamentary parties.",
       "domains": [
         "members",
         "parties",
         "offices"
       ],
-      "coverage_period": "Current 54th Parliament member list; page reports 123 MPs across six parliamentary parties.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "c74f8e8044b5b99e24886ee9b1c3c7b4ebe3a66ade3d585cb72b580601d300f2",
-      "reuse_note": "Official Parliament page; record source URL and page facts before reuse. Do not infer historical membership beyond page coverage.",
-      "access_constraints": "Public web page; dynamic page structure may change.",
-      "refresh_cadence": "Before each derived member/party release and at least monthly during a parliamentary term.",
-      "coverage_gaps": [
-        "Current page is not a complete historical member register.",
-        "Party changes and resignations require dated snapshots."
-      ],
       "downstream_tracks": [
         "member_identity_resolution_20260609",
         "party_attribution_provenance_20260609"
-      ]
+      ],
+      "id": "nz-parliament-members-current",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before each derived member/party release and at least monthly during a parliamentary term.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Official Parliament page; record source URL and page facts before reuse. Do not infer historical membership beyond page coverage.",
+      "source_hash": "c74f8e8044b5b99e24886ee9b1c3c7b4ebe3a66ade3d585cb72b580601d300f2",
+      "title": "Members of Parliament",
+      "url": "https://www3.parliament.nz/en/mps-and-electorates/members-of-parliament/"
     },
     {
-      "id": "nz-parliament-former-members",
-      "title": "Former Members of Parliament",
-      "url": "https://www3.parliament.nz/en/mps-and-electorates/former-members-of-parliament/",
-      "publisher": "New Zealand Parliament",
-      "classification": "authoritative",
-      "domains": [
-        "members",
-        "offices"
-      ],
-      "coverage_period": "Historical former-member register with date ranges for parliamentary service.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "7a7e6c320aec15354287cf757bf930ed407d46faf60b4938243af5b9df2b6b10",
-      "reuse_note": "Use for historical member identity and service-period resolution. Preserve the page snapshot date when reusing the record.",
       "access_constraints": "Public web page; dynamic listing may change as the site updates.",
-      "refresh_cadence": "Before member-identity releases and whenever historical service periods are rechecked.",
+      "classification": "authoritative",
       "coverage_gaps": [
         "Historical service periods should still be cross-checked against the roll-of-members PDF for durable provenance."
       ],
-      "downstream_tracks": [
-        "member_identity_resolution_20260609"
-      ]
-    },
-    {
-      "id": "nz-parliament-roll-of-members",
-      "title": "Roll of members of the New Zealand House of Representatives, 1854 onwards",
-      "url": "https://www3.parliament.nz/media/11482/roll-of-members-of-the-new-zealand-house-of-representatives-1854-onwards.pdf",
-      "publisher": "New Zealand Parliament",
-      "classification": "authoritative",
+      "coverage_period": "Historical former-member register with date ranges for parliamentary service.",
       "domains": [
         "members",
         "offices"
       ],
-      "coverage_period": "Historical roll of members from 1854 onwards, including parliamentary service dates.",
+      "downstream_tracks": [
+        "member_identity_resolution_20260609"
+      ],
+      "id": "nz-parliament-former-members",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before member-identity releases and whenever historical service periods are rechecked.",
       "retrieval_date": "2026-06-10",
-      "source_hash": "61b3fb2a406769efbb0620700aedef497d00c8a7ff510a7b3eb0748f426230e8",
-      "reuse_note": "Use as the durable historical member register for identity and service-period resolution. Preserve the downloaded PDF snapshot when reusing the record.",
+      "reuse_note": "Use for historical member identity and service-period resolution. Preserve the page snapshot date when reusing the record.",
+      "source_hash": "7a7e6c320aec15354287cf757bf930ed407d46faf60b4938243af5b9df2b6b10",
+      "title": "Former Members of Parliament",
+      "url": "https://www3.parliament.nz/en/mps-and-electorates/former-members-of-parliament/"
+    },
+    {
       "access_constraints": "Public PDF; update cadence follows Parliament's published roll revisions.",
-      "refresh_cadence": "Before historical member-identity releases and after any published roll update.",
+      "classification": "authoritative",
       "coverage_gaps": [
         "The roll is authoritative for historical service periods but is not a live membership feed."
       ],
-      "downstream_tracks": [
-        "member_identity_resolution_20260609"
-      ]
-    },
-    {
-      "id": "nz-parliament-member-contact-downloads",
-      "title": "Contact an MP downloads",
-      "url": "https://www3.parliament.nz/en/get-involved/have-your-say/contact-an-mp",
-      "publisher": "New Zealand Parliament",
-      "classification": "supporting",
+      "coverage_period": "Historical roll of members from 1854 onwards, including parliamentary service dates.",
       "domains": [
         "members",
         "offices"
       ],
-      "coverage_period": "Current member contact details, electorate/community offices, and email/contact downloads; page notes updates every few months.",
+      "downstream_tracks": [
+        "member_identity_resolution_20260609"
+      ],
+      "id": "nz-parliament-roll-of-members",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before historical member-identity releases and after any published roll update.",
       "retrieval_date": "2026-06-10",
-      "source_hash": "c8e14fe28404721596a258dd3eea41a378b94215d600e99ea3adfb866e24828c",
-      "reuse_note": "Use as supporting contact and office source, not as sole authority for identity resolution.",
+      "reuse_note": "Use as the durable historical member register for identity and service-period resolution. Preserve the downloaded PDF snapshot when reusing the record.",
+      "source_hash": "61b3fb2a406769efbb0620700aedef497d00c8a7ff510a7b3eb0748f426230e8",
+      "title": "Roll of members of the New Zealand House of Representatives, 1854 onwards",
+      "url": "https://www3.parliament.nz/media/11482/roll-of-members-of-the-new-zealand-house-of-representatives-1854-onwards.pdf"
+    },
+    {
       "access_constraints": "Public web page with downloadable csv/xlsx/pdf files; file URLs and update dates change.",
-      "refresh_cadence": "Before any office/contact artifact publication.",
+      "classification": "supporting",
       "coverage_gaps": [
         "Office data can lag post-election changes.",
         "Not a full historical office-holder source."
       ],
+      "coverage_period": "Current member contact details, electorate/community offices, and email/contact downloads; page notes updates every few months.",
+      "domains": [
+        "members",
+        "offices"
+      ],
       "downstream_tracks": [
         "member_identity_resolution_20260609"
-      ]
+      ],
+      "id": "nz-parliament-member-contact-downloads",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before any office/contact artifact publication.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use as supporting contact and office source, not as sole authority for identity resolution.",
+      "source_hash": "c8e14fe28404721596a258dd3eea41a378b94215d600e99ea3adfb866e24828c",
+      "title": "Contact an MP downloads",
+      "url": "https://www3.parliament.nz/en/get-involved/have-your-say/contact-an-mp"
     },
     {
-      "id": "nz-parliament-parties-current",
-      "title": "Parliamentary parties",
-      "url": "https://www3.parliament.nz/en/mps-and-electorates/political-parties/",
-      "publisher": "New Zealand Parliament",
-      "classification": "authoritative",
-      "domains": [
-        "parties"
-      ],
-      "coverage_period": "Current parliamentary parties represented in the 54th Parliament.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "43fd4a2e7396ce082b5d0e1a18efdf5b7304f42b01d55826f1cf408edd077195",
-      "reuse_note": "Use for current parliamentary-party identities and party labels.",
       "access_constraints": "Public web page; current-term only unless archived snapshots are retained.",
-      "refresh_cadence": "Before party-attribution releases and after any party status change.",
+      "classification": "authoritative",
       "coverage_gaps": [
         "Not a complete history of party aliases, splits, mergers, or dissolved parties."
       ],
+      "coverage_period": "Current parliamentary parties represented in the 54th Parliament.",
+      "domains": [
+        "parties"
+      ],
       "downstream_tracks": [
         "party_attribution_provenance_20260609"
-      ]
+      ],
+      "id": "nz-parliament-parties-current",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before party-attribution releases and after any party status change.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use for current parliamentary-party identities and party labels.",
+      "source_hash": "43fd4a2e7396ce082b5d0e1a18efdf5b7304f42b01d55826f1cf408edd077195",
+      "title": "Parliamentary parties",
+      "url": "https://www3.parliament.nz/en/mps-and-electorates/political-parties/"
     },
     {
-      "id": "nz-parliament-house-seating-plan",
-      "title": "House seating plan",
-      "url": "https://www3.parliament.nz/en/mps-and-electorates/house-seating-plan",
-      "publisher": "New Zealand Parliament",
+      "access_constraints": "Public page; not a procedural or historical authority.",
       "classification": "supporting",
+      "coverage_gaps": [
+        "Does not prove historical seating or party membership over time."
+      ],
+      "coverage_period": "Current House seating and caucus grouping snapshot.",
       "domains": [
         "members",
         "parties",
         "offices",
         "sittings"
       ],
-      "coverage_period": "Current House seating and caucus grouping snapshot.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "8dfe1aeb3c549e36e1c58454f4da702012e98d5dbd46961f90c0f625e72a1eea",
-      "reuse_note": "Use as supporting evidence for current seating/caucus display only.",
-      "access_constraints": "Public page; not a procedural or historical authority.",
-      "refresh_cadence": "When seating-sensitive visual or office-holder components are generated.",
-      "coverage_gaps": [
-        "Does not prove historical seating or party membership over time."
-      ],
       "downstream_tracks": [
         "member_identity_resolution_20260609",
         "party_attribution_provenance_20260609"
-      ]
+      ],
+      "id": "nz-parliament-house-seating-plan",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "When seating-sensitive visual or office-holder components are generated.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use as supporting evidence for current seating/caucus display only.",
+      "source_hash": "8dfe1aeb3c549e36e1c58454f4da702012e98d5dbd46961f90c0f625e72a1eea",
+      "title": "House seating plan",
+      "url": "https://www3.parliament.nz/en/mps-and-electorates/house-seating-plan"
     },
     {
-      "id": "nz-parliament-bills-current",
-      "title": "Bills (proposed laws)",
-      "url": "https://bills.parliament.nz/bills-proposed-laws?Tab=Current&lang=en",
-      "publisher": "New Zealand Parliament",
+      "access_constraints": "Public web app; Hansard links on Bills pages may lag during Parliament site changes.",
       "classification": "authoritative",
+      "coverage_gaps": [
+        "Historical bills before 2009 require NZLII or other archive reconciliation.",
+        "Vote detail may require Hansard, Order Paper, or Daily Progress cross-checks."
+      ],
+      "coverage_period": "Current bills and bill-stage metadata; page states historical bills from 1854 to 2008 are available from NZLII.",
       "domains": [
         "bills",
         "motions",
         "votes",
         "procedure"
-      ],
-      "coverage_period": "Current bills and bill-stage metadata; page states historical bills from 1854 to 2008 are available from NZLII.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "70e8ee2841d40832f9ce2fddb4ee13f97fb0ea311da816ecb198e12c5d451e8a",
-      "reuse_note": "Use as the primary current bill source and link to stage/progress evidence.",
-      "access_constraints": "Public web app; Hansard links on Bills pages may lag during Parliament site changes.",
-      "refresh_cadence": "Before any bill, motion, or vote endpoint release.",
-      "coverage_gaps": [
-        "Historical bills before 2009 require NZLII or other archive reconciliation.",
-        "Vote detail may require Hansard, Order Paper, or Daily Progress cross-checks."
       ],
       "downstream_tracks": [
         "popolo_opencivicdata_endpoint_20260609",
         "akoma_ntoso_endpoint_20260609",
         "derived_fields_validation_manifests_20260609"
-      ]
+      ],
+      "id": "nz-parliament-bills-current",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before any bill, motion, or vote endpoint release.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use as the primary current bill source and link to stage/progress evidence.",
+      "source_hash": "70e8ee2841d40832f9ce2fddb4ee13f97fb0ea311da816ecb198e12c5d451e8a",
+      "title": "Bills (proposed laws)",
+      "url": "https://bills.parliament.nz/bills-proposed-laws?Tab=Current&lang=en"
     },
     {
-      "id": "nz-parliament-hansard-current",
-      "title": "Hansard",
-      "url": "https://hansard.parliament.nz/hansard-debates/rhr?lang=en",
-      "publisher": "New Zealand Parliament",
+      "access_constraints": "Public web app; content may be JavaScript-rendered and requires retrieval tooling before automated hashing.",
       "classification": "authoritative",
+      "coverage_gaps": [
+        "Existing source extract is document-level and does not by itself resolve speakers or parties."
+      ],
+      "coverage_period": "Official current Hansard website for debates and proceedings.",
       "domains": [
         "sittings",
         "motions",
         "votes",
         "procedure"
       ],
-      "coverage_period": "Official current Hansard website for debates and proceedings.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "bb76ce7604ca0a48d93a320c6f19c1b4bef02636f9469c373777c8ddc5dd16e1",
-      "reuse_note": "Use for debate/proceeding text, sitting evidence, and vote/motion cross-references; do not use text-derived inference as member authority.",
-      "access_constraints": "Public web app; content may be JavaScript-rendered and requires retrieval tooling before automated hashing.",
-      "refresh_cadence": "Before sitting, speech-turn, motion, or vote artifact publication.",
-      "coverage_gaps": [
-        "Existing source extract is document-level and does not by itself resolve speakers or parties."
-      ],
       "downstream_tracks": [
         "speech_turn_validated_artifact_20260609",
         "derived_fields_validation_manifests_20260609"
-      ]
+      ],
+      "id": "nz-parliament-hansard-current",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before sitting, speech-turn, motion, or vote artifact publication.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use for debate/proceeding text, sitting evidence, and vote/motion cross-references; do not use text-derived inference as member authority.",
+      "source_hash": "bb76ce7604ca0a48d93a320c6f19c1b4bef02636f9469c373777c8ddc5dd16e1",
+      "title": "Hansard",
+      "url": "https://hansard.parliament.nz/hansard-debates/rhr?lang=en"
     },
     {
-      "id": "nz-parliament-order-paper",
-      "title": "Order Paper",
-      "url": "https://www3.parliament.nz/en/pb/order-paper-questions/order-paper",
-      "publisher": "New Zealand Parliament",
+      "access_constraints": "Public page; current/forthcoming business can change before sitting.",
       "classification": "authoritative",
+      "coverage_gaps": [
+        "Planned business is not final outcome evidence."
+      ],
+      "coverage_period": "Official agenda of Parliament, including scheduled business and upcoming debates.",
       "domains": [
         "sittings",
         "bills",
         "motions",
         "procedure"
       ],
-      "coverage_period": "Official agenda of Parliament, including scheduled business and upcoming debates.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "c2709300390343d2c1c4040e26c15bd05fb9a9caeac0ebed61638e8c60732503",
-      "reuse_note": "Use for planned sitting/business context; cross-check actual outcomes against Daily Progress and Hansard.",
-      "access_constraints": "Public page; current/forthcoming business can change before sitting.",
-      "refresh_cadence": "Daily during sitting weeks when generating sitting or proceeding components.",
-      "coverage_gaps": [
-        "Planned business is not final outcome evidence."
-      ],
       "downstream_tracks": [
         "neutral_component_model_20260609",
         "derived_fields_validation_manifests_20260609"
-      ]
+      ],
+      "id": "nz-parliament-order-paper",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Daily during sitting weeks when generating sitting or proceeding components.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use for planned sitting/business context; cross-check actual outcomes against Daily Progress and Hansard.",
+      "source_hash": "c2709300390343d2c1c4040e26c15bd05fb9a9caeac0ebed61638e8c60732503",
+      "title": "Order Paper",
+      "url": "https://www3.parliament.nz/en/pb/order-paper-questions/order-paper"
     },
     {
-      "id": "nz-parliament-daily-progress",
-      "title": "Daily progress in the House",
-      "url": "https://www3.parliament.nz/en/pb/daily-progress-in-the-house",
-      "publisher": "New Zealand Parliament",
+      "access_constraints": "Public page; latest-progress orientation requires dated snapshots for reproducibility.",
       "classification": "authoritative",
+      "coverage_gaps": [
+        "Historical reconstruction requires archived daily progress or Hansard reconciliation."
+      ],
+      "coverage_period": "Official latest updates on parliamentary proceedings as they happen.",
       "domains": [
         "sittings",
         "bills",
         "motions",
         "votes"
       ],
-      "coverage_period": "Official latest updates on parliamentary proceedings as they happen.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "796b0146ae53edd5d96ca0e02b7a80ce256569cdd355af44e9ff950bcb64675a",
-      "reuse_note": "Use as outcome/progress evidence for proceedings, bills, motions, and vote events.",
-      "access_constraints": "Public page; latest-progress orientation requires dated snapshots for reproducibility.",
-      "refresh_cadence": "Daily during sitting weeks before outcome-sensitive publication.",
-      "coverage_gaps": [
-        "Historical reconstruction requires archived daily progress or Hansard reconciliation."
-      ],
       "downstream_tracks": [
         "neutral_component_model_20260609",
         "popolo_opencivicdata_endpoint_20260609"
-      ]
+      ],
+      "id": "nz-parliament-daily-progress",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Daily during sitting weeks before outcome-sensitive publication.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use as outcome/progress evidence for proceedings, bills, motions, and vote events.",
+      "source_hash": "796b0146ae53edd5d96ca0e02b7a80ce256569cdd355af44e9ff950bcb64675a",
+      "title": "Daily progress in the House",
+      "url": "https://www3.parliament.nz/en/pb/daily-progress-in-the-house"
     },
     {
-      "id": "nz-parliament-parliamentary-business-hub",
-      "title": "Parliamentary Business",
-      "url": "https://www3.parliament.nz/en/pb/",
-      "publisher": "New Zealand Parliament",
+      "access_constraints": "Public page; links and page structure can change.",
       "classification": "authoritative",
+      "coverage_gaps": [
+        "Acts as an index rather than a complete historical ledger."
+      ],
+      "coverage_period": "Official hub for Daily Progress, Hansard, Journals, and Order Paper access.",
       "domains": [
         "sittings",
         "motions",
         "votes",
         "procedure"
       ],
-      "coverage_period": "Official hub for Daily Progress, Hansard, Journals, and Order Paper access.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "72128e97f5c4abe56a72b518df47134e05769b1ce6050fabb010a05dc8c363fc",
-      "reuse_note": "Use as the top-level Parliament business entrypoint and navigation source for official sitting/proceeding inventory discovery.",
-      "access_constraints": "Public page; links and page structure can change.",
-      "refresh_cadence": "Whenever the reconciliation inventory is refreshed.",
-      "coverage_gaps": [
-        "Acts as an index rather than a complete historical ledger."
-      ],
       "downstream_tracks": [
         "full_historical_sitting_reconciliation_20260610",
         "sitting_proceeding_component_release_20260610"
-      ]
+      ],
+      "id": "nz-parliament-parliamentary-business-hub",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Whenever the reconciliation inventory is refreshed.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use as the top-level Parliament business entrypoint and navigation source for official sitting/proceeding inventory discovery.",
+      "source_hash": "72128e97f5c4abe56a72b518df47134e05769b1ce6050fabb010a05dc8c363fc",
+      "title": "Parliamentary Business",
+      "url": "https://www3.parliament.nz/en/pb/"
     },
     {
-      "id": "nz-parliament-weekly-journals-archive",
-      "title": "Weekly Journals Archive",
-      "url": "https://www3.parliament.nz/en/pb/journals-of-the-house/weekly-journals-archive/",
-      "publisher": "New Zealand Parliament",
-      "classification": "authoritative",
-      "domains": [
-        "sittings",
-        "procedure"
-      ],
-      "coverage_period": "Concise official record of House proceedings published by sitting week.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "c080539493c3aca081bfce89ba5e8b67d72f83394949b67adcfe19bcce46a2c0",
-      "reuse_note": "Use for week-level reconciliation of sitting and proceeding records against the corpus extract.",
       "access_constraints": "Public archive; week entries may be reorganized as new sittings are published.",
-      "refresh_cadence": "After each sitting week is published and before historical reconciliation runs.",
+      "classification": "authoritative",
       "coverage_gaps": [
         "The archive is weekly and may need page-level drill-down for exact sitting-day reconciliation."
       ],
-      "downstream_tracks": [
-        "full_historical_sitting_reconciliation_20260610",
-        "sitting_proceeding_component_release_20260610"
-      ]
-    },
-    {
-      "id": "nz-parliament-how-to-explore-hansard",
-      "title": "How to explore Hansard",
-      "url": "https://www3.parliament.nz/mi/pb/hansard-debates/how-to-understand-hansard/",
-      "publisher": "New Zealand Parliament",
-      "classification": "supporting",
+      "coverage_period": "Concise official record of House proceedings published by sitting week.",
       "domains": [
         "sittings",
         "procedure"
       ],
-      "coverage_period": "Official explanation of Hansard online coverage and publication stages.",
+      "downstream_tracks": [
+        "full_historical_sitting_reconciliation_20260610",
+        "sitting_proceeding_component_release_20260610"
+      ],
+      "id": "nz-parliament-weekly-journals-archive",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "After each sitting week is published and before historical reconciliation runs.",
       "retrieval_date": "2026-06-10",
-      "source_hash": "b8cd744ce0af3b82449501615e8066f8bcd445b3a4aefabebb790300920c1e1d",
-      "reuse_note": "Use as supporting documentation for Hansard coverage boundaries, not as direct inventory authority.",
+      "reuse_note": "Use for week-level reconciliation of sitting and proceeding records against the corpus extract.",
+      "source_hash": "c080539493c3aca081bfce89ba5e8b67d72f83394949b67adcfe19bcce46a2c0",
+      "title": "Weekly Journals Archive",
+      "url": "https://www3.parliament.nz/en/pb/journals-of-the-house/weekly-journals-archive/"
+    },
+    {
       "access_constraints": "Public page; explanatory rather than structured data.",
-      "refresh_cadence": "When documentation or user-facing coverage language changes.",
+      "classification": "supporting",
       "coverage_gaps": [
         "Does not enumerate the complete sitting ledger by itself."
+      ],
+      "coverage_period": "Official explanation of Hansard online coverage and publication stages.",
+      "domains": [
+        "sittings",
+        "procedure"
       ],
       "downstream_tracks": [
         "full_historical_sitting_reconciliation_20260610",
         "static_documentation_portal_20260610"
-      ]
+      ],
+      "id": "nz-parliament-how-to-explore-hansard",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "When documentation or user-facing coverage language changes.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use as supporting documentation for Hansard coverage boundaries, not as direct inventory authority.",
+      "source_hash": "b8cd744ce0af3b82449501615e8066f8bcd445b3a4aefabebb790300920c1e1d",
+      "title": "How to explore Hansard",
+      "url": "https://www3.parliament.nz/mi/pb/hansard-debates/how-to-understand-hansard/"
     },
     {
-      "id": "nz-parliament-written-questions",
-      "title": "Written questions",
-      "url": "https://questions.parliament.nz/written-questions?col=1&dir=1&lang=en&tab=0",
-      "publisher": "New Zealand Parliament",
+      "access_constraints": "Public web app; structured retrieval requires API or browser-aware tooling.",
       "classification": "supporting",
+      "coverage_gaps": [
+        "Not a standalone member identity or party authority."
+      ],
+      "coverage_period": "Official written questions and answers.",
       "domains": [
         "members",
         "offices",
         "procedure"
       ],
-      "coverage_period": "Official written questions and answers.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "f4d9b8c98de788be2ed4125847dc12f3e692ff27b0705642532da861328a0120",
-      "reuse_note": "Use as supporting evidence for ministerial responsibilities and parliamentary question procedure.",
-      "access_constraints": "Public web app; structured retrieval requires API or browser-aware tooling.",
-      "refresh_cadence": "When question-derived components are in scope.",
-      "coverage_gaps": [
-        "Not a standalone member identity or party authority."
-      ],
       "downstream_tracks": [
         "nz_parliamentary_procedure_model_20260609"
-      ]
+      ],
+      "id": "nz-parliament-written-questions",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "When question-derived components are in scope.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use as supporting evidence for ministerial responsibilities and parliamentary question procedure.",
+      "source_hash": "f4d9b8c98de788be2ed4125847dc12f3e692ff27b0705642532da861328a0120",
+      "title": "Written questions",
+      "url": "https://questions.parliament.nz/written-questions?col=1&dir=1&lang=en&tab=0"
     },
     {
-      "id": "nz-parliament-oral-questions",
-      "title": "Oral questions",
-      "url": "https://bills.parliament.nz/oral-questions?Tab=Current&lang=en",
-      "publisher": "New Zealand Parliament",
+      "access_constraints": "Public web app; current listing only unless snapshots are retained.",
       "classification": "supporting",
+      "coverage_gaps": [
+        "Must be reconciled to Hansard for answered text and final proceedings."
+      ],
+      "coverage_period": "Official current oral questions listing.",
       "domains": [
         "sittings",
         "procedure",
         "motions"
       ],
-      "coverage_period": "Official current oral questions listing.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "dd7cbb9cb23d9d6c1b497aa7973ccb8bae1931d2bf59a38e4c4f71aa09176d26",
-      "reuse_note": "Use as supporting source for question-time components and procedure modeling.",
-      "access_constraints": "Public web app; current listing only unless snapshots are retained.",
-      "refresh_cadence": "During sitting weeks when question-time components are generated.",
-      "coverage_gaps": [
-        "Must be reconciled to Hansard for answered text and final proceedings."
-      ],
       "downstream_tracks": [
         "nz_parliamentary_procedure_model_20260609"
-      ]
+      ],
+      "id": "nz-parliament-oral-questions",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "During sitting weeks when question-time components are generated.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use as supporting source for question-time components and procedure modeling.",
+      "source_hash": "dd7cbb9cb23d9d6c1b497aa7973ccb8bae1931d2bf59a38e4c4f71aa09176d26",
+      "title": "Oral questions",
+      "url": "https://bills.parliament.nz/oral-questions?Tab=Current&lang=en"
     },
     {
-      "id": "nz-parliament-parliamentary-rules",
-      "title": "Parliamentary Rules",
-      "url": "https://www3.parliament.nz/en/pb/parliamentary-rules/",
-      "publisher": "New Zealand Parliament",
+      "access_constraints": "Public page; Standing Orders editions must be versioned when downloaded.",
       "classification": "authoritative",
+      "coverage_gaps": [
+        "Rules explain procedure but do not identify individual vote outcomes."
+      ],
+      "coverage_period": "Current parliamentary rules and Standing Orders access point.",
       "domains": [
         "procedure",
         "motions",
         "votes",
         "sittings"
       ],
-      "coverage_period": "Current parliamentary rules and Standing Orders access point.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "5c4695d41cc7a21b1c8c32f1793d14327f49f4b8dac931c7ac03105b42241af4",
-      "reuse_note": "Use for procedural model definitions before publishing procedure-derived fields.",
-      "access_constraints": "Public page; Standing Orders editions must be versioned when downloaded.",
-      "refresh_cadence": "Before procedure model releases and after Standing Orders amendments.",
-      "coverage_gaps": [
-        "Rules explain procedure but do not identify individual vote outcomes."
-      ],
       "downstream_tracks": [
         "nz_parliamentary_procedure_model_20260609",
         "neutral_component_model_20260609"
-      ]
+      ],
+      "id": "nz-parliament-parliamentary-rules",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before procedure model releases and after Standing Orders amendments.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use for procedural model definitions before publishing procedure-derived fields.",
+      "source_hash": "5c4695d41cc7a21b1c8c32f1793d14327f49f4b8dac931c7ac03105b42241af4",
+      "title": "Parliamentary Rules",
+      "url": "https://www3.parliament.nz/en/pb/parliamentary-rules/"
     },
     {
-      "id": "nzlii-historical-bills",
-      "title": "Historical bills from 1854 to 2008",
-      "url": "https://www.nzlii.org/",
-      "publisher": "New Zealand Legal Information Institute",
-      "classification": "candidate",
-      "domains": [
-        "bills"
-      ],
-      "coverage_period": "Historical bills where Parliament bills page points to NZLII for 1854 to 2008.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "612e616de7207f40af9fc2e622b120f6d80eccdd8aa4b40c75478b240adb67ce",
-      "reuse_note": "Use only when official Parliament bill pages do not cover the historical period; record NZLII terms and source page per retrieved bill.",
       "access_constraints": "Public archive; not the primary current Parliament source.",
-      "refresh_cadence": "When historical bill coverage is in scope.",
+      "classification": "candidate",
       "coverage_gaps": [
         "Requires official/citation reconciliation before authoritative historical publication."
+      ],
+      "coverage_period": "Historical bills where Parliament bills page points to NZLII for 1854 to 2008.",
+      "domains": [
+        "bills"
       ],
       "downstream_tracks": [
         "historical_coverage_audit_20260609",
         "akoma_ntoso_endpoint_20260609"
-      ]
+      ],
+      "id": "nzlii-historical-bills",
+      "publisher": "New Zealand Legal Information Institute",
+      "refresh_cadence": "When historical bill coverage is in scope.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use only when official Parliament bill pages do not cover the historical period; record NZLII terms and source page per retrieved bill.",
+      "source_hash": "612e616de7207f40af9fc2e622b120f6d80eccdd8aa4b40c75478b240adb67ce",
+      "title": "Historical bills from 1854 to 2008",
+      "url": "https://www.nzlii.org/"
     },
     {
-      "id": "electoral-commission-election-results",
-      "title": "Election results and electorate data",
-      "url": "https://elections.nz/",
-      "publisher": "Electoral Commission New Zealand",
+      "access_constraints": "Public website; result datasets must be separately versioned when downloaded.",
       "classification": "supporting",
+      "coverage_gaps": [
+        "Does not capture all mid-term parliamentary changes without Parliament sources."
+      ],
+      "coverage_period": "Election result, electorate, and candidate context for parliamentary terms.",
       "domains": [
         "members",
         "parties",
         "offices"
       ],
-      "coverage_period": "Election result, electorate, and candidate context for parliamentary terms.",
-      "retrieval_date": "2026-06-10",
-      "source_hash": "79f784b5dc8896722c131cca1a340668b321c9ab561d5be1ce15a9f7ffb1fa5a",
-      "reuse_note": "Use for election result provenance and electorate context, not as sole proof of current parliamentary membership after term changes.",
-      "access_constraints": "Public website; result datasets must be separately versioned when downloaded.",
-      "refresh_cadence": "After elections, by-elections, electorate boundary changes, or when term-level member components are generated.",
-      "coverage_gaps": [
-        "Does not capture all mid-term parliamentary changes without Parliament sources."
-      ],
       "downstream_tracks": [
         "member_identity_resolution_20260609",
         "party_attribution_provenance_20260609",
         "historical_coverage_audit_20260609"
-      ]
+      ],
+      "id": "electoral-commission-election-results",
+      "publisher": "Electoral Commission New Zealand",
+      "refresh_cadence": "After elections, by-elections, electorate boundary changes, or when term-level member components are generated.",
+      "retrieval_date": "2026-06-10",
+      "reuse_note": "Use for election result provenance and electorate context, not as sole proof of current parliamentary membership after term changes.",
+      "source_hash": "79f784b5dc8896722c131cca1a340668b321c9ab561d5be1ce15a9f7ffb1fa5a",
+      "title": "Election results and electorate data",
+      "url": "https://elections.nz/"
     },
     {
-      "id": "nz-parliament-bills-api",
-      "title": "Bills API (REST)",
-      "url": "https://bills.parliament.nz/api/",
-      "publisher": "New Zealand Parliament",
+      "access_constraints": "Open REST API with JSON responses. Key endpoints: /api/data/Bill/{uuid}, /api/data/search (POST), /api/data/facet (POST), /api/data/currentParliament, /rss?set=Bills.",
       "classification": "authoritative",
+      "coverage_gaps": [
+        "API provides bill metadata and parliamentary stages, not full Hansard debate text.",
+        "Historical bills before Parliament 44 not present in this system."
+      ],
+      "coverage_period": "Parliaments 44-54 (1996-present), 3,513 bill records with structured stages, members, committees.",
       "domains": [
         "bills",
         "members",
@@ -474,210 +568,126 @@
         "votes",
         "procedure"
       ],
-      "coverage_period": "Parliaments 44-54 (1996-present), 3,513 bill records with structured stages, members, committees.",
-      "retrieval_date": "2026-06-12",
-      "access_constraints": "Open REST API with JSON responses. Key endpoints: /api/data/Bill/{uuid}, /api/data/search (POST), /api/data/facet (POST), /api/data/currentParliament, /rss?set=Bills.",
-      "refresh_cadence": "Near real-time; reflects current parliamentary activity.",
-      "coverage_gaps": [
-        "API provides bill metadata and parliamentary stages, not full Hansard debate text.",
-        "Historical bills before Parliament 44 not present in this system."
-      ],
       "downstream_tracks": [
         "member_identity_resolution_20260609",
         "bill_stage_extraction_20260612",
         "vote_motion_bill_question_extraction_20260609"
-      ]
+      ],
+      "id": "nz-parliament-bills-api",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Near real-time; reflects current parliamentary activity.",
+      "retrieval_date": "2026-06-12",
+      "reuse_note": "Metadata is used only for authority-source triangulation and provenance validation.",
+      "source_hash": "d9c34178a3e4a9635dd3829518e6e2820e614276861015aa82f5d888228f0b98",
+      "title": "Bills API (REST)",
+      "url": "https://bills.parliament.nz/api/"
     },
     {
-      "id": "hathitrust-nz-hansard",
-      "title": "HathiTrust NZ Parliamentary Debates Collection",
-      "url": "https://babel.hathitrust.org/cgi/mb?a=listis&c=71329709",
-      "publisher": "HathiTrust Digital Library / University of California",
+      "access_constraints": "HathiTrust OAuth API for full-text; bibliographic metadata via catalog API. Collection ID: 71329709. Full view items available in public domain.",
       "classification": "candidate",
+      "coverage_gaps": [
+        "Coverage ends around 1990; does not overlap with post-1990 period covered by DocumentsDB extract.",
+        "OCR quality varies for older volumes.",
+        "Requires OAuth token for bulk full-text retrieval."
+      ],
+      "coverage_period": "NZ Parliamentary Debates (Hansard) historic volumes from 1854 to 1990. 510 full-view items covering approximately Parliaments 1-46.",
       "domains": [
         "sittings",
         "bills",
         "motions",
         "votes"
       ],
-      "coverage_period": "NZ Parliamentary Debates (Hansard) historic volumes from 1854 to 1990. 510 full-view items covering approximately Parliaments 1-46.",
-      "retrieval_date": "2026-06-12",
-      "access_constraints": "HathiTrust OAuth API for full-text; bibliographic metadata via catalog API. Collection ID: 71329709. Full view items available in public domain.",
-      "refresh_cadence": "Static collection; HathiTrust adds new items as digitisation completes.",
-      "coverage_gaps": [
-        "Coverage ends around 1990; does not overlap with post-1990 period covered by DocumentsDB extract.",
-        "OCR quality varies for older volumes.",
-        "Requires OAuth token for bulk full-text retrieval."
-      ],
       "downstream_tracks": [
         "historical_coverage_audit_20260609",
         "historical_sitting_reconciliation_20260610"
-      ]
+      ],
+      "id": "hathitrust-nz-hansard",
+      "publisher": "HathiTrust Digital Library / University of California",
+      "refresh_cadence": "Static collection; HathiTrust adds new items as digitisation completes.",
+      "retrieval_date": "2026-06-12",
+      "reuse_note": "Metadata is used only for authority-source triangulation and provenance validation.",
+      "source_hash": "8286154e31d33d73e5c6e4aa23b2d235a131bdd613494174decbe4d913adf4aa",
+      "title": "HathiTrust NZ Parliamentary Debates Collection",
+      "url": "https://babel.hathitrust.org/cgi/mb?a=listis&c=71329709"
     },
     {
-      "id": "wikipedia-nz-parliaments",
-      "title": "Wikipedia New Zealand Parliament articles",
-      "url": "https://en.wikipedia.org/wiki/54th_New_Zealand_Parliament",
-      "publisher": "Wikipedia / Wikimedia Foundation",
-      "classification": "supporting",
-      "domains": [
-        "members",
-        "parties"
-      ],
-      "coverage_period": "47th-54th Parliaments (2002-2026). Each article lists all MPs with party and electorate.",
-      "retrieval_date": "2026-06-12",
       "access_constraints": "Open web pages. Wikipedia API also available for structured data extraction.",
-      "refresh_cadence": "Updated manually by Wikipedia editors; check before each member identity release.",
+      "classification": "supporting",
       "coverage_gaps": [
         "Not an official primary source; accuracy depends on Wikipedia editorial quality.",
         "Parliaments before 47th are not covered by the curated list in this repository."
       ],
+      "coverage_period": "47th-54th Parliaments (2002-2026). Each article lists all MPs with party and electorate.",
+      "domains": [
+        "members",
+        "parties"
+      ],
       "downstream_tracks": [
         "member_identity_resolution_20260609",
         "party_attribution_provenance_20260609"
-      ]
+      ],
+      "id": "wikipedia-nz-parliaments",
+      "publisher": "Wikipedia / Wikimedia Foundation",
+      "refresh_cadence": "Updated manually by Wikipedia editors; check before each member identity release.",
+      "retrieval_date": "2026-06-12",
+      "reuse_note": "Metadata is used only for authority-source triangulation and provenance validation.",
+      "source_hash": "241648eaf20743b25cfbf4934bb9c08d5a94fd6aa74302c7fe01003c070364b7",
+      "title": "Wikipedia New Zealand Parliament articles",
+      "url": "https://en.wikipedia.org/wiki/54th_New_Zealand_Parliament"
     },
     {
-      "id": "wikidata-nz-mps",
-      "title": "Wikidata New Zealand MPs",
-      "url": "https://query.wikidata.org/sparql",
-      "publisher": "Wikidata / Wikimedia Foundation",
-      "classification": "supporting",
-      "domains": [
-        "members",
-        "parties",
-        "offices"
-      ],
-      "coverage_period": "1,514 MP records from 1st Parliament to present. Includes aliases, provenance references, and parliamentary service dates.",
-      "retrieval_date": "2026-06-12",
       "access_constraints": "Open SPARQL endpoint. Query uses P39 (Member of NZ Parliament) and P463 (member of NZ House of Representatives).",
-      "refresh_cadence": "Updated continuously by Wikidata community.",
+      "classification": "supporting",
       "coverage_gaps": [
         "Recent 54th Parliament MPs may lack P39 property entries.",
         "Provenance reference URLs point to primary sources but are not always complete.",
         "Party labels follow Wikidata conventions which may differ from official names."
       ],
-      "downstream_tracks": [
-        "member_identity_resolution_20260609",
-        "party_attribution_provenance_20260609"
-      ]
-    },
-    {
-      "id": "electoral-commission-nz",
-      "title": "Electoral Commission New Zealand",
-      "url": "https://elections.nz/",
-      "publisher": "Electoral Commission New Zealand",
-      "classification": "authoritative",
+      "coverage_period": "1,514 MP records from 1st Parliament to present. Includes aliases, provenance references, and parliamentary service dates.",
       "domains": [
         "members",
         "parties",
         "offices"
       ],
-      "coverage_period": "Election results, electorate data, and candidate lists for all general elections from 1853 onwards.",
+      "downstream_tracks": [
+        "member_identity_resolution_20260609",
+        "party_attribution_provenance_20260609"
+      ],
+      "id": "wikidata-nz-mps",
+      "publisher": "Wikidata / Wikimedia Foundation",
+      "refresh_cadence": "Updated continuously by Wikidata community.",
       "retrieval_date": "2026-06-12",
+      "reuse_note": "Metadata is used only for authority-source triangulation and provenance validation.",
+      "source_hash": "cefe12413485cf1f3631ab1bb3f55806793ca64521d67158e17763e5211b0a84",
+      "title": "Wikidata New Zealand MPs",
+      "url": "https://query.wikidata.org/sparql"
+    },
+    {
       "access_constraints": "Public website with downloadable datasets. Historical election results available in structured formats.",
-      "refresh_cadence": "After each general election and by-election.",
+      "classification": "supporting",
       "coverage_gaps": [
         "Candidate lists are election-specific; mid-term membership changes require Parliament sources.",
         "Historical data may need additional digitisation or reconciliation."
+      ],
+      "coverage_period": "Election results, electorate data, and candidate lists for all general elections from 1853 onwards.",
+      "domains": [
+        "members",
+        "parties",
+        "offices"
       ],
       "downstream_tracks": [
         "member_identity_resolution_20260609",
         "party_attribution_provenance_20260609",
         "historical_coverage_audit_20260609"
-      ]
+      ],
+      "id": "electoral-commission-nz",
+      "publisher": "Electoral Commission New Zealand",
+      "refresh_cadence": "After each general election and by-election.",
+      "retrieval_date": "2026-06-12",
+      "reuse_note": "Metadata is used only for authority-source triangulation and provenance validation.",
+      "source_hash": "24fbae06c34c7c77dcaace7fe04e078e713a87e17dc0068305cdeac354270a63",
+      "title": "Electoral Commission New Zealand",
+      "url": "https://elections.nz/"
     }
-  ],
-  "domain_coverage": {
-    "members": {
-      "minimum_classification": "authoritative",
-      "primary_source_ids": [
-        "nz-parliament-members-current",
-        "nz-parliament-former-members",
-        "nz-parliament-roll-of-members",
-        "nz-parliament-member-contact-downloads",
-        "electoral-commission-election-results"
-      ],
-      "downstream_track": "member_identity_resolution_20260609",
-      "notes": "Current MP identity starts from the official Parliament members list; historical service periods are resolved from the former-members page and roll-of-members PDF. Contact and election sources are supporting."
-    },
-    "parties": {
-      "minimum_classification": "authoritative",
-      "primary_source_ids": [
-        "nz-parliament-parties-current",
-        "nz-parliament-members-current",
-        "electoral-commission-election-results"
-      ],
-      "downstream_track": "party_attribution_provenance_20260609",
-      "notes": "Current parliamentary party labels come from Parliament; historical party attribution needs term snapshots."
-    },
-    "offices": {
-      "minimum_classification": "supporting",
-      "primary_source_ids": [
-        "nz-parliament-member-contact-downloads",
-        "nz-parliament-members-current",
-        "electoral-commission-election-results"
-      ],
-      "downstream_track": "member_identity_resolution_20260609",
-      "notes": "Office/contact fields need dated downloadable files and should not drive identity alone."
-    },
-    "sittings": {
-      "minimum_classification": "authoritative",
-      "primary_source_ids": [
-        "nz-parliament-hansard-current",
-        "nz-parliament-order-paper",
-        "nz-parliament-daily-progress"
-      ],
-      "downstream_track": "neutral_component_model_20260609",
-      "notes": "Actual sitting/proceeding components need Hansard and daily progress readback."
-    },
-    "bills": {
-      "minimum_classification": "authoritative",
-      "primary_source_ids": [
-        "nz-parliament-bills-current",
-        "nzlii-historical-bills"
-      ],
-      "downstream_track": "akoma_ntoso_endpoint_20260609",
-      "notes": "Current bill metadata starts from Parliament; 1854-2008 historical bills require NZLII reconciliation."
-    },
-    "motions": {
-      "minimum_classification": "authoritative",
-      "primary_source_ids": [
-        "nz-parliament-hansard-current",
-        "nz-parliament-order-paper",
-        "nz-parliament-daily-progress",
-        "nz-parliament-parliamentary-rules"
-      ],
-      "downstream_track": "popolo_opencivicdata_endpoint_20260609",
-      "notes": "Motions require proceeding text, planned business, actual progress, and rules context."
-    },
-    "votes": {
-      "minimum_classification": "authoritative",
-      "primary_source_ids": [
-        "nz-parliament-hansard-current",
-        "nz-parliament-daily-progress",
-        "nz-parliament-bills-current",
-        "nz-parliament-parliamentary-rules"
-      ],
-      "downstream_track": "popolo_opencivicdata_endpoint_20260609",
-      "notes": "Vote events require Hansard/daily progress and bill-stage cross-checks; party/individual vote components must cite source IDs."
-    },
-    "procedure": {
-      "minimum_classification": "authoritative",
-      "primary_source_ids": [
-        "nz-parliament-parliamentary-rules",
-        "nz-parliament-order-paper",
-        "nz-parliament-hansard-current",
-        "nz-parliament-written-questions",
-        "nz-parliament-oral-questions"
-      ],
-      "downstream_track": "nz_parliamentary_procedure_model_20260609",
-      "notes": "Procedure model must cite rules plus proceeding/question sources before derived procedure fields are published."
-    }
-  },
-  "policy": {
-    "text_derived_inference_not_authority": true,
-    "publish_authoritative_fields_requires_declared_inputs": true,
-    "official_sources_first": true
-  }
+  ]
 }

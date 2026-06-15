@@ -26,6 +26,8 @@ def _valid_record(corpus_id: str = "corpus-nz-hansard") -> dict[str, Any]:
         "jurisdiction": "New Zealand",
         "country": "NZ",
         "document_type": "hansard_document",
+        "display_title": "Sample Hansard record",
+        "language": "en",
         "record_schema_version": "v1",
         "canonical_uri": "https://example.org/corpus-nz-hansard/records/nz-hansard-1854-000001",
         "source_url": "https://www.parliament.nz/en/pb/hansard-debates/",
@@ -35,6 +37,8 @@ def _valid_record(corpus_id: str = "corpus-nz-hansard") -> dict[str, Any]:
         "last_modified_date": None,
         "content_sha256": "a" * 64,
         "manifest_sha256": "b" * 64,
+        "coverage_status": "sample",
+        "rights_note": "Parliamentary material is reused under applicable public-sector terms.",
         "provenance": {
             "pipeline_name": "corpus-nz-hansard",
             "pipeline_version": "0.1.0",

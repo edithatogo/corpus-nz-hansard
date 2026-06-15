@@ -31,6 +31,11 @@ _RE_DATE = [
         re.IGNORECASE,
     ),
     re.compile(r"\b(\d{2}[/-]\d{2}[/-]\d{4})\b"),
+    re.compile(
+        r"\b(January|February|March|April|May|June|July|August|September|"
+        r"October|November|December)\s+(\d{4})\b",
+        re.IGNORECASE,
+    ),
 ]
 
 
@@ -82,7 +87,14 @@ def extract_report_date(text: str) -> str | None:
                 dt = datetime.strptime(raw, "%d-%m-%Y")
                 return dt.strftime("%Y-%m-%d")
             except ValueError:
-                return raw
+                pass
+            if len(m.groups()) >= 2 and m.group(2):
+                try:
+                    dt = datetime.strptime(f"{m.group(1)} {m.group(2)}", "%B %Y")
+                    return dt.strftime("%Y-%m")
+                except ValueError:
+                    return raw
+            return raw
     return None
 
 
@@ -90,6 +102,10 @@ def extract_committee_name(text: str) -> str | None:
     """Extract the committee name from report text."""
     if not text or not text.strip():
         return None
+    for line in text.splitlines():
+        m = re.search(r"(?:Report of the\s+)?([A-Z][A-Za-z,&'\- ]+? Committee)\b", line)
+        if m:
+            return re.sub(r"\s+", " ", m.group(1)).strip()
     for pat in _RE_COMMITTEE:
         m = pat.search(text)
         if m:
@@ -176,16 +192,20 @@ class BillRef:
 # Enhanced regex patterns and functions (Track 8 Phase 2)
 
 _RE_TITLE_INQUIRY = re.compile(
-    r"(?:Inquiry\s+into\s+(?:the\s+)?(.+?))(?:\\n|$)",
+    r"(?:Inquiry\s+into\s+(?:the\s+)?(.+?))(?:\n|$)",
     re.IGNORECASE,
 )
 _RE_TITLE_PETITION = re.compile(
-    r"(Petition\s+of\s+.+?)(?:\\n|$)",
+    r"(Petition\s+of\s+.+?)(?:\n|$)",
+    re.IGNORECASE,
+)
+_RE_TITLE_REPORT_ON = re.compile(
+    r"(?:Report\s+on\s+(?:the\s+)?(.+?))(?:\n|$)",
     re.IGNORECASE,
 )
 
 _RE_RECOMMENDATIONS_SECTION = re.compile(
-    r"^Recommendations?\s*$",
+    r"^(?:.*\brecommendations?\b.*|Recommendations?)\s*$",
     re.IGNORECASE | re.MULTILINE,
 )
 _RE_FINDINGS_SECTION = re.compile(
@@ -194,7 +214,7 @@ _RE_FINDINGS_SECTION = re.compile(
 )
 
 _RE_NUMBERED_ITEM = re.compile(
-    r"^\s*(?:\d+[\.\)]|[a-z][\.\)])\s*(.+)$",
+    r"^\s*(?:[-*]|\d+[\.\)]|[a-z][\.\)])\s*(.+)$",
     re.MULTILINE,
 )
 
@@ -235,6 +255,17 @@ def extract_report_title(text: str | None) -> str | None:
     m = _RE_TITLE_PETITION.search(text)
     if m:
         return m.group(1).strip()
+    m = _RE_TITLE_REPORT_ON.search(text)
+    if m:
+        title = m.group(1).strip()
+        title = re.sub(r"\s*[.\n]+$", "", title)
+        return f"Report on the {title}"
+    for line in text.splitlines():
+        stripped = line.strip()
+        if not stripped or "committee" in stripped.lower():
+            continue
+        if re.search(r"\b(report|inquiry|petition|bill)\b", stripped, re.IGNORECASE):
+            return stripped.rstrip(".")
     return None
 
 
@@ -247,6 +278,13 @@ def _extract_section_text(text: str, pat: re.Pattern) -> list[str]:
             in_section = True
             continue
         if in_section:
+            if line[:1].isspace() and line.strip():
+                stripped = line.strip()
+                if items and not items[-1].rstrip().endswith((".", "!", "?")):
+                    items[-1] = items[-1] + " " + stripped
+                else:
+                    items.append(stripped)
+                continue
             if re.match(r"^[A-Z][a-z]+(?:s|ion)?\s*$", line.strip()):
                 if items and len(line.strip()) < 60:
                     break
@@ -323,7 +361,7 @@ class ParsedReport:
 
 # Remaining enhanced functions
 
-_LEADING_WORDS = {"the", "this", "these", "that", "a", "an", "references",
+_LEADING_WORDS = {"the", "this", "these", "that", "a", "an", "and", "references",
     "including", "related", "such", "other", "all",
     "relevant", "applicable", "committee", "considered", "report"}
 
@@ -346,17 +384,17 @@ def extract_referenced_legislation(text):
     if not text:
         return []
     refs = []
-    for m in _RE_LEGISLATION.finditer(text):
-        full = m.group(0)
-        if chr(10) in full or chr(13) in full:
+    pattern = re.compile(
+        r"\b(?:The\s+|the\s+|and\s+the\s+|and\s+)?"
+        r"([A-Z][A-Za-z]*(?:\s+(?:and|at|for|in|of|on|to|with|[A-Z][A-Za-z]*))*)\s+"
+        r"(Act|Regulations?|Ordinance)\s+(\d{4})\b"
+    )
+    for m in pattern.finditer(text):
+        if chr(10) in m.group(0) or chr(13) in m.group(0):
             continue
-        act_type = m.group(2)
-        year = m.group(3)
-        name = _clean_name(full, act_type)
-        if name:
-            full_ref = f"{name} {year}"
-            if full_ref not in refs:
-                refs.append(full_ref)
+        full_ref = f"{m.group(1)} {m.group(2)} {m.group(3)}"
+        if full_ref not in refs:
+            refs.append(full_ref)
     return refs
 
 

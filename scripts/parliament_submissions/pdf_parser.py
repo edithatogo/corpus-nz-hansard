@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import re
 from pathlib import Path
 
 try:
@@ -35,11 +36,14 @@ def extract_pdf_text(
 
     if pdfplumber is not None:
         try:
-            return _extract_with_pdfplumber(path, compute_hash)
+            extracted = _extract_with_pdfplumber(path, compute_hash=False)
+            if isinstance(extracted, str) and extracted:
+                if compute_hash:
+                    return {"text": extracted, "sha256": _hash(extracted)}
+                return extracted
         except Exception:
-            return {"text": "", "sha256": _hash("")} if compute_hash else ""
+            pass
 
-    # Fallback via PyMuPDF
     return _extract_fallback(path, compute_hash)
 
 
@@ -60,7 +64,9 @@ def extract_pdf_metadata(path: Path | str) -> dict:
                 meta["page_count"] = len(pdf.pages)
                 return meta
         except Exception as e:
-            return {"page_count": 0, "error": str(e)}
+            fallback = _metadata_literal_fallback(path)
+            fallback["error"] = str(e)
+            return fallback
 
     # Fallback via PyMuPDF
     return _metadata_fallback(path)
@@ -89,7 +95,7 @@ def _extract_fallback(path: Path, compute_hash: bool = False) -> str | dict:
         text = "\n".join(pages).strip()
         doc.close()
     except Exception:
-        text = ""
+        text = _extract_literal_text(path)
 
     if compute_hash:
         return {"text": text, "sha256": _hash(text)}
@@ -111,9 +117,47 @@ def _metadata_fallback(path: Path) -> dict:
         doc.close()
         return meta
     except Exception as e:
+        meta = _metadata_literal_fallback(path)
+        meta["error"] = str(e)
+        return meta
+
+
+def _extract_literal_text(path: Path) -> str:
+    """Extract simple literal text operators from minimal PDF fixtures."""
+    try:
+        raw = path.read_bytes().decode("latin-1", errors="ignore")
+    except OSError:
+        return ""
+    chunks: list[str] = []
+    for value in re.findall(r"\((.*?)\)\s*Tj", raw, flags=re.DOTALL):
+        chunks.append(_decode_pdf_literal(value))
+    for array in re.findall(r"\[(.*?)\]\s*TJ", raw, flags=re.DOTALL):
+        chunks.extend(
+            _decode_pdf_literal(value)
+            for value in re.findall(r"\((.*?)\)", array, flags=re.DOTALL)
+        )
+    return "\n".join(part for part in chunks if part).strip()
+
+
+def _decode_pdf_literal(value: str) -> str:
+    return (
+        value.replace(r"\(", "(")
+        .replace(r"\)", ")")
+        .replace(r"\\", "\\")
+        .replace(r"\n", "\n")
+        .replace(r"\r", "\n")
+        .replace(r"\t", "\t")
+    )
+
+
+def _metadata_literal_fallback(path: Path) -> dict:
+    try:
+        raw = path.read_bytes().decode("latin-1", errors="ignore")
+    except OSError as e:
         return {"page_count": 0, "error": str(e)}
+    page_count = len(re.findall(r"/Type\s*/Page\b", raw))
+    return {"page_count": page_count}
 
 
 def _hash(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
-

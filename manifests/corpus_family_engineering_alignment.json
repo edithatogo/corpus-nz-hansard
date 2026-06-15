@@ -77,9 +77,9 @@
     {
       "id": "pre-commit",
       "legislation_baseline": ".pre-commit-config.yaml exists",
-      "hansard_current": "no pre-commit config",
-      "target": "future pre-commit config mirroring quality gate tools without replacing CI",
-      "status": "future"
+      "hansard_current": ".pre-commit-config.yaml exists and mirrors the quality gate tools without replacing CI",
+      "target": "keep pre-commit as a local developer guardrail alongside CI quality gates",
+      "status": "adopted"
     },
     {
       "id": "renovate",

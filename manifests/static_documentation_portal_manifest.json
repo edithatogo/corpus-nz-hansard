@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/20595194"
   },
-  "generated_at": "2026-06-14T09:29:34.924855+00:00",
+  "generated_at": "2026-06-15T10:25:25.366187+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -121,7 +121,7 @@
     "summary_counts": {
       "blocked": 18,
       "complete": 45,
-      "pending": 2
+      "pending": 1
     },
     "tracks": [
       {
@@ -603,7 +603,7 @@
       {
         "goal": "Establish multi-git and multi-archive mirroring setup to prevent single-point-of-failure repository/dataset takedowns.",
         "link": "./tracks/multi_git_archive_mirroring_20260614/",
-        "status": " ",
+        "status": "~",
         "title": "Multi-Git and Multi-Archive Mirroring Setup",
         "track_id": "multi_git_archive_mirroring_20260614"
       }
