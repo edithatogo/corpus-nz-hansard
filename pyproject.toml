@@ -7,6 +7,7 @@ dependencies = [
   "duckdb==1.5.3",
   "huggingface-hub>=1.18.0",
   "jsonschema>=4.26.0",
+  "loguru>=0.7.2",
   "pdfplumber>=0.11.0",
   "polars>=1.41.2",
   "pyarrow>=21.0.0",
@@ -124,3 +125,7 @@ gpu = false
 memory = true
 profile_all = false
 reduced_profile = true
+
+[tool.legal_nz]
+versioning = "semver"
+logging = "loguru"
