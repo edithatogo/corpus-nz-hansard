@@ -17,10 +17,10 @@ __pycache__/
 
 # Local config & logs
 .env
+.env.local
 *_err.txt
 *_test_out.txt
 err.txt
 push_result.txt
 logs/
 _fix_report_parser.py
-
