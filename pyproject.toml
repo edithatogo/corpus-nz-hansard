@@ -16,6 +16,10 @@ dependencies = [
   "requests>=2.34.2",
 ]
 
+[project.scripts]
+corpus-nz-hansard = "scripts.cli:main"
+nz-hansard-corpus = "scripts.cli:main"
+
 [project.optional-dependencies]
 dev = [
   "pytest>=8.2.0",
