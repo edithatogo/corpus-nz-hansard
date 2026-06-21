@@ -38,7 +38,8 @@ def _json(path: Path) -> dict[str, Any]:
 
 
 def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
 def _validate_json_package(path: Path, package_id: str) -> list[str]:

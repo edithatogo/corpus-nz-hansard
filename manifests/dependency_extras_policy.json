@@ -85,7 +85,6 @@
       "dependencies": [
         "conllu",
         "pyconll",
-        "spacy",
         "stanza"
       ],
       "install_check_status": "deferred-until-implementation",

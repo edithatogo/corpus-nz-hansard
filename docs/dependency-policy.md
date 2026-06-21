@@ -28,7 +28,7 @@ Endpoint work should add grouped requirements or package extras rather than expa
 | `requirements/xml.txt` | `lxml`, `xmlschema` | ParlaMint/TEI and Akoma Ntoso generation and validation. |
 | `requirements/rdf.txt` | `rdflib`, `pyshacl`, `linkml` | RDF, JSON-LD, SHACL, PROV-O, DCAT, SKOS. |
 | `requirements/authority.txt` | `rapidfuzz` | Member, party, bill, motion, and alias matching. |
-| `requirements/nlp.txt` | `spacy`, `stanza`, `conllu`, `pyconll` | NER, tokenization, UD/CoNLL-U, token alignment. |
+| `requirements/nlp.txt` | `stanza`, `conllu`, `pyconll` | NER, tokenization, UD/CoNLL-U, token alignment on the Python 3.14 install path. |
 | `requirements/ml.txt` | `scikit-learn`, `transformers`, `sentence-transformers`, `bertopic` | Topic classification, embeddings, exploratory models. |
 | `requirements/metadata.txt` | `frictionless`, `rocrate`, `mlcroissant` | Frictionless Data Package, RO-Crate, Croissant metadata. |
 | `requirements/fast-json.txt` | `msgspec`, `orjson` | High-throughput JSON serialization and typed structured records. |
