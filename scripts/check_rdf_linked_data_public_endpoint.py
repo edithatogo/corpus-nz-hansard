@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import warnings
 from pathlib import Path
 from typing import Any
 
@@ -77,7 +78,14 @@ def _graph(path: Path, format_name: str, failures: list[str]) -> Graph | None:
         return None
     graph = Graph()
     try:
-        graph.parse(path, format=format_name)
+        with warnings.catch_warnings():
+            warnings.filterwarnings(
+                "ignore",
+                message="ConjunctiveGraph is deprecated, use Dataset instead.",
+                category=DeprecationWarning,
+                module=r"rdflib\.plugins\.parsers\.jsonld",
+            )
+            graph.parse(path, format=format_name)
     except Exception as exc:  # pragma: no cover - parse library behavior varies by backend
         failures.append(f"{path.relative_to(ROOT).as_posix()} failed RDF parsing: {exc}")
         return None
@@ -178,7 +186,9 @@ def _failures() -> list[str]:
     if failures:
         return failures
 
-    assert turtle_graph is not None and jsonld_graph is not None and shapes_graph is not None
+    if turtle_graph is None or jsonld_graph is None or shapes_graph is None:
+        failures.append("RDF parsing must return Turtle, JSON-LD, and SHACL graphs.")
+        return failures
     if len(turtle_graph) == 0:
         failures.append("Turtle sample graph must not be empty.")
     if len(jsonld_graph) == 0:

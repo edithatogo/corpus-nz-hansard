@@ -10,9 +10,9 @@ sys.path.insert(0, str(ROOT))
 from scripts.build_historical_sitting_official_exports_coverage import (  # noqa: E402
     build_historical_sitting_official_exports_coverage,
 )
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 
 class BuildHistoricalSittingOfficialExportsCoverageTest(unittest.TestCase):

@@ -10,16 +10,16 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.select_committee_reports.document_parser import (
-    detect_format,
-    extract_text_from_pdf,
-    extract_text_from_html,
-    extract_text_from_docx,
-    extract_text,
     SUPPORTED_FORMATS,
+    detect_format,
+    extract_text,
+    extract_text_from_docx,
+    extract_text_from_html,
+    extract_text_from_pdf,
 )
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 
 class DetectFormatTest(unittest.TestCase):

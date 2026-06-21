@@ -5,21 +5,21 @@ from __future__ import annotations
 import json
 import sys
 import unittest
+import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.regulations_review_committee.scraper import (
-    fetch_proceedings_index,
-    parse_proceeding_list,
     ProceedingEntry,
     fetch_proceeding_document,
+    fetch_proceedings_index,
+    parse_proceeding_list,
 )
+from test_support import repo_tmp_dir
 
-from test_support import test_tmp_dir
-
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 API_RESPONSE = {
     "results": [
@@ -110,7 +110,6 @@ class FetchProceedingsIndexTest(unittest.TestCase):
             page_size=25,
             opener=opener,
         )
-        import urllib.parse
         full = str(opener.request.full_url)
         params = urllib.parse.parse_qs(urllib.parse.urlparse(full).query)
         self.assertEqual(params.get("page"), ["3"])
@@ -124,8 +123,36 @@ class FetchProceedingsIndexTest(unittest.TestCase):
             to_date="2024-12-31",
             opener=opener,
         )
-        import urllib.parse
         full = str(opener.request.full_url)
+        params = urllib.parse.parse_qs(urllib.parse.urlparse(full).query)
+        self.assertEqual(params.get("fromDate"), ["2024-01-01"])
+        self.assertEqual(params.get("toDate"), ["2024-12-31"])
+
+    def test_fetch_http_error(self):
+        result = fetch_proceedings_index(
+            url="https://committees.parliament.nz/api/committees/regulations-review/proceedings",
+            opener=FakeOpener("Not Found", status=404),
+        )
+        self.assertIn("error", result)
+
+    def test_fetch_html_fallback(self):
+        opener = FakeOpener(HTML_RESPONSE)
+        result = fetch_proceedings_index(
+            url="https://www.parliament.nz/en/pb/sc/scl/regulations-review-committee/proceedings",
+            source="html",
+            opener=opener,
+        )
+        self.assertIn("results", result)
+        self.assertEqual(len(result["results"]), 1)
+
+
+class ProceedingEntryTest(unittest.TestCase):
+    def test_absolute_url(self):
+        e = ProceedingEntry(id="proc-001", document_url="/en/pb/sc/doc.pdf")
+        self.assertEqual(
+            e.absolute_url("https://www.parliament.nz"),
+            "https://www.parliament.nz/en/pb/sc/doc.pdf",
+        )
 
 class ParseProceedingListTest(unittest.TestCase):
 
@@ -222,31 +249,3 @@ class FetchProceedingDocumentTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-
-    def test_absolute_url(self):
-        e = ProceedingEntry(id="proc-001", document_url="/en/pb/sc/doc.pdf")
-        self.assertEqual(
-            e.absolute_url("https://www.parliament.nz"),
-            "https://www.parliament.nz/en/pb/sc/doc.pdf",
-        )
-
-        params = urllib.parse.parse_qs(urllib.parse.urlparse(full).query)
-        self.assertEqual(params.get("fromDate"), ["2024-01-01"])
-        self.assertEqual(params.get("toDate"), ["2024-12-31"])
-
-    def test_fetch_http_error(self):
-        result = fetch_proceedings_index(
-            url="https://committees.parliament.nz/api/committees/regulations-review/proceedings",
-            opener=FakeOpener("Not Found", status=404),
-        )
-        self.assertIn("error", result)
-
-    def test_fetch_html_fallback(self):
-        opener = FakeOpener(HTML_RESPONSE)
-        result = fetch_proceedings_index(
-            url="https://www.parliament.nz/en/pb/sc/scl/regulations-review-committee/proceedings",
-            source="html",
-            opener=opener,
-        )
-        self.assertIn("results", result)
-        self.assertEqual(len(result["results"]), 1)

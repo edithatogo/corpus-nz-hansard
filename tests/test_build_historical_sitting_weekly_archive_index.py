@@ -9,9 +9,9 @@ sys.path.insert(0, str(ROOT))
 from scripts.build_historical_sitting_weekly_archive_index import (  # noqa: E402
     build_historical_sitting_weekly_archive_index,
 )
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 
 class BuildHistoricalSittingWeeklyArchiveIndexTest(unittest.TestCase):

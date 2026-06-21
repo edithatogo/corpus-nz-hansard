@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 import sys
 import unittest
 from pathlib import Path
@@ -12,16 +11,16 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.select_committee_reports.cache import (
     CacheManifest,
-    load_manifest,
-    save_manifest,
-    is_cached,
-    mark_cached,
     compute_file_hash,
     get_stale_entries,
+    is_cached,
+    load_manifest,
+    mark_cached,
+    save_manifest,
 )
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 
 class CacheManifestTest(unittest.TestCase):

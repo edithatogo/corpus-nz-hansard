@@ -10,19 +10,19 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.select_committee_reports.report_parser import (
+    BillRef,
+    LegislationRef,
     ParsedReport,
+    WitnessSubmitter,
     extract_committee_name,
-    extract_report_title,
-    extract_report_date,
-    extract_recommendations,
     extract_findings,
-    extract_referenced_legislation,
+    extract_recommendations,
     extract_referenced_bills,
+    extract_referenced_legislation,
+    extract_report_date,
+    extract_report_title,
     extract_witnesses_submitters,
     parse_report_text,
-    WitnessSubmitter,
-    LegislationRef,
-    BillRef,
 )
 
 _MOCK_REPORT = """\

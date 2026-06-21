@@ -11,14 +11,14 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.regulations_review_committee.pdf_parser import (
-    extract_proceeding_text,
-    extract_proceeding_metadata,
     extract_agenda_items,
     extract_committee_members,
+    extract_proceeding_metadata,
+    extract_proceeding_text,
 )
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 _SAMPLE = TEST_TMP / "sample_proceeding.pdf"
 
 _MINIMAL_PDF = (

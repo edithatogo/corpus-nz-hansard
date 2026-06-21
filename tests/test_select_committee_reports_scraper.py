@@ -11,15 +11,15 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.select_committee_reports.scraper import (
-    fetch_reports_index,
-    parse_report_list,
+    DEFAULT_COMMITTEE_LIST,
     ReportEntry,
     fetch_report_document,
-    DEFAULT_COMMITTEE_LIST,
+    fetch_reports_index,
+    parse_report_list,
 )
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 API_RESPONSE = {
     "results": [

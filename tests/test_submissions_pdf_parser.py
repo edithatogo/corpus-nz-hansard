@@ -10,10 +10,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts.parliament_submissions.pdf_parser import extract_pdf_text, extract_pdf_metadata
-from test_support import test_tmp_dir
+from scripts.parliament_submissions.pdf_parser import extract_pdf_metadata, extract_pdf_text
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 _SAMPLE = TEST_TMP / "sample_submission.pdf"
 
 _MINIMAL_PDF = (

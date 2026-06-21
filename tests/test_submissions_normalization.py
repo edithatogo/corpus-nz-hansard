@@ -2,36 +2,34 @@
 
 from __future__ import annotations
 
-import json
 import sys
 import unittest
 from pathlib import Path
-from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from scripts.parliament_submissions.bill_linkage import (
+    DEFAULT_BILLS_CATALOG,
+    BillLinkageIndex,
+    _normalize_bill_title,
+    build_linkage_index,
+    cross_reference_bills,
+    parse_bill_reference_from_text,
+)
 from scripts.parliament_submissions.normalization import (
     NORMALIZED_SCHEMA,
-    normalize_submitter_name,
-    normalize_date,
-    normalize_committee,
     normalize_bill_reference,
-    normalize_text_content,
+    normalize_committee,
+    normalize_date,
     normalize_submission_entry,
+    normalize_submitter_name,
+    normalize_text_content,
     write_normalized_parquet,
 )
-from scripts.parliament_submissions.bill_linkage import (
-    BillLinkageIndex,
-    parse_bill_reference_from_text,
-    cross_reference_bills,
-    build_linkage_index,
-    _normalize_bill_title,
-    DEFAULT_BILLS_CATALOG,
-)
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 
 # ---------------------------------------------------------------------------

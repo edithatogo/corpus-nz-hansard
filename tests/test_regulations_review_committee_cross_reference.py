@@ -10,14 +10,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from scripts.regulations_review_committee.regulation_cross_reference import (
-    SecondaryLegislationKey,
-    map_to_legislation_key,
-    lookup_nz_legislation,
-    build_correlation_index,
-    CorrelationEntry,
-)
 from scripts.regulations_review_committee.complaint_parser import ComplaintRecord
+from scripts.regulations_review_committee.regulation_cross_reference import (
+    CorrelationEntry,
+    SecondaryLegislationKey,
+    build_correlation_index,
+    lookup_nz_legislation,
+    map_to_legislation_key,
+)
 
 
 class SecondaryLegislationKeyTest(unittest.TestCase):

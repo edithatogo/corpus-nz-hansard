@@ -4,7 +4,7 @@ import uuid
 from pathlib import Path
 
 
-def test_tmp_dir() -> Path:
+def repo_tmp_dir() -> Path:
     """Return a writable root for local test artifacts."""
     configured = os.environ.get("CORPUS_NZ_HANSARD_TEST_TMP")
     candidate = (

@@ -22,7 +22,7 @@ from scripts.expand_member_authority import (
     _merge_near_duplicates,
     _nfkd,
 )
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
 
 class DetectedReversedNameTests(unittest.TestCase):
@@ -157,7 +157,7 @@ class CorpusWideMemberIdentityTests(unittest.TestCase):
         self.assertEqual(_failures(), [])
 
     def test_builder_resolves_exact_alias_multi_and_unresolved_rows(self) -> None:
-        tmp = test_tmp_dir() / "corpus-wide-member-identity"
+        tmp = repo_tmp_dir() / "corpus-wide-member-identity"
         tmp.mkdir(parents=True, exist_ok=True)
         parquet_path = tmp / "hansard.parquet"
         output_csv = tmp / "member_identity.csv"

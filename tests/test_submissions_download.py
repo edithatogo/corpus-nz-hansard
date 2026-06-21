@@ -14,9 +14,9 @@ from scripts.parliament_submissions.download import (
     download_pdf,
     download_pdf_with_retry,
 )
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 
 class FakeResponse:

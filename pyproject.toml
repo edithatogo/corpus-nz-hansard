@@ -114,6 +114,8 @@ ignore = [
   "D105",
   "D106",
   "D107",
+  "D203",
+  "D213",
   "ANN001",
   "ANN201",
   "ANN202",
@@ -208,6 +210,7 @@ show_missing = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = ["-p", "no:cacheprovider"]
 markers = [
   "unit: Fast mock-isolated unit tests",
   "integration: Cross-component integration tests",

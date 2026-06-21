@@ -12,9 +12,9 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.normalize_hansard import normalize_row
 from scripts.validate_hansard_records import validate_hansard_records
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 
 class ValidateHansardRecordsTest(unittest.TestCase):

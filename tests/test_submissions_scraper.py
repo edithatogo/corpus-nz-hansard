@@ -11,13 +11,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.parliament_submissions.scraper import (
+    SubmissionEntry,
     fetch_submissions_list,
     parse_submission_list,
-    SubmissionEntry,
 )
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 API_RESPONSE = {
     "results": [
@@ -57,20 +57,31 @@ class FakeResponse:
         self.status = status
         self.offset = 0
 
-    def __enter__(self): return self
-    def __exit__(self, *a): return False
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *a):
+        return False
+
     def read(self, size=-1):
-        if self.offset >= len(self.payload): return b""
-        if size < 0: size = len(self.payload) - self.offset
-        chunk = self.payload[self.offset:self.offset + size]
+        if self.offset >= len(self.payload):
+            return b""
+        if size < 0:
+            size = len(self.payload) - self.offset
+        chunk = self.payload[self.offset : self.offset + size]
         self.offset += len(chunk)
         return chunk
-    def getcode(self): return self.status
+
+    def getcode(self):
+        return self.status
 
 
 class FakeOpener:
     def __init__(self, payload, status=200):
-        self.payload = payload; self.status = status; self.request = None
+        self.payload = payload
+        self.status = status
+        self.request = None
+
     def __call__(self, request):
         self.request = request
         return FakeResponse(self.payload, self.status)
@@ -151,4 +162,3 @@ class ParseSubmissionListTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

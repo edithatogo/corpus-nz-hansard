@@ -8,9 +8,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.upload_huggingface_dataset import upload_huggingface_dataset
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 
 class FakeHfApi:
@@ -23,7 +23,6 @@ class FakeHfApi:
 
     def update_repo_settings(self, **kwargs):
         self.calls.append(("update_repo_settings", kwargs))
-        return None
 
     def upload_folder(self, **kwargs):
         self.calls.append(("upload_folder", kwargs))

@@ -2,23 +2,24 @@ import sys
 import unittest
 import uuid
 from pathlib import Path
+from typing import ClassVar
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.hf_private_source_archive import upload_source_archive
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
-TEST_TMP = test_tmp_dir()
+TEST_TMP = repo_tmp_dir()
 
 
 class FakeHfApi:
+    instances: ClassVar[list["FakeHfApi"]] = []
+
     def __init__(self, token):
         self.token = token
         self.calls = []
         FakeHfApi.instances.append(self)
-
-    instances = []
 
     def create_repo(self, **kwargs):
         self.calls.append(("create_repo", kwargs))

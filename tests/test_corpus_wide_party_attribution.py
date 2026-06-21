@@ -13,7 +13,7 @@ from scripts.build_corpus_wide_party_attribution import (
     build_corpus_wide_release,
 )
 from scripts.check_corpus_wide_party_attribution import _failures
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
 
 class CorpusWidePartyAttributionTests(unittest.TestCase):
@@ -41,7 +41,7 @@ class CorpusWidePartyAttributionTests(unittest.TestCase):
         )
 
     def test_builder_emits_party_vote_rows_and_review_queue(self) -> None:
-        tmp = test_tmp_dir() / "corpus-wide-party-attribution"
+        tmp = repo_tmp_dir() / "corpus-wide-party-attribution"
         tmp.mkdir(parents=True, exist_ok=True)
         parquet_path = tmp / "hansard.parquet"
         output_csv = tmp / "party_attribution.csv"

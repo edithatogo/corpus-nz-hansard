@@ -13,14 +13,14 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.select_committee_reports.correlation_index import (
+    CORRELATION_INDEX_SCHEMA,
+    CorrelationEntry,
+    CorrelationIndex,
     HansardLink,
     LegislationLink,
-    CorrelationEntry,
+    build_correlation_index,
     build_hansard_links,
     build_legislation_links,
-    build_correlation_index,
-    CorrelationIndex,
-    CORRELATION_INDEX_SCHEMA,
 )
 
 
@@ -126,7 +126,7 @@ class BuildHansardLinksTest(unittest.TestCase):
             ],
         )
         self.assertGreaterEqual(len(links), 1)
-        self.assertTrue(any(l.hansard_id == "hans-001" for l in links))
+        self.assertTrue(any(link.hansard_id == "hans-001" for link in links))
 
     def test_build_returns_empty_with_no_matches(self):
         links = build_hansard_links(
@@ -186,7 +186,7 @@ class BuildLegislationLinksTest(unittest.TestCase):
             bill_refs=["Reform Bill"],
         )
         self.assertEqual(len(links), 2)
-        types = [l.legislation_type for l in links]
+        types = [link.legislation_type for link in links]
         self.assertIn("act", types)
         self.assertIn("bill", types)
 

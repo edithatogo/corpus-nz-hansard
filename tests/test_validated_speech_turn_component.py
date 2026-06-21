@@ -12,7 +12,7 @@ from scripts.build_validated_speech_turn_component import (
     build_validated_speech_turn_component,
 )
 from scripts.check_validated_speech_turn_component import _failures
-from test_support import test_tmp_dir
+from test_support import repo_tmp_dir
 
 
 class ValidatedSpeechTurnComponentTests(unittest.TestCase):
@@ -20,7 +20,7 @@ class ValidatedSpeechTurnComponentTests(unittest.TestCase):
         self.assertEqual(_failures(), [])
 
     def test_builder_emits_blocked_rows_for_candidate_artifact(self) -> None:
-        tmp = test_tmp_dir() / "validated-speech-turn"
+        tmp = repo_tmp_dir() / "validated-speech-turn"
         tmp.mkdir(parents=True, exist_ok=True)
         candidate_path = tmp / "hansard_speech_turns.parquet"
         output_path = tmp / "hansard_speech_turns_validated.parquet"

@@ -11,18 +11,11 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.regulations_review_committee.complaint_parser import (
     ComplaintRecord,
-    parse_complaint_subject,
     extract_challenged_regulation,
-    extract_complaint_grounds,
     extract_committee_recommendation,
+    extract_complaint_grounds,
+    parse_complaint_subject,
     parse_complaints_from_text,
-)
-from scripts.regulations_review_committee.regulation_cross_reference import (
-    SecondaryLegislationKey,
-    map_to_legislation_key,
-    lookup_nz_legislation,
-    build_correlation_index,
-    CorrelationEntry,
 )
 
 

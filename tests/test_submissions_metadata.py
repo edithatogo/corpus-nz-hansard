@@ -10,12 +10,12 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.parliament_submissions.metadata import (
-    extract_submitter_name,
-    extract_date,
-    extract_committee_reference,
-    extract_bill_reference,
-    extract_all_metadata,
     SubmissionMetadata,
+    extract_all_metadata,
+    extract_bill_reference,
+    extract_committee_reference,
+    extract_date,
+    extract_submitter_name,
 )
 
 

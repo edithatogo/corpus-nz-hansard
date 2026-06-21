@@ -10,13 +10,13 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from scripts.select_committee_reports.metadata import (
-    extract_report_date,
-    extract_committee_name,
-    extract_bill_reference,
-    extract_report_subject,
-    extract_member_recommendations,
-    extract_all_metadata,
     ReportMetadata,
+    extract_all_metadata,
+    extract_bill_reference,
+    extract_committee_name,
+    extract_member_recommendations,
+    extract_report_date,
+    extract_report_subject,
 )
 
 _SAMPLE_TEXT = """\
