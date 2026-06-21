@@ -1,6 +1,9 @@
 {
-  "bills_api_members_count": 0,
-  "bills_api_members_sample": {},
-  "laura_mentions": 149,
-  "trask_mentions": 59
+  "artifact_name": "bills_api_crossref_summary",
+  "bills_api_members_count": 351,
+  "cross_reference_artifact": "derived/bills_api/member_hansard_cross_reference.json",
+  "generated_at": "2026-06-21T09:32:27.472107+00:00",
+  "hansard_exact_or_honorific_normalized_matches": 182,
+  "status": "superseded-by-member-hansard-cross-reference",
+  "unmatched_bills_api_members": 169
 }

@@ -1,7 +1,7 @@
 {
   "track_id": "bills_api_integration_20260612",
   "title": "Bills API Integration",
-  "status": "in_progress",
+  "status": "blocked",
   "created": "2026-06-12",
-  "description": "Integrate open REST API from bills.parliament.nz: 3,513 bills with structured member sponsors, stages, committees."
+  "description": "Repo-side Bills API extraction evidence, member cross-reference, and deferred corpus metadata integration are implemented. Full bill-stage publication remains blocked until non-truncated summary/detail record capture is available."
 }

@@ -1,0 +1,93 @@
+{
+  "artifact_name": "bills_api_integration_validation",
+  "artifact_version": "0.1.0",
+  "authority_source_id": "nz-parliament-bills-api",
+  "authority_source_registered": true,
+  "captured_artifacts": {
+    "details": {
+      "path": "derived/bills_api/bills_details_20260613T021002Z.json",
+      "sha256": "3d7cbabc0bf8841bd390679cea6480f91994e3ac09e252a971ad9fa6eea83c23",
+      "size_bytes": 512609,
+      "truncated": true,
+      "valid_json": false
+    },
+    "facets": {
+      "path": "derived/bills_api/facets.json",
+      "sha256": "515d3229cfad92c0470d5acb57af8a6011f8ad34e041ee9d513841c6b1116a19",
+      "size_bytes": 8274,
+      "truncated": false,
+      "valid_json": true
+    },
+    "members": {
+      "path": "derived/bills_api/bills_members_20260613T021002Z.json",
+      "sha256": "63c2e517ef7c1d14f2479c348692269c8de0c7df251747452fabf6944c0112ff",
+      "size_bytes": 8800,
+      "truncated": false,
+      "valid_json": true
+    },
+    "run_log": {
+      "path": "derived/bills_api/run_log.txt",
+      "sha256": "07f29f321c554a525746f0cbabb24cedde3d35b4f8c10544a371262f164921d9",
+      "size_bytes": 6447
+    },
+    "summary": {
+      "path": "derived/bills_api/bills_summary_20260613T021002Z.json",
+      "sha256": "d2128f433550594ab3d5e33d0c14903b15d145a79834cc9a5d72c16dc833b905",
+      "size_bytes": 518865,
+      "truncated": true,
+      "valid_json": false
+    }
+  },
+  "corpus_metadata_integration": {
+    "bill_stage_labels": [
+      "Committee of whole House",
+      "First Reading",
+      "Royal Assent",
+      "Second Reading",
+      "Select Committee",
+      "Terminated",
+      "Third Reading"
+    ],
+    "bill_stage_source_available": true,
+    "integration_target": "vote_motion_bill_question_extraction_validation",
+    "metadata_source": "nz-parliament-bills-api",
+    "reason": "The extraction run captured full counts and member evidence, but summary/detail JSON files were stored as truncated review artifacts. Full bill-stage corpus metadata requires a non-truncated record capture before publication.",
+    "status": "deferred"
+  },
+  "extraction_run": {
+    "bill_details_processed": 3513,
+    "bill_summaries_fetched": 3513,
+    "members_artifact_count": 351,
+    "members_artifact_total_bills": 3513,
+    "members_artifact_total_details": 3513,
+    "unique_member_names": 351
+  },
+  "generated_at": "2026-06-21T09:32:27.472107+00:00",
+  "member_cross_reference": {
+    "artifact": "derived/bills_api/member_hansard_cross_reference.json",
+    "counts": {
+      "bills_api_members": 351,
+      "exact_or_honorific_normalized_matches": 182,
+      "hansard_member_name_keys": 258,
+      "unmatched_bills_api_members": 169
+    },
+    "status": "review-evidence"
+  },
+  "release_gate_status": "deferred-pending-full-stage-record-capture",
+  "source_hashes": {
+    "authority_sources": "d6d68c67bd035d92e680b34f091ece472b190ad36eceb345d6c938c05bdfb94e",
+    "member_identity_validation": "feb5cfc8154cc02aaa9d4b2476bfa4b6a09c63511c91b407fbd41e51089b8b0c",
+    "vote_motion_bill_question_validation": "f4b806d6e7ec92afc810e5850bbb1d8bb38791c5d672f4b5e4c9c4383c1394e6"
+  },
+  "source_manifests": [
+    "manifests/authority_sources.json",
+    "manifests/corpus_wide_member_identity_validation.json",
+    "manifests/vote_motion_bill_question_extraction_validation.json"
+  ],
+  "track_id": "bills_api_integration_20260612",
+  "validation_status": "review-evidence",
+  "warnings": [
+    "Do not publish truncated summary/detail artifacts as complete Bills API records.",
+    "Member cross-reference is evidence only while corpus-wide member identity is blocked."
+  ]
+}

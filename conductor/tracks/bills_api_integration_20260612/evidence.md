@@ -52,3 +52,29 @@ Includes `Hon` and `Rt Hon` prefixes, Māori members, and MPs from Parliaments 4
 
 ### Run Duration
 Total wall-clock time: ~40 minutes (API rate limiting: 0.2s between detail fetches × 3,513 bills + 0.5s between paginated search pages).
+
+## Repo-side Integration Surface (2026-06-21)
+
+Implemented artifacts:
+
+- `manifests/bills_api_integration_validation.json`
+- `derived/bills_api/member_hansard_cross_reference.json`
+- `derived/crossref_bills_api.json` compatibility summary
+- `docs/bills-api-integration.md`
+- `scripts/build_bills_api_integration.py`
+- `scripts/check_bills_api_integration.py`
+- `tests/test_bills_api_integration.py`
+
+Validation evidence:
+
+- `python scripts/build_bills_api_integration.py`
+- `python scripts/check_bills_api_integration.py`
+- `python -m unittest tests.test_bills_api_integration`
+- `python -m pytest tests\test_submissions_normalization.py -k Bills`
+
+Integration boundary:
+
+- The full extraction run is recorded as completed evidence with 3,513 summaries, 3,513 detail requests, and 351 member names.
+- Member-name cross-reference is exact/honorific-normalized review evidence against the blocked corpus-wide Hansard member identity surface.
+- Bill-stage metadata is registered as a deferred corpus metadata source from `nz-parliament-bills-api`.
+- Full bill-stage corpus metadata publication remains deferred because the recorded summary/detail JSON files are truncated review artifacts, not complete record captures.
