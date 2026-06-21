@@ -1,4 +1,4 @@
-duckdb==1.5.3
+duckdb==1.5.4
 pyarrow
 polars>=1.41.2
 jsonschema>=4.26.0

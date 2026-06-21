@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Document-level New Zealand Hansard corpus release tooling."
 requires-python = ">=3.11"
 dependencies = [
-  "duckdb==1.5.3",
+  "duckdb==1.5.4",
   "huggingface-hub>=1.18.0",
   "jsonschema>=4.26.0",
   "loguru>=0.7.2",
