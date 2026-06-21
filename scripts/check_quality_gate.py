@@ -8,9 +8,21 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED_DEV_TOOLS = {
+    "basedpyright",
+    "cyclonedx-py",
+    "deptry",
+    "detect-secrets",
+    "mutmut",
+    "pip-audit",
+    "pyinstrument",
+    "pyrefly",
+    "pytest-benchmark",
+    "pytest-rerunfailures",
+    "pytest-socket",
     "ruff",
     "ty",
     "typos",
+    "vulture",
     "zizmor",
     "taplo",
 }
@@ -89,11 +101,21 @@ REQUIRED_MAKE_TARGETS = (
     "lint:",
     "format-check:",
     "typecheck:",
+    "typecheck-basedpyright:",
+    "typecheck-pyrefly:",
     "spell:",
     "workflow-audit:",
     "toml-check:",
     "workflow-syntax:",
     "test:",
+    "test-offline:",
+    "benchmark:",
+    "profile-search-index:",
+    "security-audit:",
+    "sbom:",
+    "dependency-check:",
+    "dead-code:",
+    "mutation-smoke:",
 )
 
 PUBLICATION_WORKFLOWS = (
@@ -132,7 +154,10 @@ def _failures() -> list[str]:
     for snippet in (
         'python = "3.14.*"',
         'ruff = "==0.15.18"',
+        'basedpyright = "==1.39.8"',
         'pydantic-ai-slim = "==1.107.0"',
+        'msgspec = "==0.21.1"',
+        'tantivy = "==0.26.0"',
         "quality = { depends-on = ",
     ):
         if snippet not in pixi_manifest:

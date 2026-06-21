@@ -43,6 +43,8 @@ class CacheManifestTest(unittest.TestCase):
 
 
 class LoadSaveManifestTest(unittest.TestCase):
+    manifest_path: Path = TEST_TMP / "cache_manifest.json"
+
     @override
     def setUp(self):
         self.manifest_path = TEST_TMP / "cache_manifest.json"
@@ -85,6 +87,8 @@ class LoadSaveManifestTest(unittest.TestCase):
 
 
 class IsCachedTest(unittest.TestCase):
+    manifest_path: Path = TEST_TMP / "cache_check.json"
+
     @override
     def setUp(self):
         self.manifest_path = TEST_TMP / "cache_check.json"

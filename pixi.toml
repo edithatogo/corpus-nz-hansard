@@ -22,12 +22,25 @@ pydantic-settings = "==2.14.2"
 requests = "==2.34.2"
 
 [feature.dev.pypi-dependencies]
+basedpyright = "==1.39.8"
+cyclonedx-py = "==1.0.1"
+deptry = "==0.25.1"
+detect-secrets = "==1.5.0"
 hypothesis = "==6.155.7"
+hypothesis-jsonschema = "==0.23.1"
+mutmut = "==3.6.0"
+pip-audit = "==2.10.1"
 pre-commit = "==4.6.0"
+pre-commit-hooks = "==6.0.0"
+pyinstrument = "==5.1.2"
+pyrefly = "==1.1.1"
 pytest = "==9.1.1"
+pytest-benchmark = "==5.2.3"
 pytest-cov = "==7.1.0"
 pytest-github-actions-annotate-failures = "==0.4.2"
 pytest-randomly = "==4.1.0"
+pytest-rerunfailures = "==16.3"
+pytest-socket = "==0.8.0"
 pytest-timeout = "==2.4.0"
 pytest-xdist = "==3.8.0"
 ruff = "==0.15.18"
@@ -35,6 +48,7 @@ scalene = "==2.3.0"
 taplo = "==0.9.3"
 ty = "==0.0.51"
 typos = "==1.47.2"
+vulture = "==2.16"
 zizmor = "==1.26.1"
 
 [feature.embeddings.pypi-dependencies]
@@ -51,25 +65,57 @@ scikit-learn = "==1.9.0"
 [feature.ai.pypi-dependencies]
 pydantic-ai-slim = "==1.107.0"
 
+[feature.fast-json.pypi-dependencies]
+msgspec = "==0.21.1"
+orjson = "==3.11.9"
+
+[feature.xml-models.pypi-dependencies]
+xsdata = "==26.2"
+
+[feature.query.pypi-dependencies]
+ibis-framework = "==12.0.0"
+
+[feature.search.pypi-dependencies]
+tantivy = "==0.26.0"
+sqlite-vec = "==0.1.9"
+
 [environments]
 default = { features = ["dev", "rdf", "nlp"], solve-group = "default" }
 all = { features = [
   "dev",
-  "embeddings",
   "rdf",
   "nlp",
   "ai",
+  "fast-json",
+  "xml-models",
+  "query",
+  "search",
 ], solve-group = "all" }
+fast-json = { features = ["fast-json"], solve-group = "default" }
+xml-models = { features = ["xml-models"], solve-group = "default" }
+query = { features = ["query"], solve-group = "default" }
+search = { features = ["search"], solve-group = "search" }
+embeddings = { features = ["embeddings"], solve-group = "embeddings" }
 
 [tasks]
 lint = ".pixi/envs/default/python.exe -m ruff check --no-cache pyproject.toml pixi.toml test_support.py scripts tests"
 format-check = ".pixi/envs/default/python.exe -m ruff format --check --no-cache pyproject.toml pixi.toml test_support.py scripts tests"
-test = ".pixi/envs/default/python.exe -m pytest -q"
+test = ".pixi/envs/default/python.exe scripts/run_pytest_with_repo_tmp.py -q"
 typecheck = "ty check --error all scripts/build_search_index.py scripts/check_corpus_family_engineering_alignment.py scripts/check_quality_gate.py scripts/select_committee_reports/cache.py tests/test_build_search_index.py tests/test_corpus_family_engineering_alignment.py tests/test_select_committee_reports_cache.py test_support.py"
+typecheck-basedpyright = "basedpyright --level error scripts/check_quality_gate.py scripts/select_committee_reports/cache.py tests/test_select_committee_reports_cache.py test_support.py"
+typecheck-pyrefly = ".pixi/envs/default/Scripts/pyrefly.exe check --summary=none scripts/build_search_index.py scripts/check_corpus_family_engineering_alignment.py scripts/check_quality_gate.py scripts/select_committee_reports/cache.py tests/test_build_search_index.py tests/test_corpus_family_engineering_alignment.py tests/test_select_committee_reports_cache.py test_support.py"
 spell = "typos --config typos.toml"
 workflow-audit = "zizmor --min-severity medium .github/workflows"
 toml-check = "taplo format --check pyproject.toml pixi.toml typos.toml"
 quality-config = ".pixi/envs/default/python.exe scripts/check_quality_gate.py"
+security-audit = ".pixi/envs/default/python.exe -m pip_audit --strict --cache-dir .tmp/pip-audit-cache --progress-spinner off"
+sbom = "cyclonedx-py environment --output-file reports/sbom.cdx.json"
+dependency-check = ".pixi/envs/default/Scripts/deptry.exe tests --exclude venv --exclude \\.venv --exclude \\.git --ignore DEP001,DEP002 --known-first-party scripts --known-first-party test_support --package-module-name-map FlagEmbedding=flagembedding,torch=torch,transformers=transformers,pydantic-ai-slim=pydantic_ai,msgspec=msgspec,orjson=orjson,xsdata=xsdata,ibis-framework=ibis,tantivy=tantivy,sqlite-vec=sqlite_vec --no-ansi"
+dead-code = ".pixi/envs/default/Scripts/vulture.exe scripts/build_search_index.py scripts/check_quality_gate.py scripts/select_committee_reports/cache.py tests/test_build_search_index.py tests/test_select_committee_reports_cache.py test_support.py --min-confidence 80"
+test-offline = ".pixi/envs/default/python.exe scripts/run_pytest_with_repo_tmp.py -q --disable-socket"
+benchmark = ".pixi/envs/default/python.exe scripts/run_pytest_with_repo_tmp.py -q tests/test_performance_benchmarks.py"
+profile-search-index = ".pixi/envs/default/python.exe -m pyinstrument --outfile .tmp/search-index-profile.html scripts/run_pytest_with_repo_tmp.py -q tests/test_build_search_index.py"
+mutation-smoke = ".pixi/envs/default/python.exe scripts/run_mutation_smoke.py"
 quality = { depends-on = [
   "lint",
   "format-check",

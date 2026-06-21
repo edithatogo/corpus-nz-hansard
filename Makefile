@@ -1,6 +1,6 @@
 PYTHON ?= python
 
-.PHONY: quality pixi-install pixi-quality quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn lint format-check typecheck spell workflow-audit toml-check workflow-syntax test derived-fields-validation
+.PHONY: quality pixi-install pixi-quality quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn lint format-check typecheck typecheck-basedpyright typecheck-pyrefly spell workflow-audit toml-check workflow-syntax test test-offline benchmark profile-search-index security-audit sbom dependency-check dead-code mutation-smoke derived-fields-validation
 
 quality: pixi-install lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation test
 
@@ -109,6 +109,12 @@ format-check:
 typecheck:
 	ty check --error all .
 
+typecheck-basedpyright:
+	basedpyright --level error scripts/check_quality_gate.py scripts/select_committee_reports/cache.py tests/test_select_committee_reports_cache.py test_support.py
+
+typecheck-pyrefly:
+	pyrefly check scripts/build_search_index.py scripts/check_corpus_family_engineering_alignment.py scripts/check_quality_gate.py scripts/select_committee_reports/cache.py tests/test_build_search_index.py tests/test_corpus_family_engineering_alignment.py tests/test_select_committee_reports_cache.py test_support.py
+
 spell:
 	typos --config typos.toml
 
@@ -123,3 +129,27 @@ workflow-syntax:
 
 test:
 	$(PYTHON) -m pytest -q
+
+test-offline:
+	$(PYTHON) -m pytest -q --disable-socket
+
+benchmark:
+	$(PYTHON) -m pytest -q tests/test_performance_benchmarks.py
+
+profile-search-index:
+	$(PYTHON) -m pyinstrument --outfile .tmp/search-index-profile.html -m pytest -q tests/test_build_search_index.py
+
+security-audit:
+	$(PYTHON) -m pip_audit --strict --cache-dir .tmp/pip-audit-cache --progress-spinner off
+
+sbom:
+	cyclonedx-py environment --output-file reports/sbom.cdx.json
+
+dependency-check:
+	deptry tests --exclude venv --exclude \.venv --exclude \.git --ignore DEP001,DEP002 --known-first-party scripts --known-first-party test_support --package-module-name-map FlagEmbedding=flagembedding,torch=torch,transformers=transformers,pydantic-ai-slim=pydantic_ai,msgspec=msgspec,orjson=orjson,xsdata=xsdata,ibis-framework=ibis,tantivy=tantivy,sqlite-vec=sqlite_vec --no-ansi
+
+dead-code:
+	vulture scripts/build_search_index.py scripts/check_quality_gate.py scripts/select_committee_reports/cache.py tests/test_build_search_index.py tests/test_select_committee_reports_cache.py test_support.py --min-confidence 80
+
+mutation-smoke:
+	$(PYTHON) scripts/run_mutation_smoke.py

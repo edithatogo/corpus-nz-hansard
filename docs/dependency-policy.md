@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Keep the base corpus pipeline reproducible and lightweight while allowing endpoint-specific toolchains for XML, RDF, NLP, ML, and metadata work.
+Keep the base corpus pipeline reproducible and lightweight while allowing endpoint-specific toolchains for XML, RDF, NLP, ML, metadata, high-throughput serialization, query, search, and generated-model work.
 
 ## Current Base Runtime
 
@@ -31,7 +31,11 @@ Endpoint work should add grouped requirements or package extras rather than expa
 | `requirements/nlp.txt` | `spacy`, `stanza`, `conllu`, `pyconll` | NER, tokenization, UD/CoNLL-U, token alignment. |
 | `requirements/ml.txt` | `scikit-learn`, `transformers`, `sentence-transformers`, `bertopic` | Topic classification, embeddings, exploratory models. |
 | `requirements/metadata.txt` | `frictionless`, `rocrate`, `mlcroissant` | Frictionless Data Package, RO-Crate, Croissant metadata. |
-| `requirements/dev.txt` | `ruff`, `ty`, `typos`, `zizmor`, `taplo` | CI quality, strict type checking, workflow-security linting, spelling, and TOML formatting. |
+| `requirements/fast-json.txt` | `msgspec`, `orjson` | High-throughput JSON serialization and typed structured records. |
+| `requirements/xml-models.txt` | `xsdata` | Generated XML dataclass models for endpoint schemas. |
+| `requirements/query.txt` | `ibis-framework` | Composable dataframe and SQL query plans over corpus data. |
+| `requirements/search.txt` | `tantivy`, `sqlite-vec` | Fast full-text and vector-search experiments for local corpus indexes. |
+| `requirements/dev.txt` | `ruff`, `ty`, `typos`, `zizmor`, `taplo`, `basedpyright`, `pyrefly`, `pip-audit`, `cyclonedx-py`, `deptry`, `vulture`, `pytest-socket`, `pytest-benchmark`, `pyinstrument`, `mutmut` | CI quality, strict type checking, workflow-security linting, spelling, TOML formatting, security audit, SBOM generation, dependency hygiene, offline tests, benchmarks, profiling, and mutation smoke tests. |
 
 The policy authority is `manifests/dependency_extras_policy.json`, validated by `scripts/check_dependency_extras_policy.py`. The manifest records each optional group, the endpoint tracks that cite it, and the fields that endpoint validation manifests must carry: `dependency_groups`, `install_commands`, `tool_versions`, `library_versions`, `model_versions`, `lock_or_constraints`, `release_affecting_dependencies`, and `validation_command`.
 
@@ -58,3 +62,7 @@ Each endpoint implementation track must run and record the grouped install comma
 - `requirements/nlp.txt`
 - `requirements/ml.txt`
 - `requirements/metadata.txt`
+- `requirements/fast-json.txt`
+- `requirements/xml-models.txt`
+- `requirements/query.txt`
+- `requirements/search.txt`

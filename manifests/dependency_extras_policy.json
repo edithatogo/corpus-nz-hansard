@@ -118,6 +118,52 @@
       "install_check_status": "deferred-until-implementation",
       "pin_policy": "pin-before-release-artifact",
       "default_runtime_allowed": false
+    },
+    {
+      "group": "fast-json",
+      "requirements_file": "requirements/fast-json.txt",
+      "purpose": "High-throughput JSON serialization and typed structured records.",
+      "dependencies": [
+        "msgspec",
+        "orjson"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
+    },
+    {
+      "group": "xml-models",
+      "requirements_file": "requirements/xml-models.txt",
+      "purpose": "Generated XML dataclass models for endpoint schemas.",
+      "dependencies": [
+        "xsdata"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
+    },
+    {
+      "group": "query",
+      "requirements_file": "requirements/query.txt",
+      "purpose": "Composable dataframe and SQL query plans over corpus data.",
+      "dependencies": [
+        "ibis-framework"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
+    },
+    {
+      "group": "search",
+      "requirements_file": "requirements/search.txt",
+      "purpose": "Fast full-text and vector-search experiments for local corpus indexes.",
+      "dependencies": [
+        "sqlite-vec",
+        "tantivy"
+      ],
+      "install_check_status": "deferred-until-implementation",
+      "pin_policy": "pin-before-release-artifact",
+      "default_runtime_allowed": false
     }
   ],
   "endpoint_requirements": [
@@ -299,6 +345,8 @@
     "linkml",
     "lxml",
     "mlcroissant",
+    "msgspec",
+    "orjson",
     "pandera",
     "pandas",
     "pyconll",
@@ -310,8 +358,11 @@
     "scikit-learn",
     "sentence-transformers",
     "spacy",
+    "sqlite-vec",
     "stanza",
+    "tantivy",
     "transformers",
-    "xmlschema"
+    "xmlschema",
+    "xsdata"
   ]
 }

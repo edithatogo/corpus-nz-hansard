@@ -8,3 +8,7 @@
 -r nlp.txt
 -r ml.txt
 -r metadata.txt
+-r fast-json.txt
+-r xml-models.txt
+-r query.txt
+-r search.txt

@@ -23,10 +23,23 @@ nz-hansard-corpus = "scripts.cli:main"
 
 [project.optional-dependencies]
 dev = [
+  "basedpyright==1.39.8",
+  "cyclonedx-py==1.0.1",
+  "deptry==0.25.1",
+  "detect-secrets==1.5.0",
+  "hypothesis-jsonschema==0.23.1",
+  "mutmut==3.6.0",
+  "pip-audit==2.10.1",
+  "pre-commit-hooks==6.0.0",
+  "pyinstrument==5.1.2",
+  "pyrefly==1.1.1",
   "pytest==9.1.1",
+  "pytest-benchmark==5.2.3",
   "pytest-cov==7.1.0",
   "pytest-github-actions-annotate-failures==0.4.2",
   "pytest-randomly==4.1.0",
+  "pytest-rerunfailures==16.3",
+  "pytest-socket==0.8.0",
   "pytest-timeout==2.4.0",
   "pytest-xdist==3.8.0",
   "ruff==0.15.18",
@@ -37,11 +50,16 @@ dev = [
   "hypothesis==6.155.7",
   "scalene==2.3.0",
   "pre-commit==4.6.0",
+  "vulture==2.16",
 ]
 embeddings = ["FlagEmbedding>=1.4.0", "torch>=2.12.1", "transformers>=5.12.1"]
 rdf = ["rdflib>=7.6.0"]
 nlp = ["scikit-learn>=1.9.0"]
 ai = ["pydantic-ai-slim==1.107.0"]
+fast-json = ["msgspec==0.21.1", "orjson==3.11.9"]
+xml-models = ["xsdata==26.2"]
+query = ["ibis-framework==12.0.0"]
+search = ["tantivy==0.26.0", "sqlite-vec==0.1.9"]
 
 [tool.ruff]
 line-length = 100
@@ -239,6 +257,9 @@ python-version = "3.14"
 
 [tool.ty.rules]
 all = "error"
+
+[tool.pyrefly]
+project-includes = ["**/*.py*", "**/*.ipynb"]
 
 [tool.scalene]
 cpu = true

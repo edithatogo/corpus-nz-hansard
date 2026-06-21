@@ -26,6 +26,10 @@ REQUIRED_GROUPS = {
     "nlp",
     "ml",
     "metadata",
+    "fast-json",
+    "xml-models",
+    "query",
+    "search",
 }
 REQUIRED_ENDPOINT_TRACKS = {
     "parlamint_nz_endpoint_20260609",

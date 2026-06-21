@@ -56,6 +56,10 @@ Planned dependency groups by endpoint:
 - Universal Dependencies / CoNLL-U: `requirements/nlp.txt`, `requirements/schema.txt`
 - RDF / Linked Data: `requirements/rdf.txt`, `requirements/schema.txt`, `requirements/metadata.txt`, `requirements/authority.txt`
 - Croissant / RO-Crate / Frictionless: `requirements/metadata.txt`, `requirements/rdf.txt`, `requirements/schema.txt`
+- High-throughput JSON endpoint work: `requirements/fast-json.txt`
+- Generated XML model work: `requirements/xml-models.txt`, `requirements/xml.txt`, `requirements/schema.txt`
+- Query-planning work: `requirements/query.txt`, `requirements/data.txt`
+- Search-index work: `requirements/search.txt`, `requirements/data.txt`
 
 Required endpoint release-series fields:
 
