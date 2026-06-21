@@ -11,48 +11,47 @@ make quality
 Equivalent commands:
 
 ```powershell
-python -m pip install uv==0.11.8
-uv lock --check
-uv sync --frozen --all-groups
-python -m ruff check --no-cache .
-python -m ruff format --check --no-cache .
-ty check --error all .
-typos --config typos.toml
-zizmor --min-severity medium .github/workflows
-taplo format --check pyproject.toml typos.toml
+iwr -UseBasicParsing https://pixi.sh/install.ps1 | iex
+pixi install
+pixi run lint
+pixi run format-check
+pixi run typecheck
+pixi run spell
+pixi run workflow-audit
+pixi run toml-check
 actionlint -color
-python scripts/check_quality_gate.py
-python scripts/check_release_provenance_policy.py
-python scripts/check_release_version_consistency.py
-python scripts/check_public_surface_audit.py
-python scripts/check_zenodo_rights_metadata.py
-python scripts/check_shared_core_schema.py
-python scripts/check_metadata_packages.py
-python scripts/check_osf_optional_mirror_policy.py
-python scripts/check_corpus_family_alignment.py
-python scripts/check_corpus_family_engineering_alignment.py
-python scripts/check_authority_sources.py
-python scripts/check_historical_sitting_inventory.py
-python scripts/check_historical_sitting_official_exports.py
-python scripts/build_historical_sitting_official_exports_coverage.py
-python scripts/check_historical_sitting_reconciliation.py
-python scripts/check_historical_coverage_audit.py
-python scripts/check_release_ladder.py
-python scripts/check_gold_evaluation_datasets.py
-python scripts/check_canonical_id_uri_policy.py
-python scripts/check_dependency_extras_policy.py
-python scripts/check_nz_parliamentary_procedure_model.py
-python scripts/check_neutral_component_model.py
-python scripts/check_akoma_ntoso_endpoint.py
-python scripts/check_parlamint_nz_endpoint.py
-python scripts/check_popolo_opencivicdata_endpoint.py
-python scripts/check_ud_conllu_endpoint.py
-python scripts/check_rdf_linked_data_endpoint.py
-python scripts/validate_derived_fields.py
-python -m unittest discover tests
+pixi run python scripts/check_quality_gate.py
+pixi run python scripts/check_release_provenance_policy.py
+pixi run python scripts/check_release_version_consistency.py
+pixi run python scripts/check_public_surface_audit.py
+pixi run python scripts/check_zenodo_rights_metadata.py
+pixi run python scripts/check_shared_core_schema.py
+pixi run python scripts/check_metadata_packages.py
+pixi run python scripts/check_osf_optional_mirror_policy.py
+pixi run python scripts/check_corpus_family_alignment.py
+pixi run python scripts/check_corpus_family_engineering_alignment.py
+pixi run python scripts/check_authority_sources.py
+pixi run python scripts/check_historical_sitting_inventory.py
+pixi run python scripts/check_historical_sitting_official_exports.py
+pixi run python scripts/build_historical_sitting_official_exports_coverage.py
+pixi run python scripts/check_historical_sitting_reconciliation.py
+pixi run python scripts/check_historical_coverage_audit.py
+pixi run python scripts/check_release_ladder.py
+pixi run python scripts/check_gold_evaluation_datasets.py
+pixi run python scripts/check_canonical_id_uri_policy.py
+pixi run python scripts/check_dependency_extras_policy.py
+pixi run python scripts/check_nz_parliamentary_procedure_model.py
+pixi run python scripts/check_neutral_component_model.py
+pixi run python scripts/check_akoma_ntoso_endpoint.py
+pixi run python scripts/check_parlamint_nz_endpoint.py
+pixi run python scripts/check_popolo_opencivicdata_endpoint.py
+pixi run python scripts/check_ud_conllu_endpoint.py
+pixi run python scripts/check_rdf_linked_data_endpoint.py
+pixi run python scripts/validate_derived_fields.py
+pixi run test
 ```
 
-`scripts/check_quality_gate.py` guards the quality configuration itself: dev-tool pins, required Quality workflow commands, local Makefile targets, committed `uv.lock`, packaged `pyproject.toml` metadata with a pinned uv tool dependency, pinned GitHub Actions, and publication workflows staying manual-only.
+`scripts/check_quality_gate.py` guards the quality configuration itself: dev-tool pins, required Quality workflow commands, local Makefile targets, committed `pixi.toml`, Python 3.14 package metadata, pinned Pixi PyPI dependencies, pinned GitHub Actions, and publication workflows staying manual-only.
 
 `scripts/check_release_provenance_policy.py` guards release evidence and provenance wiring: the release evidence ledger schema, Zenodo attestation permissions, pinned attestation action, attested subject paths, documentation coverage, and publication workflows staying manual-only.
 
@@ -64,6 +63,6 @@ python -m unittest discover tests
 
 `scripts/check_shared_core_schema.py`, `scripts/check_metadata_packages.py`, `scripts/check_osf_optional_mirror_policy.py`, `scripts/check_corpus_family_alignment.py`, `scripts/check_corpus_family_engineering_alignment.py`, `scripts/check_authority_sources.py`, `scripts/check_historical_sitting_inventory.py`, `scripts/check_historical_sitting_official_exports.py`, `scripts/build_historical_sitting_official_exports_coverage.py`, `scripts/check_historical_sitting_reconciliation.py`, `scripts/check_historical_coverage_audit.py`, `scripts/check_release_ladder.py`, `scripts/check_gold_evaluation_datasets.py`, `scripts/check_canonical_id_uri_policy.py`, `scripts/check_dependency_extras_policy.py`, `scripts/check_nz_parliamentary_procedure_model.py`, `scripts/check_neutral_component_model.py`, `scripts/check_akoma_ntoso_endpoint.py`, `scripts/check_parlamint_nz_endpoint.py`, `scripts/check_popolo_opencivicdata_endpoint.py`, `scripts/check_ud_conllu_endpoint.py`, `scripts/check_rdf_linked_data_endpoint.py`, and `scripts/validate_derived_fields.py` guard the shared corpus schema contract, planned metadata package roadmap, OSF inactive-claim boundary, corpus-family publication naming decisions, the package/CLI migration boundary, authority-source discovery coverage, the official sitting inventory used for reconciliation, the official PDF export path used to avoid the HTML challenge layer, the date-level comparison probe against the corpus ledger, the historical sitting reconciliation contract, the distinction between supplied DocumentsDB extract coverage and full historical NZ Hansard completeness, the document-level/authority-source/neutral-component/endpoint/upstream-contribution release ladder, reviewed gold/evaluation fixtures for derived fields, stable ID/URI policy for endpoint publication, the optional dependency-group policy in `manifests/dependency_extras_policy.json`, the NZ parliamentary procedure model in `manifests/nz_parliamentary_procedure_model.json`, the neutral component model in `manifests/neutral_component_model.json`, the Akoma Ntoso sample endpoint in `manifests/akoma_ntoso_validation_manifest.json`, the ParlaMint-NZ sample endpoint in `manifests/parlamint_nz_validation_manifest.json`, the Popolo/Open Civic Data sample endpoint in `manifests/popolo_opencivicdata_validation_manifest.json`, the Universal Dependencies / CoNLL-U sample endpoint in `manifests/ud_conllu_validation_manifest.json`, the RDF / Linked Data sample endpoint in `manifests/rdf_linked_data_validation_manifest.json`, and the derived-fields validation manifests in `manifests/member_identity_resolution_validation.json`, `manifests/party_attribution_validation.json`, and `manifests/speech_turn_validated_artifact_validation.json`. Endpoint validation manifests must record `tool_versions`, `library_versions`, `model_versions`, use `pin-before-release-artifact` for release-affecting stacks, and keep install checks `deferred-until-implementation` until endpoint work begins.
 
-`uv lock --check` and `uv sync --frozen --all-groups` are enforced locally and in CI. The repository is configured as a non-package uv project while script entrypoints remain transitional, so lock-file enforcement can land before the future `src/` package and CLI migration. Pre-commit remains deferred until that package/CLI migration, because CI is the current source of enforcement and avoids adding another local bootstrap path before the dependency model is settled.
+`pixi install` is enforced locally and in CI. The repository now uses Pixi as the environment manager while script entrypoints remain transitional, so the environment contract can land before the future `src/` package and CLI migration. Pre-commit remains deferred until that package/CLI migration, because CI is the current source of enforcement and avoids adding another local bootstrap path before the dependency model is settled.
 
 Dependency automation currently uses Dependabot for GitHub Actions and pip manifests. Renovate remains deferred unless the repo adopts grouped package-manager policy that Dependabot cannot express.

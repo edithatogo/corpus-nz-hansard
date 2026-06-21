@@ -160,9 +160,7 @@ def extract_mp_tables(html: str) -> list[dict]:
 
 def _extract_mp_rows(section_html: str, party: str, mps: list[dict]) -> None:
     """Extract MP rows from a section of HTML scoped to a single party header."""
-    for tr_match in re.finditer(
-        r"<tr[^>]*>(.*?)</tr>", section_html, re.IGNORECASE | re.DOTALL
-    ):
+    for tr_match in re.finditer(r"<tr[^>]*>(.*?)</tr>", section_html, re.IGNORECASE | re.DOTALL):
         tr_content = tr_match.group(1)
 
         # Skip header rows and sub-headers
@@ -212,6 +210,13 @@ def _extract_mp_rows(section_html: str, party: str, mps: list[dict]) -> None:
             )
             # Only take the first name link per row
             break
+
+
+def _extract_mp_tables_per_row(html: str) -> list[dict]:
+    """Extract MP rows when party section markers are unavailable."""
+    mps: list[dict] = []
+    _extract_mp_rows(html, "", mps)
+    return mps
 
 
 def main():

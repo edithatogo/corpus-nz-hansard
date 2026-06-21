@@ -121,4 +121,3 @@ def download_pdf_with_retry(
     else:
         last_result["error"] = f"retries_exhausted: {last_result['error']}"
     return last_result
-

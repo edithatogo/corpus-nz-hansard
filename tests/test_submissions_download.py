@@ -56,7 +56,6 @@ class FakeOpener:
 
 
 class DownloadPdfTest(unittest.TestCase):
-
     def test_download_pdf_writes_file(self):
         payload = b"%PDF-1.4 fake content"
         out = TEST_TMP / "test_download.pdf"
@@ -166,4 +165,3 @@ class DownloadPdfIntegrationTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

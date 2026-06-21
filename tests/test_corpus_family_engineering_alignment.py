@@ -25,12 +25,12 @@ class CorpusFamilyEngineeringAlignmentTest(unittest.TestCase):
         manifest = _json(MANIFEST_PATH)
         statuses = {item["id"]: item["status"] for item in manifest["standards"]}
 
-        self.assertEqual(statuses["uv-lock"], "adopted")
+        self.assertEqual(statuses["pixi-environment"], "adopted")
         self.assertEqual(statuses["ruff"], "adopted")
         self.assertEqual(statuses["zenodo-protection"], "adopted")
         self.assertEqual(statuses["src-layout"], "future")
         self.assertEqual(statuses["typer-cli"], "future")
-        self.assertEqual(statuses["pytest"], "future")
+        self.assertEqual(statuses["pytest"], "adopted")
 
     def test_configuration_is_consistent(self):
         self.assertEqual(_failures(), [])

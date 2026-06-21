@@ -5,6 +5,9 @@ on:
     branches: [ main, master ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   mirror:
     runs-on: ubuntu-latest
@@ -12,8 +15,10 @@ jobs:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
         with:
           fetch-depth: 0
+          persist-credentials: false
       - name: Mirror to Secondary Git Remote
         env:
+          GITHUB_REF_TO_PUSH: ${{ github.ref }}
           GIT_MIRROR_URL: ${{ secrets.GIT_MIRROR_URL }}
           GIT_MIRROR_SSH_PRIVATE_KEY: ${{ secrets.GIT_MIRROR_SSH_PRIVATE_KEY }}
         run: |
@@ -27,8 +32,8 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           
           # Extract host from git@host:user/repo.git
-          HOST=$(echo $GIT_MIRROR_URL | cut -d'@' -f2 | cut -d':' -f1)
-          ssh-keyscan -t ed25519 $HOST >> ~/.ssh/known_hosts
+          HOST=$(echo "$GIT_MIRROR_URL" | cut -d'@' -f2 | cut -d':' -f1)
+          ssh-keyscan -t ed25519 "$HOST" >> ~/.ssh/known_hosts
           
           git remote add mirror "$GIT_MIRROR_URL"
-          git push --force --prune mirror HEAD:${{ github.ref }}
+          git push --force --prune mirror "HEAD:${GITHUB_REF_TO_PUSH}"

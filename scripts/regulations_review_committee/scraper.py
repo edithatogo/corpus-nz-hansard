@@ -45,8 +45,7 @@ _DEFAULT_PROCEEDINGS_URL = (
 )
 _DEFAULT_HEADERS = {
     "User-Agent": (
-        "corpus-nz-hansard/1.0 (research; "
-        "+https://github.com/edithatogo/corpus-nz-hansard)"
+        "corpus-nz-hansard/1.0 (research; +https://github.com/edithatogo/corpus-nz-hansard)"
     ),
     "Accept": "application/json",
 }
@@ -93,7 +92,6 @@ def fetch_proceedings_index(
         "totalResults": len(entries),
         "source": "html",
     }
-
 
 
 def parse_proceeding_list(
@@ -177,9 +175,7 @@ def fetch_proceeding_document(
 def _parse_html_list(html: str) -> list[ProceedingEntry]:
     """Parse an HTML page of proceeding listings using regex."""
     entries: list[ProceedingEntry] = []
-    items = re.findall(
-        r'<div\s+class="proceeding-item"[^>]*>(.*?)</div>', html, re.DOTALL
-    )
+    items = re.findall(r'<div\s+class="proceeding-item"[^>]*>(.*?)</div>', html, re.DOTALL)
     for idx, item_html in enumerate(items):
         entries.append(
             ProceedingEntry(
@@ -205,7 +201,8 @@ def _tag_text(html: str, tag: str) -> str | None:
 def _class_text(html: str, cls: str) -> str | None:
     m = re.search(
         r'<[^>]+class="[^"]*' + re.escape(cls) + r'[^"]*"[^>]*>(.*?)</\w+>',
-        html, re.DOTALL,
+        html,
+        re.DOTALL,
     )
     if m:
         text = re.sub(r"<[^>]+>", "", m.group(1)).strip()
@@ -220,5 +217,5 @@ def _link_href(html: str) -> str | None:
 
 def _list_items(html: str) -> list[str]:
     """Extract text from <li> elements."""
-    items = re.findall(r'<li[^>]*>(.*?)</li>', html, re.DOTALL)
+    items = re.findall(r"<li[^>]*>(.*?)</li>", html, re.DOTALL)
     return [re.sub(r"<[^>]+>", "", it).strip() for it in items if it.strip()]

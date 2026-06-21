@@ -59,10 +59,12 @@ def normalize_date(raw: str | None) -> str | None:
         r"(\d{1,2})(?:st|nd|rd|th)?\s+"
         r"(January|February|March|April|May|June|July|"
         r"August|September|October|November|December)\s+(\d{4})",
-        raw, re.IGNORECASE,
+        raw,
+        re.IGNORECASE,
     )
     if m:
         from datetime import datetime
+
         try:
             dt = datetime.strptime(f"{m.group(1)} {m.group(2)} {m.group(3)}", "%d %B %Y")
             return dt.strftime("%Y-%m-%d")
@@ -71,6 +73,7 @@ def normalize_date(raw: str | None) -> str | None:
     m = re.match(r"(\d{2})[/-](\d{2})[/-](\d{4})", raw)
     if m:
         from datetime import datetime
+
         try:
             dt = datetime.strptime(f"{m.group(1)}/{m.group(2)}/{m.group(3)}", "%d/%m/%Y")
             return dt.strftime("%Y-%m-%d")
@@ -126,7 +129,7 @@ def normalize_submission_entry(entry: dict[str, Any]) -> dict[str, Any]:
     if date_normalized and re.match(r"^\d{4}", date_normalized):
         try:
             submission_year = int(date_normalized[:4])
-        except (ValueError, TypeError):
+        except ValueError, TypeError:
             pass
 
     return {

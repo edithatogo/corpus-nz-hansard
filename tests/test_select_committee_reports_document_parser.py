@@ -23,7 +23,6 @@ TEST_TMP = repo_tmp_dir()
 
 
 class DetectFormatTest(unittest.TestCase):
-
     def test_detect_pdf_by_extension(self):
         self.assertEqual(detect_format("report.pdf"), "pdf")
 
@@ -47,7 +46,10 @@ class DetectFormatTest(unittest.TestCase):
 
     def test_detect_docx_by_content_type(self):
         self.assertEqual(
-            detect_format("report.foo", content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"),
+            detect_format(
+                "report.foo",
+                content_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            ),
             "docx",
         )
 
@@ -58,7 +60,6 @@ class DetectFormatTest(unittest.TestCase):
 
 
 class ExtractTextFromPdfTest(unittest.TestCase):
-
     def test_extract_from_missing_file(self):
         result = extract_text_from_pdf(TEST_TMP / "nonexistent.pdf")
         self.assertEqual(result, "")
@@ -70,7 +71,6 @@ class ExtractTextFromPdfTest(unittest.TestCase):
 
 
 class ExtractTextFromHtmlTest(unittest.TestCase):
-
     def test_extract_from_simple_html(self):
         html = "<html><body><h1>Report Title</h1><p>Report content here.</p></body></html>"
         text = extract_text_from_html(html)
@@ -95,7 +95,6 @@ class ExtractTextFromHtmlTest(unittest.TestCase):
 
 
 class ExtractTextFromDocxTest(unittest.TestCase):
-
     def test_extract_from_missing_file(self):
         result = extract_text_from_docx(TEST_TMP / "nonexistent.docx")
         self.assertEqual(result, "")
@@ -107,7 +106,6 @@ class ExtractTextFromDocxTest(unittest.TestCase):
 
 
 class ExtractTextIntegrationTest(unittest.TestCase):
-
     def test_extract_html_dispatches_correctly(self):
         html = "<html><body><p>Hello World</p></body></html>"
         text = extract_text(html, fmt="html")

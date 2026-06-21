@@ -147,7 +147,7 @@ class FakeResponse:
             return b""
         if size < 0:
             size = len(self._data) - self.offset
-        chunk = self._data[self.offset:self.offset + size]
+        chunk = self._data[self.offset : self.offset + size]
         self.offset += len(chunk)
         return chunk
 
@@ -205,6 +205,7 @@ class LookupNzLegislationTest(unittest.TestCase):
     def test_lookup_handles_network_error(self):
         def failing_opener(_request):
             raise OSError("Connection refused")
+
         key = SecondaryLegislationKey(prefix="SR", year=2023, number=150)
         result = lookup_nz_legislation(key, opener=failing_opener)
         self.assertIsNotNone(result)

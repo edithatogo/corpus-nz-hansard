@@ -35,7 +35,6 @@ _SAMPLE_TEXT = (
 
 
 class ExtractMeetingDateTest(unittest.TestCase):
-
     def test_extracts_iso_date(self):
         text = "Meeting Date: 2024-03-15\n"
         date = extract_meeting_date(text)
@@ -61,7 +60,6 @@ class ExtractMeetingDateTest(unittest.TestCase):
 
 
 class ExtractAgendaItemsTest(unittest.TestCase):
-
     def test_extracts_agenda_items(self):
         items = extract_agenda_items(_SAMPLE_TEXT)
         self.assertGreaterEqual(len(items), 3)
@@ -80,7 +78,6 @@ class ExtractAgendaItemsTest(unittest.TestCase):
 
 
 class ExtractCommitteeMembersTest(unittest.TestCase):
-
     def test_extracts_members(self):
         members = extract_committee_members(_SAMPLE_TEXT)
         self.assertGreaterEqual(len(members), 3)
@@ -97,7 +94,6 @@ class ExtractCommitteeMembersTest(unittest.TestCase):
 
 
 class ExtractComplaintSubjectsTest(unittest.TestCase):
-
     def test_extracts_complaint_subjects(self):
         subjects = extract_complaint_subjects(_SAMPLE_TEXT)
         self.assertGreaterEqual(len(subjects), 1)
@@ -117,7 +113,6 @@ class ExtractComplaintSubjectsTest(unittest.TestCase):
 
 
 class ExtractRegulationReferencesTest(unittest.TestCase):
-
     def test_extracts_regulation_references(self):
         refs = extract_regulation_references(_SAMPLE_TEXT)
         self.assertGreaterEqual(len(refs), 1)
@@ -133,7 +128,6 @@ class ExtractRegulationReferencesTest(unittest.TestCase):
 
 
 class ExtractAllMetadataTest(unittest.TestCase):
-
     def test_extract_all_returns_proceeding_metadata(self):
         meta = extract_all_metadata(_SAMPLE_TEXT)
         self.assertIsInstance(meta, ProceedingMetadata)
@@ -167,4 +161,3 @@ class ExtractAllMetadataTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

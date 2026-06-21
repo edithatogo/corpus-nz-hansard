@@ -15,6 +15,7 @@ SUPPORTED_FORMATS = frozenset({"pdf", "html", "docx"})
 # Format detection
 # ---------------------------------------------------------------------------
 
+
 def detect_format(
     filename: str,
     content_type: str | None = None,
@@ -121,6 +122,7 @@ def extract_text_from_pdf(
 # HTML text extraction
 # ---------------------------------------------------------------------------
 
+
 def extract_text_from_html(
     html: str,
     compute_hash: bool = False,
@@ -148,7 +150,9 @@ def extract_text_from_html(
 
     # Replace <br> and block-level tags with newlines
     cleaned = re.sub(r"<br\s*/?>", "\n", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(r"</(p|div|h[1-6]|li|tr|blockquote|section)>", "\n", cleaned, flags=re.IGNORECASE)
+    cleaned = re.sub(
+        r"</(p|div|h[1-6]|li|tr|blockquote|section)>", "\n", cleaned, flags=re.IGNORECASE
+    )
 
     # Strip remaining tags
     text = re.sub(r"<[^>]+>", "", cleaned)
@@ -172,7 +176,7 @@ def _decode_html_entities(text: str) -> str:
         "&amp;": "&",
         "&lt;": "<",
         "&gt;": ">",
-        "&quot;": "\"",
+        "&quot;": '"',
         "&#39;": "'",
         "&nbsp;": " ",
         "&#160;": " ",
@@ -231,6 +235,7 @@ def extract_text_from_docx(
 # ---------------------------------------------------------------------------
 # Dispatcher
 # ---------------------------------------------------------------------------
+
 
 def extract_text(
     source: str | Path,

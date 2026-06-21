@@ -189,9 +189,7 @@ def build_historical_sitting_ledger(
         "sitting_date_missing_rows": summary["sitting_date_missing_rows"],
         "volume_page_extracted_rows": summary["volume_page_extracted_rows"],
         "volume_page_missing_rows": summary["volume_page_missing_rows"],
-        "publication_surface_counts": dict(
-            sorted(summary["publication_surface_counts"].items())
-        ),
+        "publication_surface_counts": dict(sorted(summary["publication_surface_counts"].items())),
         "document_type_counts": dict(
             sorted(summary["document_type_counts"].items(), key=lambda item: (-item[1], item[0]))
         ),

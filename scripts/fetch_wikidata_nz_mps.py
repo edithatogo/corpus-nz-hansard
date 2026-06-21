@@ -185,7 +185,9 @@ def main():
     with_pid = sum(1 for r in merged_records if r["parliament_nz_id"])
     with_party = sum(1 for r in merged_records if r["party"])
     with_dates = sum(1 for r in merged_records if r["start_date"])
-    with_described_url = sum(1 for r in merged_records if r.get("provenance", {}).get("described_at_url"))
+    with_described_url = sum(
+        1 for r in merged_records if r.get("provenance", {}).get("described_at_url")
+    )
     with_ref_urls = sum(1 for r in merged_records if r.get("provenance", {}).get("reference_urls"))
     print(f"\n  Source counts: {source_counts}")
     print(f"  Total raw bindings: {raw_n}")

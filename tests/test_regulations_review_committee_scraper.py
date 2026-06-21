@@ -89,10 +89,7 @@ class FakeOpener:
         return FakeResponse(self.payload, self.status)
 
 
-
-
 class FetchProceedingsIndexTest(unittest.TestCase):
-
     def test_fetch_returns_json(self):
         opener = FakeOpener(json.dumps(API_RESPONSE))
         result = fetch_proceedings_index(
@@ -154,8 +151,8 @@ class ProceedingEntryTest(unittest.TestCase):
             "https://www.parliament.nz/en/pb/sc/doc.pdf",
         )
 
-class ParseProceedingListTest(unittest.TestCase):
 
+class ParseProceedingListTest(unittest.TestCase):
     def test_parse_json(self):
         entries = parse_proceeding_list(API_RESPONSE)
         self.assertEqual(len(entries), 1)
@@ -205,7 +202,6 @@ class ParseProceedingListTest(unittest.TestCase):
 
 
 class FetchProceedingDocumentTest(unittest.TestCase):
-
     def test_fetch_document_success(self):
         pdf_content = b"%PDF-1.4 fake content"
         opener = FakeOpener(pdf_content)
@@ -221,9 +217,7 @@ class FetchProceedingDocumentTest(unittest.TestCase):
         self.assertTrue((TEST_TMP / "doc.pdf").exists())
 
     def test_fetch_document_empty_url(self):
-        result = fetch_proceeding_document(
-            url="", output_path=TEST_TMP / "empty.pdf"
-        )
+        result = fetch_proceeding_document(url="", output_path=TEST_TMP / "empty.pdf")
         self.assertIn("error", result)
         self.assertEqual(result["status"], 0)
 

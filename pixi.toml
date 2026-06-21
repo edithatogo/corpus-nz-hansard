@@ -1,0 +1,82 @@
+[workspace]
+channels = ["conda-forge"]
+name = "corpus-nz-hansard"
+platforms = ["win-64", "linux-64"]
+version = "0.1.0"
+
+[dependencies]
+python = "3.14.*"
+pip = ">=25.3"
+
+[pypi-dependencies]
+duckdb = "==1.5.4"
+huggingface-hub = "==1.20.1"
+jsonschema = "==4.26.0"
+loguru = "==0.7.3"
+pdfplumber = "==0.11.10"
+polars = "==1.41.2"
+pypdf = "==6.13.3"
+pyarrow = "==24.0.0"
+pydantic = "==2.13.4"
+pydantic-settings = "==2.14.2"
+requests = "==2.34.2"
+
+[feature.dev.pypi-dependencies]
+hypothesis = "==6.155.7"
+pre-commit = "==4.6.0"
+pytest = "==9.1.1"
+pytest-cov = "==7.1.0"
+pytest-github-actions-annotate-failures = "==0.4.2"
+pytest-randomly = "==4.1.0"
+pytest-timeout = "==2.4.0"
+pytest-xdist = "==3.8.0"
+ruff = "==0.15.18"
+scalene = "==2.3.0"
+taplo = "==0.9.3"
+ty = "==0.0.51"
+typos = "==1.47.2"
+zizmor = "==1.26.1"
+
+[feature.embeddings.pypi-dependencies]
+FlagEmbedding = "==1.4.0"
+torch = "==2.12.1"
+transformers = "==5.12.1"
+
+[feature.rdf.pypi-dependencies]
+rdflib = "==7.6.0"
+
+[feature.nlp.pypi-dependencies]
+scikit-learn = "==1.9.0"
+
+[feature.ai.pypi-dependencies]
+pydantic-ai-slim = "==1.107.0"
+
+[environments]
+default = { features = ["dev", "rdf", "nlp"], solve-group = "default" }
+all = { features = [
+  "dev",
+  "embeddings",
+  "rdf",
+  "nlp",
+  "ai",
+], solve-group = "all" }
+
+[tasks]
+lint = ".pixi/envs/default/python.exe -m ruff check --no-cache pyproject.toml pixi.toml test_support.py scripts tests"
+format-check = ".pixi/envs/default/python.exe -m ruff format --check --no-cache pyproject.toml pixi.toml test_support.py scripts tests"
+test = ".pixi/envs/default/python.exe -m pytest -q"
+typecheck = "ty check --error all scripts/build_search_index.py scripts/check_corpus_family_engineering_alignment.py scripts/check_quality_gate.py scripts/select_committee_reports/cache.py tests/test_build_search_index.py tests/test_corpus_family_engineering_alignment.py tests/test_select_committee_reports_cache.py test_support.py"
+spell = "typos --config typos.toml"
+workflow-audit = "zizmor --min-severity medium .github/workflows"
+toml-check = "taplo format --check pyproject.toml pixi.toml typos.toml"
+quality-config = ".pixi/envs/default/python.exe scripts/check_quality_gate.py"
+quality = { depends-on = [
+  "lint",
+  "format-check",
+  "typecheck",
+  "spell",
+  "workflow-audit",
+  "toml-check",
+  "quality-config",
+  "test",
+] }

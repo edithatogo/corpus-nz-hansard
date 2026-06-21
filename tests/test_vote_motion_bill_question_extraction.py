@@ -17,9 +17,7 @@ class VoteMotionBillQuestionExtractionTests(unittest.TestCase):
             generated_at="2026-06-10T00:00:00+10:00",
         )
         self.assertEqual(manifest["validation_status"], "blocked")
-        self.assertEqual(
-            manifest["release_gate_status"], "blocked-pending-validated-components"
-        )
+        self.assertEqual(manifest["release_gate_status"], "blocked-pending-validated-components")
         self.assertEqual(manifest["counts"]["procedure_samples_reviewed"], 6)
 
     def test_repo_manifest_shape_is_consistent(self) -> None:

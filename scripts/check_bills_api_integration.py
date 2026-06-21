@@ -76,8 +76,7 @@ def _failures() -> list[str]:
     if counts["exact_or_honorific_normalized_matches"] <= 0:
         failures.append("cross-reference must find at least one Hansard name match.")
     if (
-        counts["exact_or_honorific_normalized_matches"]
-        + counts["unmatched_bills_api_members"]
+        counts["exact_or_honorific_normalized_matches"] + counts["unmatched_bills_api_members"]
         != counts["bills_api_members"]
     ):
         failures.append("cross-reference counts must add up to Bills API member count.")

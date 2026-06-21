@@ -48,8 +48,14 @@ class BuildHistoricalSittingWeeklyArchiveIndexTest(unittest.TestCase):
         self.assertEqual(payload["summary"]["article_count"], 2)
         self.assertEqual(payload["summary"]["pdf_href_count"], 2)
         self.assertEqual(payload["summary"]["year_coverage"], ["2006", "2007"])
-        self.assertEqual(payload["pages"][0]["first_title"], "Journals of the House for the week beginning Tuesday, 17 July 2007")
-        self.assertEqual(payload["pages"][0]["last_title"], "Journals of the House for the week beginning Tuesday, 12 December 2006")
+        self.assertEqual(
+            payload["pages"][0]["first_title"],
+            "Journals of the House for the week beginning Tuesday, 17 July 2007",
+        )
+        self.assertEqual(
+            payload["pages"][0]["last_title"],
+            "Journals of the House for the week beginning Tuesday, 12 December 2006",
+        )
         self.assertEqual(len(payload["notes"]), 3)
 
 

@@ -25,9 +25,7 @@ _RE_BILL_IN_TEXT = re.compile(
     re.IGNORECASE,
 )
 
-_RE_BILL_SUFFIX = re.compile(
-    r"(?:^|\s)([A-Z][A-Za-z]*(?:\s+[A-Z][A-Za-z]+)*\s+Bill)(?:\s+\d{4})?"
-)
+_RE_BILL_SUFFIX = re.compile(r"(?:^|\s)([A-Z][A-Za-z]*(?:\s+[A-Z][A-Za-z]+)*\s+Bill)(?:\s+\d{4})?")
 
 
 def parse_bill_reference_from_text(text: str | None) -> str | None:
@@ -45,9 +43,12 @@ def parse_bill_reference_from_text(text: str | None) -> str | None:
             return ref
     return None
 
+
 _DEFAULT_CATALOG_PATH = (
     Path(__file__).resolve().parents[2]
-    / "derived" / "bills_api" / "bills_summary_20260613T021002Z.json"
+    / "derived"
+    / "bills_api"
+    / "bills_summary_20260613T021002Z.json"
 )
 
 _BILLS_CATALOG_CACHE: list[dict[str, Any]] | None = None
@@ -65,7 +66,7 @@ def _load_default_catalog() -> list[dict[str, Any]]:
             if isinstance(data, list):
                 _BILLS_CATALOG_CACHE = data
                 return _BILLS_CATALOG_CACHE
-        except (json.JSONDecodeError, OSError):
+        except json.JSONDecodeError, OSError:
             pass
     _BILLS_CATALOG_CACHE = []
     return _BILLS_CATALOG_CACHE
@@ -118,9 +119,7 @@ class BillLinkageIndex:
 
     def __repr__(self) -> str:
         return (
-            f"BillLinkageIndex("
-            f"{len(self.bills_catalog)} bills, "
-            f"{len(self.linkage_map)} linkages)"
+            f"BillLinkageIndex({len(self.bills_catalog)} bills, {len(self.linkage_map)} linkages)"
         )
 
 

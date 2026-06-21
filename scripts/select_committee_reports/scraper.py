@@ -44,8 +44,7 @@ class ReportEntry:
 _DEFAULT_REPORTS_URL = "https://committees.parliament.nz/api/reports"
 _DEFAULT_HEADERS = {
     "User-Agent": (
-        "corpus-nz-hansard/1.0 (research; "
-        "+https://github.com/edithatogo/corpus-nz-hansard)"
+        "corpus-nz-hansard/1.0 (research; +https://github.com/edithatogo/corpus-nz-hansard)"
     ),
     "Accept": "application/json",
 }
@@ -252,9 +251,7 @@ def fetch_report_document(
 def _parse_html_list(html: str) -> list[ReportEntry]:
     """Parse an HTML page of report listings using regex."""
     entries: list[ReportEntry] = []
-    items = re.findall(
-        r'<div\s+class="report-item"[^>]*>(.*?)</div>', html, re.DOTALL
-    )
+    items = re.findall(r'<div\s+class="report-item"[^>]*>(.*?)</div>', html, re.DOTALL)
     for idx, item_html in enumerate(items):
         entries.append(
             ReportEntry(
@@ -279,7 +276,8 @@ def _tag_text(html: str, tag: str) -> str | None:
 def _class_text(html: str, cls: str) -> str | None:
     m = re.search(
         r'<[^>]+class="[^"]*' + re.escape(cls) + r'[^"]*"[^>]*>(.*?)</\w+>',
-        html, re.DOTALL,
+        html,
+        re.DOTALL,
     )
     if m:
         text = re.sub(r"<[^>]+>", "", m.group(1)).strip()

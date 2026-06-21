@@ -47,19 +47,17 @@ _RE_COMMITTEE = [
 
 
 _RE_BILL = [
-    re.compile(r"(?:Inquiry\s+into\s+the\s+)?([A-Z][A-Za-z]+(?:\s+(?:[A-Za-z]+|\([A-Za-z]+(?:\s+[A-Za-z]+)*\)))*\s+Bill)"),
+    re.compile(
+        r"(?:Inquiry\s+into\s+the\s+)?([A-Z][A-Za-z]+(?:\s+(?:[A-Za-z]+|\([A-Za-z]+(?:\s+[A-Za-z]+)*\)))*\s+Bill)"
+    ),
     re.compile(r"Bill\s+(?:referred|reference)[:\s]+(.+)", re.IGNORECASE),
 ]
 
 
-_RE_SUBJECT = re.compile(
-    r"^(?:Subject|Topic|Regarding)[:\s]+(.+)$", re.IGNORECASE | re.MULTILINE
-)
+_RE_SUBJECT = re.compile(r"^(?:Subject|Topic|Regarding)[:\s]+(.+)$", re.IGNORECASE | re.MULTILINE)
 
 
-_RE_RECOMMENDATION = re.compile(
-    r"(?:recommends?|recommendation)[:\s]+(.+)", re.IGNORECASE
-)
+_RE_RECOMMENDATION = re.compile(r"(?:recommends?|recommendation)[:\s]+(.+)", re.IGNORECASE)
 
 
 def extract_report_date(text: str) -> str | None:
@@ -167,9 +165,11 @@ def extract_all_metadata(text: str) -> ReportMetadata:
 @dataclass
 class LegislationRef:
     """A reference to an Act of Parliament or other legislation."""
+
     name: str
     year: int | None = None
     type: str = "act"
+
     def to_dict(self) -> dict[str, Any]:
         d = {"name": self.name, "type": self.type}
         if self.year is not None:
@@ -180,8 +180,10 @@ class LegislationRef:
 @dataclass
 class BillRef:
     """A reference to a Bill before Parliament."""
+
     name: str
     bill_number: str | None = None
+
     def to_dict(self) -> dict[str, Any]:
         d = {"name": self.name}
         if self.bill_number is not None:
@@ -318,8 +320,10 @@ def extract_findings(text: str | None) -> list[str]:
 @dataclass
 class WitnessSubmitter:
     """An individual or organisation that made a submission or appeared as witness."""
+
     name: str
     affiliation: str | None = None
+
     def to_dict(self) -> dict[str, Any]:
         d = {"name": self.name}
         if self.affiliation is not None:
@@ -330,6 +334,7 @@ class WitnessSubmitter:
 @dataclass
 class ParsedReport:
     """Fully parsed and structured data from a select committee report."""
+
     committee_name: str | None = None
     report_title: str | None = None
     report_date: str | None = None
@@ -338,6 +343,7 @@ class ParsedReport:
     referenced_legislation: list[str] = field(default_factory=list)
     referenced_bills: list[str] = field(default_factory=list)
     witnesses_submitters: list[WitnessSubmitter] = field(default_factory=list)
+
     def to_dict(self) -> dict[str, Any]:
         result: dict[str, Any] = {}
         if self.committee_name is not None:
@@ -361,9 +367,26 @@ class ParsedReport:
 
 # Remaining enhanced functions
 
-_LEADING_WORDS = {"the", "this", "these", "that", "a", "an", "and", "references",
-    "including", "related", "such", "other", "all",
-    "relevant", "applicable", "committee", "considered", "report"}
+_LEADING_WORDS = {
+    "the",
+    "this",
+    "these",
+    "that",
+    "a",
+    "an",
+    "and",
+    "references",
+    "including",
+    "related",
+    "such",
+    "other",
+    "all",
+    "relevant",
+    "applicable",
+    "committee",
+    "considered",
+    "report",
+}
 
 
 def _clean_name(full_match, suffix):
@@ -431,7 +454,13 @@ def extract_witnesses_submitters(text):
                     break
             m = _RE_SUBMITTER_LINE.match(stripped)
             if m:
-                name = m.group(1).strip().strip(".",)
+                name = (
+                    m.group(1)
+                    .strip()
+                    .strip(
+                        ".",
+                    )
+                )
                 affiliation = m.group(2).strip() if m.group(2) else None
                 if name and len(name) > 2:
                     witnesses.append(WitnessSubmitter(name=name, affiliation=affiliation))

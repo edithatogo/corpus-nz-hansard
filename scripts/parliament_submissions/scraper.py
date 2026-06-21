@@ -41,8 +41,7 @@ class SubmissionEntry:
 _DEFAULT_API_URL = "https://committees.parliament.nz/api/submissions"
 _DEFAULT_HEADERS = {
     "User-Agent": (
-        "corpus-nz-hansard/1.0 (research; "
-        "+https://github.com/edithatogo/corpus-nz-hansard)"
+        "corpus-nz-hansard/1.0 (research; +https://github.com/edithatogo/corpus-nz-hansard)"
     ),
     "Accept": "application/json",
 }
@@ -125,9 +124,7 @@ def parse_submission_list(
 def _parse_html_list(html: str) -> list[SubmissionEntry]:
     """Parse an HTML page of submission listings using regex."""
     entries: list[SubmissionEntry] = []
-    items = re.findall(
-        r'<div\s+class="submission-item"[^>]*>(.*?)</div>', html, re.DOTALL
-    )
+    items = re.findall(r'<div\s+class="submission-item"[^>]*>(.*?)</div>', html, re.DOTALL)
     for idx, item_html in enumerate(items):
         entries.append(
             SubmissionEntry(
@@ -153,7 +150,8 @@ def _tag_text(html: str, tag: str) -> str | None:
 def _class_text(html: str, cls: str) -> str | None:
     m = re.search(
         r'<[^>]+class="[^"]*' + re.escape(cls) + r'[^"]*"[^>]*>(.*?)</\w+>',
-        html, re.DOTALL,
+        html,
+        re.DOTALL,
     )
     if m:
         text = re.sub(r"<[^>]+>", "", m.group(1)).strip()
@@ -164,4 +162,3 @@ def _class_text(html: str, cls: str) -> str | None:
 def _link_href(html: str) -> str | None:
     m = re.search(r'<a\s+[^>]*href="([^"]+)"', html)
     return m.group(1) if m else None
-

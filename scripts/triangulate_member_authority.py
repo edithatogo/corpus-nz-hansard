@@ -1,4 +1,5 @@
 """Triangulate auto-derived member authority against Wikidata and Parliament data."""
+
 from __future__ import annotations
 import json
 import sys
@@ -127,7 +128,11 @@ def _match_record(record, lookup, source_records, id_field="wikidata_id"):
                     continue
                 label_norm = _norm(sr.get("label", "") or "")
                 for norm_name in search_norms:
-                    s = (fuzz.token_sort_ratio(norm_name, label_norm) if fuzz else (100 if norm_name == label_norm else 0))
+                    s = (
+                        fuzz.token_sort_ratio(norm_name, label_norm)
+                        if fuzz
+                        else (100 if norm_name == label_norm else 0)
+                    )
                     if s > best_score:
                         best_score, best = s, sr
         if best and best_score >= FUZZY_THRESHOLD:
@@ -161,13 +166,13 @@ def _get_match_method(record, wikidata_rec):
     family = wikidata_rec.get("family_name", "") or ""
     if given and family and cn == _norm(f"{given} {family}"):
         return "given-family-name"
-    for alias in (wikidata_rec.get("aliases", []) or []):
+    for alias in wikidata_rec.get("aliases", []) or []:
         if alias and cn == _norm(alias):
             return "wikidata-alias"
-    for alias in (record.get("aliases", []) or []):
+    for alias in record.get("aliases", []) or []:
         if alias and _norm(alias) == ln:
             return "alias-to-label"
-        for walias in (wikidata_rec.get("aliases", []) or []):
+        for walias in wikidata_rec.get("aliases", []) or []:
             if walias and _norm(alias) == _norm(walias):
                 return "alias-to-wikidata-alias"
     return "fuzzy"
@@ -183,10 +188,12 @@ def _enrich_from_wikidata(rec, wd_rec):
     if wd_rec.get("party"):
         enriched_rec["party"] = wd_rec["party"]
     if wd_rec.get("start_date") or wd_rec.get("end_date"):
-        enriched_rec["service_periods"] = [{
-            "start": wd_rec.get("start_date", ""),
-            "end": wd_rec.get("end_date", ""),
-        }]
+        enriched_rec["service_periods"] = [
+            {
+                "start": wd_rec.get("start_date", ""),
+                "end": wd_rec.get("end_date", ""),
+            }
+        ]
     enriched_rec["resolution_scope"] = "triangulated-wikidata"
     enriched_rec["authority_source_id"] = "wikidata-nz-mps"
     enriched_rec["authority_url"] = f"https://www.wikidata.org/wiki/{wd_rec['wikidata_id']}"
@@ -200,7 +207,9 @@ def _enrich_from_parliament(rec, parl_rec):
     enriched_rec["parliament_nz_party"] = parl_rec.get("party", "")
     enriched_rec["resolution_scope"] = "triangulated-parliament"
     enriched_rec["authority_source_id"] = "parliament-nz-current"
-    enriched_rec["authority_url"] = "https://www.parliament.nz/en/mps-and-electorates/members-of-parliament/"
+    enriched_rec["authority_url"] = (
+        "https://www.parliament.nz/en/mps-and-electorates/members-of-parliament/"
+    )
     enriched_rec["wikidata_match_method"] = "parliament-nz-current"
     return enriched_rec
 
@@ -252,7 +261,9 @@ def main():
                     parl_matched += 1
         print(f"  Parliament-matched: {parl_matched}")
     else:
-        print(f"\n  Parliament current MPs file not found at {PARLIAMENT_PATH}, skipping second pass.")
+        print(
+            f"\n  Parliament current MPs file not found at {PARLIAMENT_PATH}, skipping second pass."
+        )
 
     # === Statistics ===
     total_matched = wd_matched + parl_matched
@@ -265,7 +276,7 @@ def main():
     if parl_matched:
         print(f"  Matched (Parliament): {parl_matched}/{len(auto_records)}")
     print(f"  Total matched: {total_matched}/{len(auto_records)}")
-    print(f"  Match methods:")
+    print("  Match methods:")
     for m, c in sorted(by_method.items(), key=lambda x: -x[1]):
         print(f"    {m}: {c}")
 
@@ -284,7 +295,9 @@ def main():
         "fuzzy_available": fuzz is not None,
     }
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    OUTPUT_PATH.write_text(
+        json.dumps(output, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
     print(f"\nWrote {OUTPUT_PATH}")
     print(f"  {len(enriched)} records ({total_matched} triangulated)")
     return 0

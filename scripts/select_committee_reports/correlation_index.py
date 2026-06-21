@@ -12,6 +12,7 @@ from typing import Any
 @dataclass
 class HansardLink:
     """A link from a report to a Hansard debate."""
+
     hansard_id: str
     sitting_date: str | None = None
     debate_title: str | None = None
@@ -30,6 +31,7 @@ class HansardLink:
 @dataclass
 class LegislationLink:
     """A link from a report to an Act or Bill."""
+
     legislation_id: str
     legislation_type: str | None = None
     legislation_url: str | None = None
@@ -46,6 +48,7 @@ class LegislationLink:
 @dataclass
 class CorrelationEntry:
     """A single correlation index entry linking a report to Hansard/legislation."""
+
     report_id: str
     committee_name: str | None = None
     report_title: str | None = None
@@ -81,16 +84,16 @@ class CorrelationIndex:
     """A collection of correlation index entries.
     Provides serialisation to dicts and metadata about the index.
     """
+
     entries: list[CorrelationEntry] = field(default_factory=list)
 
     def to_dicts(self) -> list[dict[str, Any]]:
         return [e.to_dict() for e in self.entries]
 
     def metadata(self) -> dict[str, Any]:
-        committees = sorted(set(
-            e.committee_name for e in self.entries
-            if e.committee_name is not None
-        ))
+        committees = sorted(
+            set(e.committee_name for e in self.entries if e.committee_name is not None)
+        )
         return {
             "total_entries": len(self.entries),
             "corpus": "corpus-nz-hansard",
@@ -109,6 +112,7 @@ def build_hansard_links(
 ) -> list[HansardLink]:
     """Build links from a report to Hansard debates by title matching."""
     import re
+
     if available_debates is None:
         available_debates = _DEFAULT_DEBATES
 
@@ -132,12 +136,14 @@ def build_hansard_links(
             score += 0.4
 
         if score > 0.3:
-            links.append(HansardLink(
-                hansard_id=debate_id,
-                sitting_date=debate_date,
-                debate_title=debate_title,
-                relevance=min(score, 1.0),
-            ))
+            links.append(
+                HansardLink(
+                    hansard_id=debate_id,
+                    sitting_date=debate_date,
+                    debate_title=debate_title,
+                    relevance=min(score, 1.0),
+                )
+            )
 
     return links
 
@@ -150,16 +156,20 @@ def build_legislation_links(
     links: list[LegislationLink] = []
     if legislation_refs:
         for ref in legislation_refs:
-            links.append(LegislationLink(
-                legislation_id=ref,
-                legislation_type="act",
-            ))
+            links.append(
+                LegislationLink(
+                    legislation_id=ref,
+                    legislation_type="act",
+                )
+            )
     if bill_refs:
         for ref in bill_refs:
-            links.append(LegislationLink(
-                legislation_id=ref,
-                legislation_type="bill",
-            ))
+            links.append(
+                LegislationLink(
+                    legislation_id=ref,
+                    legislation_type="bill",
+                )
+            )
     return links
 
 
@@ -213,28 +223,36 @@ CORRELATION_INDEX_SCHEMA: dict[str, Any] = {
         {"name": "committee_name", "type": "string", "nullable": True},
         {"name": "report_title", "type": "string", "nullable": True},
         {"name": "report_date", "type": "string", "nullable": True},
-        {"name": "hansard_links", "type": {
-            "type": "array",
-            "items": {
-                "type": "struct",
-                "fields": [
-                    {"name": "hansard_id", "type": "string", "nullable": False},
-                    {"name": "sitting_date", "type": "string", "nullable": True},
-                    {"name": "debate_title", "type": "string", "nullable": True},
-                    {"name": "relevance", "type": "float", "nullable": False},
-                ],
+        {
+            "name": "hansard_links",
+            "type": {
+                "type": "array",
+                "items": {
+                    "type": "struct",
+                    "fields": [
+                        {"name": "hansard_id", "type": "string", "nullable": False},
+                        {"name": "sitting_date", "type": "string", "nullable": True},
+                        {"name": "debate_title", "type": "string", "nullable": True},
+                        {"name": "relevance", "type": "float", "nullable": False},
+                    ],
+                },
             },
-        }, "nullable": True},
-        {"name": "legislation_links", "type": {
-            "type": "array",
-            "items": {
-                "type": "struct",
-                "fields": [
-                    {"name": "legislation_id", "type": "string", "nullable": False},
-                    {"name": "legislation_type", "type": "string", "nullable": True},
-                    {"name": "legislation_url", "type": "string", "nullable": True},
-                ],
+            "nullable": True,
+        },
+        {
+            "name": "legislation_links",
+            "type": {
+                "type": "array",
+                "items": {
+                    "type": "struct",
+                    "fields": [
+                        {"name": "legislation_id", "type": "string", "nullable": False},
+                        {"name": "legislation_type", "type": "string", "nullable": True},
+                        {"name": "legislation_url", "type": "string", "nullable": True},
+                    ],
+                },
             },
-        }, "nullable": True},
+            "nullable": True,
+        },
     ],
 }

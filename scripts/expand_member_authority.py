@@ -235,7 +235,7 @@ FORMER_MEMBERS_URL_TEMPLATE = (
 def _nfkd(value: str) -> str:
     """Apply Unicode NFKD normalization and strip combining marks (macrons → ASCII: Tāmati → Tamati)."""
     nfkd = unicodedata.normalize("NFKD", value)
-    # Strip combining diacritical marks (U+0300–U+036F) that NFKD introduces
+    # Strip combining diacritical marks (U+0300-U+036F) that NFKD introduces.
     return "".join(ch for ch in nfkd if unicodedata.category(ch) != "Mn")
 
 
@@ -245,7 +245,7 @@ def _load_json(path: Path) -> dict[str, Any]:
 
 def load_triangulated_authority() -> dict[str, Any] | None:
     """Load triangulated authority if available, otherwise return None.
-    
+
     Triangulation cross-references auto-derived records against Wikidata
     to enrich them with official IDs, party labels, and service periods.
     """
@@ -349,7 +349,7 @@ def _merge_near_duplicates(
             compound_key = f"{given}|{surname}"
             first_name_groups.setdefault(compound_key, []).append(rec)
 
-        for fng_key, fng in first_name_groups.items():
+        for fng in first_name_groups.values():
             if len(fng) < 2:
                 merged.extend(fng)
                 continue

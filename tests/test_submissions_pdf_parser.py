@@ -41,7 +41,6 @@ def tearDownModule():
 
 
 class PdfParserTest(unittest.TestCase):
-
     def test_extract_text_from_valid_pdf(self):
         text = extract_pdf_text(_SAMPLE)
         self.assertIsInstance(text, str)
@@ -71,8 +70,10 @@ class PdfParserTest(unittest.TestCase):
 
     def test_extract_text_handles_multiline_content(self):
         ml = TEST_TMP / "multiline.pdf"
-        content = (b"BT /F1 12 Tf 72 700 Td (Line one) Tj\n"
-                   b"0 -14 Td (Line two) Tj\n0 -14 Td (Line three) Tj ET")
+        content = (
+            b"BT /F1 12 Tf 72 700 Td (Line one) Tj\n"
+            b"0 -14 Td (Line two) Tj\n0 -14 Td (Line three) Tj ET"
+        )
         ml.write_bytes(_make_pdf(content))
         try:
             text = extract_pdf_text(ml)
@@ -93,7 +94,7 @@ class PdfParserTest(unittest.TestCase):
 
     def test_extract_text_preserves_unicode_characters(self):
         uni = TEST_TMP / "unicode.pdf"
-        uni.write_bytes(_make_pdf(b"BT /F1 12 Tf 72 700 Td (\x74\xC4\x81mara) Tj ET"))
+        uni.write_bytes(_make_pdf(b"BT /F1 12 Tf 72 700 Td (\x74\xc4\x81mara) Tj ET"))
         try:
             text = extract_pdf_text(uni)
             self.assertIsInstance(text, str)
@@ -122,13 +123,15 @@ def _make_pdf(stream_content: bytes) -> bytes:
         b"3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792]\n"
         b"/Resources << /Font << /F1 4 0 R >> >>\n/Contents 5 0 R >>\nendobj\n"
         b"4 0 obj\n<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>\nendobj\n"
-        b"5 0 obj\n<< /Length " + str(length).encode() + b" >>\nstream\n"
-        + stream_content + b"\nendstream\nendobj\n"
+        b"5 0 obj\n<< /Length "
+        + str(length).encode()
+        + b" >>\nstream\n"
+        + stream_content
+        + b"\nendstream\nendobj\n"
         b"xref\n0 6\n0000000000 65535 f \n0000000009 00000 n \n"
         b"0000000058 00000 n \n0000000115 00000 n \n0000000266 00000 n \n"
         b"0000000357 00000 n \n"
-        b"trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n"
-        + str(offset).encode() + b"\n%%EOF"
+        b"trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n" + str(offset).encode() + b"\n%%EOF"
     )
 
 

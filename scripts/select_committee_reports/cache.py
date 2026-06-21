@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -41,7 +41,7 @@ def load_manifest(path: Path | str) -> CacheManifest:
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
         return CacheManifest.from_dict(data)
-    except (json.JSONDecodeError, KeyError, TypeError):
+    except json.JSONDecodeError, KeyError, TypeError:
         return CacheManifest()
 
 
@@ -75,7 +75,7 @@ def mark_cached(
         "sha256": file_hash,
         "size": size,
         "format": fmt,
-        "cached_at": datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S"),
+        "cached_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%S"),
     }
 
 
@@ -118,7 +118,7 @@ def get_stale_entries(
     if reference_date:
         now = datetime.strptime(reference_date, "%Y-%m-%d")
     else:
-        now = datetime.utcnow()
+        now = datetime.now(UTC).replace(tzinfo=None)
 
     stale: list[str] = []
     for report_id, info in manifest.entries.items():

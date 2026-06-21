@@ -59,7 +59,9 @@ def build_historical_sitting_weekly_archive_index(
         for article in list(report.get("articles") or report.get("results") or []):
             normalized_articles.append(
                 {
-                    "article_url": article.get("article_url") or article.get("articleUrl") or article.get("url"),
+                    "article_url": article.get("article_url")
+                    or article.get("articleUrl")
+                    or article.get("url"),
                     "title": article["title"],
                     "pdf_href": article.get("pdf_href") or article.get("pdf"),
                 }
@@ -93,7 +95,11 @@ def build_historical_sitting_weekly_archive_index(
             "article_count": len(unique_articles),
             "pdf_href_count": sum(1 for item in unique_articles if item.get("pdf_href")),
             "year_coverage": sorted(
-                {year for year in (_extract_year(item["title"]) for item in unique_articles) if year}
+                {
+                    year
+                    for year in (_extract_year(item["title"]) for item in unique_articles)
+                    if year
+                }
             ),
         },
         "notes": [
@@ -179,7 +185,9 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     page_numbers = args.pages or DEFAULT_PAGE_NUMBERS
-    page_reports = asyncio.run(_crawl_weekly_archive(page_numbers=page_numbers, executable_path=args.chrome))
+    page_reports = asyncio.run(
+        _crawl_weekly_archive(page_numbers=page_numbers, executable_path=args.chrome)
+    )
     result = build_historical_sitting_weekly_archive_index(
         page_reports=page_reports,
         output_path=args.output,

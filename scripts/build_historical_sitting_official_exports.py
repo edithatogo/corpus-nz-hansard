@@ -73,7 +73,7 @@ def build_historical_sitting_official_exports(
     for source in manifest["sources"]:
         pdf_bytes = _download_pdf(source["url"])
         digest = hashlib.sha256(pdf_bytes).hexdigest()
-        pdf_path = cache_dir / f'{source["id"]}.pdf'
+        pdf_path = cache_dir / f"{source['id']}.pdf"
         pdf_path.write_bytes(pdf_bytes)
 
         reader = PdfReader(BytesIO(pdf_bytes))

@@ -34,7 +34,6 @@ Bill referred: Justice Reform Bill (2024/123)
 
 
 class ExtractReportDateTest(unittest.TestCase):
-
     def test_extracts_iso_date(self):
         text = "Report Date: 2024-06-30\n"
         date = extract_report_date(text)
@@ -59,7 +58,6 @@ class ExtractReportDateTest(unittest.TestCase):
 
 
 class ExtractCommitteeNameTest(unittest.TestCase):
-
     def test_extracts_name_from_text(self):
         name = extract_committee_name(_SAMPLE_TEXT)
         self.assertEqual(name, "Justice Committee")
@@ -77,7 +75,6 @@ class ExtractCommitteeNameTest(unittest.TestCase):
 
 
 class ExtractBillReferenceTest(unittest.TestCase):
-
     def test_extracts_bill_reference(self):
         ref = extract_bill_reference(_SAMPLE_TEXT)
         self.assertEqual(ref, "Justice Reform Bill")
@@ -96,7 +93,6 @@ class ExtractBillReferenceTest(unittest.TestCase):
 
 
 class ExtractReportSubjectTest(unittest.TestCase):
-
     def test_extracts_subject(self):
         subject = extract_report_subject(_SAMPLE_TEXT)
         self.assertEqual(subject, "Justice Reform and Access to Legal Aid")
@@ -106,7 +102,6 @@ class ExtractReportSubjectTest(unittest.TestCase):
 
 
 class ExtractMemberRecommendationsTest(unittest.TestCase):
-
     def test_extracts_recommendations(self):
         recs = extract_member_recommendations(_SAMPLE_TEXT)
         self.assertGreaterEqual(len(recs), 1)
@@ -117,7 +112,6 @@ class ExtractMemberRecommendationsTest(unittest.TestCase):
 
 
 class ExtractAllMetadataTest(unittest.TestCase):
-
     def test_extract_all_returns_report_metadata(self):
         meta = extract_all_metadata(_SAMPLE_TEXT)
         self.assertIsInstance(meta, ReportMetadata)

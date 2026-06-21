@@ -21,16 +21,30 @@ TEST_TMP = repo_tmp_dir()
 
 API_RESPONSE = {
     "results": [
-        {"id": "sub-001", "title": "Submission on ABC Bill",
-         "submitter": "Jane Citizen", "committee": "Justice Committee",
-         "billReference": "ABC Bill", "submissionDate": "2024-03-15",
-         "documentUrl": "/en/pb/sc/sub-001.pdf", "status": "received"},
-        {"id": "sub-002", "title": "Submission on XYZ Bill",
-         "submitter": "Organisation NZ", "committee": "Health Committee",
-         "billReference": "XYZ Bill", "submissionDate": "2024-04-01",
-         "documentUrl": "/en/pb/sc/sub-002.pdf", "status": "received"},
+        {
+            "id": "sub-001",
+            "title": "Submission on ABC Bill",
+            "submitter": "Jane Citizen",
+            "committee": "Justice Committee",
+            "billReference": "ABC Bill",
+            "submissionDate": "2024-03-15",
+            "documentUrl": "/en/pb/sc/sub-001.pdf",
+            "status": "received",
+        },
+        {
+            "id": "sub-002",
+            "title": "Submission on XYZ Bill",
+            "submitter": "Organisation NZ",
+            "committee": "Health Committee",
+            "billReference": "XYZ Bill",
+            "submissionDate": "2024-04-01",
+            "documentUrl": "/en/pb/sc/sub-002.pdf",
+            "status": "received",
+        },
     ],
-    "totalResults": 2, "page": 1, "pageSize": 50,
+    "totalResults": 2,
+    "page": 1,
+    "pageSize": 50,
 }
 
 HTML_RESPONSE = """<html><body>
@@ -88,11 +102,11 @@ class FakeOpener:
 
 
 class FetchSubmissionsListTest(unittest.TestCase):
-
     def test_fetch_returns_json(self):
         opener = FakeOpener(json.dumps(API_RESPONSE))
         result = fetch_submissions_list(
-            url="https://committees.parliament.nz/api/submissions", opener=opener)
+            url="https://committees.parliament.nz/api/submissions", opener=opener
+        )
         self.assertEqual(len(result.get("results", [])), 2)
         self.assertEqual(result["totalResults"], 2)
 
@@ -100,8 +114,12 @@ class FetchSubmissionsListTest(unittest.TestCase):
         opener = FakeOpener(json.dumps({"results": [], "totalResults": 0}))
         fetch_submissions_list(
             url="https://committees.parliament.nz/api/submissions",
-            page=2, page_size=100, opener=opener)
+            page=2,
+            page_size=100,
+            opener=opener,
+        )
         import urllib.parse
+
         full = str(opener.request.full_url)
         params = urllib.parse.parse_qs(urllib.parse.urlparse(full).query)
         self.assertEqual(params.get("page"), ["2"])
@@ -110,12 +128,12 @@ class FetchSubmissionsListTest(unittest.TestCase):
     def test_fetch_http_error(self):
         result = fetch_submissions_list(
             url="https://committees.parliament.nz/api/submissions",
-            opener=FakeOpener("Not Found", status=404))
+            opener=FakeOpener("Not Found", status=404),
+        )
         self.assertIn("error", result)
 
 
 class ParseSubmissionListTest(unittest.TestCase):
-
     def test_parse_json(self):
         entries = parse_submission_list(API_RESPONSE)
         self.assertEqual(len(entries), 2)
@@ -142,9 +160,16 @@ class ParseSubmissionListTest(unittest.TestCase):
         self.assertIsNone(entries[0].committee)
 
     def test_entry_to_dict(self):
-        e = SubmissionEntry(id="s", title="T", submitter="P", committee="C",
-                            bill_reference="B", submission_date="2024-01-01",
-                            document_url="/d.pdf", status="received")
+        e = SubmissionEntry(
+            id="s",
+            title="T",
+            submitter="P",
+            committee="C",
+            bill_reference="B",
+            submission_date="2024-01-01",
+            document_url="/d.pdf",
+            status="received",
+        )
         d = e.to_dict()
         self.assertEqual(d["id"], "s")
         self.assertEqual(d["submitter"], "P")
@@ -156,8 +181,10 @@ class ParseSubmissionListTest(unittest.TestCase):
 
     def test_absolute_url(self):
         e = SubmissionEntry(id="s", document_url="/en/pb/sc/doc.pdf")
-        self.assertEqual(e.absolute_url("https://www.parliament.nz"),
-                         "https://www.parliament.nz/en/pb/sc/doc.pdf")
+        self.assertEqual(
+            e.absolute_url("https://www.parliament.nz"),
+            "https://www.parliament.nz/en/pb/sc/doc.pdf",
+        )
 
 
 if __name__ == "__main__":

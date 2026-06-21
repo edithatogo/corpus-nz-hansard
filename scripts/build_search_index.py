@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import sqlite3
+from contextlib import closing
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -242,7 +243,7 @@ def build_search_index(
     chunks_by_document_type: dict[str, int] = {}
     examples: list[dict[str, Any]] = []
 
-    with _connect_database(database_path) as connection:
+    with closing(_connect_database(database_path)) as connection:
         _create_schema(connection)
         parquet_file = pq.ParquetFile(parquet_path)
         for record_batch in parquet_file.iter_batches(batch_size=batch_size):

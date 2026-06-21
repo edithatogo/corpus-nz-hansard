@@ -5,6 +5,7 @@ curated Wikipedia data as the authoritative source for current MP names.
 
 Output: derived/parliament_current_mps.json
 """
+
 from __future__ import annotations
 
 import json
@@ -166,11 +167,20 @@ def scrape_wikipedia_mps() -> list[dict[str, str]] | None:
         pattern = r'<a\s+href="/wiki/[^"]+"\s+title="([^"]+)"[^>]*>([^<]+)</a>'
         matches = re.findall(pattern, html)
         skip_words = {
-            "New", "Zealand", "Parliament", "Election", "House",
-            "Representatives", "Wikipedia", "Minister", "Cabinet",
-            "Electoral", "Party", "Aotearoa",
+            "New",
+            "Zealand",
+            "Parliament",
+            "Election",
+            "House",
+            "Representatives",
+            "Wikipedia",
+            "Minister",
+            "Cabinet",
+            "Electoral",
+            "Party",
+            "Aotearoa",
         }
-        for title, text in matches:
+        for _title, text in matches:
             name = text.strip()
             words = name.split()
             if len(words) >= 2 and 4 <= len(name) <= 50:

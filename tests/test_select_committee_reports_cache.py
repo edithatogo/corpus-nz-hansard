@@ -5,6 +5,7 @@ from __future__ import annotations
 import sys
 import unittest
 from pathlib import Path
+from typing import override
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -24,7 +25,6 @@ TEST_TMP = repo_tmp_dir()
 
 
 class CacheManifestTest(unittest.TestCase):
-
     def test_manifest_defaults(self):
         m = CacheManifest()
         self.assertEqual(m.version, 1)
@@ -43,12 +43,13 @@ class CacheManifestTest(unittest.TestCase):
 
 
 class LoadSaveManifestTest(unittest.TestCase):
-
+    @override
     def setUp(self):
         self.manifest_path = TEST_TMP / "cache_manifest.json"
         if self.manifest_path.exists():
             self.manifest_path.unlink()
 
+    @override
     def tearDown(self):
         if self.manifest_path.exists():
             self.manifest_path.unlink()
@@ -84,10 +85,11 @@ class LoadSaveManifestTest(unittest.TestCase):
 
 
 class IsCachedTest(unittest.TestCase):
-
+    @override
     def setUp(self):
         self.manifest_path = TEST_TMP / "cache_check.json"
 
+    @override
     def tearDown(self):
         if self.manifest_path.exists():
             self.manifest_path.unlink()
@@ -109,10 +111,11 @@ class IsCachedTest(unittest.TestCase):
 
 
 class MarkCachedTest(unittest.TestCase):
-
     def test_mark_cached_adds_entry(self):
         m = CacheManifest()
-        mark_cached(m, "rep-001", url="https://example.com/r.pdf", file_hash="xyz", size=500, fmt="pdf")
+        mark_cached(
+            m, "rep-001", url="https://example.com/r.pdf", file_hash="xyz", size=500, fmt="pdf"
+        )
         self.assertIn("rep-001", m.entries)
         self.assertEqual(m.entries["rep-001"]["sha256"], "xyz")
         self.assertIn("cached_at", m.entries["rep-001"])
@@ -120,7 +123,6 @@ class MarkCachedTest(unittest.TestCase):
 
 
 class ComputeFileHashTest(unittest.TestCase):
-
     def test_compute_hash_of_file(self):
         f = TEST_TMP / "hash_me.txt"
         f.write_text("hello world", encoding="utf-8")
@@ -134,7 +136,6 @@ class ComputeFileHashTest(unittest.TestCase):
 
 
 class GetStaleEntriesTest(unittest.TestCase):
-
     def test_no_stale_entries(self):
         m = CacheManifest()
         m.entries["rep-current"] = {

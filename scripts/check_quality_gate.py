@@ -16,50 +16,49 @@ REQUIRED_DEV_TOOLS = {
 }
 
 REQUIRED_QUALITY_SNIPPETS = (
-    "python -m pip install uv==0.11.8",
-    "uv lock --check",
-    "uv sync --frozen --all-groups",
-    "python -m ruff check --no-cache .",
-    "python -m ruff format --check --no-cache .",
-    "ty check --error all .",
-    "typos --config typos.toml",
-    "zizmor --min-severity medium .github/workflows",
-    "taplo format --check pyproject.toml typos.toml",
+    "iwr -UseBasicParsing https://pixi.sh/install.ps1 | iex",
+    "pixi install",
+    "pixi run lint",
+    "pixi run format-check",
+    "pixi run typecheck",
+    "pixi run spell",
+    "pixi run workflow-audit",
+    "pixi run toml-check",
     "actionlint -color",
-    "python scripts\\check_quality_gate.py",
-    "python scripts\\check_release_provenance_policy.py",
-    "python scripts\\check_release_version_consistency.py",
-    "python scripts\\check_public_surface_audit.py",
-    "python scripts\\check_zenodo_rights_metadata.py",
-    "python scripts\\check_shared_core_schema.py",
-    "python scripts\\check_metadata_packages.py",
-    "python scripts\\check_osf_optional_mirror_policy.py",
-    "python scripts\\check_corpus_family_alignment.py",
-    "python scripts\\check_corpus_family_engineering_alignment.py",
-    "python scripts\\check_authority_sources.py",
-    "python scripts\\check_historical_sitting_inventory.py",
-    "python scripts\\check_historical_sitting_official_exports.py",
-    "python scripts\\build_historical_sitting_official_exports_coverage.py",
-    "python scripts\\check_historical_sitting_reconciliation.py",
-    "python scripts\\check_historical_coverage_audit.py",
-    "python scripts\\check_release_ladder.py",
-    "python scripts\\check_gold_evaluation_datasets.py",
-    "python scripts\\check_canonical_id_uri_policy.py",
-    "python scripts\\check_dependency_extras_policy.py",
-    "python scripts\\check_nz_parliamentary_procedure_model.py",
-    "python scripts\\check_neutral_component_model.py",
-    "python scripts\\check_akoma_ntoso_endpoint.py",
-    "python scripts\\check_parlamint_nz_endpoint.py",
-    "python scripts\\check_popolo_opencivicdata_endpoint.py",
-    "python scripts\\check_ud_conllu_endpoint.py",
-    "python scripts\\check_rdf_linked_data_endpoint.py",
-    "python scripts\\validate_derived_fields.py",
+    "pixi run python scripts\\check_quality_gate.py",
+    "pixi run python scripts\\check_release_provenance_policy.py",
+    "pixi run python scripts\\check_release_version_consistency.py",
+    "pixi run python scripts\\check_public_surface_audit.py",
+    "pixi run python scripts\\check_zenodo_rights_metadata.py",
+    "pixi run python scripts\\check_shared_core_schema.py",
+    "pixi run python scripts\\check_metadata_packages.py",
+    "pixi run python scripts\\check_osf_optional_mirror_policy.py",
+    "pixi run python scripts\\check_corpus_family_alignment.py",
+    "pixi run python scripts\\check_corpus_family_engineering_alignment.py",
+    "pixi run python scripts\\check_authority_sources.py",
+    "pixi run python scripts\\check_historical_sitting_inventory.py",
+    "pixi run python scripts\\check_historical_sitting_official_exports.py",
+    "pixi run python scripts\\build_historical_sitting_official_exports_coverage.py",
+    "pixi run python scripts\\check_historical_sitting_reconciliation.py",
+    "pixi run python scripts\\check_historical_coverage_audit.py",
+    "pixi run python scripts\\check_release_ladder.py",
+    "pixi run python scripts\\check_gold_evaluation_datasets.py",
+    "pixi run python scripts\\check_canonical_id_uri_policy.py",
+    "pixi run python scripts\\check_dependency_extras_policy.py",
+    "pixi run python scripts\\check_nz_parliamentary_procedure_model.py",
+    "pixi run python scripts\\check_neutral_component_model.py",
+    "pixi run python scripts\\check_akoma_ntoso_endpoint.py",
+    "pixi run python scripts\\check_parlamint_nz_endpoint.py",
+    "pixi run python scripts\\check_popolo_opencivicdata_endpoint.py",
+    "pixi run python scripts\\check_ud_conllu_endpoint.py",
+    "pixi run python scripts\\check_rdf_linked_data_endpoint.py",
+    "pixi run python scripts\\validate_derived_fields.py",
 )
 
 REQUIRED_MAKE_TARGETS = (
     "quality:",
-    "uv-lock:",
-    "uv-sync:",
+    "pixi-install:",
+    "pixi-quality:",
     "quality-config:",
     "provenance-policy:",
     "version-consistency:",
@@ -121,16 +120,23 @@ def _failures() -> list[str]:
     for snippet in (
         "[project]",
         'name = "corpus-nz-hansard"',
-        "[dependency-groups]",
-        '"uv==0.11.8"',
-        "[tool.uv]",
-        "package = false",
+        'requires-python = ">=3.14"',
+        'target-version = "py314"',
     ):
         if snippet not in pyproject:
             failures.append(f"pyproject.toml is missing: {snippet}")
 
-    if not (ROOT / "uv.lock").exists():
-        failures.append("uv.lock must be committed.")
+    if not (ROOT / "pixi.toml").exists():
+        failures.append("pixi.toml must be committed.")
+    pixi_manifest = _read("pixi.toml")
+    for snippet in (
+        'python = "3.14.*"',
+        'ruff = "==0.15.18"',
+        'pydantic-ai-slim = "==1.107.0"',
+        "quality = { depends-on = ",
+    ):
+        if snippet not in pixi_manifest:
+            failures.append(f"pixi.toml is missing: {snippet}")
 
     quality_workflow = _read(".github/workflows/quality.yml")
     for snippet in REQUIRED_QUALITY_SNIPPETS:

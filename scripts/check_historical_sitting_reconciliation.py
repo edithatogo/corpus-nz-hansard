@@ -16,7 +16,9 @@ TRACK_PATH = ROOT / "conductor/tracks/full_historical_sitting_reconciliation_202
 INVENTORY_PATH = ROOT / "manifests/historical_sitting_inventory.json"
 HISTORICAL_COVERAGE_PATH = ROOT / "manifests/historical_coverage_audit.json"
 LEDGER_PATH = ROOT / "derived/historical_sitting_reconciliation/historical_sitting_ledger.parquet"
-SUMMARY_PATH = ROOT / "derived/historical_sitting_reconciliation/historical_sitting_ledger_summary.json"
+SUMMARY_PATH = (
+    ROOT / "derived/historical_sitting_reconciliation/historical_sitting_ledger_summary.json"
+)
 
 EXPECTED_SOURCE_IDS = {
     "nz-parliament-parliamentary-business-hub",

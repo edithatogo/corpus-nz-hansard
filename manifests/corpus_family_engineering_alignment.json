@@ -12,16 +12,15 @@
     "status": "strict-script-workspace",
     "current_gate": "make quality",
     "commands": [
-      "uv lock --check",
-      "uv sync --frozen --all-groups",
-      "python -m ruff check --no-cache .",
-      "python -m ruff format --check --no-cache .",
-      "ty check --error all .",
-      "typos --config typos.toml",
-      "zizmor --min-severity medium .github/workflows",
-      "taplo format --check pyproject.toml typos.toml",
+      "pixi install",
+      "pixi run lint",
+      "pixi run format-check",
+      "pixi run typecheck",
+      "pixi run spell",
+      "pixi run workflow-audit",
+      "pixi run toml-check",
       "actionlint -color",
-      "python -m unittest discover tests"
+      "pixi run test"
     ]
   },
   "standards": [
@@ -33,10 +32,10 @@
       "status": "partial"
     },
     {
-      "id": "uv-lock",
-      "legislation_baseline": "committed uv.lock",
-      "hansard_current": "committed uv.lock with frozen sync in quality gate",
-      "target": "continue frozen uv sync through package migration",
+      "id": "pixi-environment",
+      "legislation_baseline": "committed environment lock",
+      "hansard_current": "committed pixi.toml with Pixi install in quality gate",
+      "target": "continue Pixi environment management through package migration",
       "status": "adopted"
     },
     {
@@ -56,9 +55,9 @@
     {
       "id": "pytest",
       "legislation_baseline": "pytest test runner and pytest.ini options",
-      "hansard_current": "unittest discovery in make quality",
-      "target": "future pytest migration while unittest remains supported during transition",
-      "status": "future"
+      "hansard_current": "pytest test runner in make quality and Pixi quality tasks",
+      "target": "keep pytest as canonical test runner while unittest-style tests remain collected",
+      "status": "adopted"
     },
     {
       "id": "ruff",
@@ -114,7 +113,7 @@
     "target_package": "nz_hansard_corpus",
     "target_cli": "nzhc",
     "script_wrapper_policy": "Existing python scripts/*.py commands remain supported until replacement CLI commands exist, tests cover wrapper parity, and release docs list deprecation windows.",
-    "requirements_policy": "requirements.txt and requirements/dev.txt remain supported during transition; dependency authority moves to pyproject.toml and uv.lock only after CI, docs, and wrappers agree.",
+    "requirements_policy": "requirements.txt and requirements/dev.txt remain supported during transition; dependency authority moves to pyproject.toml and pixi.toml only after CI, docs, and wrappers agree.",
     "target_commands": [
       {
         "command": "nzhc build-manifest",
@@ -148,7 +147,6 @@
     "optional_ci": "ubuntu-primary-with-windows-compatibility",
     "publication_job_boundary": "Quality, dependency update, CodeQL, Scorecard, and Renovate jobs must not publish to Hugging Face, Zenodo, OSF, or future metadata surfaces.",
     "planned_adoptions": [
-      "pytest",
       "pre-commit",
       "renovate",
       "src-layout",

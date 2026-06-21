@@ -3,12 +3,28 @@ extend-exclude = [
   ".git",
   ".test-tmp",
   ".tmp",
+  "_*.json",
+  "_*.py",
+  "_*.txt",
+  "scripts/*_check.txt",
+  "scripts/test_replace.py",
   "derived",
   "generated",
   "manifests/*.json",
 ]
 
 [default.extend-words]
+BA = "BA"
+Ballance = "Ballance"
+Benn = "Benn"
 Hansard = "Hansard"
+Leary = "Leary"
+Lew = "Lew"
+Mapp = "Mapp"
+nd = "nd"
+pn = "pn"
 ParlaMint = "ParlaMint"
+Sheat = "Sheat"
+unparseable = "unparseable"
+Waring = "Waring"
 zizmor = "zizmor"

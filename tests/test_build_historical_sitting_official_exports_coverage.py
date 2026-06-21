@@ -26,12 +26,15 @@ class BuildHistoricalSittingOfficialExportsCoverageTest(unittest.TestCase):
                 return ["Tuesday, 20 July 2010", "Wednesday, 21 July 2011"]
             return ["Wednesday, 21 July 2010", "Thursday, 22 July 2011"]
 
-        with patch(
-            "scripts.build_historical_sitting_official_exports_coverage._extract_pdf_dates",
-            side_effect=fake_extract_pdf_dates,
-        ), patch(
-            "scripts.build_historical_sitting_official_exports_coverage._load_ledger_dates",
-            return_value={"2010-07-20", "2011-07-21"},
+        with (
+            patch(
+                "scripts.build_historical_sitting_official_exports_coverage._extract_pdf_dates",
+                side_effect=fake_extract_pdf_dates,
+            ),
+            patch(
+                "scripts.build_historical_sitting_official_exports_coverage._load_ledger_dates",
+                return_value={"2010-07-20", "2011-07-21"},
+            ),
         ):
             result = build_historical_sitting_official_exports_coverage(output_path=output_path)
 

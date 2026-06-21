@@ -13,4 +13,5 @@ complaint_parser
 regulation_cross_reference
     Cross-referencing complaints to NZ secondary legislation keys.
 """
+
 from __future__ import annotations

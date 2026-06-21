@@ -35,7 +35,9 @@ _RE_DATE = [
 ]
 
 # Agenda item patterns
-_RE_AGENDA_HEADER = re.compile(r"\b(?:agenda|order\s+of\s+business|items?\s+considered)\b", re.IGNORECASE)
+_RE_AGENDA_HEADER = re.compile(
+    r"\b(?:agenda|order\s+of\s+business|items?\s+considered)\b", re.IGNORECASE
+)
 _RE_AGENDA_ITEM = re.compile(r"^\d+[\.\)]\s*(.+)")
 
 # Committee member patterns
@@ -56,9 +58,7 @@ _RE_REGULATION = re.compile(
     r"\b((?:SR|LI|NZLI|SL)\s*\d{4}/\d+(?:\.\d+)?)\b",
     re.IGNORECASE,
 )
-_RE_REGULATION_ALT = re.compile(
-    r"\b(\d{4}/\d+)\s*(?:regulations?|instrument)", re.IGNORECASE
-)
+_RE_REGULATION_ALT = re.compile(r"\b(\d{4}/\d+)\s*(?:regulations?|instrument)", re.IGNORECASE)
 
 
 def extract_meeting_date(text: str) -> str | None:
@@ -173,4 +173,3 @@ def extract_all_metadata(text: str) -> ProceedingMetadata:
         complaint_subjects=extract_complaint_subjects(text),
         regulation_references=extract_regulation_references(text),
     )
-

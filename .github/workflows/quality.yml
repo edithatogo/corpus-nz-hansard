@@ -20,19 +20,16 @@ jobs:
       # actions/setup-python v6.2.0
       - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
         with:
-          python-version: "3.13"
+          python-version: "3.14"
 
-      - name: Install uv
-        run: python -m pip install uv==0.11.8
+      - name: Install Pixi
+        shell: pwsh
+        run: |
+          iwr -UseBasicParsing https://pixi.sh/install.ps1 | iex
+          Add-Content -Path $env:GITHUB_PATH -Value "$env:USERPROFILE\.pixi\bin"
 
       - name: Install dependencies
-        run: python -m pip install -r requirements.txt -r requirements/dev.txt
-
-      - name: UV lock check
-        run: uv lock --check
-
-      - name: UV frozen sync
-        run: uv sync --frozen --all-groups
+        run: pixi install
 
       - name: Install actionlint
         shell: pwsh
@@ -53,106 +50,106 @@ jobs:
           Add-Content -Path $env:GITHUB_PATH -Value $toolDir
 
       - name: Ruff lint
-        run: python -m ruff check --no-cache .
+        run: pixi run lint
 
       - name: Ruff format
-        run: python -m ruff format --check --no-cache .
+        run: pixi run format-check
 
       - name: Ty type check
-        run: ty check --error all .
+        run: pixi run typecheck
 
       - name: Typos
-        run: typos --config typos.toml
+        run: pixi run spell
 
       - name: Zizmor workflow audit
-        run: zizmor --min-severity medium .github/workflows
+        run: pixi run workflow-audit
 
       - name: Taplo TOML format
-        run: taplo format --check pyproject.toml typos.toml
+        run: pixi run toml-check
 
       - name: Actionlint workflow syntax
         run: actionlint -color
 
       - name: Quality gate configuration
-        run: python scripts\check_quality_gate.py
+        run: pixi run python scripts\check_quality_gate.py
 
       - name: Release provenance policy
-        run: python scripts\check_release_provenance_policy.py
+        run: pixi run python scripts\check_release_provenance_policy.py
 
       - name: Release version consistency
-        run: python scripts\check_release_version_consistency.py
+        run: pixi run python scripts\check_release_version_consistency.py
 
       - name: Public surface audit
-        run: python scripts\check_public_surface_audit.py
+        run: pixi run python scripts\check_public_surface_audit.py
 
       - name: Zenodo rights metadata
-        run: python scripts\check_zenodo_rights_metadata.py
+        run: pixi run python scripts\check_zenodo_rights_metadata.py
 
       - name: Shared NZ corpus core schema
-        run: python scripts\check_shared_core_schema.py
+        run: pixi run python scripts\check_shared_core_schema.py
 
       - name: SOTA metadata packages
-        run: python scripts\check_metadata_packages.py
+        run: pixi run python scripts\check_metadata_packages.py
 
       - name: OSF optional mirror policy
-        run: python scripts\check_osf_optional_mirror_policy.py
+        run: pixi run python scripts\check_osf_optional_mirror_policy.py
 
       - name: Corpus family publication alignment
-        run: python scripts\check_corpus_family_alignment.py
+        run: pixi run python scripts\check_corpus_family_alignment.py
 
       - name: Corpus family engineering alignment
-        run: python scripts\check_corpus_family_engineering_alignment.py
+        run: pixi run python scripts\check_corpus_family_engineering_alignment.py
 
       - name: Authority source discovery
-        run: python scripts\check_authority_sources.py
+        run: pixi run python scripts\check_authority_sources.py
 
       - name: Historical sitting inventory
-        run: python scripts\check_historical_sitting_inventory.py
+        run: pixi run python scripts\check_historical_sitting_inventory.py
 
       - name: Historical sitting official exports
-        run: python scripts\check_historical_sitting_official_exports.py
+        run: pixi run python scripts\check_historical_sitting_official_exports.py
 
       - name: Historical sitting official exports coverage
-        run: python scripts\build_historical_sitting_official_exports_coverage.py
+        run: pixi run python scripts\build_historical_sitting_official_exports_coverage.py
 
       - name: Historical sitting reconciliation
-        run: python scripts\check_historical_sitting_reconciliation.py
+        run: pixi run python scripts\check_historical_sitting_reconciliation.py
 
       - name: Historical coverage audit
-        run: python scripts\check_historical_coverage_audit.py
+        run: pixi run python scripts\check_historical_coverage_audit.py
 
       - name: Release ladder
-        run: python scripts\check_release_ladder.py
+        run: pixi run python scripts\check_release_ladder.py
 
       - name: Gold evaluation datasets
-        run: python scripts\check_gold_evaluation_datasets.py
+        run: pixi run python scripts\check_gold_evaluation_datasets.py
 
       - name: Canonical ID and URI policy
-        run: python scripts\check_canonical_id_uri_policy.py
+        run: pixi run python scripts\check_canonical_id_uri_policy.py
 
       - name: Dependency extras policy
-        run: python scripts\check_dependency_extras_policy.py
+        run: pixi run python scripts\check_dependency_extras_policy.py
 
       - name: NZ parliamentary procedure model
-        run: python scripts\check_nz_parliamentary_procedure_model.py
+        run: pixi run python scripts\check_nz_parliamentary_procedure_model.py
 
       - name: Neutral parliamentary component model
-        run: python scripts\check_neutral_component_model.py
+        run: pixi run python scripts\check_neutral_component_model.py
 
       - name: Akoma Ntoso endpoint
-        run: python scripts\check_akoma_ntoso_endpoint.py
+        run: pixi run python scripts\check_akoma_ntoso_endpoint.py
 
       - name: ParlaMint-NZ endpoint
-        run: python scripts\check_parlamint_nz_endpoint.py
+        run: pixi run python scripts\check_parlamint_nz_endpoint.py
 
       - name: Popolo Open Civic Data endpoint
-        run: python scripts\check_popolo_opencivicdata_endpoint.py
+        run: pixi run python scripts\check_popolo_opencivicdata_endpoint.py
 
       - name: Universal Dependencies CoNLL-U endpoint
-        run: python scripts\check_ud_conllu_endpoint.py
+        run: pixi run python scripts\check_ud_conllu_endpoint.py
 
       - name: RDF Linked Data endpoint
-        run: python scripts\check_rdf_linked_data_endpoint.py
+        run: pixi run python scripts\check_rdf_linked_data_endpoint.py
 
       - name: Derived fields validation manifests
-        run: python scripts\validate_derived_fields.py
+        run: pixi run python scripts\validate_derived_fields.py

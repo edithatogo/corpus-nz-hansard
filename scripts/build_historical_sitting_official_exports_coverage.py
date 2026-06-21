@@ -14,9 +14,17 @@ import pyarrow.parquet as pq
 from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_INDEX_PATH = ROOT / "derived/historical_sitting_official_exports/historical_sitting_official_export_index.json"
-DEFAULT_LEDGER_PATH = ROOT / "derived/historical_sitting_reconciliation/historical_sitting_ledger.parquet"
-DEFAULT_OUTPUT_PATH = ROOT / "derived/historical_sitting_official_exports/historical_sitting_official_exports_coverage.json"
+DEFAULT_INDEX_PATH = (
+    ROOT
+    / "derived/historical_sitting_official_exports/historical_sitting_official_export_index.json"
+)
+DEFAULT_LEDGER_PATH = (
+    ROOT / "derived/historical_sitting_reconciliation/historical_sitting_ledger.parquet"
+)
+DEFAULT_OUTPUT_PATH = (
+    ROOT
+    / "derived/historical_sitting_official_exports/historical_sitting_official_exports_coverage.json"
+)
 
 HEADER_DATE_RE = re.compile(
     r"(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+[0-9]{1,2}\s+[A-Za-z]+\s+[0-9]{4}"
@@ -94,9 +102,7 @@ def build_historical_sitting_official_exports_coverage(
         official_dates |= unique_dates
         total_page_dates += len(normalized_dates)
         for date in unique_dates:
-            year_summary.setdefault(
-                _year(date), {"official_dates": set(), "ledger_dates": set()}
-            )
+            year_summary.setdefault(_year(date), {"official_dates": set(), "ledger_dates": set()})
             year_summary[_year(date)]["official_dates"].add(date)
         source_reports.append(
             {

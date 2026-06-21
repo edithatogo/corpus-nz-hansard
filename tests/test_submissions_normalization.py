@@ -1,4 +1,4 @@
-﻿"""Tests for submission schema normalization and Bill ID linkage."""
+"""Tests for submission schema normalization and Bill ID linkage."""
 
 from __future__ import annotations
 
@@ -36,20 +36,31 @@ TEST_TMP = repo_tmp_dir()
 #  Schema Normalization Tests
 # ---------------------------------------------------------------------------
 
+
 class NormalizedSchemaTest(unittest.TestCase):
     """Verify the Parquet schema definition."""
 
     def test_schema_is_pyarrow_schema(self):
         import pyarrow as pa
+
         self.assertIsInstance(NORMALIZED_SCHEMA, pa.Schema)
 
     def test_schema_contains_expected_fields(self):
         expected = {
-            "submission_id", "submitter_name", "submitter_normalized",
-            "date", "date_normalized", "committee", "committee_normalized",
-            "bill_reference", "bill_reference_normalized",
-            "text_content", "text_sha256", "source_url",
-            "parliament_number", "submission_year",
+            "submission_id",
+            "submitter_name",
+            "submitter_normalized",
+            "date",
+            "date_normalized",
+            "committee",
+            "committee_normalized",
+            "bill_reference",
+            "bill_reference_normalized",
+            "text_content",
+            "text_sha256",
+            "source_url",
+            "parliament_number",
+            "submission_year",
         }
         field_names = {f.name for f in NORMALIZED_SCHEMA}
         for field in expected:
@@ -57,6 +68,7 @@ class NormalizedSchemaTest(unittest.TestCase):
 
     def test_schema_field_types(self):
         import pyarrow as pa
+
         type_map = {f.name: f.type for f in NORMALIZED_SCHEMA}
         # Key fields should be strings
         self.assertEqual(type_map["submission_id"], pa.string())
@@ -67,7 +79,6 @@ class NormalizedSchemaTest(unittest.TestCase):
 
 
 class NormalizeSubmitterNameTest(unittest.TestCase):
-
     def test_trims_whitespace(self):
         self.assertEqual(normalize_submitter_name("  Jane Citizen  "), "Jane Citizen")
 
@@ -92,7 +103,6 @@ class NormalizeSubmitterNameTest(unittest.TestCase):
 
 
 class NormalizeDateTest(unittest.TestCase):
-
     def test_iso_date_preserved(self):
         self.assertEqual(normalize_date("2024-03-15"), "2024-03-15")
 
@@ -112,7 +122,6 @@ class NormalizeDateTest(unittest.TestCase):
 
 
 class NormalizeCommitteeTest(unittest.TestCase):
-
     def test_trims_and_collapses(self):
         self.assertEqual(
             normalize_committee("  Justice   Committee "),
@@ -131,7 +140,6 @@ class NormalizeCommitteeTest(unittest.TestCase):
 
 
 class NormalizeBillReferenceTest(unittest.TestCase):
-
     def test_trims_and_strips_punctuation(self):
         self.assertEqual(
             normalize_bill_reference("  ABC Amendment Bill. "),
@@ -150,7 +158,6 @@ class NormalizeBillReferenceTest(unittest.TestCase):
 
 
 class NormalizeTextContentTest(unittest.TestCase):
-
     def test_strips_leading_trailing_whitespace(self):
         self.assertEqual(
             normalize_text_content("  \nHello World\n  "),
@@ -177,7 +184,6 @@ class NormalizeTextContentTest(unittest.TestCase):
 
 
 class NormalizeSubmissionEntryTest(unittest.TestCase):
-
     def test_normalizes_complete_record(self):
         entry = {
             "id": "sub-001",
@@ -217,21 +223,23 @@ class NormalizeSubmissionEntryTest(unittest.TestCase):
     def test_computes_text_sha256(self):
         entry = {"id": "sub-004", "text_content": "Hello World"}
         import hashlib
+
         result = normalize_submission_entry(entry)
         expected = hashlib.sha256(b"Hello World").hexdigest()
         self.assertEqual(result["text_sha256"], expected)
 
 
 class WriteNormalizedParquetTest(unittest.TestCase):
-
     def test_writes_parquet_file(self):
         records = [
-            normalize_submission_entry({
-                "id": "sub-001",
-                "submitter": "Jane Citizen",
-                "submission_date": "2024-03-15",
-                "committee": "Justice Committee",
-            }),
+            normalize_submission_entry(
+                {
+                    "id": "sub-001",
+                    "submitter": "Jane Citizen",
+                    "submission_date": "2024-03-15",
+                    "committee": "Justice Committee",
+                }
+            ),
         ]
         out_path = TEST_TMP / "test_normalized.parquet"
         result_path = write_normalized_parquet(records, out_path)
@@ -240,6 +248,7 @@ class WriteNormalizedParquetTest(unittest.TestCase):
 
     def test_read_back_parquet_has_correct_columns(self):
         import pyarrow.parquet as pq
+
         records = [
             normalize_submission_entry({"id": "sub-001", "submitter": "Jane"}),
         ]
@@ -257,8 +266,8 @@ class WriteNormalizedParquetTest(unittest.TestCase):
 #  Bill ID Linkage Tests
 # ---------------------------------------------------------------------------
 
-class BillLinkageIndexTest(unittest.TestCase):
 
+class BillLinkageIndexTest(unittest.TestCase):
     def test_index_initializes_empty(self):
         idx = BillLinkageIndex()
         self.assertEqual(len(idx.bills_catalog), 0)
@@ -319,7 +328,6 @@ class BillLinkageIndexTest(unittest.TestCase):
 
 
 class ParseBillReferenceFromTextTest(unittest.TestCase):
-
     def test_detects_bill_reference_in_text(self):
         text = "We submit on the ABC Amendment Bill 2024"
         result = parse_bill_reference_from_text(text)
@@ -342,7 +350,6 @@ class ParseBillReferenceFromTextTest(unittest.TestCase):
 
 
 class CrossReferenceBillsTest(unittest.TestCase):
-
     def test_cross_reference_matches_exact(self):
         catalog = [
             {"id": "bill-001", "title": "ABC Amendment Bill"},
@@ -406,17 +413,24 @@ class CrossReferenceBillsTest(unittest.TestCase):
 
 
 class BuildLinkageIndexTest(unittest.TestCase):
-
     def test_integration_build_linkage(self):
         catalog = [
             {"id": "bill-001", "title": "ABC Amendment Bill"},
             {"id": "bill-002", "title": "XYZ Reform Bill"},
         ]
         raw_submissions = [
-            {"id": "sub-001", "bill_reference": "ABC Amendment Bill",
-             "submitter": "Jane", "submission_date": "2024-03-15"},
-            {"id": "sub-002", "bill_reference": "XYZ Reform Bill",
-             "submitter": "Bob", "submission_date": "2024-04-01"},
+            {
+                "id": "sub-001",
+                "bill_reference": "ABC Amendment Bill",
+                "submitter": "Jane",
+                "submission_date": "2024-03-15",
+            },
+            {
+                "id": "sub-002",
+                "bill_reference": "XYZ Reform Bill",
+                "submitter": "Bob",
+                "submission_date": "2024-04-01",
+            },
         ]
         normalized = [normalize_submission_entry(s) for s in raw_submissions]
         idx = build_linkage_index(normalized, catalog)
@@ -442,7 +456,6 @@ class BuildLinkageIndexTest(unittest.TestCase):
 
 
 class NormalizeBillTitleTest(unittest.TestCase):
-
     def test_lowercases(self):
         result = _normalize_bill_title("ABC Amendment Bill")
         self.assertEqual(result, "abc amendment bill")
@@ -465,7 +478,6 @@ class NormalizeBillTitleTest(unittest.TestCase):
 
 
 class DefaultBillsCatalogTest(unittest.TestCase):
-
     def test_default_catalog_is_list(self):
         catalog = DEFAULT_BILLS_CATALOG
         self.assertIsInstance(catalog, list)
@@ -473,4 +485,3 @@ class DefaultBillsCatalogTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

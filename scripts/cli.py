@@ -16,7 +16,20 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SCRIPT_DIR = REPO_ROOT / "scripts"
 
-COMMANDS: dict[str, str] = {'duckdb': 'build_duckdb.py', 'hf-stage': 'stage_huggingface_dataset.py', 'hf-upload': 'upload_huggingface_dataset.py', 'inventory': 'inventory_archive.py', 'normalize': 'normalize_hansard.py', 'quality-gate': 'check_quality_gate.py', 'release-package': 'build_release_package.py', 'schema': 'discover_schema.py', 'search-index': 'build_search_index.py', 'validate-records': 'validate_hansard_records.py', 'zenodo-build': 'build_zenodo_archive.py', 'zenodo-upload': 'upload_zenodo_archive.py'}
+COMMANDS: dict[str, str] = {
+    "duckdb": "build_duckdb.py",
+    "hf-stage": "stage_huggingface_dataset.py",
+    "hf-upload": "upload_huggingface_dataset.py",
+    "inventory": "inventory_archive.py",
+    "normalize": "normalize_hansard.py",
+    "quality-gate": "check_quality_gate.py",
+    "release-package": "build_release_package.py",
+    "schema": "discover_schema.py",
+    "search-index": "build_search_index.py",
+    "validate-records": "validate_hansard_records.py",
+    "zenodo-build": "build_zenodo_archive.py",
+    "zenodo-upload": "upload_zenodo_archive.py",
+}
 
 
 def _script_path(name: str) -> Path:
@@ -26,7 +39,9 @@ def _script_path(name: str) -> Path:
     path = SCRIPT_DIR / script
     if not path.is_file():
         available = ", ".join(sorted(COMMANDS))
-        raise SystemExit(f"Unknown command or missing script: {name}. Available aliases: {available}")
+        raise SystemExit(
+            f"Unknown command or missing script: {name}. Available aliases: {available}"
+        )
     return path
 
 
@@ -43,8 +58,12 @@ def _run_script(path: Path, args: Sequence[str]) -> int:
 def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="CLI-first dispatcher for repository scripts.")
     parser.add_argument("command", nargs="?", help="Approved command alias or scripts/*.py name.")
-    parser.add_argument("args", nargs=argparse.REMAINDER, help="Arguments passed to the selected script.")
-    parser.add_argument("--list", action="store_true", help="List approved command aliases and exit.")
+    parser.add_argument(
+        "args", nargs=argparse.REMAINDER, help="Arguments passed to the selected script."
+    )
+    parser.add_argument(
+        "--list", action="store_true", help="List approved command aliases and exit."
+    )
     ns = parser.parse_args(argv)
     if ns.list:
         for alias, script in sorted(COMMANDS.items()):

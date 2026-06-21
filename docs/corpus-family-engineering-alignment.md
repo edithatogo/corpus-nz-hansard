@@ -7,14 +7,14 @@ Hansard release evidence.
 ## Current Baseline
 
 Hansard is currently a strict script-workspace repository. The local and CI
-quality baseline is `make quality`, including `uv lock --check`,
-`uv sync --frozen --all-groups`, Ruff lint and format, `ty`, `typos`, `zizmor`,
-`taplo`, `actionlint`, policy checkers, and `unittest` discovery.
+quality baseline is `make quality`, including `pixi install`, `pixi run lint`,
+`pixi run format-check`, Ruff lint and format, `ty`, `typos`, `zizmor`,
+`taplo`, `actionlint`, policy checkers, and pytest.
 
 The legislation sibling currently uses a package-first baseline:
 
 - `src/nz_legislation_corpus`
-- `uv.lock`
+- `pixi.toml`
 - `pytest`
 - Ruff
 - strict type checking target
@@ -24,9 +24,9 @@ The legislation sibling currently uses a package-first baseline:
 - OpenSSF Scorecard
 - a CLI entry point named `nzlc`
 
-Hansard already has `pyproject.toml`, `uv.lock`, Ruff, `ty`, CodeQL, Scorecard,
+Hansard already has `pyproject.toml`, `pixi.toml`, Ruff, `ty`, pytest, CodeQL, Scorecard,
 and protected Zenodo publication boundaries. Hansard does not yet have a
-`src/` package layout, Typer CLI, pytest migration, pre-commit config, or
+`src/` package layout, Typer CLI, pre-commit config, or
 Renovate config.
 
 ## Migration Target
@@ -48,7 +48,7 @@ following are true:
 
 `requirements.txt` and `requirements/dev.txt` remain supported during the
 transition. Dependency authority can move fully to `pyproject.toml` and
-`uv.lock` only after documentation, CI, and wrappers agree.
+`pixi.toml` only after documentation, CI, and wrappers agree.
 
 ## Target Commands
 
@@ -82,5 +82,5 @@ Validation:
 
 ```powershell
 python scripts\check_corpus_family_engineering_alignment.py
-python -m unittest tests.test_corpus_family_engineering_alignment
+python -m pytest tests\test_corpus_family_engineering_alignment.py
 ```

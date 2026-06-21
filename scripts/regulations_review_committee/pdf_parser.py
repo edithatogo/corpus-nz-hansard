@@ -89,9 +89,7 @@ def extract_agenda_items(text: str) -> list[str]:
                 items.append(m.group(1).strip())
             elif stripped and not stripped.startswith(("The committee", "The meeting")):
                 # Check if we've left the agenda section
-                if re.match(r"^[A-Z][a-z]", stripped) and not re.match(
-                    r"^\d+", stripped
-                ):
+                if re.match(r"^[A-Z][a-z]", stripped) and not re.match(r"^\d+", stripped):
                     if items:  # Only stop if we found at least one item
                         break
     return items
@@ -184,8 +182,7 @@ def _extract_literal_text(path: Path) -> str:
         chunks.append(_decode_pdf_literal(value))
     for array in re.findall(r"\[(.*?)\]\s*TJ", raw, flags=re.DOTALL):
         chunks.extend(
-            _decode_pdf_literal(value)
-            for value in re.findall(r"\((.*?)\)", array, flags=re.DOTALL)
+            _decode_pdf_literal(value) for value in re.findall(r"\((.*?)\)", array, flags=re.DOTALL)
         )
     return "\n".join(part for part in chunks if part).strip()
 

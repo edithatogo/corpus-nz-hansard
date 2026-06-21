@@ -64,7 +64,8 @@ _RE_NAMED_REG = re.compile(
 )
 
 _RE_SI_NAMED = re.compile(
-    r"\bstatutory\s+instrument\s+(\d{4}/\d+)\b", re.IGNORECASE,
+    r"\bstatutory\s+instrument\s+(\d{4}/\d+)\b",
+    re.IGNORECASE,
 )
 
 

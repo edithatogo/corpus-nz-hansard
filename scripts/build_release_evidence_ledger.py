@@ -89,7 +89,7 @@ def _git_commit_sha() -> str:
             capture_output=True,
             text=True,
         )
-    except (OSError, subprocess.CalledProcessError):
+    except OSError, subprocess.CalledProcessError:
         return "unknown"
     return result.stdout.strip() or "unknown"
 

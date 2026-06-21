@@ -40,7 +40,7 @@ def _remote_manifest(repo_id: str, token: str, revision: str) -> dict[str, Any] 
             revision=revision,
         )
         return json.loads(Path(path).read_text(encoding="utf-8"))
-    except (EntryNotFoundError, RepositoryNotFoundError, FileNotFoundError):
+    except EntryNotFoundError, RepositoryNotFoundError, FileNotFoundError:
         return None
 
 

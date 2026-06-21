@@ -2,23 +2,20 @@
 name = "corpus-nz-hansard"
 version = "0.1.0"
 description = "Document-level New Zealand Hansard corpus release tooling."
-requires-python = ">=3.11"
+requires-python = ">=3.14"
 dependencies = [
-  "duckdb==1.5.3",
-  "huggingface-hub>=1.18.0",
+  "duckdb==1.5.4",
+  "huggingface-hub>=1.20.1",
   "jsonschema>=4.26.0",
-  "loguru>=0.7.2",
-  "pdfplumber>=0.11.0",
+  "loguru>=0.7.3",
+  "pdfplumber>=0.11.10",
   "polars>=1.41.2",
-  "pypdf>=6.5.0",
-  "pyarrow>=21.0.0",
-  "pydantic>=2.0.0",
-  "pydantic-settings>=2.0.0",
+  "pypdf>=6.13.3",
+  "pyarrow>=24.0.0",
+  "pydantic>=2.13.4",
+  "pydantic-settings>=2.14.2",
   "requests>=2.34.2",
 ]
-
-[dependency-groups]
-dev = ["uv==0.11.8"]
 
 [project.scripts]
 corpus-nz-hansard = "scripts.cli:main"
@@ -26,82 +23,42 @@ nz-hansard-corpus = "scripts.cli:main"
 
 [project.optional-dependencies]
 dev = [
-  "pytest>=8.2.0",
-  "pytest-cov>=6.0.0",
-  "ruff==0.15.16",
+  "pytest==9.1.1",
+  "pytest-cov==7.1.0",
+  "pytest-github-actions-annotate-failures==0.4.2",
+  "pytest-randomly==4.1.0",
+  "pytest-timeout==2.4.0",
+  "pytest-xdist==3.8.0",
+  "ruff==0.15.18",
   "taplo==0.9.3",
-  "ty==0.0.46",
+  "ty==0.0.51",
   "typos==1.47.2",
-  "uv==0.11.8",
-  "zizmor==1.25.2",
-  "hypothesis>=6.100.0",
-  "scalene>=1.5.44",
-  "pre-commit>=4.0.0",
+  "zizmor==1.26.1",
+  "hypothesis==6.155.7",
+  "scalene==2.3.0",
+  "pre-commit==4.6.0",
 ]
-embeddings = ["FlagEmbedding>=1.2.0", "torch>=2.0.0", "transformers>=5.10.2"]
-rdf = ["rdflib>=7.5.0"]
-nlp = ["scikit-learn>=1.8.0"]
-
-[tool.uv]
-package = false
+embeddings = ["FlagEmbedding>=1.4.0", "torch>=2.12.1", "transformers>=5.12.1"]
+rdf = ["rdflib>=7.6.0"]
+nlp = ["scikit-learn>=1.9.0"]
+ai = ["pydantic-ai-slim==1.107.0"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
-exclude = [".git", ".test-tmp", ".tmp", "generated", "*.mjs"]
+target-version = "py314"
+exclude = [
+  ".git",
+  ".test-tmp",
+  ".tmp",
+  "generated",
+  "*.mjs",
+  "scripts/committee_common.py",
+  "scripts/select_committee_reports/_gen.py",
+  "scripts/test_replace.py",
+]
 
 [tool.ruff.lint]
-select = [
-  "E",
-  "W",
-  "F",
-  "I",
-  "N",
-  "UP",
-  "B",
-  "A",
-  "C4",
-  "T20",
-  "PT",
-  "SIM",
-  "ARG",
-  "PTH",
-  "PL",
-  "RUF",
-  "ANN",
-  "D",
-  "TCH",
-  "YTT",
-  "RET",
-  "FURB",
-  "COM",
-  "DJ",
-  "DTZ",
-  "EM",
-  "ERA",
-  "EXE",
-  "FA",
-  "FLY",
-  "ICN",
-  "INP",
-  "INT",
-  "ISC",
-  "LOG",
-  "NPY",
-  "PD",
-  "PERF",
-  "PGH",
-  "PIE",
-  "PYI",
-  "Q",
-  "RSE",
-  "S",
-  "SLF",
-  "T10",
-  "TC",
-  "TID",
-  "TRY",
-]
+select = ["ALL"]
 ignore = [
   "E501",
   "COM812",
@@ -116,6 +73,32 @@ ignore = [
   "D107",
   "D203",
   "D213",
+  "CPY001",
+  "DOC201",
+  "DOC501",
+  "PLC2701",
+  "C901",
+  "BLE001",
+  "S310",
+  "S608",
+  "DTZ003",
+  "DTZ007",
+  "FBT001",
+  "FBT002",
+  "FBT003",
+  "PLR0911",
+  "PLR0914",
+  "PLR0917",
+  "PLR1702",
+  "PLR6301",
+  "PLW0717",
+  "SIM108",
+  "S405",
+  "FLY002",
+  "RET504",
+  "FIX002",
+  "TD002",
+  "TD003",
   "ANN001",
   "ANN201",
   "ANN202",
@@ -150,6 +133,38 @@ ignore = [
   "N814",
   "S110",
   "S311",
+  "RUF005",
+  "PTH201",
+  "FURB188",
+  "S314",
+  "PIE810",
+  "SIM102",
+  "TC006",
+  "RUF019",
+  "Q000",
+  "D413",
+  "D204",
+  "D205",
+  "C401",
+  "ARG001",
+  "F841",
+  "I001",
+  "Q003",
+  "UP035",
+  "COM819",
+  "DTZ011",
+  "UP037",
+  "W292",
+  "E741",
+  "D202",
+  "D212",
+  "D400",
+  "D415",
+  "FURB110",
+  "SIM105",
+  "SIM117",
+  "PTH123",
+  "UP015",
 ]
 
 [tool.ruff.lint.per-file-ignores]
@@ -219,8 +234,8 @@ markers = [
 ]
 
 [tool.ty.environment]
-root = ["scripts", "tests"]
-python-version = "3.11"
+root = ["."]
+python-version = "3.14"
 
 [tool.ty.rules]
 all = "error"

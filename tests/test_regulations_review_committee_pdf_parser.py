@@ -59,9 +59,7 @@ def tearDownModule():
     _SAMPLE.unlink(missing_ok=True)
 
 
-
 class ExtractProceedingTextTest(unittest.TestCase):
-
     def test_extract_text_from_valid_pdf(self):
         text = extract_proceeding_text(_SAMPLE)
         self.assertIsInstance(text, str)
@@ -98,7 +96,6 @@ class ExtractProceedingTextTest(unittest.TestCase):
 
 
 class ExtractProceedingMetadataTest(unittest.TestCase):
-
     def test_extract_metadata_from_pdf(self):
         meta = extract_proceeding_metadata(_SAMPLE)
         self.assertIsInstance(meta, dict)
@@ -111,7 +108,6 @@ class ExtractProceedingMetadataTest(unittest.TestCase):
 
 
 class ExtractAgendaItemsTest(unittest.TestCase):
-
     def test_extract_agenda_items_from_text(self):
         items = extract_agenda_items(_PROCEEDING_TEXT)
         self.assertGreaterEqual(len(items), 3)
@@ -127,7 +123,6 @@ class ExtractAgendaItemsTest(unittest.TestCase):
 
 
 class ExtractCommitteeMembersTest(unittest.TestCase):
-
     def test_extract_members_from_text(self):
         members = extract_committee_members(_PROCEEDING_TEXT)
         self.assertGreaterEqual(len(members), 3)

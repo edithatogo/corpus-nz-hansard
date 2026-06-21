@@ -114,7 +114,9 @@ def _stage_labels(facets: dict[str, Any]) -> list[str]:
             labels: list[str] = []
             for value in values:
                 if isinstance(value, dict):
-                    labels.append(str(value.get("name") or value.get("label") or value.get("title")))
+                    labels.append(
+                        str(value.get("name") or value.get("label") or value.get("title"))
+                    )
                 else:
                     labels.append(str(value))
             return sorted(label for label in labels if label and label != "None")

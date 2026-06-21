@@ -73,7 +73,6 @@ class SecondaryLegislationKey:
         return None
 
 
-
 # Mapping
 
 
@@ -91,8 +90,7 @@ def map_to_legislation_key(
 _DEFAULT_API_BASE = "https://api.legislation.govt.nz"
 _DEFAULT_API_HEADERS = {
     "User-Agent": (
-        "corpus-nz-hansard/1.0 (research; "
-        "+https://github.com/edithatogo/corpus-nz-hansard)"
+        "corpus-nz-hansard/1.0 (research; +https://github.com/edithatogo/corpus-nz-hansard)"
     ),
     "Accept": "application/json",
 }
@@ -109,18 +107,17 @@ def lookup_nz_legislation(
         return None
 
     if key.prefix and key.number is not None:
-        url = (
-            f"{api_base.rstrip('/')}/v1/regulation/{key.year}/"
-            f"{key.number:04d}.json"
-        )
+        url = f"{api_base.rstrip('/')}/v1/regulation/{key.year}/{key.number:04d}.json"
     else:
         from urllib.parse import urlencode
 
-        params = urlencode({
-            "q": str(key),
-            "type": "regulation",
-            "year": str(key.year),
-        })
+        params = urlencode(
+            {
+                "q": str(key),
+                "type": "regulation",
+                "year": str(key.year),
+            }
+        )
         url = f"{api_base.rstrip('/')}/v1/search.json?{params}"
 
     try:

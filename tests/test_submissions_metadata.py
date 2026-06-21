@@ -20,7 +20,6 @@ from scripts.parliament_submissions.metadata import (
 
 
 class ExtractSubmitterNameTest(unittest.TestCase):
-
     def test_extracts_name_from_top_of_document(self):
         text = "Submission by Jane Citizen\n\nI support this bill..."
         name = extract_submitter_name(text)
@@ -51,7 +50,6 @@ class ExtractSubmitterNameTest(unittest.TestCase):
 
 
 class ExtractDateTest(unittest.TestCase):
-
     def test_extracts_iso_date(self):
         text = "Date: 2024-03-15\n\nSubmission body..."
         date = extract_date(text)
@@ -76,7 +74,6 @@ class ExtractDateTest(unittest.TestCase):
 
 
 class ExtractCommitteeReferenceTest(unittest.TestCase):
-
     def test_extracts_committee_name(self):
         text = "Submitted to the Justice Committee\n\nBody..."
         committee = extract_committee_reference(text)
@@ -98,7 +95,6 @@ class ExtractCommitteeReferenceTest(unittest.TestCase):
 
 
 class ExtractBillReferenceTest(unittest.TestCase):
-
     def test_extracts_bill_name(self):
         text = "Submission on the ABC Amendment Bill\n\nBody..."
         bill = extract_bill_reference(text)
@@ -120,7 +116,6 @@ class ExtractBillReferenceTest(unittest.TestCase):
 
 
 class ExtractAllMetadataTest(unittest.TestCase):
-
     _SAMPLE_TEXT = (
         "Submission by Jane Citizen\n\n"
         "Submitted to the Justice Select Committee\n\n"
@@ -145,8 +140,10 @@ class ExtractAllMetadataTest(unittest.TestCase):
 
     def test_to_dict(self):
         meta = SubmissionMetadata(
-            submitter="Jane", date="2024-01-01",
-            committee="Justice", bill_reference="ABC Bill",
+            submitter="Jane",
+            date="2024-01-01",
+            committee="Justice",
+            bill_reference="ABC Bill",
         )
         d = meta.to_dict()
         self.assertEqual(d["submitter"], "Jane")
@@ -155,4 +152,3 @@ class ExtractAllMetadataTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

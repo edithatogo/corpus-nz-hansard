@@ -103,7 +103,6 @@ class FakeOpener:
 
 
 class FetchReportsIndexTest(unittest.TestCase):
-
     def test_fetch_returns_json(self):
         opener = FakeOpener(json.dumps(API_RESPONSE))
         result = fetch_reports_index(
@@ -122,6 +121,7 @@ class FetchReportsIndexTest(unittest.TestCase):
             opener=opener,
         )
         import urllib.parse
+
         full = str(opener.request.full_url)
         params = urllib.parse.parse_qs(urllib.parse.urlparse(full).query)
         self.assertEqual(params.get("page"), ["3"])
@@ -136,6 +136,7 @@ class FetchReportsIndexTest(unittest.TestCase):
             opener=opener,
         )
         import urllib.parse
+
         full = str(opener.request.full_url)
         params = urllib.parse.parse_qs(urllib.parse.urlparse(full).query)
         self.assertEqual(params.get("fromDate"), ["2024-01-01"])
@@ -149,6 +150,7 @@ class FetchReportsIndexTest(unittest.TestCase):
             opener=opener,
         )
         import urllib.parse
+
         full = str(opener.request.full_url)
         params = urllib.parse.parse_qs(urllib.parse.urlparse(full).query)
         self.assertEqual(params.get("committee"), ["Justice Committee"])
@@ -175,8 +177,8 @@ class FetchReportsIndexTest(unittest.TestCase):
         self.assertIsInstance(DEFAULT_COMMITTEE_LIST, list)
         self.assertGreater(len(DEFAULT_COMMITTEE_LIST), 0)
 
-class ParseReportListTest(unittest.TestCase):
 
+class ParseReportListTest(unittest.TestCase):
     def test_parse_json(self):
         entries = parse_report_list(API_RESPONSE)
         self.assertEqual(len(entries), 2)
@@ -237,7 +239,6 @@ class ParseReportListTest(unittest.TestCase):
         e = ReportEntry(id="rep-001")
         self.assertIsNone(e.absolute_url("https://www.parliament.nz"))
 
-
     def test_entry_with_multiple_formats(self):
         e = ReportEntry(
             id="rep-multi",
@@ -257,7 +258,6 @@ class ParseReportListTest(unittest.TestCase):
 
 
 class FetchReportDocumentTest(unittest.TestCase):
-
     def test_fetch_document_success(self):
         pdf_content = b"%PDF-1.4 fake report content"
         opener = FakeOpener(pdf_content)
@@ -273,9 +273,7 @@ class FetchReportDocumentTest(unittest.TestCase):
         self.assertTrue((TEST_TMP / "report-001.pdf").exists())
 
     def test_fetch_document_empty_url(self):
-        result = fetch_report_document(
-            url="", output_path=TEST_TMP / "empty.pdf"
-        )
+        result = fetch_report_document(url="", output_path=TEST_TMP / "empty.pdf")
         self.assertIn("error", result)
         self.assertEqual(result["status"], 0)
 
@@ -286,7 +284,6 @@ class FetchReportDocumentTest(unittest.TestCase):
             opener=FakeOpener("", status=404),
         )
         self.assertEqual(result.get("status"), 404)
-
 
     def test_fetch_document_verifies_content(self):
         pdf_content = b"%PDF-1.4 valid content"
@@ -325,7 +322,6 @@ class FetchReportDocumentTest(unittest.TestCase):
 
 
 class ReportEntryEdgeCasesTest(unittest.TestCase):
-
     def test_entry_with_extra_fields(self):
         e = ReportEntry(
             id="rep-extra",

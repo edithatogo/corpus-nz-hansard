@@ -42,19 +42,17 @@ _RE_COMMITTEE = [
 
 
 _RE_BILL = [
-    re.compile(r"(?:Inquiry\s+into\s+the\s+)?([A-Z][A-Za-z]+(?:\s+(?:[A-Za-z]+|\([A-Za-z]+(?:\s+[A-Za-z]+)*\)))*\s+Bill)"),
+    re.compile(
+        r"(?:Inquiry\s+into\s+the\s+)?([A-Z][A-Za-z]+(?:\s+(?:[A-Za-z]+|\([A-Za-z]+(?:\s+[A-Za-z]+)*\)))*\s+Bill)"
+    ),
     re.compile(r"Bill\s+(?:referred|reference)[:\s]+(.+)", re.IGNORECASE),
 ]
 
 
-_RE_SUBJECT = re.compile(
-    r"^(?:Subject|Topic|Regarding)[:\s]+(.+)$", re.IGNORECASE | re.MULTILINE
-)
+_RE_SUBJECT = re.compile(r"^(?:Subject|Topic|Regarding)[:\s]+(.+)$", re.IGNORECASE | re.MULTILINE)
 
 
-_RE_RECOMMENDATION = re.compile(
-    r"(?:recommends?|recommendation)[:\s]+(.+)", re.IGNORECASE
-)
+_RE_RECOMMENDATION = re.compile(r"(?:recommends?|recommendation)[:\s]+(.+)", re.IGNORECASE)
 
 
 def extract_report_date(text: str) -> str | None:

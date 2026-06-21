@@ -1,14 +1,14 @@
 PYTHON ?= python
 
-.PHONY: quality uv-lock uv-sync quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn lint format-check typecheck spell workflow-audit toml-check workflow-syntax test derived-fields-validation
+.PHONY: quality pixi-install pixi-quality quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn lint format-check typecheck spell workflow-audit toml-check workflow-syntax test derived-fields-validation
 
-quality: uv-lock uv-sync lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation test
+quality: pixi-install lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation test
 
-uv-lock:
-	uv lock --check
+pixi-install:
+	pixi install
 
-uv-sync:
-	uv sync --frozen --all-groups
+pixi-quality:
+	pixi run quality
 
 quality-config:
 	$(PYTHON) scripts/check_quality_gate.py
@@ -116,10 +116,10 @@ workflow-audit:
 	zizmor --min-severity medium .github/workflows
 
 toml-check:
-	taplo format --check pyproject.toml typos.toml
+	taplo format --check pyproject.toml pixi.toml typos.toml
 
 workflow-syntax:
 	actionlint -color
 
 test:
-	$(PYTHON) -m unittest discover tests
+	$(PYTHON) -m pytest -q

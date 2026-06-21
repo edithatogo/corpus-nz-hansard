@@ -133,8 +133,7 @@ def _extract_literal_text(path: Path) -> str:
         chunks.append(_decode_pdf_literal(value))
     for array in re.findall(r"\[(.*?)\]\s*TJ", raw, flags=re.DOTALL):
         chunks.extend(
-            _decode_pdf_literal(value)
-            for value in re.findall(r"\((.*?)\)", array, flags=re.DOTALL)
+            _decode_pdf_literal(value) for value in re.findall(r"\((.*?)\)", array, flags=re.DOTALL)
         )
     return "\n".join(part for part in chunks if part).strip()
 

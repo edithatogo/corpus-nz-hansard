@@ -70,7 +70,6 @@ Waitangi Tribunal
 
 
 class ExtractCommitteeNameTest(unittest.TestCase):
-
     def test_extracts_committee_name(self):
         name = extract_committee_name(_MOCK_REPORT)
         self.assertEqual(name, "Justice Committee")
@@ -94,7 +93,6 @@ class ExtractCommitteeNameTest(unittest.TestCase):
 
 
 class ExtractReportTitleTest(unittest.TestCase):
-
     def test_extracts_title(self):
         title = extract_report_title(_MOCK_REPORT)
         self.assertIsNotNone(title)
@@ -120,7 +118,6 @@ class ExtractReportTitleTest(unittest.TestCase):
 
 
 class ExtractReportDateTest(unittest.TestCase):
-
     def test_extracts_date_with_month_year(self):
         date = extract_report_date(_MOCK_REPORT)
         self.assertEqual(date, "2024-06")
@@ -144,7 +141,6 @@ class ExtractReportDateTest(unittest.TestCase):
 
 
 class ExtractRecommendationsTest(unittest.TestCase):
-
     def test_extracts_recommendations(self):
         recs = extract_recommendations(_MOCK_REPORT)
         self.assertGreaterEqual(len(recs), 2)
@@ -181,7 +177,6 @@ The committee makes the following recommendations:
 
 
 class ExtractFindingsTest(unittest.TestCase):
-
     def test_extracts_findings(self):
         findings = extract_findings(_MOCK_REPORT)
         self.assertGreaterEqual(len(findings), 2)
@@ -207,7 +202,6 @@ Findings
 
 
 class ExtractReferencedLegislationTest(unittest.TestCase):
-
     def test_extracts_legislation_references(self):
         refs = extract_referenced_legislation(_MOCK_REPORT)
         self.assertGreaterEqual(len(refs), 3)
@@ -253,7 +247,6 @@ class ExtractReferencedLegislationTest(unittest.TestCase):
 
 
 class ExtractReferencedBillsTest(unittest.TestCase):
-
     def test_extracts_bill_references(self):
         bills = extract_referenced_bills(_MOCK_REPORT)
         self.assertGreaterEqual(len(bills), 2)
@@ -291,7 +284,6 @@ class ExtractReferencedBillsTest(unittest.TestCase):
 
 
 class ExtractWitnessesSubmittersTest(unittest.TestCase):
-
     def test_extracts_witnesses(self):
         witnesses = extract_witnesses_submitters(_MOCK_REPORT)
         self.assertGreaterEqual(len(witnesses), 6)
@@ -329,7 +321,6 @@ Jane Doe (Auckland Council)
 
 
 class ParsedReportDataClassTest(unittest.TestCase):
-
     def test_parsed_report_defaults(self):
         report = ParsedReport()
         self.assertIsNone(report.committee_name)
@@ -374,7 +365,6 @@ class ParsedReportDataClassTest(unittest.TestCase):
 
 
 class ParseReportTextIntegrationTest(unittest.TestCase):
-
     def test_parse_full_report(self):
         parsed = parse_report_text(_MOCK_REPORT)
         self.assertIsInstance(parsed, ParsedReport)

@@ -173,7 +173,7 @@
               "typer-cli"
             ]
           },
-          "minItems": 5,
+          "minItems": 4,
           "type": "array",
           "uniqueItems": true
         }

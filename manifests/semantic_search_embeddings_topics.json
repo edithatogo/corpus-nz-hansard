@@ -15,7 +15,7 @@
   ],
   "library_versions": {
     "jsonschema": "4.26.0",
-    "scikit-learn": "1.8.0"
+    "scikit-learn": "1.9.0"
   },
   "manifest_version": 1,
   "model_versions": [
@@ -26,9 +26,9 @@
         "samples/party-attribution/party_attribution_review.csv"
       ],
       "library": "scikit-learn",
-      "library_version": "1.8.0",
+      "library_version": "1.9.0",
       "model_family": "embedding",
-      "model_hash": "sha256:3dfb73e1c78d769a2a86b7c7fcba15f234ffac00d1e7596e00a0ad988da10ac0",
+      "model_hash": "sha256:d9e41c1a16ad943a0fbb967750ea0d1c2d4b78fa82b48b7cb63aec8f7e2793c8",
       "model_id": "tfidf-truncated-svd",
       "model_name": "TF-IDF + TruncatedSVD",
       "model_version": "1.0.0",
@@ -54,9 +54,9 @@
         "samples/party-attribution/party_attribution_review.csv"
       ],
       "library": "scikit-learn",
-      "library_version": "1.8.0",
+      "library_version": "1.9.0",
       "model_family": "topic-model",
-      "model_hash": "sha256:e077b7532f56d1e99d022de147960ec457a3eaafecfa830ad61df94064e75bd7",
+      "model_hash": "sha256:e91fdad4db140a99cdae49b7f26d33e0fbfe2331cc640bc822d2e0d3f2525763",
       "model_id": "lda-topic-model",
       "model_name": "LatentDirichletAllocation",
       "model_version": "1.0.0",
@@ -89,7 +89,7 @@
     "samples/party-attribution/party_attribution_review.csv"
   ],
   "tool_versions": {
-    "python": "3.11.15"
+    "python": "3.14.6"
   },
   "track_id": "semantic_search_embeddings_topics_20260610",
   "validation_command": "python scripts/check_semantic_search_embeddings_topics.py",

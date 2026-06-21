@@ -25,7 +25,6 @@ from scripts.select_committee_reports.correlation_index import (
 
 
 class HansardLinkTest(unittest.TestCase):
-
     def test_hansard_link_defaults(self):
         link = HansardLink(hansard_id="hans-001")
         self.assertEqual(link.hansard_id, "hans-001")
@@ -55,7 +54,6 @@ class HansardLinkTest(unittest.TestCase):
 
 
 class LegislationLinkTest(unittest.TestCase):
-
     def test_legislation_link_defaults(self):
         link = LegislationLink(legislation_id="leg-001")
         self.assertEqual(link.legislation_id, "leg-001")
@@ -81,7 +79,6 @@ class LegislationLinkTest(unittest.TestCase):
 
 
 class CorrelationEntryTest(unittest.TestCase):
-
     def test_correlation_entry_defaults(self):
         entry = CorrelationEntry(report_id="rep-001")
         self.assertEqual(entry.report_id, "rep-001")
@@ -114,14 +111,17 @@ class CorrelationEntryTest(unittest.TestCase):
 
 
 class BuildHansardLinksTest(unittest.TestCase):
-
     def test_build_from_report_title_matching_debate(self):
         links = build_hansard_links(
             report_title="Inquiry into the Criminal Procedure (Reform) Bill",
             committee_name="Justice Committee",
             report_date="2024-06",
             available_debates=[
-                {"id": "hans-001", "title": "Criminal Procedure (Reform) Bill - First Reading", "date": "2024-05-15"},
+                {
+                    "id": "hans-001",
+                    "title": "Criminal Procedure (Reform) Bill - First Reading",
+                    "date": "2024-05-15",
+                },
                 {"id": "hans-002", "title": "Budget Debate 2024", "date": "2024-06-01"},
             ],
         )
@@ -153,14 +153,17 @@ class BuildHansardLinksTest(unittest.TestCase):
             committee_name="Justice Committee",
             report_date="2024-06",
             available_debates=[
-                {"id": "hans-003", "title": "Justice Committee - 2024 Annual Review", "date": "2024-06-15"},
+                {
+                    "id": "hans-003",
+                    "title": "Justice Committee - 2024 Annual Review",
+                    "date": "2024-06-15",
+                },
             ],
         )
         self.assertGreaterEqual(len(links), 1)
 
 
 class BuildLegislationLinksTest(unittest.TestCase):
-
     def test_build_from_legislation_refs(self):
         links = build_legislation_links(
             legislation_refs=["Criminal Procedure Act 2011", "Evidence Act 2006"],
@@ -192,7 +195,6 @@ class BuildLegislationLinksTest(unittest.TestCase):
 
 
 class BuildCorrelationIndexTest(unittest.TestCase):
-
     def test_build_index_from_parsed_reports(self):
         index = build_correlation_index(
             parsed_reports=[
@@ -216,23 +218,34 @@ class BuildCorrelationIndexTest(unittest.TestCase):
     def test_build_index_with_multiple_reports(self):
         index = build_correlation_index(
             parsed_reports=[
-                {"report_id": "rep-001", "committee_name": "Justice", "report_title": "Report 1", "report_date": "2024-01"},
-                {"report_id": "rep-002", "committee_name": "Health", "report_title": "Report 2", "report_date": "2024-02"},
+                {
+                    "report_id": "rep-001",
+                    "committee_name": "Justice",
+                    "report_title": "Report 1",
+                    "report_date": "2024-01",
+                },
+                {
+                    "report_id": "rep-002",
+                    "committee_name": "Health",
+                    "report_title": "Report 2",
+                    "report_date": "2024-02",
+                },
             ],
         )
         self.assertEqual(len(index.entries), 2)
 
 
 class CorrelationIndexTest(unittest.TestCase):
-
     def test_index_has_schema(self):
         self.assertIsNotNone(CORRELATION_INDEX_SCHEMA)
 
     def test_index_to_dicts(self):
-        index = CorrelationIndex(entries=[
-            CorrelationEntry(report_id="rep-001", committee_name="Justice"),
-            CorrelationEntry(report_id="rep-002", committee_name="Health"),
-        ])
+        index = CorrelationIndex(
+            entries=[
+                CorrelationEntry(report_id="rep-001", committee_name="Justice"),
+                CorrelationEntry(report_id="rep-002", committee_name="Health"),
+            ]
+        )
         dicts = index.to_dicts()
         self.assertEqual(len(dicts), 2)
         self.assertEqual(dicts[0]["report_id"], "rep-001")
@@ -246,16 +259,17 @@ class CorrelationIndexTest(unittest.TestCase):
         self.assertEqual(meta["corpus"], "corpus-nz-hansard")
 
     def test_index_metadata_with_entries(self):
-        index = CorrelationIndex(entries=[
-            CorrelationEntry(report_id="rep-001", committee_name="Justice"),
-        ])
+        index = CorrelationIndex(
+            entries=[
+                CorrelationEntry(report_id="rep-001", committee_name="Justice"),
+            ]
+        )
         meta = index.metadata()
         self.assertEqual(meta["total_entries"], 1)
         self.assertEqual(meta["committees"], ["Justice"])
 
 
 class CorrelationEntryEqualityTest(unittest.TestCase):
-
     def test_entries_equal(self):
         e1 = CorrelationEntry(report_id="rep-001")
         e2 = CorrelationEntry(report_id="rep-001")

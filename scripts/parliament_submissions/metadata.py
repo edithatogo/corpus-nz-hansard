@@ -144,4 +144,3 @@ def extract_all_metadata(text: str) -> SubmissionMetadata:
         committee=extract_committee_reference(text),
         bill_reference=extract_bill_reference(text),
     )
-

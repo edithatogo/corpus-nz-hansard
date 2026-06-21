@@ -17,7 +17,7 @@ SIBLING_PATH = Path("C:/Users/60217257/OneDrive - Flinders/repos/corpus-law-nz")
 
 REQUIRED_STANDARDS = {
     "pyproject",
-    "uv-lock",
+    "pixi-environment",
     "src-layout",
     "typer-cli",
     "pytest",
@@ -63,7 +63,7 @@ def _failures() -> list[str]:
     future_standards = {
         standard["id"] for standard in manifest["standards"] if standard["status"] == "future"
     }
-    for required_future in ("src-layout", "typer-cli", "pytest", "renovate"):
+    for required_future in ("src-layout", "typer-cli", "renovate"):
         if required_future not in future_standards:
             failures.append(f"{required_future} must remain marked future in this planning track.")
 
@@ -71,7 +71,8 @@ def _failures() -> list[str]:
         standard["id"] for standard in manifest["standards"] if standard["status"] == "adopted"
     }
     for required_adopted in (
-        "uv-lock",
+        "pixi-environment",
+        "pytest",
         "ruff",
         "ty",
         "pre-commit",
@@ -82,8 +83,8 @@ def _failures() -> list[str]:
         if required_adopted not in adopted_standards:
             failures.append(f"{required_adopted} must be marked adopted.")
 
-    if not (ROOT / "uv.lock").exists():
-        failures.append("Hansard uv.lock must remain committed.")
+    if not (ROOT / "pixi.toml").exists():
+        failures.append("Hansard pixi.toml must remain committed.")
     if (ROOT / "src").exists():
         failures.append(
             "src/ package layout exists; update this planning track to implementation mode."
@@ -96,7 +97,7 @@ def _failures() -> list[str]:
     if SIBLING_PATH.exists():
         sibling_checks = {
             "sibling pyproject": SIBLING_PATH / "pyproject.toml",
-            "sibling uv.lock": SIBLING_PATH / "uv.lock",
+            "sibling environment lock": SIBLING_PATH / "uv.lock",
             "sibling src layout": SIBLING_PATH / "src/nz_legislation_corpus",
             "sibling pre-commit": SIBLING_PATH / ".pre-commit-config.yaml",
             "sibling renovate": SIBLING_PATH / "renovate.json",

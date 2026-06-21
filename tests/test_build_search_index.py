@@ -3,6 +3,7 @@ import sqlite3
 import sys
 import unittest
 import uuid
+from contextlib import closing
 from pathlib import Path
 
 import pyarrow as pa
@@ -80,7 +81,7 @@ class BuildSearchIndexTest(unittest.TestCase):
         self.assertEqual(validation["config"]["max_chars"], 40)
         self.assertEqual(validation["config"]["overlap"], 10)
 
-        with sqlite3.connect(database_path) as connection:
+        with closing(sqlite3.connect(database_path)) as connection:
             hits = connection.execute(
                 """
                 select c.parliament_document_id, c.citation
