@@ -190,12 +190,14 @@ def _coverage_payload(review_rows: list[dict[str, Any]], reason: str) -> dict[st
 
 def build_vote_motion_bill_question_extraction(
     *,
-    manifest_path: Path = DEFAULT_MANIFEST,
-    coverage_path: Path = DEFAULT_COVERAGE,
-    review_path: Path = DEFAULT_REVIEW,
+    manifest_path: Path | None = DEFAULT_MANIFEST,
+    coverage_path: Path | None = DEFAULT_COVERAGE,
+    review_path: Path | None = DEFAULT_REVIEW,
     generated_at: str | None = None,
 ) -> dict[str, Any]:
     generated_at = generated_at or datetime.now(UTC).isoformat()
+    rendered_coverage_path = coverage_path or DEFAULT_COVERAGE
+    rendered_review_path = review_path or DEFAULT_REVIEW
     samples = _procedure_samples()
     reason = (
         "Validated member identity, validated party attribution, and validated sitting/proceeding "
@@ -224,8 +226,10 @@ def build_vote_motion_bill_question_extraction(
         )
 
     coverage = _coverage_payload(review_rows, reason)
-    _write_json(coverage_path, coverage)
-    _write_csv(review_path, review_rows)
+    if coverage_path is not None:
+        _write_json(coverage_path, coverage)
+    if review_path is not None:
+        _write_csv(review_path, review_rows)
 
     manifest = {
         "artifact_name": "vote_motion_bill_question_extraction_validation",
@@ -323,8 +327,8 @@ def build_vote_motion_bill_question_extraction(
             "authority_sources": AUTHORITY_SOURCES_PATH.relative_to(ROOT).as_posix(),
         },
         "outputs": {
-            "coverage_report": _render_path(coverage_path),
-            "review_queue": _render_path(review_path),
+            "coverage_report": _render_path(rendered_coverage_path),
+            "review_queue": _render_path(rendered_review_path),
         },
         "coverage": coverage,
         "release_decision": {
@@ -333,7 +337,8 @@ def build_vote_motion_bill_question_extraction(
             "public_claim": "No validated vote/motion/bill/question extraction release is published from this blocked manifest.",
         },
     }
-    _write_json(manifest_path, manifest)
+    if manifest_path is not None:
+        _write_json(manifest_path, manifest)
     return manifest
 
 

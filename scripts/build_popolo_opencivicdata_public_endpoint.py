@@ -49,7 +49,7 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
 
 
 def build_popolo_opencivicdata_public_endpoint(
-    *, manifest_path: Path = DEFAULT_MANIFEST, generated_at: str | None = None
+    *, manifest_path: Path | None = DEFAULT_MANIFEST, generated_at: str | None = None
 ) -> dict[str, Any]:
     generated_at = generated_at or datetime.now(UTC).isoformat()
     sample_manifest = _read_json(SAMPLE_MANIFEST_PATH)
@@ -160,7 +160,8 @@ def build_popolo_opencivicdata_public_endpoint(
         },
         "manifest_sha256": "deferred-public-endpoint-manifest",
     }
-    _write_json(manifest_path, manifest)
+    if manifest_path is not None:
+        _write_json(manifest_path, manifest)
     return manifest
 
 
