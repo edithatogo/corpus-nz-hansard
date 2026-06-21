@@ -4,6 +4,7 @@ Maintainer-review sample generated from neutral fixtures.
 This package is sample-not-release and records blocked-pending-validated-components.
 See manifests/akoma_ntoso_validation_manifest.json and fixtures/neutral_components.json for the narrow sample contract.
 The generated XML lives at samples/akoma-ntoso/Akoma-Ntoso.sample.xml.
+Release notes for the deferred public endpoint surface live at docs/akoma-ntoso-public-endpoint-release.md.
 
 - `Akoma-Ntoso.sample.xml`
 - `Akoma-Ntoso.metadata.xml`

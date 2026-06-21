@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-import tempfile
 import unittest
-from pathlib import Path
 
 from scripts.build_akoma_ntoso_public_endpoint import build_akoma_ntoso_public_endpoint
 from scripts.check_akoma_ntoso_public_endpoint import MANIFEST_PATH, _failures, _json
@@ -10,15 +8,15 @@ from scripts.check_akoma_ntoso_public_endpoint import MANIFEST_PATH, _failures, 
 
 class AkomaNtosoPublicEndpointTests(unittest.TestCase):
     def test_builder_emits_blocked_manifest(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
-            tmp_path = Path(tmp)
-            manifest_path = tmp_path / "manifest.json"
-            manifest = build_akoma_ntoso_public_endpoint(
-                manifest_path=manifest_path,
-                generated_at="2026-06-11T00:00:00+10:00",
-            )
-            self.assertEqual(manifest["release_status"], "blocked-pending-validated-components")
-            self.assertTrue(manifest_path.exists())
+        manifest = build_akoma_ntoso_public_endpoint(
+            manifest_path=None,
+            generated_at="2026-06-11T00:00:00+10:00",
+        )
+        self.assertEqual(manifest["release_status"], "blocked-pending-validated-components")
+        self.assertEqual(
+            manifest["release_notes"]["status"],
+            "deferred-public-release-notes-published",
+        )
 
     def test_repo_manifest_shape_is_consistent(self) -> None:
         self.assertEqual(_failures(), [])
@@ -29,6 +27,13 @@ class AkomaNtosoPublicEndpointTests(unittest.TestCase):
         self.assertEqual(
             manifest["validation_results"]["readiness_status"],
             "blocked-pending-validated-components",
+        )
+        self.assertEqual(
+            manifest["release_notes"]["examples"],
+            [
+                "samples/akoma-ntoso/Akoma-Ntoso.sample.xml",
+                "samples/akoma-ntoso/Akoma-Ntoso.metadata.xml",
+            ],
         )
 
 

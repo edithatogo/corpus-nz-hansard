@@ -32,7 +32,7 @@
   },
   "endpoint": "Akoma Ntoso",
   "endpoint_track": "akoma_ntoso_public_endpoint_release_20260610",
-  "generated_at": "2026-06-12T04:30:37.214213+00:00",
+  "generated_at": "2026-06-21T09:03:31.993489+00:00",
   "input_release_versions": {
     "authority_sources": "manifests/authority_sources.json",
     "document_level": "0.1.0",
@@ -67,6 +67,14 @@
   },
   "publication_target": "public endpoint release package deferred",
   "release_level": "endpoint",
+  "release_notes": {
+    "document": "docs/akoma-ntoso-public-endpoint-release.md",
+    "examples": [
+      "samples/akoma-ntoso/Akoma-Ntoso.sample.xml",
+      "samples/akoma-ntoso/Akoma-Ntoso.metadata.xml"
+    ],
+    "status": "deferred-public-release-notes-published"
+  },
   "release_series_id": "akoma-ntoso-public-endpoint",
   "release_status": "blocked-pending-validated-components",
   "repository": "corpus-nz-hansard",

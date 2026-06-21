@@ -7,6 +7,7 @@ Implemented artifacts:
 - `schemas/akoma_ntoso_public_endpoint_validation.schema.json`
 - `manifests/akoma_ntoso_public_endpoint_validation.json`
 - `docs/akoma-ntoso-public-endpoint-release.md`
+- release-note pointers in `manifests/akoma_ntoso_public_endpoint_validation.json`
 - `scripts/build_akoma_ntoso_public_endpoint.py`
 - `scripts/check_akoma_ntoso_public_endpoint.py`
 - `tests/test_akoma_ntoso_public_endpoint.py`

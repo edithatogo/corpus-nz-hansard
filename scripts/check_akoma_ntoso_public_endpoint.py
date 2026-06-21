@@ -120,6 +120,16 @@ def _failures() -> list[str]:
         failures.append("component_metadata_validated must remain false.")
     if manifest["public_claim"]["sample_only"] is not True:
         failures.append("public_claim.sample_only must be true.")
+    release_notes = manifest.get("release_notes", {})
+    if release_notes.get("status") != "deferred-public-release-notes-published":
+        failures.append("release_notes.status must record deferred public release notes.")
+    if release_notes.get("document") != "docs/akoma-ntoso-public-endpoint-release.md":
+        failures.append("release_notes.document must point to the endpoint release doc.")
+    if set(release_notes.get("examples", [])) != {
+        "samples/akoma-ntoso/Akoma-Ntoso.sample.xml",
+        "samples/akoma-ntoso/Akoma-Ntoso.metadata.xml",
+    }:
+        failures.append("release_notes.examples must list the Akoma Ntoso sample XML examples.")
     if manifest["profile"]["selection_status"] != "blocked-pending-validated-components":
         failures.append(
             "profile selection_status must remain blocked-pending-validated-components."
@@ -158,6 +168,8 @@ def _failures() -> list[str]:
     for relative_path, terms in {
         "docs/akoma-ntoso-public-endpoint-release.md": (
             "sample-only",
+            "Release Notes",
+            "Examples",
             "validated member identity",
             "validated party attribution",
             "validated speech-turn",

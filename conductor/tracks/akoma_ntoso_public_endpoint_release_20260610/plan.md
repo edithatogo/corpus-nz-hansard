@@ -12,5 +12,5 @@
 
 ## Phase 3: Evidence
 
-- [!] Publish manifest, examples, and release notes.
+- [x] Publish manifest, examples, and release notes.
 - [x] Record public/defer decision.

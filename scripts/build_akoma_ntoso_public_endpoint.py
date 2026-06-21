@@ -42,7 +42,7 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
 
 
 def build_akoma_ntoso_public_endpoint(
-    *, manifest_path: Path = DEFAULT_MANIFEST, generated_at: str | None = None
+    *, manifest_path: Path | None = DEFAULT_MANIFEST, generated_at: str | None = None
 ) -> dict[str, Any]:
     generated_at = generated_at or datetime.now(UTC).isoformat()
     sample_manifest = _read_json(SAMPLE_MANIFEST_PATH)
@@ -64,6 +64,14 @@ def build_akoma_ntoso_public_endpoint(
         "publication_target": "public endpoint release package deferred",
         "upstream_contribution_target": "Akoma Ntoso maintainers after validated component releases and profile selection",
         "validation_manifest": "manifests/akoma_ntoso_public_endpoint_validation.json",
+        "release_notes": {
+            "document": "docs/akoma-ntoso-public-endpoint-release.md",
+            "examples": [
+                "samples/akoma-ntoso/Akoma-Ntoso.sample.xml",
+                "samples/akoma-ntoso/Akoma-Ntoso.metadata.xml",
+            ],
+            "status": "deferred-public-release-notes-published",
+        },
         "profile": {
             "namespace": "http://docs.oasis-open.org/legaldocml/ns/akn/3.0",
             "selection": "debate-oriented sample subset",
@@ -150,7 +158,8 @@ def build_akoma_ntoso_public_endpoint(
         },
         "manifest_sha256": "deferred-public-endpoint-manifest",
     }
-    _write_json(manifest_path, manifest)
+    if manifest_path is not None:
+        _write_json(manifest_path, manifest)
     return manifest
 
 

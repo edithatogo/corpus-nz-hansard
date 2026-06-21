@@ -27,3 +27,14 @@ This track is implemented as a blocked public-endpoint release surface and remai
 - `samples/akoma-ntoso/Akoma-Ntoso.sample.xml`
 - `samples/akoma-ntoso/Akoma-Ntoso.metadata.xml`
 - `samples/akoma-ntoso/README.md`
+
+## Release Notes
+
+The endpoint manifest and sample examples are published as deferred public-release evidence.
+They are suitable for maintainer review of the declared Akoma Ntoso boundary, but they do not
+constitute a public endpoint release while the dependent validated components are missing.
+
+## Examples
+
+- `samples/akoma-ntoso/Akoma-Ntoso.sample.xml` records the debate-oriented sample structure.
+- `samples/akoma-ntoso/Akoma-Ntoso.metadata.xml` records sample-level metadata in the same namespace.
