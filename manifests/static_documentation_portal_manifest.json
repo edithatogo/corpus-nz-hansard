@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/20595194"
   },
-  "generated_at": "2026-06-15T10:25:25.366187+00:00",
+  "generated_at": "2026-06-22T13:47:04.563335+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -119,9 +119,9 @@
   "track_id": "static_documentation_portal_20260610",
   "track_snapshot": {
     "summary_counts": {
-      "blocked": 18,
+      "blocked": 20,
       "complete": 45,
-      "pending": 1
+      "pending": 0
     },
     "tracks": [
       {
@@ -370,9 +370,9 @@
         "track_id": ""
       },
       {
-        "goal": "Acquire 510 full-view NZ Parliamentary Debates volumes (1854-1990) from HathiTrust collection 71329709 via OAuth API.",
+        "goal": "Documented the HathiTrust collection inventory and access plan for 510 full-view NZ Parliamentary Debates volumes (1854-1990). Acquisition remains blocked pending OAuth/access-key approval, hathifile enumeration, or another verified live-download path; only 100 sample volume IDs are currently recovered.",
         "link": "./tracks/hathitrust_hansard_acquisition_20260612/",
-        "status": " ",
+        "status": "!",
         "title": "HathiTrust Hansard Acquisition",
         "track_id": ""
       },
@@ -601,9 +601,9 @@
         "track_id": "source_inventory_20260602"
       },
       {
-        "goal": "Establish multi-git and multi-archive mirroring setup to prevent single-point-of-failure repository/dataset takedowns.",
+        "goal": "Establish multi-git and multi-archive mirroring setup to prevent single-point-of-failure repository/dataset takedowns. Repo-side validation is implemented; live mirroring is blocked pending GitHub mirror secrets and manual workflow evidence.",
         "link": "./tracks/multi_git_archive_mirroring_20260614/",
-        "status": "~",
+        "status": "!",
         "title": "Multi-Git and Multi-Archive Mirroring Setup",
         "track_id": "multi_git_archive_mirroring_20260614"
       }

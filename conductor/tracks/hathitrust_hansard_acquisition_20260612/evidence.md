@@ -121,10 +121,25 @@ All HathiTrust domains (`babel.*`, `catalog.*`, `www.*`, `quod.lib.umich.edu`) a
 3. **HTRC platform** -- text analysis with direct access
 4. **Browser automation** -- selenium/playwright for Cloudflare bypass
 
-## Next Steps
+## Status Reconciliation (2026-06-22)
 
-1. [ ] Register for HathiTrust Data API key
-2. [ ] Enumerate all 510 volume IDs
-3. [ ] Fetch bibliographic metadata
-4. [ ] Download OCR text
-5. [ ] Convert to corpus-compatible format
+Evidence-backed completion is limited to collection identification, archived
+collection review, endpoint/access-path documentation, and a 100-ID sample
+inventory from Wayback page 1. No complete HathiTrust acquisition has been
+performed in this repository.
+
+Repository-side inventory validation is recorded in
+`manifests/hathitrust_hansard_acquisition_inventory.json`. The release gate is
+`blocked-pending-hathifile-or-oauth` until a complete hathifile-derived or
+browser-verified volume list and approved HathiTrust Data API access are
+available.
+
+Remaining blockers:
+
+1. [!] Register for HathiTrust Data API key, or otherwise obtain approved OAuth/API access.
+2. [!] Acquire and filter the relevant hathifile dump, or document another verified enumeration path.
+3. [!] Enumerate all 510 volume IDs; 100 sample IDs are known, 410 remain pending.
+4. [!] Fetch bibliographic metadata after a complete identifier list and live access path exist.
+5. [!] Download OCR text after Data API access is available.
+6. [ ] Convert acquired text to corpus-compatible format.
+7. [ ] Reconcile acquired volumes against the official sitting calendar.

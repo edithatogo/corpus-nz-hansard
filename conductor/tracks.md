@@ -295,11 +295,11 @@ Goal: Extract structured MP name, party, and electorate data from Wikipedia arti
 
 Link: [conductor/tracks/wikipedia_mp_lists_acquisition_20260612/](./tracks/wikipedia_mp_lists_acquisition_20260612/)
 
-### [ ] Track: HathiTrust Hansard Acquisition
+### [!] Track: HathiTrust Hansard Acquisition
 
 Track ID: hathitrust_hansard_acquisition_20260612
 
-Goal: Acquire 510 full-view NZ Parliamentary Debates volumes (1854-1990) from HathiTrust collection 71329709 via OAuth API.
+Goal: Documented the HathiTrust collection inventory and access plan for 510 full-view NZ Parliamentary Debates volumes (1854-1990). Acquisition remains blocked pending OAuth/access-key approval, hathifile enumeration, or another verified live-download path; only 100 sample volume IDs are currently recovered.
 
 Link: [conductor/tracks/hathitrust_hansard_acquisition_20260612/](./tracks/hathitrust_hansard_acquisition_20260612/)
 
@@ -566,17 +566,17 @@ Link: [conductor/tracks/source_inventory_20260602/](./tracks/source_inventory_20
 
 None.
 
-### [~] Track: Multi-Git and Multi-Archive Mirroring Setup
+### [!] Track: Multi-Git and Multi-Archive Mirroring Setup
 
 Track ID: `multi_git_archive_mirroring_20260614`
 
-Goal: Establish multi-git and multi-archive mirroring setup to prevent single-point-of-failure repository/dataset takedowns.
+Goal: Establish multi-git and multi-archive mirroring setup to prevent single-point-of-failure repository/dataset takedowns. Repo-side validation is implemented; live mirroring is blocked pending GitHub mirror secrets and manual workflow evidence.
 
 - [x] Phase 1 Task 1: Write .github/workflows/mirror_sync.yml (evidence in conductor/tracks/multi_git_archive_mirroring_20260614/evidence.md)
-- [ ] Phase 1 Task 2: Configure repository secrets GIT_MIRROR_URL and GIT_MIRROR_SSH_PRIVATE_KEY on GitHub (requires GitHub access)
-- [ ] Phase 1 Task 3: Verify successful manual and push triggers for mirror sync (requires GitHub Actions)
+- [x] Phase 1 Task 1b: Add repo-side validation for mirror workflow and archive policy evidence
+- [!] Phase 1 Task 2: Configure repository secrets GIT_MIRROR_URL and GIT_MIRROR_SSH_PRIVATE_KEY on GitHub (requires GitHub access)
+- [!] Phase 1 Task 3: Verify successful manual and push triggers for mirror sync (requires GitHub Actions)
 - [x] Phase 2 Task 1: Run python scripts/check_osf_optional_mirror_policy.py — PASSED (OSF policy is consistent)
-- [ ] Phase 2 Task 2: Conductor - User Manual Verification (requires user approval)
+- [!] Phase 2 Task 2: Conductor - User Manual Verification (requires user approval)
 
 Link: [conductor/tracks/multi_git_archive_mirroring_20260614/](./tracks/multi_git_archive_mirroring_20260614/)
-

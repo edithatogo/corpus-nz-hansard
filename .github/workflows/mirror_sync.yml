@@ -26,6 +26,11 @@ jobs:
             echo "GIT_MIRROR_URL is not set, skipping mirror."
             exit 0
           fi
+
+          if [ -z "$GIT_MIRROR_SSH_PRIVATE_KEY" ]; then
+            echo "GIT_MIRROR_SSH_PRIVATE_KEY is not set, skipping mirror."
+            exit 0
+          fi
           
           mkdir -p ~/.ssh
           echo "$GIT_MIRROR_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519

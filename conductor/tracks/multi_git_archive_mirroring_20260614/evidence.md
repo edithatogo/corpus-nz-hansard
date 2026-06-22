@@ -45,3 +45,39 @@ OSF optional mirror policy is consistent.
 - Canonical surfaces: GitHub, Hugging Face, Zenodo (OSF is optional future mirror)
 - OSF status: inactive, claims_allowed: false, project_url: null
 - All required activation controls present before OSF can go live
+
+---
+
+## Repository-Side Validation (2026-06-22)
+
+### Task: Add mirror workflow and archive-policy guard
+
+**Status:** Complete repo-side; live mirror execution remains blocked.
+
+**Evidence:**
+- `.github/workflows/mirror_sync.yml` now skips when either `GIT_MIRROR_URL`
+  or `GIT_MIRROR_SSH_PRIVATE_KEY` is absent, so dry-run and unset-secret paths
+  cannot create a partial SSH configuration.
+- `scripts/check_multi_git_archive_mirroring.py` validates:
+  - push and manual triggers for `main`/`master`;
+  - pinned `actions/checkout` SHA with `fetch-depth: 0` and
+    `persist-credentials: false`;
+  - both required GitHub mirror secrets;
+  - SSH host-key scan and mirror push command;
+  - OSF optional mirror policy consistency.
+- `tests/test_multi_git_archive_mirroring.py` covers the workflow secret-pair
+  skip behavior and the repo-side track contract.
+
+**Focused validation:**
+```
+python scripts/check_multi_git_archive_mirroring.py
+python scripts/run_pytest_with_repo_tmp.py -q tests/test_multi_git_archive_mirroring.py
+```
+
+### Remaining live blocker
+
+**Status:** `blocked-pending-github-mirror-secrets-and-manual-trigger`
+
+The repository cannot prove secondary Git mirror delivery until a maintainer
+configures `GIT_MIRROR_URL` and `GIT_MIRROR_SSH_PRIVATE_KEY` in GitHub Actions
+secrets and captures a successful manual or push-triggered `Mirror Sync` run.

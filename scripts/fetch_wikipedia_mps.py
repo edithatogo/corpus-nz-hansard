@@ -12,6 +12,7 @@ import json
 import re
 import time
 from datetime import UTC, datetime
+from html import unescape
 from pathlib import Path
 
 import requests
@@ -34,7 +35,9 @@ USER_AGENT = "corpus-nz-hansard/1.0 (research; +https://github.com/edithatogo/co
 # Known party names used in Wikipedia <th> headers (case-insensitive matching)
 PARTY_HEADERS = {
     "labour": "Labour",
+    "labour party": "Labour",
     "national": "National",
+    "national party": "National",
     "green party": "Green",
     "act new zealand": "ACT",
     "maori party": "Maori Party",
@@ -42,6 +45,23 @@ PARTY_HEADERS = {
     "united future": "United Future",
     "progressive": "Progressive",
     "mana": "Mana",
+    "independent": "Independent",
+}
+
+PARTY_LABELS = {
+    "act": "ACT",
+    "act new zealand": "ACT",
+    "green": "Green",
+    "green party": "Green",
+    "labour": "Labour",
+    "mana": "Mana",
+    "maori party": "Maori Party",
+    "māori party": "Maori Party",
+    "national": "National",
+    "new zealand first": "NZ First",
+    "nz first": "NZ First",
+    "progressive": "Progressive",
+    "united future": "United Future",
     "independent": "Independent",
 }
 
@@ -108,6 +128,18 @@ def extract_party_from_th(th_text: str) -> str | None:
     return None
 
 
+def normalize_party_label(value: str) -> str:
+    """Normalize visible Wikipedia party labels into canonical short labels."""
+    text = clean_html_text(value).strip()
+    return PARTY_LABELS.get(text.lower(), text)
+
+
+def clean_html_text(value: str) -> str:
+    """Remove simple tags and collapse whitespace from an HTML fragment."""
+    text = re.sub(r"<[^>]+>", " ", value)
+    return re.sub(r"\s+", " ", unescape(text)).strip()
+
+
 def extract_mp_tables(html: str) -> list[dict]:
     """Extract MP names, parties, and electorates from Wikipedia Parsoid HTML."""
     mps = []
@@ -146,10 +178,11 @@ def extract_mp_tables(html: str) -> list[dict]:
     for i, (pos, party) in enumerate(party_markers):
         tbl_start = html.rfind("<table", 0, pos)
         tbl_end = html.find("</table>", pos)
+        next_marker = party_markers[i + 1][0] if i + 1 < len(party_markers) else len(html)
         if tbl_start >= 0 and tbl_end > tbl_start:
-            end_pos = tbl_end + 8
+            end_pos = min(tbl_end + len("</table>"), next_marker)
         else:
-            end_pos = party_markers[i + 1][0] if i + 1 < len(party_markers) else len(html)
+            end_pos = next_marker
         section_html = html[pos:end_pos]
 
         # Find all <tr> rows in this section that contain MP name links
@@ -215,7 +248,59 @@ def _extract_mp_rows(section_html: str, party: str, mps: list[dict]) -> None:
 def _extract_mp_tables_per_row(html: str) -> list[dict]:
     """Extract MP rows when party section markers are unavailable."""
     mps: list[dict] = []
-    _extract_mp_rows(html, "", mps)
+    for tr_match in re.finditer(r"<tr[^>]*>(.*?)</tr>", html, re.IGNORECASE | re.DOTALL):
+        tr_content = tr_match.group(1)
+        cells = re.findall(r"<td\b[^>]*>(.*?)</td>", tr_content, re.IGNORECASE | re.DOTALL)
+        if len(cells) < 3:
+            continue
+
+        if len(cells) == 3:
+            # Older fixtures and some simple tables use:
+            # party, electorate/list, member.
+            party_cell = cells[0]
+            electorate_cell = cells[1]
+            member_cell = cells[2]
+        else:
+            # Older live Parliament pages use:
+            # colour swatch, party, member, electorate/list, term number.
+            party_cell = cells[1]
+            member_cell = cells[2]
+            electorate_cell = cells[3]
+
+        party = normalize_party_label(party_cell)
+        if not party or any(skip == party for skip in ("Party", "Election", "Parliament")):
+            continue
+
+        member_link = re.search(
+            r'<a\s+(?:[^>]*?\s)?href="(?:\./|/wiki/)([^"]+)"[^>]*>(.*?)</a>',
+            member_cell,
+            re.IGNORECASE | re.DOTALL,
+        )
+        if not member_link:
+            continue
+
+        wiki_slug = member_link.group(1).strip()
+        name = clean_html_text(member_link.group(2))
+        words = name.split()
+        if len(words) < 2 or len(name) > 60 or len(name) < 4:
+            continue
+        if any(w in SKIP_WORDS for w in words[:2]):
+            continue
+
+        electorate = clean_html_text(electorate_cell)
+        if not electorate or electorate in ("\u2014", "\u2013"):
+            electorate = "List"
+        if electorate.lower() in {"party list", "list"}:
+            electorate = "List"
+
+        mps.append(
+            {
+                "name": name,
+                "party": party,
+                "electorate": electorate,
+                "wiki_slug": wiki_slug,
+            }
+        )
     return mps
 
 

@@ -2,12 +2,29 @@
 
 - [x] Task: Identify collection and verify 510 full-view items
 - [x] Task: Investigate HathiTrust API endpoints (documented in evidence.md)
-- [ ] Task: Register for HathiTrust Data API key (OAuth) or acquire hathifile
-- [ ] Task: Enumerate all 510 volume IDs (need Cloudflare bypass or hathifile)
-- [ ] Task: Download bibliographic metadata for each volume
-- [ ] Task: Download OCR text for each volume via Data API
+- [x] Task: Build deterministic inventory manifest from committed Wayback sample
+- [!] Task: Register for HathiTrust Data API key (OAuth) or acquire hathifile
+- [!] Task: Enumerate all 510 volume IDs (100 sample IDs recovered; remaining 410 need OAuth/API, hathifile, or verified browser-backed access)
+- [!] Task: Download bibliographic metadata for each volume (blocked until complete IDs and live access path exist)
+- [!] Task: Download OCR text for each volume via Data API (blocked pending OAuth/access key)
 - [ ] Task: Convert to corpus-compatible format
 - [ ] Task: Reconcile against official sitting calendar
+
+## Current Reconciliation (2026-06-22)
+
+Completed evidence-backed work is limited to source identification, archived
+collection review, API/access-path documentation, and a 100-ID sample inventory
+from Wayback page 1. This track has not acquired the complete HathiTrust corpus:
+the complete 510-volume identifier list, bibliographic metadata, OCR downloads,
+corpus conversion, and sitting-calendar reconciliation remain outstanding.
+
+The track is therefore blocked rather than planned or complete. The next
+unblocking step is one of:
+
+1. Obtain a HathiTrust Data API OAuth/access key.
+2. Acquire the relevant monthly hathifile dump and filter it for the collection.
+3. Use a verified browser-backed collection enumeration path and document the
+   resulting evidence.
 
 ## API Investigation Results (2026-06-13)
 

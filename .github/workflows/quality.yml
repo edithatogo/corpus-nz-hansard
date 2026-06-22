@@ -94,6 +94,9 @@ jobs:
       - name: OSF optional mirror policy
         run: pixi run python scripts\check_osf_optional_mirror_policy.py
 
+      - name: Multi-git archive mirroring
+        run: pixi run python scripts\check_multi_git_archive_mirroring.py
+
       - name: Corpus family publication alignment
         run: pixi run python scripts\check_corpus_family_alignment.py
 
