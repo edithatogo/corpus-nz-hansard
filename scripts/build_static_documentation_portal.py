@@ -150,6 +150,7 @@ def _build_manifest(
     public_release: dict[str, Any],
 ) -> dict[str, Any]:
     status_counts = Counter(_status_label(track["status"]) for track in tracks)
+    release_version = public_release["publication"]["github_release"].split("/tag/v")[-1]
     citation_guidance = [
         {"label": "Release ladder", "path": "docs/release-ladder.md"},
         {"label": "Publication status", "path": "docs/publication-status.md"},
@@ -188,7 +189,7 @@ def _build_manifest(
             "public_release_checklist": "docs/public-release-checklist.md",
         },
         "current_public_release": {
-            "version": public_release["publication"]["github_release"].split("/tag/v")[-1],
+            "version": release_version,
             "release_level": release_ladder["current_public_release"]["release_level"],
             "publication_status": public_release["publication_status"],
             "github_release": public_release["publication"]["github_release"],
@@ -207,6 +208,7 @@ def _build_manifest(
             "summary_counts": {
                 "complete": status_counts.get("complete", 0),
                 "blocked": status_counts.get("blocked", 0),
+                "in_progress": status_counts.get("in progress", 0),
                 "pending": status_counts.get("pending", 0),
             },
             "tracks": tracks,
@@ -217,7 +219,7 @@ def _build_manifest(
         },
         "validation_results": {
             "portal_built": True,
-            "current_public_release_version": "0.1.0",
+            "current_public_release_version": release_version,
             "track_rows": len(tracks),
             "public_release_urls_recorded": True,
         },
@@ -393,6 +395,7 @@ def _render_html(manifest: dict[str, Any], release_ladder: dict[str, Any]) -> st
         <div class="stats">
           <div class="stat"><span>Complete</span><strong>{manifest["track_snapshot"]["summary_counts"]["complete"]}</strong></div>
           <div class="stat"><span>Blocked</span><strong>{manifest["track_snapshot"]["summary_counts"]["blocked"]}</strong></div>
+          <div class="stat"><span>In progress</span><strong>{manifest["track_snapshot"]["summary_counts"]["in_progress"]}</strong></div>
           <div class="stat"><span>Pending</span><strong>{manifest["track_snapshot"]["summary_counts"]["pending"]}</strong></div>
           <div class="stat"><span>Total</span><strong>{manifest["validation_results"]["track_rows"]}</strong></div>
         </div>
@@ -442,22 +445,32 @@ def _render_html(manifest: dict[str, Any], release_ladder: dict[str, Any]) -> st
 """
 
 
-def build_static_documentation_portal(
-    *, manifest_path: Path = MANIFEST_PATH, generated_at: str | None = None
-) -> dict[str, Any]:
-    generated_at = generated_at or datetime.now(UTC).isoformat()
+def render_static_documentation_portal(*, generated_at: str) -> tuple[dict[str, Any], str]:
     release_ladder = _read_json(RELEASE_LADDER_PATH)
     public_release = _read_json(PUBLIC_RELEASE_PATH)
     tracks = _parse_tracks(_read_text(TRACKS_PATH))
+    missing_ids = [track["title"] for track in tracks if not track["track_id"]]
+    if missing_ids:
+        raise ValueError(
+            f"Track registry entries missing backticked Track ID values: {missing_ids}"
+        )
     manifest = _build_manifest(
         generated_at=generated_at,
         tracks=tracks,
         release_ladder=release_ladder,
         public_release=public_release,
     )
+    return manifest, _render_html(manifest, release_ladder)
+
+
+def build_static_documentation_portal(
+    *, manifest_path: Path = MANIFEST_PATH, generated_at: str | None = None
+) -> dict[str, Any]:
+    generated_at = generated_at or datetime.now(UTC).isoformat()
+    manifest, html_text = render_static_documentation_portal(generated_at=generated_at)
     _write_json(manifest_path, manifest)
     PORTAL_DIR.mkdir(parents=True, exist_ok=True)
-    HTML_PATH.write_text(_render_html(manifest, release_ladder), encoding="utf-8")
+    HTML_PATH.write_text(html_text, encoding="utf-8")
     return manifest
 
 

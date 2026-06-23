@@ -125,11 +125,12 @@
       "properties": {
         "summary_counts": {
           "type": "object",
-          "required": ["complete", "blocked", "pending"],
+          "required": ["complete", "blocked", "in_progress", "pending"],
           "additionalProperties": false,
           "properties": {
             "complete": {"type": "integer", "minimum": 0},
             "blocked": {"type": "integer", "minimum": 0},
+            "in_progress": {"type": "integer", "minimum": 0},
             "pending": {"type": "integer", "minimum": 0}
           }
         },
@@ -142,7 +143,7 @@
             "properties": {
               "status": {"type": "string"},
               "title": {"type": "string"},
-              "track_id": {"type": "string"},
+              "track_id": {"type": "string", "minLength": 1},
               "goal": {"type": "string"},
               "link": {"type": "string"}
             }
@@ -192,7 +193,7 @@
       "additionalProperties": false,
       "properties": {
         "portal_built": {"const": true},
-        "current_public_release_version": {"const": "0.1.0"},
+        "current_public_release_version": {"type": "string", "minLength": 1},
         "track_rows": {"type": "integer", "minimum": 0},
         "public_release_urls_recorded": {"const": true}
       }

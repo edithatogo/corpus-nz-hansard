@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/20595194"
   },
-  "generated_at": "2026-06-22T13:47:04.563335+00:00",
+  "generated_at": "2026-06-23T10:48:39.836451+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -119,8 +119,9 @@
   "track_id": "static_documentation_portal_20260610",
   "track_snapshot": {
     "summary_counts": {
-      "blocked": 20,
-      "complete": 45,
+      "blocked": 19,
+      "complete": 49,
+      "in_progress": 0,
       "pending": 0
     },
     "tracks": [
@@ -356,53 +357,46 @@
         "track_id": "derived_fields_validation_manifests_20260609"
       },
       {
-        "goal": "Integrate open REST API from bills.parliament.nz as an authority source for bill-stage metadata, member sponsors, select committees, and legislation.govt.nz cross-references. 3,513 bills extracted, 351 unique member names.",
+        "goal": "Integrate open REST API from bills.parliament.nz as an authority source for bill-stage metadata, member sponsors, select committees, and legislation.govt.nz cross-references. 3,516 bills captured in non-truncated summary/detail artifacts, 351 unique member names extracted, and bill-stage metadata readiness artifact generated.",
         "link": "./tracks/bills_api_integration_20260612/",
-        "status": "~",
+        "status": "x",
         "title": "Bills API Integration",
-        "track_id": ""
+        "track_id": "bills_api_integration_20260612"
       },
       {
-        "goal": "Extract structured MP name, party, and electorate data from Wikipedia articles for Parliaments 47-53. 249 MPs extracted from Parliaments 52-53.",
-        "link": "./tracks/wikipedia_mp_lists_acquisition_20260612/",
-        "status": "~",
-        "title": "Wikipedia MP Lists Acquisition",
-        "track_id": ""
-      },
-      {
-        "goal": "Documented the HathiTrust collection inventory and access plan for 510 full-view NZ Parliamentary Debates volumes (1854-1990). Acquisition remains blocked pending OAuth/access-key approval, hathifile enumeration, or another verified live-download path; only 100 sample volume IDs are currently recovered.",
+        "goal": "Documented the HathiTrust collection inventory and access plan for 510 full-view NZ Parliamentary Debates volumes (1854-1990). Acquisition remains blocked pending OAuth/access-key approval, hathifile enumeration, or another verified live-download path; only 39 sample volume IDs are currently recovered.",
         "link": "./tracks/hathitrust_hansard_acquisition_20260612/",
         "status": "!",
         "title": "HathiTrust Hansard Acquisition",
-        "track_id": ""
+        "track_id": "hathitrust_hansard_acquisition_20260612"
       },
       {
         "goal": "Access Radware-protected NZ Parliament website pages using Playwright stealth browser techniques. All 5 target pages successfully fetched.",
         "link": "./tracks/parliament_website_stealth_access_20260612/",
-        "status": "~",
+        "status": "x",
         "title": "Parliament Website Stealth Access",
-        "track_id": ""
+        "track_id": "parliament_website_stealth_access_20260612"
       },
       {
         "goal": "Cross-reference multiple authority sources (Wikipedia, Wikidata, Bills API, Parliament website, Electoral Commission) to resolve and validate member identity. 51/51 names resolved (100%).",
         "link": "./tracks/member_identity_triangulation_20260612/",
-        "status": "~",
+        "status": "x",
         "title": "Member Identity Triangulation",
-        "track_id": ""
+        "track_id": "member_identity_triangulation_20260612"
       },
       {
         "goal": "Define dataset ownership boundaries between corpus-nz-hansard, corpus-law-nz (legislation), and planned corpus-nlp (NLP). Documented in docs/cross-repo-dataset-architecture.md.",
         "link": "./tracks/cross_repo_dataset_architecture_20260612/",
         "status": "x",
         "title": "Cross-Repo Dataset Architecture",
-        "track_id": ""
+        "track_id": "cross_repo_dataset_architecture_20260612"
       },
       {
-        "goal": "Access historical NZ parliamentary content from NZLII (1854-2008 bills). Currently blocked (HTTP 403). Deferred in favour of HathiTrust.",
+        "goal": "Access historical NZ parliamentary content from NZLII (1854-2008 bills). Current recheck confirms Cloudflare 403 challenge responses on historical bills and NZ Parliament paths; deferred pending permission, bulk/API access, or a verified browser-backed path. HathiTrust remains the preferred historical acquisition route.",
         "link": "./tracks/nzlii_historical_acquisition_20260612/",
         "status": "!",
         "title": "NZLII Historical Acquisition",
-        "track_id": ""
+        "track_id": "nzlii_historical_acquisition_20260612"
       },
       {
         "goal": "Generated a Popolo/Open Civic Data maintainer-review sample package, mapping notes, validation manifest, checker, and readiness boundary without inferring full voting records from text patterns alone.",
@@ -601,11 +595,11 @@
         "track_id": "source_inventory_20260602"
       },
       {
-        "goal": "Establish multi-git and multi-archive mirroring setup to prevent single-point-of-failure repository/dataset takedowns. Repo-side validation is implemented; live mirroring is blocked pending GitHub mirror secrets and manual workflow evidence.",
-        "link": "./tracks/multi_git_archive_mirroring_20260614/",
-        "status": "!",
-        "title": "Multi-Git and Multi-Archive Mirroring Setup",
-        "track_id": "multi_git_archive_mirroring_20260614"
+        "goal": "Extract structured MP name, party, and electorate data from Wikipedia articles for Parliaments 47-53. 895 MP records extracted across all 7 target parliaments.",
+        "link": "./tracks/wikipedia_mp_lists_acquisition_20260612/",
+        "status": "x",
+        "title": "Wikipedia MP Lists Acquisition",
+        "track_id": "wikipedia_mp_lists_acquisition_20260612"
       }
     ]
   },
@@ -613,6 +607,6 @@
     "current_public_release_version": "0.1.0",
     "portal_built": true,
     "public_release_urls_recorded": true,
-    "track_rows": 69
+    "track_rows": 68
   }
 }

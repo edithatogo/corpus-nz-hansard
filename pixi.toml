@@ -108,7 +108,42 @@ spell = "typos --config typos.toml"
 workflow-audit = "zizmor --min-severity medium .github/workflows"
 toml-check = "taplo format --check pyproject.toml pixi.toml typos.toml"
 quality-config = ".pixi/envs/default/python.exe scripts/check_quality_gate.py"
+workflow-syntax = "actionlint -color"
+provenance-policy = ".pixi/envs/default/python.exe scripts/check_release_provenance_policy.py"
+version-consistency = ".pixi/envs/default/python.exe scripts/check_release_version_consistency.py"
+public-surface-audit = ".pixi/envs/default/python.exe scripts/check_public_surface_audit.py"
+zenodo-rights = ".pixi/envs/default/python.exe scripts/check_zenodo_rights_metadata.py"
+shared-core = ".pixi/envs/default/python.exe scripts/check_shared_core_schema.py"
+metadata-packages = ".pixi/envs/default/python.exe scripts/check_metadata_packages.py"
+osf-policy = ".pixi/envs/default/python.exe scripts/check_osf_optional_mirror_policy.py"
+multi-git-archive-mirroring = ".pixi/envs/default/python.exe scripts/check_multi_git_archive_mirroring.py"
+hathitrust-acquisition = ".pixi/envs/default/python.exe scripts/check_hathitrust_acquisition.py"
+parliament-stealth-access = ".pixi/envs/default/python.exe scripts/check_parliament_website_stealth_access.py"
+wikipedia-mp-lists-acquisition = ".pixi/envs/default/python.exe scripts/check_wikipedia_mp_lists_acquisition.py"
 member-identity-triangulation = ".pixi/envs/default/python.exe scripts/check_member_identity_triangulation.py"
+corpus-family-alignment = ".pixi/envs/default/python.exe scripts/check_corpus_family_alignment.py"
+corpus-family-engineering = ".pixi/envs/default/python.exe scripts/check_corpus_family_engineering_alignment.py"
+authority-sources = ".pixi/envs/default/python.exe scripts/check_authority_sources.py"
+historical-sitting-inventory = ".pixi/envs/default/python.exe scripts/check_historical_sitting_inventory.py"
+historical-sitting-official-exports = ".pixi/envs/default/python.exe scripts/check_historical_sitting_official_exports.py"
+historical-sitting-official-exports-coverage = ".pixi/envs/default/python.exe scripts/build_historical_sitting_official_exports_coverage.py"
+historical-sitting-reconciliation = ".pixi/envs/default/python.exe scripts/check_historical_sitting_reconciliation.py"
+historical-coverage = ".pixi/envs/default/python.exe scripts/check_historical_coverage_audit.py"
+release-ladder = ".pixi/envs/default/python.exe scripts/check_release_ladder.py"
+gold-evaluation = ".pixi/envs/default/python.exe scripts/check_gold_evaluation_datasets.py"
+canonical-ids = ".pixi/envs/default/python.exe scripts/check_canonical_id_uri_policy.py"
+dependency-extras = ".pixi/envs/default/python.exe scripts/check_dependency_extras_policy.py"
+procedure-model = ".pixi/envs/default/python.exe scripts/check_nz_parliamentary_procedure_model.py"
+neutral-components = ".pixi/envs/default/python.exe scripts/check_neutral_component_model.py"
+akoma-ntoso = ".pixi/envs/default/python.exe scripts/check_akoma_ntoso_endpoint.py"
+parlamint-nz = ".pixi/envs/default/python.exe scripts/check_parlamint_nz_endpoint.py"
+popolo-ocd = ".pixi/envs/default/python.exe scripts/check_popolo_opencivicdata_endpoint.py"
+ud-conllu = ".pixi/envs/default/python.exe scripts/check_ud_conllu_endpoint.py"
+rdf-linked-data = ".pixi/envs/default/python.exe scripts/check_rdf_linked_data_endpoint.py"
+corpus-wide-member-identity = ".pixi/envs/default/python.exe scripts/check_corpus_wide_member_identity.py"
+corpus-wide-party-attribution = ".pixi/envs/default/python.exe scripts/check_corpus_wide_party_attribution.py"
+validated-speech-turn = ".pixi/envs/default/python.exe scripts/check_validated_speech_turn_component.py"
+derived-fields-validation = ".pixi/envs/default/python.exe scripts/validate_derived_fields.py"
 security-audit = ".pixi/envs/default/python.exe -m pip_audit --strict --cache-dir .tmp/pip-audit-cache --progress-spinner off"
 sbom = "cyclonedx-py environment --output-file reports/sbom.cdx.json"
 dependency-check = ".pixi/envs/default/Scripts/deptry.exe tests --exclude venv --exclude \\.venv --exclude \\.git --ignore DEP001,DEP002 --known-first-party scripts --known-first-party test_support --package-module-name-map FlagEmbedding=flagembedding,torch=torch,transformers=transformers,pydantic-ai-slim=pydantic_ai,msgspec=msgspec,orjson=orjson,xsdata=xsdata,ibis-framework=ibis,tantivy=tantivy,sqlite-vec=sqlite_vec --no-ansi"
@@ -124,7 +159,42 @@ quality = { depends-on = [
   "spell",
   "workflow-audit",
   "toml-check",
+  "workflow-syntax",
   "quality-config",
+  "provenance-policy",
+  "version-consistency",
+  "public-surface-audit",
+  "zenodo-rights",
+  "shared-core",
+  "metadata-packages",
+  "osf-policy",
+  "multi-git-archive-mirroring",
+  "hathitrust-acquisition",
+  "parliament-stealth-access",
+  "wikipedia-mp-lists-acquisition",
   "member-identity-triangulation",
+  "corpus-family-alignment",
+  "corpus-family-engineering",
+  "authority-sources",
+  "historical-sitting-inventory",
+  "historical-sitting-official-exports",
+  "historical-sitting-official-exports-coverage",
+  "historical-sitting-reconciliation",
+  "historical-coverage",
+  "release-ladder",
+  "gold-evaluation",
+  "canonical-ids",
+  "dependency-extras",
+  "procedure-model",
+  "neutral-components",
+  "akoma-ntoso",
+  "parlamint-nz",
+  "popolo-ocd",
+  "ud-conllu",
+  "rdf-linked-data",
+  "corpus-wide-member-identity",
+  "corpus-wide-party-attribution",
+  "validated-speech-turn",
+  "derived-fields-validation",
   "test",
 ] }

@@ -16,7 +16,7 @@ if str(ROOT) not in sys.path:
 from scripts.build_static_documentation_portal import (  # noqa: E402
     HTML_PATH,
     MANIFEST_PATH,
-    build_static_documentation_portal,
+    render_static_documentation_portal,
 )
 
 SCHEMA_PATH = ROOT / "schemas/static_documentation_portal.schema.json"
@@ -51,8 +51,10 @@ def _failures() -> list[str]:
 
     if manifest["validation_results"]["portal_built"] is not True:
         failures.append("portal_built must remain true.")
-    if manifest["validation_results"]["current_public_release_version"] != "0.1.0":
-        failures.append("current_public_release_version must stay on v0.1.0.")
+    public_release = _json(PUBLIC_RELEASE_PATH)
+    expected_release_version = public_release["publication"]["github_release"].split("/tag/v")[-1]
+    if manifest["validation_results"]["current_public_release_version"] != expected_release_version:
+        failures.append("current_public_release_version must match the public release manifest.")
 
     html_text = _read(HTML_PATH)
     for required in (
@@ -90,7 +92,6 @@ def _failures() -> list[str]:
             failures.append(f"{TRACK_PATH.relative_to(ROOT).as_posix()} is missing: {required}")
 
     release_ladder = _json(RELEASE_LADDER_PATH)
-    public_release = _json(PUBLIC_RELEASE_PATH)
     if (
         manifest["current_public_release"]["github_release"]
         != public_release["publication"]["github_release"]
@@ -102,9 +103,29 @@ def _failures() -> list[str]:
         failures.append("Artifact map count must match the release ladder manifest.")
     if manifest["track_snapshot"]["summary_counts"]["complete"] < 1:
         failures.append("Track status summary should include completed tracks.")
+    if any(not track["track_id"] for track in manifest["track_snapshot"]["tracks"]):
+        failures.append("Every static portal track row must include a non-empty track_id.")
+    expected_counts = {
+        "complete": 0,
+        "blocked": 0,
+        "in_progress": 0,
+        "pending": 0,
+    }
+    for track in manifest["track_snapshot"]["tracks"]:
+        label = {"x": "complete", "!": "blocked", "~": "in_progress"}.get(
+            track["status"], "pending"
+        )
+        expected_counts[label] += 1
+    if manifest["track_snapshot"]["summary_counts"] != expected_counts:
+        failures.append("Track status summary counts must match rendered track rows.")
 
-    if not build_static_documentation_portal(manifest_path=MANIFEST_PATH):
-        failures.append("Portal build helper returned no manifest.")
+    expected_manifest, expected_html = render_static_documentation_portal(
+        generated_at=manifest["generated_at"]
+    )
+    if manifest != expected_manifest:
+        failures.append("Portal manifest must match the in-memory render output.")
+    if html_text != expected_html:
+        failures.append("Portal HTML must match the in-memory render output.")
 
     return failures
 

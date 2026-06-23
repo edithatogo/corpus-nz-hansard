@@ -97,6 +97,15 @@ jobs:
       - name: Multi-git archive mirroring
         run: pixi run python scripts\check_multi_git_archive_mirroring.py
 
+      - name: HathiTrust acquisition inventory
+        run: pixi run python scripts\check_hathitrust_acquisition.py
+
+      - name: Parliament website stealth access
+        run: pixi run python scripts\check_parliament_website_stealth_access.py
+
+      - name: Wikipedia MP lists acquisition
+        run: pixi run python scripts\check_wikipedia_mp_lists_acquisition.py
+
       - name: Member identity triangulation
         run: pixi run python scripts\check_member_identity_triangulation.py
 

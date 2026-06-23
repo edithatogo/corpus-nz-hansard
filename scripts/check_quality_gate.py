@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import tomllib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -46,6 +47,9 @@ REQUIRED_QUALITY_SNIPPETS = (
     "pixi run python scripts\\check_metadata_packages.py",
     "pixi run python scripts\\check_osf_optional_mirror_policy.py",
     "pixi run python scripts\\check_multi_git_archive_mirroring.py",
+    "pixi run python scripts\\check_hathitrust_acquisition.py",
+    "pixi run python scripts\\check_parliament_website_stealth_access.py",
+    "pixi run python scripts\\check_wikipedia_mp_lists_acquisition.py",
     "pixi run python scripts\\check_member_identity_triangulation.py",
     "pixi run python scripts\\check_corpus_family_alignment.py",
     "pixi run python scripts\\check_corpus_family_engineering_alignment.py",
@@ -69,6 +73,100 @@ REQUIRED_QUALITY_SNIPPETS = (
     "pixi run python scripts\\validate_derived_fields.py",
 )
 
+REQUIRED_QUALITY_DEPENDENCIES = (
+    "pixi-install",
+    "lint",
+    "format-check",
+    "typecheck",
+    "spell",
+    "workflow-audit",
+    "toml-check",
+    "workflow-syntax",
+    "quality-config",
+    "provenance-policy",
+    "version-consistency",
+    "public-surface-audit",
+    "zenodo-rights",
+    "shared-core",
+    "metadata-packages",
+    "osf-policy",
+    "multi-git-archive-mirroring",
+    "hathitrust-acquisition",
+    "parliament-stealth-access",
+    "wikipedia-mp-lists-acquisition",
+    "member-identity-triangulation",
+    "corpus-family-alignment",
+    "corpus-family-engineering",
+    "authority-sources",
+    "historical-sitting-inventory",
+    "historical-sitting-official-exports",
+    "historical-sitting-official-exports-coverage",
+    "historical-sitting-reconciliation",
+    "historical-coverage",
+    "release-ladder",
+    "gold-evaluation",
+    "canonical-ids",
+    "dependency-extras",
+    "procedure-model",
+    "neutral-components",
+    "akoma-ntoso",
+    "parlamint-nz",
+    "popolo-ocd",
+    "ud-conllu",
+    "rdf-linked-data",
+    "corpus-wide-member-identity",
+    "corpus-wide-party-attribution",
+    "validated-speech-turn",
+    "derived-fields-validation",
+    "test",
+)
+
+REQUIRED_PIXI_QUALITY_DEPENDENCIES = (
+    "lint",
+    "format-check",
+    "typecheck",
+    "spell",
+    "workflow-audit",
+    "toml-check",
+    "quality-config",
+    "provenance-policy",
+    "version-consistency",
+    "public-surface-audit",
+    "zenodo-rights",
+    "shared-core",
+    "metadata-packages",
+    "osf-policy",
+    "multi-git-archive-mirroring",
+    "hathitrust-acquisition",
+    "parliament-stealth-access",
+    "wikipedia-mp-lists-acquisition",
+    "member-identity-triangulation",
+    "corpus-family-alignment",
+    "corpus-family-engineering",
+    "authority-sources",
+    "historical-sitting-inventory",
+    "historical-sitting-official-exports",
+    "historical-sitting-official-exports-coverage",
+    "historical-sitting-reconciliation",
+    "historical-coverage",
+    "release-ladder",
+    "gold-evaluation",
+    "canonical-ids",
+    "dependency-extras",
+    "procedure-model",
+    "neutral-components",
+    "akoma-ntoso",
+    "parlamint-nz",
+    "popolo-ocd",
+    "ud-conllu",
+    "rdf-linked-data",
+    "corpus-wide-member-identity",
+    "corpus-wide-party-attribution",
+    "validated-speech-turn",
+    "derived-fields-validation",
+    "test",
+)
+
 REQUIRED_MAKE_TARGETS = (
     "quality:",
     "pixi-install:",
@@ -82,6 +180,9 @@ REQUIRED_MAKE_TARGETS = (
     "metadata-packages:",
     "osf-policy:",
     "multi-git-archive-mirroring:",
+    "hathitrust-acquisition:",
+    "parliament-stealth-access:",
+    "wikipedia-mp-lists-acquisition:",
     "member-identity-triangulation:",
     "corpus-family-alignment:",
     "corpus-family-engineering:",
@@ -177,11 +278,29 @@ def _failures() -> list[str]:
         if target not in makefile:
             failures.append(f"Makefile is missing target {target}")
 
+    quality_line = next(
+        (line for line in makefile.splitlines() if line.startswith("quality: ")), ""
+    )
+    quality_deps = set(quality_line.split()[1:])
+    for dependency in REQUIRED_QUALITY_DEPENDENCIES:
+        if dependency not in quality_deps:
+            failures.append(f"Makefile quality target is missing dependency {dependency}.")
+
     quality_doc = _read("docs/quality-gate.md")
     for snippet in REQUIRED_QUALITY_SNIPPETS:
         normalized = snippet.replace("\\", "/")
         if snippet not in quality_doc and normalized not in quality_doc:
             failures.append(f"docs/quality-gate.md is missing command: {snippet}")
+
+    pixi_data = tomllib.loads(pixi_manifest)
+    pixi_quality = pixi_data.get("tasks", {}).get("quality", {})
+    pixi_quality_deps = set(pixi_quality.get("depends-on", []))
+    if not pixi_quality_deps:
+        failures.append("pixi.toml is missing a quality depends-on task list.")
+
+    for dependency in REQUIRED_PIXI_QUALITY_DEPENDENCIES:
+        if dependency not in pixi_quality_deps:
+            failures.append(f"pixi.toml quality task is missing dependency {dependency}.")
 
     workflow_paths = sorted(
         path.relative_to(ROOT).as_posix() for path in (ROOT / ".github/workflows").glob("*.yml")
