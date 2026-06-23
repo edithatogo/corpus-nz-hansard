@@ -16,7 +16,7 @@ TRACK_ID = "bills_api_integration_20260612"
 DEFAULT_MANIFEST = ROOT / "manifests/bills_api_integration_validation.json"
 DEFAULT_CROSSREF = ROOT / "derived/bills_api/member_hansard_cross_reference.json"
 DEFAULT_LEGACY_CROSSREF = ROOT / "derived/crossref_bills_api.json"
-DEFAULT_DOC = ROOT / "docs/bills-api-integration.md"
+DEFAULT_STAGE_METADATA = ROOT / "derived/bills_api/bill_stage_metadata.json"
 
 BILLS_API_DIR = ROOT / "derived/bills_api"
 AUTHORITY_SOURCES_PATH = ROOT / "manifests/authority_sources.json"
@@ -34,11 +34,11 @@ HONORIFIC_RE = re.compile(
 )
 
 
-def _read_json(path: Path) -> dict[str, Any]:
+def _read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _write_json(path: Path, payload: dict[str, Any]) -> None:
+def _write_json(path: Path | None, payload: Any) -> None:
     if path is None:
         return
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -82,29 +82,27 @@ def _corpus_member_names() -> set[str]:
     return names
 
 
-def _run_log_counts() -> dict[str, int]:
-    text = RUN_LOG_PATH.read_text(encoding="utf-8")
-    return {
-        "bill_summaries_fetched": int(re.search(r"Fetched (\d+) bill summaries", text).group(1)),
-        "bill_details_processed": int(re.search(r"Processed (\d+) bill details", text).group(1)),
-        "unique_member_names": int(re.search(r"Unique member names found: (\d+)", text).group(1)),
-    }
-
-
 def _artifact_state(path: Path) -> dict[str, Any]:
     text = path.read_text(encoding="utf-8")
     valid_json = True
+    record_count: int | None = None
     try:
-        json.loads(text)
+        payload = json.loads(text)
     except json.JSONDecodeError:
         valid_json = False
-    return {
+    else:
+        if isinstance(payload, (list, dict)):
+            record_count = len(payload)
+    state: dict[str, Any] = {
         "path": path.relative_to(ROOT).as_posix(),
         "size_bytes": path.stat().st_size,
         "sha256": _sha256_path(path),
         "valid_json": valid_json,
         "truncated": text.rstrip().endswith("... (truncated)"),
     }
+    if record_count is not None:
+        state["record_count"] = record_count
+    return state
 
 
 def _stage_labels(facets: dict[str, Any]) -> list[str]:
@@ -123,11 +121,69 @@ def _stage_labels(facets: dict[str, Any]) -> list[str]:
     return []
 
 
+def _member_names_from_bill(bill: dict[str, Any]) -> list[str]:
+    names = []
+    for member in bill.get("Members", []) or []:
+        name = member.get("PreferredFormOfAddress") or member.get("DisplayName")
+        if name:
+            names.append(str(name))
+    return names
+
+
+def _build_stage_metadata(details: list[dict[str, Any]], *, generated_at: str) -> dict[str, Any]:
+    bill_records: list[dict[str, Any]] = []
+    stage_records: list[dict[str, Any]] = []
+    for bill in details:
+        bill_id = str(bill.get("Id") or "")
+        bill_records.append(
+            {
+                "bill_id": bill_id,
+                "title": bill.get("Title"),
+                "parliament_number": bill.get("ParliamentNumber"),
+                "bill_number": bill.get("BillNumber"),
+                "bill_type": bill.get("BillTypeName"),
+                "bill_status": bill.get("BillStatusName"),
+                "current_stage": bill.get("BillCurrentStageName"),
+                "legislation_url": bill.get("BillLegislationUrl"),
+                "members": _member_names_from_bill(bill),
+            }
+        )
+        for stage in bill.get("Stages", []) or []:
+            stage_records.append(
+                {
+                    "bill_id": bill_id,
+                    "stage_id": stage.get("Id"),
+                    "stage_code": stage.get("StageCode"),
+                    "stage_name": stage.get("StageName"),
+                    "stage_date": stage.get("StageDate"),
+                    "outcome": stage.get("OutcomeName"),
+                    "type": stage.get("TypeName"),
+                    "start_date": stage.get("StartDate"),
+                    "end_date": stage.get("EndDate"),
+                }
+            )
+    return {
+        "artifact_name": "bills_api_bill_stage_metadata",
+        "artifact_version": "0.1.0",
+        "generated_at": generated_at,
+        "track_id": TRACK_ID,
+        "source": "nz-parliament-bills-api",
+        "status": "metadata-ready",
+        "counts": {
+            "bills": len(bill_records),
+            "stage_records": len(stage_records),
+        },
+        "bills": bill_records,
+        "stages": stage_records,
+    }
+
+
 def build_bills_api_integration(
     *,
     manifest_path: Path | None = DEFAULT_MANIFEST,
     crossref_path: Path | None = DEFAULT_CROSSREF,
     legacy_crossref_path: Path | None = DEFAULT_LEGACY_CROSSREF,
+    stage_metadata_path: Path | None = DEFAULT_STAGE_METADATA,
     generated_at: str | None = None,
 ) -> dict[str, Any]:
     generated_at = generated_at or datetime.now(UTC).isoformat()
@@ -135,12 +191,22 @@ def build_bills_api_integration(
     summary_path = _latest_file("bills_summary_*.json")
     details_path = _latest_file("bills_details_*.json")
     members_payload = _read_json(members_path)
+    summary_payload = _read_json(summary_path)
+    details_payload = _read_json(details_path)
     facets = _read_json(FACETS_PATH)
-    run_counts = _run_log_counts()
+
+    if not isinstance(summary_payload, list):
+        raise ValueError("Bills summary artifact must be a JSON array.")
+    if not isinstance(details_payload, list):
+        raise ValueError("Bills details artifact must be a JSON array.")
+
     corpus_names = _corpus_member_names()
     bill_names = members_payload["unique_members"]
     matched_names = [name for name in bill_names if _normalize_name(name) in corpus_names]
     unmatched_names = [name for name in bill_names if _normalize_name(name) not in corpus_names]
+
+    stage_metadata = _build_stage_metadata(details_payload, generated_at=generated_at)
+    _write_json(stage_metadata_path, stage_metadata)
 
     crossref = {
         "artifact_name": "bills_api_member_hansard_cross_reference",
@@ -162,33 +228,50 @@ def build_bills_api_integration(
             "Corpus-wide member identity remains blocked pending authority coverage review.",
         ],
     }
-    if crossref_path is not None:
-        _write_json(crossref_path, crossref)
-    if legacy_crossref_path is not None:
-        _write_json(
-            legacy_crossref_path,
-            {
-                "artifact_name": "bills_api_crossref_summary",
-                "generated_at": generated_at,
-                "status": "superseded-by-member-hansard-cross-reference",
-                "bills_api_members_count": len(bill_names),
-                "hansard_exact_or_honorific_normalized_matches": len(matched_names),
-                "unmatched_bills_api_members": len(unmatched_names),
-                "cross_reference_artifact": DEFAULT_CROSSREF.relative_to(ROOT).as_posix(),
-            },
-        )
+    _write_json(crossref_path, crossref)
+    _write_json(
+        legacy_crossref_path,
+        {
+            "artifact_name": "bills_api_crossref_summary",
+            "generated_at": generated_at,
+            "status": "superseded-by-member-hansard-cross-reference",
+            "bills_api_members_count": len(bill_names),
+            "hansard_exact_or_honorific_normalized_matches": len(matched_names),
+            "unmatched_bills_api_members": len(unmatched_names),
+            "cross_reference_artifact": DEFAULT_CROSSREF.relative_to(ROOT).as_posix(),
+        },
+    )
+
+    summary_state = _artifact_state(summary_path)
+    details_state = _artifact_state(details_path)
+    complete_capture = (
+        summary_state["valid_json"]
+        and details_state["valid_json"]
+        and not summary_state["truncated"]
+        and not details_state["truncated"]
+        and summary_state.get("record_count") == members_payload["total_bills"]
+        and details_state.get("record_count") == members_payload["total_details"]
+    )
+    metadata_status = "ready" if complete_capture else "deferred"
+    release_gate_status = (
+        "ready-for-corpus-metadata-integration"
+        if complete_capture
+        else "deferred-pending-full-stage-record-capture"
+    )
 
     manifest = {
         "artifact_name": "bills_api_integration_validation",
-        "artifact_version": "0.1.0",
+        "artifact_version": "0.2.0",
         "generated_at": generated_at,
         "track_id": TRACK_ID,
-        "validation_status": "review-evidence",
-        "release_gate_status": "deferred-pending-full-stage-record-capture",
+        "validation_status": "metadata-ready" if complete_capture else "review-evidence",
+        "release_gate_status": release_gate_status,
         "authority_source_id": "nz-parliament-bills-api",
         "authority_source_registered": _source_exists("nz-parliament-bills-api"),
         "extraction_run": {
-            **run_counts,
+            "bill_summaries_fetched": len(summary_payload),
+            "bill_details_processed": len(details_payload),
+            "unique_member_names": members_payload["member_count"],
             "members_artifact_count": members_payload["member_count"],
             "members_artifact_total_bills": members_payload["total_bills"],
             "members_artifact_total_details": members_payload["total_details"],
@@ -196,12 +279,14 @@ def build_bills_api_integration(
         "captured_artifacts": {
             "facets": _artifact_state(FACETS_PATH),
             "members": _artifact_state(members_path),
-            "summary": _artifact_state(summary_path),
-            "details": _artifact_state(details_path),
+            "summary": summary_state,
+            "details": details_state,
+            "bill_stage_metadata": _artifact_state(DEFAULT_STAGE_METADATA),
             "run_log": {
                 "path": RUN_LOG_PATH.relative_to(ROOT).as_posix(),
                 "size_bytes": RUN_LOG_PATH.stat().st_size,
                 "sha256": _sha256_path(RUN_LOG_PATH),
+                "status": "historical-run-log",
             },
         },
         "member_cross_reference": {
@@ -210,15 +295,17 @@ def build_bills_api_integration(
             "status": crossref["status"],
         },
         "corpus_metadata_integration": {
-            "status": "deferred",
+            "status": metadata_status,
             "metadata_source": "nz-parliament-bills-api",
             "bill_stage_labels": _stage_labels(facets),
             "bill_stage_source_available": True,
             "integration_target": "vote_motion_bill_question_extraction_validation",
+            "metadata_artifact": DEFAULT_STAGE_METADATA.relative_to(ROOT).as_posix(),
             "reason": (
-                "The extraction run captured full counts and member evidence, but summary/detail "
-                "JSON files were stored as truncated review artifacts. Full bill-stage corpus "
-                "metadata requires a non-truncated record capture before publication."
+                "Non-truncated Bills API summary and detail records are captured; derived bill-stage "
+                "metadata is available for governed downstream corpus integration."
+                if complete_capture
+                else "Full bill-stage corpus metadata requires non-truncated summary/detail captures."
             ),
         },
         "source_manifests": [
@@ -234,12 +321,11 @@ def build_bills_api_integration(
             ),
         },
         "warnings": [
-            "Do not publish truncated summary/detail artifacts as complete Bills API records.",
             "Member cross-reference is evidence only while corpus-wide member identity is blocked.",
+            "Downstream publication must use governed release gates and not infer Hansard bill debate linkage from title matching alone.",
         ],
     }
-    if manifest_path is not None:
-        _write_json(manifest_path, manifest)
+    _write_json(manifest_path, manifest)
     return manifest
 
 
@@ -248,6 +334,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST)
     parser.add_argument("--crossref", type=Path, default=DEFAULT_CROSSREF)
     parser.add_argument("--legacy-crossref", type=Path, default=DEFAULT_LEGACY_CROSSREF)
+    parser.add_argument("--stage-metadata", type=Path, default=DEFAULT_STAGE_METADATA)
     return parser.parse_args()
 
 
@@ -257,6 +344,7 @@ def main() -> int:
         manifest_path=args.manifest,
         crossref_path=args.crossref,
         legacy_crossref_path=args.legacy_crossref,
+        stage_metadata_path=args.stage_metadata,
     )
     counts = manifest["extraction_run"]
     print(f"Wrote {args.manifest}")

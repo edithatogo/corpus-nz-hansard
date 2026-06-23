@@ -7,7 +7,7 @@
     "hansard_member_name_keys": 258,
     "unmatched_bills_api_members": 169
   },
-  "generated_at": "2026-06-21T09:32:27.472107+00:00",
+  "generated_at": "2026-06-23T09:06:49.843483+00:00",
   "matched_names": [
     "Allan Peachey",
     "Barbara Stewart",
@@ -192,7 +192,7 @@
     "Taito Phillip Field",
     "Tim Barnett"
   ],
-  "source_artifact": "derived/bills_api/bills_members_20260613T021002Z.json",
+  "source_artifact": "derived/bills_api/bills_members_20260623T090254Z.json",
   "status": "review-evidence",
   "track_id": "bills_api_integration_20260612",
   "unmatched_names": [

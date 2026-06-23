@@ -1,26 +1,37 @@
 {
   "artifact_name": "bills_api_integration_validation",
-  "artifact_version": "0.1.0",
+  "artifact_version": "0.2.0",
   "authority_source_id": "nz-parliament-bills-api",
   "authority_source_registered": true,
   "captured_artifacts": {
+    "bill_stage_metadata": {
+      "path": "derived/bills_api/bill_stage_metadata.json",
+      "record_count": 9,
+      "sha256": "f6f10b92fdf4b183baa233d0dab4b77a32f6789243586fba520f38d668b6da19",
+      "size_bytes": 8073419,
+      "truncated": false,
+      "valid_json": true
+    },
     "details": {
-      "path": "derived/bills_api/bills_details_20260613T021002Z.json",
-      "sha256": "3d7cbabc0bf8841bd390679cea6480f91994e3ac09e252a971ad9fa6eea83c23",
-      "size_bytes": 512609,
-      "truncated": true,
-      "valid_json": false
+      "path": "derived/bills_api/bills_details_20260623T090254Z.json",
+      "record_count": 3516,
+      "sha256": "bbb6e7bb3cca31b33b6c9ccd5e31c8b7422f694770da0d8a29c4de8775f62046",
+      "size_bytes": 25300938,
+      "truncated": false,
+      "valid_json": true
     },
     "facets": {
       "path": "derived/bills_api/facets.json",
+      "record_count": 6,
       "sha256": "515d3229cfad92c0470d5acb57af8a6011f8ad34e041ee9d513841c6b1116a19",
       "size_bytes": 8274,
       "truncated": false,
       "valid_json": true
     },
     "members": {
-      "path": "derived/bills_api/bills_members_20260613T021002Z.json",
-      "sha256": "63c2e517ef7c1d14f2479c348692269c8de0c7df251747452fabf6944c0112ff",
+      "path": "derived/bills_api/bills_members_20260623T090254Z.json",
+      "record_count": 6,
+      "sha256": "24d5ae1e270a7aeddec567e4f9fef6f23151528cce19546451c24066b64bbff2",
       "size_bytes": 8800,
       "truncated": false,
       "valid_json": true
@@ -28,14 +39,16 @@
     "run_log": {
       "path": "derived/bills_api/run_log.txt",
       "sha256": "07f29f321c554a525746f0cbabb24cedde3d35b4f8c10544a371262f164921d9",
-      "size_bytes": 6447
+      "size_bytes": 6447,
+      "status": "historical-run-log"
     },
     "summary": {
-      "path": "derived/bills_api/bills_summary_20260613T021002Z.json",
-      "sha256": "d2128f433550594ab3d5e33d0c14903b15d145a79834cc9a5d72c16dc833b905",
-      "size_bytes": 518865,
-      "truncated": true,
-      "valid_json": false
+      "path": "derived/bills_api/bills_summary_20260623T090254Z.json",
+      "record_count": 3516,
+      "sha256": "517d938ab4083a9714980e68082dfe3bcb124bd7a6a0acea94cf4a8f4c27556b",
+      "size_bytes": 3729649,
+      "truncated": false,
+      "valid_json": true
     }
   },
   "corpus_metadata_integration": {
@@ -50,19 +63,20 @@
     ],
     "bill_stage_source_available": true,
     "integration_target": "vote_motion_bill_question_extraction_validation",
+    "metadata_artifact": "derived/bills_api/bill_stage_metadata.json",
     "metadata_source": "nz-parliament-bills-api",
-    "reason": "The extraction run captured full counts and member evidence, but summary/detail JSON files were stored as truncated review artifacts. Full bill-stage corpus metadata requires a non-truncated record capture before publication.",
-    "status": "deferred"
+    "reason": "Non-truncated Bills API summary and detail records are captured; derived bill-stage metadata is available for governed downstream corpus integration.",
+    "status": "ready"
   },
   "extraction_run": {
-    "bill_details_processed": 3513,
-    "bill_summaries_fetched": 3513,
+    "bill_details_processed": 3516,
+    "bill_summaries_fetched": 3516,
     "members_artifact_count": 351,
-    "members_artifact_total_bills": 3513,
-    "members_artifact_total_details": 3513,
+    "members_artifact_total_bills": 3516,
+    "members_artifact_total_details": 3516,
     "unique_member_names": 351
   },
-  "generated_at": "2026-06-21T09:32:27.472107+00:00",
+  "generated_at": "2026-06-23T09:06:49.843483+00:00",
   "member_cross_reference": {
     "artifact": "derived/bills_api/member_hansard_cross_reference.json",
     "counts": {
@@ -73,7 +87,7 @@
     },
     "status": "review-evidence"
   },
-  "release_gate_status": "deferred-pending-full-stage-record-capture",
+  "release_gate_status": "ready-for-corpus-metadata-integration",
   "source_hashes": {
     "authority_sources": "d6d68c67bd035d92e680b34f091ece472b190ad36eceb345d6c938c05bdfb94e",
     "member_identity_validation": "feb5cfc8154cc02aaa9d4b2476bfa4b6a09c63511c91b407fbd41e51089b8b0c",
@@ -85,9 +99,9 @@
     "manifests/vote_motion_bill_question_extraction_validation.json"
   ],
   "track_id": "bills_api_integration_20260612",
-  "validation_status": "review-evidence",
+  "validation_status": "metadata-ready",
   "warnings": [
-    "Do not publish truncated summary/detail artifacts as complete Bills API records.",
-    "Member cross-reference is evidence only while corpus-wide member identity is blocked."
+    "Member cross-reference is evidence only while corpus-wide member identity is blocked.",
+    "Downstream publication must use governed release gates and not infer Hansard bill debate linkage from title matching alone."
   ]
 }

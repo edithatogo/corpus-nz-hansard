@@ -12,10 +12,12 @@ Output: derived/bills_api/
 
 from __future__ import annotations
 
+import argparse
 import json
 import time
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Any
 
 import requests
 
@@ -60,9 +62,21 @@ SEARCH_TEMPLATE = {
 }
 
 
-def fetch_search(page: int = 1, parliament: int | None = None) -> dict:
+def _json_artifact_text(payload: Any) -> str:
+    """Serialize complete UTF-8 JSON text without truncating the payload."""
+    return json.dumps(payload, indent=2, ensure_ascii=False) + "\n"
+
+
+def _write_json_artifact(path: Path, payload: Any) -> None:
+    """Write complete UTF-8 JSON without truncating the payload."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(_json_artifact_text(payload), encoding="utf-8")
+
+
+def fetch_search(page: int = 1, parliament: int | None = None, page_size: int = 50) -> dict:
     body = dict(SEARCH_TEMPLATE)
     body["page"] = page
+    body["pageSize"] = page_size
     if parliament:
         body["parliament"] = parliament
     resp = requests.post(f"{API_BASE}/data/search", json=body, headers=HEADERS, timeout=30)
@@ -71,7 +85,7 @@ def fetch_search(page: int = 1, parliament: int | None = None) -> dict:
 
 
 def fetch_bill_detail(bill_id: str) -> dict:
-    resp = requests.get(f"{API_BASE}/data/Bill/{bill_id}", headers=HEADERS, timeout=15)
+    resp = requests.get(f"{API_BASE}/data/Bill/{bill_id}", headers=HEADERS, timeout=30)
     resp.raise_for_status()
     return resp.json()
 
@@ -85,12 +99,21 @@ def fetch_current_parliament() -> int:
 def fetch_facets() -> dict:
     body = dict(SEARCH_TEMPLATE)
     body.pop("includeBillStages", None)
-    resp = requests.post(f"{API_BASE}/data/facet", json=body, headers=HEADERS, timeout=15)
+    resp = requests.post(f"{API_BASE}/data/facet", json=body, headers=HEADERS, timeout=30)
     resp.raise_for_status()
     return resp.json()
 
 
-def main():
+def _member_names_from_detail(detail: dict[str, Any]) -> set[str]:
+    names: set[str] = set()
+    for member in detail.get("Members", []) or []:
+        name = member.get("PreferredFormOfAddress", "") or member.get("DisplayName", "")
+        if name:
+            names.add(name)
+    return names
+
+
+def fetch_all_bills(*, page_size: int, page_sleep: float, detail_sleep: float) -> dict[str, Any]:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     print("Fetching current parliament...")
     current = fetch_current_parliament()
@@ -103,18 +126,14 @@ def main():
     print(f"  Parliaments: {parliaments}")
     print(f"  Committees: {len(committees)}")
     print(f"  Bill types: {facets.get('documentSubTypes', [])}")
-
-    # Save facets
-    (OUTPUT_DIR / "facets.json").write_text(
-        json.dumps(facets, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
-    )
+    _write_json_artifact(OUTPUT_DIR / "facets.json", facets)
 
     print("\nFetching all bills (paginated)...")
-    all_bills = []
+    all_bills: list[dict[str, Any]] = []
     total = None
     page = 1
     while True:
-        data = fetch_search(page=page)
+        data = fetch_search(page=page, page_size=page_size)
         results = data.get("results", [])
         if total is None:
             total = data.get("totalResults", 0)
@@ -126,12 +145,12 @@ def main():
         if len(all_bills) >= total:
             break
         page += 1
-        time.sleep(0.5)
+        time.sleep(page_sleep)
 
     print(f"\nFetched {len(all_bills)} bill summaries. Fetching details...")
-
-    bill_details = []
+    bill_details: list[dict[str, Any]] = []
     member_names: set[str] = set()
+    errors: list[dict[str, str]] = []
 
     for i, bill in enumerate(all_bills):
         bid = bill.get("id", "")
@@ -140,60 +159,79 @@ def main():
         try:
             detail = fetch_bill_detail(bid)
             bill_details.append(detail)
-
-            # Extract member names
-            members = detail.get("Members", []) or []
-            for m in members:
-                name = m.get("PreferredFormOfAddress", "") or m.get("DisplayName", "")
-                if name:
-                    member_names.add(name)
-
+            member_names.update(_member_names_from_detail(detail))
             if (i + 1) % 50 == 0:
                 print(f"  Processed {i + 1}/{len(all_bills)} bills...")
-            time.sleep(0.2)
-        except Exception as e:
-            print(f"  Error fetching bill {bid}: {e}")
+            time.sleep(detail_sleep)
+        except Exception as exc:  # noqa: BLE001 - recorded as extraction evidence
+            errors.append({"bill_id": str(bid), "error": str(exc)})
+            print(f"  Error fetching bill {bid}: {exc}")
 
     print(f"\nProcessed {len(bill_details)} bill details")
     print(f"Unique member names found: {len(member_names)}")
+    if errors:
+        print(f"Detail fetch errors: {len(errors)}")
 
-    # Save outputs
     timestamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+    summary_path = OUTPUT_DIR / f"bills_summary_{timestamp}.json"
+    details_path = OUTPUT_DIR / f"bills_details_{timestamp}.json"
+    members_path = OUTPUT_DIR / f"bills_members_{timestamp}.json"
+    errors_path = OUTPUT_DIR / f"bills_errors_{timestamp}.json"
 
-    (OUTPUT_DIR / f"bills_summary_{timestamp}.json").write_text(
-        json.dumps(all_bills, indent=2, ensure_ascii=False)[:500_000] + "\n... (truncated)",
-        encoding="utf-8",
+    _write_json_artifact(summary_path, all_bills)
+    _write_json_artifact(details_path, bill_details)
+    _write_json_artifact(
+        members_path,
+        {
+            "source": "Bills API",
+            "fetched_at": timestamp,
+            "total_bills": len(all_bills),
+            "total_details": len(bill_details),
+            "unique_members": sorted(member_names),
+            "member_count": len(member_names),
+        },
     )
-    (OUTPUT_DIR / f"bills_details_{timestamp}.json").write_text(
-        json.dumps(bill_details, indent=2, ensure_ascii=False)[:500_000] + "\n... (truncated)",
-        encoding="utf-8",
-    )
-
-    # Save just the member names as a reference
-    (OUTPUT_DIR / f"bills_members_{timestamp}.json").write_text(
-        json.dumps(
-            {
-                "source": "Bills API",
-                "fetched_at": timestamp,
-                "total_bills": len(all_bills),
-                "total_details": len(bill_details),
-                "unique_members": sorted(member_names),
-                "member_count": len(member_names),
-            },
-            indent=2,
-            ensure_ascii=False,
-        )
-        + "\n",
-        encoding="utf-8",
-    )
+    if errors:
+        _write_json_artifact(errors_path, errors)
 
     print(f"\nOutput saved to {OUTPUT_DIR}/")
-    print(f"  Member names: {len(member_names)}")
+    print(f"  Summary records: {len(all_bills)} -> {summary_path.name}")
+    print(f"  Detail records: {len(bill_details)} -> {details_path.name}")
+    print(f"  Member names: {len(member_names)} -> {members_path.name}")
     for name in sorted(member_names)[:20]:
         print(f"    - {name}")
     if len(member_names) > 20:
         print(f"    ... and {len(member_names) - 20} more")
 
+    return {
+        "timestamp": timestamp,
+        "summary_path": summary_path,
+        "details_path": details_path,
+        "members_path": members_path,
+        "errors": errors,
+        "summary_count": len(all_bills),
+        "details_count": len(bill_details),
+        "member_count": len(member_names),
+    }
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Fetch complete NZ Parliament Bills API records.")
+    parser.add_argument("--page-size", type=int, default=500)
+    parser.add_argument("--page-sleep", type=float, default=0.1)
+    parser.add_argument("--detail-sleep", type=float, default=0.05)
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+    result = fetch_all_bills(
+        page_size=args.page_size,
+        page_sleep=args.page_sleep,
+        detail_sleep=args.detail_sleep,
+    )
+    return 1 if result["errors"] else 0
+
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

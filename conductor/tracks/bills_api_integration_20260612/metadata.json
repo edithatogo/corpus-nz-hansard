@@ -1,7 +1,8 @@
 {
   "track_id": "bills_api_integration_20260612",
   "title": "Bills API Integration",
-  "status": "blocked",
+  "status": "completed",
   "created": "2026-06-12",
-  "description": "Repo-side Bills API extraction evidence, member cross-reference, and deferred corpus metadata integration are implemented. Full bill-stage publication remains blocked until non-truncated summary/detail record capture is available."
+  "updated": "2026-06-23",
+  "description": "Repo-side Bills API extraction, non-truncated summary/detail capture, member cross-reference, and bill-stage metadata readiness artifacts are implemented. Live capture records 3,516 bills and 351 unique member names."
 }
