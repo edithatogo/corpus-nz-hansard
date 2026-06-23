@@ -1,6 +1,6 @@
 {
   "source": "Wikipedia",
-  "fetched_at": "2026-06-13T02:22:42Z",
+  "fetched_at": "2026-06-23T05:36:18Z",
   "parliaments_covered": [
     47,
     48,
@@ -10,13 +10,3945 @@
     52,
     53
   ],
-  "total_mps": 249,
+  "source_articles": {
+    "47": {
+      "article": "47th_New_Zealand_Parliament",
+      "url": "https://en.wikipedia.org/api/rest_v1/page/html/47th_New_Zealand_Parliament",
+      "fetched_at": "2026-06-23T05:36:06Z",
+      "status": "ok",
+      "html_sha256": "97e6b208c11199c6af2a1d1b4c46dad9e526a24dd799d3334e3ed0e123c5068a"
+    },
+    "48": {
+      "article": "48th_New_Zealand_Parliament",
+      "url": "https://en.wikipedia.org/api/rest_v1/page/html/48th_New_Zealand_Parliament",
+      "fetched_at": "2026-06-23T05:36:07Z",
+      "status": "ok",
+      "html_sha256": "8cddbf68ef97ebcaa0ffe67e19bd0414efda821235e9242ce47e220d9c96d45f"
+    },
+    "49": {
+      "article": "49th_New_Zealand_Parliament",
+      "url": "https://en.wikipedia.org/api/rest_v1/page/html/49th_New_Zealand_Parliament",
+      "fetched_at": "2026-06-23T05:36:09Z",
+      "status": "ok",
+      "html_sha256": "907b33214f2b8a20c59a054acd8f365be8a47b3614f1b0a7e48e7640ce5a01c6"
+    },
+    "50": {
+      "article": "50th_New_Zealand_Parliament",
+      "url": "https://en.wikipedia.org/api/rest_v1/page/html/50th_New_Zealand_Parliament",
+      "fetched_at": "2026-06-23T05:36:11Z",
+      "status": "ok",
+      "html_sha256": "21f78591ed62624e73db8a117d1060c3f57c63b84639e0d5ad26c803732d74dd"
+    },
+    "51": {
+      "article": "51st_New_Zealand_Parliament",
+      "url": "https://en.wikipedia.org/api/rest_v1/page/html/51st_New_Zealand_Parliament",
+      "fetched_at": "2026-06-23T05:36:13Z",
+      "status": "ok",
+      "html_sha256": "332038599f676c7d470a2343356dec4563f203d025fef849f00aa81ef805d9c7"
+    },
+    "52": {
+      "article": "52nd_New_Zealand_Parliament",
+      "url": "https://en.wikipedia.org/api/rest_v1/page/html/52nd_New_Zealand_Parliament",
+      "fetched_at": "2026-06-23T05:36:15Z",
+      "status": "ok",
+      "html_sha256": "3f09ab48cdb479a9c116c964e03d7332d53f671b6db50206ea48fa1b020d8644"
+    },
+    "53": {
+      "article": "53rd_New_Zealand_Parliament",
+      "url": "https://en.wikipedia.org/api/rest_v1/page/html/53rd_New_Zealand_Parliament",
+      "fetched_at": "2026-06-23T05:36:16Z",
+      "status": "ok",
+      "html_sha256": "57da555c7378c4ff42a8ebb2ef5634fbfd61aa7301f402c51620f83b92903599"
+    }
+  },
+  "total_mps": 895,
   "members_by_parliament": {
-    "47": [],
-    "48": [],
-    "49": [],
-    "50": [],
-    "51": [],
+    "47": [
+      {
+        "name": "Paul Adams",
+        "party": "United Future",
+        "electorate": "List",
+        "wiki_slug": "Paul_Adams_(New_Zealand_politician)"
+      },
+      {
+        "name": "Marc Alexander",
+        "party": "United Future",
+        "electorate": "List",
+        "wiki_slug": "Marc_Alexander"
+      },
+      {
+        "name": "Jim Anderton",
+        "party": "Progressive",
+        "electorate": "Wigram",
+        "wiki_slug": "Jim_Anderton"
+      },
+      {
+        "name": "Shane Ardern",
+        "party": "National",
+        "electorate": "Taranaki-King Country",
+        "wiki_slug": "Shane_Ardern"
+      },
+      {
+        "name": "Donna Awatere Huata",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Donna_Awatere_Huata"
+      },
+      {
+        "name": "Larry Baldock",
+        "party": "United Future",
+        "electorate": "List",
+        "wiki_slug": "Larry_Baldock"
+      },
+      {
+        "name": "Rick Barker",
+        "party": "Labour",
+        "electorate": "Tukituki",
+        "wiki_slug": "Rick_Barker"
+      },
+      {
+        "name": "Tim Barnett",
+        "party": "Labour",
+        "electorate": "Christchurch Central",
+        "wiki_slug": "Tim_Barnett_(politician)"
+      },
+      {
+        "name": "David Benson-Pope",
+        "party": "Labour",
+        "electorate": "Dunedin South",
+        "wiki_slug": "David_Benson-Pope"
+      },
+      {
+        "name": "Georgina Beyer",
+        "party": "Labour",
+        "electorate": "Wairarapa",
+        "wiki_slug": "Georgina_Beyer"
+      },
+      {
+        "name": "Sue Bradford",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Sue_Bradford"
+      },
+      {
+        "name": "Don Brash",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Don_Brash"
+      },
+      {
+        "name": "Peter Brown",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Peter_Brown_(New_Zealand_politician)"
+      },
+      {
+        "name": "Gerry Brownlee",
+        "party": "National",
+        "electorate": "Ilam",
+        "wiki_slug": "Gerry_Brownlee"
+      },
+      {
+        "name": "Mark Burton",
+        "party": "Labour",
+        "electorate": "Taupo",
+        "wiki_slug": "Mark_Burton_(politician)"
+      },
+      {
+        "name": "Chris Carter",
+        "party": "Labour",
+        "electorate": "Te Atatū",
+        "wiki_slug": "Chris_Carter_(New_Zealand_politician)"
+      },
+      {
+        "name": "David Carter",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "David_Carter_(politician)"
+      },
+      {
+        "name": "John Carter",
+        "party": "National",
+        "electorate": "Northland",
+        "wiki_slug": "John_Carter_(New_Zealand_politician)"
+      },
+      {
+        "name": "Brent Catchpole",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Brent_Catchpole"
+      },
+      {
+        "name": "Stephanie Chadwick",
+        "party": "Labour",
+        "electorate": "Rotorua",
+        "wiki_slug": "Stephanie_Chadwick"
+      },
+      {
+        "name": "Ashraf Choudhary",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Ashraf_Choudhary"
+      },
+      {
+        "name": "Helen Clark",
+        "party": "Labour",
+        "electorate": "Mt Albert",
+        "wiki_slug": "Helen_Clark"
+      },
+      {
+        "name": "Deborah Coddington",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Deborah_Coddington"
+      },
+      {
+        "name": "Judith Collins",
+        "party": "National",
+        "electorate": "Clevedon",
+        "wiki_slug": "Judith_Collins"
+      },
+      {
+        "name": "Brian Connell",
+        "party": "National",
+        "electorate": "Rakaia",
+        "wiki_slug": "Brian_Connell"
+      },
+      {
+        "name": "Gordon Copeland",
+        "party": "United Future",
+        "electorate": "List",
+        "wiki_slug": "Gordon_Copeland"
+      },
+      {
+        "name": "Clayton Cosgrove",
+        "party": "Labour",
+        "electorate": "Waimakariri",
+        "wiki_slug": "Clayton_Cosgrove"
+      },
+      {
+        "name": "Michael Cullen",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Michael_Cullen_(politician)"
+      },
+      {
+        "name": "David Cunliffe",
+        "party": "Labour",
+        "electorate": "New Lynn",
+        "wiki_slug": "David_Cunliffe"
+      },
+      {
+        "name": "Lianne Dalziel",
+        "party": "Labour",
+        "electorate": "Christchurch East",
+        "wiki_slug": "Lianne_Dalziel"
+      },
+      {
+        "name": "Rod Donald",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Rod_Donald"
+      },
+      {
+        "name": "Brian Donnelly",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Brian_Donnelly_(New_Zealand_politician)"
+      },
+      {
+        "name": "Helen Duncan",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Helen_Duncan_(politician)"
+      },
+      {
+        "name": "Peter Dunne",
+        "party": "United Future",
+        "electorate": "Ohariu-Belmont",
+        "wiki_slug": "Peter_Dunne"
+      },
+      {
+        "name": "Harry Duynhoven",
+        "party": "Labour",
+        "electorate": "New Plymouth",
+        "wiki_slug": "Harry_Duynhoven"
+      },
+      {
+        "name": "Ruth Dyson",
+        "party": "Labour",
+        "electorate": "Banks Peninsula",
+        "wiki_slug": "Ruth_Dyson"
+      },
+      {
+        "name": "Gerry Eckhoff",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Gerry_Eckhoff"
+      },
+      {
+        "name": "Bill English",
+        "party": "National",
+        "electorate": "Clutha-Southland",
+        "wiki_slug": "Bill_English"
+      },
+      {
+        "name": "Ian Ewen-Street",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Ian_Ewen-Street"
+      },
+      {
+        "name": "Russell Fairbrother",
+        "party": "Labour",
+        "electorate": "Napier",
+        "wiki_slug": "Russell_Fairbrother"
+      },
+      {
+        "name": "Stephen Franks",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Stephen_Franks"
+      },
+      {
+        "name": "Taito Phillip Field",
+        "party": "Labour",
+        "electorate": "Mangere",
+        "wiki_slug": "Taito_Phillip_Field"
+      },
+      {
+        "name": "Jeanette Fitzsimons",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Jeanette_Fitzsimons"
+      },
+      {
+        "name": "Martin Gallagher",
+        "party": "Labour",
+        "electorate": "Hamilton West",
+        "wiki_slug": "Martin_Gallagher"
+      },
+      {
+        "name": "Phil Goff",
+        "party": "Labour",
+        "electorate": "Mt Roskill",
+        "wiki_slug": "Phil_Goff"
+      },
+      {
+        "name": "Mark Gosche",
+        "party": "Labour",
+        "electorate": "Maungakiekie",
+        "wiki_slug": "Mark_Gosche"
+      },
+      {
+        "name": "Sandra Goudie",
+        "party": "National",
+        "electorate": "Coromandel",
+        "wiki_slug": "Sandra_Goudie"
+      },
+      {
+        "name": "Bill Gudgeon",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Bill_Gudgeon"
+      },
+      {
+        "name": "Ann Hartley",
+        "party": "Labour",
+        "electorate": "Northcote",
+        "wiki_slug": "Ann_Hartley"
+      },
+      {
+        "name": "George Warren Hawkins",
+        "party": "Labour",
+        "electorate": "Manurewa",
+        "wiki_slug": "George_Warren_Hawkins"
+      },
+      {
+        "name": "Phil Heatley",
+        "party": "National",
+        "electorate": "Whangarei",
+        "wiki_slug": "Phil_Heatley"
+      },
+      {
+        "name": "Dave Hereora",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Dave_Hereora"
+      },
+      {
+        "name": "Rodney Hide",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Rodney_Hide"
+      },
+      {
+        "name": "Marian Hobbs",
+        "party": "Labour",
+        "electorate": "Wellington Central",
+        "wiki_slug": "Marian_Hobbs"
+      },
+      {
+        "name": "Pete Hodgson",
+        "party": "Labour",
+        "electorate": "Dunedin North",
+        "wiki_slug": "Pete_Hodgson"
+      },
+      {
+        "name": "Parekura Horomia",
+        "party": "Labour",
+        "electorate": "Ikaroa-Rawhiti",
+        "wiki_slug": "Parekura_Horomia"
+      },
+      {
+        "name": "Darren Hughes",
+        "party": "Labour",
+        "electorate": "Otaki",
+        "wiki_slug": "Darren_Hughes"
+      },
+      {
+        "name": "Jonathan Hunt",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Jonathan_Hunt_(New_Zealand_politician)"
+      },
+      {
+        "name": "Paul Hutchison",
+        "party": "National",
+        "electorate": "Port Waikato",
+        "wiki_slug": "Paul_Hutchison_(politician)"
+      },
+      {
+        "name": "Dail Jones",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Dail_Jones"
+      },
+      {
+        "name": "Sue Kedgley",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Sue_Kedgley"
+      },
+      {
+        "name": "Graham Kelly",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Graham_Kelly_(politician)"
+      },
+      {
+        "name": "John Key",
+        "party": "National",
+        "electorate": "Helensville",
+        "wiki_slug": "John_Key"
+      },
+      {
+        "name": "Annette King",
+        "party": "Labour",
+        "electorate": "Rongotai",
+        "wiki_slug": "Annette_King"
+      },
+      {
+        "name": "Winnie Laban",
+        "party": "Labour",
+        "electorate": "Mana",
+        "wiki_slug": "Winnie_Laban"
+      },
+      {
+        "name": "Keith Locke",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Keith_Locke"
+      },
+      {
+        "name": "Janet Mackey",
+        "party": "Labour",
+        "electorate": "East Coast",
+        "wiki_slug": "Janet_Mackey"
+      },
+      {
+        "name": "Steve Maharey",
+        "party": "Labour",
+        "electorate": "Palmerston North",
+        "wiki_slug": "Steve_Maharey"
+      },
+      {
+        "name": "Nanaia Mahuta",
+        "party": "Labour",
+        "electorate": "Tainui",
+        "wiki_slug": "Nanaia_Mahuta"
+      },
+      {
+        "name": "Trevor Mallard",
+        "party": "Labour",
+        "electorate": "Hutt South",
+        "wiki_slug": "Trevor_Mallard"
+      },
+      {
+        "name": "Wayne Mapp",
+        "party": "National",
+        "electorate": "North Shore",
+        "wiki_slug": "Wayne_Mapp"
+      },
+      {
+        "name": "Ron Mark",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Ron_Mark"
+      },
+      {
+        "name": "Murray McCully",
+        "party": "National",
+        "electorate": "East Coast Bays",
+        "wiki_slug": "Murray_McCully"
+      },
+      {
+        "name": "Craig McNair",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Craig_McNair"
+      },
+      {
+        "name": "Muriel Newman",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Muriel_Newman"
+      },
+      {
+        "name": "Damien O'Connor",
+        "party": "Labour",
+        "electorate": "West Coast-Tasman",
+        "wiki_slug": "Damien_O'Connor"
+      },
+      {
+        "name": "Bernie Ogilvy",
+        "party": "United Future",
+        "electorate": "List",
+        "wiki_slug": "Bernie_Ogilvy"
+      },
+      {
+        "name": "Mahara Okeroa",
+        "party": "Labour",
+        "electorate": "Te Tai Tonga",
+        "wiki_slug": "Mahara_Okeroa"
+      },
+      {
+        "name": "Pita Paraone",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Pita_Paraone"
+      },
+      {
+        "name": "David Parker",
+        "party": "Labour",
+        "electorate": "Otago",
+        "wiki_slug": "David_Parker_(New_Zealand)"
+      },
+      {
+        "name": "Mark Peck",
+        "party": "Labour",
+        "electorate": "Invercargill",
+        "wiki_slug": "Mark_Peck"
+      },
+      {
+        "name": "Edwin Perry",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Edwin_Perry"
+      },
+      {
+        "name": "Jim Peters",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Jim_Peters_(politician)"
+      },
+      {
+        "name": "Winston Peters",
+        "party": "NZ First",
+        "electorate": "Tauranga",
+        "wiki_slug": "Winston_Peters"
+      },
+      {
+        "name": "Jill Pettis",
+        "party": "Labour",
+        "electorate": "Whanganui",
+        "wiki_slug": "Jill_Pettis"
+      },
+      {
+        "name": "Lynne Pillay",
+        "party": "Labour",
+        "electorate": "Waitakere",
+        "wiki_slug": "Lynne_Pillay"
+      },
+      {
+        "name": "Simon Power",
+        "party": "National",
+        "electorate": "Rangitikei",
+        "wiki_slug": "Simon_Power_(politician)"
+      },
+      {
+        "name": "Richard Prebble",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Richard_Prebble"
+      },
+      {
+        "name": "Katherine Rich",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Katherine_Rich"
+      },
+      {
+        "name": "Mita Ririnui",
+        "party": "Labour",
+        "electorate": "Waiariki",
+        "wiki_slug": "Mita_Ririnui"
+      },
+      {
+        "name": "Ross Robertson",
+        "party": "Labour",
+        "electorate": "Manukau East",
+        "wiki_slug": "Ross_Robertson"
+      },
+      {
+        "name": "Matt Robson",
+        "party": "Progressive",
+        "electorate": "List",
+        "wiki_slug": "Matt_Robson"
+      },
+      {
+        "name": "Heather Roy",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Heather_Roy"
+      },
+      {
+        "name": "Tony Ryall",
+        "party": "National",
+        "electorate": "Bay of Plenty",
+        "wiki_slug": "Tony_Ryall"
+      },
+      {
+        "name": "Dover Samuels",
+        "party": "Labour",
+        "electorate": "Te Tai Tokerau",
+        "wiki_slug": "Dover_Samuels"
+      },
+      {
+        "name": "Lynda Scott",
+        "party": "National",
+        "electorate": "Kaikoura",
+        "wiki_slug": "Lynda_Scott"
+      },
+      {
+        "name": "Ken Shirley",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Ken_Shirley"
+      },
+      {
+        "name": "Clem Simich",
+        "party": "National",
+        "electorate": "Tamaki",
+        "wiki_slug": "Clem_Simich"
+      },
+      {
+        "name": "Lockwood Smith",
+        "party": "National",
+        "electorate": "Rodney",
+        "wiki_slug": "Lockwood_Smith"
+      },
+      {
+        "name": "Murray Smith",
+        "party": "United Future",
+        "electorate": "List",
+        "wiki_slug": "Murray_Smith_(New_Zealand_politician)"
+      },
+      {
+        "name": "Nick Smith",
+        "party": "National",
+        "electorate": "Nelson",
+        "wiki_slug": "Nick_Smith_(New_Zealand_politician)"
+      },
+      {
+        "name": "Roger Sowry",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Roger_Sowry"
+      },
+      {
+        "name": "Barbara Stewart",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Barbara_Stewart_(politician)"
+      },
+      {
+        "name": "Jim Sutton",
+        "party": "Labour",
+        "electorate": "Aoraki",
+        "wiki_slug": "Jim_Sutton"
+      },
+      {
+        "name": "Paul Swain",
+        "party": "Labour",
+        "electorate": "Rimutaka",
+        "wiki_slug": "Paul_Swain_(politician)"
+      },
+      {
+        "name": "John Tamihere",
+        "party": "Labour",
+        "electorate": "Tamaki Makaurau",
+        "wiki_slug": "John_Tamihere"
+      },
+      {
+        "name": "Nándor Tánczos",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Nándor_Tánczos"
+      },
+      {
+        "name": "Georgina te Heuheu",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Georgina_te_Heuheu"
+      },
+      {
+        "name": "Lindsay Tisch",
+        "party": "National",
+        "electorate": "Piako",
+        "wiki_slug": "Lindsay_Tisch"
+      },
+      {
+        "name": "Judith Tizard",
+        "party": "Labour",
+        "electorate": "Auckland Central",
+        "wiki_slug": "Judith_Tizard"
+      },
+      {
+        "name": "Metiria Turei",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Metiria_Turei"
+      },
+      {
+        "name": "Tariana Turia",
+        "party": "Labour",
+        "electorate": "Te Tai Hauauru",
+        "wiki_slug": "Tariana_Turia"
+      },
+      {
+        "name": "Judy Turner",
+        "party": "United Future",
+        "electorate": "List",
+        "wiki_slug": "Judy_Turner"
+      },
+      {
+        "name": "Mike Ward",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Mike_Ward_(New_Zealand_politician)"
+      },
+      {
+        "name": "Maurice Williamson",
+        "party": "National",
+        "electorate": "Pakuranga",
+        "wiki_slug": "Maurice_Williamson"
+      },
+      {
+        "name": "Margaret Wilson",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Margaret_Wilson"
+      },
+      {
+        "name": "Pansy Wong",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Pansy_Wong"
+      },
+      {
+        "name": "Doug Woolerton",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Doug_Woolerton"
+      },
+      {
+        "name": "Richard Worth",
+        "party": "National",
+        "electorate": "Epsom",
+        "wiki_slug": "Richard_Worth"
+      },
+      {
+        "name": "Dianne Yates",
+        "party": "Labour",
+        "electorate": "Hamilton East",
+        "wiki_slug": "Dianne_Yates"
+      },
+      {
+        "name": "J. Carter",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "John_Carter_(New_Zealand_politician)"
+      },
+      {
+        "name": "N. Smith",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Nick_Smith_(New_Zealand_politician)"
+      }
+    ],
+    "48": [
+      {
+        "name": "Jo Goodhew",
+        "party": "National",
+        "electorate": "Aoraki",
+        "wiki_slug": "Jo_Goodhew"
+      },
+      {
+        "name": "Judith Tizard",
+        "party": "Labour",
+        "electorate": "Auckland Central",
+        "wiki_slug": "Judith_Tizard"
+      },
+      {
+        "name": "Ruth Dyson",
+        "party": "Labour",
+        "electorate": "Banks Peninsula",
+        "wiki_slug": "Ruth_Dyson"
+      },
+      {
+        "name": "Tony Ryall",
+        "party": "National",
+        "electorate": "Bay of Plenty",
+        "wiki_slug": "Tony_Ryall"
+      },
+      {
+        "name": "Tim Barnett",
+        "party": "Labour",
+        "electorate": "Christchurch Central",
+        "wiki_slug": "Tim_Barnett_(politician)"
+      },
+      {
+        "name": "Lianne Dalziel",
+        "party": "Labour",
+        "electorate": "Christchurch East",
+        "wiki_slug": "Lianne_Dalziel"
+      },
+      {
+        "name": "Judith Collins",
+        "party": "National",
+        "electorate": "Clevedon",
+        "wiki_slug": "Judith_Collins"
+      },
+      {
+        "name": "Bill English",
+        "party": "National",
+        "electorate": "Clutha-Southland",
+        "wiki_slug": "Bill_English"
+      },
+      {
+        "name": "Sandra Goudie",
+        "party": "National",
+        "electorate": "Coromandel",
+        "wiki_slug": "Sandra_Goudie"
+      },
+      {
+        "name": "Pete Hodgson",
+        "party": "Labour",
+        "electorate": "Dunedin North",
+        "wiki_slug": "Pete_Hodgson"
+      },
+      {
+        "name": "David Benson-Pope",
+        "party": "Labour",
+        "electorate": "Dunedin South",
+        "wiki_slug": "David_Benson-Pope"
+      },
+      {
+        "name": "Anne Tolley",
+        "party": "National",
+        "electorate": "East Coast",
+        "wiki_slug": "Anne_Tolley"
+      },
+      {
+        "name": "Murray McCully",
+        "party": "National",
+        "electorate": "East Coast Bays",
+        "wiki_slug": "Murray_McCully"
+      },
+      {
+        "name": "Rodney Hide",
+        "party": "ACT",
+        "electorate": "Epsom",
+        "wiki_slug": "Rodney_Hide"
+      },
+      {
+        "name": "David Bennett",
+        "party": "National",
+        "electorate": "Hamilton East",
+        "wiki_slug": "David_Bennett_(New_Zealand_politician)"
+      },
+      {
+        "name": "Martin Gallagher",
+        "party": "Labour",
+        "electorate": "Hamilton West",
+        "wiki_slug": "Martin_Gallagher"
+      },
+      {
+        "name": "John Key",
+        "party": "National",
+        "electorate": "Helensville",
+        "wiki_slug": "John_Key"
+      },
+      {
+        "name": "Trevor Mallard",
+        "party": "Labour",
+        "electorate": "Hutt South",
+        "wiki_slug": "Trevor_Mallard"
+      },
+      {
+        "name": "Gerry Brownlee",
+        "party": "National",
+        "electorate": "Ilam",
+        "wiki_slug": "Gerry_Brownlee"
+      },
+      {
+        "name": "Eric Roy",
+        "party": "National",
+        "electorate": "Invercargill",
+        "wiki_slug": "Eric_Roy_(politician)"
+      },
+      {
+        "name": "Colin King",
+        "party": "National",
+        "electorate": "Kaikōura",
+        "wiki_slug": "Colin_King"
+      },
+      {
+        "name": "Winnie Laban",
+        "party": "Labour",
+        "electorate": "Mana",
+        "wiki_slug": "Winnie_Laban"
+      },
+      {
+        "name": "Taito Phillip Field",
+        "party": "Labour",
+        "electorate": "Mangere",
+        "wiki_slug": "Taito_Phillip_Field"
+      },
+      {
+        "name": "Ross Robertson",
+        "party": "Labour",
+        "electorate": "Manukau East",
+        "wiki_slug": "Ross_Robertson"
+      },
+      {
+        "name": "George Hawkins",
+        "party": "Labour",
+        "electorate": "Manurewa",
+        "wiki_slug": "George_Hawkins_(politician)"
+      },
+      {
+        "name": "Mark Gosche",
+        "party": "Labour",
+        "electorate": "Maungakiekie",
+        "wiki_slug": "Mark_Gosche"
+      },
+      {
+        "name": "Helen Clark",
+        "party": "Labour",
+        "electorate": "Mount Albert",
+        "wiki_slug": "Helen_Clark"
+      },
+      {
+        "name": "Phil Goff",
+        "party": "Labour",
+        "electorate": "Mount Roskill",
+        "wiki_slug": "Phil_Goff"
+      },
+      {
+        "name": "Chris Tremain",
+        "party": "National",
+        "electorate": "Napier",
+        "wiki_slug": "Chris_Tremain"
+      },
+      {
+        "name": "Nick Smith",
+        "party": "National",
+        "electorate": "Nelson",
+        "wiki_slug": "Nick_Smith_(New_Zealand_politician)"
+      },
+      {
+        "name": "David Cunliffe",
+        "party": "Labour",
+        "electorate": "New Lynn",
+        "wiki_slug": "David_Cunliffe"
+      },
+      {
+        "name": "Harry Duynhoven",
+        "party": "Labour",
+        "electorate": "New Plymouth",
+        "wiki_slug": "Harry_Duynhoven"
+      },
+      {
+        "name": "Wayne Mapp",
+        "party": "National",
+        "electorate": "North Shore",
+        "wiki_slug": "Wayne_Mapp"
+      },
+      {
+        "name": "Jonathan Coleman",
+        "party": "National",
+        "electorate": "Northcote",
+        "wiki_slug": "Jonathan_Coleman_(politician)"
+      },
+      {
+        "name": "John Carter",
+        "party": "National",
+        "electorate": "Northland",
+        "wiki_slug": "John_Carter_(New_Zealand_politician)"
+      },
+      {
+        "name": "Peter Dunne",
+        "party": "United Future",
+        "electorate": "Ohariu-Belmont",
+        "wiki_slug": "Peter_Dunne"
+      },
+      {
+        "name": "Jacqui Dean",
+        "party": "National",
+        "electorate": "Otago",
+        "wiki_slug": "Jacqui_Dean"
+      },
+      {
+        "name": "Darren Hughes",
+        "party": "Labour",
+        "electorate": "Otaki",
+        "wiki_slug": "Darren_Hughes"
+      },
+      {
+        "name": "Maurice Williamson",
+        "party": "National",
+        "electorate": "Pakuranga",
+        "wiki_slug": "Maurice_Williamson"
+      },
+      {
+        "name": "Steve Maharey",
+        "party": "Labour",
+        "electorate": "Palmerston North",
+        "wiki_slug": "Steve_Maharey"
+      },
+      {
+        "name": "Lindsay Tisch",
+        "party": "National",
+        "electorate": "Piako",
+        "wiki_slug": "Lindsay_Tisch"
+      },
+      {
+        "name": "Paul Hutchison",
+        "party": "National",
+        "electorate": "Port Waikato",
+        "wiki_slug": "Paul_Hutchison_(politician)"
+      },
+      {
+        "name": "Brian Connell",
+        "party": "National",
+        "electorate": "Rakaia",
+        "wiki_slug": "Brian_Connell"
+      },
+      {
+        "name": "Simon Power",
+        "party": "National",
+        "electorate": "Rangitikei",
+        "wiki_slug": "Simon_Power_(politician)"
+      },
+      {
+        "name": "Paul Swain",
+        "party": "Labour",
+        "electorate": "Rimutaka",
+        "wiki_slug": "Paul_Swain_(politician)"
+      },
+      {
+        "name": "Lockwood Smith",
+        "party": "National",
+        "electorate": "Rodney",
+        "wiki_slug": "Lockwood_Smith"
+      },
+      {
+        "name": "Annette King",
+        "party": "Labour",
+        "electorate": "Rongotai",
+        "wiki_slug": "Annette_King"
+      },
+      {
+        "name": "Steve Chadwick",
+        "party": "Labour",
+        "electorate": "Rotorua",
+        "wiki_slug": "Steve_Chadwick"
+      },
+      {
+        "name": "Allan Peachey",
+        "party": "National",
+        "electorate": "Tamaki",
+        "wiki_slug": "Allan_Peachey"
+      },
+      {
+        "name": "Shane Ardern",
+        "party": "National",
+        "electorate": "Taranaki-King Country",
+        "wiki_slug": "Shane_Ardern"
+      },
+      {
+        "name": "Mark Burton",
+        "party": "Labour",
+        "electorate": "Taupo",
+        "wiki_slug": "Mark_Burton_(politician)"
+      },
+      {
+        "name": "Bob Clarkson",
+        "party": "National",
+        "electorate": "Tauranga",
+        "wiki_slug": "Bob_Clarkson"
+      },
+      {
+        "name": "Chris Carter",
+        "party": "Labour",
+        "electorate": "Te Atatu",
+        "wiki_slug": "Chris_Carter_(New_Zealand_politician)"
+      },
+      {
+        "name": "Craig Foss",
+        "party": "National",
+        "electorate": "Tukituki",
+        "wiki_slug": "Craig_Foss"
+      },
+      {
+        "name": "Clayton Cosgrove",
+        "party": "Labour",
+        "electorate": "Waimakariri",
+        "wiki_slug": "Clayton_Cosgrove"
+      },
+      {
+        "name": "John Hayes",
+        "party": "National",
+        "electorate": "Wairarapa",
+        "wiki_slug": "John_Hayes_(New_Zealand_politician)"
+      },
+      {
+        "name": "Lynne Pillay",
+        "party": "Labour",
+        "electorate": "Waitakere",
+        "wiki_slug": "Lynne_Pillay"
+      },
+      {
+        "name": "Marian Hobbs",
+        "party": "Labour",
+        "electorate": "Wellington Central",
+        "wiki_slug": "Marian_Hobbs"
+      },
+      {
+        "name": "Damien O'Connor",
+        "party": "Labour",
+        "electorate": "West Coast-Tasman",
+        "wiki_slug": "Damien_O'Connor"
+      },
+      {
+        "name": "Chester Borrows",
+        "party": "National",
+        "electorate": "Whanganui",
+        "wiki_slug": "Chester_Borrows"
+      },
+      {
+        "name": "Phil Heatley",
+        "party": "National",
+        "electorate": "Whangarei",
+        "wiki_slug": "Phil_Heatley"
+      },
+      {
+        "name": "Jim Anderton",
+        "party": "Progressive",
+        "electorate": "Wigram",
+        "wiki_slug": "Jim_Anderton"
+      },
+      {
+        "name": "Parekura Horomia",
+        "party": "Labour",
+        "electorate": "Ikaroa-Rāwhiti",
+        "wiki_slug": "Parekura_Horomia"
+      },
+      {
+        "name": "Nanaia Mahuta",
+        "party": "Labour",
+        "electorate": "Tainui",
+        "wiki_slug": "Nanaia_Mahuta"
+      },
+      {
+        "name": "Pita Sharples",
+        "party": "Maori Party",
+        "electorate": "Tāmaki Makaurau",
+        "wiki_slug": "Pita_Sharples"
+      },
+      {
+        "name": "Tariana Turia",
+        "party": "Maori Party",
+        "electorate": "Te Tai Hauāuru",
+        "wiki_slug": "Tariana_Turia"
+      },
+      {
+        "name": "Hone Harawira",
+        "party": "Maori Party",
+        "electorate": "Te Tai Tokerau",
+        "wiki_slug": "Hone_Harawira"
+      },
+      {
+        "name": "Mahara Okeroa",
+        "party": "Labour",
+        "electorate": "Te Tai Tonga",
+        "wiki_slug": "Mahara_Okeroa"
+      },
+      {
+        "name": "Te Ururoa Flavell",
+        "party": "Maori Party",
+        "electorate": "Waiariki",
+        "wiki_slug": "Te_Ururoa_Flavell"
+      },
+      {
+        "name": "Winston Peters",
+        "party": "NZ First",
+        "electorate": "Party list, rank 01",
+        "wiki_slug": "Winston_Peters"
+      },
+      {
+        "name": "Jeanette Fitzsimons",
+        "party": "Green",
+        "electorate": "Party list, rank 01",
+        "wiki_slug": "Jeanette_Fitzsimons"
+      },
+      {
+        "name": "Peter Brown",
+        "party": "NZ First",
+        "electorate": "Party list, rank 02",
+        "wiki_slug": "Peter_Brown_(New_Zealand_politician)"
+      },
+      {
+        "name": "Rod Donald",
+        "party": "Green",
+        "electorate": "Party list, rank 02",
+        "wiki_slug": "Rod_Donald"
+      },
+      {
+        "name": "Brian Donnelly",
+        "party": "NZ First",
+        "electorate": "Party list, rank 03",
+        "wiki_slug": "Brian_Donnelly_(New_Zealand_politician)"
+      },
+      {
+        "name": "Sue Bradford",
+        "party": "Green",
+        "electorate": "Party list, rank 03",
+        "wiki_slug": "Sue_Bradford"
+      },
+      {
+        "name": "Judy Turner",
+        "party": "United Future",
+        "electorate": "Party list, rank 02",
+        "wiki_slug": "Judy_Turner"
+      },
+      {
+        "name": "Ron Mark",
+        "party": "NZ First",
+        "electorate": "Party list, rank 04",
+        "wiki_slug": "Ron_Mark"
+      },
+      {
+        "name": "Sue Kedgley",
+        "party": "Green",
+        "electorate": "Party list, rank 04",
+        "wiki_slug": "Sue_Kedgley"
+      },
+      {
+        "name": "Michael Cullen",
+        "party": "Labour",
+        "electorate": "Party list, rank 02",
+        "wiki_slug": "Michael_Cullen_(politician)"
+      },
+      {
+        "name": "Doug Woolerton",
+        "party": "NZ First",
+        "electorate": "Party list, rank 05",
+        "wiki_slug": "Doug_Woolerton"
+      },
+      {
+        "name": "Margaret Wilson",
+        "party": "Labour",
+        "electorate": "Party list, rank 03",
+        "wiki_slug": "Margaret_Wilson"
+      },
+      {
+        "name": "Don Brash",
+        "party": "National",
+        "electorate": "Party list, rank 01",
+        "wiki_slug": "Don_Brash"
+      },
+      {
+        "name": "Dover Samuels",
+        "party": "Labour",
+        "electorate": "Party list, rank 10",
+        "wiki_slug": "Dover_Samuels"
+      },
+      {
+        "name": "David Carter",
+        "party": "National",
+        "electorate": "Party list, rank 08",
+        "wiki_slug": "David_Carter_(politician)"
+      },
+      {
+        "name": "Jim Sutton",
+        "party": "Labour",
+        "electorate": "Party list, rank 11",
+        "wiki_slug": "Jim_Sutton"
+      },
+      {
+        "name": "Keith Locke",
+        "party": "Green",
+        "electorate": "Party list, rank 05",
+        "wiki_slug": "Keith_Locke"
+      },
+      {
+        "name": "Katherine Rich",
+        "party": "National",
+        "electorate": "Party list, rank 10",
+        "wiki_slug": "Katherine_Rich"
+      },
+      {
+        "name": "Mita Ririnui",
+        "party": "Labour",
+        "electorate": "Party list, rank 15",
+        "wiki_slug": "Mita_Ririnui"
+      },
+      {
+        "name": "Tim Groser",
+        "party": "National",
+        "electorate": "Party list, rank 13",
+        "wiki_slug": "Tim_Groser"
+      },
+      {
+        "name": "Rick Barker",
+        "party": "Labour",
+        "electorate": "Party list, rank 21",
+        "wiki_slug": "Rick_Barker"
+      },
+      {
+        "name": "Richard Worth",
+        "party": "National",
+        "electorate": "Party list, rank 16",
+        "wiki_slug": "Richard_Worth"
+      },
+      {
+        "name": "Jill Pettis",
+        "party": "Labour",
+        "electorate": "Party list, rank 24",
+        "wiki_slug": "Jill_Pettis"
+      },
+      {
+        "name": "Clem Simich",
+        "party": "National",
+        "electorate": "Party list, rank 18",
+        "wiki_slug": "Clem_Simich"
+      },
+      {
+        "name": "Gordon Copeland",
+        "party": "United Future",
+        "electorate": "Party list, rank 03",
+        "wiki_slug": "Gordon_Copeland"
+      },
+      {
+        "name": "Ashraf Choudhary",
+        "party": "Labour",
+        "electorate": "Party list, rank 25",
+        "wiki_slug": "Ashraf_Choudhary"
+      },
+      {
+        "name": "Georgina te Heuheu",
+        "party": "National",
+        "electorate": "Party list, rank 19",
+        "wiki_slug": "Georgina_te_Heuheu"
+      },
+      {
+        "name": "Shane Jones",
+        "party": "Labour",
+        "electorate": "Party list, rank 27",
+        "wiki_slug": "Shane_Jones"
+      },
+      {
+        "name": "Barbara Stewart",
+        "party": "NZ First",
+        "electorate": "Party list, rank 06",
+        "wiki_slug": "Barbara_Stewart_(politician)"
+      },
+      {
+        "name": "Pansy Wong",
+        "party": "National",
+        "electorate": "Party list, rank 20",
+        "wiki_slug": "Pansy_Wong"
+      },
+      {
+        "name": "Dianne Yates",
+        "party": "Labour",
+        "electorate": "Party list, rank 28",
+        "wiki_slug": "Dianne_Yates"
+      },
+      {
+        "name": "Heather Roy",
+        "party": "ACT",
+        "electorate": "Party list, rank 02",
+        "wiki_slug": "Heather_Roy"
+      },
+      {
+        "name": "Ann Hartley",
+        "party": "Labour",
+        "electorate": "Party list, rank 30",
+        "wiki_slug": "Ann_Hartley"
+      },
+      {
+        "name": "Chris Finlayson",
+        "party": "National",
+        "electorate": "Party list, rank 27",
+        "wiki_slug": "Chris_Finlayson"
+      },
+      {
+        "name": "Georgina Beyer",
+        "party": "Labour",
+        "electorate": "Party list, rank 35",
+        "wiki_slug": "Georgina_Beyer"
+      },
+      {
+        "name": "Nicky Wagner",
+        "party": "National",
+        "electorate": "Party list, rank 28",
+        "wiki_slug": "Nicky_Wagner"
+      },
+      {
+        "name": "Metiria Turei",
+        "party": "Green",
+        "electorate": "Party list, rank 06",
+        "wiki_slug": "Metiria_Turei"
+      },
+      {
+        "name": "Maryan Street",
+        "party": "Labour",
+        "electorate": "Party list, rank 36",
+        "wiki_slug": "Maryan_Street"
+      },
+      {
+        "name": "Tau Henare",
+        "party": "National",
+        "electorate": "Party list, rank 29",
+        "wiki_slug": "Tau_Henare"
+      },
+      {
+        "name": "David Parker",
+        "party": "Labour",
+        "electorate": "Party list, rank 37",
+        "wiki_slug": "David_Parker_(New_Zealand_politician)"
+      },
+      {
+        "name": "Chris Auchinvole",
+        "party": "National",
+        "electorate": "Party list, rank 34",
+        "wiki_slug": "Chris_Auchinvole"
+      },
+      {
+        "name": "Russell Fairbrother",
+        "party": "Labour",
+        "electorate": "Party list, rank 38",
+        "wiki_slug": "Russell_Fairbrother"
+      },
+      {
+        "name": "Mark Blumsky",
+        "party": "National",
+        "electorate": "Party list, rank 36",
+        "wiki_slug": "Mark_Blumsky"
+      },
+      {
+        "name": "Dave Hereora",
+        "party": "Labour",
+        "electorate": "Party list, rank 39",
+        "wiki_slug": "Dave_Hereora"
+      },
+      {
+        "name": "Pita Paraone",
+        "party": "NZ First",
+        "electorate": "Party list, rank 07",
+        "wiki_slug": "Pita_Paraone"
+      },
+      {
+        "name": "Kate Wilkinson",
+        "party": "National",
+        "electorate": "Party list, rank 38",
+        "wiki_slug": "Kate_Wilkinson_(politician)"
+      },
+      {
+        "name": "Moana Mackey",
+        "party": "Labour",
+        "electorate": "Party list, rank 41",
+        "wiki_slug": "Moana_Mackey"
+      },
+      {
+        "name": "Nathan Guy",
+        "party": "National",
+        "electorate": "Party list, rank 39",
+        "wiki_slug": "Nathan_Guy"
+      },
+      {
+        "name": "Sue Moroney",
+        "party": "Labour",
+        "electorate": "Party list, rank 42",
+        "wiki_slug": "Sue_Moroney"
+      },
+      {
+        "name": "Jackie Blue",
+        "party": "National",
+        "electorate": "Party list, rank 41",
+        "wiki_slug": "Jackie_Blue"
+      },
+      {
+        "name": "Darien Fenton",
+        "party": "Labour",
+        "electorate": "Party list, rank 43",
+        "wiki_slug": "Darien_Fenton"
+      },
+      {
+        "name": "Paula Bennett",
+        "party": "National",
+        "electorate": "Party list, rank 45",
+        "wiki_slug": "Paula_Bennett"
+      },
+      {
+        "name": "Nándor Tánczos",
+        "party": "Green",
+        "electorate": "6 November 2005",
+        "wiki_slug": "Nándor_Tánczos"
+      },
+      {
+        "name": "Charles Chauvel",
+        "party": "Labour",
+        "electorate": "1 August 2006",
+        "wiki_slug": "Charles_Chauvel_(politician)"
+      },
+      {
+        "name": "Katrina Shanks",
+        "party": "National",
+        "electorate": "7 February 2007",
+        "wiki_slug": "Katrina_Shanks"
+      },
+      {
+        "name": "Lesley Soper",
+        "party": "Labour",
+        "electorate": "15 February 2007",
+        "wiki_slug": "Lesley_Soper"
+      },
+      {
+        "name": "Dail Jones",
+        "party": "NZ First",
+        "electorate": "15 February 2008",
+        "wiki_slug": "Dail_Jones"
+      },
+      {
+        "name": "Louisa Wall",
+        "party": "Labour",
+        "electorate": "4 March 2008",
+        "wiki_slug": "Louisa_Wall"
+      },
+      {
+        "name": "William Sio",
+        "party": "Labour",
+        "electorate": "29 March 2008",
+        "wiki_slug": "William_Sio"
+      },
+      {
+        "name": "Russel Norman",
+        "party": "Green",
+        "electorate": "26 June 2008",
+        "wiki_slug": "Russel_Norman"
+      },
+      {
+        "name": "te Heuheu",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Georgina_te_Heuheu"
+      },
+      {
+        "name": "te Heuheu",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Georgina_te_Heuheu"
+      },
+      {
+        "name": "C. Carter",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Chris_Carter_(New_Zealand_politician)"
+      }
+    ],
+    "49": [
+      {
+        "name": "Lockwood Smith",
+        "party": "National",
+        "electorate": "Rodney",
+        "wiki_slug": "Lockwood_Smith"
+      },
+      {
+        "name": "Lindsay Tisch",
+        "party": "National",
+        "electorate": "Waikato",
+        "wiki_slug": "Lindsay_Tisch"
+      },
+      {
+        "name": "Eric Roy",
+        "party": "National",
+        "electorate": "Invercargill",
+        "wiki_slug": "Eric_Roy_(politician)"
+      },
+      {
+        "name": "John Key",
+        "party": "National",
+        "electorate": "Helensville",
+        "wiki_slug": "John_Key"
+      },
+      {
+        "name": "Bill English",
+        "party": "National",
+        "electorate": "Clutha-Southland",
+        "wiki_slug": "Bill_English"
+      },
+      {
+        "name": "Gerry Brownlee",
+        "party": "National",
+        "electorate": "Ilam",
+        "wiki_slug": "Gerry_Brownlee"
+      },
+      {
+        "name": "Simon Power",
+        "party": "National",
+        "electorate": "Rangitīkei",
+        "wiki_slug": "Simon_Power_(politician)"
+      },
+      {
+        "name": "Tony Ryall",
+        "party": "National",
+        "electorate": "Bay of Plenty",
+        "wiki_slug": "Tony_Ryall"
+      },
+      {
+        "name": "Nick Smith",
+        "party": "National",
+        "electorate": "Nelson",
+        "wiki_slug": "Nick_Smith_(New_Zealand_politician)"
+      },
+      {
+        "name": "Judith Collins",
+        "party": "National",
+        "electorate": "Papakura",
+        "wiki_slug": "Judith_Collins"
+      },
+      {
+        "name": "Anne Tolley",
+        "party": "National",
+        "electorate": "East Coast",
+        "wiki_slug": "Anne_Tolley"
+      },
+      {
+        "name": "Chris Finlayson",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Chris_Finlayson"
+      },
+      {
+        "name": "David Carter",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "David_Carter_(politician)"
+      },
+      {
+        "name": "Murray McCully",
+        "party": "National",
+        "electorate": "East Coast Bays",
+        "wiki_slug": "Murray_McCully"
+      },
+      {
+        "name": "Tim Groser",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Tim_Groser"
+      },
+      {
+        "name": "Wayne Mapp",
+        "party": "National",
+        "electorate": "North Shore",
+        "wiki_slug": "Wayne_Mapp"
+      },
+      {
+        "name": "Steven Joyce",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Steven_Joyce"
+      },
+      {
+        "name": "Georgina te Heuheu",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Georgina_te_Heuheu"
+      },
+      {
+        "name": "Paula Bennett",
+        "party": "National",
+        "electorate": "Waitakere",
+        "wiki_slug": "Paula_Bennett"
+      },
+      {
+        "name": "Phil Heatley",
+        "party": "National",
+        "electorate": "Whangarei",
+        "wiki_slug": "Phil_Heatley"
+      },
+      {
+        "name": "Jonathan Coleman",
+        "party": "National",
+        "electorate": "Northcote",
+        "wiki_slug": "Jonathan_Coleman_(politician)"
+      },
+      {
+        "name": "Kate Wilkinson",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Kate_Wilkinson_(politician)"
+      },
+      {
+        "name": "Hekia Parata",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Hekia_Parata"
+      },
+      {
+        "name": "Maurice Williamson",
+        "party": "National",
+        "electorate": "Pakuranga",
+        "wiki_slug": "Maurice_Williamson"
+      },
+      {
+        "name": "Nathan Guy",
+        "party": "National",
+        "electorate": "Ōtaki",
+        "wiki_slug": "Nathan_Guy"
+      },
+      {
+        "name": "Craig Foss",
+        "party": "National",
+        "electorate": "Tukituki",
+        "wiki_slug": "Craig_Foss"
+      },
+      {
+        "name": "Chris Tremain",
+        "party": "National",
+        "electorate": "Napier",
+        "wiki_slug": "Chris_Tremain"
+      },
+      {
+        "name": "Jo Goodhew",
+        "party": "National",
+        "electorate": "Rangitata",
+        "wiki_slug": "Jo_Goodhew"
+      },
+      {
+        "name": "Amy Adams",
+        "party": "National",
+        "electorate": "Selwyn",
+        "wiki_slug": "Amy_Adams_(politician)"
+      },
+      {
+        "name": "Shane Ardern",
+        "party": "National",
+        "electorate": "Taranaki-King Country",
+        "wiki_slug": "Shane_Ardern"
+      },
+      {
+        "name": "Paul Hutchison",
+        "party": "National",
+        "electorate": "Hunua",
+        "wiki_slug": "Paul_Hutchison_(politician)"
+      },
+      {
+        "name": "Tau Henare",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Tau_Henare"
+      },
+      {
+        "name": "Sandra Goudie",
+        "party": "National",
+        "electorate": "Coromandel",
+        "wiki_slug": "Sandra_Goudie"
+      },
+      {
+        "name": "Chris Auchinvole",
+        "party": "National",
+        "electorate": "West Coast-Tasman",
+        "wiki_slug": "Chris_Auchinvole"
+      },
+      {
+        "name": "David Bennett",
+        "party": "National",
+        "electorate": "Hamilton East",
+        "wiki_slug": "David_Bennett_(New_Zealand_politician)"
+      },
+      {
+        "name": "Chester Borrows",
+        "party": "National",
+        "electorate": "Whanganui",
+        "wiki_slug": "Chester_Borrows"
+      },
+      {
+        "name": "John Hayes",
+        "party": "National",
+        "electorate": "Wairarapa",
+        "wiki_slug": "John_Hayes_(New_Zealand_politician)"
+      },
+      {
+        "name": "Katrina Shanks",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Katrina_Shanks"
+      },
+      {
+        "name": "Jackie Blue",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Jackie_Blue"
+      },
+      {
+        "name": "Jacqui Dean",
+        "party": "National",
+        "electorate": "Waitaki",
+        "wiki_slug": "Jacqui_Dean"
+      },
+      {
+        "name": "Colin King",
+        "party": "National",
+        "electorate": "Kaikōura",
+        "wiki_slug": "Colin_King"
+      },
+      {
+        "name": "Nicky Wagner",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Nicky_Wagner"
+      },
+      {
+        "name": "Simon Bridges",
+        "party": "National",
+        "electorate": "Tauranga",
+        "wiki_slug": "Simon_Bridges"
+      },
+      {
+        "name": "Peseta Sam Lotu-Iiga",
+        "party": "National",
+        "electorate": "Maungakiekie",
+        "wiki_slug": "Sam_Lotu-Iiga"
+      },
+      {
+        "name": "Todd McClay",
+        "party": "National",
+        "electorate": "Rotorua",
+        "wiki_slug": "Todd_McClay"
+      },
+      {
+        "name": "Nikki Kaye",
+        "party": "National",
+        "electorate": "Auckland Central",
+        "wiki_slug": "Nikki_Kaye"
+      },
+      {
+        "name": "Melissa Lee",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Melissa_Lee"
+      },
+      {
+        "name": "Tim Macindoe",
+        "party": "National",
+        "electorate": "Hamilton West",
+        "wiki_slug": "Tim_Macindoe"
+      },
+      {
+        "name": "Paul Quinn",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Paul_Quinn_(New_Zealand_politician)"
+      },
+      {
+        "name": "Kanwal Singh Bakshi",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Kanwal_Singh_Bakshi"
+      },
+      {
+        "name": "Louise Upston",
+        "party": "National",
+        "electorate": "Taupō",
+        "wiki_slug": "Louise_Upston"
+      },
+      {
+        "name": "Michael Woodhouse",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Michael_Woodhouse"
+      },
+      {
+        "name": "Jonathan Young",
+        "party": "National",
+        "electorate": "New Plymouth",
+        "wiki_slug": "Jonathan_Young_(politician)"
+      },
+      {
+        "name": "Aaron Gilmore",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Aaron_Gilmore"
+      },
+      {
+        "name": "Cam Calder",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Cam_Calder"
+      },
+      {
+        "name": "Jami-Lee Ross",
+        "party": "National",
+        "electorate": "Botany",
+        "wiki_slug": "Jami-Lee_Ross"
+      },
+      {
+        "name": "Richard Worth",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Richard_Worth"
+      },
+      {
+        "name": "Pansy Wong",
+        "party": "National",
+        "electorate": "Botany",
+        "wiki_slug": "Pansy_Wong"
+      },
+      {
+        "name": "John Carter",
+        "party": "National",
+        "electorate": "Northland",
+        "wiki_slug": "John_Carter_(New_Zealand_politician)"
+      },
+      {
+        "name": "Allan Peachey",
+        "party": "National",
+        "electorate": "Tāmaki",
+        "wiki_slug": "Allan_Peachey"
+      },
+      {
+        "name": "Phil Goff",
+        "party": "Labour",
+        "electorate": "Mount Roskill",
+        "wiki_slug": "Phil_Goff"
+      },
+      {
+        "name": "Annette King",
+        "party": "Labour",
+        "electorate": "Rongotai",
+        "wiki_slug": "Annette_King"
+      },
+      {
+        "name": "David Cunliffe",
+        "party": "Labour",
+        "electorate": "New Lynn",
+        "wiki_slug": "David_Cunliffe"
+      },
+      {
+        "name": "Ruth Dyson",
+        "party": "Labour",
+        "electorate": "Port Hills",
+        "wiki_slug": "Ruth_Dyson"
+      },
+      {
+        "name": "Parekura Horomia",
+        "party": "Labour",
+        "electorate": "Ikaroa-Rāwhiti",
+        "wiki_slug": "Parekura_Horomia"
+      },
+      {
+        "name": "Clayton Cosgrove",
+        "party": "Labour",
+        "electorate": "Waimakariri",
+        "wiki_slug": "Clayton_Cosgrove"
+      },
+      {
+        "name": "Chris Carter",
+        "party": "Labour",
+        "electorate": "Te Atatu",
+        "wiki_slug": "Chris_Carter_(New_Zealand_politician)"
+      },
+      {
+        "name": "Maryan Street",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Maryan_Street"
+      },
+      {
+        "name": "Nanaia Mahuta",
+        "party": "Labour",
+        "electorate": "Hauraki-Waikato",
+        "wiki_slug": "Nanaia_Mahuta"
+      },
+      {
+        "name": "David Parker",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "David_Parker_(New_Zealand_politician)"
+      },
+      {
+        "name": "Shane Jones",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Shane_Jones"
+      },
+      {
+        "name": "Trevor Mallard",
+        "party": "Labour",
+        "electorate": "Hutt South",
+        "wiki_slug": "Trevor_Mallard"
+      },
+      {
+        "name": "Lianne Dalziel",
+        "party": "Labour",
+        "electorate": "Christchurch East",
+        "wiki_slug": "Lianne_Dalziel"
+      },
+      {
+        "name": "Charles Chauvel",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Charles_Chauvel_(politician)"
+      },
+      {
+        "name": "Pete Hodgson",
+        "party": "Labour",
+        "electorate": "Dunedin North",
+        "wiki_slug": "Pete_Hodgson"
+      },
+      {
+        "name": "Moana Mackey",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Moana_Mackey"
+      },
+      {
+        "name": "Steve Chadwick",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Steve_Chadwick"
+      },
+      {
+        "name": "Sue Moroney",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Sue_Moroney"
+      },
+      {
+        "name": "Rick Barker",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Rick_Barker"
+      },
+      {
+        "name": "Ross Robertson",
+        "party": "Labour",
+        "electorate": "Manukau East",
+        "wiki_slug": "Ross_Robertson"
+      },
+      {
+        "name": "George Hawkins",
+        "party": "Labour",
+        "electorate": "Manurewa",
+        "wiki_slug": "George_Warren_Hawkins"
+      },
+      {
+        "name": "Damien O'Connor",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Damien_O'Connor"
+      },
+      {
+        "name": "Mita Ririnui",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Mita_Ririnui"
+      },
+      {
+        "name": "Lynne Pillay",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Lynne_Pillay"
+      },
+      {
+        "name": "Ashraf Choudhary",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Ashraf_Choudhary"
+      },
+      {
+        "name": "Darien Fenton",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Darien_Fenton"
+      },
+      {
+        "name": "William Sio",
+        "party": "Labour",
+        "electorate": "Mangere",
+        "wiki_slug": "William_Sio"
+      },
+      {
+        "name": "Jacinda Ardern",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Jacinda_Ardern"
+      },
+      {
+        "name": "Carol Beaumont",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Carol_Beaumont"
+      },
+      {
+        "name": "Brendon Burns",
+        "party": "Labour",
+        "electorate": "Christchurch Central",
+        "wiki_slug": "Brendon_Burns_(politician)"
+      },
+      {
+        "name": "Clare Curran",
+        "party": "Labour",
+        "electorate": "Dunedin South",
+        "wiki_slug": "Clare_Curran"
+      },
+      {
+        "name": "Kelvin Davis",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Kelvin_Davis_(politician)"
+      },
+      {
+        "name": "Chris Hipkins",
+        "party": "Labour",
+        "electorate": "Rimutaka",
+        "wiki_slug": "Chris_Hipkins"
+      },
+      {
+        "name": "Raymond Huo",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Raymond_Huo"
+      },
+      {
+        "name": "Iain Lees-Galloway",
+        "party": "Labour",
+        "electorate": "Palmerston North",
+        "wiki_slug": "Iain_Lees-Galloway"
+      },
+      {
+        "name": "Stuart Nash",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Stuart_Nash"
+      },
+      {
+        "name": "Rajen Prasad",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Rajen_Prasad"
+      },
+      {
+        "name": "Grant Robertson",
+        "party": "Labour",
+        "electorate": "Wellington Central",
+        "wiki_slug": "Grant_Robertson"
+      },
+      {
+        "name": "Carmel Sepuloni",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Carmel_Sepuloni"
+      },
+      {
+        "name": "Phil Twyford",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Phil_Twyford"
+      },
+      {
+        "name": "David Shearer",
+        "party": "Labour",
+        "electorate": "Mount Albert",
+        "wiki_slug": "David_Shearer"
+      },
+      {
+        "name": "Kris Faafoi",
+        "party": "Labour",
+        "electorate": "Mana",
+        "wiki_slug": "Kris_Faafoi"
+      },
+      {
+        "name": "Louisa Wall",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Louisa_Wall"
+      },
+      {
+        "name": "Helen Clark",
+        "party": "Labour",
+        "electorate": "Mount Albert",
+        "wiki_slug": "Helen_Clark"
+      },
+      {
+        "name": "Michael Cullen",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Michael_Cullen_(politician)"
+      },
+      {
+        "name": "Winnie Laban",
+        "party": "Labour",
+        "electorate": "Mana",
+        "wiki_slug": "Winnie_Laban"
+      },
+      {
+        "name": "Darren Hughes",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Darren_Hughes"
+      },
+      {
+        "name": "Metiria Turei",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Metiria_Turei"
+      },
+      {
+        "name": "Russel Norman",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Russel_Norman"
+      },
+      {
+        "name": "Kennedy Graham",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Kennedy_Graham"
+      },
+      {
+        "name": "Sue Kedgley",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Sue_Kedgley"
+      },
+      {
+        "name": "Keith Locke",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Keith_Locke"
+      },
+      {
+        "name": "Catherine Delahunty",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Catherine_Delahunty"
+      },
+      {
+        "name": "Kevin Hague",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Kevin_Hague"
+      },
+      {
+        "name": "David Clendon",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "David_Clendon"
+      },
+      {
+        "name": "Sue Bradford",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Sue_Bradford"
+      },
+      {
+        "name": "Jeanette Fitzsimons",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Jeanette_Fitzsimons"
+      },
+      {
+        "name": "Rodney Hide",
+        "party": "ACT",
+        "electorate": "Epsom",
+        "wiki_slug": "Rodney_Hide"
+      },
+      {
+        "name": "John Boscawen",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "John_Boscawen"
+      },
+      {
+        "name": "Heather Roy",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Heather_Roy"
+      },
+      {
+        "name": "Roger Douglas",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Roger_Douglas"
+      },
+      {
+        "name": "Hilary Calvert",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "Hilary_Calvert"
+      },
+      {
+        "name": "David Garrett",
+        "party": "ACT",
+        "electorate": "List",
+        "wiki_slug": "David_Garrett_(politician)"
+      },
+      {
+        "name": "Tariana Turia",
+        "party": "Maori Party",
+        "electorate": "Te Tai Hauāuru",
+        "wiki_slug": "Tariana_Turia"
+      },
+      {
+        "name": "Pita Sharples",
+        "party": "Maori Party",
+        "electorate": "Tāmaki Makaurau",
+        "wiki_slug": "Pita_Sharples"
+      },
+      {
+        "name": "Te Ururoa Flavell",
+        "party": "Maori Party",
+        "electorate": "Waiāriki",
+        "wiki_slug": "Te_Ururoa_Flavell"
+      },
+      {
+        "name": "Rahui Katene",
+        "party": "Maori Party",
+        "electorate": "Te Tai Tonga",
+        "wiki_slug": "Rahui_Katene"
+      },
+      {
+        "name": "Hone Harawira",
+        "party": "Maori Party",
+        "electorate": "Te Tai Tokerau",
+        "wiki_slug": "Hone_Harawira"
+      },
+      {
+        "name": "Peter Dunne",
+        "party": "United Future",
+        "electorate": "Ōhariu",
+        "wiki_slug": "Peter_Dunne"
+      },
+      {
+        "name": "Jim Anderton",
+        "party": "Progressive",
+        "electorate": "Wigram",
+        "wiki_slug": "Jim_Anderton"
+      },
+      {
+        "name": "Hone Harawira",
+        "party": "Mana",
+        "electorate": "Te Tai Tokerau",
+        "wiki_slug": "Hone_Harawira"
+      },
+      {
+        "name": "Chris Carter",
+        "party": "Independent",
+        "electorate": "Te Atatū",
+        "wiki_slug": "Chris_Carter_(New_Zealand_politician)"
+      }
+    ],
+    "50": [
+      {
+        "name": "David Carter",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "David_Carter_(politician)"
+      },
+      {
+        "name": "Eric Roy",
+        "party": "National",
+        "electorate": "Invercargill",
+        "wiki_slug": "Eric_Roy_(politician)"
+      },
+      {
+        "name": "Lindsay Tisch",
+        "party": "National",
+        "electorate": "Waikato",
+        "wiki_slug": "Lindsay_Tisch"
+      },
+      {
+        "name": "John Key",
+        "party": "National",
+        "electorate": "Helensville",
+        "wiki_slug": "John_Key"
+      },
+      {
+        "name": "Bill English",
+        "party": "National",
+        "electorate": "Clutha-Southland",
+        "wiki_slug": "Bill_English"
+      },
+      {
+        "name": "Gerry Brownlee",
+        "party": "National",
+        "electorate": "Ilam",
+        "wiki_slug": "Gerry_Brownlee"
+      },
+      {
+        "name": "Steven Joyce",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Steven_Joyce"
+      },
+      {
+        "name": "Judith Collins",
+        "party": "National",
+        "electorate": "Papakura",
+        "wiki_slug": "Judith_Collins"
+      },
+      {
+        "name": "Tony Ryall",
+        "party": "National",
+        "electorate": "Bay of Plenty",
+        "wiki_slug": "Tony_Ryall"
+      },
+      {
+        "name": "Hekia Parata",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Hekia_Parata"
+      },
+      {
+        "name": "Chris Finlayson",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Chris_Finlayson"
+      },
+      {
+        "name": "Paula Bennett",
+        "party": "National",
+        "electorate": "Waitakere",
+        "wiki_slug": "Paula_Bennett"
+      },
+      {
+        "name": "Jonathan Coleman",
+        "party": "National",
+        "electorate": "Northcote",
+        "wiki_slug": "Jonathan_Coleman_(politician)"
+      },
+      {
+        "name": "Murray McCully",
+        "party": "National",
+        "electorate": "East Coast Bays",
+        "wiki_slug": "Murray_McCully"
+      },
+      {
+        "name": "Anne Tolley",
+        "party": "National",
+        "electorate": "East Coast",
+        "wiki_slug": "Anne_Tolley"
+      },
+      {
+        "name": "Nick Smith",
+        "party": "National",
+        "electorate": "Nelson",
+        "wiki_slug": "Nick_Smith_(New_Zealand_politician)"
+      },
+      {
+        "name": "Tim Groser",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Tim_Groser"
+      },
+      {
+        "name": "Amy Adams",
+        "party": "National",
+        "electorate": "Selwyn",
+        "wiki_slug": "Amy_Adams_(politician)"
+      },
+      {
+        "name": "Nathan Guy",
+        "party": "National",
+        "electorate": "Ōtaki",
+        "wiki_slug": "Nathan_Guy"
+      },
+      {
+        "name": "Craig Foss",
+        "party": "National",
+        "electorate": "Tukituki",
+        "wiki_slug": "Craig_Foss"
+      },
+      {
+        "name": "Chris Tremain",
+        "party": "National",
+        "electorate": "Napier",
+        "wiki_slug": "Chris_Tremain"
+      },
+      {
+        "name": "Simon Bridges",
+        "party": "National",
+        "electorate": "Tauranga",
+        "wiki_slug": "Simon_Bridges"
+      },
+      {
+        "name": "Nikki Kaye",
+        "party": "National",
+        "electorate": "Auckland Central",
+        "wiki_slug": "Nikki_Kaye"
+      },
+      {
+        "name": "Maurice Williamson",
+        "party": "National",
+        "electorate": "Pakuranga",
+        "wiki_slug": "Maurice_Williamson"
+      },
+      {
+        "name": "Jo Goodhew",
+        "party": "National",
+        "electorate": "Rangitata",
+        "wiki_slug": "Jo_Goodhew"
+      },
+      {
+        "name": "Chester Borrows",
+        "party": "National",
+        "electorate": "Whanganui",
+        "wiki_slug": "Chester_Borrows"
+      },
+      {
+        "name": "Michael Woodhouse",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Michael_Woodhouse"
+      },
+      {
+        "name": "Todd McClay",
+        "party": "National",
+        "electorate": "Rotorua",
+        "wiki_slug": "Todd_McClay"
+      },
+      {
+        "name": "Louise Upston",
+        "party": "National",
+        "electorate": "Taupō",
+        "wiki_slug": "Louise_Upston"
+      },
+      {
+        "name": "Tim Macindoe",
+        "party": "National",
+        "electorate": "Hamilton West",
+        "wiki_slug": "Tim_Macindoe"
+      },
+      {
+        "name": "Jami-Lee Ross",
+        "party": "National",
+        "electorate": "Botany",
+        "wiki_slug": "Jami-Lee_Ross"
+      },
+      {
+        "name": "Melissa Lee",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Melissa_Lee"
+      },
+      {
+        "name": "John Hayes",
+        "party": "National",
+        "electorate": "Wairarapa",
+        "wiki_slug": "John_Hayes_(New_Zealand_politician)"
+      },
+      {
+        "name": "Shane Ardern",
+        "party": "National",
+        "electorate": "Taranaki-King Country",
+        "wiki_slug": "Shane_Ardern"
+      },
+      {
+        "name": "Chris Auchinvole",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Chris_Auchinvole"
+      },
+      {
+        "name": "Kanwal Singh Bakshi",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Kanwal_Singh_Bakshi"
+      },
+      {
+        "name": "Maggie Barry",
+        "party": "National",
+        "electorate": "North Shore",
+        "wiki_slug": "Maggie_Barry"
+      },
+      {
+        "name": "David Bennett",
+        "party": "National",
+        "electorate": "Hamilton East",
+        "wiki_slug": "David_Bennett_(New_Zealand_politician)"
+      },
+      {
+        "name": "Jackie Blue",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Jackie_Blue"
+      },
+      {
+        "name": "Cam Calder",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Cam_Calder"
+      },
+      {
+        "name": "Jacqui Dean",
+        "party": "National",
+        "electorate": "Waitaki",
+        "wiki_slug": "Jacqui_Dean"
+      },
+      {
+        "name": "Paul Goldsmith",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Paul_Goldsmith_(politician)"
+      },
+      {
+        "name": "Phil Heatley",
+        "party": "National",
+        "electorate": "Whangarei",
+        "wiki_slug": "Phil_Heatley"
+      },
+      {
+        "name": "Tau Henare",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Tau_Henare"
+      },
+      {
+        "name": "Paul Hutchison",
+        "party": "National",
+        "electorate": "Hunua",
+        "wiki_slug": "Paul_Hutchison_(politician)"
+      },
+      {
+        "name": "Colin King",
+        "party": "National",
+        "electorate": "Kaikōura",
+        "wiki_slug": "Colin_King"
+      },
+      {
+        "name": "Peseta Sam Lotu-Iiga",
+        "party": "National",
+        "electorate": "Maungakiekie",
+        "wiki_slug": "Sam_Lotu-Iiga"
+      },
+      {
+        "name": "Ian McKelvie",
+        "party": "National",
+        "electorate": "Rangitīkei",
+        "wiki_slug": "Ian_McKelvie"
+      },
+      {
+        "name": "Mark Mitchell",
+        "party": "National",
+        "electorate": "Rodney",
+        "wiki_slug": "Mark_Mitchell_(New_Zealand_politician)"
+      },
+      {
+        "name": "Alfred Ngaro",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Alfred_Ngaro"
+      },
+      {
+        "name": "Simon O'Connor",
+        "party": "National",
+        "electorate": "Tāmaki",
+        "wiki_slug": "Simon_O'Connor"
+      },
+      {
+        "name": "Mike Sabin",
+        "party": "National",
+        "electorate": "Northland",
+        "wiki_slug": "Mike_Sabin"
+      },
+      {
+        "name": "Katrina Shanks",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Katrina_Shanks"
+      },
+      {
+        "name": "Scott Simpson",
+        "party": "National",
+        "electorate": "Coromandel",
+        "wiki_slug": "Scott_Simpson_(politician)"
+      },
+      {
+        "name": "Nicky Wagner",
+        "party": "National",
+        "electorate": "Christchurch Central",
+        "wiki_slug": "Nicky_Wagner"
+      },
+      {
+        "name": "Kate Wilkinson",
+        "party": "National",
+        "electorate": "Waimakariri",
+        "wiki_slug": "Kate_Wilkinson_(politician)"
+      },
+      {
+        "name": "Jian Yang",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Jian_Yang_(politician)"
+      },
+      {
+        "name": "Jonathan Young",
+        "party": "National",
+        "electorate": "New Plymouth",
+        "wiki_slug": "Jonathan_Young_(politician)"
+      },
+      {
+        "name": "Claudette Hauiti",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Claudette_Hauiti"
+      },
+      {
+        "name": "Paul Foster-Bell",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Paul_Foster-Bell"
+      },
+      {
+        "name": "Jo Hayes",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Jo_Hayes"
+      },
+      {
+        "name": "Lockwood Smith",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Lockwood_Smith"
+      },
+      {
+        "name": "Aaron Gilmore",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Aaron_Gilmore"
+      },
+      {
+        "name": "Jackie Blue",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Jackie_Blue"
+      },
+      {
+        "name": "Katrina Shanks",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Katrina_Shanks"
+      },
+      {
+        "name": "David Cunliffe",
+        "party": "Labour",
+        "electorate": "New Lynn",
+        "wiki_slug": "David_Cunliffe"
+      },
+      {
+        "name": "David Parker",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "David_Parker_(New_Zealand_politician)"
+      },
+      {
+        "name": "Grant Robertson",
+        "party": "Labour",
+        "electorate": "Wellington Central",
+        "wiki_slug": "Grant_Robertson"
+      },
+      {
+        "name": "Jacinda Ardern",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Jacinda_Ardern"
+      },
+      {
+        "name": "Clayton Cosgrove",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Clayton_Cosgrove"
+      },
+      {
+        "name": "Nanaia Mahuta",
+        "party": "Labour",
+        "electorate": "Hauraki-Waikato",
+        "wiki_slug": "Nanaia_Mahuta"
+      },
+      {
+        "name": "Maryan Street",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Maryan_Street"
+      },
+      {
+        "name": "William Sio",
+        "party": "Labour",
+        "electorate": "Mangere",
+        "wiki_slug": "William_Sio"
+      },
+      {
+        "name": "Phil Twyford",
+        "party": "Labour",
+        "electorate": "Te Atatū",
+        "wiki_slug": "Phil_Twyford"
+      },
+      {
+        "name": "Trevor Mallard",
+        "party": "Labour",
+        "electorate": "Hutt South",
+        "wiki_slug": "Trevor_Mallard"
+      },
+      {
+        "name": "Chris Hipkins",
+        "party": "Labour",
+        "electorate": "Rimutaka",
+        "wiki_slug": "Chris_Hipkins"
+      },
+      {
+        "name": "Phil Goff",
+        "party": "Labour",
+        "electorate": "Mount Roskill",
+        "wiki_slug": "Phil_Goff"
+      },
+      {
+        "name": "Annette King",
+        "party": "Labour",
+        "electorate": "Rongotai",
+        "wiki_slug": "Annette_King"
+      },
+      {
+        "name": "Darien Fenton",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Darien_Fenton"
+      },
+      {
+        "name": "Damien O'Connor",
+        "party": "Labour",
+        "electorate": "West Coast-Tasman",
+        "wiki_slug": "Damien_O'Connor"
+      },
+      {
+        "name": "Clare Curran",
+        "party": "Labour",
+        "electorate": "Dunedin South",
+        "wiki_slug": "Clare_Curran"
+      },
+      {
+        "name": "David Shearer",
+        "party": "Labour",
+        "electorate": "Mount Albert",
+        "wiki_slug": "David_Shearer"
+      },
+      {
+        "name": "Ross Robertson",
+        "party": "Labour",
+        "electorate": "Manukau East",
+        "wiki_slug": "Ross_Robertson"
+      },
+      {
+        "name": "David Clark",
+        "party": "Labour",
+        "electorate": "Dunedin North",
+        "wiki_slug": "David_Clark_(New_Zealand_politician)"
+      },
+      {
+        "name": "Ruth Dyson",
+        "party": "Labour",
+        "electorate": "Port Hills",
+        "wiki_slug": "Ruth_Dyson"
+      },
+      {
+        "name": "Kris Faafoi",
+        "party": "Labour",
+        "electorate": "Mana",
+        "wiki_slug": "Kris_Faafoi"
+      },
+      {
+        "name": "Raymond Huo",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Raymond_Huo"
+      },
+      {
+        "name": "Iain Lees-Galloway",
+        "party": "Labour",
+        "electorate": "Palmerston North",
+        "wiki_slug": "Iain_Lees-Galloway"
+      },
+      {
+        "name": "Andrew Little",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Andrew_Little_(New_Zealand_politician)"
+      },
+      {
+        "name": "Moana Mackey",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Moana_Mackey"
+      },
+      {
+        "name": "Sue Moroney",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Sue_Moroney"
+      },
+      {
+        "name": "Rajen Prasad",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Rajen_Prasad"
+      },
+      {
+        "name": "Rino Tirikatene",
+        "party": "Labour",
+        "electorate": "Te Tai Tonga",
+        "wiki_slug": "Rino_Tirikatene"
+      },
+      {
+        "name": "Louisa Wall",
+        "party": "Labour",
+        "electorate": "Manurewa",
+        "wiki_slug": "Louisa_Wall"
+      },
+      {
+        "name": "Megan Woods",
+        "party": "Labour",
+        "electorate": "Wigram",
+        "wiki_slug": "Megan_Woods"
+      },
+      {
+        "name": "Carol Beaumont",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Carol_Beaumont"
+      },
+      {
+        "name": "Meka Whaitiri",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Meka_Whaitiri"
+      },
+      {
+        "name": "Poto Williams",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Poto_Williams"
+      },
+      {
+        "name": "Charles Chauvel",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Charles_Chauvel_(politician)"
+      },
+      {
+        "name": "Parekura Horomia",
+        "party": "Labour",
+        "electorate": "Ikaroa-Rāwhiti",
+        "wiki_slug": "Parekura_Horomia"
+      },
+      {
+        "name": "Lianne Dalziel",
+        "party": "Labour",
+        "electorate": "Christchurch East",
+        "wiki_slug": "Lianne_Dalziel"
+      },
+      {
+        "name": "Russel Norman",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Russel_Norman"
+      },
+      {
+        "name": "Metiria Turei",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Metiria_Turei"
+      },
+      {
+        "name": "Steffan Browning",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Steffan_Browning"
+      },
+      {
+        "name": "David Clendon",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "David_Clendon"
+      },
+      {
+        "name": "Catherine Delahunty",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Catherine_Delahunty"
+      },
+      {
+        "name": "Julie Anne Genter",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Julie_Anne_Genter"
+      },
+      {
+        "name": "Kennedy Graham",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Kennedy_Graham"
+      },
+      {
+        "name": "Kevin Hague",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Kevin_Hague"
+      },
+      {
+        "name": "Gareth Hughes",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Gareth_Hughes_(politician)"
+      },
+      {
+        "name": "Jan Logie",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Jan_Logie"
+      },
+      {
+        "name": "Mojo Mathers",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Mojo_Mathers"
+      },
+      {
+        "name": "Denise Roche",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Denise_Roche"
+      },
+      {
+        "name": "Eugenie Sage",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Eugenie_Sage"
+      },
+      {
+        "name": "Holly Walker",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Holly_Walker"
+      },
+      {
+        "name": "Winston Peters",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Winston_Peters"
+      },
+      {
+        "name": "Tracey Martin",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Tracey_Martin"
+      },
+      {
+        "name": "Denis O'Rourke",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Denis_O'Rourke"
+      },
+      {
+        "name": "Richard Prosser",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Richard_Prosser"
+      },
+      {
+        "name": "Barbara Stewart",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Barbara_Stewart_(politician)"
+      },
+      {
+        "name": "Asenati Taylor",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Asenati_Taylor"
+      },
+      {
+        "name": "Andrew Williams",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Andrew_Williams_(New_Zealand_politician)"
+      },
+      {
+        "name": "Brendan Horan",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Brendan_Horan"
+      },
+      {
+        "name": "Pita Sharples",
+        "party": "Maori Party",
+        "electorate": "Tāmaki Makaurau",
+        "wiki_slug": "Pita_Sharples"
+      },
+      {
+        "name": "Tariana Turia",
+        "party": "Maori Party",
+        "electorate": "Te Tai Hauāuru",
+        "wiki_slug": "Tariana_Turia"
+      },
+      {
+        "name": "Te Ururoa Flavell",
+        "party": "Maori Party",
+        "electorate": "Waiāriki",
+        "wiki_slug": "Te_Ururoa_Flavell"
+      },
+      {
+        "name": "Hone Harawira",
+        "party": "Mana",
+        "electorate": "Te Tai Tokerau",
+        "wiki_slug": "Hone_Harawira"
+      },
+      {
+        "name": "Peter Dunne",
+        "party": "United Future",
+        "electorate": "Ōhariu",
+        "wiki_slug": "Peter_Dunne"
+      },
+      {
+        "name": "Brendan Horan",
+        "party": "Independent",
+        "electorate": "List",
+        "wiki_slug": "Brendan_Horan"
+      },
+      {
+        "name": "John Banks",
+        "party": "ACT",
+        "electorate": "Epsom",
+        "wiki_slug": "John_Banks_(New_Zealand_politician)"
+      },
+      {
+        "name": "P. Bennett",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Paula_Bennett"
+      },
+      {
+        "name": "P. Bennett",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Paula_Bennett"
+      }
+    ],
+    "51": [
+      {
+        "name": "David Carter",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "David_Carter_(politician)"
+      },
+      {
+        "name": "Chester Borrows",
+        "party": "National",
+        "electorate": "Whanganui",
+        "wiki_slug": "Chester_Borrows"
+      },
+      {
+        "name": "Lindsay Tisch",
+        "party": "National",
+        "electorate": "Waikato",
+        "wiki_slug": "Lindsay_Tisch"
+      },
+      {
+        "name": "Bill English",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Bill_English"
+      },
+      {
+        "name": "Paula Bennett",
+        "party": "National",
+        "electorate": "Upper Harbour",
+        "wiki_slug": "Paula_Bennett"
+      },
+      {
+        "name": "Steven Joyce",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Steven_Joyce"
+      },
+      {
+        "name": "Gerry Brownlee",
+        "party": "National",
+        "electorate": "Ilam",
+        "wiki_slug": "Gerry_Brownlee"
+      },
+      {
+        "name": "Simon Bridges",
+        "party": "National",
+        "electorate": "Tauranga",
+        "wiki_slug": "Simon_Bridges"
+      },
+      {
+        "name": "Amy Adams",
+        "party": "National",
+        "electorate": "Selwyn",
+        "wiki_slug": "Amy_Adams_(politician)"
+      },
+      {
+        "name": "Jonathan Coleman",
+        "party": "National",
+        "electorate": "Northcote",
+        "wiki_slug": "Jonathan_Coleman_(politician)"
+      },
+      {
+        "name": "Christopher Finlayson",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Chris_Finlayson"
+      },
+      {
+        "name": "Michael Woodhouse",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Michael_Woodhouse"
+      },
+      {
+        "name": "Anne Tolley",
+        "party": "National",
+        "electorate": "East Coast",
+        "wiki_slug": "Anne_Tolley"
+      },
+      {
+        "name": "Hekia Parata",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Hekia_Parata"
+      },
+      {
+        "name": "Nathan Guy",
+        "party": "National",
+        "electorate": "Ōtaki",
+        "wiki_slug": "Nathan_Guy"
+      },
+      {
+        "name": "Murray McCully",
+        "party": "National",
+        "electorate": "East Coast Bays",
+        "wiki_slug": "Murray_McCully"
+      },
+      {
+        "name": "Nikki Kaye",
+        "party": "National",
+        "electorate": "Auckland Central",
+        "wiki_slug": "Nikki_Kaye"
+      },
+      {
+        "name": "Nick Smith",
+        "party": "National",
+        "electorate": "Nelson",
+        "wiki_slug": "Nick_Smith_(New_Zealand_politician)"
+      },
+      {
+        "name": "Judith Collins",
+        "party": "National",
+        "electorate": "Papakura",
+        "wiki_slug": "Judith_Collins"
+      },
+      {
+        "name": "Todd McClay",
+        "party": "National",
+        "electorate": "Rotorua",
+        "wiki_slug": "Todd_McClay"
+      },
+      {
+        "name": "Maggie Barry",
+        "party": "National",
+        "electorate": "North Shore",
+        "wiki_slug": "Maggie_Barry"
+      },
+      {
+        "name": "Paul Goldsmith",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Paul_Goldsmith_(politician)"
+      },
+      {
+        "name": "Louise Upston",
+        "party": "National",
+        "electorate": "Taupō",
+        "wiki_slug": "Louise_Upston"
+      },
+      {
+        "name": "Alfred Ngaro",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Alfred_Ngaro"
+      },
+      {
+        "name": "Nicky Wagner",
+        "party": "National",
+        "electorate": "Christchurch Central",
+        "wiki_slug": "Nicky_Wagner"
+      },
+      {
+        "name": "Mark Mitchell",
+        "party": "National",
+        "electorate": "Rodney",
+        "wiki_slug": "Mark_Mitchell_(New_Zealand_politician)"
+      },
+      {
+        "name": "Jacqui Dean",
+        "party": "National",
+        "electorate": "Waitaki",
+        "wiki_slug": "Jacqui_Dean"
+      },
+      {
+        "name": "David Bennett",
+        "party": "National",
+        "electorate": "Hamilton East",
+        "wiki_slug": "David_Bennett_(New_Zealand_politician)"
+      },
+      {
+        "name": "Alastair Scott",
+        "party": "National",
+        "electorate": "Wairarapa",
+        "wiki_slug": "Alastair_Scott_(politician)"
+      },
+      {
+        "name": "Andrew Bayly",
+        "party": "National",
+        "electorate": "Hunua",
+        "wiki_slug": "Andrew_Bayly"
+      },
+      {
+        "name": "Barbara Kuriger",
+        "party": "National",
+        "electorate": "Taranaki-King Country",
+        "wiki_slug": "Barbara_Kuriger"
+      },
+      {
+        "name": "Brett Hudson",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Brett_Hudson_(politician)"
+      },
+      {
+        "name": "Chris Bishop",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Chris_Bishop_(politician)"
+      },
+      {
+        "name": "Craig Foss",
+        "party": "National",
+        "electorate": "Tukituki",
+        "wiki_slug": "Craig_Foss"
+      },
+      {
+        "name": "Ian McKelvie",
+        "party": "National",
+        "electorate": "Rangitīkei",
+        "wiki_slug": "Ian_McKelvie"
+      },
+      {
+        "name": "Jami-Lee Ross",
+        "party": "National",
+        "electorate": "Botany",
+        "wiki_slug": "Jami-Lee_Ross"
+      },
+      {
+        "name": "Jian Yang",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Jian_Yang_(politician)"
+      },
+      {
+        "name": "Jo Goodhew",
+        "party": "National",
+        "electorate": "Rangitata",
+        "wiki_slug": "Jo_Goodhew"
+      },
+      {
+        "name": "Jo Hayes",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Jo_Hayes"
+      },
+      {
+        "name": "Jonathan Young",
+        "party": "National",
+        "electorate": "New Plymouth",
+        "wiki_slug": "Jonathan_Young_(politician)"
+      },
+      {
+        "name": "Jono Naylor",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Jono_Naylor"
+      },
+      {
+        "name": "Kanwaljit Singh Bakshi",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Kanwal_Singh_Bakshi"
+      },
+      {
+        "name": "Matt Doocey",
+        "party": "National",
+        "electorate": "Waimakariri",
+        "wiki_slug": "Matt_Doocey"
+      },
+      {
+        "name": "Maureen Pugh",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Maureen_Pugh"
+      },
+      {
+        "name": "Maurice Williamson",
+        "party": "National",
+        "electorate": "Pakuranga",
+        "wiki_slug": "Maurice_Williamson"
+      },
+      {
+        "name": "Melissa Lee",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Melissa_Lee"
+      },
+      {
+        "name": "Tutehounuku Korako",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Nuk_Korako"
+      },
+      {
+        "name": "Parmjeet Parmar",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Parmjeet_Parmar"
+      },
+      {
+        "name": "Paul Foster-Bell",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Paul_Foster-Bell"
+      },
+      {
+        "name": "Peseta Sam Lotu-Iiga",
+        "party": "National",
+        "electorate": "Maungakiekie",
+        "wiki_slug": "Sam_Lotu-Iiga"
+      },
+      {
+        "name": "Sarah Dowie",
+        "party": "National",
+        "electorate": "Invercargill",
+        "wiki_slug": "Sarah_Dowie"
+      },
+      {
+        "name": "Scott Simpson",
+        "party": "National",
+        "electorate": "Coromandel",
+        "wiki_slug": "Scott_Simpson_(politician)"
+      },
+      {
+        "name": "Shane Reti",
+        "party": "National",
+        "electorate": "Whangarei",
+        "wiki_slug": "Shane_Reti"
+      },
+      {
+        "name": "Simon O'Connor",
+        "party": "National",
+        "electorate": "Tāmaki",
+        "wiki_slug": "Simon_O'Connor"
+      },
+      {
+        "name": "Stuart Smith",
+        "party": "National",
+        "electorate": "Kaikōura",
+        "wiki_slug": "Stuart_Smith_(politician)"
+      },
+      {
+        "name": "Tim Macindoe",
+        "party": "National",
+        "electorate": "Hamilton West",
+        "wiki_slug": "Tim_Macindoe"
+      },
+      {
+        "name": "Todd Barclay",
+        "party": "National",
+        "electorate": "Clutha-Southland",
+        "wiki_slug": "Todd_Barclay"
+      },
+      {
+        "name": "Todd Muller",
+        "party": "National",
+        "electorate": "Bay of Plenty",
+        "wiki_slug": "Todd_Muller"
+      },
+      {
+        "name": "Mike Sabin",
+        "party": "National",
+        "electorate": "Northland",
+        "wiki_slug": "Mike_Sabin"
+      },
+      {
+        "name": "Tim Groser",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Tim_Groser"
+      },
+      {
+        "name": "John Key",
+        "party": "National",
+        "electorate": "Helensville",
+        "wiki_slug": "John_Key"
+      },
+      {
+        "name": "Trevor Mallard",
+        "party": "Labour",
+        "electorate": "Hutt South",
+        "wiki_slug": "Trevor_Mallard"
+      },
+      {
+        "name": "Andrew Little",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Andrew_Little_(New_Zealand_politician)"
+      },
+      {
+        "name": "Jacinda Ardern",
+        "party": "Labour",
+        "electorate": "Mount Albert",
+        "wiki_slug": "Jacinda_Ardern"
+      },
+      {
+        "name": "Grant Robertson",
+        "party": "Labour",
+        "electorate": "Wellington Central",
+        "wiki_slug": "Grant_Robertson"
+      },
+      {
+        "name": "Phil Twyford",
+        "party": "Labour",
+        "electorate": "Te Atatū",
+        "wiki_slug": "Phil_Twyford"
+      },
+      {
+        "name": "Megan Woods",
+        "party": "Labour",
+        "electorate": "Wigram",
+        "wiki_slug": "Megan_Woods"
+      },
+      {
+        "name": "Chris Hipkins",
+        "party": "Labour",
+        "electorate": "Rimutaka",
+        "wiki_slug": "Chris_Hipkins"
+      },
+      {
+        "name": "Kelvin Davis",
+        "party": "Labour",
+        "electorate": "Te Tai Tokerau",
+        "wiki_slug": "Kelvin_Davis_(politician)"
+      },
+      {
+        "name": "Carmel Sepuloni",
+        "party": "Labour",
+        "electorate": "Kelston",
+        "wiki_slug": "Carmel_Sepuloni"
+      },
+      {
+        "name": "David Clark",
+        "party": "Labour",
+        "electorate": "Dunedin North",
+        "wiki_slug": "David_Clark_(New_Zealand_politician)"
+      },
+      {
+        "name": "David Parker",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "David_Parker_(New_Zealand_politician)"
+      },
+      {
+        "name": "Nanaia Mahuta",
+        "party": "Labour",
+        "electorate": "Hauraki-Waikato",
+        "wiki_slug": "Nanaia_Mahuta"
+      },
+      {
+        "name": "Stuart Nash",
+        "party": "Labour",
+        "electorate": "Napier",
+        "wiki_slug": "Stuart_Nash"
+      },
+      {
+        "name": "Meka Whaitiri",
+        "party": "Labour",
+        "electorate": "Ikaroa-Rāwhiti",
+        "wiki_slug": "Meka_Whaitiri"
+      },
+      {
+        "name": "Iain Lees-Galloway",
+        "party": "Labour",
+        "electorate": "Palmerston North",
+        "wiki_slug": "Iain_Lees-Galloway"
+      },
+      {
+        "name": "Su’a William Sio",
+        "party": "Labour",
+        "electorate": "Mangere",
+        "wiki_slug": "William_Sio"
+      },
+      {
+        "name": "Sue Moroney",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Sue_Moroney"
+      },
+      {
+        "name": "Damien O'Connor",
+        "party": "Labour",
+        "electorate": "West Coast-Tasman",
+        "wiki_slug": "Damien_O'Connor"
+      },
+      {
+        "name": "Kris Faafoi",
+        "party": "Labour",
+        "electorate": "Mana",
+        "wiki_slug": "Kris_Faafoi"
+      },
+      {
+        "name": "Jenny Salesa",
+        "party": "Labour",
+        "electorate": "Manukau East",
+        "wiki_slug": "Jenny_Salesa"
+      },
+      {
+        "name": "Peeni Henare",
+        "party": "Labour",
+        "electorate": "Tāmaki Makaurau",
+        "wiki_slug": "Peeni_Henare"
+      },
+      {
+        "name": "Clare Curran",
+        "party": "Labour",
+        "electorate": "Dunedin South",
+        "wiki_slug": "Clare_Curran"
+      },
+      {
+        "name": "Adrian Paki Rurawhe",
+        "party": "Labour",
+        "electorate": "Te Tai Hauāuru",
+        "wiki_slug": "Adrian_Rurawhe"
+      },
+      {
+        "name": "Annette King",
+        "party": "Labour",
+        "electorate": "Rongotai",
+        "wiki_slug": "Annette_King"
+      },
+      {
+        "name": "Ruth Dyson",
+        "party": "Labour",
+        "electorate": "Port Hills",
+        "wiki_slug": "Ruth_Dyson"
+      },
+      {
+        "name": "Rino Tirikatene",
+        "party": "Labour",
+        "electorate": "Te Tai Tonga",
+        "wiki_slug": "Rino_Tirikatene"
+      },
+      {
+        "name": "Poto Williams",
+        "party": "Labour",
+        "electorate": "Christchurch East",
+        "wiki_slug": "Poto_Williams"
+      },
+      {
+        "name": "Louisa Wall",
+        "party": "Labour",
+        "electorate": "Manurewa",
+        "wiki_slug": "Louisa_Wall"
+      },
+      {
+        "name": "Clayton Cosgrove",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Clayton_Cosgrove"
+      },
+      {
+        "name": "Michael Wood",
+        "party": "Labour",
+        "electorate": "Mount Roskill",
+        "wiki_slug": "Michael_Wood_(New_Zealand_politician)"
+      },
+      {
+        "name": "Raymond Huo",
+        "party": "Labour",
+        "electorate": "List",
+        "wiki_slug": "Raymond_Huo"
+      },
+      {
+        "name": "Phil Goff",
+        "party": "Labour",
+        "electorate": "Mount Roskill",
+        "wiki_slug": "Phil_Goff"
+      },
+      {
+        "name": "David Shearer",
+        "party": "Labour",
+        "electorate": "Mount Albert",
+        "wiki_slug": "David_Shearer"
+      },
+      {
+        "name": "David Cunliffe",
+        "party": "Labour",
+        "electorate": "New Lynn",
+        "wiki_slug": "David_Cunliffe"
+      },
+      {
+        "name": "James Shaw",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "James_Shaw_(New_Zealand_politician)"
+      },
+      {
+        "name": "Metiria Turei",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Metiria_Turei"
+      },
+      {
+        "name": "Catherine Delahunty",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Catherine_Delahunty"
+      },
+      {
+        "name": "David Clendon",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "David_Clendon"
+      },
+      {
+        "name": "Denise Roche",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Denise_Roche"
+      },
+      {
+        "name": "Eugenie Sage",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Eugenie_Sage"
+      },
+      {
+        "name": "Gareth Hughes",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Gareth_Hughes_(politician)"
+      },
+      {
+        "name": "Jan Logie",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Jan_Logie"
+      },
+      {
+        "name": "Julie Anne Genter",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Julie_Anne_Genter"
+      },
+      {
+        "name": "Kennedy Graham",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Kennedy_Graham"
+      },
+      {
+        "name": "Mojo Mathers",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Mojo_Mathers"
+      },
+      {
+        "name": "Steffan Browning",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Steffan_Browning"
+      },
+      {
+        "name": "Marama Davidson",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Marama_Davidson"
+      },
+      {
+        "name": "Barry Coates",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Barry_Coates"
+      },
+      {
+        "name": "Russel Norman",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Russel_Norman"
+      },
+      {
+        "name": "Kevin Hague",
+        "party": "Green",
+        "electorate": "List",
+        "wiki_slug": "Kevin_Hague"
+      },
+      {
+        "name": "Winston Peters",
+        "party": "NZ First",
+        "electorate": "Northland",
+        "wiki_slug": "Winston_Peters"
+      },
+      {
+        "name": "Ron Mark",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Ron_Mark"
+      },
+      {
+        "name": "Barbara Stewart",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Barbara_Stewart_(politician)"
+      },
+      {
+        "name": "Clayton Mitchell",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Clayton_Mitchell_(New_Zealand_politician)"
+      },
+      {
+        "name": "Darroch Ball",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Darroch_Ball"
+      },
+      {
+        "name": "Denis O'Rourke",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Denis_O'Rourke"
+      },
+      {
+        "name": "Fletcher Tabuteau",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Fletcher_Tabuteau"
+      },
+      {
+        "name": "Mahesh Bindra",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Mahesh_Bindra"
+      },
+      {
+        "name": "Tracey Martin",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Tracey_Martin"
+      },
+      {
+        "name": "Pita Paraone",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Pita_Paraone"
+      },
+      {
+        "name": "Richard Prosser",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Richard_Prosser"
+      },
+      {
+        "name": "Ria Bond",
+        "party": "NZ First",
+        "electorate": "List",
+        "wiki_slug": "Ria_Bond"
+      },
+      {
+        "name": "Marama Fox",
+        "party": "Maori Party",
+        "electorate": "List",
+        "wiki_slug": "Marama_Fox"
+      },
+      {
+        "name": "Te Ururoa Flavell",
+        "party": "Maori Party",
+        "electorate": "Waiariki",
+        "wiki_slug": "Te_Ururoa_Flavell"
+      },
+      {
+        "name": "Peter Dunne",
+        "party": "United Future",
+        "electorate": "Ōhariu",
+        "wiki_slug": "Peter_Dunne"
+      },
+      {
+        "name": "David Seymour",
+        "party": "ACT",
+        "electorate": "Epsom",
+        "wiki_slug": "David_Seymour"
+      },
+      {
+        "name": "N. Smith",
+        "party": "National",
+        "electorate": "List",
+        "wiki_slug": "Nick_Smith_(New_Zealand_politician)"
+      }
+    ],
     "52": [
       {
         "name": "Jacinda Ardern",

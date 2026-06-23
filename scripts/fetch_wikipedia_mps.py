@@ -12,6 +12,7 @@ import json
 import re
 import time
 from datetime import UTC, datetime
+from hashlib import sha256
 from html import unescape
 from pathlib import Path
 
@@ -39,10 +40,14 @@ PARTY_HEADERS = {
     "national": "National",
     "national party": "National",
     "green party": "Green",
+    "green party of aotearoa new zealand": "Green",
     "act new zealand": "ACT",
     "maori party": "Maori Party",
     "new zealand first": "NZ First",
+    "new zealand labour party": "Labour",
+    "new zealand national party": "National",
     "united future": "United Future",
+    "united future new zealand": "United Future",
     "progressive": "Progressive",
     "mana": "Mana",
     "independent": "Independent",
@@ -53,15 +58,19 @@ PARTY_LABELS = {
     "act new zealand": "ACT",
     "green": "Green",
     "green party": "Green",
+    "green party of aotearoa new zealand": "Green",
     "labour": "Labour",
-    "mana": "Mana",
     "maori party": "Maori Party",
     "māori party": "Maori Party",
+    "mana": "Mana",
     "national": "National",
     "new zealand first": "NZ First",
+    "new zealand labour party": "Labour",
+    "new zealand national party": "National",
     "nz first": "NZ First",
     "progressive": "Progressive",
     "united future": "United Future",
+    "united future new zealand": "United Future",
     "independent": "Independent",
 }
 
@@ -97,17 +106,34 @@ SKIP_WORDS = {
 }
 
 
-def fetch_article(title: str) -> str | None:
+def article_url(title: str) -> str:
+    return f"https://en.wikipedia.org/api/rest_v1/page/html/{title}"
+
+
+def fetch_article(title: str) -> tuple[str | None, dict[str, str]]:
     """Fetch Wikipedia article content via the REST API."""
-    url = f"https://en.wikipedia.org/api/rest_v1/page/html/{title}"
+    url = article_url(title)
     headers = {"User-Agent": USER_AGENT, "Accept": "text/html; charset=utf-8"}
+    fetched_at = datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
     try:
         resp = requests.get(url, headers=headers, timeout=30)
         resp.raise_for_status()
-        return resp.text
+        return resp.text, {
+            "article": title,
+            "url": url,
+            "fetched_at": fetched_at,
+            "status": "ok",
+            "html_sha256": sha256(resp.text.encode("utf-8")).hexdigest(),
+        }
     except Exception as e:
         print(f"  Error fetching {title}: {e}")
-        return None
+        return None, {
+            "article": title,
+            "url": url,
+            "fetched_at": fetched_at,
+            "status": "error",
+            "error": str(e),
+        }
 
 
 def extract_party_from_th(th_text: str) -> str | None:
@@ -132,6 +158,27 @@ def normalize_party_label(value: str) -> str:
     """Normalize visible Wikipedia party labels into canonical short labels."""
     text = clean_html_text(value).strip()
     return PARTY_LABELS.get(text.lower(), text)
+
+
+def extract_party_from_cell(cell_html: str) -> str:
+    """Extract canonical party label from a visible cell or Parsoid template metadata."""
+    text = normalize_party_label(cell_html)
+    if text in set(PARTY_LABELS.values()):
+        return text
+
+    metadata_text = unescape(cell_html)
+    for data_mw_match in re.finditer(r'"wt"\s*:\s*"([^"]+)"', metadata_text, re.IGNORECASE):
+        metadata_label = normalize_party_label(data_mw_match.group(1))
+        if metadata_label in set(PARTY_LABELS.values()):
+            return metadata_label
+
+    metadata_lower = metadata_text.lower()
+    for key, party in sorted(PARTY_LABELS.items(), key=lambda item: len(item[0]), reverse=True):
+        pattern = rf"(?<![a-z]){re.escape(key)}(?![a-z])"
+        if re.search(pattern, metadata_lower):
+            return party
+
+    return text if text in set(PARTY_LABELS.values()) else ""
 
 
 def clean_html_text(value: str) -> str:
@@ -250,7 +297,7 @@ def _extract_mp_tables_per_row(html: str) -> list[dict]:
     mps: list[dict] = []
     for tr_match in re.finditer(r"<tr[^>]*>(.*?)</tr>", html, re.IGNORECASE | re.DOTALL):
         tr_content = tr_match.group(1)
-        cells = re.findall(r"<td\b[^>]*>(.*?)</td>", tr_content, re.IGNORECASE | re.DOTALL)
+        cells = re.findall(r"<td\b[^>]*>.*?</td>", tr_content, re.IGNORECASE | re.DOTALL)
         if len(cells) < 3:
             continue
 
@@ -260,6 +307,17 @@ def _extract_mp_tables_per_row(html: str) -> list[dict]:
             party_cell = cells[0]
             electorate_cell = cells[1]
             member_cell = cells[2]
+        elif (
+            len(cells) >= 5
+            and extract_party_from_cell(cells[0])
+            and normalize_party_label(cells[1]) not in set(PARTY_LABELS.values())
+        ):
+            # Some live Parsoid tables use:
+            # colour swatch containing party metadata, member, electorate/list,
+            # term number, roles.
+            party_cell = cells[0]
+            member_cell = cells[1]
+            electorate_cell = cells[2]
         else:
             # Older live Parliament pages use:
             # colour swatch, party, member, electorate/list, term number.
@@ -267,7 +325,7 @@ def _extract_mp_tables_per_row(html: str) -> list[dict]:
             member_cell = cells[2]
             electorate_cell = cells[3]
 
-        party = normalize_party_label(party_cell)
+        party = extract_party_from_cell(party_cell)
         if not party or any(skip == party for skip in ("Party", "Election", "Parliament")):
             continue
 
@@ -306,10 +364,12 @@ def _extract_mp_tables_per_row(html: str) -> list[dict]:
 
 def main():
     all_mps: dict[int, list[dict]] = {}
+    source_articles: dict[str, dict[str, str]] = {}
 
     for parliament, article in PARLIAMENTS.items():
-        print(f"\nFetching {parliament}th Parliament ({article})...")
-        html = fetch_article(article)
+        print(f"\nFetching {parliament}th Parliament: {article}")
+        html, source_article = fetch_article(article)
+        source_articles[str(parliament)] = source_article
         if not html:
             continue
 
@@ -323,6 +383,7 @@ def main():
         "source": "Wikipedia",
         "fetched_at": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "parliaments_covered": list(PARLIAMENTS.keys()),
+        "source_articles": source_articles,
         "total_mps": sum(len(v) for v in all_mps.values()),
         "members_by_parliament": {str(k): v for k, v in all_mps.items()},
     }
