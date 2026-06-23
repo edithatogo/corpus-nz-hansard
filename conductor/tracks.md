@@ -311,9 +311,9 @@ Goal: Access Radware-protected NZ Parliament website pages using Playwright stea
 
 Link: [conductor/tracks/parliament_website_stealth_access_20260612/](./tracks/parliament_website_stealth_access_20260612/)
 
-### [~] Track: Member Identity Triangulation
+### [x] Track: Member Identity Triangulation
 
-Track ID: member_identity_triangulation_20260612
+Track ID: `member_identity_triangulation_20260612`
 
 Goal: Cross-reference multiple authority sources (Wikipedia, Wikidata, Bills API, Parliament website, Electoral Commission) to resolve and validate member identity. 51/51 names resolved (100%).
 

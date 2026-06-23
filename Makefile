@@ -1,8 +1,8 @@
 PYTHON ?= python
 
-.PHONY: quality pixi-install pixi-quality quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn lint format-check typecheck typecheck-basedpyright typecheck-pyrefly spell workflow-audit toml-check workflow-syntax test test-offline benchmark profile-search-index security-audit sbom dependency-check dead-code mutation-smoke derived-fields-validation
+.PHONY: quality pixi-install pixi-quality quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring member-identity-triangulation corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn lint format-check typecheck typecheck-basedpyright typecheck-pyrefly spell workflow-audit toml-check workflow-syntax test test-offline benchmark profile-search-index security-audit sbom dependency-check dead-code mutation-smoke derived-fields-validation
 
-quality: pixi-install lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation test
+quality: pixi-install lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring member-identity-triangulation corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation test
 
 pixi-install:
 	pixi install
@@ -36,6 +36,9 @@ osf-policy:
 
 multi-git-archive-mirroring:
 	$(PYTHON) scripts/check_multi_git_archive_mirroring.py
+
+member-identity-triangulation:
+	$(PYTHON) scripts/check_member_identity_triangulation.py
 
 corpus-family-alignment:
 	$(PYTHON) scripts/check_corpus_family_alignment.py

@@ -41,6 +41,7 @@ The Bills API data (351 unique members, parliaments 43-54) confirmed the followi
 - **R Doug Woolerton** -> Doug Woolerton (Bills API: "R Doug Woolerton")
 
 ### Consolidated Registry Output
+- **Checker**: `scripts/check_member_identity_triangulation.py` validates the registry counts, required mappings, source integration, track index, plan, metadata, and `conductor/tracks.md` status.
 - **File**: derived/member_registry.json
 - **Format**: Each entry has hansard_name, canonical_name, party, parliament_numbers, sources_used, confidence
 - **Confidence levels**: high (47), medium (4 - Laura Trask, Huhana Lyndon, Takuta Ferris, H V Ross Robertson)

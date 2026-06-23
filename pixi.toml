@@ -108,6 +108,7 @@ spell = "typos --config typos.toml"
 workflow-audit = "zizmor --min-severity medium .github/workflows"
 toml-check = "taplo format --check pyproject.toml pixi.toml typos.toml"
 quality-config = ".pixi/envs/default/python.exe scripts/check_quality_gate.py"
+member-identity-triangulation = ".pixi/envs/default/python.exe scripts/check_member_identity_triangulation.py"
 security-audit = ".pixi/envs/default/python.exe -m pip_audit --strict --cache-dir .tmp/pip-audit-cache --progress-spinner off"
 sbom = "cyclonedx-py environment --output-file reports/sbom.cdx.json"
 dependency-check = ".pixi/envs/default/Scripts/deptry.exe tests --exclude venv --exclude \\.venv --exclude \\.git --ignore DEP001,DEP002 --known-first-party scripts --known-first-party test_support --package-module-name-map FlagEmbedding=flagembedding,torch=torch,transformers=transformers,pydantic-ai-slim=pydantic_ai,msgspec=msgspec,orjson=orjson,xsdata=xsdata,ibis-framework=ibis,tantivy=tantivy,sqlite-vec=sqlite_vec --no-ansi"
@@ -124,5 +125,6 @@ quality = { depends-on = [
   "workflow-audit",
   "toml-check",
   "quality-config",
+  "member-identity-triangulation",
   "test",
 ] }

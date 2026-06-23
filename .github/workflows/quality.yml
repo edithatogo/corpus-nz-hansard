@@ -97,6 +97,9 @@ jobs:
       - name: Multi-git archive mirroring
         run: pixi run python scripts\check_multi_git_archive_mirroring.py
 
+      - name: Member identity triangulation
+        run: pixi run python scripts\check_member_identity_triangulation.py
+
       - name: Corpus family publication alignment
         run: pixi run python scripts\check_corpus_family_alignment.py
 
