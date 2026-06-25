@@ -1,22 +1,9 @@
 # OntoLex-Lemon Terminology Layer
 
-Track ID: `ontolex_lemon_terminology_layer_20260610`
+Release status: release-ready-sample-ontolex-lemon-layer.
 
-Status: blocked.
+The track is complete for a sample optional terminology layer. It provides JSON and Turtle artifacts mapping sample parliamentary terms to SKOS concepts and OntoLex-Lemon lexical entries.
 
-## Goal
+This optional terminology layer keeps terminology separate from canonical corpus facts. It does not claim a full corpus vocabulary, authoritative legal definitions, an official parliamentary glossary, external ontology acceptance, or completed stable URI review.
 
-Add an optional terminology/lexicon layer for NZ parliamentary and legal
-vocabulary if downstream RDF and NLP use cases require it.
-
-## Primary Artifacts
-
-- `spec.md`
-- `plan.md`
-- `evidence.md`
-
-## Blocker
-
-The repository does not yet have a curated lexical resource release surface to
-anchor OntoLex-Lemon data, and the current interoperability design keeps
-OntoLex-Lemon as a later optional layer rather than a core export target.
+Primary artifacts are in `samples/ontolex-lemon-terminology-layer/`, `manifests/ontolex_lemon_terminology_layer.json`, and `docs/ontolex-lemon-terminology-layer.md`.

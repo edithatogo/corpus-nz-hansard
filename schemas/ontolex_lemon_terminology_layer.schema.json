@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "generated_at": {
+      "type": "string"
+    },
+    "public_claims": {
+      "additionalProperties": false,
+      "properties": {
+        "authoritative_legal_definitions": {
+          "const": false
+        },
+        "external_ontology_acceptance": {
+          "const": false
+        },
+        "full_corpus_vocabulary": {
+          "const": false
+        },
+        "official_parliamentary_glossary": {
+          "const": false
+        },
+        "sample_terminology_layer": {
+          "const": true
+        },
+        "stable_uri_review_complete": {
+          "const": false
+        }
+      },
+      "required": [
+        "sample_terminology_layer",
+        "full_corpus_vocabulary",
+        "authoritative_legal_definitions",
+        "official_parliamentary_glossary",
+        "external_ontology_acceptance",
+        "stable_uri_review_complete"
+      ],
+      "type": "object"
+    },
+    "release_status": {
+      "const": "release-ready-sample-ontolex-lemon-layer"
+    },
+    "scheme_uri": {
+      "type": "string"
+    },
+    "terms": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "concept_uri": {
+            "type": "string"
+          },
+          "definition": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "lexical_entry_uri": {
+            "type": "string"
+          },
+          "pref_label": {
+            "type": "string"
+          },
+          "review_status": {
+            "const": "agent-reviewed-sample"
+          },
+          "source": {
+            "type": "string"
+          },
+          "variants": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "pref_label",
+          "definition",
+          "variants",
+          "source",
+          "review_status",
+          "concept_uri",
+          "lexical_entry_uri"
+        ],
+        "type": "object"
+      },
+      "minItems": 6,
+      "type": "array"
+    }
+  },
+  "required": [
+    "release_status",
+    "generated_at",
+    "scheme_uri",
+    "terms",
+    "public_claims"
+  ],
+  "title": "OntoLex-Lemon Terminology Layer Sample",
+  "type": "object"
+}

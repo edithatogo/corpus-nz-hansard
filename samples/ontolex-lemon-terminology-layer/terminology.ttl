@@ -1,0 +1,121 @@
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix nzh: <https://w3id.org/nz-hansard/> .
+
+nzh:terminology-scheme a skos:ConceptScheme ;
+    skos:prefLabel "NZ Hansard sample terminology scheme"@en ;
+    dcterms:description "Sample-only OntoLex-Lemon terminology layer; not an authoritative legal vocabulary."@en .
+
+nzh:term/sitting a skos:Concept ;
+    skos:inScheme nzh:terminology-scheme ;
+    skos:prefLabel "sitting"@en ;
+    skos:definition "A parliamentary meeting date represented as a sample terminology concept."@en ;
+    prov:wasDerivedFrom "corpus-neutral-component-model" ;
+    dcterms:conformsTo "agent-reviewed-sample" .
+
+nzh:lexical-entry/sitting a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "sitting"@en ] ;
+    ontolex:sense nzh:lexical-sense/sitting .
+
+nzh:lexical-sense/sitting a ontolex:LexicalSense ;
+    ontolex:isLexicalizedSenseOf nzh:term/sitting .
+
+nzh:lexical-entry/sitting-variant-1 a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "sitting day"@en ] ;
+    ontolex:sense nzh:lexical-sense/sitting .
+
+nzh:term/proceeding a skos:Concept ;
+    skos:inScheme nzh:terminology-scheme ;
+    skos:prefLabel "proceeding"@en ;
+    skos:definition "A structured item of parliamentary business represented in sample endpoint layers."@en ;
+    prov:wasDerivedFrom "corpus-neutral-component-model" ;
+    dcterms:conformsTo "agent-reviewed-sample" .
+
+nzh:lexical-entry/proceeding a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "proceeding"@en ] ;
+    ontolex:sense nzh:lexical-sense/proceeding .
+
+nzh:lexical-sense/proceeding a ontolex:LexicalSense ;
+    ontolex:isLexicalizedSenseOf nzh:term/proceeding .
+
+nzh:lexical-entry/proceeding-variant-1 a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "business item"@en ] ;
+    ontolex:sense nzh:lexical-sense/proceeding .
+
+nzh:term/speech-turn a skos:Concept ;
+    skos:inScheme nzh:terminology-scheme ;
+    skos:prefLabel "speech turn"@en ;
+    skos:definition "A contribution attributed to a speaker in the validated sample speech-turn component."@en ;
+    prov:wasDerivedFrom "validated-speech-turn-component" ;
+    dcterms:conformsTo "agent-reviewed-sample" .
+
+nzh:lexical-entry/speech-turn a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "speech turn"@en ] ;
+    ontolex:sense nzh:lexical-sense/speech-turn .
+
+nzh:lexical-sense/speech-turn a ontolex:LexicalSense ;
+    ontolex:isLexicalizedSenseOf nzh:term/speech-turn .
+
+nzh:lexical-entry/speech-turn-variant-1 a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "turn"@en ] ;
+    ontolex:sense nzh:lexical-sense/speech-turn .
+
+nzh:lexical-entry/speech-turn-variant-2 a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "contribution"@en ] ;
+    ontolex:sense nzh:lexical-sense/speech-turn .
+
+nzh:term/bill a skos:Concept ;
+    skos:inScheme nzh:terminology-scheme ;
+    skos:prefLabel "bill"@en ;
+    skos:definition "A legislative proposal referenced by the corpus interoperability samples."@en ;
+    prov:wasDerivedFrom "bills-api-integration" ;
+    dcterms:conformsTo "agent-reviewed-sample" .
+
+nzh:lexical-entry/bill a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "bill"@en ] ;
+    ontolex:sense nzh:lexical-sense/bill .
+
+nzh:lexical-sense/bill a ontolex:LexicalSense ;
+    ontolex:isLexicalizedSenseOf nzh:term/bill .
+
+nzh:lexical-entry/bill-variant-1 a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "legislative bill"@en ] ;
+    ontolex:sense nzh:lexical-sense/bill .
+
+nzh:term/motion a skos:Concept ;
+    skos:inScheme nzh:terminology-scheme ;
+    skos:prefLabel "motion"@en ;
+    skos:definition "A parliamentary motion represented in the sample extraction vocabulary."@en ;
+    prov:wasDerivedFrom "vote-motion-bill-question-extraction" ;
+    dcterms:conformsTo "agent-reviewed-sample" .
+
+nzh:lexical-entry/motion a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "motion"@en ] ;
+    ontolex:sense nzh:lexical-sense/motion .
+
+nzh:lexical-sense/motion a ontolex:LexicalSense ;
+    ontolex:isLexicalizedSenseOf nzh:term/motion .
+
+nzh:lexical-entry/motion-variant-1 a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "house motion"@en ] ;
+    ontolex:sense nzh:lexical-sense/motion .
+
+nzh:term/party-vote a skos:Concept ;
+    skos:inScheme nzh:terminology-scheme ;
+    skos:prefLabel "party vote"@en ;
+    skos:definition "A vote attribution concept used in sample party-attribution evidence."@en ;
+    prov:wasDerivedFrom "corpus-wide-party-attribution" ;
+    dcterms:conformsTo "agent-reviewed-sample" .
+
+nzh:lexical-entry/party-vote a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "party vote"@en ] ;
+    ontolex:sense nzh:lexical-sense/party-vote .
+
+nzh:lexical-sense/party-vote a ontolex:LexicalSense ;
+    ontolex:isLexicalizedSenseOf nzh:term/party-vote .
+
+nzh:lexical-entry/party-vote-variant-1 a ontolex:LexicalEntry ;
+    ontolex:canonicalForm [ ontolex:writtenRep "party division"@en ] ;
+    ontolex:sense nzh:lexical-sense/party-vote .

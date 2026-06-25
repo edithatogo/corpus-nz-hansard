@@ -1,8 +1,28 @@
 {
+  "artifacts": [
+    "manifests/ontolex_lemon_terminology_layer.json",
+    "schemas/ontolex_lemon_terminology_layer.schema.json",
+    "samples/ontolex-lemon-terminology-layer/terminology.json",
+    "samples/ontolex-lemon-terminology-layer/terminology.ttl",
+    "docs/ontolex-lemon-terminology-layer.md"
+  ],
+  "created_at": "2026-06-10T00:00:00+10:00",
+  "description": "Optional sample OntoLex-Lemon terminology layer for parliamentary corpus vocabulary with explicit source, provenance, review status, and non-claims.",
+  "non_claims": [
+    "full corpus vocabulary",
+    "authoritative legal definitions",
+    "official parliamentary glossary",
+    "external ontology acceptance",
+    "stable URI review complete"
+  ],
+  "release_status": "release-ready-sample-ontolex-lemon-layer",
+  "status": "complete",
   "track_id": "ontolex_lemon_terminology_layer_20260610",
   "type": "feature",
-  "status": "blocked",
-  "created_at": "2026-06-10T00:00:00+10:00",
-  "updated_at": "2026-06-11T00:00:00+10:00",
-  "description": "Add an optional OntoLex-Lemon terminology layer for parliamentary and legal vocabulary."
+  "updated_at": "2026-06-24T00:00:00+10:00",
+  "validation": [
+    "scripts/build_ontolex_lemon_terminology_layer.py",
+    "scripts/check_ontolex_lemon_terminology_layer.py",
+    "tests/test_ontolex_lemon_terminology_layer.py"
+  ]
 }

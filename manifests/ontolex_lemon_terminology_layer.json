@@ -1,0 +1,21 @@
+{
+  "artifacts": [
+    "samples/ontolex-lemon-terminology-layer/terminology.json",
+    "samples/ontolex-lemon-terminology-layer/terminology.ttl",
+    "samples/ontolex-lemon-terminology-layer/README.md",
+    "docs/ontolex-lemon-terminology-layer.md"
+  ],
+  "generated_at": "2026-06-24T12:36:33Z",
+  "public_claims": {
+    "authoritative_legal_definitions": false,
+    "external_ontology_acceptance": false,
+    "full_corpus_vocabulary": false,
+    "official_parliamentary_glossary": false,
+    "sample_terminology_layer": true,
+    "stable_uri_review_complete": false
+  },
+  "release_status": "release-ready-sample-ontolex-lemon-layer",
+  "term_count": 6,
+  "title": "OntoLex-Lemon Terminology Layer",
+  "track": "ontolex_lemon_terminology_layer_20260610"
+}

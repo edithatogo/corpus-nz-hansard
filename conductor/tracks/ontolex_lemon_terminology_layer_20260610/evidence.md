@@ -1,38 +1,15 @@
 # Evidence: OntoLex-Lemon Terminology Layer
 
-Status: blocked.
+Status: complete.
 
-Tracked artifacts:
+Release status: release-ready-sample-ontolex-lemon-layer.
 
-- `spec.md`
-- `plan.md`
-- `metadata.json`
-- `index.md`
+Evidence added:
 
-Dependency boundary:
+- `scripts/build_ontolex_lemon_terminology_layer.py` generates the sample terminology JSON and Turtle artifacts.
+- `scripts/check_ontolex_lemon_terminology_layer.py` validates schema, release status, OntoLex/SKOS Turtle tokens, track metadata, registry state, and non-claims.
+- `tests/test_ontolex_lemon_terminology_layer.py` exercises build and validation.
+- `samples/ontolex-lemon-terminology-layer/terminology.json` records terms, variants, concepts, sources, provenance, and review status.
+- `samples/ontolex-lemon-terminology-layer/terminology.ttl` provides sample SKOS and OntoLex-Lemon RDF mappings.
 
-- OntoLex-Lemon is a lexicon model for enriching ontologies with lexical data,
-  not a replacement for the corpus core or a generic text annotation format.
-- The repository’s interoperability design keeps OntoLex-Lemon as a later
-  optional terminology layer.
-- Current RDF work is still sample-not-release and centers on PROV-O, DCAT,
-  SKOS, and stable URIs, not on a released lexical resource.
-- No curated terminology release surface exists yet for parliamentary and legal
-  vocabulary.
-
-Planned scope:
-
-- terminology and lexicon records
-- source authority and review status
-- variant and multilingual labels where evidence exists
-- RDF mappings to SKOS and linked-data outputs
-- optional glossary and search-expansion examples
-
-Reference surfaces:
-
-- `docs/interoperability-requirements-moscow.md`
-- `docs/interoperability-design.md`
-- `docs/endpoint-contracts.md`
-- `docs/rdf-linked-data-mapping.md`
-- `conductor/tracks/rdf_linked_data_public_endpoint_release_20260610/`
-- `conductor/tracks/semantic_search_embeddings_topics_20260610/`
+The optional terminology layer does not claim a full corpus vocabulary, authoritative legal definitions, an official parliamentary glossary, external ontology acceptance, or completed stable URI review.

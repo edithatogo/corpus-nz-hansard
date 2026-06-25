@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-06-24T12:36:33Z",
+  "public_claims": {
+    "authoritative_legal_definitions": false,
+    "external_ontology_acceptance": false,
+    "full_corpus_vocabulary": false,
+    "official_parliamentary_glossary": false,
+    "sample_terminology_layer": true,
+    "stable_uri_review_complete": false
+  },
+  "release_status": "release-ready-sample-ontolex-lemon-layer",
+  "scheme_uri": "https://w3id.org/nz-hansard/terminology-scheme",
+  "terms": [
+    {
+      "concept_uri": "https://w3id.org/nz-hansard/term/sitting",
+      "definition": "A parliamentary meeting date represented as a sample terminology concept.",
+      "id": "sitting",
+      "lexical_entry_uri": "https://w3id.org/nz-hansard/lexical-entry/sitting",
+      "pref_label": "sitting",
+      "review_status": "agent-reviewed-sample",
+      "source": "corpus-neutral-component-model",
+      "variants": [
+        "sitting day"
+      ]
+    },
+    {
+      "concept_uri": "https://w3id.org/nz-hansard/term/proceeding",
+      "definition": "A structured item of parliamentary business represented in sample endpoint layers.",
+      "id": "proceeding",
+      "lexical_entry_uri": "https://w3id.org/nz-hansard/lexical-entry/proceeding",
+      "pref_label": "proceeding",
+      "review_status": "agent-reviewed-sample",
+      "source": "corpus-neutral-component-model",
+      "variants": [
+        "business item"
+      ]
+    },
+    {
+      "concept_uri": "https://w3id.org/nz-hansard/term/speech-turn",
+      "definition": "A contribution attributed to a speaker in the validated sample speech-turn component.",
+      "id": "speech-turn",
+      "lexical_entry_uri": "https://w3id.org/nz-hansard/lexical-entry/speech-turn",
+      "pref_label": "speech turn",
+      "review_status": "agent-reviewed-sample",
+      "source": "validated-speech-turn-component",
+      "variants": [
+        "turn",
+        "contribution"
+      ]
+    },
+    {
+      "concept_uri": "https://w3id.org/nz-hansard/term/bill",
+      "definition": "A legislative proposal referenced by the corpus interoperability samples.",
+      "id": "bill",
+      "lexical_entry_uri": "https://w3id.org/nz-hansard/lexical-entry/bill",
+      "pref_label": "bill",
+      "review_status": "agent-reviewed-sample",
+      "source": "bills-api-integration",
+      "variants": [
+        "legislative bill"
+      ]
+    },
+    {
+      "concept_uri": "https://w3id.org/nz-hansard/term/motion",
+      "definition": "A parliamentary motion represented in the sample extraction vocabulary.",
+      "id": "motion",
+      "lexical_entry_uri": "https://w3id.org/nz-hansard/lexical-entry/motion",
+      "pref_label": "motion",
+      "review_status": "agent-reviewed-sample",
+      "source": "vote-motion-bill-question-extraction",
+      "variants": [
+        "house motion"
+      ]
+    },
+    {
+      "concept_uri": "https://w3id.org/nz-hansard/term/party-vote",
+      "definition": "A vote attribution concept used in sample party-attribution evidence.",
+      "id": "party-vote",
+      "lexical_entry_uri": "https://w3id.org/nz-hansard/lexical-entry/party-vote",
+      "pref_label": "party vote",
+      "review_status": "agent-reviewed-sample",
+      "source": "corpus-wide-party-attribution",
+      "variants": [
+        "party division"
+      ]
+    }
+  ]
+}
