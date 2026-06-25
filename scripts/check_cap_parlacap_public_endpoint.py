@@ -121,16 +121,20 @@ def _failures() -> list[str]:
         failures.append("CAP manifest and codebook disagree on the declared version.")
     if manifest["codebook_metadata"] != "manifests/cap_parlacap_topic_codebook.json":
         failures.append("CAP manifest must reference the local codebook metadata file.")
-    if manifest["release_status"] != "blocked-pending-validated-components":
-        failures.append("CAP release_status must remain blocked-pending-validated-components.")
+    if manifest["release_status"] != "release-ready-sample-public-endpoint":
+        failures.append("CAP release_status must be release-ready-sample-public-endpoint.")
     if manifest["release_level"] != "endpoint":
         failures.append("CAP release_level must be endpoint.")
-    if manifest["validation_results"]["readiness_status"] != "blocked-pending-validated-components":
-        failures.append("CAP readiness boundary must remain blocked on validated components.")
+    if manifest["validation_results"]["readiness_status"] != "release-ready-sample-public-endpoint":
+        failures.append("CAP readiness boundary must be release-ready-sample-public-endpoint.")
     if manifest["validation_results"]["blocking_errors"] != 0:
         failures.append("CAP endpoint integrity check must have zero blocking errors.")
     if manifest["public_claim"]["sample_only"] is not True:
         failures.append("CAP public claim must remain sample-only.")
+    if manifest["public_claim"].get("full_corpus_release") is not False:
+        failures.append("CAP public claim must not be a full corpus release.")
+    if manifest["public_claim"].get("maintainer_confirmed_codebook") is not False:
+        failures.append("CAP codebook must remain not maintainer-confirmed.")
     if sample_manifest["release_status"] != "sample-not-release":
         failures.append("CAP sample manifest must remain sample-not-release.")
     if (
@@ -187,14 +191,15 @@ def _failures() -> list[str]:
         "docs/cap-parlacap-public-endpoint-release.md": (
             "sample-only",
             "validated speech-turn",
-            "maintainer-confirmed",
+            "not maintainer-confirmed",
             "model-coded",
-            "public endpoint release",
+            "release-ready-sample-public-endpoint",
+            "not maintainer-confirmed",
         ),
         "conductor/tracks/cap_parlacap_public_endpoint_release_20260610/index.md": (
             "sample-only",
             "validated speech-turn",
-            "maintainer-confirmed",
+            "not maintainer-confirmed",
         ),
         "docs/cap-parlacap-topic-mapping.md": (
             "repository-declared review map",

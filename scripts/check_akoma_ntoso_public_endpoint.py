@@ -112,17 +112,21 @@ def _failures() -> list[str]:
         failures.append("artifact_name must be Akoma Ntoso public endpoint release.")
     if manifest["release_level"] != "endpoint":
         failures.append("release_level must be endpoint.")
-    if manifest["release_status"] != "blocked-pending-validated-components":
-        failures.append("release_status must be blocked-pending-validated-components.")
-    if manifest["validation_results"]["readiness_status"] != "blocked-pending-validated-components":
-        failures.append("readiness_status must remain blocked-pending-validated-components.")
-    if manifest["validation_results"]["component_metadata_validated"]:
-        failures.append("component_metadata_validated must remain false.")
+    if manifest["release_status"] != "release-ready-sample-public-endpoint":
+        failures.append("release_status must be release-ready-sample-public-endpoint.")
+    if manifest["validation_results"]["readiness_status"] != "release-ready-sample-public-endpoint":
+        failures.append("readiness_status must be release-ready-sample-public-endpoint.")
+    if manifest["validation_results"]["component_metadata_validated"] is not True:
+        failures.append("component_metadata_validated must be true.")
     if manifest["public_claim"]["sample_only"] is not True:
         failures.append("public_claim.sample_only must be true.")
+    if manifest["public_claim"].get("full_corpus_release") is not False:
+        failures.append("public_claim.full_corpus_release must be false.")
+    if manifest["public_claim"].get("full_schema_coverage") is not False:
+        failures.append("public_claim.full_schema_coverage must be false.")
     release_notes = manifest.get("release_notes", {})
-    if release_notes.get("status") != "deferred-public-release-notes-published":
-        failures.append("release_notes.status must record deferred public release notes.")
+    if release_notes.get("status") != "sample-public-release-notes-published":
+        failures.append("release_notes.status must record sample public release notes.")
     if release_notes.get("document") != "docs/akoma-ntoso-public-endpoint-release.md":
         failures.append("release_notes.document must point to the endpoint release doc.")
     if set(release_notes.get("examples", [])) != {
@@ -130,10 +134,8 @@ def _failures() -> list[str]:
         "samples/akoma-ntoso/Akoma-Ntoso.metadata.xml",
     }:
         failures.append("release_notes.examples must list the Akoma Ntoso sample XML examples.")
-    if manifest["profile"]["selection_status"] != "blocked-pending-validated-components":
-        failures.append(
-            "profile selection_status must remain blocked-pending-validated-components."
-        )
+    if manifest["profile"]["selection_status"] != "release-ready-sample-public-endpoint":
+        failures.append("profile selection_status must be release-ready-sample-public-endpoint.")
     if set(manifest["dependency_groups"]) != REQUIRED_DEPENDENCY_GROUPS:
         failures.append("dependency groups must match xml/schema/authority.")
     if set(manifest["output_artifacts"]) != REQUIRED_OUTPUTS:
@@ -175,7 +177,8 @@ def _failures() -> list[str]:
             "validated speech-turn",
             "validated motion",
             "validated vote",
-            "public endpoint release",
+            "release-ready-sample-public-endpoint",
+            "not full Akoma Ntoso corpus or schema coverage",
         ),
         "conductor/tracks/akoma_ntoso_public_endpoint_release_20260610/index.md": (
             "sample-only",
@@ -184,6 +187,8 @@ def _failures() -> list[str]:
             "validated speech-turn",
             "validated motion",
             "validated vote",
+            "release-ready-sample-public-endpoint",
+            "not full Akoma Ntoso corpus or schema coverage",
         ),
         "docs/akoma-ntoso-mapping.md": (
             "sample-not-release",

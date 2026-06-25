@@ -142,14 +142,20 @@ def _failures() -> list[str]:
         failures.append("artifact_name must be UD / CoNLL-U public endpoint release.")
     if manifest["release_level"] != "endpoint":
         failures.append("release_level must be endpoint.")
-    if manifest["release_status"] != "blocked-pending-validated-components":
-        failures.append("release_status must be blocked-pending-validated-components.")
-    if manifest["validation_results"]["readiness_status"] != "blocked-pending-validated-components":
-        failures.append("readiness_status must remain blocked-pending-validated-components.")
-    if manifest["validation_results"]["component_metadata_validated"]:
-        failures.append("component_metadata_validated must remain false.")
+    if manifest["release_status"] != "release-ready-sample-public-endpoint":
+        failures.append("release_status must be release-ready-sample-public-endpoint.")
+    if manifest["validation_results"]["readiness_status"] != "release-ready-sample-public-endpoint":
+        failures.append("readiness_status must be release-ready-sample-public-endpoint.")
+    if manifest["validation_results"]["component_metadata_validated"] is not True:
+        failures.append("component_metadata_validated must be true.")
     if manifest["public_claim"]["sample_only"] is not True:
         failures.append("public_claim.sample_only must be true.")
+    if manifest["public_claim"].get("full_corpus_release") is not False:
+        failures.append("public_claim.full_corpus_release must be false.")
+    if manifest["public_claim"].get("gold_standard_ud_annotation") is not False:
+        failures.append("public_claim.gold_standard_ud_annotation must be false.")
+    if manifest["public_claim"].get("stanza_spacy_comparison_complete") is not False:
+        failures.append("public_claim.stanza_spacy_comparison_complete must be false.")
     if sample_manifest["release_status"] != "sample-not-release":
         failures.append("sample manifest must remain sample-not-release.")
     if (
@@ -229,12 +235,16 @@ def _failures() -> list[str]:
             "sample-only",
             "validated speech-turn text",
             "Stanza/spaCy",
-            "public endpoint release",
+            "release-ready-sample-public-endpoint",
+            "manual-fixture",
+            "no gold-standard UD annotation",
         ),
         "conductor/tracks/ud_conllu_public_endpoint_release_20260610/index.md": (
             "sample-only",
             "validated speech-turn text",
             "Stanza/spaCy",
+            "release-ready-sample-public-endpoint",
+            "manual-fixture",
         ),
         "docs/ud-conllu-mapping.md": (
             "sample-not-release",

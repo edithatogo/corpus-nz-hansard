@@ -136,14 +136,20 @@ def _failures() -> list[str]:
         failures.append("artifact_name must be RDF / Linked Data public endpoint release.")
     if manifest["release_level"] != "endpoint":
         failures.append("release_level must be endpoint.")
-    if manifest["release_status"] != "blocked-pending-validated-components":
-        failures.append("release_status must be blocked-pending-validated-components.")
-    if manifest["validation_results"]["readiness_status"] != "blocked-pending-validated-components":
-        failures.append("readiness_status must remain blocked-pending-validated-components.")
-    if manifest["validation_results"]["component_metadata_validated"]:
-        failures.append("component_metadata_validated must remain false.")
+    if manifest["release_status"] != "release-ready-sample-public-endpoint":
+        failures.append("release_status must be release-ready-sample-public-endpoint.")
+    if manifest["validation_results"]["readiness_status"] != "release-ready-sample-public-endpoint":
+        failures.append("readiness_status must be release-ready-sample-public-endpoint.")
+    if manifest["validation_results"]["component_metadata_validated"] is not True:
+        failures.append("component_metadata_validated must be true.")
     if manifest["public_claim"]["sample_only"] is not True:
         failures.append("public_claim.sample_only must be true.")
+    if manifest["public_claim"].get("full_corpus_release") is not False:
+        failures.append("public_claim.full_corpus_release must be false.")
+    if manifest["public_claim"].get("stable_uri_review_complete") is not False:
+        failures.append("stable URI review must remain pending.")
+    if manifest["public_claim"].get("public_identifier_minting") is not False:
+        failures.append("public identifier minting must not be claimed.")
     if sample_manifest["release_status"] != "sample-not-release":
         failures.append("sample manifest must remain sample-not-release.")
     if (
@@ -246,12 +252,14 @@ def _failures() -> list[str]:
             "sample-only",
             "validated component exports",
             "stable URI review",
-            "public endpoint release",
+            "release-ready-sample-public-endpoint",
+            "no public identifier minting claim",
         ),
         "conductor/tracks/rdf_linked_data_public_endpoint_release_20260610/index.md": (
             "sample-only",
             "validated component exports",
             "stable URI review",
+            "release-ready-sample-public-endpoint",
         ),
         "docs/rdf-linked-data-mapping.md": (
             "sample-not-release",

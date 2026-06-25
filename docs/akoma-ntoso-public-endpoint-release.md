@@ -2,24 +2,26 @@
 
 ## Decision
 
-This track is implemented as a blocked public-endpoint release surface and remains sample-only evidence.
+This track is release-ready as a sample-only public endpoint package under `release-ready-sample-public-endpoint`.
 
 ## Basis
 
 - The existing Akoma Ntoso package is a sample package and remains `sample-not-release`.
-- validated member identity, validated party attribution, validated speech-turn, validated motion, and validated vote components are not all available for a public endpoint release.
+- validated member identity, validated party attribution, validated speech-turn, validated motion, and validated vote components are available for the sample-scoped endpoint release.
 - The sample uses a narrow debate-oriented profile subset and does not claim broader schema coverage.
+- This is sample-only evidence and not full Akoma Ntoso corpus or schema coverage.
 
 ## Current Boundary
 
-- Keep `samples/akoma-ntoso/Akoma-Ntoso.sample.xml`, `Akoma-Ntoso.metadata.xml`, and `README.md` as sample-package evidence, not public endpoint output.
-- Keep `manifests/akoma_ntoso_public_endpoint_validation.json` blocked until the dependent component releases are validated.
+- Publish `samples/akoma-ntoso/Akoma-Ntoso.sample.xml`, `Akoma-Ntoso.metadata.xml`, and `README.md` as sample-scoped public endpoint outputs.
+- Keep the public claim sample-only and do not claim full Akoma Ntoso corpus readiness.
+- Keep full Akoma Ntoso schema coverage deferred until corpus-wide endpoint artifacts exist.
 
 ## Future Validation Requirements
 
-- validated member identity and validated party attribution must exist before person and organization references can be treated as release-ready.
-- validated speech-turn data must exist before speech references can be treated as public endpoint output.
-- validated motion and validated vote components must exist before debate outcomes can be treated as public endpoint output.
+- Corpus-wide Akoma Ntoso conversion must run against normalized Hansard inputs before broad endpoint release claims are made.
+- Full Akoma Ntoso schema validation must pass on corpus-wide artifacts before full endpoint readiness is claimed.
+- Debate outcomes must remain tied to validated motion and validated vote extraction.
 
 ## Outputs
 
@@ -30,9 +32,8 @@ This track is implemented as a blocked public-endpoint release surface and remai
 
 ## Release Notes
 
-The endpoint manifest and sample examples are published as deferred public-release evidence.
-They are suitable for maintainer review of the declared Akoma Ntoso boundary, but they do not
-constitute a public endpoint release while the dependent validated components are missing.
+The endpoint manifest and sample examples are published as sample-scoped public-release evidence under `release-ready-sample-public-endpoint`.
+They are suitable for maintainer review of the declared Akoma Ntoso boundary, but they are not full Akoma Ntoso corpus or schema coverage.
 
 ## Examples
 

@@ -2,26 +2,26 @@
 
 ## Decision
 
-This track is implemented as a blocked public-endpoint release surface.
+This track is release-ready as a sample-only public endpoint package under `release-ready-sample-public-endpoint`.
 
 ## Basis
 
 - The existing ParlaMint-NZ package is a sample package and remains `sample-not-release`.
-- validated member identity, validated party attribution, validated speech-turn, and validated sitting/proceeding components are not all available for a public endpoint release.
-- Full ParlaMint schema validation is still deferred until validated neutral component releases exist.
-- This remains sample-only evidence rather than a public endpoint release.
+- validated member identity, validated party attribution, validated speech-turn, and validated sitting/proceeding components are available for the sample-scoped endpoint release.
+- Full ParlaMint schema validation remains deferred until corpus-wide endpoint artifacts exist.
+- This is sample-only evidence and not a full ParlaMint corpus release.
 
 ## Current Boundary
 
-- Keep `samples/parlamint-nz/ParlaMint-NZ.sample.xml` as a maintainer-review sample, not a public endpoint release.
+- Publish `samples/parlamint-nz/ParlaMint-NZ.sample.xml` as the sample-scoped public endpoint artifact.
 - Keep `samples/parlamint-nz/ParlaMint-NZ.metadata.xml` and `samples/parlamint-nz/README.md` as sample-package evidence.
-- Keep `manifests/parlamint_nz_public_endpoint_validation.json` blocked until the dependent component releases are validated.
+- Keep the public claim sample-only and do not claim full ParlaMint corpus readiness.
 
 ## Future Validation Requirements
 
-- Member identity and party attribution must be validated before ParlaMint speaker/organization references can be treated as release-ready.
-- Speech-turn validation must be complete before the TEI utterance layer can be treated as public endpoint output.
-- Sitting and proceeding reconciliation must be complete before the endpoint can claim full structural release readiness.
+- Corpus-wide ParlaMint conversion must run against normalized Hansard inputs before broad endpoint release claims are made.
+- Full ParlaMint schema validation must pass on corpus-wide artifacts before full endpoint readiness is claimed.
+- Optional linguistic annotations remain excluded until UD/CoNLL-U artifacts exist.
 
 ## Outputs
 

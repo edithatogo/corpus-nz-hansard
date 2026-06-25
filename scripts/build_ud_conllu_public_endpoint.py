@@ -41,10 +41,18 @@ def build_ud_conllu_public_endpoint(
     generated_at = generated_at or datetime.now(UTC).isoformat()
     sample_manifest = _read_json(SAMPLE_MANIFEST_PATH)
     model_metadata = _read_json(MODEL_METADATA_PATH)
-    reason = (
-        "Validated speech-turn text is not yet available for a public UD/CoNLL-U release, "
-        "and the Stanza/spaCy comparison remains pending."
+    speech_turn_status = _read_json(
+        ROOT / "manifests/validated_speech_turn_component_validation.json"
+    ).get("release_gate_status", "")
+    speech_turn_ready = (
+        speech_turn_status == "release-ready-speech-turns-triangulated-speakers-agent-review"
     )
+    reason = (
+        "Validated speech-turn text is available; the UD/CoNLL-U endpoint is released as a manual-fixture sample, "
+        "with Stanza/spaCy comparison pending and no gold-standard UD annotation claim."
+    )
+    if not speech_turn_ready:
+        reason = "Validated speech-turn text is not ready for UD/CoNLL-U sample endpoint release."
     manifest = {
         "manifest_version": 1,
         "repository": "corpus-nz-hansard",
@@ -54,9 +62,15 @@ def build_ud_conllu_public_endpoint(
         "release_series_id": "ud-conllu-public-endpoint",
         "release_level": "endpoint",
         "artifact_name": "UD / CoNLL-U public endpoint release",
-        "artifact_version": "0.1.0-deferred.20260610",
-        "release_status": "blocked-pending-validated-components",
-        "publication_target": "public endpoint release package deferred",
+        "artifact_version": "0.1.0-sample-public.20260624"
+        if speech_turn_ready
+        else "0.1.0-deferred.20260610",
+        "release_status": "release-ready-sample-public-endpoint"
+        if speech_turn_ready
+        else "blocked-pending-validated-components",
+        "publication_target": "manual-fixture sample public endpoint release package"
+        if speech_turn_ready
+        else "public endpoint release package deferred",
         "upstream_contribution_target": "UD maintainers after validated speech-turn text and review",
         "validation_manifest": "manifests/ud_conllu_public_endpoint_validation.json",
         "annotation_family": model_metadata["annotation_family"],
@@ -69,8 +83,8 @@ def build_ud_conllu_public_endpoint(
             "id_uri_policy": "manifests/id_uri_policy.json",
         },
         "known_exclusions": [
-            "No public UD / CoNLL-U release is claimed.",
-            "Validated speech-turn text is missing.",
+            "No full-corpus UD / CoNLL-U release is claimed.",
+            "The release is manual-fixture sample-only.",
             "Gold-standard UD annotation is not claimed.",
             "The Stanza/spaCy comparison is pending.",
         ],
@@ -108,15 +122,21 @@ def build_ud_conllu_public_endpoint(
             "json_valid": True,
             "conllu_valid": True,
             "offset_alignment_valid": True,
-            "component_metadata_validated": False,
+            "component_metadata_validated": speech_turn_ready,
             "blocking_errors": 0,
-            "readiness_status": "blocked-pending-validated-components",
+            "readiness_status": "release-ready-sample-public-endpoint"
+            if speech_turn_ready
+            else "blocked-pending-validated-components",
         },
         "traceability": sample_manifest["traceability"],
+        "dependency_statuses": {"validated_speech_turn": speech_turn_status},
         "public_claim": {
-            "status": "deferred",
+            "status": "release-ready-sample-only" if speech_turn_ready else "deferred",
             "reason": reason,
             "sample_only": True,
+            "full_corpus_release": False,
+            "gold_standard_ud_annotation": False,
+            "stanza_spacy_comparison_complete": False,
         },
         "source_manifests": [
             "manifests/ud_conllu_validation_manifest.json",
@@ -135,7 +155,9 @@ def build_ud_conllu_public_endpoint(
             "release_ladder": "referenced-in-source-manifests",
             "gold_evaluation_datasets": "referenced-in-source-manifests",
         },
-        "manifest_sha256": "deferred-public-endpoint-manifest",
+        "manifest_sha256": "sample-public-endpoint-manifest"
+        if speech_turn_ready
+        else "deferred-public-endpoint-manifest",
     }
     if manifest_path is not None:
         _write_json(manifest_path, manifest)

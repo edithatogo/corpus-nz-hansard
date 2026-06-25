@@ -2,24 +2,26 @@
 
 ## Decision
 
-This track is implemented as a blocked public-endpoint release surface and remains sample-only evidence.
+This track is release-ready as a sample-only public endpoint package under `release-ready-sample-public-endpoint`.
 
 ## Basis
 
 - The existing Popolo/Open Civic Data package is a sample package and remains `sample-not-release`.
-- validated member identity, validated party attribution, validated vote/motion extraction, and validated speech-turn components are not all available for a public endpoint release.
+- validated member identity, validated party attribution, validated vote/motion extraction, validated speech-turn, and validated sitting/proceeding components are available for the sample-scoped endpoint release.
 - Full voting records are not inferred from text patterns alone.
+- This is sample-only evidence and not a full Popolo/Open Civic Data corpus release.
 
 ## Current Boundary
 
-- Keep `samples/popolo-opencivicdata/people.json`, `organizations.json`, `memberships.json`, `motions.json`, `vote-events.json`, `votes.jsonl`, `speeches.jsonl`, and `README.md` as sample-package evidence, not public endpoint output.
-- Keep `manifests/popolo_opencivicdata_public_endpoint_validation.json` blocked until the dependent component releases are validated.
+- Publish `samples/popolo-opencivicdata/people.json`, `organizations.json`, `memberships.json`, `motions.json`, `vote-events.json`, `votes.jsonl`, `speeches.jsonl`, and `README.md` as sample-scoped public endpoint outputs.
+- Keep the public claim sample-only and do not claim full Popolo/Open Civic Data corpus readiness.
+- Keep RDF output excluded until the RDF endpoint exists.
 
 ## Future Validation Requirements
 
-- validated member identity and validated party attribution must exist before person and organization references can be treated as release-ready.
-- validated vote/motion extraction must be complete before votes and motions can be treated as public endpoint output.
-- validated speech-turn data must exist before speech references can be treated as public endpoint output.
+- Corpus-wide Popolo/Open Civic Data conversion must run against normalized Hansard inputs before broad endpoint release claims are made.
+- Full voting records must come from validated vote/motion extraction rather than text-pattern inference alone.
+- Speech references must remain tied to validated speech-turn data.
 
 ## Outputs
 

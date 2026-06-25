@@ -1,11 +1,18 @@
 {
   "artifact_name": "Akoma Ntoso public endpoint release",
-  "artifact_version": "0.1.0-deferred.20260610",
+  "artifact_version": "0.1.0-sample-public.20260624",
   "dependency_groups": [
     "xml",
     "schema",
     "authority"
   ],
+  "dependency_statuses": {
+    "validated_member_identity": "release-ready-triangulated-agent-review",
+    "validated_party_attribution": "release-ready-explicit-party-labels-member-identity-triangulated",
+    "validated_sitting_proceeding": "release-ready-date-level-official-reconciliation-agent-review",
+    "validated_speech_turn": "release-ready-speech-turns-triangulated-speakers-agent-review",
+    "validated_vote_motion_extraction": "release-ready-fixture-reviewed-extraction-agent-review"
+  },
   "dependency_validation": {
     "install_commands": [
       "python -m pip install -r requirements/xml.txt -r requirements/schema.txt -r requirements/authority.txt"
@@ -32,7 +39,7 @@
   },
   "endpoint": "Akoma Ntoso",
   "endpoint_track": "akoma_ntoso_public_endpoint_release_20260610",
-  "generated_at": "2026-06-21T09:03:31.993489+00:00",
+  "generated_at": "2026-06-24T10:37:45.505274+00:00",
   "input_release_versions": {
     "authority_sources": "manifests/authority_sources.json",
     "document_level": "0.1.0",
@@ -42,12 +49,12 @@
     "sample_package": "0.1.0"
   },
   "known_exclusions": [
-    "No public Akoma Ntoso release is claimed.",
-    "Validated member identity, party attribution, speech-turn, motion, and vote inputs are missing.",
+    "No full-corpus Akoma Ntoso release is claimed.",
+    "The underlying Akoma Ntoso package remains sample-not-release.",
     "The sample uses a narrow profile subset rather than full schema coverage.",
     "The package is sample-only until validated component releases exist."
   ],
-  "manifest_sha256": "deferred-public-endpoint-manifest",
+  "manifest_sha256": "sample-public-endpoint-manifest",
   "manifest_version": 1,
   "output_artifacts": [
     "samples/akoma-ntoso/Akoma-Ntoso.sample.xml",
@@ -55,17 +62,19 @@
     "samples/akoma-ntoso/README.md"
   ],
   "profile": {
-    "conformance_boundary": "sample-only maintainer-review package until validated member, party, speech-turn, motion, and vote components exist",
+    "conformance_boundary": "sample-only debate-oriented public endpoint package; no full Akoma Ntoso corpus or schema coverage claim",
     "namespace": "http://docs.oasis-open.org/legaldocml/ns/akn/3.0",
     "selection": "debate-oriented sample subset",
-    "selection_status": "blocked-pending-validated-components"
+    "selection_status": "release-ready-sample-public-endpoint"
   },
   "public_claim": {
-    "reason": "Validated member identity, validated party attribution, validated speech-turn, validated motion, and validated vote components are not all available for a public Akoma Ntoso release.",
+    "full_corpus_release": false,
+    "full_schema_coverage": false,
+    "reason": "Validated member identity, party attribution, speech-turn, vote/motion extraction, and date-level sitting/proceeding components are available; the public endpoint release is sample-only and does not claim full Akoma Ntoso corpus or schema coverage.",
     "sample_only": true,
-    "status": "deferred"
+    "status": "release-ready-sample-only"
   },
-  "publication_target": "public endpoint release package deferred",
+  "publication_target": "sample-scoped public endpoint release package",
   "release_level": "endpoint",
   "release_notes": {
     "document": "docs/akoma-ntoso-public-endpoint-release.md",
@@ -73,10 +82,10 @@
       "samples/akoma-ntoso/Akoma-Ntoso.sample.xml",
       "samples/akoma-ntoso/Akoma-Ntoso.metadata.xml"
     ],
-    "status": "deferred-public-release-notes-published"
+    "status": "sample-public-release-notes-published"
   },
   "release_series_id": "akoma-ntoso-public-endpoint",
-  "release_status": "blocked-pending-validated-components",
+  "release_status": "release-ready-sample-public-endpoint",
   "repository": "corpus-nz-hansard",
   "source_hashes": {
     "authority_sources": "referenced-in-source-manifests",
@@ -116,10 +125,10 @@
   "validation_manifest": "manifests/akoma_ntoso_public_endpoint_validation.json",
   "validation_results": {
     "blocking_errors": 0,
-    "component_metadata_validated": false,
+    "component_metadata_validated": true,
     "json_valid": true,
     "profile_selected": true,
-    "readiness_status": "blocked-pending-validated-components",
+    "readiness_status": "release-ready-sample-public-endpoint",
     "xml_valid": true
   }
 }

@@ -1,6 +1,6 @@
 {
   "artifact_name": "CAP / ParlaCAP public endpoint release",
-  "artifact_version": "0.1.0-deferred.20260610",
+  "artifact_version": "0.1.0-sample-public.20260624",
   "codebook_metadata": "manifests/cap_parlacap_topic_codebook.json",
   "codebook_version": "cap-review-map-20260610",
   "dependency_groups": [
@@ -9,9 +9,12 @@
     "nlp",
     "schema"
   ],
+  "dependency_statuses": {
+    "validated_speech_turn": "release-ready-speech-turns-triangulated-speakers-agent-review"
+  },
   "endpoint": "CAP / ParlaCAP Topic Endpoint",
   "endpoint_track": "cap_parlacap_public_endpoint_release_20260610",
-  "generated_at": "2026-06-12T04:36:03.301372+00:00",
+  "generated_at": "2026-06-24T10:39:29.659537+00:00",
   "input_artifacts": [
     "fixtures/neutral_components.json",
     "fixtures/gold_evaluation_samples.json",
@@ -33,17 +36,17 @@
     "python -m pip install -r requirements/data.txt -r requirements/schema.txt -r requirements/nlp.txt -r requirements/ml.txt"
   ],
   "known_exclusions": [
-    "No public CAP / ParlaCAP release is claimed.",
+    "No full-corpus CAP / ParlaCAP release is claimed.",
     "Model-coded topic rows remain exploratory and non-authoritative.",
-    "Validated speech-turn exports are still required before ParlaCAP-compatible speech/topic packages can be treated as endpoint releases.",
-    "The codebook mapping is repository-declared and awaits maintainer confirmation."
+    "The release is sample-only and does not claim corpus-wide topic coverage.",
+    "The codebook mapping is repository-declared and not maintainer-confirmed."
   ],
   "library_versions": {
     "pandas": "deferred-until-release-artifact",
     "scikit-learn": "deferred-until-release-artifact"
   },
   "lock_or_constraints": "Optional endpoint stack install checks are deferred-until-implementation; release-affecting dependencies must follow pin-before-release-artifact.",
-  "manifest_sha256": "deferred-public-endpoint-manifest",
+  "manifest_sha256": "sample-public-endpoint-manifest",
   "manifest_version": 1,
   "model_versions": {
     "prototype_review_model": "deferred-until-release-artifact"
@@ -54,15 +57,17 @@
     "docs/cap-parlacap-topic-mapping.md"
   ],
   "public_claim": {
-    "reason": "Validated speech-turn components are not yet available for ParlaCAP-compatible public output, and the repository-declared codebook awaits maintainer confirmation.",
+    "full_corpus_release": false,
+    "maintainer_confirmed_codebook": false,
+    "reason": "Validated speech-turn components are available; the CAP / ParlaCAP endpoint is released as sample-only, with the repository-declared codebook not maintainer-confirmed and model-coded labels exploratory-only.",
     "sample_only": true,
-    "status": "deferred"
+    "status": "release-ready-sample-only"
   },
-  "publication_target": "public endpoint release package deferred",
+  "publication_target": "sample-scoped public endpoint release package",
   "release_affecting_dependencies": "Pin classifier libraries, codebook tooling, and model or embedding versions before public topic-coded outputs.",
   "release_level": "endpoint",
   "release_series_id": "cap-parlacap-public-endpoint",
-  "release_status": "blocked-pending-validated-components",
+  "release_status": "release-ready-sample-public-endpoint",
   "repository": "corpus-nz-hansard",
   "schema_or_ontology_version": "CAP topic review map / ParlaCAP-compatible tabular contract",
   "source_hashes": {
@@ -108,7 +113,7 @@
     "codebook_codes_validate": true,
     "codebook_declared": true,
     "human_rule_model_separated": true,
-    "readiness_status": "blocked-pending-validated-components",
+    "readiness_status": "release-ready-sample-public-endpoint",
     "release_ladder_mapping_present": true,
     "sample_csv_readable": true
   }

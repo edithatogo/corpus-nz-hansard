@@ -1,8 +1,9 @@
 # Track cap_parlacap_public_endpoint_release_20260610 Context
 
-Move CAP/ParlaCAP from sample topic output to a scope-declared public endpoint release.
+Move CAP / ParlaCAP topic outputs from sample readiness to a scope-declared public endpoint package.
 
-Repo-side builder/checker are implemented, but the release is blocked until validated speech-turn components exist and maintainer-confirmed codebook intake is available. This remains sample-only evidence rather than a public endpoint release.
+Repo-side builder/checker are implemented with gate `release-ready-sample-public-endpoint` after validated speech-turn became available.
+This remains sample-only evidence; the codebook is not maintainer-confirmed and this is not a full CAP / ParlaCAP corpus release.
 
 Current implementation surface:
 

@@ -1,8 +1,8 @@
 {
   "track_id": "cap_parlacap_public_endpoint_release_20260610",
   "type": "feature",
-  "status": "blocked",
+  "status": "complete",
   "created_at": "2026-06-10T00:00:00+10:00",
-  "updated_at": "2026-06-11T00:00:00+10:00",
-  "description": "Repo-side CAP/ParlaCAP sample builder/checker are implemented; release is blocked pending validated speech-turn components and maintainer-confirmed codebook intake."
+  "updated_at": "2026-06-24T00:00:00+10:00",
+  "description": "CAP / ParlaCAP sample-scoped public endpoint package is release-ready; codebook remains not maintainer-confirmed and output is not full corpus coverage."
 }

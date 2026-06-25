@@ -42,10 +42,32 @@ def build_parlamint_nz_public_endpoint(
 ) -> dict[str, Any]:
     generated_at = generated_at or datetime.now(UTC).isoformat()
     sample_manifest = _read_json(SAMPLE_MANIFEST_PATH)
+    dependency_statuses = {
+        "validated_member_identity": _read_json(MEMBER_IDENTITY_VALIDATION_PATH).get(
+            "release_gate_status", ""
+        ),
+        "validated_party_attribution": _read_json(PARTY_ATTRIBUTION_VALIDATION_PATH).get(
+            "release_gate_status", ""
+        ),
+        "validated_speech_turn": _read_json(SPEECH_TURN_VALIDATION_PATH).get(
+            "release_gate_status", ""
+        ),
+        "validated_sitting_proceeding": _read_json(SITTING_PROCEEDING_VALIDATION_PATH).get(
+            "release_gate_status", ""
+        ),
+    }
+    dependencies_ready = dependency_statuses == {
+        "validated_member_identity": "release-ready-triangulated-agent-review",
+        "validated_party_attribution": "release-ready-explicit-party-labels-member-identity-triangulated",
+        "validated_speech_turn": "release-ready-speech-turns-triangulated-speakers-agent-review",
+        "validated_sitting_proceeding": "release-ready-date-level-official-reconciliation-agent-review",
+    }
     reason = (
-        "Validated member identity, party attribution, speech-turn, and sitting/proceeding "
-        "components are not all available for a public ParlaMint-NZ release."
+        "Validated member identity, party attribution, speech-turn, and date-level sitting/proceeding "
+        "components are available; the public endpoint release is sample-only and does not claim full ParlaMint corpus readiness."
     )
+    if not dependencies_ready:
+        reason = "Dependent component release gates are not all ready for the ParlaMint-NZ public endpoint."
     manifest = {
         "manifest_version": 1,
         "repository": "corpus-nz-hansard",
@@ -55,10 +77,16 @@ def build_parlamint_nz_public_endpoint(
         "release_series_id": "parlamint-nz-public-endpoint",
         "release_level": "endpoint",
         "artifact_name": "ParlaMint-NZ public endpoint release",
-        "artifact_version": "0.1.0-deferred.20260610",
-        "release_status": "blocked-pending-validated-components",
-        "publication_target": "public endpoint release package deferred",
-        "upstream_contribution_target": "ParlaMint / Parla-CLARIN maintainer review after validated component releases",
+        "artifact_version": "0.1.0-sample-public.20260624"
+        if dependencies_ready
+        else "0.1.0-deferred.20260610",
+        "release_status": "release-ready-sample-public-endpoint"
+        if dependencies_ready
+        else "blocked-pending-validated-components",
+        "publication_target": "sample-scoped public endpoint release package"
+        if dependencies_ready
+        else "public endpoint release package deferred",
+        "upstream_contribution_target": "ParlaMint / Parla-CLARIN maintainer review with sample-scoped release boundaries",
         "validation_manifest": "manifests/parlamint_nz_validation_manifest.json",
         "input_release_versions": {
             "document_level": "0.1.0",
@@ -69,9 +97,9 @@ def build_parlamint_nz_public_endpoint(
             "sample_package": sample_manifest["artifact_version"],
         },
         "known_exclusions": [
-            "No public ParlaMint-NZ release is claimed.",
-            "Validated member identity, party attribution, speech-turn, and sitting/proceeding inputs are missing.",
-            "Full ParlaMint schema validation remains deferred until validated neutral component releases exist.",
+            "No full-corpus ParlaMint-NZ release is claimed.",
+            "The underlying ParlaMint package remains sample-not-release.",
+            "Full ParlaMint schema validation remains deferred until corpus-wide endpoint artifacts exist.",
             "Optional linguistic annotations are excluded until UD/CoNLL-U artifacts exist.",
         ],
         "dependency_groups": ["xml", "schema", "authority", "nlp"],
@@ -105,8 +133,10 @@ def build_parlamint_nz_public_endpoint(
             "samples/parlamint-nz/README.md",
         ],
         "validation_results": {
-            "component_metadata_validated": False,
-            "readiness_status": "blocked-pending-validated-components",
+            "component_metadata_validated": dependencies_ready,
+            "readiness_status": "release-ready-sample-public-endpoint"
+            if dependencies_ready
+            else "blocked-pending-validated-components",
             "blocking_errors": 0,
         },
         "traceability": [
@@ -117,10 +147,12 @@ def build_parlamint_nz_public_endpoint(
                 "sample_package": "samples/parlamint-nz",
             }
         ],
+        "dependency_statuses": dependency_statuses,
         "public_claim": {
-            "status": "deferred",
+            "status": "release-ready-sample-only" if dependencies_ready else "deferred",
             "reason": reason,
             "sample_only": True,
+            "full_corpus_release": False,
         },
         "source_manifests": [
             "manifests/parlamint_nz_validation_manifest.json",
@@ -141,7 +173,9 @@ def build_parlamint_nz_public_endpoint(
             "authority_sources": "referenced-in-source-manifests",
             "release_ladder": "referenced-in-source-manifests",
         },
-        "manifest_sha256": "deferred-public-endpoint-manifest",
+        "manifest_sha256": "sample-public-endpoint-manifest"
+        if dependencies_ready
+        else "deferred-public-endpoint-manifest",
     }
     if manifest_path is not None:
         _write_json(manifest_path, manifest)

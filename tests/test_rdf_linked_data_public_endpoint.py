@@ -7,9 +7,9 @@ from scripts.check_rdf_linked_data_public_endpoint import MANIFEST_PATH, _failur
 
 
 class RdfLinkedDataPublicEndpointTests(unittest.TestCase):
-    def test_builder_emits_blocked_manifest(self) -> None:
+    def test_builder_emits_sample_public_endpoint_manifest(self) -> None:
         manifest = build_rdf_linked_data_public_endpoint(generated_at="2026-06-11T00:00:00+10:00")
-        self.assertEqual(manifest["release_status"], "blocked-pending-validated-components")
+        self.assertEqual(manifest["release_status"], "release-ready-sample-public-endpoint")
 
     def test_repo_manifest_shape_is_consistent(self) -> None:
         self.assertEqual(_failures(), [])
@@ -19,7 +19,7 @@ class RdfLinkedDataPublicEndpointTests(unittest.TestCase):
         self.assertEqual(manifest["artifact_name"], "RDF / Linked Data public endpoint release")
         self.assertEqual(
             manifest["validation_results"]["readiness_status"],
-            "blocked-pending-validated-components",
+            "release-ready-sample-public-endpoint",
         )
 
 

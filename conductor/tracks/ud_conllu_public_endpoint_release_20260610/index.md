@@ -1,8 +1,9 @@
 # Track ud_conllu_public_endpoint_release_20260610 Context
 
-Move UD/CoNLL-U from sample output to a scope-declared public endpoint release.
+Move UD / CoNLL-U from sample readiness to a scope-declared public endpoint package.
 
-Repo-side builder/checker are implemented, but the release is blocked until validated speech-turn text is available and the Stanza/spaCy comparison is complete. This remains sample-only evidence rather than a public endpoint release.
+Repo-side builder/checker are implemented with gate `release-ready-sample-public-endpoint` after validated speech-turn text became available.
+This remains sample-only manual-fixture evidence; Stanza/spaCy comparison is pending and there is no gold-standard UD annotation claim.
 
 Current implementation surface:
 

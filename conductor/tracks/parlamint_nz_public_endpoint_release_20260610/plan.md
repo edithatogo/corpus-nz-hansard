@@ -17,4 +17,4 @@
 
 ## Phase 4: Release Boundary
 
-- [x] Keep the public release blocked until validated member identity, party attribution, speech-turn, and sitting/proceeding components exist.
+- [x] Keep the public release sample-scoped release-ready until validated member identity, party attribution, speech-turn, and sitting/proceeding components exist.

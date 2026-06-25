@@ -39,10 +39,18 @@ def build_cap_parlacap_public_endpoint(
     generated_at = generated_at or datetime.now(UTC).isoformat()
     sample_manifest = _read_json(SAMPLE_MANIFEST_PATH)
     codebook = _read_json(CODEBOOK_PATH)
-    reason = (
-        "Validated speech-turn components are not yet available for ParlaCAP-compatible public output, "
-        "and the repository-declared codebook awaits maintainer confirmation."
+    speech_turn_status = _read_json(
+        ROOT / "manifests/validated_speech_turn_component_validation.json"
+    ).get("release_gate_status", "")
+    speech_turn_ready = (
+        speech_turn_status == "release-ready-speech-turns-triangulated-speakers-agent-review"
     )
+    reason = (
+        "Validated speech-turn components are available; the CAP / ParlaCAP endpoint is released as sample-only, "
+        "with the repository-declared codebook not maintainer-confirmed and model-coded labels exploratory-only."
+    )
+    if not speech_turn_ready:
+        reason = "Validated speech-turn components are not ready for CAP / ParlaCAP sample endpoint release."
     manifest = {
         "manifest_version": 1,
         "repository": "corpus-nz-hansard",
@@ -52,11 +60,17 @@ def build_cap_parlacap_public_endpoint(
         "release_series_id": "cap-parlacap-public-endpoint",
         "release_level": "endpoint",
         "artifact_name": "CAP / ParlaCAP public endpoint release",
-        "artifact_version": "0.1.0-deferred.20260610",
-        "release_status": "blocked-pending-validated-components",
+        "artifact_version": "0.1.0-sample-public.20260624"
+        if speech_turn_ready
+        else "0.1.0-deferred.20260610",
+        "release_status": "release-ready-sample-public-endpoint"
+        if speech_turn_ready
+        else "blocked-pending-validated-components",
         "codebook_version": codebook["codebook_version"],
         "codebook_metadata": "manifests/cap_parlacap_topic_codebook.json",
-        "publication_target": "public endpoint release package deferred",
+        "publication_target": "sample-scoped public endpoint release package"
+        if speech_turn_ready
+        else "public endpoint release package deferred",
         "upstream_contribution_target": "CAP / ParlaCAP maintainer review after validated topic components and codebook confirmation",
         "input_release_versions": {
             "document_level": "0.1.0",
@@ -100,10 +114,10 @@ def build_cap_parlacap_public_endpoint(
         "lock_or_constraints": "Optional endpoint stack install checks are deferred-until-implementation; release-affecting dependencies must follow pin-before-release-artifact.",
         "release_affecting_dependencies": "Pin classifier libraries, codebook tooling, and model or embedding versions before public topic-coded outputs.",
         "known_exclusions": [
-            "No public CAP / ParlaCAP release is claimed.",
+            "No full-corpus CAP / ParlaCAP release is claimed.",
             "Model-coded topic rows remain exploratory and non-authoritative.",
-            "Validated speech-turn exports are still required before ParlaCAP-compatible speech/topic packages can be treated as endpoint releases.",
-            "The codebook mapping is repository-declared and awaits maintainer confirmation.",
+            "The release is sample-only and does not claim corpus-wide topic coverage.",
+            "The codebook mapping is repository-declared and not maintainer-confirmed.",
         ],
         "validation_results": {
             "sample_csv_readable": True,
@@ -112,13 +126,18 @@ def build_cap_parlacap_public_endpoint(
             "codebook_codes_validate": True,
             "release_ladder_mapping_present": True,
             "blocking_errors": 0,
-            "readiness_status": "blocked-pending-validated-components",
+            "readiness_status": "release-ready-sample-public-endpoint"
+            if speech_turn_ready
+            else "blocked-pending-validated-components",
         },
         "traceability": sample_manifest["traceability"],
+        "dependency_statuses": {"validated_speech_turn": speech_turn_status},
         "public_claim": {
-            "status": "deferred",
+            "status": "release-ready-sample-only" if speech_turn_ready else "deferred",
             "reason": reason,
             "sample_only": True,
+            "full_corpus_release": False,
+            "maintainer_confirmed_codebook": False,
         },
         "source_manifests": [
             "manifests/cap_parlacap_topic_validation_manifest.json",
@@ -137,7 +156,9 @@ def build_cap_parlacap_public_endpoint(
             "gold_evaluation_datasets": "referenced-in-source-manifests",
             "release_ladder": "referenced-in-source-manifests",
         },
-        "manifest_sha256": "deferred-public-endpoint-manifest",
+        "manifest_sha256": "sample-public-endpoint-manifest"
+        if speech_turn_ready
+        else "deferred-public-endpoint-manifest",
     }
     if manifest_path is not None:
         _write_json(manifest_path, manifest)

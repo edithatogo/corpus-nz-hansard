@@ -41,10 +41,31 @@ def build_rdf_linked_data_public_endpoint(
 ) -> dict[str, Any]:
     generated_at = generated_at or datetime.now(UTC).isoformat()
     sample_manifest = _read_json(SAMPLE_MANIFEST_PATH)
-    reason = (
-        "Validated component exports are not yet available for a public RDF/linked-data release, "
-        "and stable URI review remains pending."
+    component_statuses = {
+        "member_identity": _read_json(
+            ROOT / "manifests/corpus_wide_member_identity_validation.json"
+        ).get("release_gate_status", ""),
+        "party_attribution": _read_json(
+            ROOT / "manifests/corpus_wide_party_attribution_validation.json"
+        ).get("release_gate_status", ""),
+        "speech_turn": _read_json(
+            ROOT / "manifests/validated_speech_turn_component_validation.json"
+        ).get("release_gate_status", ""),
+        "sitting_proceeding": _read_json(
+            ROOT / "manifests/sitting_proceeding_component_validation.json"
+        ).get("release_gate_status", ""),
+    }
+    components_ready = all(
+        value.startswith("release-ready") for value in component_statuses.values()
     )
+    reason = (
+        "Validated component exports are available for sample-linked-data output; the release is sample-only, "
+        "stable URI review remains pending, and no public identifier minting claim is made."
+    )
+    if not components_ready:
+        reason = (
+            "Validated component exports are not ready for RDF linked-data sample endpoint release."
+        )
     manifest = {
         "manifest_version": 1,
         "repository": "corpus-nz-hansard",
@@ -54,9 +75,15 @@ def build_rdf_linked_data_public_endpoint(
         "release_series_id": "rdf-linked-data-public-endpoint",
         "release_level": "endpoint",
         "artifact_name": "RDF / Linked Data public endpoint release",
-        "artifact_version": "0.1.0-deferred.20260610",
-        "release_status": "blocked-pending-validated-components",
-        "publication_target": "public endpoint release package deferred",
+        "artifact_version": "0.1.0-sample-public.20260624"
+        if components_ready
+        else "0.1.0-deferred.20260610",
+        "release_status": "release-ready-sample-public-endpoint"
+        if components_ready
+        else "blocked-pending-validated-components",
+        "publication_target": "sample-scoped public endpoint release package"
+        if components_ready
+        else "public endpoint release package deferred",
         "upstream_contribution_target": "RDF / linked-data maintainers after validated component exports and SHACL review",
         "validation_manifest": "manifests/rdf_linked_data_public_endpoint_validation.json",
         "input_release_versions": {
@@ -67,7 +94,7 @@ def build_rdf_linked_data_public_endpoint(
             "model_metadata": "manifests/rdf_linked_data_model_metadata.json",
         },
         "known_exclusions": [
-            "No public RDF / linked-data release is claimed.",
+            "No full-corpus RDF / linked-data release is claimed.",
             "NIF export is excluded.",
             "External ontology acceptance is excluded.",
             "Stable URI review is pending.",
@@ -104,15 +131,21 @@ def build_rdf_linked_data_public_endpoint(
             "samples/rdf-linked-data/README.md",
         ],
         "validation_results": {
-            "component_metadata_validated": False,
-            "readiness_status": "blocked-pending-validated-components",
+            "component_metadata_validated": components_ready,
+            "readiness_status": "release-ready-sample-public-endpoint"
+            if components_ready
+            else "blocked-pending-validated-components",
             "blocking_errors": 0,
         },
         "traceability": sample_manifest["traceability"],
+        "dependency_statuses": component_statuses,
         "public_claim": {
-            "status": "deferred",
+            "status": "release-ready-sample-only" if components_ready else "deferred",
             "reason": reason,
             "sample_only": True,
+            "full_corpus_release": False,
+            "stable_uri_review_complete": False,
+            "public_identifier_minting": False,
         },
         "source_manifests": [
             "manifests/rdf_linked_data_validation_manifest.json",
@@ -129,7 +162,9 @@ def build_rdf_linked_data_public_endpoint(
             "model_metadata": "referenced-in-source-manifests",
             "release_ladder": "referenced-in-source-manifests",
         },
-        "manifest_sha256": "deferred-public-endpoint-manifest",
+        "manifest_sha256": "sample-public-endpoint-manifest"
+        if components_ready
+        else "deferred-public-endpoint-manifest",
     }
     _write_json(manifest_path, manifest)
     return manifest

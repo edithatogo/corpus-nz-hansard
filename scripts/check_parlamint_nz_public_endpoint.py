@@ -95,14 +95,16 @@ def _failures() -> list[str]:
         failures.append("artifact_name must be ParlaMint-NZ public endpoint release.")
     if manifest["release_level"] != "endpoint":
         failures.append("release_level must be endpoint.")
-    if manifest["release_status"] != "blocked-pending-validated-components":
-        failures.append("release_status must be blocked-pending-validated-components.")
-    if manifest["validation_results"]["readiness_status"] != "blocked-pending-validated-components":
-        failures.append("readiness_status must remain blocked-pending-validated-components.")
-    if manifest["validation_results"]["component_metadata_validated"]:
-        failures.append("component_metadata_validated must remain false.")
+    if manifest["release_status"] != "release-ready-sample-public-endpoint":
+        failures.append("release_status must be release-ready-sample-public-endpoint.")
+    if manifest["validation_results"]["readiness_status"] != "release-ready-sample-public-endpoint":
+        failures.append("readiness_status must be release-ready-sample-public-endpoint.")
+    if manifest["validation_results"]["component_metadata_validated"] is not True:
+        failures.append("component_metadata_validated must be true.")
     if manifest["public_claim"]["sample_only"] is not True:
         failures.append("public_claim.sample_only must be true.")
+    if manifest["public_claim"].get("full_corpus_release") is not False:
+        failures.append("public_claim.full_corpus_release must be false.")
     if sample_manifest["release_status"] != "sample-not-release":
         failures.append("sample manifest must remain sample-not-release.")
     if (
@@ -124,12 +126,12 @@ def _failures() -> list[str]:
         _doc_terms(
             DOC_PATH,
             (
-                "blocked",
+                "release-ready-sample-public-endpoint",
                 "validated member identity",
                 "validated party attribution",
                 "validated speech-turn",
                 "sample-only",
-                "public endpoint release",
+                "not a full ParlaMint corpus release",
             ),
         )
     )
@@ -137,11 +139,12 @@ def _failures() -> list[str]:
         _doc_terms(
             TRACK_PATH,
             (
-                "blocked",
+                "release-ready-sample-public-endpoint",
                 "validated member identity",
                 "validated party attribution",
                 "validated speech-turn",
                 "sample-only",
+                "not a full ParlaMint corpus release",
             ),
         )
     )

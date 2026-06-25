@@ -7,15 +7,15 @@ from scripts.check_akoma_ntoso_public_endpoint import MANIFEST_PATH, _failures, 
 
 
 class AkomaNtosoPublicEndpointTests(unittest.TestCase):
-    def test_builder_emits_blocked_manifest(self) -> None:
+    def test_builder_emits_sample_public_endpoint_manifest(self) -> None:
         manifest = build_akoma_ntoso_public_endpoint(
             manifest_path=None,
             generated_at="2026-06-11T00:00:00+10:00",
         )
-        self.assertEqual(manifest["release_status"], "blocked-pending-validated-components")
+        self.assertEqual(manifest["release_status"], "release-ready-sample-public-endpoint")
         self.assertEqual(
             manifest["release_notes"]["status"],
-            "deferred-public-release-notes-published",
+            "sample-public-release-notes-published",
         )
 
     def test_repo_manifest_shape_is_consistent(self) -> None:
@@ -26,7 +26,7 @@ class AkomaNtosoPublicEndpointTests(unittest.TestCase):
         self.assertEqual(manifest["artifact_name"], "Akoma Ntoso public endpoint release")
         self.assertEqual(
             manifest["validation_results"]["readiness_status"],
-            "blocked-pending-validated-components",
+            "release-ready-sample-public-endpoint",
         )
         self.assertEqual(
             manifest["release_notes"]["examples"],

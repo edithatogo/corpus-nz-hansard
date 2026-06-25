@@ -2,11 +2,14 @@
   "annotation_family": "Universal Dependencies / CoNLL-U",
   "annotation_version": "2.x",
   "artifact_name": "UD / CoNLL-U public endpoint release",
-  "artifact_version": "0.1.0-deferred.20260610",
+  "artifact_version": "0.1.0-sample-public.20260624",
   "dependency_groups": [
     "nlp",
     "schema"
   ],
+  "dependency_statuses": {
+    "validated_speech_turn": "release-ready-speech-turns-triangulated-speakers-agent-review"
+  },
   "dependency_validation": {
     "install_commands": [
       "python -m pip install -r requirements/nlp.txt -r requirements/schema.txt"
@@ -32,7 +35,7 @@
   },
   "endpoint": "Universal Dependencies / CoNLL-U",
   "endpoint_track": "ud_conllu_public_endpoint_release_20260610",
-  "generated_at": "2026-06-12T04:37:12.057758+00:00",
+  "generated_at": "2026-06-24T10:41:02.177816+00:00",
   "input_release_versions": {
     "document_level": "0.1.0",
     "id_uri_policy": "manifests/id_uri_policy.json",
@@ -41,12 +44,12 @@
     "speech_turn_source": "nzhc-component-0000000000000005"
   },
   "known_exclusions": [
-    "No public UD / CoNLL-U release is claimed.",
-    "Validated speech-turn text is missing.",
+    "No full-corpus UD / CoNLL-U release is claimed.",
+    "The release is manual-fixture sample-only.",
     "Gold-standard UD annotation is not claimed.",
     "The Stanza/spaCy comparison is pending."
   ],
-  "manifest_sha256": "deferred-public-endpoint-manifest",
+  "manifest_sha256": "sample-public-endpoint-manifest",
   "manifest_version": 1,
   "output_artifacts": [
     "samples/ud-conllu/parliament_sample.conllu",
@@ -54,14 +57,17 @@
     "samples/ud-conllu/README.md"
   ],
   "public_claim": {
-    "reason": "Validated speech-turn text is not yet available for a public UD/CoNLL-U release, and the Stanza/spaCy comparison remains pending.",
+    "full_corpus_release": false,
+    "gold_standard_ud_annotation": false,
+    "reason": "Validated speech-turn text is available; the UD/CoNLL-U endpoint is released as a manual-fixture sample, with Stanza/spaCy comparison pending and no gold-standard UD annotation claim.",
     "sample_only": true,
-    "status": "deferred"
+    "stanza_spacy_comparison_complete": false,
+    "status": "release-ready-sample-only"
   },
-  "publication_target": "public endpoint release package deferred",
+  "publication_target": "manual-fixture sample public endpoint release package",
   "release_level": "endpoint",
   "release_series_id": "ud-conllu-public-endpoint",
-  "release_status": "blocked-pending-validated-components",
+  "release_status": "release-ready-sample-public-endpoint",
   "repository": "corpus-nz-hansard",
   "source_hashes": {
     "gold_evaluation_datasets": "referenced-in-source-manifests",
@@ -94,10 +100,10 @@
   "validation_manifest": "manifests/ud_conllu_public_endpoint_validation.json",
   "validation_results": {
     "blocking_errors": 0,
-    "component_metadata_validated": false,
+    "component_metadata_validated": true,
     "conllu_valid": true,
     "json_valid": true,
     "offset_alignment_valid": true,
-    "readiness_status": "blocked-pending-validated-components"
+    "readiness_status": "release-ready-sample-public-endpoint"
   }
 }

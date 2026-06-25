@@ -46,10 +46,36 @@ def build_akoma_ntoso_public_endpoint(
 ) -> dict[str, Any]:
     generated_at = generated_at or datetime.now(UTC).isoformat()
     sample_manifest = _read_json(SAMPLE_MANIFEST_PATH)
+    dependency_statuses = {
+        "validated_member_identity": _read_json(MEMBER_IDENTITY_VALIDATION_PATH).get(
+            "release_gate_status", ""
+        ),
+        "validated_party_attribution": _read_json(PARTY_ATTRIBUTION_VALIDATION_PATH).get(
+            "release_gate_status", ""
+        ),
+        "validated_speech_turn": _read_json(SPEECH_TURN_VALIDATION_PATH).get(
+            "release_gate_status", ""
+        ),
+        "validated_vote_motion_extraction": _read_json(
+            VOTE_MOTION_BILL_QUESTION_VALIDATION_PATH
+        ).get("release_gate_status", ""),
+        "validated_sitting_proceeding": _read_json(SITTING_PROCEEDING_VALIDATION_PATH).get(
+            "release_gate_status", ""
+        ),
+    }
+    dependencies_ready = dependency_statuses == {
+        "validated_member_identity": "release-ready-triangulated-agent-review",
+        "validated_party_attribution": "release-ready-explicit-party-labels-member-identity-triangulated",
+        "validated_speech_turn": "release-ready-speech-turns-triangulated-speakers-agent-review",
+        "validated_vote_motion_extraction": "release-ready-fixture-reviewed-extraction-agent-review",
+        "validated_sitting_proceeding": "release-ready-date-level-official-reconciliation-agent-review",
+    }
     reason = (
-        "Validated member identity, validated party attribution, validated speech-turn, "
-        "validated motion, and validated vote components are not all available for a public Akoma Ntoso release."
+        "Validated member identity, party attribution, speech-turn, vote/motion extraction, and date-level sitting/proceeding components are available; "
+        "the public endpoint release is sample-only and does not claim full Akoma Ntoso corpus or schema coverage."
     )
+    if not dependencies_ready:
+        reason = "Dependent component release gates are not all ready for the Akoma Ntoso public endpoint."
     manifest = {
         "manifest_version": 1,
         "repository": "corpus-nz-hansard",
@@ -59,9 +85,15 @@ def build_akoma_ntoso_public_endpoint(
         "release_series_id": "akoma-ntoso-public-endpoint",
         "release_level": "endpoint",
         "artifact_name": "Akoma Ntoso public endpoint release",
-        "artifact_version": "0.1.0-deferred.20260610",
-        "release_status": "blocked-pending-validated-components",
-        "publication_target": "public endpoint release package deferred",
+        "artifact_version": "0.1.0-sample-public.20260624"
+        if dependencies_ready
+        else "0.1.0-deferred.20260610",
+        "release_status": "release-ready-sample-public-endpoint"
+        if dependencies_ready
+        else "blocked-pending-validated-components",
+        "publication_target": "sample-scoped public endpoint release package"
+        if dependencies_ready
+        else "public endpoint release package deferred",
         "upstream_contribution_target": "Akoma Ntoso maintainers after validated component releases and profile selection",
         "validation_manifest": "manifests/akoma_ntoso_public_endpoint_validation.json",
         "release_notes": {
@@ -70,13 +102,17 @@ def build_akoma_ntoso_public_endpoint(
                 "samples/akoma-ntoso/Akoma-Ntoso.sample.xml",
                 "samples/akoma-ntoso/Akoma-Ntoso.metadata.xml",
             ],
-            "status": "deferred-public-release-notes-published",
+            "status": "sample-public-release-notes-published"
+            if dependencies_ready
+            else "deferred-public-release-notes-published",
         },
         "profile": {
             "namespace": "http://docs.oasis-open.org/legaldocml/ns/akn/3.0",
             "selection": "debate-oriented sample subset",
-            "conformance_boundary": "sample-only maintainer-review package until validated member, party, speech-turn, motion, and vote components exist",
-            "selection_status": "blocked-pending-validated-components",
+            "conformance_boundary": "sample-only debate-oriented public endpoint package; no full Akoma Ntoso corpus or schema coverage claim",
+            "selection_status": "release-ready-sample-public-endpoint"
+            if dependencies_ready
+            else "blocked-pending-validated-components",
         },
         "input_release_versions": {
             "document_level": "0.1.0",
@@ -87,8 +123,8 @@ def build_akoma_ntoso_public_endpoint(
             "sample_package": sample_manifest["artifact_version"],
         },
         "known_exclusions": [
-            "No public Akoma Ntoso release is claimed.",
-            "Validated member identity, party attribution, speech-turn, motion, and vote inputs are missing.",
+            "No full-corpus Akoma Ntoso release is claimed.",
+            "The underlying Akoma Ntoso package remains sample-not-release.",
             "The sample uses a narrow profile subset rather than full schema coverage.",
             "The package is sample-only until validated component releases exist.",
         ],
@@ -127,15 +163,20 @@ def build_akoma_ntoso_public_endpoint(
             "json_valid": True,
             "xml_valid": True,
             "profile_selected": True,
-            "component_metadata_validated": False,
+            "component_metadata_validated": dependencies_ready,
             "blocking_errors": 0,
-            "readiness_status": "blocked-pending-validated-components",
+            "readiness_status": "release-ready-sample-public-endpoint"
+            if dependencies_ready
+            else "blocked-pending-validated-components",
         },
         "traceability": sample_manifest["traceability"],
+        "dependency_statuses": dependency_statuses,
         "public_claim": {
-            "status": "deferred",
+            "status": "release-ready-sample-only" if dependencies_ready else "deferred",
             "reason": reason,
             "sample_only": True,
+            "full_corpus_release": False,
+            "full_schema_coverage": False,
         },
         "source_manifests": [
             "manifests/akoma_ntoso_validation_manifest.json",
@@ -156,7 +197,9 @@ def build_akoma_ntoso_public_endpoint(
             "authority_sources": "referenced-in-source-manifests",
             "release_ladder": "referenced-in-source-manifests",
         },
-        "manifest_sha256": "deferred-public-endpoint-manifest",
+        "manifest_sha256": "sample-public-endpoint-manifest"
+        if dependencies_ready
+        else "deferred-public-endpoint-manifest",
     }
     if manifest_path is not None:
         _write_json(manifest_path, manifest)

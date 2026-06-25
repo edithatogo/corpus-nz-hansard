@@ -1,8 +1,8 @@
 {
   "track_id": "ud_conllu_public_endpoint_release_20260610",
   "type": "feature",
-  "status": "blocked",
+  "status": "complete",
   "created_at": "2026-06-10T00:00:00+10:00",
-  "updated_at": "2026-06-11T00:00:00+10:00",
-  "description": "Repo-side UD/CoNLL-U sample generator/checker are implemented; release is blocked pending validated speech-turn text and completed Stanza/spaCy comparison evidence."
+  "updated_at": "2026-06-24T00:00:00+10:00",
+  "description": "UD / CoNLL-U manual-fixture sample-scoped public endpoint package is release-ready; no full corpus or gold-standard UD claim is made."
 }

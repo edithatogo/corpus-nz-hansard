@@ -1,12 +1,18 @@
 {
   "artifact_name": "RDF / Linked Data public endpoint release",
-  "artifact_version": "0.1.0-deferred.20260610",
+  "artifact_version": "0.1.0-sample-public.20260624",
   "dependency_groups": [
     "authority",
     "metadata",
     "rdf",
     "schema"
   ],
+  "dependency_statuses": {
+    "member_identity": "release-ready-triangulated-agent-review",
+    "party_attribution": "release-ready-explicit-party-labels-member-identity-triangulated",
+    "sitting_proceeding": "release-ready-date-level-official-reconciliation-agent-review",
+    "speech_turn": "release-ready-speech-turns-triangulated-speakers-agent-review"
+  },
   "dependency_validation": {
     "install_commands": [
       "python -m pip install -r requirements/rdf.txt -r requirements/schema.txt -r requirements/metadata.txt -r requirements/authority.txt"
@@ -40,12 +46,12 @@
     "neutral_components": "manifests/neutral_component_model.json"
   },
   "known_exclusions": [
-    "No public RDF / linked-data release is claimed.",
+    "No full-corpus RDF / linked-data release is claimed.",
     "NIF export is excluded.",
     "External ontology acceptance is excluded.",
     "Stable URI review is pending."
   ],
-  "manifest_sha256": "deferred-public-endpoint-manifest",
+  "manifest_sha256": "sample-public-endpoint-manifest",
   "manifest_version": 1,
   "output_artifacts": [
     "samples/rdf-linked-data/linked-data.ttl",
@@ -55,14 +61,17 @@
     "samples/rdf-linked-data/README.md"
   ],
   "public_claim": {
-    "reason": "Validated component exports are not yet available for a public RDF/linked-data release, and stable URI review remains pending.",
+    "full_corpus_release": false,
+    "public_identifier_minting": false,
+    "reason": "Validated component exports are available for sample-linked-data output; the release is sample-only, stable URI review remains pending, and no public identifier minting claim is made.",
     "sample_only": true,
-    "status": "deferred"
+    "stable_uri_review_complete": false,
+    "status": "release-ready-sample-only"
   },
-  "publication_target": "public endpoint release package deferred",
+  "publication_target": "sample-scoped public endpoint release package",
   "release_level": "endpoint",
   "release_series_id": "rdf-linked-data-public-endpoint",
-  "release_status": "blocked-pending-validated-components",
+  "release_status": "release-ready-sample-public-endpoint",
   "repository": "corpus-nz-hansard",
   "source_hashes": {
     "model_metadata": "referenced-in-source-manifests",
@@ -99,7 +108,7 @@
   "validation_manifest": "manifests/rdf_linked_data_public_endpoint_validation.json",
   "validation_results": {
     "blocking_errors": 0,
-    "component_metadata_validated": false,
-    "readiness_status": "blocked-pending-validated-components"
+    "component_metadata_validated": true,
+    "readiness_status": "release-ready-sample-public-endpoint"
   }
 }
