@@ -1,0 +1,16 @@
+## Batch 1 Archive Summary
+Date: 2026-06-25
+
+Archived 10 completed release tracks from Active to Archived:
+1. corpus_wide_member_identity_release_20260610 - All tasks [x], evidence complete
+2. corpus_wide_party_attribution_release_20260610 - All tasks [x], evidence complete
+3. validated_speech_turn_component_release_20260610 - All tasks [x], evidence complete
+4. sitting_proceeding_component_release_20260610 - All tasks [x], evidence complete
+5. vote_motion_bill_question_extraction_release_20260610 - All tasks [x], evidence complete
+6. parlamint_nz_public_endpoint_release_20260610 - All tasks [x], evidence complete
+7. popolo_opencivicdata_public_endpoint_release_20260610 - All tasks [x], blocked on upstream
+8. akoma_ntoso_public_endpoint_release_20260610 - All tasks [x], blocked on upstream
+9. cap_parlacap_public_endpoint_release_20260610 - All tasks [x], blocked on upstream
+10. ud_conllu_public_endpoint_release_20260610 - All tasks [x], blocked on upstream
+
+Each track: metadata.json updated, entry moved to Archived Tracks in tracks.md.
