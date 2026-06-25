@@ -75,9 +75,7 @@ def _failures() -> list[str]:
     for parliament, expected_count in EXPECTED_COUNTS.items():
         count = len(members_by_parliament.get(parliament, []))
         if count != expected_count:
-            failures.append(
-                f"Parliament {parliament} has {count} rows; expected {expected_count}."
-            )
+            failures.append(f"Parliament {parliament} has {count} rows; expected {expected_count}.")
 
     source_articles = data.get("source_articles", {})
     if set(source_articles) != EXPECTED_PARLIAMENTS:
@@ -103,7 +101,9 @@ def _failures() -> list[str]:
         if not FETCHED_AT_RE.fullmatch(source.get("fetched_at", "")):
             failures.append(f"Parliament {parliament} source fetched_at must be UTC ISO seconds.")
         if not SHA256_RE.fullmatch(source.get("html_sha256", "")):
-            failures.append(f"Parliament {parliament} source html_sha256 must be a SHA-256 hex digest.")
+            failures.append(
+                f"Parliament {parliament} source html_sha256 must be a SHA-256 hex digest."
+            )
 
     if not FETCHED_AT_RE.fullmatch(data.get("fetched_at", "")):
         failures.append("Top-level fetched_at must be UTC ISO seconds.")

@@ -100,7 +100,6 @@ class FetchWikipediaMpsTests(unittest.TestCase):
             ],
         )
 
-
     def test_party_metadata_does_not_use_unrelated_substrings(self) -> None:
         cell_html = '<td data-mw="{&quot;action&quot;:&quot;view&quot;}">&nbsp;</td>'
 
