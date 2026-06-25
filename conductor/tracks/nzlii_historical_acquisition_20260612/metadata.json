@@ -1,7 +1,16 @@
 {
-  "track_id": "nzlii_historical_acquisition_20260612",
+  "artifacts": [
+    "manifests/nzlii_historical_acquisition_status.json",
+    "scripts/check_nzlii_historical_acquisition.py",
+    "tests/test_nzlii_historical_acquisition.py"
+  ],
+  "blocked_on": "external-permission-bulk-api-or-browser-backed-access",
+  "created_at": "2026-06-12T00:00:00+10:00",
+  "description": "Repo-side NZLII historical acquisition evidence is complete and deferred: direct HTTP targets, including robots.txt on the current recheck, return Cloudflare 403 challenge responses. Reopen only with permission, bulk/API access, or a verified browser-backed path.",
+  "release_status": "closed-deferred-external-access-required",
+  "status": "complete",
   "title": "NZLII Historical Acquisition",
-  "status": "deferred",
-  "created": "2026-06-12",
-  "description": "Access historical NZ parliamentary content from NZLII (1854-2008 bills)."
+  "track_id": "nzlii_historical_acquisition_20260612",
+  "type": "feature",
+  "updated_at": "2026-06-24T00:00:00+10:00"
 }

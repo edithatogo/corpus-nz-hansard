@@ -1,0 +1,57 @@
+{
+  "acquisition_status": "complete-deferred-cloudflare-challenge",
+  "artifact_name": "nzlii_historical_acquisition_status",
+  "authority_source_id": "nzlii-historical-bills",
+  "authority_source_registered": true,
+  "generated_at": "2026-06-24T00:00:00+10:00",
+  "live_recheck_date": "2026-06-24",
+  "next_actions": [
+    "Do not keep retrying direct HTTP acquisition while Cloudflare challenge responses persist.",
+    "Use HathiTrust and official parliamentary sources as preferred historical acquisition paths while NZLII remains Cloudflare-challenged.",
+    "Reopen only with permission, documented bulk/API access, or a verified browser-backed route."
+  ],
+  "release_status": "closed-deferred-external-access-required",
+  "repo_resolution": "complete-deferred",
+  "robots": {
+    "previous_content_signal": {
+      "ai_train_content_signal": "no",
+      "recorded_from_prior_recheck": true,
+      "search_content_signal": "yes"
+    },
+    "reachable": false,
+    "status": "blocked-403-cloudflare-challenge",
+    "url": "https://www.nzlii.org/robots.txt"
+  },
+  "targets": [
+    {
+      "evidence": "Cf-Mitigated: challenge; Server: cloudflare",
+      "http_status": 403,
+      "status": "blocked-403-cloudflare-challenge",
+      "url": "https://www.nzlii.org/nz/legis/hist_bill/"
+    },
+    {
+      "evidence": "Cf-Mitigated: challenge; Server: cloudflare",
+      "http_status": 403,
+      "status": "blocked-403-cloudflare-challenge",
+      "url": "https://www.nzlii.org/nz/other/nzparl/"
+    },
+    {
+      "evidence": "Cf-Mitigated: challenge; Server: cloudflare",
+      "http_status": 403,
+      "status": "blocked-403-cloudflare-challenge",
+      "url": "http://www.nzlii.org/nz/legis/hist_bill/"
+    },
+    {
+      "evidence": "Cf-Mitigated: challenge; Server: cloudflare on 2026-06-24 recheck",
+      "http_status": 403,
+      "status": "blocked-403-cloudflare-challenge",
+      "url": "https://www.nzlii.org/robots.txt"
+    }
+  ],
+  "track_id": "nzlii_historical_acquisition_20260612",
+  "unblock_requirements": [
+    "NZLII permission or documented bulk/API access path",
+    "verified browser-backed access route approved for collection-scale acquisition",
+    "alternate official or archive source that covers the same historical bills without bypassing access controls"
+  ]
+}

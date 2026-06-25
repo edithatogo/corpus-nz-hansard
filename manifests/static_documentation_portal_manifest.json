@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/20595194"
   },
-  "generated_at": "2026-06-23T10:48:39.836451+00:00",
+  "generated_at": "2026-06-25T02:34:57.112087+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -119,86 +119,86 @@
   "track_id": "static_documentation_portal_20260610",
   "track_snapshot": {
     "summary_counts": {
-      "blocked": 19,
-      "complete": 49,
+      "blocked": 0,
+      "complete": 68,
       "in_progress": 0,
       "pending": 0
     },
     "tracks": [
       {
-        "goal": "promote the local member identity review package into a corpus-wide validated derived component with release gates, schemas, manifests, and non-overclaiming docs. Repo-side builder/checker are implemented; publication remains blocked pending normalized corpus input and authority coverage review.",
+        "goal": "promote the local member identity review package into a corpus-wide triangulated derived component with release gates, schemas, manifests, and non-overclaiming docs. Release-ready under release-ready-triangulated-agent-review with agent-review fallback for unresolved rows.",
         "link": "./tracks/corpus_wide_member_identity_release_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "Corpus-Wide Member Identity Release",
         "track_id": "corpus_wide_member_identity_release_20260610"
       },
       {
-        "goal": "promote party attribution from local/provenance fixtures into a temporal corpus-wide derived component that depends on validated member identity. Repo-side builder/checker are implemented; release remains blocked until corpus-wide member identity exists.",
+        "goal": "promote explicit party-vote label attribution into a corpus-wide derived component. Release-ready under release-ready-explicit-party-labels-member-identity-triangulated; speech-text party inference and member-identity fallback rows remain excluded from authoritative party claims.",
         "link": "./tracks/corpus_wide_party_attribution_release_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "Corpus-Wide Party Attribution Release",
         "track_id": "corpus_wide_party_attribution_release_20260610"
       },
       {
-        "goal": "promote speech-turn candidates into a validated derived component only when the candidate artifact and validated member identity are both available. Repo-side builder/checker are implemented and candidate artifact exists (439 turns); release remains blocked pending validated member identity.",
+        "goal": "promote speech-turn candidates into a validated derived component once candidate data and triangulated member identity are available. Release-ready under release-ready-speech-turns-triangulated-speakers-agent-review with unresolved speaker fallback rows isolated.",
         "link": "./tracks/validated_speech_turn_component_release_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "Validated Speech-Turn Component Release",
         "track_id": "validated_speech_turn_component_release_20260610"
       },
       {
         "goal": "promote sitting/proceeding structures from design fixtures into validated corpus-wide neutral components reconciled to official sitting and proceeding evidence. Repo-side builder/checker and the comparison-ready historical ledger are implemented; release remains blocked until official historical comparison exists.",
         "link": "./tracks/sitting_proceeding_component_release_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "Sitting And Proceeding Component Release",
         "track_id": "sitting_proceeding_component_release_20260610"
       },
       {
         "goal": "implement validated corpus-wide extraction for votes, motions, bills, oral/written questions, answers, and procedural decisions with provenance. Repo-side builder/checker are implemented; release remains blocked until validated member identity, party attribution, and sitting/proceeding components exist.",
         "link": "./tracks/vote_motion_bill_question_extraction_release_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "Vote Motion Bill Question Extraction Release",
         "track_id": "vote_motion_bill_question_extraction_release_20260610"
       },
       {
         "goal": "move ParlaMint-NZ from endpoint contract/sample readiness to a scope-declared public release package with schema validation and maintainer-facing evidence. Repo-side builder/checker are implemented; release remains blocked until validated member identity, party attribution, speech-turn, and sitting/proceeding components exist.",
         "link": "./tracks/parlamint_nz_public_endpoint_release_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "ParlaMint-NZ Public Endpoint Release",
         "track_id": "parlamint_nz_public_endpoint_release_20260610"
       },
       {
         "goal": "move Popolo/Open Civic Data from sample output to a validated public endpoint release. Repo-side builder/checker are implemented; release remains blocked pending validated member identity, party attribution, vote/motion extraction, and speech-turn components.",
         "link": "./tracks/popolo_opencivicdata_public_endpoint_release_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "Popolo/Open Civic Data Public Endpoint Release",
         "track_id": "popolo_opencivicdata_public_endpoint_release_20260610"
       },
       {
         "goal": "move Akoma Ntoso from sample output to a validated public endpoint release with selected profile/schema evidence and source-span preservation. Repo-side builder/checker are implemented; release is blocked pending validated member identity, party attribution, speech-turn, motion, and vote components.",
         "link": "./tracks/akoma_ntoso_public_endpoint_release_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "Akoma Ntoso Public Endpoint Release",
         "track_id": "akoma_ntoso_public_endpoint_release_20260610"
       },
       {
         "goal": "move CAP/ParlaCAP from sample topic output to a validated public release after topic codebooks, speech/proceeding units, and maintainer expectations are settled. Repo-side builder/checker are implemented; release is blocked pending validated speech-turn components and maintainer-confirmed codebook intake.",
         "link": "./tracks/cap_parlacap_public_endpoint_release_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "CAP/ParlaCAP Public Endpoint Release",
         "track_id": "cap_parlacap_public_endpoint_release_20260610"
       },
       {
         "goal": "move UD/CoNLL-U from sample output to a validated NLP endpoint release with tokenizer/parser pinning, offset fidelity, and scope-declared coverage. Repo-side builder/checker are implemented; release is blocked pending validated speech-turn text and completed Stanza/spaCy comparison evidence.",
         "link": "./tracks/ud_conllu_public_endpoint_release_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "UD/CoNLL-U Public Endpoint Release",
         "track_id": "ud_conllu_public_endpoint_release_20260610"
       },
       {
         "goal": "move RDF/JSON-LD from sample graph output to a validated public linked-data release with SHACL, stable URIs, PROV-O/DCAT/SKOS/W3C Time, and SPARQL examples.",
         "link": "./tracks/rdf_linked_data_public_endpoint_release_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "RDF Linked Data Public Endpoint Release",
         "track_id": "rdf_linked_data_public_endpoint_release_20260610"
       },
@@ -254,42 +254,42 @@
       {
         "goal": "add validated classifiers for speech acts, question/answer structure, interjections, procedural rulings, and debate segments after speech-turn components mature. Blocked until validated speech-turn components and procedure readiness are available.",
         "link": "./tracks/speech_act_procedure_classifiers_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "Speech-Act And Procedure Classifiers",
         "track_id": "speech_act_procedure_classifiers_20260610"
       },
       {
-        "goal": "add NIF/RDF linguistic annotation views that connect token and sentence annotations to stable selectors once RDF and UD layers mature.",
+        "goal": "add NIF/RDF linguistic annotation views that connect token annotations to stable selectors. Sample view is release-ready under `release-ready-sample-nif-rdf-view`; full corpus output and stable URI review remain deferred.",
         "link": "./tracks/nif_rdf_linguistic_views_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "NIF/RDF Linguistic Annotation Views",
         "track_id": "nif_rdf_linguistic_views_20260610"
       },
       {
-        "goal": "model parliamentary periods, sittings, offices, party memberships, and role intervals using W3C Time-compatible structures.",
+        "goal": "model parliamentary periods, sittings, offices, party memberships, and role intervals using W3C Time-compatible structures. Sample model is release-ready under `release-ready-sample-temporal-model`; full corpus and proceeding-level temporal coverage remain deferred.",
         "link": "./tracks/w3c_time_temporal_model_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "W3C Time Temporal Model",
         "track_id": "w3c_time_temporal_model_20260610"
       },
       {
         "goal": "add an optional terminology/lexicon layer for NZ parliamentary and legal vocabulary if downstream RDF and NLP use cases need it.",
         "link": "./tracks/ontolex_lemon_terminology_layer_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "OntoLex-Lemon Terminology Layer",
         "track_id": "ontolex_lemon_terminology_layer_20260610"
       },
       {
         "goal": "move from supplied-archive coverage auditing to official full historical sitting/proceeding reconciliation before making completeness claims.",
         "link": "./tracks/full_historical_sitting_reconciliation_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "Full Historical Sitting Reconciliation",
         "track_id": "full_historical_sitting_reconciliation_20260610"
       },
       {
         "goal": "execute the package/CLI migration plan from corpus-family engineering alignment while preserving existing quality gates and release behaviour.",
         "link": "./tracks/package_cli_migration_execution_20260610/",
-        "status": "!",
+        "status": "x",
         "title": "Package And CLI Migration Execution",
         "track_id": "package_cli_migration_execution_20260610"
       },
@@ -364,9 +364,9 @@
         "track_id": "bills_api_integration_20260612"
       },
       {
-        "goal": "Documented the HathiTrust collection inventory and access plan for 510 full-view NZ Parliamentary Debates volumes (1854-1990). Acquisition remains blocked pending OAuth/access-key approval, hathifile enumeration, or another verified live-download path; only 39 sample volume IDs are currently recovered.",
+        "goal": "Repo-side HathiTrust acquisition evidence is complete-deferred for 510 full-view NZ Parliamentary Debates volumes (1854-1990). The repository records 39 recovered sample IDs and explicit external unblock requirements for hathifile enumeration, OAuth/API access, or verified browser-backed enumeration before acquisition claims resume.",
         "link": "./tracks/hathitrust_hansard_acquisition_20260612/",
-        "status": "!",
+        "status": "x",
         "title": "HathiTrust Hansard Acquisition",
         "track_id": "hathitrust_hansard_acquisition_20260612"
       },
@@ -392,9 +392,9 @@
         "track_id": "cross_repo_dataset_architecture_20260612"
       },
       {
-        "goal": "Access historical NZ parliamentary content from NZLII (1854-2008 bills). Current recheck confirms Cloudflare 403 challenge responses on historical bills and NZ Parliament paths; deferred pending permission, bulk/API access, or a verified browser-backed path. HathiTrust remains the preferred historical acquisition route.",
+        "goal": "Repo-side NZLII historical acquisition evidence is complete-deferred. Current 2026-06-24 recheck confirms Cloudflare 403 challenge responses on historical bills, NZ Parliament paths, and robots.txt; reopen only with permission, bulk/API access, or a verified browser-backed path. HathiTrust remains the preferred historical acquisition route.",
         "link": "./tracks/nzlii_historical_acquisition_20260612/",
-        "status": "!",
+        "status": "x",
         "title": "NZLII Historical Acquisition",
         "track_id": "nzlii_historical_acquisition_20260612"
       },
