@@ -1,0 +1,62 @@
+name: CI Learning Candidates
+
+on:
+  workflow_dispatch:
+    inputs:
+      workflow_name:
+        description: Workflow name to summarize
+        required: true
+        type: string
+      run_id:
+        description: GitHub Actions run id
+        required: true
+        type: string
+      run_url:
+        description: GitHub Actions run URL
+        required: true
+        type: string
+      actor:
+        description: Actor associated with the run
+        required: true
+        type: string
+      head_sha:
+        description: Head SHA associated with the run
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    env:
+      WORKFLOW_NAME: ${{ inputs.workflow_name }}
+      RUN_ID: ${{ inputs.run_id }}
+      RUN_URL: ${{ inputs.run_url }}
+      RUN_ACTOR: ${{ inputs.actor }}
+      HEAD_SHA: ${{ inputs.head_sha }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          persist-credentials: false
+
+      - name: Record CI failure candidate
+        run: |
+          python3 scripts/record_learning_candidate.py \
+            --backlog conductor/improvement-backlog.md \
+            --snapshot "conductor/.tmp/ci-learning-candidates-${RUN_ID}.md" \
+            --message "CI failure summary candidate for ${WORKFLOW_NAME}" \
+            --evidence "workflow=${WORKFLOW_NAME}" \
+            --evidence "run_id=${RUN_ID}" \
+            --evidence "run_url=${RUN_URL}" \
+            --evidence "actor=${RUN_ACTOR}" \
+            --evidence "head_sha=${HEAD_SHA}"
+
+      - name: Upload non-committing learning candidate artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: ci-learning-candidates-${{ inputs.run_id }}
+          path: conductor/.tmp/ci-learning-candidates-${{ inputs.run_id }}.md
