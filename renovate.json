@@ -2,72 +2,61 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    "schedule:weekly",
-    "group:allNonMajor",
-    ":semanticCommitTypeAll(chore)",
-    ":automergeMinor",
-    ":automergePr",
-    ":automergeRequireAllStatusChecks",
-    ":disableDependencyDashboard",
-    ":automergeBranch"
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":separateMajorReleases",
+    ":separateMultipleMajorReleases",
+    ":prHourlyLimitNone"
   ],
   "timezone": "Pacific/Auckland",
   "schedule": ["before 6am on Monday"],
-  "labels": ["dependencies", "automated"],
+  "labels": ["dependencies", "renovate"],
   "assignees": ["edithatogo"],
+  "dependencyDashboard": true,
+  "prConcurrentLimit": 5,
+  "rangeStrategy": "bump",
+  "rebaseWhen": "behind-base-branch",
+  "enabledManagers": [
+    "github-actions",
+    "pep621",
+    "pip_requirements",
+    "pixi"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 6am on Monday"]
+  },
   "packageRules": [
     {
-      "groupName": "All Dependencies (Auto-merge)",
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "automergeType": "branch",
-      "automergeStrategy": "fast-forward",
-      "commitMessagePrefix": "chore(deps):",
-      "labels": ["dependencies", "automated", "auto-merge"]
-    },
-    {
-      "groupName": "Major Dependencies (Require Review)",
-      "matchUpdateTypes": ["major"],
-      "automerge": false,
-      "commitMessagePrefix": "chore(deps)!: ",
-      "labels": ["dependencies", "major-update", "requires-review"]
-    },
-    {
-      "groupName": "GitHub Actions (Auto-merge)",
+      "description": "Keep GitHub Actions separate and pinned to immutable commits.",
       "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "automergeType": "branch",
-      "commitMessagePrefix": "chore(ci):",
-      "labels": ["dependencies", "github-actions", "automated", "auto-merge"]
+      "groupName": "github-actions",
+      "semanticCommitType": "ci",
+      "pinDigests": true,
+      "automerge": false,
+      "labels": ["dependencies", "github-actions", "security"]
     },
     {
-      "groupName": "Node.js (Auto-merge)",
-      "matchDatasources": ["node-version"],
+      "description": "Batch non-major Python and Pixi dependency updates for review.",
+      "matchManagers": ["pep621", "pip_requirements", "pixi"],
       "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true,
-      "automergeType": "branch",
-      "commitMessagePrefix": "chore(node):",
-      "labels": ["dependencies", "nodejs", "automated", "auto-merge"]
+      "groupName": "python-non-major",
+      "semanticCommitType": "build",
+      "automerge": false,
+      "labels": ["dependencies", "python", "pixi"]
+    },
+    {
+      "description": "Major dependency updates require isolated review.",
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true,
+      "separateMajorMinor": true,
+      "automerge": false,
+      "labels": ["dependencies", "major-update", "requires-review"]
     }
   ],
-  "npm": {
-    "minimumReleaseAge": "0 days",
-    "internalChecksFilter": "strict"
-  },
-  "github-actions": {
-    "enabled": true
-  },
-  "prConcurrentLimit": 0,
-  "prHourlyLimit": 0,
-  "rangeStrategy": "bump",
-  "separateMajorMinor": true,
-  "separateMultipleMajor": false,
-  "separateMinorPatch": true,
-  "stabilityDays": 0,
-  "dependencyDashboard": false,
-  "suppressNotifications": ["prEditedNotification", "prAutomergedNotification"],
-  "rebaseWhen": "behind-base-branch",
-  "platformAutomerge": true,
-  "ignoreTests": false
+  "ignorePaths": [
+    "derived/**",
+    "exports/**",
+    "data/**"
+  ]
 }

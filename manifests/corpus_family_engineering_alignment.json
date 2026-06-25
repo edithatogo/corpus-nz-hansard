@@ -83,8 +83,8 @@
     {
       "id": "renovate",
       "legislation_baseline": "renovate.json exists",
-      "hansard_current": "renovate.json exists for dependency automation policy alongside Dependabot",
-      "target": "keep Renovate grouped update policy isolated from protected publication jobs",
+      "hansard_current": "renovate.json is the single dependency automation policy; Dependabot is disabled",
+      "target": "keep Renovate grouped update policy isolated from protected publication jobs and release-affecting artifacts",
       "status": "adopted"
     },
     {

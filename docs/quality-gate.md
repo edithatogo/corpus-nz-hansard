@@ -94,4 +94,4 @@ pixi run mutation-smoke
 
 The Pixi `all` environment includes lightweight quality, AI-agent, JSON, XML-model, query, and search tooling. The `embeddings` environment is intentionally separate because it can install multi-gigabyte model/runtime wheels such as PyTorch; endpoint tracks must opt into it explicitly and record model/runtime evidence before producing release-affecting artifacts.
 
-Dependency automation currently uses Dependabot for GitHub Actions and pip manifests. Renovate remains deferred unless the repo adopts grouped package-manager policy that Dependabot cannot express.
+Dependency automation now uses Renovate as the single updater for GitHub Actions, Python manifests, and exact Pixi PyPI pins. Dependabot is disabled to avoid duplicate pull requests; Renovate keeps updates batched, dashboard-visible, and review-gated for major or release-affecting changes.
