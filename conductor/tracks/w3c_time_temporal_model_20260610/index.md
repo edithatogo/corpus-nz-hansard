@@ -2,21 +2,19 @@
 
 Track ID: `w3c_time_temporal_model_20260610`
 
-Status: blocked.
+Status: release-ready-sample-temporal-model.
 
 ## Goal
 
-Model parliamentary periods, sittings, offices, party memberships, and role
-intervals using W3C Time-compatible structures.
+Model parliamentary periods, sittings, offices, party memberships, and role intervals using W3C Time-compatible structures.
 
 ## Primary Artifacts
 
-- `spec.md`
-- `plan.md`
-- `evidence.md`
+- `manifests/w3c_time_temporal_model.json`
+- `samples/w3c-time-temporal-model/temporal-model.ttl`
+- `samples/w3c-time-temporal-model/temporal-model.json`
+- `docs/w3c-time-temporal-model.md`
 
-## Blocker
+## Boundary
 
-The model depends on temporal authority, sitting, proceeding, and RDF-linked
-data surfaces that are not yet release-ready enough to anchor a corpus-wide
-temporal schema.
+This release is sample-only and date-level. It is not full corpus temporal coverage, not full historical temporal coverage, and not proceeding-level temporal completeness.

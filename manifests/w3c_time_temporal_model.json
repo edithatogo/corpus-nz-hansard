@@ -1,0 +1,41 @@
+{
+  "counts": {
+    "date_level_reconciled_sittings": 29,
+    "reconciled_proceeding_items": 0,
+    "sample_instants": 1,
+    "sample_intervals": 1
+  },
+  "dependency_statuses": {
+    "rdf_linked_data_public_endpoint": "release-ready-sample-public-endpoint",
+    "sitting_proceeding_component": "release-ready-date-level-official-reconciliation-agent-review"
+  },
+  "generated_at": "2026-06-24T11:30:00.122960+00:00",
+  "manifest_version": 1,
+  "outputs": {
+    "json": "samples/w3c-time-temporal-model/temporal-model.json",
+    "readme": "samples/w3c-time-temporal-model/README.md",
+    "ttl": "samples/w3c-time-temporal-model/temporal-model.ttl"
+  },
+  "public_claim": {
+    "full_corpus_release": false,
+    "full_historical_temporal_coverage": false,
+    "proceeding_level_temporal_completeness": false,
+    "reason": "Sample W3C Time model covers a date-level sitting instant/interval only; full historical and proceeding-level temporal coverage remain deferred.",
+    "sample_only": true,
+    "status": "release-ready-sample-only"
+  },
+  "release_status": "release-ready-sample-temporal-model",
+  "repository": "corpus-nz-hansard",
+  "source_manifests": [
+    "manifests/sitting_proceeding_component_validation.json",
+    "manifests/rdf_linked_data_public_endpoint_validation.json"
+  ],
+  "status": "release-ready",
+  "track_id": "w3c_time_temporal_model_20260610",
+  "validation_results": {
+    "closed_interval_recorded": true,
+    "date_precision_recorded": true,
+    "dependencies_ready": true,
+    "non_claims_recorded": true
+  }
+}

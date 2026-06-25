@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "release_status": {
+      "const": "release-ready-sample-temporal-model"
+    },
+    "status": {
+      "const": "release-ready"
+    },
+    "track_id": {
+      "const": "w3c_time_temporal_model_20260610"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "track_id",
+    "status",
+    "release_status",
+    "counts",
+    "public_claim",
+    "validation_results"
+  ],
+  "type": "object"
+}

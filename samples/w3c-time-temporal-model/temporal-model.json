@@ -1,0 +1,28 @@
+{
+  "contexts": [
+    {
+      "date": "2024-06-25",
+      "id": "nzh:time/sitting-date-2024-06-25",
+      "precision": "date",
+      "source_component_id": "nzhc-component-0000000000000001",
+      "type": "time:Instant"
+    },
+    {
+      "begin": "nzh:time/sitting-date-2024-06-25",
+      "boundary": "closed-date-level",
+      "end": "nzh:time/sitting-date-2024-06-25",
+      "id": "nzh:time/sitting-day-2024-06-25",
+      "type": "time:Interval"
+    }
+  ],
+  "rules": {
+    "open_intervals": "allowed only when source evidence omits start or end",
+    "overlap_validation": "future corpus-wide check; sample has one closed date-level interval",
+    "precision": [
+      "date",
+      "month",
+      "year",
+      "unknown"
+    ]
+  }
+}

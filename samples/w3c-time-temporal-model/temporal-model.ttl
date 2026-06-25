@@ -1,0 +1,19 @@
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix nzh: <https://w3id.org/nz-hansard/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+nzh:temporal-model/sample a nzh:TemporalModel ;
+  nzh:sampleBoundary "sample-only; not full corpus temporal coverage" ;
+  prov:wasDerivedFrom nzh:component/sitting-proceeding-date-level-reconciliation .
+
+nzh:time/sitting-date-2024-06-25 a time:Instant ;
+  time:inXSDDate "2024-06-25"^^xsd:date ;
+  nzh:precision "date" ;
+  prov:wasDerivedFrom nzh:component/nzhc-component-0000000000000001 .
+
+nzh:time/sitting-day-2024-06-25 a time:Interval ;
+  time:hasBeginning nzh:time/sitting-date-2024-06-25 ;
+  time:hasEnd nzh:time/sitting-date-2024-06-25 ;
+  nzh:intervalBoundary "closed-date-level" ;
+  nzh:fullHistoricalCompleteness false .

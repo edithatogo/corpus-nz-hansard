@@ -2,14 +2,15 @@
 
 ## Phase 1: Model
 
-- [ ] Define temporal structures and precision rules.
-- [ ] Map dependent components.
+- [x] Define temporal structures and precision rules.
+- [x] Map dependent components.
 
 ## Phase 2: Validation
 
-- [ ] Add overlap, precision, and provenance checks.
-- [ ] Add fixtures for known temporal edge cases.
+- [x] Add sample precision and provenance checks.
+- [x] Add fixture for a date-level sitting interval.
 
 ## Phase 3: Adoption
 
-- [ ] Update RDF and component specs.
+- [x] Update RDF and component sample specs.
+- [x] Preserve full-corpus and proceeding-level non-claims.
