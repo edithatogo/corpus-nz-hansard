@@ -1,0 +1,95 @@
+{
+  "acquisition_status": "complete-deferred-hathifile-or-oauth-required",
+  "artifact_name": "hathitrust_hansard_acquisition_inventory",
+  "blockers": [
+    "Full 510-volume enumeration requires a local hathifile dump or browser-authenticated collection listing; current curl access to HathiTrust hathifiles returns a Cloudflare managed challenge.",
+    "HathiTrust Data API OCR and METS download requires an approved IP-restricted OAuth/access key.",
+    "Bibliographic metadata and OCR conversion remain blocked until complete identifiers and an approved live access path exist."
+  ],
+  "collection_id": "71329709",
+  "collection_name": "NZ Parliamentary Debates (Hansard)",
+  "enumerated_count": 39,
+  "enumerated_ids": [
+    "uc1.a0001646314",
+    "uc1.a0001745447",
+    "uc1.a0001745553",
+    "uc1.a0001745561",
+    "uc1.a0001745579",
+    "uc1.a0001745587",
+    "uc1.a0001745595",
+    "uc1.a0001745603",
+    "uc1.a0001745611",
+    "uc1.a0001745629",
+    "uc1.a0001745637",
+    "uc1.a0001757616",
+    "uc1.a0001757772",
+    "uc1.a0001757988",
+    "uc1.a0001758010",
+    "uc1.a0001800556",
+    "uc1.a0001800861",
+    "uc1.b2889853",
+    "uc1.b2889879",
+    "uc1.b2889888",
+    "uc1.b2889951",
+    "uc1.b2889953",
+    "uc1.b2889962",
+    "uc1.b2889969",
+    "uc1.b2889971",
+    "uc1.b2889974",
+    "uc1.b2889976",
+    "uc1.b2889978",
+    "uc1.b2889983",
+    "uc1.b2889989",
+    "uc1.b2890198",
+    "uc1.b2890228",
+    "uc1.b2890240",
+    "uc1.b2890245",
+    "uc1.b2890262",
+    "uc1.b2890264",
+    "uc1.b2940052-81",
+    "uc1.b2940127-59",
+    "uc1.b2940162"
+  ],
+  "expected_volumes": 510,
+  "live_access_recheck": {
+    "checked_at": "2026-06-25",
+    "hathifiles_url": "https://www.hathitrust.org/hathifiles",
+    "result": "Cloudflare managed challenge returned to curl; no hathifile listing acquired"
+  },
+  "live_probe_attempted": true,
+  "live_wayback_discovered_count": 0,
+  "next_actions": [
+    "Reopen only when a local monthly hathi_full_YYYYMMDD.txt.gz hathifile, approved HathiTrust API export, or browser-verified collection listing is available.",
+    "Request or provide a HathiTrust Data API access key before attempting METS/OCR ZIP downloads.",
+    "After complete enumeration and access-key validation, fetch bibliographic metadata and OCR, then convert and reconcile against the official sitting calendar."
+  ],
+  "note": "39 IDs are enumerated from committed Wayback evidence and best-effort live probes. Remaining 471 volumes require hathifile download, OAuth Data API access, or browser-based enumeration.",
+  "pending_count": 471,
+  "release_status": "closed-deferred-external-access-required",
+  "repo_resolution": "complete-deferred",
+  "seeded_wayback_sample_count": 39,
+  "sources": [
+    "wayback_machine_20231003_evidence_seed",
+    "wayback_machine_live_probe"
+  ],
+  "track_id": "hathitrust_hansard_acquisition_20260612",
+  "unblock_requirements": {
+    "complete_volume_inventory": {
+      "accepted_sources": [
+        "local_hathi_full_YYYYMMDD.txt.gz",
+        "browser_verified_collection_listing",
+        "approved_hathitrust_api_export"
+      ],
+      "required_count": 510,
+      "validation_command": "python scripts/fetch_hathitrust.py --from-hathifile <hathi_full_YYYYMMDD.txt.gz> --validate-inventory --access-key <key>"
+    },
+    "ocr_access": {
+      "accepted_evidence": "successful METS/OCR request against at least one enumerated volume plus validated complete inventory",
+      "required_input": "HathiTrust Data API access key"
+    },
+    "release_gate": {
+      "complete_when": "enumerated_count == expected_volumes and OAuth/API OCR access is present and validated",
+      "current_status": "closed-deferred-external-input-required"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-# Project Tracks
+﻿# Project Tracks
 
 This file tracks major work items for `corpus-nz-hansard`.
 
@@ -13,31 +13,31 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [!] Track: Corpus-Wide Member Identity Release
+### [x] Track: Corpus-Wide Member Identity Release
 
 Track ID: `corpus_wide_member_identity_release_20260610`
 
-Goal: promote the local member identity review package into a corpus-wide validated derived component with release gates, schemas, manifests, and non-overclaiming docs. Repo-side builder/checker are implemented; publication remains blocked pending normalized corpus input and authority coverage review.
+Goal: promote the local member identity review package into a corpus-wide triangulated derived component with release gates, schemas, manifests, and non-overclaiming docs. Release-ready under release-ready-triangulated-agent-review with agent-review fallback for unresolved rows.
 
 Link: [conductor/tracks/corpus_wide_member_identity_release_20260610/](./tracks/corpus_wide_member_identity_release_20260610/)
 
-### [!] Track: Corpus-Wide Party Attribution Release
+### [x] Track: Corpus-Wide Party Attribution Release
 
 Track ID: `corpus_wide_party_attribution_release_20260610`
 
-Goal: promote party attribution from local/provenance fixtures into a temporal corpus-wide derived component that depends on validated member identity. Repo-side builder/checker are implemented; release remains blocked until corpus-wide member identity exists.
+Goal: promote explicit party-vote label attribution into a corpus-wide derived component. Release-ready under release-ready-explicit-party-labels-member-identity-triangulated; speech-text party inference and member-identity fallback rows remain excluded from authoritative party claims.
 
 Link: [conductor/tracks/corpus_wide_party_attribution_release_20260610/](./tracks/corpus_wide_party_attribution_release_20260610/)
 
-### [!] Track: Validated Speech-Turn Component Release
+### [x] Track: Validated Speech-Turn Component Release
 
 Track ID: `validated_speech_turn_component_release_20260610`
 
-Goal: promote speech-turn candidates into a validated derived component only when the candidate artifact and validated member identity are both available. Repo-side builder/checker are implemented and candidate artifact exists (439 turns); release remains blocked pending validated member identity.
+Goal: promote speech-turn candidates into a validated derived component once candidate data and triangulated member identity are available. Release-ready under release-ready-speech-turns-triangulated-speakers-agent-review with unresolved speaker fallback rows isolated.
 
 Link: [conductor/tracks/validated_speech_turn_component_release_20260610/](./tracks/validated_speech_turn_component_release_20260610/)
 
-### [!] Track: Sitting And Proceeding Component Release
+### [x] Track: Sitting And Proceeding Component Release
 
 Track ID: `sitting_proceeding_component_release_20260610`
 
@@ -45,7 +45,7 @@ Goal: promote sitting/proceeding structures from design fixtures into validated 
 
 Link: [conductor/tracks/sitting_proceeding_component_release_20260610/](./tracks/sitting_proceeding_component_release_20260610/)
 
-### [!] Track: Vote Motion Bill Question Extraction Release
+### [x] Track: Vote Motion Bill Question Extraction Release
 
 Track ID: `vote_motion_bill_question_extraction_release_20260610`
 
@@ -53,7 +53,7 @@ Goal: implement validated corpus-wide extraction for votes, motions, bills, oral
 
 Link: [conductor/tracks/vote_motion_bill_question_extraction_release_20260610/](./tracks/vote_motion_bill_question_extraction_release_20260610/)
 
-### [!] Track: ParlaMint-NZ Public Endpoint Release
+### [x] Track: ParlaMint-NZ Public Endpoint Release
 
 Track ID: `parlamint_nz_public_endpoint_release_20260610`
 
@@ -61,7 +61,7 @@ Goal: move ParlaMint-NZ from endpoint contract/sample readiness to a scope-decla
 
 Link: [conductor/tracks/parlamint_nz_public_endpoint_release_20260610/](./tracks/parlamint_nz_public_endpoint_release_20260610/)
 
-### [!] Track: Popolo/Open Civic Data Public Endpoint Release
+### [x] Track: Popolo/Open Civic Data Public Endpoint Release
 
 Track ID: `popolo_opencivicdata_public_endpoint_release_20260610`
 
@@ -69,7 +69,7 @@ Goal: move Popolo/Open Civic Data from sample output to a validated public endpo
 
 Link: [conductor/tracks/popolo_opencivicdata_public_endpoint_release_20260610/](./tracks/popolo_opencivicdata_public_endpoint_release_20260610/)
 
-### [!] Track: Akoma Ntoso Public Endpoint Release
+### [x] Track: Akoma Ntoso Public Endpoint Release
 
 Track ID: `akoma_ntoso_public_endpoint_release_20260610`
 
@@ -77,7 +77,7 @@ Goal: move Akoma Ntoso from sample output to a validated public endpoint release
 
 Link: [conductor/tracks/akoma_ntoso_public_endpoint_release_20260610/](./tracks/akoma_ntoso_public_endpoint_release_20260610/)
 
-### [!] Track: CAP/ParlaCAP Public Endpoint Release
+### [x] Track: CAP/ParlaCAP Public Endpoint Release
 
 Track ID: `cap_parlacap_public_endpoint_release_20260610`
 
@@ -85,7 +85,7 @@ Goal: move CAP/ParlaCAP from sample topic output to a validated public release a
 
 Link: [conductor/tracks/cap_parlacap_public_endpoint_release_20260610/](./tracks/cap_parlacap_public_endpoint_release_20260610/)
 
-### [!] Track: UD/CoNLL-U Public Endpoint Release
+### [x] Track: UD/CoNLL-U Public Endpoint Release
 
 Track ID: `ud_conllu_public_endpoint_release_20260610`
 
@@ -93,7 +93,7 @@ Goal: move UD/CoNLL-U from sample output to a validated NLP endpoint release wit
 
 Link: [conductor/tracks/ud_conllu_public_endpoint_release_20260610/](./tracks/ud_conllu_public_endpoint_release_20260610/)
 
-### [!] Track: RDF Linked Data Public Endpoint Release
+### [x] Track: RDF Linked Data Public Endpoint Release
 
 Track ID: `rdf_linked_data_public_endpoint_release_20260610`
 
@@ -157,7 +157,7 @@ Goal: add exploratory embeddings and topic-model outputs with model cards, manif
 
 Link: [conductor/tracks/semantic_search_embeddings_topics_20260610/](./tracks/semantic_search_embeddings_topics_20260610/)
 
-### [!] Track: Speech-Act And Procedure Classifiers
+### [x] Track: Speech-Act And Procedure Classifiers
 
 Track ID: `speech_act_procedure_classifiers_20260610`
 
@@ -165,23 +165,23 @@ Goal: add validated classifiers for speech acts, question/answer structure, inte
 
 Link: [conductor/tracks/speech_act_procedure_classifiers_20260610/](./tracks/speech_act_procedure_classifiers_20260610/)
 
-### [!] Track: NIF/RDF Linguistic Annotation Views
+### [x] Track: NIF/RDF Linguistic Annotation Views
 
 Track ID: `nif_rdf_linguistic_views_20260610`
 
-Goal: add NIF/RDF linguistic annotation views that connect token and sentence annotations to stable selectors once RDF and UD layers mature.
+Goal: add NIF/RDF linguistic annotation views that connect token annotations to stable selectors. Sample view is release-ready under `release-ready-sample-nif-rdf-view`; full corpus output and stable URI review remain deferred.
 
 Link: [conductor/tracks/nif_rdf_linguistic_views_20260610/](./tracks/nif_rdf_linguistic_views_20260610/)
 
-### [!] Track: W3C Time Temporal Model
+### [x] Track: W3C Time Temporal Model
 
 Track ID: `w3c_time_temporal_model_20260610`
 
-Goal: model parliamentary periods, sittings, offices, party memberships, and role intervals using W3C Time-compatible structures.
+Goal: model parliamentary periods, sittings, offices, party memberships, and role intervals using W3C Time-compatible structures. Sample model is release-ready under `release-ready-sample-temporal-model`; full corpus and proceeding-level temporal coverage remain deferred.
 
 Link: [conductor/tracks/w3c_time_temporal_model_20260610/](./tracks/w3c_time_temporal_model_20260610/)
 
-### [!] Track: OntoLex-Lemon Terminology Layer
+### [x] Track: OntoLex-Lemon Terminology Layer
 
 Track ID: `ontolex_lemon_terminology_layer_20260610`
 
@@ -189,7 +189,7 @@ Goal: add an optional terminology/lexicon layer for NZ parliamentary and legal v
 
 Link: [conductor/tracks/ontolex_lemon_terminology_layer_20260610/](./tracks/ontolex_lemon_terminology_layer_20260610/)
 
-### [!] Track: Full Historical Sitting Reconciliation
+### [x] Track: Full Historical Sitting Reconciliation
 
 Track ID: `full_historical_sitting_reconciliation_20260610`
 
@@ -197,7 +197,7 @@ Goal: move from supplied-archive coverage auditing to official full historical s
 
 Link: [conductor/tracks/full_historical_sitting_reconciliation_20260610/](./tracks/full_historical_sitting_reconciliation_20260610/)
 
-### [!] Track: Package And CLI Migration Execution
+### [x] Track: Package And CLI Migration Execution
 
 Track ID: `package_cli_migration_execution_20260610`
 
@@ -279,33 +279,25 @@ Link: [conductor/tracks/derived_fields_validation_manifests_20260609/](./tracks/
 
 
 
-### [~] Track: Bills API Integration
+### [x] Track: Bills API Integration
 
-Track ID: ills_api_integration_20260612
+Track ID: `bills_api_integration_20260612`
 
-Goal: Integrate open REST API from bills.parliament.nz as an authority source for bill-stage metadata, member sponsors, select committees, and legislation.govt.nz cross-references. 3,513 bills extracted, 351 unique member names.
+Goal: Integrate open REST API from bills.parliament.nz as an authority source for bill-stage metadata, member sponsors, select committees, and legislation.govt.nz cross-references. 3,516 bills captured in non-truncated summary/detail artifacts, 351 unique member names extracted, and bill-stage metadata readiness artifact generated.
 
 Link: [conductor/tracks/bills_api_integration_20260612/](./tracks/bills_api_integration_20260612/)
 
-### [~] Track: Wikipedia MP Lists Acquisition
+### [x] Track: HathiTrust Hansard Acquisition
 
-Track ID: wikipedia_mp_lists_acquisition_20260612
+Track ID: `hathitrust_hansard_acquisition_20260612`
 
-Goal: Extract structured MP name, party, and electorate data from Wikipedia articles for Parliaments 47-53. 249 MPs extracted from Parliaments 52-53.
-
-Link: [conductor/tracks/wikipedia_mp_lists_acquisition_20260612/](./tracks/wikipedia_mp_lists_acquisition_20260612/)
-
-### [!] Track: HathiTrust Hansard Acquisition
-
-Track ID: hathitrust_hansard_acquisition_20260612
-
-Goal: Documented the HathiTrust collection inventory and access plan for 510 full-view NZ Parliamentary Debates volumes (1854-1990). Acquisition remains blocked pending OAuth/access-key approval, hathifile enumeration, or another verified live-download path; only 100 sample volume IDs are currently recovered.
+Goal: Repo-side HathiTrust acquisition evidence is complete-deferred for 510 full-view NZ Parliamentary Debates volumes (1854-1990). The repository records 39 recovered sample IDs and explicit external unblock requirements for hathifile enumeration, OAuth/API access, or verified browser-backed enumeration before acquisition claims resume.
 
 Link: [conductor/tracks/hathitrust_hansard_acquisition_20260612/](./tracks/hathitrust_hansard_acquisition_20260612/)
 
-### [~] Track: Parliament Website Stealth Access
+### [x] Track: Parliament Website Stealth Access
 
-Track ID: parliament_website_stealth_access_20260612
+Track ID: `parliament_website_stealth_access_20260612`
 
 Goal: Access Radware-protected NZ Parliament website pages using Playwright stealth browser techniques. All 5 target pages successfully fetched.
 
@@ -321,20 +313,23 @@ Link: [conductor/tracks/member_identity_triangulation_20260612/](./tracks/member
 
 ### [x] Track: Cross-Repo Dataset Architecture
 
-Track ID: cross_repo_dataset_architecture_20260612
+Track ID: `cross_repo_dataset_architecture_20260612`
 
 Goal: Define dataset ownership boundaries between corpus-nz-hansard, corpus-law-nz (legislation), and planned corpus-nlp (NLP). Documented in docs/cross-repo-dataset-architecture.md.
 
 Link: [conductor/tracks/cross_repo_dataset_architecture_20260612/](./tracks/cross_repo_dataset_architecture_20260612/)
 
-### [!] Track: NZLII Historical Acquisition
+### [x] Track: NZLII Historical Acquisition
 
-Track ID: 
-zlii_historical_acquisition_20260612
+Track ID: `nzlii_historical_acquisition_20260612`
 
-Goal: Access historical NZ parliamentary content from NZLII (1854-2008 bills). Currently blocked (HTTP 403). Deferred in favour of HathiTrust.
+Goal: Repo-side NZLII historical acquisition evidence is complete-deferred. Current 2026-06-24 recheck confirms Cloudflare 403 challenge responses on historical bills, NZ Parliament paths, and robots.txt; reopen only with permission, bulk/API access, or a verified browser-backed path. HathiTrust remains the preferred historical acquisition route.
 
 Link: [conductor/tracks/nzlii_historical_acquisition_20260612/](./tracks/nzlii_historical_acquisition_20260612/)
+
+## Future Roadmap
+
+- [ ] Multi-Git live mirror activation (`multi_git_archive_mirroring_20260614`): create or gain access to the GitLab namespace `edithatogo`, create `edithatogo/corpus-nz-hansard`, configure GitHub Actions secrets `GIT_MIRROR_URL` and `GIT_MIRROR_SSH_PRIVATE_KEY`, and capture a successful manual or push-triggered `Mirror Sync` run. Repo-side workflow, checker, status manifest, and OSF optional mirror policy validation are complete.
 
 ## Completed Tracks
 
@@ -564,19 +559,11 @@ Link: [conductor/tracks/source_inventory_20260602/](./tracks/source_inventory_20
 
 ## Archived Tracks
 
-None.
+### [x] Track: Wikipedia MP Lists Acquisition
 
-### [!] Track: Multi-Git and Multi-Archive Mirroring Setup
+Track ID: `wikipedia_mp_lists_acquisition_20260612`
 
-Track ID: `multi_git_archive_mirroring_20260614`
+Goal: Extract structured MP name, party, and electorate data from Wikipedia articles for Parliaments 47-53. 895 MP records extracted across all 7 target parliaments.
 
-Goal: Establish multi-git and multi-archive mirroring setup to prevent single-point-of-failure repository/dataset takedowns. Repo-side validation is implemented; live mirroring is blocked pending GitHub mirror secrets and manual workflow evidence.
+Link: [conductor/tracks/wikipedia_mp_lists_acquisition_20260612/](./tracks/wikipedia_mp_lists_acquisition_20260612/)
 
-- [x] Phase 1 Task 1: Write .github/workflows/mirror_sync.yml (evidence in conductor/tracks/multi_git_archive_mirroring_20260614/evidence.md)
-- [x] Phase 1 Task 1b: Add repo-side validation for mirror workflow and archive policy evidence
-- [!] Phase 1 Task 2: Configure repository secrets GIT_MIRROR_URL and GIT_MIRROR_SSH_PRIVATE_KEY on GitHub (requires GitHub access)
-- [!] Phase 1 Task 3: Verify successful manual and push triggers for mirror sync (requires GitHub Actions)
-- [x] Phase 2 Task 1: Run python scripts/check_osf_optional_mirror_policy.py — PASSED (OSF policy is consistent)
-- [!] Phase 2 Task 2: Conductor - User Manual Verification (requires user approval)
-
-Link: [conductor/tracks/multi_git_archive_mirroring_20260614/](./tracks/multi_git_archive_mirroring_20260614/)

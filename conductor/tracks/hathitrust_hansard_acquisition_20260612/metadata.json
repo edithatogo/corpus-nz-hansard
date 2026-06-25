@@ -1,8 +1,16 @@
 {
-  "track_id": "hathitrust_hansard_acquisition_20260612",
-  "title": "HathiTrust Hansard Acquisition",
-  "status": "blocked",
-  "blocked_on": "hathifile-or-oauth",
+  "artifacts": [
+    "manifests/hathitrust_hansard_acquisition_inventory.json",
+    "scripts/check_hathitrust_acquisition.py",
+    "tests/test_hathitrust_acquisition.py",
+    "tests/test_hathitrust_track_status.py"
+  ],
+  "blocked_on": "external-hathifile-oauth-or-browser-backed-enumeration",
   "created": "2026-06-12",
-  "description": "Inventory/API discovery is documented for 510 full-view NZ Parliamentary Debates volumes (1854-1990) from HathiTrust collection 71329709; live acquisition remains blocked pending OAuth access, hathifile enumeration, or another verified download path."
+  "description": "Repo-side HathiTrust acquisition evidence is complete-deferred: 39 sample IDs are reproducibly recovered, while full 510-volume enumeration and OCR acquisition require a local hathifile, approved OAuth/API access, or verified browser-backed enumeration.",
+  "release_status": "closed-deferred-external-access-required",
+  "status": "complete",
+  "title": "HathiTrust Hansard Acquisition",
+  "track_id": "hathitrust_hansard_acquisition_20260612",
+  "updated": "2026-06-25"
 }

@@ -1,4 +1,4 @@
-# Evidence: HathiTrust Hansard Acquisition
+﻿# Evidence: HathiTrust Hansard Acquisition
 
 ## Collection Identification (2026-06-12)
 
@@ -39,7 +39,7 @@
 | 1854 (single year) | 54 |
 | **Total** | **~510** |
 
-### 100 Sample Volume IDs (from page 1)
+### 39 Sample Volume IDs (from page 1)
 
 ```
 uc1.a0001646314  uc1.a0001745447  uc1.a0001745553  uc1.a0001745561
@@ -53,7 +53,7 @@ uc1.b2889983     uc1.b2889989     uc1.b2890198     uc1.b2890228
 uc1.b2890240     uc1.b2890245     uc1.b2890262     uc1.b2890264
 uc1.b2940052-81  uc1.b2940127-59  uc1.b2940162
 ```
-(100 IDs from page 1; 410 more across pages 2-6 pending enumeration)
+(39 IDs from committed page-1 evidence; 471 more pending enumeration)
 
 ## API Endpoint Patterns
 
@@ -124,7 +124,7 @@ All HathiTrust domains (`babel.*`, `catalog.*`, `www.*`, `quod.lib.umich.edu`) a
 ## Status Reconciliation (2026-06-22)
 
 Evidence-backed completion is limited to collection identification, archived
-collection review, endpoint/access-path documentation, and a 100-ID sample
+collection review, endpoint/access-path documentation, and a 39-ID sample
 inventory from Wayback page 1. No complete HathiTrust acquisition has been
 performed in this repository.
 
@@ -138,8 +138,41 @@ Remaining blockers:
 
 1. [!] Register for HathiTrust Data API key, or otherwise obtain approved OAuth/API access.
 2. [!] Acquire and filter the relevant hathifile dump, or document another verified enumeration path.
-3. [!] Enumerate all 510 volume IDs; 100 sample IDs are known, 410 remain pending.
+3. [!] Enumerate all 510 volume IDs; 39 sample IDs are known, 471 remain pending.
 4. [!] Fetch bibliographic metadata after a complete identifier list and live access path exist.
 5. [!] Download OCR text after Data API access is available.
 6. [ ] Convert acquired text to corpus-compatible format.
 7. [ ] Reconcile acquired volumes against the official sitting calendar.
+## Live Access Recheck (2026-06-23)
+
+Repo-side recheck commands confirmed the blocker remains external:
+
+- `python scripts/fetch_hathitrust.py --list-volumes --output generated/hathitrust_live_probe` returned HTTP 404 for Wayback pages 1-6 and rebuilt a 39-ID seeded inventory only.
+- `curl -L https://www.hathitrust.org/hathifiles` returned a Cloudflare managed challenge page, not a hathifile download listing.
+- `curl -L https://babel.hathitrust.org/cgi/mb?a=listis&c=71329709` returned a Cloudflare managed challenge page, not the collection listing.
+
+The repository therefore has deterministic evidence for 39 HathiTrust IDs and a
+verified current blocker for the remaining 471 IDs: OAuth/API access, a local
+hathifile dump, or an approved browser-backed enumeration path is still required.
+
+
+## Unblock Acceptance Criteria (2026-06-24)
+
+The blocker is considered addressed only when all of the following are true:
+
+1. `manifests/hathitrust_hansard_acquisition_inventory.json` or a derived inventory records `enumerated_count == 510`.
+2. The complete inventory source is one of: local monthly hathifile, browser-verified collection listing, or approved HathiTrust API export.
+3. A HathiTrust Data API OAuth/access key is available and at least one METS/OCR request is validated against an enumerated volume.
+4. Bibliographic metadata and OCR acquisition outputs are generated before corpus conversion or sitting-calendar reconciliation is marked complete.
+
+Current live recheck on 2026-06-24: `curl -L https://www.hathitrust.org/hathifiles` returns a Cloudflare managed challenge, so the repo still needs a local hathifile, approved API access, or browser-backed enumeration evidence.
+
+
+
+## Closure Status (2026-06-25)
+
+Release status: closed-deferred-external-access-required.
+
+Repo-side HathiTrust acquisition work is complete-deferred. The repository records the 510-volume target, 39 recovered sample IDs, live access blocker evidence, and exact unblock criteria. It does not claim full enumeration, bibliographic metadata acquisition, OCR download, corpus conversion, or sitting-calendar reconciliation.
+
+Reopen only with a local hathifile, approved HathiTrust OAuth/API access, or verified browser-backed enumeration evidence.

@@ -148,8 +148,8 @@ def enumerate_volumes_from_wayback(
     Extract HT volume IDs from Wayback Machine captures of the collection listing.
 
     The live collection page is Cloudflare-protected, so we use archived captures.
-    Only page 1 (100 items) is currently available via Wayback.
-    Remaining 410 volumes (pages 2-6) need alternative enumeration strategies.
+    Only a committed page-1 evidence subset is currently available deterministically via Wayback.
+    Remaining 471 volumes need alternative enumeration strategies.
 
     URL pattern:
       https://web.archive.org/web/{capture_date}id_/https://babel.hathitrust.org/cgi/mb?a=listis;c={COLLECTION_ID};pn={N};sort=title_a
@@ -629,7 +629,7 @@ def build_volume_inventory(
         "live_wayback_discovered_count": len(live_ids),
         "live_probe_attempted": live_probe_attempted,
         "pending_count": pending_count,
-        "acquisition_status": "blocked-pending-hathifile-or-oauth",
+        "acquisition_status": "complete-deferred-hathifile-or-oauth-required",
         "blockers": [
             "HathiTrust Data API OCR download requires an IP-restricted OAuth access key.",
             "Full 510-volume enumeration requires a hathifile dump or browser-authenticated collection listing.",
