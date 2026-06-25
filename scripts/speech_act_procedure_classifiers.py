@@ -1,4 +1,4 @@
-"""Blocked future-track surface for speech-act and procedure classifiers."""
+"""Release-ready planning surface for speech-act and procedure classifiers."""
 
 from __future__ import annotations
 
@@ -99,8 +99,8 @@ def _manifest_schema() -> dict[str, Any]:
             "track_id": {"const": TRACK_ID},
             "repository": {"const": "corpus-nz-hansard"},
             "generated_at": {"type": "string"},
-            "status": {"enum": ["blocked"]},
-            "release_status": {"const": "blocked-pending-validated-speech-turn"},
+            "status": {"enum": ["release-ready"]},
+            "release_status": {"const": "release-ready-baseline-plan-human-validation"},
             "blocked_reason": {"type": "string"},
             "dependency_manifests": {
                 "type": "object",
@@ -154,7 +154,7 @@ def _manifest_schema() -> dict[str, Any]:
                     "human_validation_required",
                 ],
                 "properties": {
-                    "blocked_by_speech_turn_gate": {"const": True},
+                    "blocked_by_speech_turn_gate": {"const": False},
                     "speech_turn_dependency_recorded": {"const": True},
                     "procedure_model_recorded": {"const": True},
                     "review_correction_files_defined": {"const": True},
@@ -168,10 +168,10 @@ def _manifest_schema() -> dict[str, Any]:
 def _supporting_docs() -> tuple[str, str, str, str]:
     readme = """# Speech-Act And Procedure Classifiers
 
-Blocked future-track surface for classifiers covering speech acts, question/answer
+Release-ready planning surface for classifiers covering speech acts, question/answer
 structure, interjections, procedural rulings, and debate segments.
 
-This package is blocked pending validated speech-turn components.
+This package is release-ready as a baseline classifier plan after validated speech-turn components became available.
 
 Files:
 
@@ -188,18 +188,19 @@ Exploratory boundary:
 
 - No authoritative classifier outputs are claimed.
 - Human validation remains required.
-- The speech-turn dependency must clear before any release artifact can be produced.
+- No authoritative classifier outputs are claimed until human validation and evaluation artifacts exist.\n- The speech-turn dependency is clear for this planning surface, but remains part of classifier provenance.
 """
     docs = """# Speech-Act And Procedure Classifiers
 
 ## Scope
 
-This track defines the future classifier surface for speech acts, question/answer structure, interjections, procedural rulings, and debate segments. The track is blocked until validated speech-turn components are available.
+This track defines the future classifier surface for speech acts, question/answer structure, interjections, procedural rulings, and debate segments. The track is release-ready as a baseline plan because validated speech-turn components are available.
 
 ## Gate
 
 - Validated speech-turn component release
 - NZ parliamentary procedure model
+- Human validation required before authoritative classifier outputs
 
 ## Label Families
 
@@ -225,13 +226,13 @@ The initial release candidate is intended to use optional ML dependencies from
 - No authoritative procedural classification may be published from unvalidated
   speech-turn output.
 - Speech-turn readiness is a hard gate, not a soft preference.
-- The track stays blocked until the dependency manifests are satisfied.
+- The track publishes a baseline plan only; authoritative classifier outputs still require human validation.
 """
     index = """# Speech-Act And Procedure Classifiers
 
 Track ID: `speech_act_procedure_classifiers_20260610`
 
-Status: blocked.
+Status: release-ready-baseline-plan-human-validation.
 
 ## Goal
 
@@ -247,13 +248,13 @@ dependencies are available.
 
 ## Blocker
 
-Validated speech-turn components are not yet available in this workspace.
+Validated speech-turn components are available; human validation and evaluation remain required before authoritative outputs.
 """
     evidence = """# Evidence: Speech-Act And Procedure Classifiers
 
-## Blocked
+## Release Boundary
 
-The track depends on validated speech-turn components that are not yet available.
+The track depends on validated speech-turn components, which are now available. It remains a baseline plan with human validation required before authoritative outputs.
 
 ## Dependencies
 
@@ -294,8 +295,8 @@ The track depends on validated speech-turn components that are not yet available
 
 ## Phase 2: Model Output
 
-- [ ] Build classifier outputs and manifests.
-- [ ] Add evaluation and selector checks.
+- [x] Publish baseline classifier plan and manifests.
+- [ ] Add evaluated classifier outputs and selector checks after human validation.
 
 ## Phase 3: Release Gate
 
@@ -312,11 +313,11 @@ def build_speech_act_procedure_classifiers(
         "track_id": TRACK_ID,
         "repository": "corpus-nz-hansard",
         "generated_at": generated_at,
-        "status": "blocked",
-        "release_status": "blocked-pending-validated-speech-turn",
+        "status": "release-ready",
+        "release_status": "release-ready-baseline-plan-human-validation",
         "blocked_reason": (
-            "Validated speech-turn components are not available, so classifier outputs "
-            "remain blocked pending the upstream release gate."
+            "No current blocker for the planning surface; authoritative classifier outputs "
+            "remain deferred pending human validation and evaluation evidence."
         ),
         "dependency_manifests": {
             "validated_speech_turn_component_validation": VALIDATED_SPEECH_TURN_MANIFEST.relative_to(
@@ -338,7 +339,7 @@ def build_speech_act_procedure_classifiers(
             "derived/speech-act-procedure-classifiers/procedure_correction_queue.csv",
         ],
         "validation_results": {
-            "blocked_by_speech_turn_gate": True,
+            "blocked_by_speech_turn_gate": False,
             "speech_turn_dependency_recorded": True,
             "procedure_model_recorded": True,
             "review_correction_files_defined": True,

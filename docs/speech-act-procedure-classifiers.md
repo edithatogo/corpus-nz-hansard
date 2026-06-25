@@ -2,12 +2,13 @@
 
 ## Scope
 
-This track defines the future classifier surface for speech acts, question/answer structure, interjections, procedural rulings, and debate segments. The track is blocked until validated speech-turn components are available.
+This track defines the future classifier surface for speech acts, question/answer structure, interjections, procedural rulings, and debate segments. The track is release-ready as a baseline plan because validated speech-turn components are available.
 
 ## Gate
 
 - Validated speech-turn component release
 - NZ parliamentary procedure model
+- Human validation required before authoritative classifier outputs
 
 ## Label Families
 
@@ -33,4 +34,4 @@ The initial release candidate is intended to use optional ML dependencies from
 - No authoritative procedural classification may be published from unvalidated
   speech-turn output.
 - Speech-turn readiness is a hard gate, not a soft preference.
-- The track stays blocked until the dependency manifests are satisfied.
+- The track publishes a baseline plan only; authoritative classifier outputs still require human validation.

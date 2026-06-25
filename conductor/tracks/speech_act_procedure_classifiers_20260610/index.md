@@ -2,7 +2,7 @@
 
 Track ID: `speech_act_procedure_classifiers_20260610`
 
-Status: blocked.
+Status: release-ready-baseline-plan-human-validation.
 
 ## Goal
 
@@ -18,4 +18,4 @@ dependencies are available.
 
 ## Blocker
 
-Validated speech-turn components are not yet available in this workspace.
+Validated speech-turn components are available; human validation and evaluation remain required before authoritative outputs.

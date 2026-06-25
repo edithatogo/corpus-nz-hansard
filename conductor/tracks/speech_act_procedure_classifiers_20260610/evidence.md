@@ -1,8 +1,8 @@
 # Evidence: Speech-Act And Procedure Classifiers
 
-## Blocked
+## Release Boundary
 
-The track depends on validated speech-turn components that are not yet available.
+The track depends on validated speech-turn components, which are now available. It remains a baseline plan with human validation required before authoritative outputs.
 
 ## Dependencies
 

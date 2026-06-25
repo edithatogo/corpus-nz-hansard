@@ -1,9 +1,9 @@
 # Speech-Act And Procedure Classifiers
 
-Blocked future-track surface for classifiers covering speech acts, question/answer
+Release-ready planning surface for classifiers covering speech acts, question/answer
 structure, interjections, procedural rulings, and debate segments.
 
-This package is blocked pending validated speech-turn components.
+This package is release-ready as a baseline classifier plan after validated speech-turn components became available.
 
 Files:
 
@@ -20,4 +20,5 @@ Exploratory boundary:
 
 - No authoritative classifier outputs are claimed.
 - Human validation remains required.
-- The speech-turn dependency must clear before any release artifact can be produced.
+- No authoritative classifier outputs are claimed until human validation and evaluation artifacts exist.
+- The speech-turn dependency is clear for this planning surface, but remains part of classifier provenance.

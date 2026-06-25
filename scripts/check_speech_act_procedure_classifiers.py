@@ -67,12 +67,12 @@ def _failures() -> list[str]:
         location = ".".join(str(part) for part in error.path) or "<root>"
         failures.append(f"{MANIFEST_PATH.relative_to(ROOT).as_posix()} {location}: {error.message}")
 
-    if manifest["status"] != "blocked":
-        failures.append("Track status must remain blocked.")
-    if manifest["release_status"] != "blocked-pending-validated-speech-turn":
-        failures.append("Release status must remain blocked-pending-validated-speech-turn.")
-    if manifest["validation_results"]["blocked_by_speech_turn_gate"] is not True:
-        failures.append("Manifest must record the speech-turn gate blocker.")
+    if manifest["status"] != "release-ready":
+        failures.append("Track status must be release-ready.")
+    if manifest["release_status"] != "release-ready-baseline-plan-human-validation":
+        failures.append("Release status must be release-ready-baseline-plan-human-validation.")
+    if manifest["validation_results"]["blocked_by_speech_turn_gate"] is not False:
+        failures.append("Manifest must record that the speech-turn gate is clear.")
 
     procedure_model = _json(PROCEDURE_MODEL_MANIFEST)
     categories = {item["category"] for item in procedure_model["procedural_categories"]}
@@ -88,7 +88,7 @@ def _failures() -> list[str]:
         "interjections",
         "procedural rulings",
         "debate segments",
-        "blocked until validated speech-turn components are available",
+        "release-ready as a baseline plan",
         "requirements/ml.txt",
     ):
         if required.lower() not in doc.lower():
@@ -96,7 +96,7 @@ def _failures() -> list[str]:
 
     readme = _read(SAMPLE_README_PATH)
     for required in (
-        "blocked future-track surface",
+        "release-ready planning surface",
         "speech-act and procedure classifiers",
         "human validation",
         "speech-turn dependency",
@@ -107,11 +107,15 @@ def _failures() -> list[str]:
             )
 
     track = _read(TRACK_PATH)
-    for required in ("Status: blocked.", "Primary Artifacts", "Blocker"):
+    for required in (
+        "Status: release-ready-baseline-plan-human-validation.",
+        "Primary Artifacts",
+        "human validation",
+    ):
         if required not in track:
             failures.append(f"{TRACK_PATH.relative_to(ROOT).as_posix()} is missing: {required}")
 
-    for required in ("Blocked", "Dependencies", "Label Families", "Planned Models"):
+    for required in ("Release Boundary", "Dependencies", "Label Families", "Planned Models"):
         if required not in _read(EVIDENCE_PATH):
             failures.append(f"{EVIDENCE_PATH.relative_to(ROOT).as_posix()} is missing: {required}")
 

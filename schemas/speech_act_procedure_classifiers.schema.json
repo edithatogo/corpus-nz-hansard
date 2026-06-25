@@ -81,7 +81,7 @@
       "type": "array"
     },
     "release_status": {
-      "const": "blocked-pending-validated-speech-turn"
+      "const": "release-ready-baseline-plan-human-validation"
     },
     "repository": {
       "const": "corpus-nz-hansard"
@@ -100,7 +100,7 @@
     },
     "status": {
       "enum": [
-        "blocked"
+        "release-ready"
       ]
     },
     "track_id": {
@@ -110,7 +110,7 @@
       "additionalProperties": false,
       "properties": {
         "blocked_by_speech_turn_gate": {
-          "const": true
+          "const": false
         },
         "human_validation_required": {
           "const": true
