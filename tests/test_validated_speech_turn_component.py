@@ -19,7 +19,7 @@ class ValidatedSpeechTurnComponentTests(unittest.TestCase):
     def test_checker_passes_for_repo_gate(self) -> None:
         self.assertEqual(_failures(), [])
 
-    def test_builder_emits_blocked_rows_for_candidate_artifact(self) -> None:
+    def test_builder_promotes_resolved_candidate_artifact_with_fallback_queue(self) -> None:
         tmp = repo_tmp_dir() / "validated-speech-turn"
         tmp.mkdir(parents=True, exist_ok=True)
         candidate_path = tmp / "hansard_speech_turns.parquet"
@@ -37,7 +37,7 @@ class ValidatedSpeechTurnComponentTests(unittest.TestCase):
                     "source_file": "Hansard-test.csv",
                     "source_row_number": 1,
                     "turn_index": 1,
-                    "speaker_candidate": "RODNEY HIDE",
+                    "speaker_candidate": "Rodney Hide",
                     "speech_text": "Yes.",
                     "confidence": "medium",
                     "method": "tab_colon_marker_v1",
@@ -50,7 +50,7 @@ class ValidatedSpeechTurnComponentTests(unittest.TestCase):
                     "source_file": "Hansard-test.csv",
                     "source_row_number": 2,
                     "turn_index": 1,
-                    "speaker_candidate": "Hon Roger Sowry",
+                    "speaker_candidate": "Unmatched Speaker",
                     "speech_text": "I raise a point of order Mr Speaker.",
                     "confidence": "medium",
                     "method": "tab_colon_marker_v1",
@@ -69,10 +69,11 @@ class ValidatedSpeechTurnComponentTests(unittest.TestCase):
         )
 
         self.assertEqual(
-            manifest["release_gate_status"], "blocked-pending-validated-member-identity"
+            manifest["release_gate_status"],
+            "release-ready-speech-turns-triangulated-speakers-agent-review",
         )
         self.assertEqual(manifest["counts"]["validated_rows"], 2)
-        self.assertEqual(manifest["counts"]["review_queue_rows"], 2)
+        self.assertEqual(manifest["counts"]["review_queue_rows"], 1)
         with output_path.open("rb") as handle:
             table = pq.read_table(handle)
         self.assertEqual(list(table.column_names), OUTPUT_COLUMNS)
@@ -80,9 +81,7 @@ class ValidatedSpeechTurnComponentTests(unittest.TestCase):
         with review_queue_path.open(encoding="utf-8", newline="") as handle:
             rows = list(csv.DictReader(handle))
         self.assertEqual(list(rows[0]), REVIEW_QUEUE_COLUMNS)
-        self.assertEqual(
-            rows[0]["speaker_identity_status"], "blocked-pending-validated-member-identity"
-        )
+        self.assertEqual(rows[0]["speaker_identity_status"], "unresolved")
 
 
 if __name__ == "__main__":

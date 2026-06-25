@@ -130,26 +130,47 @@ def _neutral_fixtures() -> dict[str, list[dict[str, Any]]]:
     return _read_json(NEUTRAL_FIXTURES_PATH)["components"]
 
 
-def _coverage_payload(review_rows: list[dict[str, Any]], reason: str) -> dict[str, Any]:
+def _dependency_release_statuses() -> dict[str, str]:
+    return {
+        "validated_member_identity": _read_json(MEMBER_IDENTITY_VALIDATION_PATH).get(
+            "release_gate_status", ""
+        ),
+        "validated_party_attribution": _read_json(PARTY_ATTRIBUTION_VALIDATION_PATH).get(
+            "release_gate_status", ""
+        ),
+        "validated_sitting_proceeding": _read_json(SITTING_PROCEEDING_VALIDATION_PATH).get(
+            "release_gate_status", ""
+        ),
+    }
+
+
+def _dependencies_ready(statuses: dict[str, str]) -> bool:
+    return statuses == {
+        "validated_member_identity": "release-ready-triangulated-agent-review",
+        "validated_party_attribution": "release-ready-explicit-party-labels-member-identity-triangulated",
+        "validated_sitting_proceeding": "release-ready-date-level-official-reconciliation-agent-review",
+    }
+
+
+def _coverage_payload(
+    review_rows: list[dict[str, Any]], reason: str, dependency_statuses: dict[str, str]
+) -> dict[str, Any]:
     procedure_samples = _procedure_samples()
     neutral_components = _neutral_fixtures()
     vote_domain_counts = gold_sample_counts("vote")
+    extractable_samples = [
+        row for row in review_rows if row["extraction_status"] == "validated-fixture-extraction"
+    ]
     return {
         "artifact_name": "vote_motion_bill_question_extraction_coverage",
         "artifact_version": "0.1.0",
         "generated_at": datetime.now(UTC).isoformat(),
         "track_id": TRACK_ID,
-        "status": "blocked",
+        "status": "release-ready-fixture-reviewed-extraction-agent-review",
         "reason": reason,
         "sample_counts": {
             "procedure_samples_reviewed": len(procedure_samples),
-            "extractable_samples": len(
-                [
-                    row
-                    for row in review_rows
-                    if row["extraction_status"] == "blocked-pending-validated-components"
-                ]
-            ),
+            "validated_fixture_extractions": len(extractable_samples),
             "excluded_boundary_samples": len(
                 [row for row in review_rows if row["extraction_status"] == "excluded-by-design"]
             ),
@@ -176,14 +197,11 @@ def _coverage_payload(review_rows: list[dict[str, Any]], reason: str) -> dict[st
             "bills": len(neutral_components.get("bills", [])),
         },
         "gold_vote_domain": vote_domain_counts,
-        "blocked_dependencies": [
-            "validated_member_identity",
-            "validated_party_attribution",
-            "validated_sitting_proceeding",
-        ],
+        "dependency_statuses": dependency_statuses,
+        "blocked_dependencies": [],
         "warnings": [
-            "Procedure samples are reviewed boundary fixtures, not published extraction outputs.",
-            "Vote and question extraction remains blocked until the dependent component releases are validated.",
+            "Procedure samples are reviewed fixture extractions, not corpus-wide extraction outputs.",
+            "Interjection remains excluded-by-design and non-extractable.",
         ],
     }
 
@@ -199,10 +217,14 @@ def build_vote_motion_bill_question_extraction(
     rendered_coverage_path = coverage_path or DEFAULT_COVERAGE
     rendered_review_path = review_path or DEFAULT_REVIEW
     samples = _procedure_samples()
+    dependency_statuses = _dependency_release_statuses()
+    dependencies_ready = _dependencies_ready(dependency_statuses)
     reason = (
-        "Validated member identity, validated party attribution, and validated sitting/proceeding "
-        "components are not yet all available for release."
+        "Validated member identity, party attribution, and date-level sitting/proceeding components are available; "
+        "the release is limited to reviewed fixture extractions and does not claim corpus-wide extraction completeness."
     )
+    if not dependencies_ready:
+        reason = "Dependent component release gates are not all ready."
     review_rows = []
     for sample in samples:
         review_rows.append(
@@ -215,7 +237,11 @@ def build_vote_motion_bill_question_extraction(
                 "extraction_status": (
                     "excluded-by-design"
                     if sample["category"] == "interjection"
-                    else "blocked-pending-validated-components"
+                    else (
+                        "validated-fixture-extraction"
+                        if dependencies_ready
+                        else "blocked-pending-validated-components"
+                    )
                 ),
                 "dependency_blockers": _dependency_blockers(sample["category"]),
                 "authority_source_ids": ";".join(sample["authority_source_ids"]),
@@ -225,7 +251,7 @@ def build_vote_motion_bill_question_extraction(
             }
         )
 
-    coverage = _coverage_payload(review_rows, reason)
+    coverage = _coverage_payload(review_rows, reason, dependency_statuses)
     if coverage_path is not None:
         _write_json(coverage_path, coverage)
     if review_path is not None:
@@ -235,9 +261,13 @@ def build_vote_motion_bill_question_extraction(
         "artifact_name": "vote_motion_bill_question_extraction_validation",
         "artifact_version": "0.1.0",
         "generated_at": generated_at,
-        "ok": False,
-        "validation_status": "blocked",
-        "release_gate_status": "blocked-pending-validated-components",
+        "ok": dependencies_ready,
+        "validation_status": "ok" if dependencies_ready else "blocked",
+        "release_gate_status": (
+            "release-ready-fixture-reviewed-extraction-agent-review"
+            if dependencies_ready
+            else "blocked-pending-validated-components"
+        ),
         "track_id": TRACK_ID,
         "counts": {
             "procedure_samples_reviewed": len(samples),
@@ -251,7 +281,13 @@ def build_vote_motion_bill_question_extraction(
             "boundary_samples": len(
                 [row for row in review_rows if row["extraction_family"] == "excluded_boundary"]
             ),
-            "validated_rows": 0,
+            "validated_rows": len(
+                [
+                    row
+                    for row in review_rows
+                    if row["extraction_status"] == "validated-fixture-extraction"
+                ]
+            ),
             "blocked_rows": len(
                 [
                     row
@@ -267,10 +303,10 @@ def build_vote_motion_bill_question_extraction(
             "neutral_vote_rows": len(_neutral_fixtures().get("votes", [])),
             "neutral_bill_rows": len(_neutral_fixtures().get("bills", [])),
         },
-        "errors": [reason],
+        "errors": [] if dependencies_ready else [reason],
         "warnings": [
-            "Procedure sample rows are reviewed boundary evidence, not a published extraction release.",
-            "Vote, motion, bill, and question claims remain blocked until the dependent component releases are validated.",
+            "Procedure sample rows are reviewed fixture extraction evidence, not a corpus-wide extraction release.",
+            "Vote, motion, bill, and question claims remain bounded by authority sources, uncertainty status, and upstream component gates.",
         ],
         "source_hashes": {
             "neutral_component_model": _sha256_path(NEUTRAL_MODEL_PATH),
@@ -331,10 +367,15 @@ def build_vote_motion_bill_question_extraction(
             "review_queue": _render_path(rendered_review_path),
         },
         "coverage": coverage,
+        "dependency_statuses": dependency_statuses,
         "release_decision": {
-            "decision": "defer",
+            "decision": "release" if dependencies_ready else "defer",
             "reason": reason,
-            "public_claim": "No validated vote/motion/bill/question extraction release is published from this blocked manifest.",
+            "public_claim": (
+                "Reviewed fixture extractions for votes, questions, and procedural decisions are release-ready; interjection remains excluded-by-design and this is not a corpus-wide extraction completeness claim."
+                if dependencies_ready
+                else "No validated vote/motion/bill/question extraction release is published from this blocked manifest."
+            ),
         },
     }
     if manifest_path is not None:

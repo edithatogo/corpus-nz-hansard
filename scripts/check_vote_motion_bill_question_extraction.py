@@ -94,12 +94,14 @@ def _failures() -> list[str]:
 
     if manifest["artifact_name"] != "vote_motion_bill_question_extraction_validation":
         failures.append("artifact_name must be vote_motion_bill_question_extraction_validation.")
-    if manifest["validation_status"] != "blocked":
-        failures.append("validation_status must be blocked.")
-    if manifest["release_gate_status"] != "blocked-pending-validated-components":
-        failures.append("release_gate_status must be blocked-pending-validated-components.")
-    if manifest["ok"] is not False:
-        failures.append("ok must be false.")
+    if manifest["validation_status"] != "ok":
+        failures.append("validation_status must be ok.")
+    if manifest["release_gate_status"] != "release-ready-fixture-reviewed-extraction-agent-review":
+        failures.append(
+            "release_gate_status must be release-ready-fixture-reviewed-extraction-agent-review."
+        )
+    if manifest["ok"] is not True:
+        failures.append("ok must be true.")
 
     counts = manifest["counts"]
     if counts.get("procedure_samples_reviewed") != 6:
@@ -112,12 +114,12 @@ def _failures() -> list[str]:
         failures.append("procedural_decision_samples must be 2.")
     if counts.get("boundary_samples") != 1:
         failures.append("boundary_samples must be 1.")
-    if counts.get("validated_rows") != 0:
-        failures.append("validated_rows must be 0.")
+    if counts.get("validated_rows") != 5:
+        failures.append("validated_rows must be 5.")
     if counts.get("review_rows") != 6:
         failures.append("review_rows must be 6.")
-    if counts.get("blocked_rows") != 5:
-        failures.append("blocked_rows must be 5.")
+    if counts.get("blocked_rows") != 0:
+        failures.append("blocked_rows must be 0.")
     if counts.get("excluded_rows") != 1:
         failures.append("excluded_rows must be 1.")
 
@@ -131,24 +133,42 @@ def _failures() -> list[str]:
         failures.append("review queue rows must preserve review status.")
     if review_rows[-1]["extraction_status"] != "excluded-by-design":
         failures.append("interjection boundary row must be excluded-by-design.")
+    if any(
+        row["extraction_status"] != "validated-fixture-extraction"
+        for row in review_rows
+        if row["category"] != "interjection"
+    ):
+        failures.append("extractable procedure rows must be validated-fixture-extraction.")
 
     coverage = _json(OUTPUT_COVERAGE_PATH)
-    if coverage.get("status") != "blocked":
-        failures.append("coverage report must remain blocked.")
+    if coverage.get("status") != "release-ready-fixture-reviewed-extraction-agent-review":
+        failures.append(
+            "coverage report must be release-ready-fixture-reviewed-extraction-agent-review."
+        )
     if coverage.get("sample_counts", {}).get("procedure_samples_reviewed") != 6:
         failures.append("coverage report procedure sample count must be 6.")
     if coverage.get("gold_vote_domain", {}).get("sample_total") != 5:
         failures.append("coverage report must preserve five reviewed vote gold samples.")
+    if coverage.get("sample_counts", {}).get("validated_fixture_extractions") != 5:
+        failures.append("coverage report must preserve five validated fixture extractions.")
+    expected_dependencies = {
+        "validated_member_identity": "release-ready-triangulated-agent-review",
+        "validated_party_attribution": "release-ready-explicit-party-labels-member-identity-triangulated",
+        "validated_sitting_proceeding": "release-ready-date-level-official-reconciliation-agent-review",
+    }
+    if manifest.get("dependency_statuses") != expected_dependencies:
+        failures.append("dependency statuses must match release-ready upstream component gates.")
 
     failures.extend(
         _doc_terms(
             DOC_PATH,
             (
-                "blocked",
+                "release-ready-fixture-reviewed-extraction-agent-review",
                 "validated member identity",
                 "validated party attribution",
                 "validated sitting/proceeding",
-                "review queue",
+                "reviewed fixture extractions",
+                "not a corpus-wide extraction completeness claim",
             ),
         )
     )
@@ -156,10 +176,11 @@ def _failures() -> list[str]:
         _doc_terms(
             TRACK_PATH,
             (
-                "blocked",
+                "release-ready-fixture-reviewed-extraction-agent-review",
                 "validated member identity",
                 "validated party attribution",
                 "validated sitting/proceeding",
+                "not a corpus-wide extraction completeness claim",
             ),
         )
     )

@@ -2,7 +2,7 @@
   "artifact_name": "vote_motion_bill_question_extraction_validation",
   "artifact_version": "0.1.0",
   "counts": {
-    "blocked_rows": 5,
+    "blocked_rows": 0,
     "boundary_samples": 1,
     "excluded_rows": 1,
     "neutral_bill_rows": 1,
@@ -12,18 +12,19 @@
     "procedure_samples_reviewed": 6,
     "question_samples": 1,
     "review_rows": 6,
-    "validated_rows": 0,
+    "validated_rows": 5,
     "vote_samples": 2
   },
   "coverage": {
     "artifact_name": "vote_motion_bill_question_extraction_coverage",
     "artifact_version": "0.1.0",
-    "blocked_dependencies": [
-      "validated_member_identity",
-      "validated_party_attribution",
-      "validated_sitting_proceeding"
-    ],
-    "generated_at": "2026-06-12T04:25:05.549338+00:00",
+    "blocked_dependencies": [],
+    "dependency_statuses": {
+      "validated_member_identity": "release-ready-triangulated-agent-review",
+      "validated_party_attribution": "release-ready-explicit-party-labels-member-identity-triangulated",
+      "validated_sitting_proceeding": "release-ready-date-level-official-reconciliation-agent-review"
+    },
+    "generated_at": "2026-06-24T03:06:42.568282+00:00",
     "gold_vote_domain": {
       "ambiguous": 1,
       "excluded": 1,
@@ -37,27 +38,30 @@
       "motions": 1,
       "votes": 1
     },
-    "reason": "Validated member identity, validated party attribution, and validated sitting/proceeding components are not yet all available for release.",
+    "reason": "Validated member identity, party attribution, and date-level sitting/proceeding components are available; the release is limited to reviewed fixture extractions and does not claim corpus-wide extraction completeness.",
     "sample_counts": {
       "boundary_samples": 1,
       "excluded_boundary_samples": 1,
-      "extractable_samples": 5,
       "procedural_decision_samples": 2,
       "procedure_samples_reviewed": 6,
       "question_samples": 1,
+      "validated_fixture_extractions": 5,
       "vote_samples": 2
     },
-    "status": "blocked",
+    "status": "release-ready-fixture-reviewed-extraction-agent-review",
     "track_id": "vote_motion_bill_question_extraction_release_20260610",
     "warnings": [
-      "Procedure samples are reviewed boundary fixtures, not published extraction outputs.",
-      "Vote and question extraction remains blocked until the dependent component releases are validated."
+      "Procedure samples are reviewed fixture extractions, not corpus-wide extraction outputs.",
+      "Interjection remains excluded-by-design and non-extractable."
     ]
   },
-  "errors": [
-    "Validated member identity, validated party attribution, and validated sitting/proceeding components are not yet all available for release."
-  ],
-  "generated_at": "2026-06-12T04:25:05.500438+00:00",
+  "dependency_statuses": {
+    "validated_member_identity": "release-ready-triangulated-agent-review",
+    "validated_party_attribution": "release-ready-explicit-party-labels-member-identity-triangulated",
+    "validated_sitting_proceeding": "release-ready-date-level-official-reconciliation-agent-review"
+  },
+  "errors": [],
+  "generated_at": "2026-06-24T03:06:42.409510+00:00",
   "input_artifacts": {
     "authority_sources": "manifests/authority_sources.json",
     "gold_evaluation_fixtures": "fixtures/gold_evaluation_samples.json",
@@ -71,29 +75,29 @@
     "procedure_model": "manifests/nz_parliamentary_procedure_model.json",
     "sitting_proceeding_validation": "manifests/sitting_proceeding_component_validation.json"
   },
-  "ok": false,
+  "ok": true,
   "outputs": {
     "coverage_report": "derived/vote_motion_bill_question_extraction/extraction_coverage.json",
     "review_queue": "derived/vote_motion_bill_question_extraction/extraction_review.csv"
   },
   "release_decision": {
-    "decision": "defer",
-    "public_claim": "No validated vote/motion/bill/question extraction release is published from this blocked manifest.",
-    "reason": "Validated member identity, validated party attribution, and validated sitting/proceeding components are not yet all available for release."
+    "decision": "release",
+    "public_claim": "Reviewed fixture extractions for votes, questions, and procedural decisions are release-ready; interjection remains excluded-by-design and this is not a corpus-wide extraction completeness claim.",
+    "reason": "Validated member identity, party attribution, and date-level sitting/proceeding components are available; the release is limited to reviewed fixture extractions and does not claim corpus-wide extraction completeness."
   },
-  "release_gate_status": "blocked-pending-validated-components",
+  "release_gate_status": "release-ready-fixture-reviewed-extraction-agent-review",
   "source_hashes": {
-    "authority_sources": "6d26729cf9f98b827cf26edb3fc11fc6e53165f7aea1ca8a0a12a91d77edd22b",
+    "authority_sources": "d6d68c67bd035d92e680b34f091ece472b190ad36eceb345d6c938c05bdfb94e",
     "gold_evaluation_fixtures": "08f5d3c9e1881b3a85ebeb18457db5950aef1c63ff3eaed6ccd53a06e30accde",
     "gold_evaluation_manifest": "14d018e9fb9bf16644d5f234d6df683ddfef6d4d097bbabb0691bf81a4d89b77",
-    "member_identity_validation": "a793c9594a80ed5e4f4e4aa6c5e0d344e39c623944e7eb4f35b1d8ee52ba55f6",
+    "member_identity_validation": "e5f4def2d0c1798034ccd7c30ddcabfeac76d8f707764343a7eda49f0c56ed27",
     "neutral_component_fixtures": "305468425d3d569c7e7bf90fa89fe103dd15031fd2adf04f736ed08652b3c8d8",
     "neutral_component_model": "58471befa683b4547dfe02cb7f6b9862127eed0b87cc4c10c0026ce67dafc6f0",
     "neutral_component_validation": "450932084e414d61e1ac0edac2f792a4675c5de3db68b4a4c658398cc628fcab",
-    "party_attribution_validation": "edd7064929e87171f78e425ec4ea1f3b5e61b28df22ba61ef7938127cc484d73",
+    "party_attribution_validation": "6512fd45320fa4436f648655fd344f9557c38fd79178190927471f8450f53a5b",
     "procedure_fixtures": "ff01bb742e98770ffebda08681fb13b2311621b66f3a17a6df93bb98ec850d28",
     "procedure_model": "7850df065864c8fc96fa6bb2655b900817895edd6dd69bf7ca889d5430c202d9",
-    "sitting_proceeding_validation": "c5b4b55bbd3b67f00348c4c9b6d1c0db2758517b396f57fd6a3b7b76326d873d"
+    "sitting_proceeding_validation": "bb5aadc1094bf2863cf4e33b8dbcbf22d9963e57cd569a4acd6bb5f8910809ac"
   },
   "source_manifests": [
     "manifests/neutral_component_model.json",
@@ -112,9 +116,9 @@
     "docs/nz-parliamentary-procedure-model.md"
   ],
   "track_id": "vote_motion_bill_question_extraction_release_20260610",
-  "validation_status": "blocked",
+  "validation_status": "ok",
   "warnings": [
-    "Procedure sample rows are reviewed boundary evidence, not a published extraction release.",
-    "Vote, motion, bill, and question claims remain blocked until the dependent component releases are validated."
+    "Procedure sample rows are reviewed fixture extraction evidence, not a corpus-wide extraction release.",
+    "Vote, motion, bill, and question claims remain bounded by authority sources, uncertainty status, and upstream component gates."
   ]
 }

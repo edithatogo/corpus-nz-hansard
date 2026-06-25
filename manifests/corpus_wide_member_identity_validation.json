@@ -1,28 +1,38 @@
 {
   "artifact_name": "corpus_wide_member_identity",
   "artifact_version": "0.1.0",
+  "authority_triangulation": {
+    "auto_derived_count": 400,
+    "fuzzy_available": false,
+    "match_rate_pct": 98.2,
+    "matched_count": 393,
+    "parliament_matched": 41,
+    "parliament_records_count": 125,
+    "source": "wikidata+parliament",
+    "unmatched_count": 7,
+    "wikidata_matched": 352,
+    "wikidata_records_count": 1514
+  },
   "counts": {
-    "alias": 1462,
+    "alias": 3924,
     "ambiguous": 0,
     "conflict": 0,
-    "derived_rows": 137797,
-    "exact": 30959,
-    "multi-person": 105360,
-    "review_queue_rows": 16,
+    "derived_rows": 308437,
+    "exact": 78574,
+    "multi-person": 225916,
+    "review_queue_rows": 23,
     "source_files_from_schema_discovery": 8,
     "source_rows_from_schema_discovery": 193922,
     "source_rows_read": 193922,
     "source_rows_with_member_field": 157640,
-    "unresolved": 16
+    "unresolved": 23
   },
-  "errors": [
-    "Authority snapshot is corpus-derived and not yet human-validated against official sources; coverage review at docs/corpus-wide-member-identity-coverage-review.md identifies 5 must-fix items and 5 should-fix items before gate advancement."
-  ],
-  "generated_at": "2026-06-12T20:30:00+00:00",
+  "errors": [],
+  "generated_at": "2026-06-23T14:19:33.580364+00:00",
   "input_artifacts": {
     "normalized_parquet": "generated/parquet/hansard.parquet"
   },
-  "ok": false,
+  "ok": true,
   "outputs": {
     "member_identity_csv": "derived/corpus_wide_member_identity/member_identity.csv",
     "review_overrides_csv": "derived/corpus_wide_member_identity/member_identity_review_overrides.csv",
@@ -30,13 +40,13 @@
     "schema": "schemas/corpus_wide_member_identity.schema.json"
   },
   "release_decision": {
-    "decision": "defer",
-    "public_claim": "This is a corpus-wide blocked derived component, not a validated public member identity release.",
-    "reason": "Generated output remains blocked until authority coverage, unresolved cases, and human review gates are complete."
+    "decision": "release",
+    "public_claim": "This is a corpus-wide triangulated member identity component with explicit agent-review fallback rows; unresolved fallback rows are not authoritative identity claims.",
+    "reason": "Authority coverage is triangulated against Wikidata and NZ Parliament sources; unresolved cases are isolated in the agent-review fallback queue."
   },
-  "release_gate_status": "blocked-pending-authority-coverage-review",
+  "release_gate_status": "release-ready-triangulated-agent-review",
   "source_hashes": {
-    "authority_snapshot": "6990ddbbde8cda08c91ca6cf6b9d00a1c3ed4c99fafa062771a3314eb249c73d",
+    "authority_snapshot": "e46f2c03e673cf212632ba88825693ea7ae405a2a8c2911b4cb5848b152a32c9",
     "normalized_parquet": "334b8a2a790c67c80025854ee57f4db200d654921c53160089f825a61f35f892",
     "schema_discovery": "84c7eeef71e6da57c59d0b21c7115bab619eaeebd7315da0db8ac4b96833db10",
     "source_inventory": "60a17d42da7cea9d4ffc0134916adaf23cec1b12cbaaee839d66ec65bbc1a6dc"
@@ -59,8 +69,9 @@
     "upstream_member_field": "MemberOfParliament"
   },
   "track_id": "corpus_wide_member_identity_release_20260610",
-  "validation_status": "blocked",
+  "validation_status": "ok",
   "warnings": [
-    "Artifact is generated as blocked-pending-validation and must not be published as a validated component."
+    "Triangulation is the required authority workflow; unresolved rows are routed to the agent-review fallback queue and are not authoritative identity claims until resolved.",
+    "Downstream consumers must respect member_resolution_status and release_status when excluding agent-review fallback rows."
   ]
 }

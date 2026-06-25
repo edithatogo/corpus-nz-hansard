@@ -1,12 +1,13 @@
 {
   "artifact_name": "vote_motion_bill_question_extraction_coverage",
   "artifact_version": "0.1.0",
-  "blocked_dependencies": [
-    "validated_member_identity",
-    "validated_party_attribution",
-    "validated_sitting_proceeding"
-  ],
-  "generated_at": "2026-06-12T04:25:05.549338+00:00",
+  "blocked_dependencies": [],
+  "dependency_statuses": {
+    "validated_member_identity": "release-ready-triangulated-agent-review",
+    "validated_party_attribution": "release-ready-explicit-party-labels-member-identity-triangulated",
+    "validated_sitting_proceeding": "release-ready-date-level-official-reconciliation-agent-review"
+  },
+  "generated_at": "2026-06-24T03:06:42.568282+00:00",
   "gold_vote_domain": {
     "ambiguous": 1,
     "excluded": 1,
@@ -20,20 +21,20 @@
     "motions": 1,
     "votes": 1
   },
-  "reason": "Validated member identity, validated party attribution, and validated sitting/proceeding components are not yet all available for release.",
+  "reason": "Validated member identity, party attribution, and date-level sitting/proceeding components are available; the release is limited to reviewed fixture extractions and does not claim corpus-wide extraction completeness.",
   "sample_counts": {
     "boundary_samples": 1,
     "excluded_boundary_samples": 1,
-    "extractable_samples": 5,
     "procedural_decision_samples": 2,
     "procedure_samples_reviewed": 6,
     "question_samples": 1,
+    "validated_fixture_extractions": 5,
     "vote_samples": 2
   },
-  "status": "blocked",
+  "status": "release-ready-fixture-reviewed-extraction-agent-review",
   "track_id": "vote_motion_bill_question_extraction_release_20260610",
   "warnings": [
-    "Procedure samples are reviewed boundary fixtures, not published extraction outputs.",
-    "Vote and question extraction remains blocked until the dependent component releases are validated."
+    "Procedure samples are reviewed fixture extractions, not corpus-wide extraction outputs.",
+    "Interjection remains excluded-by-design and non-extractable."
   ]
 }

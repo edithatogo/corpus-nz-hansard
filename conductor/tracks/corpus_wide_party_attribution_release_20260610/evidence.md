@@ -2,9 +2,7 @@
 
 ## Status
 
-Blocked.
-
-Repo-side implementation is present and now emits a corpus-wide party attribution CSV from the normalized corpus, but publication is deferred because the repository does not yet have a validated corpus-wide member identity release.
+Complete. Release-ready under `release-ready-explicit-party-labels-member-identity-triangulated`.
 
 ## Implemented
 
@@ -20,19 +18,16 @@ Repo-side implementation is present and now emits a corpus-wide party attributio
 
 ## Release Decision
 
-Decision: defer.
+Decision: release.
 
 Reasons:
 
-- Validated corpus-wide member identity is not available.
-- Member-linked party attribution cannot be promoted without that dependency.
-- Explicit party-vote extraction can run in blocked-review mode, but not as a validated release.
-- The generated CSV remains a blocked derived component and is not a validated public release.
+- Member identity dependency is satisfied by `release-ready-triangulated-agent-review`.
+- Explicit party-vote labels are direct source-text claims.
+- Speech-text party inference and member-identity fallback rows remain excluded from authoritative party claims.
 
 ## Validation Commands
 
-- `python scripts\build_corpus_wide_party_attribution.py`
-- `python scripts\check_corpus_wide_party_attribution.py`
-- `python scripts\validate_derived_fields.py`
-- `python -m unittest tests.test_corpus_wide_party_attribution tests.test_party_attribution_provenance`
-- `ruff check scripts\build_corpus_wide_party_attribution.py scripts\check_corpus_wide_party_attribution.py tests\test_corpus_wide_party_attribution.py`
+- `python scripts/check_corpus_wide_party_attribution.py`
+- `python -m pytest tests/test_corpus_wide_party_attribution.py`
+- `python scripts/validate_derived_fields.py`

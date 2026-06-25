@@ -17,4 +17,6 @@
 
 ## Phase 4: Release Boundary
 
-- [x] Keep the extraction release blocked until validated member identity, party attribution, and sitting/proceeding components exist.
+- [x] Release reviewed fixture extractions after upstream component gates became ready.
+- [x] Keep interjection as excluded-by-design.
+- [x] Preserve the not a corpus-wide extraction completeness claim boundary.

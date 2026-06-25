@@ -17,4 +17,6 @@
 
 ## Phase 4: Release Boundary
 
-- [x] Keep the release blocked until official sitting and proceeding reconciliation is complete.
+- [x] Release the date-level official reconciliation surface.
+- [x] Keep proceeding-level and fixture rows in agent-review fallback.
+- [x] Preserve the no-full-historical-completeness boundary.

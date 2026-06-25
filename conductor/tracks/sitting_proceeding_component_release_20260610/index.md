@@ -2,7 +2,7 @@
 
 Promote sitting and proceeding structures from design fixtures into validated corpus-wide neutral components.
 
-Repo-side builder/checker are implemented, but the release is blocked until official sitting and proceeding evidence exists.
+Repo-side builder/checker are implemented with gate `release-ready-date-level-official-reconciliation-agent-review`.
 
 Current implementation surface:
 
@@ -13,3 +13,9 @@ Current implementation surface:
 - `docs/sitting-proceeding-component-release.md`
 - `scripts/build_sitting_proceeding_component.py`
 - `scripts/check_sitting_proceeding_component.py`
+
+Release boundary:
+
+- 29 shared official/ledger dates are release-ready as date-level official reconciliation.
+- Proceeding-level and fixture rows remain agent-review fallback.
+- The track does not claim full historical completeness.

@@ -96,41 +96,68 @@ def _failures() -> list[str]:
 
     if manifest["artifact_name"] != "sitting_proceeding_component_validation":
         failures.append("artifact_name must be sitting_proceeding_component_validation.")
-    if manifest["validation_status"] != "blocked":
-        failures.append("validation_status must be blocked.")
-    if manifest["release_gate_status"] != "blocked-pending-official-reconciliation":
-        failures.append("release_gate_status must be blocked-pending-official-reconciliation.")
-    if manifest["ok"] is not False:
-        failures.append("ok must be false.")
+    if manifest["validation_status"] != "ok":
+        failures.append("validation_status must be ok.")
+    if (
+        manifest["release_gate_status"]
+        != "release-ready-date-level-official-reconciliation-agent-review"
+    ):
+        failures.append(
+            "release_gate_status must be release-ready-date-level-official-reconciliation-agent-review."
+        )
+    if manifest["ok"] is not True:
+        failures.append("ok must be true.")
 
     counts = manifest["counts"]
     if counts.get("fixture_sittings") != 1:
         failures.append("fixture_sittings must be 1.")
     if counts.get("fixture_proceeding_items") != 1:
         failures.append("fixture_proceeding_items must be 1.")
-    if counts.get("validated_rows") != 0:
-        failures.append("validated_rows must be 0.")
+    if counts.get("date_level_reconciled_sittings") != 29:
+        failures.append("date_level_reconciled_sittings must be 29.")
+    if counts.get("official_dates") != 191:
+        failures.append("official_dates must be 191.")
+    if counts.get("ledger_dates") != 409:
+        failures.append("ledger_dates must be 409.")
+    if counts.get("reconciled_sittings") != 29:
+        failures.append("reconciled_sittings must be 29.")
+    if counts.get("reconciled_proceeding_items") != 0:
+        failures.append("reconciled_proceeding_items must be 0.")
+    if counts.get("validated_rows") != 29:
+        failures.append("validated_rows must be 29.")
     if counts.get("review_rows") != 2:
         failures.append("review_rows must be 2.")
     if _review_row_count(OUTPUT_REVIEW_PATH) != 2:
         failures.append("review queue must contain two rows.")
+    with OUTPUT_REVIEW_PATH.open("r", encoding="utf-8", newline="") as handle:
+        review_statuses = {row["status"] for row in csv.DictReader(handle)}
+    if review_statuses != {"agent-review-fallback"}:
+        failures.append("review queue rows must be agent-review-fallback.")
 
     coverage = _json(OUTPUT_COVERAGE_PATH)
-    if coverage.get("status") != "blocked":
-        failures.append("coverage report must remain blocked.")
+    if coverage.get("status") != "release-ready-date-level-official-reconciliation":
+        failures.append("coverage report must be release-ready-date-level-official-reconciliation.")
     if coverage.get("fixture_counts", {}).get("sittings") != 1:
         failures.append("coverage report fixture sitting count must be 1.")
     if coverage.get("fixture_counts", {}).get("proceeding_items") != 1:
         failures.append("coverage report fixture proceeding count must be 1.")
-    if coverage.get("coverage_counts", {}).get("reconciled_sittings") != 0:
-        failures.append("coverage report reconciled sitting count must be 0.")
-    if coverage.get("coverage_counts", {}).get("reconciled_proceedings") != 0:
+    coverage_counts = coverage.get("coverage_counts", {})
+    if coverage_counts.get("date_level_reconciled_sittings") != 29:
+        failures.append("coverage report date-level reconciled sitting count must be 29.")
+    if coverage_counts.get("official_dates") != 191:
+        failures.append("coverage report official date count must be 191.")
+    if coverage_counts.get("ledger_dates") != 409:
+        failures.append("coverage report ledger date count must be 409.")
+    if coverage_counts.get("reconciled_sittings") != 29:
+        failures.append("coverage report reconciled sitting count must be 29.")
+    if coverage_counts.get("reconciled_proceedings") != 0:
         failures.append("coverage report reconciled proceeding count must be 0.")
 
     doc_terms = (
-        "blocked",
-        "official sitting and proceeding reconciliation",
-        "Future Validation Requirements",
+        "release-ready-date-level-official-reconciliation-agent-review",
+        "date-level official reconciliation",
+        "agent-review fallback",
+        "not full historical completeness",
         "review queue",
         "coverage",
     )
@@ -138,8 +165,8 @@ def _failures() -> list[str]:
 
     track_terms = (
         "Repo-side builder/checker are implemented",
-        "blocked",
-        "official sitting and proceeding evidence",
+        "release-ready-date-level-official-reconciliation-agent-review",
+        "agent-review fallback",
     )
     failures.extend(_doc_terms(TRACK_PATH, track_terms))
 

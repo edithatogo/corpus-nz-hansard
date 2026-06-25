@@ -2,30 +2,36 @@
 
 ## Purpose
 
-This release track promotes member identity resolution from the local reviewed sample package toward a corpus-wide derived component. It does not change the canonical document-level `v0.1.0` corpus.
+This release track promotes member identity resolution from the local review package into a corpus-wide derived component. It does not change the canonical document-level v0.1.0 corpus.
 
 ## Current Release Gate
 
-The current gate is blocked, not published.
+The current gate is `release-ready-triangulated-agent-review`.
 
-- `blocked-pending-corpus-artifact`: the normalized corpus artifact `generated/parquet/hansard.parquet` is not present in this working tree.
-- `blocked-pending-authority-coverage-review`: **Coverage review complete** — see [coverage review report](corpus-wide-member-identity-coverage-review.md). The authority snapshot is corpus-derived with some automated enhancements (reversed-name detection, authority URL generation, near-duplicate merging) but is NOT yet human-validated against official NZ Parliament sources. The review identifies **5 must-fix items** and **5 should-fix items** before the gate can advance.
+Triangulation is the required authority workflow. The authority snapshot is cross-referenced against Wikidata and NZ Parliament records, with agent-review fallback for unmatched authority records and unresolved row-level member tokens. There is no human-review blocking gate in this workflow.
 
-Coverage review findings summary:
-1. 403 records (not 4,505 as originally stated — discrepancy needs clarification)
-2. 3 non-person entries remain (1 still in authority: `Ang`)
-3. 1 honorific still embedded in canonical name (`Hon Aupito William Sio`)
-4. 1 confirmed duplicate unmerged (`Tamati Coffey` ↔ `Tāmati Coffey`)
-5. 100% authority URLs now populated (placeholder format)
-6. 0% service periods populated
-7. Near-duplicate groups (~10 groups) still require human consolidation
-8. Zero cross-referencing done against official member-domain sources
+Current manifest: `manifests/corpus_wide_member_identity_validation.json`
 
-The generated validation manifest is `manifests/corpus_wide_member_identity_validation.json`. Its release decision must remain `defer` until corpus input, authority coverage (must-fix items addressed), unresolved-case review, and validation gates pass.
+Current metrics:
+
+- Source rows read: 193,922
+- Source rows with member field: 157,640
+- Derived member-token rows: 308,437
+- Exact rows: 78,574
+- Alias rows: 3,924
+- Multi-person rows: 225,916
+- Unresolved agent-review fallback rows: 23
+- Ambiguous rows: 0
+- Conflict rows: 0
+- Authority records: 400
+- Triangulated authority matches: 393/400 (98.2%)
+- Wikidata matches: 352
+- NZ Parliament matches: 41
+- Unmatched authority records routed to fallback: 7
 
 ## Contract
 
-The corpus-wide builder consumes normalized Hansard records and emits:
+The corpus-wide builder consumes normalized Hansard records from `generated/parquet/hansard.parquet` and emits:
 
 - `derived/corpus_wide_member_identity/member_identity.csv`
 - `derived/corpus_wide_member_identity/member_identity_review_queue.csv`
@@ -33,35 +39,14 @@ The corpus-wide builder consumes normalized Hansard records and emits:
 - `schemas/corpus_wide_member_identity.schema.json`
 - `manifests/corpus_wide_member_identity_validation.json`
 
-The row contract preserves source document evidence:
+The row contract preserves source document evidence, raw member strings, authority hashes, and resolution status. Resolved rows carry `release-ready`; fallback rows carry `agent-review-fallback`.
 
-- `source_stable_id`
-- `source_file`
-- `source_row_number`
-- `parliament_number`
-- `parliament_document_id`
-- `document_type`
-- `document_content_date`
-- `source_hash`
-- `member_of_parliament_raw`
-- `member_raw_token`
+## Agent-Review Fallback
 
-Resolution statuses distinguish:
-
-- `exact`
-- `alias`
-- `multi-person`
-- `unresolved`
-- `ambiguous`
-- `conflict`
-
-## Review Overrides
-
-Human review overrides are kept separate in `derived/corpus_wide_member_identity/member_identity_review_overrides.csv`. Overrides must be auditable and must not silently mutate the raw source token or canonical document records.
+The review queue is now an agent-review fallback queue. Fallback rows are isolated for later agent resolution and must not be treated as authoritative identity claims until resolved. review overrides remain separate and auditable in `derived/corpus_wide_member_identity/member_identity_review_overrides.csv`.
 
 ## Non-Claims
 
-- The current output must not be published as a validated component.
-- Unresolved, ambiguous, and conflict rows are not authoritative identity claims.
+- unresolved fallback rows are not authoritative identity claims.
 - The document-level corpus remains unchanged.
-- Downstream party attribution, Popolo/Open Civic Data, ParlaMint-NZ, RDF, and speech-turn tracks must treat this layer as blocked until the validation manifest becomes release-ready.
+- Downstream consumers must respect `member_resolution_status` and `release_status` when excluding fallback rows.

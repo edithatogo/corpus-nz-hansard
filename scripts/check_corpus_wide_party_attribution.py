@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -35,6 +36,7 @@ METADATA_PATH = TRACK_DIR / "metadata.json"
 TRACKS_PATH = ROOT / "conductor/tracks.md"
 OUTPUT_CSV = ROOT / "derived/corpus_wide_party_attribution/party_attribution.csv"
 REVIEW_QUEUE_CSV = ROOT / "derived/corpus_wide_party_attribution/party_attribution_review_queue.csv"
+MEMBER_IDENTITY_VALIDATION_PATH = ROOT / "manifests/corpus_wide_member_identity_validation.json"
 
 
 def _read(path: Path) -> str:
@@ -77,15 +79,18 @@ def _failures() -> list[str]:
         failures.append("Manifest artifact_name must be corpus_wide_party_attribution.")
     if manifest["track_id"] != "corpus_wide_party_attribution_release_20260610":
         failures.append("Manifest must reference the corpus-wide party attribution track.")
-    if manifest["ok"] is not False:
+    if manifest["ok"] is not True:
         failures.append(
-            "Corpus-wide party attribution must remain blocked until validated member identity exists."
+            "Corpus-wide party attribution must be unblocked after member identity triangulation is release-ready."
         )
-    if manifest["validation_status"] != "blocked":
-        failures.append("Validation status must remain blocked for the current release gate.")
-    if manifest["release_gate_status"] != "blocked-pending-validated-member-identity":
+    if manifest["validation_status"] != "ok":
+        failures.append("Validation status must be ok for the explicit-party-label release gate.")
+    if (
+        manifest["release_gate_status"]
+        != "release-ready-explicit-party-labels-member-identity-triangulated"
+    ):
         failures.append(
-            "Release gate status must remain blocked-pending-validated-member-identity."
+            "Release gate status must be release-ready-explicit-party-labels-member-identity-triangulated."
         )
     for key in (
         "explicit_party_labels",
@@ -101,8 +106,15 @@ def _failures() -> list[str]:
         failures.append("Manifest must inventory source files from schema discovery.")
     if "member_identity_validation" not in manifest.get("input_artifacts", {}):
         failures.append("Manifest must name the member identity validation input.")
-    if manifest["release_decision"]["decision"] != "defer":
-        failures.append("Release decision must defer until validated member identity exists.")
+    if manifest["release_decision"]["decision"] != "release":
+        failures.append(
+            "Release decision must release explicit party-vote labels after member identity is release-ready."
+        )
+    member_hash = hashlib.sha256(MEMBER_IDENTITY_VALIDATION_PATH.read_bytes()).hexdigest()
+    if manifest["source_hashes"].get("member_identity_validation") != member_hash:
+        failures.append(
+            "Party attribution manifest must hash the current member identity validation manifest."
+        )
 
     schema = _json(SCHEMA_PATH)
     required_statuses = {"authoritative", "alias", "ambiguous", "unresolved", "blocked"}
@@ -118,19 +130,21 @@ def _failures() -> list[str]:
 
     doc_text = _read(DOC_PATH)
     for term in (
-        "blocked-pending-validated-member-identity",
-        "validated member identity",
-        "Explicit party-vote labels can be extracted",
+        "release-ready-explicit-party-labels-member-identity-triangulated",
+        "release-ready-triangulated-agent-review",
+        "explicit party-vote attribution",
     ):
         if term not in doc_text:
             failures.append(f"Corpus-wide party attribution docs missing term: {term}")
 
-    if "blocked" not in _read(TRACKS_PATH).lower():
-        failures.append("Track registry must expose blocked state.")
+    if "[x] Track: Corpus-Wide Party Attribution Release" not in _read(TRACKS_PATH):
+        failures.append("Track registry must mark corpus-wide party attribution release complete.")
 
     metadata = _json(METADATA_PATH)
-    if metadata["status"] != "blocked":
-        failures.append("Track metadata must be blocked until validated member identity exists.")
+    if metadata["status"] != "complete":
+        failures.append(
+            "Track metadata must be complete after explicit party-vote labels are released."
+        )
     return failures
 
 

@@ -245,13 +245,13 @@ def _output_row(
         "party_attribution_status": "authoritative",
         "member_id": "",
         "member_display_name": "",
-        "member_identity_status": "blocked-pending-validated-member-identity",
-        "dependency_state": "validated-member-identity-required",
+        "member_identity_status": "release-ready-triangulated-agent-review",
+        "dependency_state": "member-identity-triangulated-agent-review",
         "review_status": "unreviewed",
-        "release_status": "blocked-pending-validation",
+        "release_status": "release-ready",
         "source_hash": record["source_hash"],
         "authority_snapshot_hash": authority_hash,
-        "notes": "Explicit party label extracted from vote text; member identity remains blocked for corpus-wide release.",
+        "notes": "Explicit party label extracted from vote text; member identity dependency is satisfied by the triangulated member identity release gate.",
     }
 
 
@@ -320,7 +320,17 @@ def build_corpus_wide_release(
         return manifest
 
     authority = _read_json(AUTHORITY_PATH)
-    authority_hash = _authority_snapshot_hash(authority)
+    authority_hash = _sha256_path(AUTHORITY_PATH)
+    member_identity_validation = (
+        _read_json(MEMBER_IDENTITY_VALIDATION_PATH)
+        if MEMBER_IDENTITY_VALIDATION_PATH.exists()
+        else {}
+    )
+    member_identity_ready = (
+        member_identity_validation.get("ok") is True
+        and member_identity_validation.get("release_gate_status")
+        == "release-ready-triangulated-agent-review"
+    )
     rows: list[dict[str, Any]] = []
     review_rows: list[dict[str, Any]] = []
     source_records = _records_from_parquet(parquet_path)
@@ -329,7 +339,7 @@ def build_corpus_wide_release(
         if "vote" in (record.get("document_type") or "").lower():
             for vote_label in _extract_vote_labels(record.get("content") or ""):
                 rows.append(_output_row(record, vote_label, authority_hash))
-        elif record.get("member_of_parliament_raw"):
+        elif record.get("member_of_parliament_raw") and not member_identity_ready:
             review_rows.append(_review_row(record, authority_hash))
 
     _write_csv(rows, output_csv, OUTPUT_COLUMNS)
@@ -354,9 +364,11 @@ def build_corpus_wide_release(
         "artifact_name": "corpus_wide_party_attribution",
         "artifact_version": "0.1.0",
         "generated_at": generated_at,
-        "ok": False,
-        "validation_status": "blocked",
-        "release_gate_status": "blocked-pending-validated-member-identity",
+        "ok": member_identity_ready,
+        "validation_status": "ok" if member_identity_ready else "blocked",
+        "release_gate_status": "release-ready-explicit-party-labels-member-identity-triangulated"
+        if member_identity_ready
+        else "blocked-pending-validated-member-identity",
         "track_id": TRACK_ID,
         "counts": {
             "source_rows_from_schema_discovery": int(summary["total_rows_from_schema_discovery"]),
@@ -373,10 +385,17 @@ def build_corpus_wide_release(
             "blocked": label_counts.get("blocked", 0),
             "excluded": 0,
         },
-        "errors": [
+        "errors": []
+        if member_identity_ready
+        else [
             "Validated member identity output must be available before corpus-wide party attribution can be promoted."
         ],
         "warnings": [
+            "Party attribution release is limited to explicit party-vote labels; speech-text party inference remains excluded.",
+            "Member identity dependency is satisfied by release-ready-triangulated-agent-review; fallback member identity rows remain non-authoritative.",
+        ]
+        if member_identity_ready
+        else [
             "Explicit party-vote labels can be extracted, but the release remains blocked until member identity is validated."
         ],
         "source_hashes": {
@@ -416,9 +435,13 @@ def build_corpus_wide_release(
         },
         "source_summary": summary,
         "release_decision": {
-            "decision": "defer",
-            "reason": "Validated member identity is not available in this working tree.",
-            "public_claim": "This is a corpus-wide blocked derived component, not a validated public party attribution release.",
+            "decision": "release" if member_identity_ready else "defer",
+            "reason": "Explicit party-vote labels are release-ready and the member identity dependency is satisfied by the triangulated member identity gate."
+            if member_identity_ready
+            else "Validated member identity is not available in this working tree.",
+            "public_claim": "This is a corpus-wide explicit party-vote attribution component; speech-text party inference and member-identity fallback rows are not authoritative party claims."
+            if member_identity_ready
+            else "This is a corpus-wide blocked derived component, not a validated public party attribution release.",
         },
     }
     _write_json(manifest, manifest_path)

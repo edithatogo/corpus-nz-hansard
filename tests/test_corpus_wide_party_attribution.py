@@ -90,20 +90,21 @@ class CorpusWidePartyAttributionTests(unittest.TestCase):
         )
 
         self.assertEqual(
-            manifest["release_gate_status"], "blocked-pending-validated-member-identity"
+            manifest["release_gate_status"],
+            "release-ready-explicit-party-labels-member-identity-triangulated",
         )
         self.assertEqual(manifest["counts"]["derived_rows"], 5)
-        self.assertEqual(manifest["counts"]["review_queue_rows"], 1)
+        self.assertEqual(manifest["counts"]["review_queue_rows"], 0)
         with output_csv.open(encoding="utf-8", newline="") as handle:
             rows = list(csv.DictReader(handle))
         self.assertEqual(list(rows[0]), OUTPUT_COLUMNS)
         self.assertEqual(rows[0]["party_label_raw"], "New Zealand National")
         self.assertEqual(rows[0]["party_vote_side"], "Ayes")
         with review_queue_csv.open(encoding="utf-8", newline="") as handle:
-            review_rows = list(csv.DictReader(handle))
-        self.assertEqual(list(review_rows[0]), REVIEW_QUEUE_COLUMNS)
-        self.assertEqual(review_rows[0]["document_type"], "Hansard - speech")
-        self.assertEqual(review_rows[0]["review_status"], "needs-review")
+            reader = csv.DictReader(handle)
+            review_rows = list(reader)
+            self.assertEqual(reader.fieldnames, REVIEW_QUEUE_COLUMNS)
+        self.assertEqual(review_rows, [])
 
 
 if __name__ == "__main__":

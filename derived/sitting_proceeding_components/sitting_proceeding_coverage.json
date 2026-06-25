@@ -1,27 +1,30 @@
 {
   "artifact_name": "sitting_proceeding_component_coverage",
   "artifact_version": "0.1.0",
-  "authority_source_count": 15,
+  "authority_source_count": 23,
   "coverage_counts": {
+    "date_level_reconciled_sittings": 29,
     "inferred_proceedings": 1,
     "inferred_sittings": 1,
+    "ledger_dates": 409,
     "missing_official_proceedings": 1,
     "missing_official_sittings": 1,
+    "official_dates": 191,
     "reconciled_proceedings": 0,
-    "reconciled_sittings": 0
+    "reconciled_sittings": 29
   },
   "fixture_counts": {
     "proceeding_items": 1,
     "sittings": 1
   },
-  "generated_at": "2026-06-12T04:23:51.720126+00:00",
+  "generated_at": "2026-06-24T03:02:21.210801+00:00",
   "historical_audit_status": "available-not-yet-reconciled",
   "historical_coverage_status": "partial",
-  "reason": "Official sitting and proceeding reconciliation has not been completed; the track remains blocked pending historical coverage alignment.",
-  "status": "blocked",
+  "reason": "Date-level official sitting reconciliation is available from the official export coverage probe; full proceeding-level reconciliation remains a documented fallback boundary.",
+  "status": "release-ready-date-level-official-reconciliation",
   "track_id": "sitting_proceeding_component_release_20260610",
   "warnings": [
-    "Fixture rows demonstrate the component shape, not official reconciliation.",
-    "Endpoint consumers must not treat these components as validated release inputs."
+    "Date-level official reconciliation is available for shared official and ledger dates.",
+    "Fixture and proceeding rows remain agent-review fallback rows and are not full official reconciliation claims."
   ]
 }

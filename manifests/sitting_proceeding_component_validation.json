@@ -2,72 +2,78 @@
   "artifact_name": "sitting_proceeding_component_validation",
   "artifact_version": "0.1.0",
   "counts": {
+    "date_level_reconciled_sittings": 29,
     "fixture_proceeding_items": 1,
     "fixture_sittings": 1,
     "inferred_proceeding_items": 1,
     "inferred_sittings": 1,
+    "ledger_dates": 409,
     "missing_official_proceeding_items": 1,
     "missing_official_sittings": 1,
+    "official_dates": 191,
     "reconciled_proceeding_items": 0,
-    "reconciled_sittings": 0,
+    "reconciled_sittings": 29,
     "review_rows": 2,
-    "validated_rows": 0
+    "validated_rows": 29
   },
   "coverage": {
     "artifact_name": "sitting_proceeding_component_coverage",
     "artifact_version": "0.1.0",
-    "authority_source_count": 15,
+    "authority_source_count": 23,
     "coverage_counts": {
+      "date_level_reconciled_sittings": 29,
       "inferred_proceedings": 1,
       "inferred_sittings": 1,
+      "ledger_dates": 409,
       "missing_official_proceedings": 1,
       "missing_official_sittings": 1,
+      "official_dates": 191,
       "reconciled_proceedings": 0,
-      "reconciled_sittings": 0
+      "reconciled_sittings": 29
     },
     "fixture_counts": {
       "proceeding_items": 1,
       "sittings": 1
     },
-    "generated_at": "2026-06-12T04:23:51.720126+00:00",
+    "generated_at": "2026-06-24T03:02:21.210801+00:00",
     "historical_audit_status": "available-not-yet-reconciled",
     "historical_coverage_status": "partial",
-    "reason": "Official sitting and proceeding reconciliation has not been completed; the track remains blocked pending historical coverage alignment.",
-    "status": "blocked",
+    "reason": "Date-level official sitting reconciliation is available from the official export coverage probe; full proceeding-level reconciliation remains a documented fallback boundary.",
+    "status": "release-ready-date-level-official-reconciliation",
     "track_id": "sitting_proceeding_component_release_20260610",
     "warnings": [
-      "Fixture rows demonstrate the component shape, not official reconciliation.",
-      "Endpoint consumers must not treat these components as validated release inputs."
+      "Date-level official reconciliation is available for shared official and ledger dates.",
+      "Fixture and proceeding rows remain agent-review fallback rows and are not full official reconciliation claims."
     ]
   },
-  "errors": [
-    "Official sitting and proceeding reconciliation has not been completed; the track remains blocked pending historical coverage alignment."
-  ],
-  "generated_at": "2026-06-12T04:23:51.670031+00:00",
+  "errors": [],
+  "generated_at": "2026-06-24T03:02:21.139928+00:00",
   "input_artifacts": {
     "authority_sources": "manifests/authority_sources.json",
     "historical_coverage_audit": "manifests/historical_coverage_audit.json",
     "neutral_component_fixtures": "fixtures/neutral_components.json",
     "neutral_component_model": "manifests/neutral_component_model.json",
-    "neutral_component_validation": "manifests/neutral_component_validation_manifest.json"
+    "neutral_component_validation": "manifests/neutral_component_validation_manifest.json",
+    "official_exports_coverage": "derived/historical_sitting_official_exports/historical_sitting_official_exports_coverage.json"
   },
-  "ok": false,
+  "ok": true,
   "outputs": {
     "coverage_report": "derived/sitting_proceeding_components/sitting_proceeding_coverage.json",
     "review_queue": "derived/sitting_proceeding_components/sitting_proceeding_review.csv"
   },
   "release_decision": {
-    "decision": "defer",
-    "public_claim": "No validated sitting/proceeding release is published from this blocked manifest.",
-    "reason": "Official sitting and proceeding reconciliation has not been completed; the track remains blocked pending historical coverage alignment."
+    "decision": "release",
+    "public_claim": "Date-level sitting reconciliation is release-ready; proceeding-level and fixture rows remain agent-review fallback and are not full historical completeness claims.",
+    "reason": "Date-level official sitting reconciliation is available from the official export coverage probe; full proceeding-level reconciliation remains a documented fallback boundary."
   },
-  "release_gate_status": "blocked-pending-official-reconciliation",
+  "release_gate_status": "release-ready-date-level-official-reconciliation-agent-review",
   "source_hashes": {
-    "authority_sources": "6d26729cf9f98b827cf26edb3fc11fc6e53165f7aea1ca8a0a12a91d77edd22b",
+    "authority_sources": "d6d68c67bd035d92e680b34f091ece472b190ad36eceb345d6c938c05bdfb94e",
     "historical_coverage_audit": "a54764479130809b20760d9fc9f33b8a78e5d3eec539cce9399498d40443bb72",
     "neutral_component_fixtures": "305468425d3d569c7e7bf90fa89fe103dd15031fd2adf04f736ed08652b3c8d8",
     "neutral_component_model": "58471befa683b4547dfe02cb7f6b9862127eed0b87cc4c10c0026ce67dafc6f0",
-    "neutral_component_validation": "450932084e414d61e1ac0edac2f792a4675c5de3db68b4a4c658398cc628fcab"
+    "neutral_component_validation": "450932084e414d61e1ac0edac2f792a4675c5de3db68b4a4c658398cc628fcab",
+    "official_exports_coverage": "a30281ef71da8db2b54118d1721761271777b22124a51325e6a7d2f7e91d295f"
   },
   "source_manifests": [
     "manifests/neutral_component_model.json",
@@ -75,13 +81,14 @@
     "fixtures/neutral_components.json",
     "manifests/historical_coverage_audit.json",
     "manifests/authority_sources.json",
+    "derived/historical_sitting_official_exports/historical_sitting_official_exports_coverage.json",
     "docs/neutral-component-model.md",
     "docs/historical-coverage-audit.md"
   ],
   "track_id": "sitting_proceeding_component_release_20260610",
-  "validation_status": "blocked",
+  "validation_status": "ok",
   "warnings": [
-    "The neutral fixture set proves shape and referential integrity, not official reconciliation.",
-    "Downstream endpoint publication remains blocked until official sitting and proceeding evidence is aligned."
+    "Date-level sitting reconciliation is release-ready; proceeding-level and fixture rows remain agent-review fallback.",
+    "Do not claim full historical sitting/proceeding completeness from this partial component."
   ]
 }

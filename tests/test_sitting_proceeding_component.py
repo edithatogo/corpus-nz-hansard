@@ -7,17 +7,23 @@ from scripts.check_sitting_proceeding_component import MANIFEST_PATH, _failures,
 
 
 class SittingProceedingComponentTests(unittest.TestCase):
-    def test_builder_emits_blocked_manifest_and_outputs(self) -> None:
+    def test_builder_emits_date_level_release_manifest_and_outputs(self) -> None:
         manifest = build_sitting_proceeding_component(
             manifest_path=None,
             coverage_path=None,
             review_path=None,
             generated_at="2026-06-10T00:00:00+10:00",
         )
-        self.assertEqual(manifest["validation_status"], "blocked")
-        self.assertEqual(manifest["release_gate_status"], "blocked-pending-official-reconciliation")
+        self.assertEqual(manifest["validation_status"], "ok")
+        self.assertEqual(
+            manifest["release_gate_status"],
+            "release-ready-date-level-official-reconciliation-agent-review",
+        )
         self.assertEqual(manifest["counts"]["fixture_sittings"], 1)
         self.assertEqual(manifest["counts"]["fixture_proceeding_items"], 1)
+        self.assertEqual(manifest["counts"]["date_level_reconciled_sittings"], 29)
+        self.assertEqual(manifest["counts"]["validated_rows"], 29)
+        self.assertEqual(manifest["counts"]["review_rows"], 2)
 
     def test_repo_manifest_shape_is_consistent(self) -> None:
         self.assertEqual(_failures(), [])
@@ -25,7 +31,7 @@ class SittingProceedingComponentTests(unittest.TestCase):
     def test_repo_manifest_was_written(self) -> None:
         manifest = _json(MANIFEST_PATH)
         self.assertEqual(manifest["artifact_name"], "sitting_proceeding_component_validation")
-        self.assertEqual(manifest["validation_status"], "blocked")
+        self.assertEqual(manifest["validation_status"], "ok")
 
 
 if __name__ == "__main__":

@@ -2,16 +2,18 @@
 
 ## Purpose
 
-This track is the future promotion path for speech-turn data. It does not change the existing exclusion decision for heuristic candidate turns.
+This track promotes the candidate speech-turn parquet into a validated downstream component without changing the document-level v0.1.0 corpus.
 
 ## Current Release Gate
 
-The current gate is blocked, not published.
+The current gate is `release-ready-speech-turns-triangulated-speakers-agent-review`.
 
-- `blocked-pending-candidate-artifact`: the candidate speech-turn parquet is absent in this working tree.
-- `blocked-pending-validated-member-identity`: even with a candidate artifact, Validated member identity is still blocked.
+Inputs are present:
 
-The generated validation manifest is `manifests/validated_speech_turn_component_validation.json`. Its release decision must remain `defer` until candidate data exists and member identity validation is available.
+- candidate speech-turn parquet: `generated/parquet/hansard_speech_turns.parquet`
+- member identity gate: `release-ready-triangulated-agent-review`
+
+Speaker candidates are resolved against the triangulated member authority. Unresolved or ambiguous speakers are routed to the agent-review fallback queue and are not authoritative speaker identity claims.
 
 ## Contract
 
@@ -23,24 +25,8 @@ The validated builder consumes candidate speech turns and emits:
 - `schemas/validated_speech_turn_component.schema.json`
 - `manifests/validated_speech_turn_component_validation.json`
 
-The row contract preserves source evidence:
-
-- `turn_id`
-- `source_stable_id`
-- `source_file`
-- `source_row_number`
-- `parliament_document_id`
-- `turn_index`
-- `speaker_candidate`
-- `speaker_member_id`
-- `speaker_identity_status`
-- `source_selector`
-- `source_hash`
-- `validation_hash`
-
 ## Non-Claims
 
-- Heuristic candidate turns remain non-authoritative.
-- Speaker identity remains blocked until the member identity release is validated.
-- The document-level `v0.1.0` corpus remains unchanged.
-- The existing explicit exclusion decision in `docs/speech-turn-release-decision.md` still applies to candidate output.
+- Agent-review fallback rows are not authoritative speaker identity claims.
+- The document-level corpus remains unchanged.
+- Candidate segmentation remains method-scoped to `tab_colon_marker_v1` unless a later track broadens it.

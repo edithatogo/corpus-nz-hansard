@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -35,6 +36,7 @@ PLAN_PATH = TRACK_DIR / "plan.md"
 EVIDENCE_PATH = TRACK_DIR / "evidence.md"
 METADATA_PATH = TRACK_DIR / "metadata.json"
 TRACKS_PATH = ROOT / "conductor/tracks.md"
+AUTHORITY_PATH = ROOT / "derived/corpus_wide_member_identity_authority.json"
 
 
 def _read(path: Path) -> str:
@@ -78,14 +80,14 @@ def _failures() -> list[str]:
         failures.append("Manifest artifact_name must be corpus_wide_member_identity.")
     if manifest["track_id"] != "corpus_wide_member_identity_release_20260610":
         failures.append("Manifest must reference the corpus-wide member identity track.")
-    if manifest["ok"] is not False:
+    if manifest["ok"] is not True:
         failures.append(
-            "Corpus-wide member identity must remain blocked until authority coverage review passes."
+            "Corpus-wide member identity must be unblocked after triangulation and agent-review fallback routing."
         )
-    if manifest["validation_status"] != "blocked":
-        failures.append("Validation status must remain blocked for the current release gate.")
-    if not manifest["release_gate_status"].startswith("blocked-"):
-        failures.append("Release gate status must be blocked for the current implementation.")
+    if manifest["validation_status"] != "ok":
+        failures.append("Validation status must be ok for the triangulated release gate.")
+    if manifest["release_gate_status"] != "release-ready-triangulated-agent-review":
+        failures.append("Release gate status must be release-ready-triangulated-agent-review.")
     if manifest["counts"]["source_rows_from_schema_discovery"] <= 0:
         failures.append("Manifest must inventory source rows from schema discovery.")
     if manifest["counts"]["source_files_from_schema_discovery"] <= 0:
@@ -96,15 +98,30 @@ def _failures() -> list[str]:
     for field in ("source_summary", "release_decision", "source_hashes", "source_manifests"):
         if field not in manifest:
             failures.append(f"Manifest must include {field}.")
-    if manifest["release_decision"]["decision"] != "defer":
-        failures.append("Release decision must defer until validation gates pass.")
+    if manifest["release_decision"]["decision"] != "release":
+        failures.append(
+            "Release decision must release after triangulation and agent-review fallback routing."
+        )
+    public_claim = manifest["release_decision"]["public_claim"]
     if (
-        "No corpus-wide member identity release is published"
-        not in manifest["release_decision"]["public_claim"]
-        and "not a validated public member identity release"
-        not in manifest["release_decision"]["public_claim"]
+        "triangulated member identity" not in public_claim
+        or "unresolved fallback rows are not authoritative" not in public_claim
     ):
-        failures.append("Release decision must avoid public-release overclaiming.")
+        failures.append(
+            "Release decision must state the triangulated claim and fallback-row non-claim."
+        )
+    triangulation = manifest.get("authority_triangulation", {})
+    if triangulation.get("source") != "wikidata+parliament":
+        failures.append("Authority triangulation must use Wikidata and NZ Parliament sources.")
+    if not triangulation.get("match_rate_pct", 0).__ge__(98):
+        failures.append("Authority triangulation match rate must be at least 98%.")
+    if not triangulation.get("unmatched_count", 999).__le__(7):
+        failures.append("Authority triangulation unmatched count must not regress above 7.")
+    authority_hash = hashlib.sha256(AUTHORITY_PATH.read_bytes()).hexdigest()
+    if manifest["source_hashes"].get("authority_snapshot") != authority_hash:
+        failures.append(
+            "Manifest authority_snapshot hash must match the current authority artifact file hash."
+        )
 
     review_header = _csv_header(REVIEW_QUEUE_CSV)
     if review_header != REVIEW_QUEUE_COLUMNS:
@@ -139,24 +156,25 @@ def _failures() -> list[str]:
 
     doc_text = _read(DOC_PATH)
     for term in (
-        "blocked-pending-corpus-artifact",
-        "blocked-pending-authority-coverage-review",
+        "release-ready-triangulated-agent-review",
+        "agent-review fallback",
         "review overrides",
-        "must not be published as a validated component",
+        "unresolved fallback rows are not authoritative identity claims",
     ):
         if term not in doc_text:
             failures.append(f"Corpus-wide member identity docs missing term: {term}")
 
     plan_text = _read(PLAN_PATH)
-    if "[!]" not in plan_text and "blocked" not in plan_text.lower():
-        failures.append("Track plan must record the current release blocker.")
-    if "blocked" not in _read(TRACKS_PATH).lower():
-        failures.append("Track registry must expose blocked state.")
+    if "release-ready-triangulated-agent-review" not in plan_text:
+        failures.append("Track plan must record the triangulated agent-review release gate.")
+    registry_text = _read(TRACKS_PATH)
+    if "[x] Track: Corpus-Wide Member Identity Release" not in registry_text:
+        failures.append("Track registry must mark corpus-wide member identity release complete.")
 
     metadata = _json(METADATA_PATH)
-    if metadata["status"] != "blocked":
+    if metadata["status"] != "complete":
         failures.append(
-            "Track metadata must be blocked until corpus input and authority coverage gates pass."
+            "Track metadata must be complete after triangulation and agent-review fallback routing."
         )
     return failures
 

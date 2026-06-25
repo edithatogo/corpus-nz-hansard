@@ -2,7 +2,7 @@
 
 Implement validated corpus-wide extraction for votes, motions, bills, oral/written questions, answers, and procedural decisions.
 
-Repo-side builder/checker are implemented, but the release is blocked until validated member identity, validated party attribution, and validated sitting/proceeding components exist.
+Repo-side builder/checker are implemented with gate `release-ready-fixture-reviewed-extraction-agent-review` after validated member identity, validated party attribution, and validated sitting/proceeding became available.
 
 Current implementation surface:
 
@@ -13,3 +13,9 @@ Current implementation surface:
 - `docs/vote-motion-bill-question-extraction-release.md`
 - `scripts/build_vote_motion_bill_question_extraction.py`
 - `scripts/check_vote_motion_bill_question_extraction.py`
+
+Release boundary:
+
+- Five reviewed fixture extractions are release-ready.
+- The interjection boundary row remains excluded-by-design.
+- This is not a corpus-wide extraction completeness claim.

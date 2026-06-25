@@ -1,18 +1,23 @@
 # Plan: Corpus-Wide Party Attribution Release
 
+## Status
+
+Complete and release-ready under `release-ready-explicit-party-labels-member-identity-triangulated`.
+
 ## Phase 1: Dependencies
 
- - [x] Confirm member identity release gate state.
- - [x] Inventory party membership authority sources and temporal fields.
- - [x] Define schema and unresolved/ambiguous status handling.
+- [x] Confirm member identity release gate state.
+- [x] Inventory party membership authority sources and temporal fields.
+- [x] Define schema and unresolved/ambiguous status handling.
 
 ## Phase 2: Implementation
 
- - [x] Build temporal join and validation checks.
- - [x] Add tests for explicit party labels and blocked-member-identity review paths.
- - [x] Generate coverage and conflict reports.
+- [x] Build explicit party-vote label extraction and validation checks.
+- [x] Limit release scope to explicit party-vote labels.
+- [x] Exclude speech-text party inference and member-identity fallback rows from authoritative party claims.
 
 ## Phase 3: Release Decision
 
- - [x] Update docs and endpoint dependency matrix.
- - [x] Record publish/defer decision with validation evidence.
+- [x] Accept `release-ready-triangulated-agent-review` as the member identity dependency gate.
+- [x] Update docs and manifest with release-ready explicit-party-label scope.
+- [x] Record release decision with validation evidence.

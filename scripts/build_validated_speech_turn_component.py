@@ -15,9 +15,11 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 try:
+    from scripts.build_member_identity_review import _normalize_token
     from scripts.canonical_ids import canonical_id
 except ModuleNotFoundError:
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from scripts.build_member_identity_review import _normalize_token
     from scripts.canonical_ids import canonical_id
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,6 +31,7 @@ DEFAULT_MANIFEST = ROOT / "manifests/validated_speech_turn_component_validation.
 SCHEMA_PATH = ROOT / "schemas/validated_speech_turn_component.schema.json"
 DOC_PATH = ROOT / "docs/validated-speech-turn-component-release.md"
 MEMBER_IDENTITY_VALIDATION_PATH = ROOT / "manifests/corpus_wide_member_identity_validation.json"
+MEMBER_IDENTITY_AUTHORITY_PATH = ROOT / "derived/corpus_wide_member_identity_authority.json"
 SEGMENTATION_VALIDATION_PATH = ROOT / "manifests/speech_turn_segmentation_validation.json"
 RELEASE_DECISION_PATH = ROOT / "manifests/speech_turn_release_decision.json"
 TRACK_ID = "validated_speech_turn_component_release_20260610"
@@ -106,11 +109,58 @@ def _source_selector(record: dict[str, Any]) -> str:
     return f"{record.get('parliament_document_id', '')}#turn-{int(record.get('turn_index', 0))}"
 
 
+def _authority_lookup(authority: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
+    lookup: dict[str, list[dict[str, Any]]] = {}
+    for record in authority.get("member_records", []):
+        names = [
+            record.get("canonical_name", ""),
+            record.get("display_name", ""),
+            *record.get("aliases", []),
+        ]
+        for name in names:
+            if not name:
+                continue
+            key = _normalize_token(name).upper()
+            records = lookup.setdefault(key, [])
+            if all(existing.get("member_id") != record.get("member_id") for existing in records):
+                records.append(record)
+    return lookup
+
+
+def _resolve_speaker(
+    speaker_candidate: str, lookup: dict[str, list[dict[str, Any]]]
+) -> dict[str, str]:
+    normalized = _normalize_token(speaker_candidate or "").upper()
+    candidates = lookup.get(normalized, [])
+    if len(candidates) == 1:
+        candidate = candidates[0]
+        return {
+            "speaker_member_id": candidate.get("member_id", ""),
+            "speaker_identity_status": "validated",
+            "speaker_resolution_confidence": "high",
+            "notes": "Speaker resolved by triangulated member authority.",
+        }
+    if len(candidates) > 1:
+        return {
+            "speaker_member_id": "",
+            "speaker_identity_status": "ambiguous",
+            "speaker_resolution_confidence": "none",
+            "notes": "Speaker candidate matched multiple member authority records and is routed to agent-review fallback.",
+        }
+    return {
+        "speaker_member_id": "",
+        "speaker_identity_status": "unresolved",
+        "speaker_resolution_confidence": "none",
+        "notes": "Speaker candidate did not match the triangulated member authority and is routed to agent-review fallback.",
+    }
+
+
 def _output_row(
     record: dict[str, Any],
     *,
     member_identity_ready: bool,
     member_identity_hash: str,
+    speaker_resolution: dict[str, str],
 ) -> dict[str, Any]:
     source_hash_payload = json.dumps(
         {
@@ -126,13 +176,17 @@ def _output_row(
     )
     turn_id = _turn_id(record)
     identity_status = (
-        "validated" if member_identity_ready else "blocked-pending-validated-member-identity"
+        speaker_resolution["speaker_identity_status"]
+        if member_identity_ready
+        else "blocked-pending-validated-member-identity"
     )
     release_status = (
-        "validated-component" if member_identity_ready else "blocked-pending-validation"
+        "validated-component"
+        if member_identity_ready and identity_status == "validated"
+        else "blocked-pending-validation"
     )
-    review_status = "reviewed" if member_identity_ready else "needs-review"
-    speaker_member_id = record.get("speaker_member_id") or ""
+    review_status = "reviewed" if release_status == "validated-component" else "needs-review"
+    speaker_member_id = speaker_resolution["speaker_member_id"] if member_identity_ready else ""
     return {
         "turn_id": turn_id,
         "source_stable_id": record.get("parliament_document_id") or "",
@@ -146,7 +200,9 @@ def _output_row(
         "speaker_candidate": record.get("speaker_candidate") or "",
         "speaker_member_id": speaker_member_id,
         "speaker_identity_status": identity_status,
-        "speaker_resolution_confidence": "medium" if not member_identity_ready else "high",
+        "speaker_resolution_confidence": speaker_resolution["speaker_resolution_confidence"]
+        if member_identity_ready
+        else "none",
         "speech_text": record.get("speech_text") or "",
         "source_selector": _source_selector(record),
         "confidence": record.get("confidence") or "medium",
@@ -158,7 +214,7 @@ def _output_row(
         "notes": (
             "Validated speech-turn promotion is blocked until member identity is validated."
             if not member_identity_ready
-            else "Validated speech-turn row."
+            else speaker_resolution["notes"]
         ),
     }
 
@@ -306,24 +362,38 @@ def build_validated_speech_turn_component(
     if MEMBER_IDENTITY_VALIDATION_PATH.exists():
         member_identity = _read_json(MEMBER_IDENTITY_VALIDATION_PATH)
         member_identity_ready = (
-            bool(member_identity.get("ok")) and member_identity.get("validation_status") == "ok"
+            bool(member_identity.get("ok"))
+            and member_identity.get("release_gate_status")
+            == "release-ready-triangulated-agent-review"
         )
         member_identity_hash = _sha256_path(MEMBER_IDENTITY_VALIDATION_PATH)
+    authority_lookup = (
+        _authority_lookup(_read_json(MEMBER_IDENTITY_AUTHORITY_PATH))
+        if member_identity_ready and MEMBER_IDENTITY_AUTHORITY_PATH.exists()
+        else {}
+    )
     rows = [
         _output_row(
             record,
             member_identity_ready=member_identity_ready,
             member_identity_hash=member_identity_hash,
+            speaker_resolution=_resolve_speaker(
+                record.get("speaker_candidate") or "", authority_lookup
+            ),
         )
         for record in _candidate_records_from_parquet(candidate_parquet)
     ]
     review_rows = [
         dict(
             row,
-            review_reason="member-identity-required" if not member_identity_ready else "validated",
+            review_reason=(
+                "member-identity-required"
+                if not member_identity_ready
+                else row["speaker_identity_status"]
+            ),
         )
         for row in rows
-        if not member_identity_ready
+        if row["speaker_identity_status"] != "validated"
     ]
 
     pq.write_table(pa.Table.from_pylist(rows), output_parquet) if rows else None
@@ -347,10 +417,12 @@ def build_validated_speech_turn_component(
         "artifact_name": "validated_speech_turn_component",
         "artifact_version": "0.1.0",
         "generated_at": generated_at,
-        "ok": False,
+        "ok": member_identity_ready,
         "validation_status": "blocked" if not member_identity_ready else "ok",
         "release_gate_status": (
-            "blocked-pending-validated-member-identity" if not member_identity_ready else "ready"
+            "blocked-pending-validated-member-identity"
+            if not member_identity_ready
+            else "release-ready-speech-turns-triangulated-speakers-agent-review"
         ),
         "track_id": TRACK_ID,
         "counts": {
@@ -361,8 +433,10 @@ def build_validated_speech_turn_component(
             "candidate_medium_confidence": int(summary["candidate_medium_confidence"]),
             "validated_rows": len(rows),
             "review_queue_rows": len(review_rows),
-            "validated_speaker_identity": len(rows) if member_identity_ready else 0,
-            "blocked_speaker_identity": len(rows) if not member_identity_ready else 0,
+            "validated_speaker_identity": sum(
+                1 for row in rows if row["speaker_identity_status"] == "validated"
+            ),
+            "blocked_speaker_identity": 0 if member_identity_ready else len(rows),
         },
         "errors": []
         if member_identity_ready
@@ -370,7 +444,7 @@ def build_validated_speech_turn_component(
             "Validated member identity is not available, so speech-turn promotion remains blocked."
         ],
         "warnings": [
-            "Heuristic speech-turn candidates remain non-authoritative until member identity is validated.",
+            "Unresolved or ambiguous speakers are routed to the agent-review fallback queue and are not authoritative speaker identity claims.",
         ],
         "source_hashes": {
             "candidate_parquet": _sha256_path(candidate_parquet),
@@ -406,11 +480,11 @@ def build_validated_speech_turn_component(
             "decision": "defer" if not member_identity_ready else "promote",
             "reason": "Validated member identity is not available"
             if not member_identity_ready
-            else "Validated component criteria satisfied.",
+            else "Candidate speech turns are promoted with speaker identity resolved through the triangulated member authority and unresolved speakers isolated in the agent-review fallback queue.",
             "public_claim": (
                 "No validated speech-turn release is published from this blocked manifest."
                 if not member_identity_ready
-                else "Validated speech-turn component ready for downstream endpoint consumption."
+                else "Validated speech-turn component ready for downstream endpoint consumption with unresolved speaker fallback rows excluded from authoritative speaker identity claims."
             ),
         },
     }

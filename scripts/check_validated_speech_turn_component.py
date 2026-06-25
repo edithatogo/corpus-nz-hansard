@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -39,6 +40,7 @@ METADATA_PATH = TRACK_DIR / "metadata.json"
 TRACKS_PATH = ROOT / "conductor/tracks.md"
 OUTPUT_PATH = ROOT / "generated/derived/hansard_speech_turns_validated.parquet"
 REVIEW_QUEUE_PATH = ROOT / "derived/validated_speech_turns/speech_turn_review_queue.csv"
+MEMBER_IDENTITY_VALIDATION_PATH = ROOT / "manifests/corpus_wide_member_identity_validation.json"
 
 
 def _read(path: Path) -> str:
@@ -77,16 +79,16 @@ def _failures() -> list[str]:
         failures.append("artifact_name must be validated_speech_turn_component.")
     if manifest["track_id"] != "validated_speech_turn_component_release_20260610":
         failures.append("Manifest must reference the validated speech-turn track.")
-    if manifest["ok"] is not False:
+    if manifest["ok"] is not True:
         failures.append(
-            "Validated speech-turn release must remain blocked in the current workspace."
+            "Validated speech-turn release must be unblocked after member identity is release-ready."
         )
     if manifest["validation_status"] not in {"blocked", "ok"}:
         failures.append("Validation status must be blocked or ok.")
     if manifest["release_gate_status"] not in {
         "blocked-pending-candidate-artifact",
         "blocked-pending-validated-member-identity",
-        "ready",
+        "release-ready-speech-turns-triangulated-speakers-agent-review",
     }:
         failures.append("Unexpected release gate status for the validated speech-turn track.")
     for key in (
@@ -104,8 +106,13 @@ def _failures() -> list[str]:
         failures.append(
             "Manifest must record the candidate parquet source hash when the candidate artifact exists."
         )
-    if manifest["release_decision"]["decision"] not in {"defer", "promote"}:
-        failures.append("Release decision must be defer or promote.")
+    if manifest["release_decision"]["decision"] != "promote":
+        failures.append("Release decision must promote once member identity is release-ready.")
+    member_hash = hashlib.sha256(MEMBER_IDENTITY_VALIDATION_PATH.read_bytes()).hexdigest()
+    if manifest["source_hashes"].get("member_identity_validation") != member_hash:
+        failures.append(
+            "Speech-turn manifest must hash the current member identity validation manifest."
+        )
 
     schema = _json(SCHEMA_PATH)
     required_statuses = {
@@ -135,20 +142,22 @@ def _failures() -> list[str]:
 
     doc_text = _read(DOC_PATH)
     for term in (
-        "blocked-pending-validated-member-identity",
-        "blocked-pending-candidate-artifact",
-        "Validated member identity",
+        "release-ready-speech-turns-triangulated-speakers-agent-review",
+        "release-ready-triangulated-agent-review",
+        "agent-review fallback",
         "candidate speech-turn parquet",
     ):
         if term not in doc_text:
             failures.append(f"Validated speech-turn docs missing term: {term}")
 
-    if "blocked" not in _read(TRACKS_PATH).lower():
-        failures.append("Track registry must expose blocked state.")
+    if "[x] Track: Validated Speech-Turn Component Release" not in _read(TRACKS_PATH):
+        failures.append(
+            "Track registry must mark validated speech-turn component release complete."
+        )
 
     metadata = _json(METADATA_PATH)
-    if metadata["status"] != "blocked":
-        failures.append("Track metadata must be blocked until member identity validation exists.")
+    if metadata["status"] != "complete":
+        failures.append("Track metadata must be complete after member identity validation exists.")
     return failures
 
 
