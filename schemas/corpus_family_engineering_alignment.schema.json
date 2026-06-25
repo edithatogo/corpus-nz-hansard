@@ -43,7 +43,10 @@
           "type": "string"
         },
         "status": {
-          "const": "strict-script-workspace"
+          "enum": [
+            "strict-script-workspace",
+            "package-cli-compatibility-layer"
+          ]
         },
         "commands": {
           "items": {
@@ -126,7 +129,8 @@
               "status": {
                 "enum": [
                   "future",
-                  "compatibility-wrapper-required"
+                  "compatibility-wrapper-required",
+                  "compatibility-wrapper-active"
                 ]
               }
             },
@@ -173,7 +177,7 @@
               "typer-cli"
             ]
           },
-          "minItems": 4,
+          "minItems": 0,
           "type": "array",
           "uniqueItems": true
         }

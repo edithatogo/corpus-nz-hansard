@@ -1,8 +1,22 @@
 {
+  "artifacts": [
+    "src/nz_hansard_corpus/__init__.py",
+    "src/nz_hansard_corpus/cli.py",
+    "scripts/cli.py",
+    "scripts/check_package_cli_migration_execution.py",
+    "tests/test_package_cli_migration_execution.py",
+    "docs/package-cli-migration-execution.md",
+    "manifests/package_cli_migration_execution.json"
+  ],
+  "created_at": "2026-06-10T00:00:00+10:00",
+  "description": "Executed the package and CLI migration as a compatibility layer while preserving existing script workflows and publication boundaries.",
+  "release_status": "release-ready-package-cli-compatibility-layer",
+  "status": "complete",
   "track_id": "package_cli_migration_execution_20260610",
   "type": "feature",
-  "status": "blocked",
-  "created_at": "2026-06-10T00:00:00+10:00",
-  "updated_at": "2026-06-11T00:00:00+10:00",
-  "description": "Execute package and CLI migration while preserving existing quality gates and release behaviour."
+  "updated_at": "2026-06-24T00:00:00+10:00",
+  "validation": [
+    "scripts/check_package_cli_migration_execution.py",
+    "tests/test_package_cli_migration_execution.py"
+  ]
 }

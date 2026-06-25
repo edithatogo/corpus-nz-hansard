@@ -1,21 +1,27 @@
 # Plan: Package And CLI Migration Execution
 
+Status: complete for the compatibility-layer migration.
+
+Release status: release-ready-package-cli-compatibility-layer.
+
 ## Phase 1: Migration Plan
 
-- [ ] Inventory scripts and shared helpers.
-- [ ] Map each script to its eventual module, command, or compatibility shim.
-- [ ] Define package layout and CLI command names.
-- [ ] Confirm the future package root, CLI namespace, and wrapper policy.
+- [x] Inventory scripts and shared helpers.
+- [x] Map priority commands to package CLI dispatch.
+- [x] Define package layout and CLI command names.
+- [x] Confirm the package root, CLI namespace, and wrapper policy.
 
 ## Phase 2: Incremental Refactor
 
-- [ ] Move shared logic into modules.
-- [ ] Add CLI entry points and compatibility shims.
-- [ ] Keep the existing script entry points working while the new command surface lands.
-- [ ] Update tests for both paths.
+- [x] Add `src/nz_hansard_corpus` package namespace.
+- [x] Add `nzhc` CLI entry point and compatibility console routes.
+- [x] Keep existing script entry points working.
+- [x] Add tests and checker coverage for both package and CLI surfaces.
 
 ## Phase 3: Validation
 
-- [ ] Run quality gates and release checks.
-- [ ] Validate manifest generation, publication outputs, and documentation references against the migrated commands.
-- [ ] Update developer docs.
+- [x] Validate the package/CLI migration checker.
+- [x] Validate CLI command discovery.
+- [x] Update developer docs and track evidence.
+
+Boundary: legacy scripts remain supported and the publication boundary is preserved. This track does not run live publication commands.

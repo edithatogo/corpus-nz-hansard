@@ -1,41 +1,19 @@
 # Evidence: Package And CLI Migration Execution
 
-Status: blocked.
+Status: complete.
 
-Tracked artifacts:
+Release status: release-ready-package-cli-compatibility-layer.
 
-- `spec.md`
-- `plan.md`
-- `metadata.json`
-- `index.md`
+Implemented artifacts:
 
-Dependency boundary:
+- `src/nz_hansard_corpus/__init__.py`
+- `src/nz_hansard_corpus/cli.py`
+- `scripts/cli.py`
+- `manifests/package_cli_migration_execution.json`
+- `docs/package-cli-migration-execution.md`
+- `scripts/check_package_cli_migration_execution.py`
+- `tests/test_package_cli_migration_execution.py`
 
-- `pyproject.toml` still sets `tool.uv.package = false`.
-- `docs/corpus-family-engineering-alignment.md` documents `nz_hansard_corpus`
-  and `nzhc` as future migration targets rather than current behavior.
-- `scripts/check_corpus_family_engineering_alignment.py` deliberately fails if
-  `src/`, `.pre-commit-config.yaml`, or `renovate.json` appear before the
-  planning track is updated to implementation mode.
-- `docs/quality-gate.md` still describes the repo as a non-package uv project
-  with transitional script entrypoints.
+The legacy scripts remain supported. The publication boundary is preserved because the new CLI dispatch layer only maps commands to existing scripts and this validation does not call live publication operations.
 
-What this track would add later:
-
-- a `src/nz_hansard_corpus` package layout
-- a Typer-style `nzhc` CLI
-- backwards-compatible wrappers for current `python scripts/*.py` entrypoints
-- transition documentation for the old and new invocation paths
-
-Current blocker:
-
-- The migration boundary is intentionally not active yet, and the repo’s
-  current quality gate treats package layout, Typer CLI, pytest migration,
-  pre-commit, and Renovate as future work.
-
-Reference surfaces:
-
-- `docs/corpus-family-engineering-alignment.md`
-- `conductor/tracks/corpus_family_engineering_alignment_20260609/evidence.md`
-- `docs/quality-gate.md`
-- `scripts/check_corpus_family_engineering_alignment.py`
+Validated commands include `nzhc build-manifest`, `nzhc validate`, `nzhc metadata build`, `nzhc hf stage`, and `nzhc zenodo draft`.

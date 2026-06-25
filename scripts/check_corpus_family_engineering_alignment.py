@@ -60,24 +60,21 @@ def _failures() -> list[str]:
             "engineering standards must include exactly: " + ", ".join(sorted(REQUIRED_STANDARDS))
         )
 
-    future_standards = {
-        standard["id"] for standard in manifest["standards"] if standard["status"] == "future"
-    }
-    for required_future in ("src-layout", "typer-cli", "renovate"):
-        if required_future not in future_standards:
-            failures.append(f"{required_future} must remain marked future in this planning track.")
-
     adopted_standards = {
         standard["id"] for standard in manifest["standards"] if standard["status"] == "adopted"
     }
     for required_adopted in (
+        "pyproject",
         "pixi-environment",
+        "src-layout",
+        "typer-cli",
         "pytest",
         "ruff",
         "ty",
         "pre-commit",
         "codeql",
         "scorecard",
+        "renovate",
         "zenodo-protection",
     ):
         if required_adopted not in adopted_standards:
@@ -85,14 +82,12 @@ def _failures() -> list[str]:
 
     if not (ROOT / "pixi.toml").exists():
         failures.append("Hansard pixi.toml must remain committed.")
-    if (ROOT / "src").exists():
-        failures.append(
-            "src/ package layout exists; update this planning track to implementation mode."
-        )
+    if not (ROOT / "src" / "nz_hansard_corpus" / "cli.py").exists():
+        failures.append("src/nz_hansard_corpus package CLI must exist.")
     if not (ROOT / ".pre-commit-config.yaml").exists():
         failures.append("pre-commit is marked adopted but .pre-commit-config.yaml is missing.")
-    if (ROOT / "renovate.json").exists():
-        failures.append("renovate exists; update this planning track to implementation mode.")
+    if not (ROOT / "renovate.json").exists():
+        failures.append("renovate is marked adopted but renovate.json is missing.")
 
     if SIBLING_PATH.exists():
         sibling_checks = {

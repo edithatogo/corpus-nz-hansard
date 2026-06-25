@@ -9,7 +9,7 @@ from scripts.check_corpus_family_engineering_alignment import MANIFEST_PATH, _fa
 
 
 class CorpusFamilyEngineeringAlignmentTest(unittest.TestCase):
-    def test_manifest_records_sibling_baseline_and_future_migration(self):
+    def test_manifest_records_sibling_baseline_and_cli_migration(self):
         manifest = _json(MANIFEST_PATH)
 
         self.assertEqual(manifest["repository"], "corpus-nz-hansard")
@@ -21,16 +21,17 @@ class CorpusFamilyEngineeringAlignmentTest(unittest.TestCase):
         self.assertEqual(manifest["migration"]["target_package"], "nz_hansard_corpus")
         self.assertEqual(manifest["migration"]["target_cli"], "nzhc")
 
-    def test_statuses_separate_adopted_quality_from_future_refactor(self):
+    def test_statuses_record_package_cli_adoption(self):
         manifest = _json(MANIFEST_PATH)
         statuses = {item["id"]: item["status"] for item in manifest["standards"]}
 
         self.assertEqual(statuses["pixi-environment"], "adopted")
         self.assertEqual(statuses["ruff"], "adopted")
         self.assertEqual(statuses["zenodo-protection"], "adopted")
-        self.assertEqual(statuses["src-layout"], "future")
-        self.assertEqual(statuses["typer-cli"], "future")
+        self.assertEqual(statuses["src-layout"], "adopted")
+        self.assertEqual(statuses["typer-cli"], "adopted")
         self.assertEqual(statuses["pytest"], "adopted")
+        self.assertEqual(statuses["renovate"], "adopted")
 
     def test_configuration_is_consistent(self):
         self.assertEqual(_failures(), [])

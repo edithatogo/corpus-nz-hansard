@@ -1,0 +1,34 @@
+{
+  "artifacts": [
+    "src/nz_hansard_corpus/__init__.py",
+    "src/nz_hansard_corpus/cli.py",
+    "scripts/cli.py",
+    "scripts/check_package_cli_migration_execution.py",
+    "tests/test_package_cli_migration_execution.py",
+    "docs/package-cli-migration-execution.md"
+  ],
+  "cli": "nzhc",
+  "commands": [
+    "nzhc build-manifest",
+    "nzhc validate",
+    "nzhc metadata build",
+    "nzhc hf stage",
+    "nzhc zenodo draft"
+  ],
+  "entry_points": {
+    "corpus-nz-hansard": "nz_hansard_corpus.cli:main",
+    "nz-hansard-corpus": "nz_hansard_corpus.cli:main",
+    "nzhc": "nz_hansard_corpus.cli:main"
+  },
+  "legacy_scripts_remain_supported": true,
+  "non_goals": [
+    "remove existing python scripts/*.py entry points",
+    "run publication commands against live external services",
+    "rewrite pipeline internals without regression evidence"
+  ],
+  "package": "nz_hansard_corpus",
+  "publication_boundary_preserved": true,
+  "release_status": "release-ready-package-cli-compatibility-layer",
+  "title": "Package And CLI Migration Execution",
+  "track": "package_cli_migration_execution_20260610"
+}
