@@ -49,7 +49,6 @@
       "description": "Major dependency updates require isolated review.",
       "matchUpdateTypes": ["major"],
       "dependencyDashboardApproval": true,
-      "separateMajorMinor": true,
       "automerge": false,
       "labels": ["dependencies", "major-update", "requires-review"]
     }
