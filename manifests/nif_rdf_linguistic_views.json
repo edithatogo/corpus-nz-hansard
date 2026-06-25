@@ -1,0 +1,39 @@
+{
+  "counts": {
+    "contexts": 1,
+    "sentence_views": 0,
+    "token_views": 10
+  },
+  "dependency_statuses": {
+    "rdf_linked_data_public_endpoint": "release-ready-sample-public-endpoint",
+    "ud_conllu_public_endpoint": "release-ready-sample-public-endpoint"
+  },
+  "generated_at": "2026-06-24T11:27:23.422353+00:00",
+  "manifest_version": 1,
+  "outputs": {
+    "readme": "samples/nif-rdf-linguistic-views/README.md",
+    "turtle": "samples/nif-rdf-linguistic-views/nif-linguistic-views.ttl"
+  },
+  "public_claim": {
+    "full_corpus_release": false,
+    "reason": "Sample NIF/RDF token views link UD offsets to the RDF sample namespace; this is not a full corpus linguistic annotation release.",
+    "sample_only": true,
+    "stable_uri_review_complete": false,
+    "status": "release-ready-sample-only"
+  },
+  "release_status": "release-ready-sample-nif-rdf-view",
+  "repository": "corpus-nz-hansard",
+  "source_manifests": [
+    "manifests/rdf_linked_data_public_endpoint_validation.json",
+    "manifests/ud_conllu_public_endpoint_validation.json",
+    "samples/ud-conllu/parliament_sample.alignments.json"
+  ],
+  "status": "release-ready",
+  "track_id": "nif_rdf_linguistic_views_20260610",
+  "validation_results": {
+    "dependencies_ready": true,
+    "nif_context_present": true,
+    "sample_boundary_recorded": true,
+    "token_offsets_preserved": true
+  }
+}

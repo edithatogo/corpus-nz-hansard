@@ -2,14 +2,15 @@
 
 ## Phase 1: Dependencies
 
-- [ ] Confirm RDF, UD, selector, and URI contracts.
-- [ ] Define NIF vocabulary mapping.
+- [x] Confirm RDF, UD, selector, and URI contracts.
+- [x] Define NIF vocabulary mapping.
 
 ## Phase 2: Output
 
-- [ ] Generate NIF/RDF views.
-- [ ] Add RDF, selector, and provenance validators.
+- [x] Generate sample NIF/RDF token views.
+- [x] Add RDF, selector, and provenance validators.
 
 ## Phase 3: Documentation
 
-- [ ] Add examples and release/defer decision.
+- [x] Add examples and release/defer decision.
+- [x] Preserve sample-only and stable URI review boundaries.

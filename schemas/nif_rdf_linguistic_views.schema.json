@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "counts": {
+      "type": "object"
+    },
+    "dependency_statuses": {
+      "type": "object"
+    },
+    "manifest_version": {
+      "const": 1
+    },
+    "outputs": {
+      "type": "object"
+    },
+    "public_claim": {
+      "type": "object"
+    },
+    "release_status": {
+      "const": "release-ready-sample-nif-rdf-view"
+    },
+    "status": {
+      "const": "release-ready"
+    },
+    "track_id": {
+      "const": "nif_rdf_linguistic_views_20260610"
+    },
+    "validation_results": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "track_id",
+    "status",
+    "release_status",
+    "dependency_statuses",
+    "counts",
+    "outputs",
+    "public_claim",
+    "validation_results"
+  ],
+  "type": "object"
+}

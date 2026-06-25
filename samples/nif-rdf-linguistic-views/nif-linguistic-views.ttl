@@ -1,0 +1,90 @@
+@prefix nif: <http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#> .
+@prefix nzh: <https://w3id.org/nz-hansard/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view> a nif:Context ;
+  nif:isString "This bill is set down for committee stage immediately." ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> ;
+  nzh:sampleBoundary "sample-only; not full corpus NIF/RDF output" .
+
+<https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view#char=0,4> a nif:Word ;
+  nif:anchorOf "This" ;
+  nif:beginIndex "0"^^xsd:nonNegativeInteger ;
+  nif:endIndex "4"^^xsd:nonNegativeInteger ;
+  nif:referenceContext <https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view> ;
+  nzh:sourceTokenId "1" ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> .
+
+<https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view#char=5,9> a nif:Word ;
+  nif:anchorOf "bill" ;
+  nif:beginIndex "5"^^xsd:nonNegativeInteger ;
+  nif:endIndex "9"^^xsd:nonNegativeInteger ;
+  nif:referenceContext <https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view> ;
+  nzh:sourceTokenId "2" ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> .
+
+<https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view#char=10,12> a nif:Word ;
+  nif:anchorOf "is" ;
+  nif:beginIndex "10"^^xsd:nonNegativeInteger ;
+  nif:endIndex "12"^^xsd:nonNegativeInteger ;
+  nif:referenceContext <https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view> ;
+  nzh:sourceTokenId "3" ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> .
+
+<https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view#char=13,16> a nif:Word ;
+  nif:anchorOf "set" ;
+  nif:beginIndex "13"^^xsd:nonNegativeInteger ;
+  nif:endIndex "16"^^xsd:nonNegativeInteger ;
+  nif:referenceContext <https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view> ;
+  nzh:sourceTokenId "4" ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> .
+
+<https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view#char=17,21> a nif:Word ;
+  nif:anchorOf "down" ;
+  nif:beginIndex "17"^^xsd:nonNegativeInteger ;
+  nif:endIndex "21"^^xsd:nonNegativeInteger ;
+  nif:referenceContext <https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view> ;
+  nzh:sourceTokenId "5" ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> .
+
+<https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view#char=22,25> a nif:Word ;
+  nif:anchorOf "for" ;
+  nif:beginIndex "22"^^xsd:nonNegativeInteger ;
+  nif:endIndex "25"^^xsd:nonNegativeInteger ;
+  nif:referenceContext <https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view> ;
+  nzh:sourceTokenId "6" ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> .
+
+<https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view#char=26,35> a nif:Word ;
+  nif:anchorOf "committee" ;
+  nif:beginIndex "26"^^xsd:nonNegativeInteger ;
+  nif:endIndex "35"^^xsd:nonNegativeInteger ;
+  nif:referenceContext <https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view> ;
+  nzh:sourceTokenId "7" ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> .
+
+<https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view#char=36,41> a nif:Word ;
+  nif:anchorOf "stage" ;
+  nif:beginIndex "36"^^xsd:nonNegativeInteger ;
+  nif:endIndex "41"^^xsd:nonNegativeInteger ;
+  nif:referenceContext <https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view> ;
+  nzh:sourceTokenId "8" ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> .
+
+<https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view#char=42,53> a nif:Word ;
+  nif:anchorOf "immediately" ;
+  nif:beginIndex "42"^^xsd:nonNegativeInteger ;
+  nif:endIndex "53"^^xsd:nonNegativeInteger ;
+  nif:referenceContext <https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view> ;
+  nzh:sourceTokenId "9" ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> .
+
+<https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view#char=53,54> a nif:Word ;
+  nif:anchorOf "." ;
+  nif:beginIndex "53"^^xsd:nonNegativeInteger ;
+  nif:endIndex "54"^^xsd:nonNegativeInteger ;
+  nif:referenceContext <https://w3id.org/nz-hansard/sample/nif-rdf-linguistic-view> ;
+  nzh:sourceTokenId "10" ;
+  prov:wasDerivedFrom <https://w3id.org/nz-hansard/component/nzhc-component-0000000000000005> .
+
