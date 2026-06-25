@@ -1,0 +1,6 @@
+sitting_id,date,parliament,session,source,status,confidence,notes
+nz-hansard-sitting-1854-05-24,1854-05-24,1,1,sample-authority-index,reconciled-sample,1.0,Opening historical sample used to prove the reconciliation shape.
+nz-hansard-sitting-1893-09-19,1893-09-19,11,2,sample-authority-index,reconciled-sample,1.0,Representative nineteenth century sample date.
+nz-hansard-sitting-1939-09-05,1939-09-05,26,2,sample-authority-index,reconciled-sample,1.0,Representative twentieth century sample date.
+nz-hansard-sitting-1986-12-13,1986-12-13,41,3,sample-authority-index,reconciled-sample,1.0,Late print-era sample date.
+nz-hansard-sitting-2023-12-05,2023-12-05,54,1,sample-authority-index,reconciled-sample,1.0,Modern sample date for forward compatibility.

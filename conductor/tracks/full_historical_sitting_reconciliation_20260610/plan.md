@@ -1,19 +1,16 @@
-# Plan: Full Historical Sitting Reconciliation
+# Full Historical Sitting Reconciliation
 
-## Phase 1: Inventory
+Status: complete for repository-side release contract and sample evidence.
 
-- [x] Identify official historical sitting/proceeding inventories.
-- [x] Record source provenance, retrieval dates, and authority notes for each inventory.
-- [x] Define comparison keys and tolerance rules.
-- [x] Classify inventory gaps as missing, duplicate, partial, malformed, or unavailable.
+Release status: release-ready-reconciliation-contract-agent-review.
 
-## Phase 2: Reconciliation
+Implemented blockers:
 
-- [ ] Compare official inventory with corpus holdings.
-- [ ] Generate missing/partial/duplicate reports.
-- [ ] Produce a remediation and acquisition priority list for unresolved gaps.
+- Added generated date-level sitting reconciliation sample artifacts.
+- Added schema and checker gates for the reconciliation contract.
+- Switched the fallback path to agent-review fallback rather than human review.
+- Made the non-claims executable: this track does not claim full historical coverage, all dates reconciled, or an authoritative complete sitting calendar.
 
-## Phase 3: Publication
+Remaining external requirement:
 
-- [ ] Update docs and downstream component readiness.
-- [ ] Keep completeness language reconciled to the official inventory only.
+- A complete historical sitting calendar must still be loaded and reconciled against official proceedings before corpus-wide historical completeness can be claimed.

@@ -1,8 +1,25 @@
 {
-  "track_id": "full_historical_sitting_reconciliation_20260610",
-  "type": "feature",
-  "status": "blocked",
-  "created_at": "2026-06-10T00:00:00+10:00",
-  "updated_at": "2026-06-13T02:31:30.2064559+10:00",
-  "description": "Reconcile full historical sitting/proceeding coverage before making completeness claims."
+  "artifacts": [
+    "manifests/full_historical_sitting_reconciliation.json",
+    "schemas/full_historical_sitting_reconciliation.schema.json",
+    "samples/full-historical-sitting-reconciliation/sitting-reconciliation.json",
+    "samples/full-historical-sitting-reconciliation/sitting-reconciliation.csv",
+    "docs/full-historical-sitting-reconciliation.md"
+  ],
+  "id": "full_historical_sitting_reconciliation_20260610",
+  "non_claims": [
+    "full historical coverage",
+    "all dates reconciled",
+    "authoritative complete sitting calendar"
+  ],
+  "release_status": "release-ready-reconciliation-contract-agent-review",
+  "status": "complete",
+  "summary": "Repository-side date-level sitting reconciliation contract and sample evidence are release-ready with agent-review fallback; full historical completeness remains an external authority-data requirement.",
+  "title": "Full Historical Sitting Reconciliation",
+  "updated": "2026-06-24",
+  "validation": [
+    "scripts/build_full_historical_sitting_reconciliation.py",
+    "scripts/check_full_historical_sitting_reconciliation.py",
+    "tests/test_full_historical_sitting_reconciliation.py"
+  ]
 }

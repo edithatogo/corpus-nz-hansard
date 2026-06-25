@@ -10,7 +10,7 @@
   ],
   "artifact_name": "historical_sitting_official_exports_coverage",
   "artifact_version": "0.1.0",
-  "generated_at": "2026-06-12T15:43:13.008786+00:00",
+  "generated_at": "2026-06-25T02:46:03.711933+00:00",
   "index_path": "derived/historical_sitting_official_exports/historical_sitting_official_export_index.json",
   "ledger_date_count": 409,
   "ledger_path": "derived/historical_sitting_reconciliation/historical_sitting_ledger.parquet",

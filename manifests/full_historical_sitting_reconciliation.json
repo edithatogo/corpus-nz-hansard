@@ -1,0 +1,28 @@
+{
+  "artifacts": [
+    "samples/full-historical-sitting-reconciliation/sitting-reconciliation.json",
+    "samples/full-historical-sitting-reconciliation/sitting-reconciliation.csv",
+    "samples/full-historical-sitting-reconciliation/README.md",
+    "docs/full-historical-sitting-reconciliation.md"
+  ],
+  "generated_at": "2026-06-24T11:50:49Z",
+  "public_claims": {
+    "all_dates_reconciled": false,
+    "authoritative_complete_sitting_calendar": false,
+    "full_historical_coverage": false,
+    "reconciliation_contract_release_ready": true,
+    "sample_reconciliation_release_ready": true
+  },
+  "release_status": "release-ready-reconciliation-contract-agent-review",
+  "remaining_external_requirements": [
+    "load a complete authority sitting calendar for every historical date",
+    "reconcile OCR/source gaps against official proceedings for all parliaments and sessions",
+    "publish unresolved exceptions once the complete authority calendar is available"
+  ],
+  "title": "Full Historical Sitting Reconciliation",
+  "track": "full_historical_sitting_reconciliation_20260610",
+  "validation": {
+    "checker": "scripts/check_full_historical_sitting_reconciliation.py",
+    "tests": "tests/test_full_historical_sitting_reconciliation.py"
+  }
+}

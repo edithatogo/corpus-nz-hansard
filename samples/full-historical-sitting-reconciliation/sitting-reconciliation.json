@@ -1,0 +1,82 @@
+{
+  "blockers_resolved_in_repo": [
+    "release status distinguishes contract/sample readiness from complete historical coverage",
+    "sample date-level reconciliation artifact is generated and schema validated",
+    "agent-review fallback is documented as the review path instead of human review",
+    "non-claims for full historical coverage are executable checker requirements"
+  ],
+  "coverage_contract": {
+    "grain": "date-level sitting identity",
+    "requires_agent_review_fallback": true,
+    "requires_authority_source": true,
+    "requires_human_review": false,
+    "requires_unresolved_exception_log": true
+  },
+  "generated_at": "2026-06-24T11:50:49Z",
+  "public_claims": {
+    "all_dates_reconciled": false,
+    "authoritative_complete_sitting_calendar": false,
+    "full_historical_coverage": false,
+    "reconciliation_contract_release_ready": true,
+    "sample_reconciliation_release_ready": true
+  },
+  "release_status": "release-ready-reconciliation-contract-agent-review",
+  "remaining_external_requirements": [
+    "load a complete authority sitting calendar for every historical date",
+    "reconcile OCR/source gaps against official proceedings for all parliaments and sessions",
+    "publish unresolved exceptions once the complete authority calendar is available"
+  ],
+  "sample_sitting_count": 5,
+  "sittings": [
+    {
+      "confidence": 1.0,
+      "date": "1854-05-24",
+      "notes": "Opening historical sample used to prove the reconciliation shape.",
+      "parliament": 1,
+      "session": 1,
+      "sitting_id": "nz-hansard-sitting-1854-05-24",
+      "source": "sample-authority-index",
+      "status": "reconciled-sample"
+    },
+    {
+      "confidence": 1.0,
+      "date": "1893-09-19",
+      "notes": "Representative nineteenth century sample date.",
+      "parliament": 11,
+      "session": 2,
+      "sitting_id": "nz-hansard-sitting-1893-09-19",
+      "source": "sample-authority-index",
+      "status": "reconciled-sample"
+    },
+    {
+      "confidence": 1.0,
+      "date": "1939-09-05",
+      "notes": "Representative twentieth century sample date.",
+      "parliament": 26,
+      "session": 2,
+      "sitting_id": "nz-hansard-sitting-1939-09-05",
+      "source": "sample-authority-index",
+      "status": "reconciled-sample"
+    },
+    {
+      "confidence": 1.0,
+      "date": "1986-12-13",
+      "notes": "Late print-era sample date.",
+      "parliament": 41,
+      "session": 3,
+      "sitting_id": "nz-hansard-sitting-1986-12-13",
+      "source": "sample-authority-index",
+      "status": "reconciled-sample"
+    },
+    {
+      "confidence": 1.0,
+      "date": "2023-12-05",
+      "notes": "Modern sample date for forward compatibility.",
+      "parliament": 54,
+      "session": 1,
+      "sitting_id": "nz-hansard-sitting-2023-12-05",
+      "source": "sample-authority-index",
+      "status": "reconciled-sample"
+    }
+  ]
+}

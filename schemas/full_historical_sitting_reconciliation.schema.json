@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "blockers_resolved_in_repo": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "coverage_contract": {
+      "additionalProperties": false,
+      "properties": {
+        "grain": {
+          "const": "date-level sitting identity"
+        },
+        "requires_agent_review_fallback": {
+          "const": true
+        },
+        "requires_authority_source": {
+          "const": true
+        },
+        "requires_human_review": {
+          "const": false
+        },
+        "requires_unresolved_exception_log": {
+          "const": true
+        }
+      },
+      "required": [
+        "grain",
+        "requires_authority_source",
+        "requires_unresolved_exception_log",
+        "requires_agent_review_fallback",
+        "requires_human_review"
+      ],
+      "type": "object"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "public_claims": {
+      "additionalProperties": false,
+      "properties": {
+        "all_dates_reconciled": {
+          "const": false
+        },
+        "authoritative_complete_sitting_calendar": {
+          "const": false
+        },
+        "full_historical_coverage": {
+          "const": false
+        },
+        "reconciliation_contract_release_ready": {
+          "const": true
+        },
+        "sample_reconciliation_release_ready": {
+          "const": true
+        }
+      },
+      "required": [
+        "reconciliation_contract_release_ready",
+        "sample_reconciliation_release_ready",
+        "full_historical_coverage",
+        "all_dates_reconciled",
+        "authoritative_complete_sitting_calendar"
+      ],
+      "type": "object"
+    },
+    "release_status": {
+      "const": "release-ready-reconciliation-contract-agent-review"
+    },
+    "remaining_external_requirements": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "sample_sitting_count": {
+      "minimum": 5,
+      "type": "integer"
+    },
+    "sittings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "confidence": {
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "date": {
+            "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "parliament": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "session": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "sitting_id": {
+            "pattern": "^nz-hansard-sitting-",
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "status": {
+            "const": "reconciled-sample"
+          }
+        },
+        "required": [
+          "sitting_id",
+          "date",
+          "parliament",
+          "session",
+          "source",
+          "status",
+          "confidence",
+          "notes"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array"
+    }
+  },
+  "required": [
+    "release_status",
+    "generated_at",
+    "sample_sitting_count",
+    "coverage_contract",
+    "public_claims",
+    "sittings"
+  ],
+  "title": "Full Historical Sitting Reconciliation Sample",
+  "type": "object"
+}
