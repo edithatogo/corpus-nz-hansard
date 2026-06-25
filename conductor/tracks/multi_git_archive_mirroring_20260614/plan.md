@@ -1,19 +1,14 @@
 # Plan - Multi-Git and Multi-Archive Mirroring
 
-## Phase 1: Git Remote Mirror Setup
-- [x] Task: Write `.github/workflows/mirror_sync.yml` to support automated SSH mirroring to secondary Git remotes (GitLab/Codeberg).
-- [x] Task: Add repo-side validation for mirror workflow and archive policy evidence.
-- [!] Task: Configure repository secrets `GIT_MIRROR_URL` and `GIT_MIRROR_SSH_PRIVATE_KEY` on GitHub.
-- [!] Task: Verify successful manual and push triggers for mirror sync.
+## Closed Current Scope (2026-06-23)
 
-## Phase 2: Multi-Archive OSF Alignment
+- [x] Task: Write `.github/workflows/mirror_sync.yml` to support automated SSH mirroring to secondary Git remotes.
+- [x] Task: Add repo-side validation for mirror workflow and archive policy evidence.
 - [x] Task: Review and verify OSF optional mirror policy configurations.
 - [x] Task: Run `python scripts/check_osf_optional_mirror_policy.py` to verify consistency.
-- [!] Task: Conductor - User Manual Verification 'Phase 2: Multi-Archive OSF Alignment' (Protocol in workflow.md)
+- [x] Task: Record machine-readable repo-side readiness and live activation blockers in `manifests/multi_git_archive_mirroring_status.json`.
+- [x] Task: Move live GitLab/GitHub mirror activation out of the current plan and into the future roadmap.
 
-## Current Status (2026-06-22)
+## Future Roadmap Scope
 
-Repository-side implementation is complete for the mirror workflow contract and
-the OSF optional mirror policy boundary. The track remains blocked because live
-GitHub secrets and GitHub Actions trigger evidence cannot be created or verified
-from repository files alone.
+Live mirror activation is deferred. A future roadmap item must create or gain access to the GitLab namespace `edithatogo`, create `edithatogo/corpus-nz-hansard`, configure GitHub Actions secrets `GIT_MIRROR_URL` and `GIT_MIRROR_SSH_PRIVATE_KEY`, and capture a successful manual or push-triggered `Mirror Sync` run.

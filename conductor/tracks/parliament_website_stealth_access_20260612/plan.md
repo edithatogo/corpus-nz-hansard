@@ -5,4 +5,4 @@
 - [x] Task: Implement stealth measures (navigator.webdriver override, chrome.runtime spoof, permissions override)
 - [x] Task: Run Playwright stealth script - SUCCESS (all 5 pages fetched)
 - [x] Task: Save screenshots and extracted content to derived/parliament_stealth/
-- [ ] Task: Fall back to Wayback Machine snapshots (not needed - direct access works now)
+- [x] Task: Wayback fallback documented as not required (direct stealth access works)

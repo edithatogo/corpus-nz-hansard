@@ -1,0 +1,45 @@
+{
+  "artifact_name": "multi_git_archive_mirroring_status",
+  "track_id": "multi_git_archive_mirroring_20260614",
+  "repo_side_status": "implemented",
+  "live_status": "deferred-to-future-roadmap",
+  "generated_at": "2026-06-23",
+  "workflow": {
+    "path": ".github/workflows/mirror_sync.yml",
+    "name": "Mirror Sync",
+    "push_branches": [
+      "main",
+      "master"
+    ],
+    "manual_trigger": true,
+    "checkout_ref": "93cb6efe18208431cddfb8368fd83d5badbf9bfd",
+    "fetch_depth_zero": true,
+    "persist_credentials": false,
+    "secrets_required": [
+      "GIT_MIRROR_URL",
+      "GIT_MIRROR_SSH_PRIVATE_KEY"
+    ],
+    "incomplete_secret_pair_behavior": "skip-before-ssh-setup",
+    "pull_request_trigger": false
+  },
+  "archives": {
+    "canonical_live_dataset": "Hugging Face",
+    "immutable_citation_snapshot": "Zenodo",
+    "optional_review_mirror": "OSF",
+    "osf_status": "inactive-until-policy-activation",
+    "osf_claims_allowed": false
+  },
+  "blocked_on": [
+    "Create or gain access to the GitLab namespace edithatogo.",
+    "Create the GitLab mirror project edithatogo/corpus-nz-hansard.",
+    "Configure GitHub Actions secret GIT_MIRROR_URL.",
+    "Configure GitHub Actions secret GIT_MIRROR_SSH_PRIVATE_KEY.",
+    "Capture successful manual or push-triggered Mirror Sync workflow evidence."
+  ],
+  "validated_by": [
+    "scripts/check_osf_optional_mirror_policy.py",
+    "scripts/check_multi_git_archive_mirroring.py",
+    "tests/test_multi_git_archive_mirroring.py"
+  ],
+  "future_roadmap_ref": "conductor/improvement-backlog.md"
+}

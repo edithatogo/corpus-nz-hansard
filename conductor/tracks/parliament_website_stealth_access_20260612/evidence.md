@@ -44,6 +44,7 @@ All 5 target pages were successfully fetched without Radware blocking:
 
 ### Script
 - `scripts/fetch_parliament_stealth.mjs` - Playwright stealth browser script
+- `scripts/check_parliament_website_stealth_access.py` - validates saved offline artifacts and track status
 - Usage: `node scripts/fetch_parliament_stealth.mjs`
 - Test mode: `TEST_MODE=1 node scripts/fetch_parliament_stealth.mjs` (fetches only first URL)
 
