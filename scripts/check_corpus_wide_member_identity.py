@@ -19,15 +19,15 @@ try:
     )
     from scripts.validate_derived_fields import validate_manifest
 except ModuleNotFoundError:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-    from scripts.build_corpus_wide_member_identity import (
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from build_corpus_wide_member_identity import (
         OUTPUT_COLUMNS,
         REVIEW_QUEUE_COLUMNS,
         REVIEW_QUEUE_CSV,
         SCHEMA_PATH,
         VALIDATION_MANIFEST_PATH,
     )
-    from scripts.validate_derived_fields import validate_manifest
+    from validate_derived_fields import validate_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
 DOC_PATH = ROOT / "docs/corpus-wide-member-identity-release.md"

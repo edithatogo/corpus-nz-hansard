@@ -18,8 +18,8 @@ import pyarrow.parquet as pq
 try:
     from scripts.canonical_ids import canonical_id
 except ModuleNotFoundError:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-    from scripts.canonical_ids import canonical_id
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from canonical_ids import canonical_id
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PARQUET = ROOT / "generated/parquet/hansard.parquet"

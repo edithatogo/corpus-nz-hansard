@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 # Ensure workspace root is on sys.path so we can import shared utilities
-_WORKSPACE_ROOT = Path(__file__).resolve().parents[2]
+_WORKSPACE_ROOT = Path(__file__).resolve().parents[1]
 if str(_WORKSPACE_ROOT) not in sys.path:
     sys.path.insert(0, str(_WORKSPACE_ROOT))
 

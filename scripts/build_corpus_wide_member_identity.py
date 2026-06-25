@@ -17,8 +17,8 @@ import pyarrow.parquet as pq
 try:
     from scripts.build_member_identity_review import _normalize_token
 except ModuleNotFoundError:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-    from scripts.build_member_identity_review import _normalize_token
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from build_member_identity_review import _normalize_token
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PARQUET = ROOT / "generated/parquet/hansard.parquet"

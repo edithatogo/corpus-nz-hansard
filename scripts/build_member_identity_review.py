@@ -11,8 +11,8 @@ from typing import Any
 try:
     from scripts.canonical_ids import canonical_id, component_payload
 except ModuleNotFoundError:
-    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-    from scripts.canonical_ids import canonical_id, component_payload
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from canonical_ids import canonical_id, component_payload
 
 ROOT = Path(__file__).resolve().parents[1]
 GOLD_PATH = ROOT / "fixtures/gold_evaluation_samples.json"
