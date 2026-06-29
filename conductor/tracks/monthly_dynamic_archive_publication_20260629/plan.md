@@ -21,7 +21,7 @@
 - [x] Task: Add repo-side checker and tests for schedule configuration, protected publication gates, required evidence fields, and cross-surface consistency.
 - [x] Task: Integrate the monthly release checker into publication readiness or quality gates without allowing dependency-update PRs to publish.
 - [x] Task: Run focused validation for the monthly release workflow, evidence manifest, and affected publication checks.
-- [ ] Task: Conductor - User Manual Verification 'Phase 3: Evidence And Validation' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 3: Evidence And Validation' (Protocol in workflow.md)
 
 ## Phase 4: First Monthly Release Proof
 
