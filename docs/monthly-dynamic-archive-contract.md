@@ -58,6 +58,7 @@ Zenodo:
 - Must upload the full monthly tarball and matching manifest.
 - Must not publish automatically outside the protected `zenodo-production-publish` environment.
 - Must record draft ID, draft URL, or DOI/version URL when available.
+- Must use or formally evaluate `zenodraft` before replacing or extending Zenodo draft operations.
 
 GitHub:
 
@@ -93,4 +94,5 @@ The evidence must include archive SHA-256 hashes, manifest hashes, row counts, s
 - Missing required secrets fail closed before publication steps.
 - Failed validation prevents Hugging Face upload, Zenodo draft upload, and Zenodo publish handoff.
 - Zenodo draft upload and protected Zenodo publish remain separate steps.
+- Zenodo draft tooling changes must preserve the documented `zenodraft` evaluation/adoption requirement.
 - Dependency-update PRs must never publish datasets or Zenodo records.

@@ -31,6 +31,8 @@ Zenodo receives:
 - `nz-hansard-corpus-<version>.tar.gz`
 - `nz-hansard-corpus-<version>.manifest.json`
 
+Zenodo draft tooling must use or formally evaluate `zenodraft` before replacing or extending the existing draft/upload path.
+
 GitHub Actions stores review artifacts:
 
 - Zenodo archive tarball
@@ -110,3 +112,4 @@ Zenodo draft upload and Zenodo publication are intentionally separate:
 - Draft upload creates or updates a reviewable draft/new version.
 - Production publication requires the `zenodo-production-publish` protected environment.
 - Monthly scheduled runs must not bypass that environment.
+- Any future Zenodo draft implementation change must preserve the `zenodraft` evaluation/adoption requirement.

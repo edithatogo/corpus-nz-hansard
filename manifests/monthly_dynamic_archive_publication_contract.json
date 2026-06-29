@@ -59,6 +59,7 @@
     "api_url_default": "https://zenodo.org/api",
     "draft_upload_required": true,
     "protected_publish_environment": "zenodo-production-publish",
-    "publish_requires_protected_environment": true
+    "publish_requires_protected_environment": true,
+    "zenodraft_required_or_formally_evaluated": true
   }
 }
