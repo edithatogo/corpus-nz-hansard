@@ -15,7 +15,8 @@ dependencies are available.
 - `spec.md`
 - `plan.md`
 - `evidence.md`
+- `derived/speech-act-procedure-classifiers/evaluation.json`
 
-## Blocker
+## Boundary
 
-Validated speech-turn components are available; human validation and evaluation remain required before authoritative outputs.
+Reviewed fixture evaluation and selector checks are present. Authoritative corpus-wide outputs remain out of scope until a larger reviewed benchmark exists.

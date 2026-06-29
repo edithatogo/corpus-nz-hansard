@@ -28,10 +28,11 @@ The initial release candidate is intended to use optional ML dependencies from
 - Reviewed procedure fixtures will seed the first benchmark set.
 - Correction files will capture reviewer overrides and false positives.
 - Confusion analysis will remain tied to the procedure model rather than raw text.
+- `derived/speech-act-procedure-classifiers/evaluation.json` records a reviewed-fixture smoke evaluation and selector checks.
 
 ## Boundaries
 
 - No authoritative procedural classification may be published from unvalidated
   speech-turn output.
 - Speech-turn readiness is a hard gate, not a soft preference.
-- The track publishes a baseline plan only; authoritative classifier outputs still require human validation.
+- The fixture evaluation is not a corpus-wide accuracy claim or an authoritative classifier release.

@@ -8,7 +8,7 @@
 ## Phase 2: Model Output
 
 - [x] Publish baseline classifier plan and manifests.
-- [ ] Add evaluated classifier outputs and selector checks after human validation.
+- [x] Add evaluated classifier outputs and selector checks after human validation.
 
 ## Phase 3: Release Gate
 

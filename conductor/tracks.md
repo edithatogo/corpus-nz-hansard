@@ -13,6 +13,14 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
+### [ ] Track: Monthly Dynamic Archive Publication
+
+Track ID: `monthly_dynamic_archive_publication_20260629`
+
+Goal: ensure the entire current archive is rebuilt and published through monthly dynamic GitHub Actions releases to Hugging Face and Zenodo with protected publication gates, rights-safe exclusions, and cross-surface release evidence.
+
+Link: [conductor/tracks/monthly_dynamic_archive_publication_20260629/](./tracks/monthly_dynamic_archive_publication_20260629/)
+
 
 ### [x] Track: RDF Linked Data Public Endpoint Release
 

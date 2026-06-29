@@ -12,5 +12,5 @@
 
 ## Phase 3: Release
 
-- [!] Publish coverage matrix and release notes.
+- [x] Publish coverage matrix and release notes.
 - [x] Record public/defer decision.

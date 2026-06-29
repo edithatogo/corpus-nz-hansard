@@ -28,6 +28,13 @@ The track depends on validated speech-turn components, which are now available. 
 - Review correction files
 - Confusion analysis and benchmark notes
 
+## Fixture Evaluation
+
+- `derived/speech-act-procedure-classifiers/evaluation.json`
+- Built from repository-maintainer reviewed procedure fixtures.
+- Selector checks passed against fixture excerpts.
+- Not an authoritative corpus-wide classifier output.
+
 ## Validation Commands
 
 - `python scripts/build_speech_act_procedure_classifiers.py`

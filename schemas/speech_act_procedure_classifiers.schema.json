@@ -21,6 +21,22 @@
       ],
       "type": "object"
     },
+    "evaluation_artifacts": {
+      "additionalProperties": false,
+      "properties": {
+        "fixture_evaluation": {
+          "type": "string"
+        },
+        "publication_status": {
+          "const": "fixture-evaluation-only-not-authoritative"
+        }
+      },
+      "required": [
+        "fixture_evaluation",
+        "publication_status"
+      ],
+      "type": "object"
+    },
     "generated_at": {
       "type": "string"
     },
@@ -121,6 +137,12 @@
         "review_correction_files_defined": {
           "const": true
         },
+        "reviewed_fixture_evaluation_recorded": {
+          "const": true
+        },
+        "selector_checks_passed": {
+          "const": true
+        },
         "speech_turn_dependency_recorded": {
           "const": true
         }
@@ -130,7 +152,9 @@
         "speech_turn_dependency_recorded",
         "procedure_model_recorded",
         "review_correction_files_defined",
-        "human_validation_required"
+        "human_validation_required",
+        "reviewed_fixture_evaluation_recorded",
+        "selector_checks_passed"
       ],
       "type": "object"
     }
@@ -147,6 +171,7 @@
     "label_families",
     "model_plan",
     "source_inputs",
+    "evaluation_artifacts",
     "review_correction_files",
     "validation_results"
   ],

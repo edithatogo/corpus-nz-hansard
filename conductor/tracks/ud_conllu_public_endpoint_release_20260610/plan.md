@@ -12,5 +12,5 @@
 
 ## Phase 3: Release
 
-- [!] Publish model cards, manifest, and docs.
+- [x] Publish model cards, manifest, and docs.
 - [x] Record publish/defer decision.

@@ -4,6 +4,10 @@
     "nz_parliamentary_procedure_model": "manifests/nz_parliamentary_procedure_model.json",
     "validated_speech_turn_component_validation": "manifests/validated_speech_turn_component_validation.json"
   },
+  "evaluation_artifacts": {
+    "fixture_evaluation": "derived/speech-act-procedure-classifiers/evaluation.json",
+    "publication_status": "fixture-evaluation-only-not-authoritative"
+  },
   "generated_at": "2026-06-11T00:00:00+10:00",
   "label_families": [
     {
@@ -86,6 +90,8 @@
     "human_validation_required": true,
     "procedure_model_recorded": true,
     "review_correction_files_defined": true,
+    "reviewed_fixture_evaluation_recorded": true,
+    "selector_checks_passed": true,
     "speech_turn_dependency_recorded": true
   }
 }

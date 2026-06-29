@@ -12,5 +12,5 @@
 
 ## Phase 3: Release
 
-- [!] Prepare maintainer/public release notes.
+- [x] Prepare maintainer/public release notes.
 - [x] Record publish/defer decision.

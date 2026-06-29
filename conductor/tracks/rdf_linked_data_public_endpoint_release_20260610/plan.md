@@ -12,5 +12,5 @@
 
 ## Phase 3: Publication
 
-- [!] Publish examples, manifests, and docs.
+- [x] Publish examples, manifests, and docs.
 - [x] Record release/defer decision.

@@ -16,6 +16,7 @@ if str(ROOT) not in sys.path:
 from scripts.speech_act_procedure_classifiers import (  # noqa: E402, I001
     DOC_PATH,
     EVIDENCE_PATH,
+    EVALUATION_PATH,
     INDEX_PATH,
     MANIFEST_PATH,
     PLAN_PATH,
@@ -44,6 +45,7 @@ def _failures() -> list[str]:
         MANIFEST_PATH,
         SCHEMA_PATH,
         DOC_PATH,
+        EVALUATION_PATH,
         INDEX_PATH,
         PLAN_PATH,
         EVIDENCE_PATH,
@@ -61,6 +63,7 @@ def _failures() -> list[str]:
 
     manifest = _json(MANIFEST_PATH)
     schema = _json(SCHEMA_PATH)
+    evaluation = _json(EVALUATION_PATH)
     for error in sorted(
         Draft202012Validator(schema).iter_errors(manifest), key=lambda item: list(item.path)
     ):
@@ -73,6 +76,30 @@ def _failures() -> list[str]:
         failures.append("Release status must be release-ready-baseline-plan-human-validation.")
     if manifest["validation_results"]["blocked_by_speech_turn_gate"] is not False:
         failures.append("Manifest must record that the speech-turn gate is clear.")
+    if manifest["validation_results"]["reviewed_fixture_evaluation_recorded"] is not True:
+        failures.append("Manifest must record reviewed fixture evaluation.")
+    if manifest["validation_results"]["selector_checks_passed"] is not True:
+        failures.append("Manifest must record passing selector checks.")
+    if manifest["evaluation_artifacts"]["fixture_evaluation"] != EVALUATION_PATH.relative_to(
+        ROOT
+    ).as_posix():
+        failures.append("Manifest must point to the fixture evaluation artifact.")
+
+    if evaluation["publication_status"] != "fixture-evaluation-only-not-authoritative":
+        failures.append("Evaluation artifact must preserve the non-authoritative boundary.")
+    if evaluation["metrics"]["reviewed_fixture_count"] < 1:
+        failures.append("Evaluation artifact must include reviewed fixtures.")
+    if evaluation["metrics"]["selector_checks_passed"] is not True:
+        failures.append("Evaluation selectors must pass.")
+    for output in evaluation["outputs"]:
+        selector = output["selector"]
+        exact = selector["text_quote"]["exact"]
+        start = selector["text_position"]["start_offset"]
+        end = selector["text_position"]["end_offset"]
+        if start != 0 or end != len(exact):
+            failures.append(f"{output['sample_id']} selector offsets must cover the exact quote.")
+        if output["publication_status"] != "fixture-evaluation-only-not-authoritative":
+            failures.append(f"{output['sample_id']} must not be marked authoritative.")
 
     procedure_model = _json(PROCEDURE_MODEL_MANIFEST)
     categories = {item["category"] for item in procedure_model["procedural_categories"]}
@@ -90,6 +117,8 @@ def _failures() -> list[str]:
         "debate segments",
         "release-ready as a baseline plan",
         "requirements/ml.txt",
+        "evaluation.json",
+        "not a corpus-wide accuracy claim",
     ):
         if required.lower() not in doc.lower():
             failures.append(f"{DOC_PATH.relative_to(ROOT).as_posix()} is missing: {required}")
@@ -100,6 +129,7 @@ def _failures() -> list[str]:
         "speech-act and procedure classifiers",
         "human validation",
         "speech-turn dependency",
+        "fixture evaluation",
     ):
         if required.lower() not in readme.lower():
             failures.append(
@@ -110,12 +140,18 @@ def _failures() -> list[str]:
     for required in (
         "Status: release-ready-baseline-plan-human-validation.",
         "Primary Artifacts",
-        "human validation",
+        "Reviewed fixture evaluation and selector checks are present.",
     ):
         if required not in track:
             failures.append(f"{TRACK_PATH.relative_to(ROOT).as_posix()} is missing: {required}")
 
-    for required in ("Release Boundary", "Dependencies", "Label Families", "Planned Models"):
+    for required in (
+        "Release Boundary",
+        "Dependencies",
+        "Label Families",
+        "Planned Models",
+        "Fixture Evaluation",
+    ):
         if required not in _read(EVIDENCE_PATH):
             failures.append(f"{EVIDENCE_PATH.relative_to(ROOT).as_posix()} is missing: {required}")
 

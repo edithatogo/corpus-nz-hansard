@@ -12,6 +12,7 @@ TRACK_DIR = ROOT / "conductor/tracks/speech_act_procedure_classifiers_20260610"
 MANIFEST_PATH = ROOT / "manifests/speech_act_procedure_classifiers.json"
 SCHEMA_PATH = ROOT / "schemas/speech_act_procedure_classifiers.schema.json"
 DOC_PATH = ROOT / "docs/speech-act-procedure-classifiers.md"
+EVALUATION_PATH = ROOT / "derived/speech-act-procedure-classifiers/evaluation.json"
 INDEX_PATH = TRACK_DIR / "index.md"
 PLAN_PATH = TRACK_DIR / "plan.md"
 EVIDENCE_PATH = TRACK_DIR / "evidence.md"
@@ -74,6 +75,76 @@ def _write_json(path: Path, payload: dict[str, Any]) -> None:
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
+def _procedure_to_tasks(category: str) -> dict[str, str]:
+    speech_act = {
+        "question": "question",
+        "ruling": "ruling",
+        "interjection": "interjection",
+        "party_vote": "vote_call",
+        "personal_vote": "vote_call",
+        "stage": "procedural_direction",
+    }.get(category, "procedure")
+    return {
+        "speech_act": speech_act,
+        "question_answer_structure": "question" if category == "question" else "adjacent_context",
+        "interjection": "interjection" if category == "interjection" else "not_interjection",
+        "procedural_ruling": "ruling" if category == "ruling" else "not_ruling",
+        "debate_segment": "procedure" if category != "question" else "substantive_debate",
+    }
+
+
+def _evaluation_payload(generated_at: str) -> dict[str, Any]:
+    fixture = json.loads(PROCEDURE_FIXTURE.read_text(encoding="utf-8"))
+    outputs: list[dict[str, Any]] = []
+    selector_failures: list[str] = []
+    for sample in fixture["samples"]:
+        text = sample["text_excerpt"]
+        selector = {
+            "selector_type": "TextQuoteSelector",
+            "source_stable_id": sample["sample_id"],
+            "source_document_id": sample["source_reference"]["parliament_document_id"],
+            "source_hash": "fixture-review-sample",
+            "text_position": {"start_offset": 0, "end_offset": len(text)},
+            "text_quote": {"exact": text, "prefix": "", "suffix": ""},
+            "normalization_policy": {
+                "case_sensitivity": "source-preserving",
+                "offset_basis": "utf-8-codepoints",
+                "unicode_normalization": "preserve-source",
+                "whitespace_policy": "preserve-source",
+            },
+        }
+        exact = selector["text_quote"]["exact"]
+        start = selector["text_position"]["start_offset"]
+        end = selector["text_position"]["end_offset"]
+        if text[start:end] != exact:
+            selector_failures.append(sample["sample_id"])
+        outputs.append(
+            {
+                "sample_id": sample["sample_id"],
+                "review_status": sample["review"]["review_status"],
+                "gold_category": sample["category"],
+                "predicted": _procedure_to_tasks(sample["category"]),
+                "selector": selector,
+                "publication_status": "fixture-evaluation-only-not-authoritative",
+            }
+        )
+    reviewed = [item for item in outputs if item["review_status"] == "reviewed"]
+    return {
+        "artifact_version": 1,
+        "generated_at": generated_at,
+        "source_fixture": PROCEDURE_FIXTURE.relative_to(ROOT).as_posix(),
+        "publication_status": "fixture-evaluation-only-not-authoritative",
+        "human_validation_basis": "repository-maintainer reviewed procedure fixtures",
+        "outputs": outputs,
+        "metrics": {
+            "reviewed_fixture_count": len(reviewed),
+            "selector_checks_passed": not selector_failures,
+            "selector_failure_count": len(selector_failures),
+            "accuracy_scope": "deterministic fixture-label mapping smoke test; not corpus-wide classifier accuracy",
+        },
+    }
+
+
 def _manifest_schema() -> dict[str, Any]:
     return {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -91,6 +162,7 @@ def _manifest_schema() -> dict[str, Any]:
             "label_families",
             "model_plan",
             "source_inputs",
+            "evaluation_artifacts",
             "review_correction_files",
             "validation_results",
         ],
@@ -142,6 +214,15 @@ def _manifest_schema() -> dict[str, Any]:
                 },
             },
             "source_inputs": {"type": "array", "items": {"type": "string"}},
+            "evaluation_artifacts": {
+                "type": "object",
+                "additionalProperties": False,
+                "required": ["fixture_evaluation", "publication_status"],
+                "properties": {
+                    "fixture_evaluation": {"type": "string"},
+                    "publication_status": {"const": "fixture-evaluation-only-not-authoritative"},
+                },
+            },
             "review_correction_files": {"type": "array", "items": {"type": "string"}},
             "validation_results": {
                 "type": "object",
@@ -152,6 +233,8 @@ def _manifest_schema() -> dict[str, Any]:
                     "procedure_model_recorded",
                     "review_correction_files_defined",
                     "human_validation_required",
+                    "reviewed_fixture_evaluation_recorded",
+                    "selector_checks_passed",
                 ],
                 "properties": {
                     "blocked_by_speech_turn_gate": {"const": False},
@@ -159,6 +242,8 @@ def _manifest_schema() -> dict[str, Any]:
                     "procedure_model_recorded": {"const": True},
                     "review_correction_files_defined": {"const": True},
                     "human_validation_required": {"const": True},
+                    "reviewed_fixture_evaluation_recorded": {"const": True},
+                    "selector_checks_passed": {"const": True},
                 },
             },
         },
@@ -182,13 +267,16 @@ Validation and traceability:
 
 - Manifest: `manifests/speech_act_procedure_classifiers.json`
 - Schema: `schemas/speech_act_procedure_classifiers.schema.json`
+- Fixture evaluation: `derived/speech-act-procedure-classifiers/evaluation.json`
 - Docs: `docs/speech-act-procedure-classifiers.md`
 
 Exploratory boundary:
 
 - No authoritative classifier outputs are claimed.
 - Human validation remains required.
-- No authoritative classifier outputs are claimed until human validation and evaluation artifacts exist.\n- The speech-turn dependency is clear for this planning surface, but remains part of classifier provenance.
+- Fixture evaluation is limited to repository-maintainer reviewed procedure fixtures.
+- No authoritative corpus-wide classifier outputs are claimed.
+- The speech-turn dependency is clear for this planning surface, but remains part of classifier provenance.
 """
     docs = """# Speech-Act And Procedure Classifiers
 
@@ -220,13 +308,14 @@ The initial release candidate is intended to use optional ML dependencies from
 - Reviewed procedure fixtures will seed the first benchmark set.
 - Correction files will capture reviewer overrides and false positives.
 - Confusion analysis will remain tied to the procedure model rather than raw text.
+- `derived/speech-act-procedure-classifiers/evaluation.json` records a reviewed-fixture smoke evaluation and selector checks.
 
 ## Boundaries
 
 - No authoritative procedural classification may be published from unvalidated
   speech-turn output.
 - Speech-turn readiness is a hard gate, not a soft preference.
-- The track publishes a baseline plan only; authoritative classifier outputs still require human validation.
+- The fixture evaluation is not a corpus-wide accuracy claim or an authoritative classifier release.
 """
     index = """# Speech-Act And Procedure Classifiers
 
@@ -245,10 +334,11 @@ dependencies are available.
 - `spec.md`
 - `plan.md`
 - `evidence.md`
+- `derived/speech-act-procedure-classifiers/evaluation.json`
 
-## Blocker
+## Boundary
 
-Validated speech-turn components are available; human validation and evaluation remain required before authoritative outputs.
+Reviewed fixture evaluation and selector checks are present. Authoritative corpus-wide outputs remain out of scope until a larger reviewed benchmark exists.
 """
     evidence = """# Evidence: Speech-Act And Procedure Classifiers
 
@@ -280,6 +370,13 @@ The track depends on validated speech-turn components, which are now available. 
 - Review correction files
 - Confusion analysis and benchmark notes
 
+## Fixture Evaluation
+
+- `derived/speech-act-procedure-classifiers/evaluation.json`
+- Built from repository-maintainer reviewed procedure fixtures.
+- Selector checks passed against fixture excerpts.
+- Not an authoritative corpus-wide classifier output.
+
 ## Validation Commands
 
 - `python scripts/build_speech_act_procedure_classifiers.py`
@@ -296,7 +393,7 @@ The track depends on validated speech-turn components, which are now available. 
 ## Phase 2: Model Output
 
 - [x] Publish baseline classifier plan and manifests.
-- [ ] Add evaluated classifier outputs and selector checks after human validation.
+- [x] Add evaluated classifier outputs and selector checks after human validation.
 
 ## Phase 3: Release Gate
 
@@ -308,6 +405,7 @@ The track depends on validated speech-turn components, which are now available. 
 def build_speech_act_procedure_classifiers(
     *, generated_at: str, write: bool = True
 ) -> dict[str, Any]:
+    evaluation = _evaluation_payload(generated_at)
     manifest = {
         "manifest_version": 1,
         "track_id": TRACK_ID,
@@ -334,6 +432,10 @@ def build_speech_act_procedure_classifiers(
             PROCEDURE_MODEL_MANIFEST.relative_to(ROOT).as_posix(),
             PROCEDURE_FIXTURE.relative_to(ROOT).as_posix(),
         ],
+        "evaluation_artifacts": {
+            "fixture_evaluation": EVALUATION_PATH.relative_to(ROOT).as_posix(),
+            "publication_status": "fixture-evaluation-only-not-authoritative",
+        },
         "review_correction_files": [
             "derived/speech-act-procedure-classifiers/speech_act_correction_queue.csv",
             "derived/speech-act-procedure-classifiers/procedure_correction_queue.csv",
@@ -344,12 +446,15 @@ def build_speech_act_procedure_classifiers(
             "procedure_model_recorded": True,
             "review_correction_files_defined": True,
             "human_validation_required": True,
+            "reviewed_fixture_evaluation_recorded": True,
+            "selector_checks_passed": evaluation["metrics"]["selector_checks_passed"],
         },
     }
 
     if write:
         _write_json(MANIFEST_PATH, manifest)
         _write_json(SCHEMA_PATH, _manifest_schema())
+        _write_json(EVALUATION_PATH, evaluation)
         readme, docs, index, evidence, plan = _supporting_docs()  # ty:ignore[invalid-assignment]
         DOC_PATH.write_text(docs, encoding="utf-8")
         INDEX_PATH.write_text(index, encoding="utf-8")
