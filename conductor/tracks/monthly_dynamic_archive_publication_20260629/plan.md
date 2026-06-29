@@ -13,7 +13,7 @@
 - [x] Task: Ensure workflow permissions are least-privilege and required secrets are checked before network publication steps run.
 - [x] Task: Rebuild the full archive from the governed source archive input, including Parquet, docs, manifests, schemas, metadata packages, Zenodo tarball, and manifest.
 - [x] Task: Wire Hugging Face upload to capture the resulting revision and Zenodo draft/new-version upload to capture draft or DOI metadata.
-- [ ] Task: Conductor - User Manual Verification 'Phase 2: Scheduled GitHub Actions' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 2: Scheduled GitHub Actions' (Protocol in workflow.md)
 
 ## Phase 3: Evidence And Validation
 
