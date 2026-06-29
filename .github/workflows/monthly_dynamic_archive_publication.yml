@@ -1,0 +1,64 @@
+name: Monthly Dynamic Archive Publication
+
+on:
+  schedule:
+    # Run at 03:17 UTC on the first day of each month.
+    - cron: "17 3 1 * *"
+  workflow_dispatch:
+    inputs:
+      publication_mode:
+        description: "Publication mode"
+        required: true
+        default: "dry-run"
+        type: choice
+        options:
+          - dry-run
+          - huggingface
+          - zenodo-draft
+          - full
+      version:
+        description: "Archive version or monthly label"
+        required: true
+        default: "0.1.0"
+      hf_repo_id:
+        description: "Target Hugging Face dataset repo"
+        required: true
+        default: "edithatogo/nz-hansard-corpus"
+      hf_private:
+        description: "Create/update Hugging Face dataset as private"
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+      zenodo_api_url:
+        description: "Zenodo API URL"
+        required: true
+        default: "https://zenodo.org/api"
+      existing_deposition_id:
+        description: "Existing Zenodo record/deposition id to version from"
+        required: false
+        default: "20595194"
+      create_new_version:
+        description: "Create a new Zenodo draft version from existing_deposition_id"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+jobs:
+  monthly-archive:
+    runs-on: windows-2025-vs2026
+    steps:
+      - name: Resolve publication mode
+        shell: pwsh
+        run: |
+          $mode = "${{ github.event.inputs.publication_mode }}"
+          if (-not $mode) {
+            $mode = "dry-run"
+          }
+          "PUBLICATION_MODE=$mode" | Out-File -FilePath $env:GITHUB_ENV -Append
+          "Monthly archive publication mode: $mode"

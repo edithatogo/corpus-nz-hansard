@@ -9,7 +9,7 @@
 
 ## Phase 2: Scheduled GitHub Actions
 
-- [ ] Task: Add a monthly scheduled GitHub Actions workflow with manual dispatch inputs for dry run, Hugging Face publish, Zenodo draft upload, and protected Zenodo publish handoff.
+- [x] Task: Add a monthly scheduled GitHub Actions workflow with manual dispatch inputs for dry run, Hugging Face publish, Zenodo draft upload, and protected Zenodo publish handoff.
 - [ ] Task: Ensure workflow permissions are least-privilege and required secrets are checked before network publication steps run.
 - [ ] Task: Rebuild the full archive from the governed source archive input, including Parquet, docs, manifests, schemas, metadata packages, Zenodo tarball, and manifest.
 - [ ] Task: Wire Hugging Face upload to capture the resulting revision and Zenodo draft/new-version upload to capture draft or DOI metadata.
