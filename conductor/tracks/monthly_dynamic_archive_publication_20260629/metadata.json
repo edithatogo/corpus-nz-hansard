@@ -1,8 +1,8 @@
 {
   "track_id": "monthly_dynamic_archive_publication_20260629",
   "type": "feature",
-  "status": "new",
+  "status": "implemented",
   "created_at": "2026-06-29T09:51:28Z",
-  "updated_at": "2026-06-29T09:51:28Z",
+  "updated_at": "2026-06-29T10:56:02Z",
   "description": "Ensure the entire current archive is rebuilt and published through monthly dynamic GitHub Actions releases to Hugging Face and Zenodo with protected publication gates and cross-surface evidence."
 }
