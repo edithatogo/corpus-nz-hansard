@@ -1,0 +1,7 @@
+Task: Define the monthly archive publication contract, including source inputs, generated outputs, manifest fields, public URLs, and rights-safe exclusions.
+
+Summary: Added a human-readable monthly dynamic archive publication contract and a machine-readable contract manifest covering cadence, required secrets, generated outputs, public surfaces, evidence fields, and rights-safe exclusions. Marked the task complete in the Conductor plan.
+
+Files: docs/monthly-dynamic-archive-contract.md; manifests/monthly_dynamic_archive_publication_contract.json; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Why: Provides the implementation contract for the scheduled workflow, evidence checker, and publication readiness integration.
