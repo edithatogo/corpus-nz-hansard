@@ -1,0 +1,9 @@
+Task: Integrate monthly release checker into publication readiness.
+
+Summary: Added monthly as a publication readiness target, routed it through the repo-side monthly dynamic archive checker, fixed direct CLI import behavior, and added coverage for the monthly readiness target. Marked the Phase 3 readiness integration task complete.
+
+Files: scripts/check_publication_readiness.py; tests/test_check_publication_readiness.py; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Validation: .venv\Scripts\python.exe -m unittest tests.test_check_publication_readiness tests.test_monthly_dynamic_archive_publication passed; .venv\Scripts\python.exe scripts\check_publication_readiness.py --target monthly reported READY.
+
+Why: Makes monthly publication configuration part of release readiness without adding PR or dependency-update publication triggers.
