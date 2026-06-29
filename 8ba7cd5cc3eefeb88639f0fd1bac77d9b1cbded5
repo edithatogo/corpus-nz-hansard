@@ -1,0 +1,9 @@
+Task: Add repo-side monthly publication checker and tests.
+
+Summary: Added scripts/check_monthly_dynamic_archive_publication.py and focused unittest coverage for monthly schedule configuration, protected Zenodo handoff, evidence field policy, rights-boundary assertions, and contract/evidence consistency. Marked the Phase 3 checker task complete.
+
+Files: scripts/check_monthly_dynamic_archive_publication.py; tests/test_monthly_dynamic_archive_publication.py; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Validation: .venv\Scripts\python.exe -m unittest tests.test_monthly_dynamic_archive_publication passed.
+
+Why: Prevents monthly publication drift from bypassing required evidence and protected publication boundaries.
