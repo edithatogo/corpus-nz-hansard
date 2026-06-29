@@ -98,3 +98,40 @@ jobs:
               throw "ARCHIVE_CREATORS_JSON secret is required for Zenodo metadata."
             }
           }
+      - name: Download source archive
+        env:
+          SOURCE_ARCHIVE_URL: ${{ secrets.SOURCE_ARCHIVE_URL }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: python scripts\fetch_source_archive.py
+      - name: Rebuild normalized corpus artifacts
+        run: |
+          python scripts\inventory_archive.py --archive "2024-09-06 Hansard Extract from DocumentsDB.zip" --output manifests\source_inventory.json
+          python scripts\discover_schema.py --archive "2024-09-06 Hansard Extract from DocumentsDB.zip" --output manifests\schema_discovery.json --sample-rows 5
+          python scripts\normalize_hansard.py --archive "2024-09-06 Hansard Extract from DocumentsDB.zip" --output-dir generated\parquet --manifest manifests\normalization_manifest.json --validation manifests\normalization_validation.json --batch-size 1000
+          python scripts\validate_hansard_records.py --parquet generated\parquet\hansard.parquet --schema schemas\hansard_record.schema.json --report manifests\record_schema_validation.json
+      - name: Rebuild metadata packages
+        run: |
+          python scripts\build_metadata_packages.py
+          python scripts\check_metadata_packages.py
+      - name: Stage Hugging Face dataset
+        run: python scripts\stage_huggingface_dataset.py --output-dir generated\huggingface
+      - name: Build Zenodo archive
+        env:
+          ARCHIVE_VERSION: ${{ github.event.inputs.version || '0.1.0' }}
+        run: python scripts\build_zenodo_archive.py --output-dir generated\zenodo --version "$env:ARCHIVE_VERSION"
+      - name: Upload monthly archive artifacts
+        # actions/upload-artifact v7.0.1
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: monthly-dynamic-archive-${{ github.run_id }}
+          path: |
+            generated/zenodo/*.tar.gz
+            generated/zenodo/*.manifest.json
+          if-no-files-found: error
+      - name: Attest monthly archive provenance
+        # actions/attest-build-provenance v4.1.0
+        uses: actions/attest-build-provenance@a2bbfa25375fe432b6a289bc6b6cd05ecd0c4c32
+        with:
+          subject-path: |
+            generated/zenodo/*.tar.gz
+            generated/zenodo/*.manifest.json
