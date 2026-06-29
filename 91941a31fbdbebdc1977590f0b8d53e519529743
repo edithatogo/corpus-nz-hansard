@@ -1,0 +1,7 @@
+Task: Wire Hugging Face upload to capture the resulting revision and Zenodo draft/new-version upload to capture draft or DOI metadata.
+
+Summary: Updated the Hugging Face uploader to return revision metadata when available. Added conditional monthly workflow steps for Hugging Face upload, Zenodo draft/new-version upload, protected Zenodo publish handoff recording, and publication result artifact upload. Marked the task complete in the Conductor plan.
+
+Files: .github/workflows/monthly_dynamic_archive_publication.yml; scripts/upload_huggingface_dataset.py; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Why: Captures the public-surface identifiers needed for the evidence manifest and final release verification.
