@@ -1,0 +1,9 @@
+Task: Create or update a Zenodo draft/new version, verify uploaded archive files and metadata, and route final publish through the protected environment.
+
+Summary: Dispatched the monthly workflow in full mode, which rebuilt the archive, uploaded to Hugging Face, created Zenodo draft deposition 21030190, uploaded the archive and manifest, and produced a protected publish handoff. Then dispatched .github/workflows/zenodo_publish.yml with deposition_id=21030190 through the zenodo-production-publish environment. The protected publish workflow completed successfully and Zenodo now exposes the public record and DOI.
+
+Files: conductor/tracks/monthly_dynamic_archive_publication_20260629/evidence.md; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Validation: Monthly run 28366410675 completed successfully; protected publish run 28366959530 completed successfully. Zenodo API record 21030190 reports doi=10.5281/zenodo.21030190, conceptdoi=10.5281/zenodo.20591996, state=done, submitted=true, access_right=open, version=0.1.0. Public record files verified: nz-hansard-corpus-0.1.0.tar.gz size=327555036 md5=c076135e5d5f72da20822b4a5c339946; nz-hansard-corpus-0.1.0.manifest.json size=184195 md5=c42250b1748417c1362da64f8590b96b. Track evidence also records GitHub artifact SHA-256 values and the full-run Hugging Face revision c11efce25b4f4ce32a7f1668d43ea7e232de1e76.
+
+Why: Completes the protected Zenodo monthly publication path with auditable public DOI and file verification.
