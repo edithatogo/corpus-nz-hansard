@@ -1,0 +1,10 @@
+Task: Verify and align GitHub, Hugging Face, and Zenodo public surfaces after monthly archive publication.
+
+Evidence:
+- Zenodo public API record 21030190 is published, open, state=done, submitted=true, DOI 10.5281/zenodo.21030190, concept DOI 10.5281/zenodo.20591996, and contains nz-hansard-corpus-0.1.0.tar.gz plus matching manifest.
+- Hugging Face API shows edithatogo/nz-hansard-corpus is public, non-gated, non-disabled at revision c11efce25b4f4ce32a7f1668d43ea7e232de1e76; Dataset Viewer is valid with default/train rows.
+- GitHub Actions on main commit 7d8e3af were all green before this metadata alignment.
+- Updated repository docs, citation metadata, release manifest, public-surface manifests, static portal, dataset-card tests, and workflow defaults from the superseded Zenodo version DOI 10.5281/zenodo.20595194 to the current version DOI 10.5281/zenodo.21030190 while preserving concept DOI 10.5281/zenodo.20591996.
+- Verified locally: scripts/run_pytest_with_repo_tmp.py -q => 652 passed, 1 subtests passed.
+- Verified locally: monthly publication, publication readiness, Zenodo rights, release version, public surface audit, corpus family alignment, metadata packages, and static portal checks all pass.
+- Verified locally: zizmor workflow audit and actionlint pass for touched workflows.
