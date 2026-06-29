@@ -13,7 +13,7 @@
     "validated_speaker_identity": 187
   },
   "errors": [],
-  "generated_at": "2026-06-23T15:02:46.843606+00:00",
+  "generated_at": "2026-06-29T11:15:05.065802+00:00",
   "input_artifacts": {
     "candidate_parquet": "generated/parquet/hansard_speech_turns.parquet",
     "member_identity_validation": "manifests/corpus_wide_member_identity_validation.json"
@@ -31,8 +31,8 @@
   "release_gate_status": "release-ready-speech-turns-triangulated-speakers-agent-review",
   "source_hashes": {
     "candidate_parquet": "b77e08ac71f832dc570ca25aea334c54a00c1063fca4848e2f715aed8bc996ef",
-    "member_identity_validation": "e5f4def2d0c1798034ccd7c30ddcabfeac76d8f707764343a7eda49f0c56ed27",
-    "segmentation_validation": "605de7748ac7cd8c3b77454265aea0b802d3d4ffc4df8349b4f0d7d8b0b17add",
+    "member_identity_validation": "5fd363af024b5a1d46d4649d2ab0783b5dbdc0ae341b370532e12b60118b18ba",
+    "segmentation_validation": "38059a2303b35526fbe98731f27f78c85b7d906c128ff86abf451d3f7875544a",
     "speech_turn_release_decision": "79c19b970018df62ef33dbf88606f6832d60803f23f43b99f70406fa4a4a5764"
   },
   "source_manifests": [

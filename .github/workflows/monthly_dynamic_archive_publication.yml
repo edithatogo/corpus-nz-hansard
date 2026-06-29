@@ -67,8 +67,10 @@ jobs:
           python-version: "3.14"
       - name: Resolve publication mode
         shell: pwsh
+        env:
+          REQUESTED_PUBLICATION_MODE: ${{ github.event.inputs.publication_mode }}
         run: |
-          $mode = "${{ github.event.inputs.publication_mode }}"
+          $mode = "$env:REQUESTED_PUBLICATION_MODE"
           if (-not $mode) {
             $mode = "dry-run"
           }

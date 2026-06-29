@@ -28,7 +28,7 @@
     "unresolved": 23
   },
   "errors": [],
-  "generated_at": "2026-06-23T14:19:33.580364+00:00",
+  "generated_at": "2026-06-29T11:13:11.373310+00:00",
   "input_artifacts": {
     "normalized_parquet": "generated/parquet/hansard.parquet"
   },
@@ -46,10 +46,10 @@
   },
   "release_gate_status": "release-ready-triangulated-agent-review",
   "source_hashes": {
-    "authority_snapshot": "e46f2c03e673cf212632ba88825693ea7ae405a2a8c2911b4cb5848b152a32c9",
+    "authority_snapshot": "919a2a3eb03d6954789eab2b6dc5984528d901687522d95ff8bded5bf2fd4abf",
     "normalized_parquet": "334b8a2a790c67c80025854ee57f4db200d654921c53160089f825a61f35f892",
-    "schema_discovery": "84c7eeef71e6da57c59d0b21c7115bab619eaeebd7315da0db8ac4b96833db10",
-    "source_inventory": "60a17d42da7cea9d4ffc0134916adaf23cec1b12cbaaee839d66ec65bbc1a6dc"
+    "schema_discovery": "7837e3d0e888f77fcadf6186cc17023dd33d234e78e61e065c859ad95b972253",
+    "source_inventory": "3badeeac9c84dbcc011ff45b142df7de4df08663dce539c4e9336976302cf049"
   },
   "source_manifests": [
     "manifests/source_inventory.json",

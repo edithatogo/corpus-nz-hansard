@@ -80,6 +80,11 @@ def _sha256_path(path: Path) -> str:
     return digest.hexdigest()
 
 
+def _sha256_text_path(path: Path) -> str:
+    text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
 def _write_json(payload: dict[str, Any], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -294,9 +299,9 @@ def _blocked_manifest(reason: str, generated_at: str, candidate_exists: bool) ->
             "The public final scope still excludes heuristic candidates.",
         ],
         "source_hashes": {
-            "segmentation_validation": _sha256_path(SEGMENTATION_VALIDATION_PATH),
-            "speech_turn_release_decision": _sha256_path(RELEASE_DECISION_PATH),
-            "member_identity_validation": _sha256_path(MEMBER_IDENTITY_VALIDATION_PATH)
+            "segmentation_validation": _sha256_text_path(SEGMENTATION_VALIDATION_PATH),
+            "speech_turn_release_decision": _sha256_text_path(RELEASE_DECISION_PATH),
+            "member_identity_validation": _sha256_text_path(MEMBER_IDENTITY_VALIDATION_PATH)
             if MEMBER_IDENTITY_VALIDATION_PATH.exists()
             else "",
         },
@@ -366,7 +371,7 @@ def build_validated_speech_turn_component(
             and member_identity.get("release_gate_status")
             == "release-ready-triangulated-agent-review"
         )
-        member_identity_hash = _sha256_path(MEMBER_IDENTITY_VALIDATION_PATH)
+        member_identity_hash = _sha256_text_path(MEMBER_IDENTITY_VALIDATION_PATH)
     authority_lookup = (
         _authority_lookup(_read_json(MEMBER_IDENTITY_AUTHORITY_PATH))
         if member_identity_ready and MEMBER_IDENTITY_AUTHORITY_PATH.exists()
@@ -448,8 +453,8 @@ def build_validated_speech_turn_component(
         ],
         "source_hashes": {
             "candidate_parquet": _sha256_path(candidate_parquet),
-            "segmentation_validation": _sha256_path(SEGMENTATION_VALIDATION_PATH),
-            "speech_turn_release_decision": _sha256_path(RELEASE_DECISION_PATH),
+            "segmentation_validation": _sha256_text_path(SEGMENTATION_VALIDATION_PATH),
+            "speech_turn_release_decision": _sha256_text_path(RELEASE_DECISION_PATH),
             "member_identity_validation": member_identity_hash,
         },
         "source_manifests": [

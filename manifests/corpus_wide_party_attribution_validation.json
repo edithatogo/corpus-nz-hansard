@@ -17,7 +17,7 @@
     "unresolved_member_dependency": 0
   },
   "errors": [],
-  "generated_at": "2026-06-23T14:37:13.861927+00:00",
+  "generated_at": "2026-06-29T11:13:38.909573+00:00",
   "input_artifacts": {
     "member_identity_validation": "manifests/corpus_wide_member_identity_validation.json",
     "normalized_parquet": "generated/parquet/hansard.parquet"
@@ -37,10 +37,10 @@
   "release_gate_status": "release-ready-explicit-party-labels-member-identity-triangulated",
   "source_hashes": {
     "authority_snapshot": "7bc73da04b45803ea87a2f2dbcf8f72b40a648cf4608e0cfc85a120bac4f3b5c",
-    "member_identity_validation": "e5f4def2d0c1798034ccd7c30ddcabfeac76d8f707764343a7eda49f0c56ed27",
+    "member_identity_validation": "5fd363af024b5a1d46d4649d2ab0783b5dbdc0ae341b370532e12b60118b18ba",
     "normalized_parquet": "334b8a2a790c67c80025854ee57f4db200d654921c53160089f825a61f35f892",
-    "schema_discovery": "84c7eeef71e6da57c59d0b21c7115bab619eaeebd7315da0db8ac4b96833db10",
-    "source_inventory": "60a17d42da7cea9d4ffc0134916adaf23cec1b12cbaaee839d66ec65bbc1a6dc"
+    "schema_discovery": "7837e3d0e888f77fcadf6186cc17023dd33d234e78e61e065c859ad95b972253",
+    "source_inventory": "3badeeac9c84dbcc011ff45b142df7de4df08663dce539c4e9336976302cf049"
   },
   "source_manifests": [
     "manifests/source_inventory.json",

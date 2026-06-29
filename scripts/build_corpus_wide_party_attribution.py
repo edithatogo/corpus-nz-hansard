@@ -85,6 +85,11 @@ def _sha256_path(path: Path) -> str:
     return digest.hexdigest()
 
 
+def _sha256_text_path(path: Path) -> str:
+    text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
 def _write_json(payload: dict[str, Any], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -191,12 +196,12 @@ def _blocked_manifest(reason: str, generated_at: str) -> dict[str, Any]:
             "No corpus-wide party attribution release is published while validated member identity remains blocked."
         ],
         "source_hashes": {
-            "authority_snapshot": _sha256_path(AUTHORITY_PATH),
-            "member_identity_validation": _sha256_path(MEMBER_IDENTITY_VALIDATION_PATH)
+            "authority_snapshot": _sha256_text_path(AUTHORITY_PATH),
+            "member_identity_validation": _sha256_text_path(MEMBER_IDENTITY_VALIDATION_PATH)
             if MEMBER_IDENTITY_VALIDATION_PATH.exists()
             else "",
-            "source_inventory": _sha256_path(SOURCE_INVENTORY_PATH),
-            "schema_discovery": _sha256_path(SCHEMA_DISCOVERY_PATH),
+            "source_inventory": _sha256_text_path(SOURCE_INVENTORY_PATH),
+            "schema_discovery": _sha256_text_path(SCHEMA_DISCOVERY_PATH),
         },
         "source_manifests": [
             "manifests/source_inventory.json",
@@ -320,7 +325,7 @@ def build_corpus_wide_release(
         return manifest
 
     authority = _read_json(AUTHORITY_PATH)
-    authority_hash = _sha256_path(AUTHORITY_PATH)
+    authority_hash = _sha256_text_path(AUTHORITY_PATH)
     member_identity_validation = (
         _read_json(MEMBER_IDENTITY_VALIDATION_PATH)
         if MEMBER_IDENTITY_VALIDATION_PATH.exists()
@@ -401,11 +406,11 @@ def build_corpus_wide_release(
         "source_hashes": {
             "authority_snapshot": authority_hash,
             "normalized_parquet": _sha256_path(parquet_path),
-            "member_identity_validation": _sha256_path(MEMBER_IDENTITY_VALIDATION_PATH)
+            "member_identity_validation": _sha256_text_path(MEMBER_IDENTITY_VALIDATION_PATH)
             if MEMBER_IDENTITY_VALIDATION_PATH.exists()
             else "",
-            "source_inventory": _sha256_path(SOURCE_INVENTORY_PATH),
-            "schema_discovery": _sha256_path(SCHEMA_DISCOVERY_PATH),
+            "source_inventory": _sha256_text_path(SOURCE_INVENTORY_PATH),
+            "schema_discovery": _sha256_text_path(SCHEMA_DISCOVERY_PATH),
         },
         "source_manifests": [
             "manifests/source_inventory.json",

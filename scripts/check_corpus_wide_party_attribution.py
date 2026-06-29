@@ -57,6 +57,11 @@ def _csv_header(path: Path) -> list[str]:
         return next(csv.reader(handle))
 
 
+def _sha256_text_path(path: Path) -> str:
+    text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
 def _failures() -> list[str]:
     failures: list[str] = []
     required_paths = [
@@ -110,7 +115,7 @@ def _failures() -> list[str]:
         failures.append(
             "Release decision must release explicit party-vote labels after member identity is release-ready."
         )
-    member_hash = hashlib.sha256(MEMBER_IDENTITY_VALIDATION_PATH.read_bytes()).hexdigest()
+    member_hash = _sha256_text_path(MEMBER_IDENTITY_VALIDATION_PATH)
     if manifest["source_hashes"].get("member_identity_validation") != member_hash:
         failures.append(
             "Party attribution manifest must hash the current member identity validation manifest."

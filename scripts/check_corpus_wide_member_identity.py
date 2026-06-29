@@ -57,6 +57,11 @@ def _csv_header(path: Path) -> list[str]:
         return next(csv.reader(handle))
 
 
+def _sha256_text_path(path: Path) -> str:
+    text = path.read_text(encoding="utf-8").replace("\r\n", "\n")
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
 def _failures() -> list[str]:
     failures: list[str] = []
     required_paths = [
@@ -117,7 +122,7 @@ def _failures() -> list[str]:
         failures.append("Authority triangulation match rate must be at least 98%.")
     if not triangulation.get("unmatched_count", 999).__le__(7):
         failures.append("Authority triangulation unmatched count must not regress above 7.")
-    authority_hash = hashlib.sha256(AUTHORITY_PATH.read_bytes()).hexdigest()
+    authority_hash = _sha256_text_path(AUTHORITY_PATH)
     if manifest["source_hashes"].get("authority_snapshot") != authority_hash:
         failures.append(
             "Manifest authority_snapshot hash must match the current authority artifact file hash."
