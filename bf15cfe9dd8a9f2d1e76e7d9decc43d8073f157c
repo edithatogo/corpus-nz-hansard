@@ -1,0 +1,7 @@
+Task: Rebuild the full archive from the governed source archive input, including Parquet, docs, manifests, schemas, metadata packages, Zenodo tarball, and manifest.
+
+Summary: Added monthly workflow steps to fetch the governed source archive, rebuild source inventory, schema discovery, normalized Parquet, validation manifests, metadata packages, Hugging Face staging, Zenodo tarball/manifest, GitHub artifact upload, and artifact attestation. Marked the task complete in the Conductor plan.
+
+Files: .github/workflows/monthly_dynamic_archive_publication.yml; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Why: Makes the monthly workflow produce the same source-derived release artifacts needed by public surfaces before network publication is wired.
