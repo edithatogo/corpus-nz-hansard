@@ -35,7 +35,7 @@ class CorpusFamilyAlignmentTest(unittest.TestCase):
         )
         self.assertEqual(
             gates["zenodo"]["public_url"],
-            "https://zenodo.org/records/20595194",
+            "https://zenodo.org/records/21030190",
         )
         self.assertEqual(gates["github"]["non_migration_decision"], "keep-existing-url")
         self.assertEqual(gates["osf_optional"]["non_migration_decision"], "not-yet-published")

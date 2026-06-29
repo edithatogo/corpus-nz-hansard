@@ -41,13 +41,13 @@
       "id": "zenodo",
       "label": "Zenodo",
       "notes": [
-        "DOI: 10.5281/zenodo.20595194",
+        "Latest DOI: 10.5281/zenodo.21030190",
         "Concept DOI: 10.5281/zenodo.20591996",
         "Publication evidence should rely on DOI redirect, record HTTP 200, state done, and submitted true."
       ],
       "role": "Immutable citable archive and DOI-bearing snapshot.",
       "status": "active",
-      "url": "https://zenodo.org/records/20595194"
+      "url": "https://zenodo.org/records/21030190"
     },
     {
       "claims_allowed": false,

@@ -48,10 +48,10 @@
       "id": "zenodo",
       "label": "Zenodo",
       "systematic_label": "corpus-nz-hansard",
-      "public_url": "https://zenodo.org/records/20595194",
+      "public_url": "https://zenodo.org/records/21030190",
       "publication_role": "Immutable citable archive and DOI-bearing snapshot.",
       "claims_allowed": true,
-      "viewer_or_access_gate": "Canonical DOI 10.5281/zenodo.20595194 remains stable and any metadata update preserves related identifiers and rights caveats.",
+      "viewer_or_access_gate": "Latest DOI 10.5281/zenodo.21030190 and concept DOI 10.5281/zenodo.20591996 remain stable and any metadata update preserves related identifiers and rights caveats.",
       "non_migration_decision": "keep-existing-url",
       "follow_up_track": "zenodo_rights_metadata_and_zenodraft_workflow_20260609"
     },
@@ -119,7 +119,7 @@
     }
   ],
   "doi_update_rules": [
-    "Dataset card DOI, CITATION.cff, RELEASE_NOTES.md, and public release manifests must continue to point to 10.5281/zenodo.20595194 unless a separate migration track approves a replacement.",
+    "Dataset card DOI, CITATION.cff, RELEASE_NOTES.md, and public release manifests must continue to point to the current latest DOI 10.5281/zenodo.21030190 and concept DOI 10.5281/zenodo.20591996 unless a separate migration track approves a replacement.",
     "Superseded review records must remain discoverable as history, not promoted as current canonical publication surfaces.",
     "Sibling-corpus labels may be added to docs and metadata, but existing public Hansard URLs and DOI records must not be renamed in place."
   ]

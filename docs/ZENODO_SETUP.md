@@ -53,8 +53,9 @@ It excludes the source ZIP unless a redistribution decision is made later.
 
 The document-level archive has been published on Zenodo:
 
-- Record: `https://zenodo.org/records/20595194`
-- DOI: `https://doi.org/10.5281/zenodo.20595194`
+- Latest record: `https://zenodo.org/records/21030190`
+- Latest DOI: `https://doi.org/10.5281/zenodo.21030190`
+- Concept DOI: `https://doi.org/10.5281/zenodo.20591996`
 
 Draft creation/upload is not the same as publication for future versions; verify the public record and DOI before claiming publication.
 

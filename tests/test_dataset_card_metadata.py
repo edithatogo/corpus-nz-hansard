@@ -24,7 +24,8 @@ class DatasetCardMetadataTest(unittest.TestCase):
         self.assertIn("parquet", metadata)
 
         self.assertIn("# NZ Hansard Corpus Dataset Card", body)
-        self.assertIn("https://doi.org/10.5281/zenodo.20595194", body)
+        self.assertIn("https://doi.org/10.5281/zenodo.21030190", body)
+        self.assertIn("https://doi.org/10.5281/zenodo.20591996", body)
 
 
 if __name__ == "__main__":

@@ -39,7 +39,7 @@ on:
       existing_deposition_id:
         description: "Existing Zenodo record/deposition id to version from"
         required: false
-        default: "20595194"
+        default: "21030190"
       create_new_version:
         description: "Create a new Zenodo draft version from existing_deposition_id"
         required: true
@@ -163,7 +163,7 @@ jobs:
         env:
           ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
           ARCHIVE_CREATORS_JSON: ${{ secrets.ARCHIVE_CREATORS_JSON }}
-          ZENODO_DEPOSITION_ID: ${{ github.event.inputs.existing_deposition_id || '20595194' }}
+          ZENODO_DEPOSITION_ID: ${{ github.event.inputs.existing_deposition_id || '21030190' }}
           ZENODO_API_URL: ${{ github.event.inputs.zenodo_api_url || 'https://zenodo.org/api' }}
           ARCHIVE_VERSION: ${{ github.event.inputs.version || '0.1.0' }}
           CREATE_NEW_VERSION: ${{ github.event.inputs.create_new_version || 'true' }}

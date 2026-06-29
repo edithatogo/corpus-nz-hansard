@@ -138,7 +138,7 @@
     "github": "https://github.com/edithatogo/corpus-nz-hansard",
     "huggingface": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
     "osf": null,
-    "zenodo": "https://zenodo.org/records/20595194"
+    "zenodo": "https://zenodo.org/records/21030190"
   },
   "release_manifest": "manifests/public_dataset_release_manifest.json",
   "repository": "corpus-nz-hansard",

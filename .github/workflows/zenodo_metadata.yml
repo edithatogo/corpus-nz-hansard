@@ -6,7 +6,7 @@ on:
       deposition_id:
         description: "Published Zenodo deposition/record id"
         required: true
-        default: "20595194"
+        default: "21030190"
       zenodo_api_url:
         description: "Zenodo API URL"
         required: true

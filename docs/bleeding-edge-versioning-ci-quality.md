@@ -14,8 +14,9 @@ For `corpus-nz-hansard`, the current release-bearing values are:
 - GitHub repository: `https://github.com/edithatogo/corpus-nz-hansard`.
 - GitHub release: `https://github.com/edithatogo/corpus-nz-hansard/releases/tag/v0.1.0`.
 - Hugging Face dataset: `https://huggingface.co/datasets/edithatogo/nz-hansard-corpus`.
-- Zenodo DOI: `10.5281/zenodo.20595194`.
-- Zenodo record: `https://zenodo.org/records/20595194`.
+- Zenodo latest DOI: `10.5281/zenodo.21030190`.
+- Zenodo latest record: `https://zenodo.org/records/21030190`.
+- Zenodo concept DOI: `10.5281/zenodo.20591996`.
 - Public release manifest: `manifests/public_dataset_release_manifest.json`.
 
 ## Target state
@@ -76,7 +77,7 @@ Hugging Face does not replace SemVer. Its immutable commit revision is publicati
 
 ### Zenodo DOI snapshot authority
 
-Zenodo DOI `10.5281/zenodo.20595194` identifies the canonical `0.1.0` document-level release snapshot. Future material public dataset changes require a new Zenodo version under the concept DOI and must keep `CITATION.cff`, release notes, dataset card text, and manifests synchronized.
+Zenodo DOI `10.5281/zenodo.21030190` identifies the current canonical `0.1.0` document-level release snapshot. Zenodo concept DOI `10.5281/zenodo.20591996` identifies the version chain. Future material public dataset changes require a new Zenodo version under the concept DOI and must keep `CITATION.cff`, release notes, dataset card text, and manifests synchronized.
 
 ### Manifest hash authority
 
