@@ -1,0 +1,9 @@
+Task: Run focused validation for the monthly release workflow and publication checks.
+
+Summary: Regenerated manifests/monthly_dynamic_archive_publication_evidence.json after the readiness integration, ran the monthly checker, publication readiness monthly target, focused publication tests, and actionlint for the monthly workflow. Marked the Phase 3 validation task complete.
+
+Files: manifests/monthly_dynamic_archive_publication_evidence.json; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Validation: build_monthly_dynamic_archive_evidence.py completed; check_monthly_dynamic_archive_publication.py passed; check_publication_readiness.py --target monthly reported READY; unittest tests.test_monthly_dynamic_archive_publication tests.test_check_publication_readiness tests.test_upload_huggingface_dataset tests.test_stage_huggingface_dataset passed; actionlint reported no monthly workflow errors.
+
+Why: Captures validation evidence before the Phase 3 Conductor review checkpoint.
