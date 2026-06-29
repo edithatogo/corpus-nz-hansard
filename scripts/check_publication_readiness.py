@@ -5,11 +5,16 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import sys
 from collections.abc import Mapping
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, cast
 
-PUBLICATION_TARGETS = ("github", "huggingface", "zenodo")
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+PUBLICATION_TARGETS = ("github", "huggingface", "zenodo", "monthly")
 
 
 @dataclass(frozen=True)
@@ -101,6 +106,21 @@ def check_publication_readiness(
             _check_required(env, "zenodo", "HF_TOKEN", "Source archive Hugging Face token")
         )
         results.append(_check_creators_json(env))
+
+    if "monthly" in selected:
+        from scripts.check_monthly_dynamic_archive_publication import _failures
+
+        monthly_failures = _failures()
+        results.append(
+            CheckResult(
+                "monthly",
+                "monthly_dynamic_archive_publication",
+                not monthly_failures,
+                "Monthly dynamic archive publication configuration is consistent."
+                if not monthly_failures
+                else "; ".join(monthly_failures),
+            )
+        )
 
     return results
 

@@ -65,6 +65,15 @@ class PublicationReadinessTest(unittest.TestCase):
         self.assertNotIn("hf_secret_value", output)
         self.assertNotIn("https://example.invalid/source.zip", output)
 
+    def test_monthly_target_runs_repo_checker(self):
+        results = check_publication_readiness(env={}, targets=("monthly",))
+
+        self.assertEqual(
+            [result.name for result in results],
+            ["monthly_dynamic_archive_publication"],
+        )
+        self.assertTrue(all(result.ready for result in results))
+
 
 if __name__ == "__main__":
     unittest.main()
