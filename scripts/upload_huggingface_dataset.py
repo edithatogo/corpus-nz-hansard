@@ -18,6 +18,8 @@ DEFAULT_REPO_ID = "edithatogo/nz-hansard-corpus"
 class HuggingFaceApi(Protocol):
     def create_repo(self, **kwargs: Any) -> Any: ...
 
+    def dataset_info(self, **kwargs: Any) -> Any: ...
+
     def update_repo_settings(self, **kwargs: Any) -> Any: ...
 
     def upload_folder(self, **kwargs: Any) -> Any: ...
@@ -98,10 +100,20 @@ def upload_huggingface_dataset(
         token=token,
         commit_message="Publish NZ Hansard corpus dataset",
     )
+    revision_sha = None
+    if not api_was_injected:
+        revision_info = hf_api.dataset_info(
+            repo_id=repo_id,
+            revision=revision,
+            token=token,
+        )
+        revision_sha = getattr(revision_info, "sha", None)
     return {
         "repo_id": repo_id,
         "gated": False,
         "private": private,
+        "revision": revision,
+        "revision_sha": revision_sha,
         "uploaded": True,
         "url": f"https://huggingface.co/datasets/{repo_id}/tree/{revision}",
     }

@@ -135,3 +135,61 @@ jobs:
           subject-path: |
             generated/zenodo/*.tar.gz
             generated/zenodo/*.manifest.json
+      - name: Upload dataset to Hugging Face
+        if: ${{ env.PUBLICATION_MODE == 'huggingface' || env.PUBLICATION_MODE == 'full' }}
+        shell: pwsh
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_REPO_ID: ${{ github.event.inputs.hf_repo_id || 'edithatogo/nz-hansard-corpus' }}
+          HF_PRIVATE: ${{ github.event.inputs.hf_private || 'false' }}
+          HF_XET_HIGH_PERFORMANCE: "1"
+        run: |
+          New-Item -ItemType Directory -Force -Path generated\monthly-publication | Out-Null
+          $args = @(
+            "scripts\upload_huggingface_dataset.py",
+            "--repo-id", "$env:HF_REPO_ID",
+            "--folder", "generated\huggingface",
+            "--force"
+          )
+          if ($env:HF_PRIVATE -eq "true") {
+            $args += "--private"
+          }
+          python @args | Tee-Object -FilePath generated\monthly-publication\huggingface-upload.json
+      - name: Upload Zenodo draft
+        if: ${{ env.PUBLICATION_MODE == 'zenodo-draft' || env.PUBLICATION_MODE == 'full' }}
+        shell: pwsh
+        env:
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+          ARCHIVE_CREATORS_JSON: ${{ secrets.ARCHIVE_CREATORS_JSON }}
+          ZENODO_DEPOSITION_ID: ${{ github.event.inputs.existing_deposition_id || '20595194' }}
+          ZENODO_API_URL: ${{ github.event.inputs.zenodo_api_url || 'https://zenodo.org/api' }}
+          ARCHIVE_VERSION: ${{ github.event.inputs.version || '0.1.0' }}
+          CREATE_NEW_VERSION: ${{ github.event.inputs.create_new_version || 'true' }}
+        run: |
+          New-Item -ItemType Directory -Force -Path generated\monthly-publication | Out-Null
+          $args = @(
+            "scripts\upload_zenodo_archive.py",
+            "--archive", "generated\zenodo\nz-hansard-corpus-$env:ARCHIVE_VERSION.tar.gz",
+            "--manifest", "generated\zenodo\nz-hansard-corpus-$env:ARCHIVE_VERSION.manifest.json",
+            "--api-url", "$env:ZENODO_API_URL",
+            "--version", "$env:ARCHIVE_VERSION"
+          )
+          if ($env:ZENODO_DEPOSITION_ID) {
+            $args += @("--deposition-id", "$env:ZENODO_DEPOSITION_ID")
+          }
+          if ($env:CREATE_NEW_VERSION -eq "true") {
+            $args += "--create-new-version"
+          }
+          python @args | Tee-Object -FilePath generated\monthly-publication\zenodo-draft-upload.json
+      - name: Record protected Zenodo publish handoff
+        if: ${{ env.PUBLICATION_MODE == 'full' }}
+        shell: pwsh
+        run: |
+          "Zenodo draft upload complete. Publish the prepared draft through .github/workflows/zenodo_publish.yml and the zenodo-production-publish environment." | Tee-Object -FilePath generated\monthly-publication\zenodo-publish-handoff.txt
+      - name: Upload monthly publication result artifacts
+        # actions/upload-artifact v7.0.1
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: monthly-publication-results-${{ github.run_id }}
+          path: generated/monthly-publication/*
+          if-no-files-found: ignore
