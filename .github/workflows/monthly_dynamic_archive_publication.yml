@@ -52,7 +52,19 @@ on:
 jobs:
   monthly-archive:
     runs-on: windows-2025-vs2026
+    permissions:
+      attestations: write
+      contents: read
+      id-token: write
     steps:
+      # actions/checkout v7.0.0
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          persist-credentials: false
+      # actions/setup-python v6.2.0
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
+        with:
+          python-version: "3.14"
       - name: Resolve publication mode
         shell: pwsh
         run: |
@@ -62,3 +74,27 @@ jobs:
           }
           "PUBLICATION_MODE=$mode" | Out-File -FilePath $env:GITHUB_ENV -Append
           "Monthly archive publication mode: $mode"
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt huggingface_hub[hf_xet]
+      - name: Check required secrets
+        shell: pwsh
+        env:
+          SOURCE_ARCHIVE_URL: ${{ secrets.SOURCE_ARCHIVE_URL }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+          ARCHIVE_CREATORS_JSON: ${{ secrets.ARCHIVE_CREATORS_JSON }}
+        run: |
+          if (-not "$env:SOURCE_ARCHIVE_URL") {
+            throw "SOURCE_ARCHIVE_URL secret is required for monthly archive rebuilds."
+          }
+          if (-not "$env:HF_TOKEN") {
+            throw "HF_TOKEN secret is required for source archive access and Hugging Face publication."
+          }
+          if ($env:PUBLICATION_MODE -in @("zenodo-draft", "full")) {
+            if (-not "$env:ZENODO_TOKEN") {
+              throw "ZENODO_TOKEN secret is required for Zenodo draft upload."
+            }
+            if (-not "$env:ARCHIVE_CREATORS_JSON") {
+              throw "ARCHIVE_CREATORS_JSON secret is required for Zenodo metadata."
+            }
+          }
