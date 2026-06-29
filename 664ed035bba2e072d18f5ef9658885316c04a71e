@@ -1,0 +1,9 @@
+Task: Execute a dry run from GitHub Actions and record artifact hashes and validation output.
+
+Summary: Dispatched Monthly Dynamic Archive Publication in dry-run mode on GitHub Actions after fixing evidence field quality. The corrected run succeeded, artifacts were downloaded locally for SHA-256 verification, and the track evidence file now records run URL, commit, archive hashes, manifest hashes, evidence manifest hash, row count, and publication-boundary skips.
+
+Files: conductor/tracks/monthly_dynamic_archive_publication_20260629/evidence.md; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Validation: GitHub Actions run 28365543839 completed successfully in dry-run mode. Artifact hashes recorded: archive a80775eb2b505a060eb21f9badb10925ada1201064e06951a4765c2e1fdea085; manifest f6eff145f86d8eb0cb5671ba12afc5722bd5567a14b90c1ef98dc3f0ec19cb07; evidence 44ec8679563d53fed40da6d9958721deff322965c6edca48f49738b2099c3b13. Evidence reported 193922 validated records and record_schema_ok=true.
+
+Why: Establishes the first live GitHub Actions proof that the monthly archive can be rebuilt, attested, and evidenced without publishing to Hugging Face or Zenodo.
