@@ -1,0 +1,9 @@
+Task: Execute Hugging Face publication and verify the public dataset revision, viewer health, and supporting archive files.
+
+Summary: Dispatched Monthly Dynamic Archive Publication in huggingface mode. The GitHub Actions run succeeded, uploaded the dataset to Hugging Face, and produced publication evidence. Verified the public Hugging Face dataset through the Hub API and Dataset Viewer API, including public/non-gated state, revision SHA, default/train split, accessible first rows, and supporting files.
+
+Files: conductor/tracks/monthly_dynamic_archive_publication_20260629/evidence.md; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Validation: GitHub Actions run 28365942236 completed successfully. Hugging Face upload artifact reported repo_id=edithatogo/nz-hansard-corpus, revision=main, revision_sha=d1e834bb363ef2ce2b35793980385998706d8838, private=false, gated=false. Hub API matched SHA d1e834bb363ef2ce2b35793980385998706d8838 and lastModified=2026-06-29T10:39:40Z. Dataset Viewer API reported default/train split and returned first rows. Hub tree includes data/hansard.parquet, docs, manifests, schemas, README.md, CITATION.cff, LICENSE, NOTICE.md, and VERSION.
+
+Why: Establishes the live monthly publication path to Hugging Face and records public verification evidence.
