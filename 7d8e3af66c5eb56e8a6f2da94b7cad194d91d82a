@@ -1,0 +1,12 @@
+Task: Apply post-push GitHub Actions fixes for monthly publication track completion.
+
+Evidence:
+- GitHub Actions for 63c892c showed Tests failing because CI checkout read Git LFS pointer files for derived CSVs and text hashes were line-ending-sensitive; Quality failed on Zizmor template-injection in monthly_dynamic_archive_publication.yml.
+- Enabled LFS checkout in Tests and Quality workflows.
+- Moved workflow_dispatch publication_mode into env before PowerShell use.
+- Normalized text-artifact hashes in member identity, party attribution, and validated speech-turn builders/checkers; regenerated affected validation manifests.
+- Verified locally: targeted release-gate tests => 31 passed.
+- Verified locally: scripts/run_pytest_with_repo_tmp.py -q => 652 passed, 1 subtests passed.
+- Verified locally: zizmor --min-severity medium .github/workflows => no findings.
+- Verified locally: actionlint monthly_dynamic_archive_publication.yml, tests.yml, quality.yml => pass.
+- Verified locally: ruff format --check over touched Python files => 6 files already formatted.
