@@ -1,0 +1,81 @@
+{
+  "archive": {
+    "manifest": {
+      "exists": false,
+      "path": "generated/zenodo/nz-hansard-corpus-0.1.0.manifest.json",
+      "sha256": null,
+      "size_bytes": null
+    },
+    "manifest_file_count": null,
+    "manifest_record_count": null,
+    "tarball": {
+      "exists": false,
+      "path": "generated/zenodo/nz-hansard-corpus-0.1.0.tar.gz",
+      "sha256": null,
+      "size_bytes": null
+    }
+  },
+  "generated_at": "2026-06-29T10:12:25+00:00",
+  "huggingface": {
+    "public_url": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+    "repo_id": "edithatogo/nz-hansard-corpus",
+    "revision": null,
+    "revision_sha": null,
+    "upload_result": {
+      "exists": false,
+      "path": "generated/monthly-publication/huggingface-upload.json",
+      "sha256": null,
+      "size_bytes": null
+    }
+  },
+  "manifest_version": 1,
+  "rights_boundary": {
+    "no_official_endorsement_claim": true,
+    "notes": [
+      "Generated normalized artifacts are publication targets; the governed source zip is not committed or republished.",
+      "Zenodo final publication is routed through the protected zenodo-production-publish environment."
+    ],
+    "source_zip_committed": false,
+    "source_zip_publicly_published": false
+  },
+  "run": {
+    "commit_sha": "e1cfdc3db8d3743f8ad9772f502fcda9e429a80b",
+    "github_run_attempt": null,
+    "github_run_id": null,
+    "github_run_url": null,
+    "publication_mode": "dry-run",
+    "ref_name": "main",
+    "workflow": ".github/workflows/monthly_dynamic_archive_publication.yml"
+  },
+  "source": {
+    "archive_url_configured": false,
+    "source_zip_committed": false,
+    "source_zip_publicly_published": false
+  },
+  "track_id": "monthly_dynamic_archive_publication_20260629",
+  "validation": {
+    "errors": [],
+    "record_count": 193922,
+    "record_schema_ok": true,
+    "record_validation": {
+      "exists": true,
+      "path": "manifests/record_schema_validation.json",
+      "sha256": "94bf6379110dc2ad2a7d5d945a874862e55c94fb5fb3da8a1d3a2625705d42ef",
+      "size_bytes": 281
+    },
+    "warnings": []
+  },
+  "zenodo": {
+    "api_url": "https://zenodo.org/api",
+    "deposition_id": null,
+    "doi": null,
+    "draft_result": {
+      "exists": false,
+      "path": "generated/monthly-publication/zenodo-draft-upload.json",
+      "sha256": null,
+      "size_bytes": null
+    },
+    "protected_publish_environment": "zenodo-production-publish",
+    "publish_handoff_only": true
+  }
+}

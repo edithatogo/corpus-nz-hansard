@@ -186,6 +186,22 @@ jobs:
         shell: pwsh
         run: |
           "Zenodo draft upload complete. Publish the prepared draft through .github/workflows/zenodo_publish.yml and the zenodo-production-publish environment." | Tee-Object -FilePath generated\monthly-publication\zenodo-publish-handoff.txt
+      - name: Build monthly release evidence
+        shell: pwsh
+        env:
+          ARCHIVE_VERSION: ${{ github.event.inputs.version || '0.1.0' }}
+          HF_REPO_ID: ${{ github.event.inputs.hf_repo_id || 'edithatogo/nz-hansard-corpus' }}
+          ZENODO_API_URL: ${{ github.event.inputs.zenodo_api_url || 'https://zenodo.org/api' }}
+        run: |
+          New-Item -ItemType Directory -Force -Path generated\monthly-publication | Out-Null
+          python scripts\build_monthly_dynamic_archive_evidence.py `
+            --output manifests\monthly_dynamic_archive_publication_evidence.json `
+            --archive "generated\zenodo\nz-hansard-corpus-$env:ARCHIVE_VERSION.tar.gz" `
+            --archive-manifest "generated\zenodo\nz-hansard-corpus-$env:ARCHIVE_VERSION.manifest.json" `
+            --record-validation manifests\record_schema_validation.json `
+            --huggingface-result generated\monthly-publication\huggingface-upload.json `
+            --zenodo-result generated\monthly-publication\zenodo-draft-upload.json
+          Copy-Item manifests\monthly_dynamic_archive_publication_evidence.json generated\monthly-publication\monthly_dynamic_archive_publication_evidence.json
       - name: Upload monthly publication result artifacts
         # actions/upload-artifact v7.0.1
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
