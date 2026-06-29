@@ -1,0 +1,7 @@
+Task: Add monthly dynamic archive evidence manifest.
+
+Summary: Added scripts/build_monthly_dynamic_archive_evidence.py, generated the committed evidence manifest template, and wired the monthly GitHub Actions workflow to emit run-specific evidence as a publication artifact.
+
+Files: .github/workflows/monthly_dynamic_archive_publication.yml; scripts/build_monthly_dynamic_archive_evidence.py; manifests/monthly_dynamic_archive_publication_evidence.json; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Why: Records GitHub run metadata, commit SHA, archive and manifest hashes, validation row counts, Hugging Face and Zenodo publication outputs, and rights-boundary notes for each monthly release.
