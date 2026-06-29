@@ -1,0 +1,9 @@
+Task: Update release evidence and Conductor track evidence with public URLs, revisions, DOI or draft IDs, and verification timestamps.
+
+Summary: Added the evidence file link and latest publication proof summary to the track index, including GitHub Actions run URLs, Hugging Face dataset URL and revision, Zenodo record and DOI, record count, and archive hashes. Updated track metadata status and timestamp.
+
+Files: conductor/tracks/monthly_dynamic_archive_publication_20260629/index.md; conductor/tracks/monthly_dynamic_archive_publication_20260629/metadata.json; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Validation: Public verification evidence was collected from GitHub Actions, Hugging Face Hub/Dataset Viewer APIs, and Zenodo public record API before this rollup. Latest proof references Hugging Face revision c11efce25b4f4ce32a7f1668d43ea7e232de1e76 and Zenodo DOI 10.5281/zenodo.21030190.
+
+Why: Makes the completed monthly archive publication proof discoverable from the track entry point.
