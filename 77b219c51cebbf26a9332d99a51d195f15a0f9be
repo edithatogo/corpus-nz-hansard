@@ -1,0 +1,7 @@
+Task: Conductor - User Manual Verification 'Phase 1: Publication Contract' (Protocol in workflow.md).
+
+Summary: Performed the Phase 1 Conductor review against product guidelines, tech stack, code style guidance, and the Phase 1 diff. Applied the review fix requiring monthly Zenodo draft tooling changes to use or formally evaluate zenodraft. Validated the monthly publication contract JSON with python -m json.tool. Marked the Phase 1 verification task complete.
+
+Files: conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md; docs/monthly-dynamic-archive-contract.md; docs/monthly-dynamic-archive-releases.md; manifests/monthly_dynamic_archive_publication_contract.json.
+
+Why: Completes Phase 1 with the Zenodo tooling requirement aligned to project tech context before workflow implementation begins.
