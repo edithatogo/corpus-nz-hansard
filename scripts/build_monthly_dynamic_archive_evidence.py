@@ -74,6 +74,22 @@ def _first_present(mapping: dict[str, Any], *names: str) -> Any:
     return None
 
 
+def _count_manifest_files(archive_manifest: dict[str, Any]) -> int | None:
+    file_count = _first_present(archive_manifest, "file_count")
+    if isinstance(file_count, int):
+        return file_count
+    files = archive_manifest.get("files")
+    if isinstance(files, list):
+        return len(files)
+    return None
+
+
+def _source_archive_url_configured() -> bool:
+    if os.environ.get("SOURCE_ARCHIVE_URL_CONFIGURED", "").lower() == "true":
+        return True
+    return bool(os.environ.get("SOURCE_ARCHIVE_URL"))
+
+
 def build_evidence(args: argparse.Namespace) -> dict[str, Any]:
     contract = _read_json(args.contract)
     validation = _read_json(args.record_validation)
@@ -101,7 +117,7 @@ def build_evidence(args: argparse.Namespace) -> dict[str, Any]:
             "ref_name": os.environ.get("GITHUB_REF_NAME") or _git_value("branch", "--show-current"),
         },
         "source": {
-            "archive_url_configured": bool(os.environ.get("SOURCE_ARCHIVE_URL")),
+            "archive_url_configured": _source_archive_url_configured(),
             "source_zip_committed": False,
             "source_zip_publicly_published": False,
         },
@@ -109,7 +125,7 @@ def build_evidence(args: argparse.Namespace) -> dict[str, Any]:
             "tarball": _file_evidence(args.archive),
             "manifest": _file_evidence(args.archive_manifest),
             "manifest_record_count": _first_present(archive_manifest, "record_count", "rows"),
-            "manifest_file_count": _first_present(archive_manifest, "file_count", "files"),
+            "manifest_file_count": _count_manifest_files(archive_manifest),
         },
         "huggingface": {
             "repo_id": os.environ.get("HF_REPO_ID") or contract.get("huggingface", {}).get("default_repo_id"),

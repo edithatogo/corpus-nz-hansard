@@ -11,6 +11,7 @@ from scripts.check_monthly_dynamic_archive_publication import (
     _failures,
     _workflow_failures,
 )
+from scripts.build_monthly_dynamic_archive_evidence import _count_manifest_files
 
 
 class MonthlyDynamicArchivePublicationTest(unittest.TestCase):
@@ -108,6 +109,10 @@ class MonthlyDynamicArchivePublicationTest(unittest.TestCase):
             "Evidence manifest must state that the source zip is not committed.",
             failures,
         )
+
+    def test_archive_manifest_files_are_counted(self):
+        self.assertEqual(_count_manifest_files({"files": [{"path": "a"}, {"path": "b"}]}), 2)
+        self.assertEqual(_count_manifest_files({"file_count": 3, "files": []}), 3)
 
 
 if __name__ == "__main__":

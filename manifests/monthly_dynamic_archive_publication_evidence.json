@@ -15,7 +15,7 @@
       "size_bytes": null
     }
   },
-  "generated_at": "2026-06-29T10:16:17+00:00",
+  "generated_at": "2026-06-29T10:26:53+00:00",
   "huggingface": {
     "public_url": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
     "repo_id": "edithatogo/nz-hansard-corpus",
@@ -39,7 +39,7 @@
     "source_zip_publicly_published": false
   },
   "run": {
-    "commit_sha": "3f6eb0e68ae8befb8ce906bc747c4310691d5125",
+    "commit_sha": "128ed6dcd0a5c1bcf9996f10f1b6bfb9f368c891",
     "github_run_attempt": null,
     "github_run_id": null,
     "github_run_url": null,

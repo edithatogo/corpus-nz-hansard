@@ -191,6 +191,7 @@ jobs:
         env:
           ARCHIVE_VERSION: ${{ github.event.inputs.version || '0.1.0' }}
           HF_REPO_ID: ${{ github.event.inputs.hf_repo_id || 'edithatogo/nz-hansard-corpus' }}
+          SOURCE_ARCHIVE_URL_CONFIGURED: ${{ secrets.SOURCE_ARCHIVE_URL != '' }}
           ZENODO_API_URL: ${{ github.event.inputs.zenodo_api_url || 'https://zenodo.org/api' }}
         run: |
           New-Item -ItemType Directory -Force -Path generated\monthly-publication | Out-Null
