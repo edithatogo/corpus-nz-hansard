@@ -1,0 +1,7 @@
+Task: Audit current GitHub, Hugging Face, and Zenodo publication workflows and identify the exact artifact set that must be included in each monthly archive.
+
+Summary: Added docs/monthly-dynamic-archive-audit.md documenting current manual publication workflows, source inputs, generated outputs, the monthly archive artifact set, and implementation gaps. Updated the monthly dynamic archive publication plan to mark the audit task complete.
+
+Files: docs/monthly-dynamic-archive-audit.md; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Why: Establishes the evidence-backed baseline before defining the monthly publication contract.
