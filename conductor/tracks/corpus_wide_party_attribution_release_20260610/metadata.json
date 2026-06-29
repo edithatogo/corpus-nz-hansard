@@ -1,7 +1,7 @@
 {
   "track_id": "corpus_wide_party_attribution_release_20260610",
   "type": "feature",
-  "status": "archived",
+  "status": "complete",
   "created_at": "2026-06-10T00:00:00+10:00",
   "updated_at": "2026-06-25T00:00:00+10:00",
   "description": "Corpus-wide party attribution is release-ready for explicit party-vote labels after member identity advanced to release-ready-triangulated-agent-review; speech-text party inference and member-identity fallback rows remain excluded from authoritative party claims."

@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/20595194"
   },
-  "generated_at": "2026-06-25T02:34:57.112087+00:00",
+  "generated_at": "2026-06-29T11:03:12.187027+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -120,80 +120,17 @@
   "track_snapshot": {
     "summary_counts": {
       "blocked": 0,
-      "complete": 68,
+      "complete": 69,
       "in_progress": 0,
       "pending": 0
     },
     "tracks": [
       {
-        "goal": "promote the local member identity review package into a corpus-wide triangulated derived component with release gates, schemas, manifests, and non-overclaiming docs. Release-ready under release-ready-triangulated-agent-review with agent-review fallback for unresolved rows.",
-        "link": "./tracks/corpus_wide_member_identity_release_20260610/",
+        "goal": "ensure the entire current archive is rebuilt and published through monthly dynamic GitHub Actions releases to Hugging Face and Zenodo with protected publication gates, rights-safe exclusions, and cross-surface release evidence.",
+        "link": "./tracks/monthly_dynamic_archive_publication_20260629/",
         "status": "x",
-        "title": "Corpus-Wide Member Identity Release",
-        "track_id": "corpus_wide_member_identity_release_20260610"
-      },
-      {
-        "goal": "promote explicit party-vote label attribution into a corpus-wide derived component. Release-ready under release-ready-explicit-party-labels-member-identity-triangulated; speech-text party inference and member-identity fallback rows remain excluded from authoritative party claims.",
-        "link": "./tracks/corpus_wide_party_attribution_release_20260610/",
-        "status": "x",
-        "title": "Corpus-Wide Party Attribution Release",
-        "track_id": "corpus_wide_party_attribution_release_20260610"
-      },
-      {
-        "goal": "promote speech-turn candidates into a validated derived component once candidate data and triangulated member identity are available. Release-ready under release-ready-speech-turns-triangulated-speakers-agent-review with unresolved speaker fallback rows isolated.",
-        "link": "./tracks/validated_speech_turn_component_release_20260610/",
-        "status": "x",
-        "title": "Validated Speech-Turn Component Release",
-        "track_id": "validated_speech_turn_component_release_20260610"
-      },
-      {
-        "goal": "promote sitting/proceeding structures from design fixtures into validated corpus-wide neutral components reconciled to official sitting and proceeding evidence. Repo-side builder/checker and the comparison-ready historical ledger are implemented; release remains blocked until official historical comparison exists.",
-        "link": "./tracks/sitting_proceeding_component_release_20260610/",
-        "status": "x",
-        "title": "Sitting And Proceeding Component Release",
-        "track_id": "sitting_proceeding_component_release_20260610"
-      },
-      {
-        "goal": "implement validated corpus-wide extraction for votes, motions, bills, oral/written questions, answers, and procedural decisions with provenance. Repo-side builder/checker are implemented; release remains blocked until validated member identity, party attribution, and sitting/proceeding components exist.",
-        "link": "./tracks/vote_motion_bill_question_extraction_release_20260610/",
-        "status": "x",
-        "title": "Vote Motion Bill Question Extraction Release",
-        "track_id": "vote_motion_bill_question_extraction_release_20260610"
-      },
-      {
-        "goal": "move ParlaMint-NZ from endpoint contract/sample readiness to a scope-declared public release package with schema validation and maintainer-facing evidence. Repo-side builder/checker are implemented; release remains blocked until validated member identity, party attribution, speech-turn, and sitting/proceeding components exist.",
-        "link": "./tracks/parlamint_nz_public_endpoint_release_20260610/",
-        "status": "x",
-        "title": "ParlaMint-NZ Public Endpoint Release",
-        "track_id": "parlamint_nz_public_endpoint_release_20260610"
-      },
-      {
-        "goal": "move Popolo/Open Civic Data from sample output to a validated public endpoint release. Repo-side builder/checker are implemented; release remains blocked pending validated member identity, party attribution, vote/motion extraction, and speech-turn components.",
-        "link": "./tracks/popolo_opencivicdata_public_endpoint_release_20260610/",
-        "status": "x",
-        "title": "Popolo/Open Civic Data Public Endpoint Release",
-        "track_id": "popolo_opencivicdata_public_endpoint_release_20260610"
-      },
-      {
-        "goal": "move Akoma Ntoso from sample output to a validated public endpoint release with selected profile/schema evidence and source-span preservation. Repo-side builder/checker are implemented; release is blocked pending validated member identity, party attribution, speech-turn, motion, and vote components.",
-        "link": "./tracks/akoma_ntoso_public_endpoint_release_20260610/",
-        "status": "x",
-        "title": "Akoma Ntoso Public Endpoint Release",
-        "track_id": "akoma_ntoso_public_endpoint_release_20260610"
-      },
-      {
-        "goal": "move CAP/ParlaCAP from sample topic output to a validated public release after topic codebooks, speech/proceeding units, and maintainer expectations are settled. Repo-side builder/checker are implemented; release is blocked pending validated speech-turn components and maintainer-confirmed codebook intake.",
-        "link": "./tracks/cap_parlacap_public_endpoint_release_20260610/",
-        "status": "x",
-        "title": "CAP/ParlaCAP Public Endpoint Release",
-        "track_id": "cap_parlacap_public_endpoint_release_20260610"
-      },
-      {
-        "goal": "move UD/CoNLL-U from sample output to a validated NLP endpoint release with tokenizer/parser pinning, offset fidelity, and scope-declared coverage. Repo-side builder/checker are implemented; release is blocked pending validated speech-turn text and completed Stanza/spaCy comparison evidence.",
-        "link": "./tracks/ud_conllu_public_endpoint_release_20260610/",
-        "status": "x",
-        "title": "UD/CoNLL-U Public Endpoint Release",
-        "track_id": "ud_conllu_public_endpoint_release_20260610"
+        "title": "Monthly Dynamic Archive Publication",
+        "track_id": "monthly_dynamic_archive_publication_20260629"
       },
       {
         "goal": "move RDF/JSON-LD from sample graph output to a validated public linked-data release with SHACL, stable URIs, PROV-O/DCAT/SKOS/W3C Time, and SPARQL examples.",
@@ -600,6 +537,76 @@
         "status": "x",
         "title": "Wikipedia MP Lists Acquisition",
         "track_id": "wikipedia_mp_lists_acquisition_20260612"
+      },
+      {
+        "goal": "promote the local member identity review package into a corpus-wide triangulated derived component with release gates, schemas, manifests, and non-overclaiming docs. Release-ready under release-ready-triangulated-agent-review with agent-review fallback for unresolved rows.",
+        "link": "./tracks/corpus_wide_member_identity_release_20260610/",
+        "status": "x",
+        "title": "Corpus-Wide Member Identity Release",
+        "track_id": "corpus_wide_member_identity_release_20260610"
+      },
+      {
+        "goal": "promote explicit party-vote label attribution into a corpus-wide derived component. Release-ready under release-ready-explicit-party-labels-member-identity-triangulated; speech-text party inference and member-identity fallback rows remain excluded from authoritative party claims.",
+        "link": "./tracks/corpus_wide_party_attribution_release_20260610/",
+        "status": "x",
+        "title": "Corpus-Wide Party Attribution Release",
+        "track_id": "corpus_wide_party_attribution_release_20260610"
+      },
+      {
+        "goal": "promote speech-turn candidates into a validated derived component once candidate data and triangulated member identity are available. Release-ready under release-ready-speech-turns-triangulated-speakers-agent-review with unresolved speaker fallback rows isolated.",
+        "link": "./tracks/validated_speech_turn_component_release_20260610/",
+        "status": "x",
+        "title": "Validated Speech-Turn Component Release",
+        "track_id": "validated_speech_turn_component_release_20260610"
+      },
+      {
+        "goal": "promote sitting/proceeding structures from design fixtures into validated corpus-wide neutral components reconciled to official sitting and proceeding evidence. Repo-side builder/checker and the comparison-ready historical ledger are implemented; release remains blocked until official historical comparison exists.",
+        "link": "./tracks/sitting_proceeding_component_release_20260610/",
+        "status": "x",
+        "title": "Sitting And Proceeding Component Release",
+        "track_id": "sitting_proceeding_component_release_20260610"
+      },
+      {
+        "goal": "implement validated corpus-wide extraction for votes, motions, bills, oral/written questions, answers, and procedural decisions with provenance. Repo-side builder/checker are implemented; release remains blocked until validated member identity, party attribution, and sitting/proceeding components exist.",
+        "link": "./tracks/vote_motion_bill_question_extraction_release_20260610/",
+        "status": "x",
+        "title": "Vote Motion Bill Question Extraction Release",
+        "track_id": "vote_motion_bill_question_extraction_release_20260610"
+      },
+      {
+        "goal": "move ParlaMint-NZ from endpoint contract/sample readiness to a scope-declared public release package with schema validation and maintainer-facing evidence. Repo-side builder/checker are implemented; release remains blocked until validated member identity, party attribution, speech-turn, and sitting/proceeding components exist.",
+        "link": "./tracks/parlamint_nz_public_endpoint_release_20260610/",
+        "status": "x",
+        "title": "ParlaMint-NZ Public Endpoint Release",
+        "track_id": "parlamint_nz_public_endpoint_release_20260610"
+      },
+      {
+        "goal": "move Popolo/Open Civic Data from sample output to a validated public endpoint release. Repo-side builder/checker are implemented; release remains blocked pending validated member identity, party attribution, vote/motion extraction, and speech-turn components.",
+        "link": "./tracks/popolo_opencivicdata_public_endpoint_release_20260610/",
+        "status": "x",
+        "title": "Popolo/Open Civic Data Public Endpoint Release",
+        "track_id": "popolo_opencivicdata_public_endpoint_release_20260610"
+      },
+      {
+        "goal": "move Akoma Ntoso from sample output to a validated public endpoint release with selected profile/schema evidence and source-span preservation. Repo-side builder/checker are implemented; release is blocked pending validated member identity, party attribution, speech-turn, motion, and vote components.",
+        "link": "./tracks/akoma_ntoso_public_endpoint_release_20260610/",
+        "status": "x",
+        "title": "Akoma Ntoso Public Endpoint Release",
+        "track_id": "akoma_ntoso_public_endpoint_release_20260610"
+      },
+      {
+        "goal": "move CAP/ParlaCAP from sample topic output to a validated public release after topic codebooks, speech/proceeding units, and maintainer expectations are settled. Repo-side builder/checker are implemented; release is blocked pending validated speech-turn components and maintainer-confirmed codebook intake.",
+        "link": "./tracks/cap_parlacap_public_endpoint_release_20260610/",
+        "status": "x",
+        "title": "CAP/ParlaCAP Public Endpoint Release",
+        "track_id": "cap_parlacap_public_endpoint_release_20260610"
+      },
+      {
+        "goal": "move UD/CoNLL-U from sample output to a validated NLP endpoint release with tokenizer/parser pinning, offset fidelity, and scope-declared coverage. Repo-side builder/checker are implemented; release is blocked pending validated speech-turn text and completed Stanza/spaCy comparison evidence.",
+        "link": "./tracks/ud_conllu_public_endpoint_release_20260610/",
+        "status": "x",
+        "title": "UD/CoNLL-U Public Endpoint Release",
+        "track_id": "ud_conllu_public_endpoint_release_20260610"
       }
     ]
   },
@@ -607,6 +614,6 @@
     "current_public_release_version": "0.1.0",
     "portal_built": true,
     "public_release_urls_recorded": true,
-    "track_rows": 68
+    "track_rows": 69
   }
 }

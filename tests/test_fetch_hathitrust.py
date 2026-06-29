@@ -30,7 +30,10 @@ class FetchHathiTrustTest(unittest.TestCase):
         inventory = json.loads(inventory_path.read_text(encoding="utf-8"))
         self.assertEqual(inventory["enumerated_count"], 39)
         self.assertEqual(inventory["pending_count"], EXPECTED_VOLUMES - 39)
-        self.assertEqual(inventory["acquisition_status"], "blocked-pending-hathifile-or-oauth")
+        self.assertEqual(
+            inventory["acquisition_status"],
+            "complete-deferred-hathifile-or-oauth-required",
+        )
         self.assertIn("uc1.b2940052-81", inventory["enumerated_ids"])
 
         validation = build_inventory_validation(inventory_path)

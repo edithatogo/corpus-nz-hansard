@@ -60,7 +60,7 @@ def _git_value(*args: str) -> str | None:
             capture_output=True,
             text=True,
         )
-    except (OSError, subprocess.CalledProcessError):
+    except OSError, subprocess.CalledProcessError:
         return None
     value = completed.stdout.strip()
     return value or None
@@ -128,14 +128,16 @@ def build_evidence(args: argparse.Namespace) -> dict[str, Any]:
             "manifest_file_count": _count_manifest_files(archive_manifest),
         },
         "huggingface": {
-            "repo_id": os.environ.get("HF_REPO_ID") or contract.get("huggingface", {}).get("default_repo_id"),
+            "repo_id": os.environ.get("HF_REPO_ID")
+            or contract.get("huggingface", {}).get("default_repo_id"),
             "public_url": contract.get("huggingface", {}).get("public_url"),
             "upload_result": _file_evidence(args.huggingface_result),
             "revision": revision,
             "revision_sha": _first_present(hf_result, "revision_sha", "sha"),
         },
         "zenodo": {
-            "api_url": os.environ.get("ZENODO_API_URL") or contract.get("zenodo", {}).get("api_url_default"),
+            "api_url": os.environ.get("ZENODO_API_URL")
+            or contract.get("zenodo", {}).get("api_url_default"),
             "draft_result": _file_evidence(args.zenodo_result),
             "deposition_id": _first_present(zenodo_result, "deposition_id", "id"),
             "doi": _first_present(zenodo_result, "doi", "conceptdoi", "concept_doi"),
@@ -169,11 +171,27 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--contract", type=Path, default=DEFAULT_CONTRACT)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
-    parser.add_argument("--archive", type=Path, default=ROOT / "generated" / "zenodo" / "nz-hansard-corpus-0.1.0.tar.gz")
-    parser.add_argument("--archive-manifest", type=Path, default=ROOT / "generated" / "zenodo" / "nz-hansard-corpus-0.1.0.manifest.json")
+    parser.add_argument(
+        "--archive",
+        type=Path,
+        default=ROOT / "generated" / "zenodo" / "nz-hansard-corpus-0.1.0.tar.gz",
+    )
+    parser.add_argument(
+        "--archive-manifest",
+        type=Path,
+        default=ROOT / "generated" / "zenodo" / "nz-hansard-corpus-0.1.0.manifest.json",
+    )
     parser.add_argument("--record-validation", type=Path, default=DEFAULT_RECORD_VALIDATION)
-    parser.add_argument("--huggingface-result", type=Path, default=ROOT / "generated" / "monthly-publication" / "huggingface-upload.json")
-    parser.add_argument("--zenodo-result", type=Path, default=ROOT / "generated" / "monthly-publication" / "zenodo-draft-upload.json")
+    parser.add_argument(
+        "--huggingface-result",
+        type=Path,
+        default=ROOT / "generated" / "monthly-publication" / "huggingface-upload.json",
+    )
+    parser.add_argument(
+        "--zenodo-result",
+        type=Path,
+        default=ROOT / "generated" / "monthly-publication" / "zenodo-draft-upload.json",
+    )
     return parser.parse_args()
 
 

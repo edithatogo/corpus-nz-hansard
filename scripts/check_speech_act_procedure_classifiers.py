@@ -80,9 +80,10 @@ def _failures() -> list[str]:
         failures.append("Manifest must record reviewed fixture evaluation.")
     if manifest["validation_results"]["selector_checks_passed"] is not True:
         failures.append("Manifest must record passing selector checks.")
-    if manifest["evaluation_artifacts"]["fixture_evaluation"] != EVALUATION_PATH.relative_to(
-        ROOT
-    ).as_posix():
+    if (
+        manifest["evaluation_artifacts"]["fixture_evaluation"]
+        != EVALUATION_PATH.relative_to(ROOT).as_posix()
+    ):
         failures.append("Manifest must point to the fixture evaluation artifact.")
 
     if evaluation["publication_status"] != "fixture-evaluation-only-not-authoritative":

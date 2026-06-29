@@ -13,7 +13,7 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Monthly Dynamic Archive Publication
+### [x] Track: Monthly Dynamic Archive Publication
 
 Track ID: `monthly_dynamic_archive_publication_20260629`
 
