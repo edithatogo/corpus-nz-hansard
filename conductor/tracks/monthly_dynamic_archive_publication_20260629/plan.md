@@ -3,7 +3,7 @@
 ## Phase 1: Publication Contract
 
 - [x] Task: Audit current GitHub, Hugging Face, and Zenodo publication workflows and identify the exact artifact set that must be included in each monthly archive.
-- [ ] Task: Define the monthly archive publication contract, including source inputs, generated outputs, manifest fields, public URLs, and rights-safe exclusions.
+- [x] Task: Define the monthly archive publication contract, including source inputs, generated outputs, manifest fields, public URLs, and rights-safe exclusions.
 - [ ] Task: Add or update docs describing monthly dynamic releases, verification steps, rollback/retry procedure, and the distinction between draft upload and protected Zenodo publication.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Publication Contract' (Protocol in workflow.md)
 

@@ -1,0 +1,64 @@
+{
+  "artifact_set": {
+    "github_artifacts": [
+      "generated/zenodo/nz-hansard-corpus-<version>.tar.gz",
+      "generated/zenodo/nz-hansard-corpus-<version>.manifest.json",
+      "manifests/monthly_dynamic_archive_publication_evidence.json"
+    ],
+    "huggingface": [
+      "data/hansard.parquet",
+      "docs/",
+      "manifests/",
+      "schemas/",
+      "README.md",
+      "CITATION.cff",
+      "LICENSE",
+      "NOTICE.md",
+      "VERSION"
+    ],
+    "zenodo": [
+      "generated/zenodo/nz-hansard-corpus-<version>.tar.gz",
+      "generated/zenodo/nz-hansard-corpus-<version>.manifest.json"
+    ]
+  },
+  "cadence": "monthly",
+  "default_publication_mode": "dry-run",
+  "evidence_manifest": "manifests/monthly_dynamic_archive_publication_evidence.json",
+  "evidence_required_fields": [
+    "manifest_version",
+    "track_id",
+    "generated_at",
+    "run",
+    "source",
+    "archive",
+    "huggingface",
+    "zenodo",
+    "validation",
+    "rights_boundary"
+  ],
+  "huggingface": {
+    "default_repo_id": "edithatogo/nz-hansard-corpus",
+    "public_url": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
+    "revision_required": true
+  },
+  "manifest_version": 1,
+  "rights_boundary": {
+    "no_official_endorsement_claim": true,
+    "source_zip_committed": false,
+    "source_zip_publicly_published": false
+  },
+  "required_secrets": [
+    "SOURCE_ARCHIVE_URL",
+    "HF_TOKEN",
+    "ZENODO_TOKEN",
+    "ARCHIVE_CREATORS_JSON"
+  ],
+  "track_id": "monthly_dynamic_archive_publication_20260629",
+  "workflow": ".github/workflows/monthly_dynamic_archive_publication.yml",
+  "zenodo": {
+    "api_url_default": "https://zenodo.org/api",
+    "draft_upload_required": true,
+    "protected_publish_environment": "zenodo-production-publish",
+    "publish_requires_protected_environment": true
+  }
+}
