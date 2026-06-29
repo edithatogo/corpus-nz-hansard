@@ -8,3 +8,11 @@ Evidence:
 - Verified locally: scripts/run_pytest_with_repo_tmp.py -q => 652 passed, 1 subtests passed.
 - Verified locally: monthly publication, publication readiness, Zenodo rights, release version, public surface audit, corpus family alignment, metadata packages, and static portal checks all pass.
 - Verified locally: zizmor workflow audit and actionlint pass for touched workflows.
+
+Post-push live-site verification:
+- GitHub repository homepage updated to https://doi.org/10.5281/zenodo.20591996 and v0.1.0 release notes now list latest DOI https://doi.org/10.5281/zenodo.21030190 plus concept DOI https://doi.org/10.5281/zenodo.20591996.
+- Monthly Dynamic Archive Publication workflow run 28369343488 completed successfully in huggingface mode for commit 6e3e53c.
+- Hugging Face raw README now contains current Zenodo latest record 21030190, latest DOI 10.5281/zenodo.21030190, and concept DOI 10.5281/zenodo.20591996.
+- Hugging Face Dataset Viewer is available for default/train; first-rows returns 32 preview rows and 23 features; parquet endpoint returns one train shard with no pending or failed entries.
+- Zenodo public API record 21030190 still reports published/open/done/submitted with archive and manifest files present.
+- GitHub Actions for commit 6e3e53c completed successfully: Tests, Quality, Docs, CodeQL, OpenSSF Scorecard, Mirror Sync, plus the Hugging Face publication workflow.
