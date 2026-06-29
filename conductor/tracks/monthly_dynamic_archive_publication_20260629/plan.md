@@ -18,7 +18,7 @@
 ## Phase 3: Evidence And Validation
 
 - [x] Task: Add a machine-readable monthly release evidence manifest that records GitHub run ID, commit SHA, archive hashes, manifest hashes, row counts, Hugging Face revision, Zenodo draft or DOI, and publication boundary notes.
-- [ ] Task: Add repo-side checker and tests for schedule configuration, protected publication gates, required evidence fields, and cross-surface consistency.
+- [x] Task: Add repo-side checker and tests for schedule configuration, protected publication gates, required evidence fields, and cross-surface consistency.
 - [ ] Task: Integrate the monthly release checker into publication readiness or quality gates without allowing dependency-update PRs to publish.
 - [ ] Task: Run focused validation for the monthly release workflow, evidence manifest, and affected publication checks.
 - [ ] Task: Conductor - User Manual Verification 'Phase 3: Evidence And Validation' (Protocol in workflow.md)
