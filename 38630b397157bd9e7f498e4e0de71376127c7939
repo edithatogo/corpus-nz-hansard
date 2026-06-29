@@ -1,0 +1,7 @@
+Task: Create or update a Zenodo draft/new version, verify uploaded archive files and metadata, and route final publish through the protected environment.
+
+Summary: Marked the Zenodo monthly proof task in progress before dispatching the full monthly workflow.
+
+Files: conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Why: Keeps Conductor plan state aligned with the remote workflow run used for Zenodo proof.
