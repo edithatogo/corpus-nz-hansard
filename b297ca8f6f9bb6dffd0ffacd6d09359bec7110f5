@@ -1,0 +1,7 @@
+Task: Add a monthly scheduled GitHub Actions workflow with manual dispatch inputs for dry run, Hugging Face publish, Zenodo draft upload, and protected Zenodo publish handoff.
+
+Summary: Added .github/workflows/monthly_dynamic_archive_publication.yml with a first-of-month cron schedule and workflow_dispatch inputs for publication mode, version, Hugging Face repo/privacy, Zenodo API, existing deposition, and new-version behavior. Marked the task complete in the Conductor plan.
+
+Files: .github/workflows/monthly_dynamic_archive_publication.yml; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Why: Establishes the scheduled and manual workflow entrypoint before adding rebuild and publication steps.
