@@ -27,6 +27,6 @@
 
 - [x] Task: Execute a dry run from GitHub Actions and record artifact hashes and validation output.
 - [x] Task: Execute Hugging Face publication and verify the public dataset revision, viewer health, and supporting archive files.
-- [ ] Task: Create or update a Zenodo draft/new version, verify uploaded archive files and metadata, and route final publish through the protected environment.
+- [~] Task: Create or update a Zenodo draft/new version, verify uploaded archive files and metadata, and route final publish through the protected environment.
 - [ ] Task: Update release evidence and Conductor track evidence with public URLs, revisions, DOI or draft IDs, and verification timestamps.
 - [ ] Task: Conductor - User Manual Verification 'Phase 4: First Monthly Release Proof' (Protocol in workflow.md)
