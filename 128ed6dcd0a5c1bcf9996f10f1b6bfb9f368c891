@@ -1,0 +1,9 @@
+Task: Conductor - User Manual Verification 'Phase 3: Evidence And Validation' (Protocol in workflow.md).
+
+Summary: Reviewed Phase 3 against conductor/product-guidelines.md, conductor/tech-stack.md, conductor/code_styleguides/python.md, and conductor/workflow.md. Confirmed the evidence manifest records hashes and row counts where artifacts exist, preserves the rights boundary, avoids direct Zenodo publication, and integrates the monthly checker into publication readiness without PR/dependency-update publication triggers. Marked the Phase 3 verification task complete.
+
+Files: conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Validation: py_compile passed for the changed scripts; .venv\Scripts\python.exe -m unittest tests.test_monthly_dynamic_archive_publication tests.test_check_publication_readiness tests.test_upload_huggingface_dataset tests.test_stage_huggingface_dataset passed; check_monthly_dynamic_archive_publication.py passed; check_publication_readiness.py --target monthly reported READY; actionlint reported no monthly workflow errors. Ruff was not available in .venv, so no ruff result was recorded.
+
+Why: Records the Phase 3 review checkpoint before starting first-release proof work.
