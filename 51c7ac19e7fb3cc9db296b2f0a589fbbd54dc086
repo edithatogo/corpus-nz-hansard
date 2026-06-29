@@ -1,0 +1,7 @@
+Task: Add or update docs describing monthly dynamic releases, verification steps, rollback/retry procedure, and the distinction between draft upload and protected Zenodo publication.
+
+Summary: Added the monthly dynamic archive release operations guide, covering publication model, included and excluded artifacts, verification steps, rollback and retry procedures, required secrets, and the protected Zenodo publication boundary. Marked the task complete in the Conductor plan.
+
+Files: docs/monthly-dynamic-archive-releases.md; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Why: Gives maintainers an operational runbook before workflow automation is implemented.
