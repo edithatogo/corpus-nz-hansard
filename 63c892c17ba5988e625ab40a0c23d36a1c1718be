@@ -1,0 +1,11 @@
+Task: Conductor Phase 4 review fixes for monthly dynamic archive publication.
+
+Evidence:
+- Fixed mirror_sync checkout pin expected by repo-wide mirroring tests.
+- Aligned completed release-track metadata statuses with release-gate checkers.
+- Updated HathiTrust seeded inventory expectation to documented complete-deferred status.
+- Regenerated static documentation portal after closing monthly publication track.
+- Verified locally: .pixi\envs\default\python.exe scripts\run_pytest_with_repo_tmp.py -q => 652 passed, 1 subtests passed.
+- Verified locally: ruff format --check over pyproject.toml, pixi.toml, test_support.py, scripts, tests => 266 files already formatted.
+- Verified locally: monthly publication checker and publication readiness target monthly => READY.
+- Verified locally: actionlint monthly_dynamic_archive_publication.yml, zenodo_publish.yml, mirror_sync.yml => pass.
