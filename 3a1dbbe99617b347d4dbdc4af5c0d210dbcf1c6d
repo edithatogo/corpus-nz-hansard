@@ -1,0 +1,7 @@
+Task: Ensure workflow permissions are least-privilege and required secrets are checked before network publication steps run.
+
+Summary: Added least-privilege workflow permissions, pinned checkout/setup-python steps, dependency installation, and mode-aware secret checks for SOURCE_ARCHIVE_URL, HF_TOKEN, ZENODO_TOKEN, and ARCHIVE_CREATORS_JSON before publication steps. Marked the task complete in the Conductor plan.
+
+Files: .github/workflows/monthly_dynamic_archive_publication.yml; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Why: Ensures monthly publication fails closed before any network publication path can run.
