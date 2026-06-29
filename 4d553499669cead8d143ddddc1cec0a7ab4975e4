@@ -1,0 +1,9 @@
+Task: Execute a dry run from GitHub Actions and record artifact hashes and validation output.
+
+Summary: The first GitHub Actions dry run succeeded but exposed two evidence quality issues before task completion: archive manifest file entries were copied into manifest_file_count instead of counted, and the evidence step could not record source archive configuration because secrets are not visible unless explicitly passed. Fixed both issues, regenerated the committed evidence template, and kept the dry-run task in progress pending a rerun.
+
+Files: .github/workflows/monthly_dynamic_archive_publication.yml; scripts/build_monthly_dynamic_archive_evidence.py; tests/test_monthly_dynamic_archive_publication.py; manifests/monthly_dynamic_archive_publication_evidence.json; conductor/tracks/monthly_dynamic_archive_publication_20260629/plan.md.
+
+Validation: build_monthly_dynamic_archive_evidence.py completed; unittest tests.test_monthly_dynamic_archive_publication tests.test_check_publication_readiness passed; check_monthly_dynamic_archive_publication.py passed; actionlint reported no monthly workflow errors.
+
+Why: Ensures monthly release evidence records compact, accurate manifest counts and source-archive configuration without exposing secret values.
