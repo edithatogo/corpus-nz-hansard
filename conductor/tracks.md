@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [x] Track: Parliament Dataset Inventory
-
-Track ID: `parliament_dataset_inventory_20260703`
-
-Goal: inventory Parliament-hosted and credible fallback datasets beyond NZ legislation and Gazette, with validated source taxonomy, exclusions, fallback posture, and handoff requirements for seed fetchers.
-
-Link: [conductor/tracks/parliament_dataset_inventory_20260703/](./tracks/parliament_dataset_inventory_20260703/)
-
 ### [ ] Track: Parliament Dataset Seed Fetchers
 
 Track ID: `parliament_dataset_seed_fetchers_20260703`

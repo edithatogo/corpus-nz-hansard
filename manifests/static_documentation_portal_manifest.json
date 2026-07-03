@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/21030190"
   },
-  "generated_at": "2026-07-03T12:45:31.095010+00:00",
+  "generated_at": "2026-07-03T12:49:53.789980+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -120,18 +120,11 @@
   "track_snapshot": {
     "summary_counts": {
       "blocked": 0,
-      "complete": 70,
+      "complete": 69,
       "in_progress": 0,
       "pending": 2
     },
     "tracks": [
-      {
-        "goal": "inventory Parliament-hosted and credible fallback datasets beyond NZ legislation and Gazette, with validated source taxonomy, exclusions, fallback posture, and handoff requirements for seed fetchers.",
-        "link": "./tracks/parliament_dataset_inventory_20260703/",
-        "status": "x",
-        "title": "Parliament Dataset Inventory",
-        "track_id": "parliament_dataset_inventory_20260703"
-      },
       {
         "goal": "add safe seed fetchers for high-value Parliament website dataset families identified by the inventory track, proving retrieval feasibility without bulk acquisition or publication claims.",
         "link": "./tracks/parliament_dataset_seed_fetchers_20260703/",
@@ -635,6 +628,6 @@
     "current_public_release_version": "0.1.0",
     "portal_built": true,
     "public_release_urls_recorded": true,
-    "track_rows": 72
+    "track_rows": 71
   }
 }
