@@ -13,6 +13,30 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
+### [ ] Track: Parliament Dataset Inventory
+
+Track ID: `parliament_dataset_inventory_20260703`
+
+Goal: inventory Parliament-hosted and credible fallback datasets beyond NZ legislation and Gazette, with validated source taxonomy, exclusions, fallback posture, and handoff requirements for seed fetchers.
+
+Link: [conductor/tracks/parliament_dataset_inventory_20260703/](./tracks/parliament_dataset_inventory_20260703/)
+
+### [ ] Track: Parliament Dataset Seed Fetchers
+
+Track ID: `parliament_dataset_seed_fetchers_20260703`
+
+Goal: add safe seed fetchers for high-value Parliament website dataset families identified by the inventory track, proving retrieval feasibility without bulk acquisition or publication claims.
+
+Link: [conductor/tracks/parliament_dataset_seed_fetchers_20260703/](./tracks/parliament_dataset_seed_fetchers_20260703/)
+
+### [ ] Track: Parliament Dataset Full Acquisition
+
+Track ID: `parliament_dataset_full_acquisition_20260703`
+
+Goal: implement repeatable, resumable, hash-backed, rights-safe full acquisition for approved Parliament website dataset families after inventory and seed evidence are stable.
+
+Link: [conductor/tracks/parliament_dataset_full_acquisition_20260703/](./tracks/parliament_dataset_full_acquisition_20260703/)
+
 ### [x] Track: Monthly Dynamic Archive Publication
 
 Track ID: `monthly_dynamic_archive_publication_20260629`
