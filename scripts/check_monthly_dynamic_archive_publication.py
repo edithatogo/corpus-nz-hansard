@@ -11,6 +11,13 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "monthly_dynamic_archive_publication.yml"
 CONTRACT = ROOT / "manifests" / "monthly_dynamic_archive_publication_contract.json"
 EVIDENCE = ROOT / "manifests" / "monthly_dynamic_archive_publication_evidence.json"
+RETROSPECTIVE = (
+    ROOT
+    / "conductor"
+    / "tracks"
+    / "monthly_dynamic_archive_publication_20260629"
+    / "retrospective.md"
+)
 
 REQUIRED_EVIDENCE_FIELDS = (
     "manifest_version",
@@ -152,14 +159,31 @@ def _evidence_failures(contract: dict[str, Any], evidence: dict[str, Any]) -> li
     return failures
 
 
+def _retrospective_failures(text: str) -> list[str]:
+    failures: list[str] = []
+    for phase in (
+        "Phase 1: Publication Contract",
+        "Phase 2: Scheduled GitHub Actions",
+        "Phase 3: Evidence And Validation",
+        "Phase 4: First Monthly Release Proof",
+    ):
+        if phase not in text:
+            failures.append(f"Monthly retrospective is missing {phase}.")
+    if text.count("Reviewer sign-off:") < 4:
+        failures.append("Monthly retrospective must record reviewer sign-off for each phase.")
+    return failures
+
+
 def _failures() -> list[str]:
     workflow_text = WORKFLOW.read_text(encoding="utf-8")
     contract = _read_json(CONTRACT)
     evidence = _read_json(EVIDENCE)
+    retrospective = RETROSPECTIVE.read_text(encoding="utf-8")
     failures: list[str] = []
     failures.extend(_workflow_failures(workflow_text))
     failures.extend(_contract_failures(contract))
     failures.extend(_evidence_failures(contract, evidence))
+    failures.extend(_retrospective_failures(retrospective))
     return failures
 
 

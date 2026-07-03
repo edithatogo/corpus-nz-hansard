@@ -108,6 +108,7 @@ spell = "typos --config typos.toml"
 workflow-audit = "zizmor --min-severity medium .github/workflows"
 toml-check = "taplo format --check pyproject.toml pixi.toml typos.toml"
 quality-config = ".pixi/envs/default/python.exe scripts/check_quality_gate.py"
+learning-log = ".pixi/envs/default/python.exe scripts/check_conductor_learning_log.py"
 workflow-syntax = "actionlint -color"
 provenance-policy = ".pixi/envs/default/python.exe scripts/check_release_provenance_policy.py"
 version-consistency = ".pixi/envs/default/python.exe scripts/check_release_version_consistency.py"
@@ -161,6 +162,7 @@ quality = { depends-on = [
   "toml-check",
   "workflow-syntax",
   "quality-config",
+  "learning-log",
   "provenance-policy",
   "version-consistency",
   "public-surface-audit",

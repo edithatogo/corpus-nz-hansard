@@ -23,6 +23,7 @@ pixi run workflow-audit
 pixi run toml-check
 actionlint -color
 pixi run python scripts/check_quality_gate.py
+pixi run python scripts/check_conductor_learning_log.py
 pixi run python scripts/check_release_provenance_policy.py
 pixi run python scripts/check_release_version_consistency.py
 pixi run python scripts/check_public_surface_audit.py
@@ -63,7 +64,7 @@ pixi run dependency-check
 pixi run dead-code
 ```
 
-`scripts/check_quality_gate.py` guards the quality configuration itself: dev-tool pins, required Quality workflow commands, local Makefile targets, committed `pixi.toml`, Python 3.14 package metadata, pinned Pixi PyPI dependencies, pinned GitHub Actions, and publication workflows staying manual-only.
+`scripts/check_quality_gate.py` guards the quality configuration itself: dev-tool pins, required Quality workflow commands, local Makefile targets, committed `pixi.toml`, Python 3.14 package metadata, pinned Pixi PyPI dependencies, pinned GitHub Actions, and publication workflows staying manual-only. `scripts/check_conductor_learning_log.py` validates repository-local Conductor learning entries against `conductor/templates/learning-entry.schema.json`.
 
 `scripts/check_release_provenance_policy.py` guards release evidence and provenance wiring: the release evidence ledger schema, Zenodo attestation permissions, pinned attestation action, attested subject paths, documentation coverage, and publication workflows staying manual-only.
 

@@ -1,31 +1,31 @@
 {
   "archive": {
     "manifest": {
-      "exists": false,
+      "exists": true,
       "path": "generated/zenodo/nz-hansard-corpus-0.1.0.manifest.json",
-      "sha256": null,
-      "size_bytes": null
+      "sha256": "07eb1ad25b15ee095b3f97a2d891816a58681c0979fdcc2366037293a6fe3aa4",
+      "size_bytes": 184195
     },
-    "manifest_file_count": null,
-    "manifest_record_count": null,
+    "manifest_file_count": 855,
+    "manifest_record_count": 193922,
     "tarball": {
-      "exists": false,
+      "exists": true,
       "path": "generated/zenodo/nz-hansard-corpus-0.1.0.tar.gz",
-      "sha256": null,
-      "size_bytes": null
+      "sha256": "18381db8d8b12cccf66c5b22e1bd05f74acb7c35215e96fe70840e1e35a8ad3f",
+      "size_bytes": 327555036
     }
   },
-  "generated_at": "2026-06-29T10:26:53+00:00",
+  "generated_at": "2026-06-29T11:33:00+00:00",
   "huggingface": {
     "public_url": "https://huggingface.co/datasets/edithatogo/nz-hansard-corpus",
     "repo_id": "edithatogo/nz-hansard-corpus",
-    "revision": null,
-    "revision_sha": null,
+    "revision": "main",
+    "revision_sha": "c11efce25b4f4ce32a7f1668d43ea7e232de1e76",
     "upload_result": {
-      "exists": false,
+      "exists": true,
       "path": "generated/monthly-publication/huggingface-upload.json",
-      "sha256": null,
-      "size_bytes": null
+      "sha256": "3ca8062de0c8ba38916bfa7b6db1ff08480a3b82c64360fdb68a96dd5e5c40c9",
+      "size_bytes": 282
     }
   },
   "manifest_version": 1,
@@ -39,16 +39,16 @@
     "source_zip_publicly_published": false
   },
   "run": {
-    "commit_sha": "128ed6dcd0a5c1bcf9996f10f1b6bfb9f368c891",
-    "github_run_attempt": null,
-    "github_run_id": null,
-    "github_run_url": null,
-    "publication_mode": "dry-run",
+    "commit_sha": "38630b397157bd9e7f498e4e0de71376127c7939",
+    "github_run_attempt": "1",
+    "github_run_id": "28366410675",
+    "github_run_url": "https://github.com/edithatogo/corpus-nz-hansard/actions/runs/28366410675",
+    "publication_mode": "full",
     "ref_name": "main",
     "workflow": ".github/workflows/monthly_dynamic_archive_publication.yml"
   },
   "source": {
-    "archive_url_configured": false,
+    "archive_url_configured": true,
     "source_zip_committed": false,
     "source_zip_publicly_published": false
   },
@@ -67,13 +67,13 @@
   },
   "zenodo": {
     "api_url": "https://zenodo.org/api",
-    "deposition_id": null,
-    "doi": null,
+    "deposition_id": "21030190",
+    "doi": "10.5281/zenodo.21030190",
     "draft_result": {
-      "exists": false,
+      "exists": true,
       "path": "generated/monthly-publication/zenodo-draft-upload.json",
-      "sha256": null,
-      "size_bytes": null
+      "sha256": "d26e30951caf377118048485c9d8ddb39d918fc05d54507e1f698b604d28e9e6",
+      "size_bytes": 5574
     },
     "protected_publish_environment": "zenodo-production-publish",
     "publish_handoff_only": true

@@ -2,10 +2,10 @@
 
 ## Active candidates
 - [ ] Future roadmap: activate the multi-git mirror for `multi_git_archive_mirroring_20260614` after the GitLab namespace `edithatogo` exists or is accessible; then create `edithatogo/corpus-nz-hansard`, set GitHub Actions secrets `GIT_MIRROR_URL` and `GIT_MIRROR_SSH_PRIVATE_KEY`, and capture a successful manual or push-triggered `Mirror Sync` run.
-- [ ] Validate `conductor/learning-log.md` entries against `conductor/templates/learning-entry.schema.json` in CI or local pre-commit checks.
-- [ ] Add repository-scoped script to append learning candidates without automatic commit in CI failure paths.
-- [ ] Capture registry/review/skills-feedback events into the backlog from failing submission workflows.
-- [ ] Add phase-level retrospective notes for each Phase 1/2/3/4 run and record reviewer sign-off.
+- [x] Validate `conductor/learning-log.md` entries against `conductor/templates/learning-entry.schema.json` in CI and local quality checks.
+- [x] Add repository-scoped script to append learning candidates without automatic commit in CI failure paths.
+- [x] Capture registry/review/skills-feedback events into the backlog from failing submission workflows.
+- [x] Add phase-level retrospective notes for each Phase 1/2/3/4 run and record reviewer sign-off.
 
 ## Skills touched by this workspace
 - `conductor-implement`

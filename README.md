@@ -105,7 +105,7 @@ python scripts\validate_hansard_records.py --parquet generated\parquet\hansard.p
 Run tests:
 
 ```powershell
-python -m unittest discover tests
+pixi run test
 ```
 
 ## Current Validation

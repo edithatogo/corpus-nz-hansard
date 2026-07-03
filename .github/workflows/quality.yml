@@ -74,6 +74,9 @@ jobs:
       - name: Quality gate configuration
         run: pixi run python scripts\check_quality_gate.py
 
+      - name: Conductor learning log
+        run: pixi run python scripts\check_conductor_learning_log.py
+
       - name: Release provenance policy
         run: pixi run python scripts\check_release_provenance_policy.py
 

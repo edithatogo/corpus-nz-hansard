@@ -21,6 +21,8 @@ from typing import Any
 
 import requests
 
+from scripts.http_retry import request_with_retries
+
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = ROOT / "derived" / "bills_api"
 
@@ -79,28 +81,46 @@ def fetch_search(page: int = 1, parliament: int | None = None, page_size: int = 
     body["pageSize"] = page_size
     if parliament:
         body["parliament"] = parliament
-    resp = requests.post(f"{API_BASE}/data/search", json=body, headers=HEADERS, timeout=30)
-    resp.raise_for_status()
+    resp = request_with_retries(
+        "POST",
+        f"{API_BASE}/data/search",
+        json=body,
+        headers=HEADERS,
+        timeout=30,
+    )
     return resp.json()
 
 
 def fetch_bill_detail(bill_id: str) -> dict:
-    resp = requests.get(f"{API_BASE}/data/Bill/{bill_id}", headers=HEADERS, timeout=30)
-    resp.raise_for_status()
+    resp = request_with_retries(
+        "GET",
+        f"{API_BASE}/data/Bill/{bill_id}",
+        headers=HEADERS,
+        timeout=30,
+    )
     return resp.json()
 
 
 def fetch_current_parliament() -> int:
-    resp = requests.get(f"{API_BASE}/data/currentParliament", headers=HEADERS, timeout=10)
-    resp.raise_for_status()
+    resp = request_with_retries(
+        "GET",
+        f"{API_BASE}/data/currentParliament",
+        headers=HEADERS,
+        timeout=10,
+    )
     return int(resp.text)
 
 
 def fetch_facets() -> dict:
     body = dict(SEARCH_TEMPLATE)
     body.pop("includeBillStages", None)
-    resp = requests.post(f"{API_BASE}/data/facet", json=body, headers=HEADERS, timeout=30)
-    resp.raise_for_status()
+    resp = request_with_retries(
+        "POST",
+        f"{API_BASE}/data/facet",
+        json=body,
+        headers=HEADERS,
+        timeout=30,
+    )
     return resp.json()
 
 

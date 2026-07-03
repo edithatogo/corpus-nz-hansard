@@ -17,7 +17,7 @@
 | **Columnar data (pyarrow/Parquet)** | `required` | Core dependency (`pyarrow==24.0.0`). Parquet is the interchange format for the corpus. |
 | **JSON schema (jsonschema)** | `required` | Core dependency (`jsonschema==4.26.0`). 60+ JSON manifest files in `manifests/` validated against schemas in `schemas/`. |
 | **HTTP clients (httpx/requests)** | `required` | `requests` is a core dependency. Used for fetching external data (bills API, HathiTrust, Wikipedia, Wikidata, Parliament). |
-| **Retry/backoff (tenacity)** | `deferred` | No retry/backoff library in dependency tree. Several scripts make HTTP calls without structured retry. Worth adding when flaky-network resilience is required. |
+| **Retry/backoff** | `required` | Repo-local `scripts/http_retry.py` provides bounded exponential backoff for selected acquisition scripts without adding another dependency. Expand this helper as additional flaky-network paths are hardened. |
 | **HTML parsing (beautifulsoup4/selectolax)** | `deferred` | No HTML parser in deps. Several scrapers exist but use PDF/structured endpoints. Would be needed if scraping moves beyond structured API calls. |
 | **Terminal UI (rich)** | `optional` | Not currently used. CLI is argparse-based with loguru output. `rich` could enhance progress bars and diagnostic display but is not critical. |
 | **Checksums/manifests** | `required` | Extensive. 60+ JSON validation manifests in `manifests/`, dedicated `check_*` scripts, schema validation via `jsonschema`. Core to the release pipeline. |

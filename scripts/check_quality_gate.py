@@ -39,6 +39,7 @@ REQUIRED_QUALITY_SNIPPETS = (
     "pixi run toml-check",
     "actionlint -color",
     "pixi run python scripts\\check_quality_gate.py",
+    "pixi run python scripts\\check_conductor_learning_log.py",
     "pixi run python scripts\\check_release_provenance_policy.py",
     "pixi run python scripts\\check_release_version_consistency.py",
     "pixi run python scripts\\check_public_surface_audit.py",
@@ -83,6 +84,7 @@ REQUIRED_QUALITY_DEPENDENCIES = (
     "toml-check",
     "workflow-syntax",
     "quality-config",
+    "learning-log",
     "provenance-policy",
     "version-consistency",
     "public-surface-audit",
@@ -129,6 +131,7 @@ REQUIRED_PIXI_QUALITY_DEPENDENCIES = (
     "workflow-audit",
     "toml-check",
     "quality-config",
+    "learning-log",
     "provenance-policy",
     "version-consistency",
     "public-surface-audit",
@@ -172,6 +175,7 @@ REQUIRED_MAKE_TARGETS = (
     "pixi-install:",
     "pixi-quality:",
     "quality-config:",
+    "learning-log:",
     "provenance-policy:",
     "version-consistency:",
     "public-surface-audit:",
@@ -228,6 +232,19 @@ PUBLICATION_WORKFLOWS = (
     ".github/workflows/zenodo_archive.yml",
     ".github/workflows/zenodo_metadata.yml",
     ".github/workflows/zenodo_publish.yml",
+)
+
+LEARNING_CANDIDATE_WORKFLOW_SNIPPETS = (
+    "workflow_dispatch:",
+    "event_type:",
+    "ci-failure",
+    "registry",
+    "review",
+    "skills-feedback",
+    "python3 scripts/record_learning_candidate.py",
+    '--snapshot "conductor/.tmp/ci-learning-candidates-${RUN_ID}.md"',
+    '--message "Learning candidate (${EVENT_TYPE}) for ${WORKFLOW_NAME}"',
+    "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
 )
 
 
@@ -319,6 +336,11 @@ def _failures() -> list[str]:
             failures.append(f"{workflow_path} must not run on pull_request.")
         if re.search(r"^\s+push\s*:", workflow_text, flags=re.MULTILINE):
             failures.append(f"{workflow_path} must not run on push.")
+
+    learning_workflow = workflow_texts.get(".github/workflows/ci-learning-candidates.yml", "")
+    for snippet in LEARNING_CANDIDATE_WORKFLOW_SNIPPETS:
+        if snippet not in learning_workflow:
+            failures.append(f"CI learning candidate workflow is missing: {snippet}")
 
     return failures
 

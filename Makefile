@@ -1,8 +1,8 @@
 PYTHON ?= python
 
-.PHONY: quality pixi-install pixi-quality quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring hathitrust-acquisition parliament-stealth-access wikipedia-mp-lists-acquisition member-identity-triangulation corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-sitting-reconciliation historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd ud-conllu rdf-linked-data corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation lint format-check typecheck typecheck-basedpyright typecheck-pyrefly spell workflow-audit toml-check workflow-syntax test test-offline benchmark profile-search-index security-audit sbom dependency-check dead-code mutation-smoke
+.PHONY: quality pixi-install pixi-quality quality-config learning-log provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring hathitrust-acquisition parliament-stealth-access wikipedia-mp-lists-acquisition member-identity-triangulation corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-sitting-reconciliation historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd ud-conllu rdf-linked-data corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation lint format-check typecheck typecheck-basedpyright typecheck-pyrefly spell workflow-audit toml-check workflow-syntax test test-offline benchmark profile-search-index security-audit sbom dependency-check dead-code mutation-smoke
 
-quality: pixi-install lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring hathitrust-acquisition parliament-stealth-access wikipedia-mp-lists-acquisition member-identity-triangulation corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-sitting-reconciliation historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd ud-conllu rdf-linked-data corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation test
+quality: pixi-install lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config learning-log provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring hathitrust-acquisition parliament-stealth-access wikipedia-mp-lists-acquisition member-identity-triangulation corpus-family-alignment corpus-family-engineering authority-sources historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-sitting-reconciliation historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd ud-conllu rdf-linked-data corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation test
 
 pixi-install:
 	pixi install
@@ -12,6 +12,9 @@ pixi-quality:
 
 quality-config:
 	$(PYTHON) scripts/check_quality_gate.py
+
+learning-log:
+	$(PYTHON) scripts/check_conductor_learning_log.py
 
 provenance-policy:
 	$(PYTHON) scripts/check_release_provenance_policy.py

@@ -9,6 +9,7 @@ from scripts.check_monthly_dynamic_archive_publication import (
     _contract_failures,
     _evidence_failures,
     _failures,
+    _retrospective_failures,
     _workflow_failures,
 )
 from scripts.build_monthly_dynamic_archive_evidence import _count_manifest_files
@@ -113,6 +114,23 @@ class MonthlyDynamicArchivePublicationTest(unittest.TestCase):
     def test_archive_manifest_files_are_counted(self):
         self.assertEqual(_count_manifest_files({"files": [{"path": "a"}, {"path": "b"}]}), 2)
         self.assertEqual(_count_manifest_files({"file_count": 3, "files": []}), 3)
+
+    def test_retrospective_requires_all_phases_and_signoffs(self):
+        failures = _retrospective_failures(
+            "## Phase 1: Publication Contract\n"
+            "- Reviewer sign-off: yes\n"
+            "## Phase 2: Scheduled GitHub Actions\n"
+            "- Reviewer sign-off: yes\n"
+        )
+
+        self.assertIn(
+            "Monthly retrospective is missing Phase 3: Evidence And Validation.",
+            failures,
+        )
+        self.assertIn(
+            "Monthly retrospective must record reviewer sign-off for each phase.",
+            failures,
+        )
 
 
 if __name__ == "__main__":

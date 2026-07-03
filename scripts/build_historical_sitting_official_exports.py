@@ -13,6 +13,8 @@ from typing import Any
 
 from pypdf import PdfReader
 
+from scripts.http_retry import urlopen_bytes_with_retries
+
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "manifests/historical_sitting_official_exports.json"
 DEFAULT_OUTPUT_DIR = ROOT / "derived/historical_sitting_official_exports"
@@ -41,8 +43,11 @@ def _download_pdf(url: str) -> bytes:
             "Accept": "application/pdf,*/*;q=0.8",
         },
     )
-    with urllib.request.urlopen(request, timeout=60) as response:  # nosec: B310
-        return response.read()
+    return urlopen_bytes_with_retries(
+        request,
+        opener=urllib.request.urlopen,
+        timeout=60,
+    )
 
 
 def _first_text_snippet(reader: PdfReader, max_chars: int = 800) -> str:

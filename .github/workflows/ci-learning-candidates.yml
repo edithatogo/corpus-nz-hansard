@@ -23,6 +23,16 @@ on:
         description: Head SHA associated with the run
         required: true
         type: string
+      event_type:
+        description: Learning event type
+        required: true
+        default: ci-failure
+        type: choice
+        options:
+          - ci-failure
+          - registry
+          - review
+          - skills-feedback
 
 permissions:
   contents: read
@@ -36,18 +46,20 @@ jobs:
       RUN_URL: ${{ inputs.run_url }}
       RUN_ACTOR: ${{ inputs.actor }}
       HEAD_SHA: ${{ inputs.head_sha }}
+      EVENT_TYPE: ${{ inputs.event_type }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
         with:
           persist-credentials: false
 
-      - name: Record CI failure candidate
+      - name: Record learning candidate
         run: |
           python3 scripts/record_learning_candidate.py \
             --backlog conductor/improvement-backlog.md \
             --snapshot "conductor/.tmp/ci-learning-candidates-${RUN_ID}.md" \
-            --message "CI failure summary candidate for ${WORKFLOW_NAME}" \
+            --message "Learning candidate (${EVENT_TYPE}) for ${WORKFLOW_NAME}" \
+            --evidence "event_type=${EVENT_TYPE}" \
             --evidence "workflow=${WORKFLOW_NAME}" \
             --evidence "run_id=${RUN_ID}" \
             --evidence "run_url=${RUN_URL}" \
