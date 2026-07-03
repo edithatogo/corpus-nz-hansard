@@ -125,6 +125,7 @@ member-identity-triangulation = ".pixi/envs/default/python.exe scripts/check_mem
 corpus-family-alignment = ".pixi/envs/default/python.exe scripts/check_corpus_family_alignment.py"
 corpus-family-engineering = ".pixi/envs/default/python.exe scripts/check_corpus_family_engineering_alignment.py"
 authority-sources = ".pixi/envs/default/python.exe scripts/check_authority_sources.py"
+parliament-dataset-inventory = ".pixi/envs/default/python.exe scripts/check_parliament_dataset_inventory.py"
 historical-sitting-inventory = ".pixi/envs/default/python.exe scripts/check_historical_sitting_inventory.py"
 historical-sitting-official-exports = ".pixi/envs/default/python.exe scripts/check_historical_sitting_official_exports.py"
 historical-sitting-official-exports-coverage = ".pixi/envs/default/python.exe scripts/build_historical_sitting_official_exports_coverage.py"
@@ -178,6 +179,7 @@ quality = { depends-on = [
   "corpus-family-alignment",
   "corpus-family-engineering",
   "authority-sources",
+  "parliament-dataset-inventory",
   "historical-sitting-inventory",
   "historical-sitting-official-exports",
   "historical-sitting-official-exports-coverage",

@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "retrieved_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "scope_note": {
+      "type": "string"
+    },
+    "dataset_families": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 10,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "pattern": "^[a-z0-9][a-z0-9-]*$",
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "url": {
+            "format": "uri",
+            "type": "string"
+          },
+          "dataset_families": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "source_posture": {
+            "enum": [
+              "official",
+              "fallback",
+              "supporting",
+              "evidence_only",
+              "excluded"
+            ],
+            "type": "string"
+          },
+          "access_constraints": {
+            "type": "string"
+          },
+          "coverage_period": {
+            "type": "string"
+          },
+          "refresh_cadence": {
+            "type": "string"
+          },
+          "acquisition_priority": {
+            "enum": [
+              "high",
+              "medium",
+              "low",
+              "defer",
+              "evidence_only",
+              "excluded"
+            ],
+            "type": "string"
+          },
+          "fallback_for": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "excluded": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "publisher",
+          "url",
+          "dataset_families",
+          "source_posture",
+          "access_constraints",
+          "coverage_period",
+          "refresh_cadence",
+          "acquisition_priority",
+          "fallback_for",
+          "excluded",
+          "notes"
+        ],
+        "type": "object"
+      },
+      "minItems": 20,
+      "type": "array"
+    },
+    "family_coverage": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "primary_source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "fallback_source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "seed_fetcher_priority": {
+            "enum": [
+              "high",
+              "medium",
+              "low",
+              "defer"
+            ],
+            "type": "string"
+          },
+          "completion_claim": {
+            "const": "inventory-only-no-completeness-claim"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "primary_source_ids",
+          "fallback_source_ids",
+          "seed_fetcher_priority",
+          "completion_claim",
+          "notes"
+        ],
+        "type": "object"
+      },
+      "type": "object"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "official_sources_first": {
+          "const": true
+        },
+        "excludes_nz_legislation": {
+          "const": true
+        },
+        "excludes_nz_gazette": {
+          "const": true
+        },
+        "hathitrust_not_acquisition_dependency": {
+          "const": true
+        },
+        "internet_archive_not_acquisition_dependency": {
+          "const": true
+        },
+        "no_bulk_acquisition": {
+          "const": true
+        },
+        "no_historical_completeness_claim": {
+          "const": true
+        },
+        "data_govt_requests_evidence_only": {
+          "const": true
+        }
+      },
+      "required": [
+        "official_sources_first",
+        "excludes_nz_legislation",
+        "excludes_nz_gazette",
+        "hathitrust_not_acquisition_dependency",
+        "internet_archive_not_acquisition_dependency",
+        "no_bulk_acquisition",
+        "no_historical_completeness_claim",
+        "data_govt_requests_evidence_only"
+      ],
+      "type": "object"
+    },
+    "reconciliation": {
+      "additionalProperties": false,
+      "properties": {
+        "authority_sources_manifest": {
+          "type": "string"
+        },
+        "historical_sitting_inventory": {
+          "type": "string"
+        },
+        "cross_repo_architecture": {
+          "type": "string"
+        },
+        "boundary_note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "authority_sources_manifest",
+        "historical_sitting_inventory",
+        "cross_repo_architecture",
+        "boundary_note"
+      ],
+      "type": "object"
+    },
+    "seed_fetcher_handoff": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dataset_family": {
+            "type": "string"
+          },
+          "priority_source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "expected_proof": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dataset_family",
+          "priority_source_ids",
+          "expected_proof"
+        ],
+        "type": "object"
+      },
+      "minItems": 5,
+      "type": "array"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "repository",
+    "retrieved_at",
+    "scope_note",
+    "dataset_families",
+    "sources",
+    "family_coverage",
+    "policy",
+    "reconciliation",
+    "seed_fetcher_handoff"
+  ],
+  "type": "object"
+}

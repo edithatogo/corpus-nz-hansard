@@ -13,7 +13,7 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Parliament Dataset Inventory
+### [x] Track: Parliament Dataset Inventory
 
 Track ID: `parliament_dataset_inventory_20260703`
 

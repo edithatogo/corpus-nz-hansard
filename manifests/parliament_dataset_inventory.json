@@ -1,0 +1,1027 @@
+{
+  "dataset_families": [
+    "hansard_debates",
+    "order_paper_questions_business_sitting_programme",
+    "daily_progress",
+    "journals",
+    "papers_presented_ajhr",
+    "select_committees",
+    "petitions",
+    "members_parties_seating_contacts",
+    "parliamentary_rules_procedure",
+    "video_audio_calendar"
+  ],
+  "family_coverage": {
+    "daily_progress": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [],
+      "notes": "Outcome-sensitive sitting and proceeding proof should start with official daily progress pages, then reconcile to Hansard and Journals.",
+      "primary_source_ids": [
+        "nz-parliament-daily-progress"
+      ],
+      "seed_fetcher_priority": "high"
+    },
+    "hansard_debates": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [
+        "papers-past-hansard",
+        "google-books-hansard-volumes",
+        "library-catalogue-hansard-holdings"
+      ],
+      "notes": "Official Parliament Hansard is the primary source. Fallbacks are discovery or gap-fill candidates only and do not replace official sitting reconciliation.",
+      "primary_source_ids": [
+        "nz-parliament-hansard-current"
+      ],
+      "seed_fetcher_priority": "high"
+    },
+    "journals": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [
+        "papers-past-journals-ajhr",
+        "google-books-journals",
+        "library-catalogue-journals-holdings"
+      ],
+      "notes": "Weekly, sessional, index, and historic journal surfaces need separate proofs because index/volume organization differs by period.",
+      "primary_source_ids": [
+        "nz-parliament-weekly-journals-archive",
+        "nz-parliament-journals-session-indexes",
+        "nz-parliament-historic-journals"
+      ],
+      "seed_fetcher_priority": "high"
+    },
+    "members_parties_seating_contacts": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [],
+      "notes": "Official Parliament current/former member, party, seating, roll, and contact downloads remain identity starting points; election and Wikidata/Wikipedia sources stay in the authority-source manifest as supporting inputs.",
+      "primary_source_ids": [
+        "nz-parliament-members-current",
+        "nz-parliament-former-members",
+        "nz-parliament-roll-of-members",
+        "nz-parliament-parties-current",
+        "nz-parliament-house-seating-plan",
+        "nz-parliament-member-contact-downloads"
+      ],
+      "seed_fetcher_priority": "high"
+    },
+    "order_paper_questions_business_sitting_programme": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [],
+      "notes": "Order Paper, oral questions, written questions, business statements, and sitting programme are official current-business sources and should be sampled without bulk download in the next track.",
+      "primary_source_ids": [
+        "nz-parliament-order-paper",
+        "nz-parliament-oral-questions",
+        "nz-parliament-written-questions",
+        "nz-parliament-business-statement",
+        "nz-parliament-sitting-programme"
+      ],
+      "seed_fetcher_priority": "high"
+    },
+    "papers_presented_ajhr": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [
+        "papers-past-ajhr",
+        "google-books-ajhr",
+        "library-catalogue-ajhr-holdings",
+        "o-nehera-british-parliamentary-papers-context"
+      ],
+      "notes": "Official papers-presented/current-papers pages should lead; AJHR fallback options are historical and require rights/coverage checks before acquisition.",
+      "primary_source_ids": [
+        "nz-parliament-papers-presented",
+        "nz-parliament-current-papers",
+        "nz-parliament-ajhr"
+      ],
+      "seed_fetcher_priority": "medium"
+    },
+    "parliamentary_rules_procedure": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [
+        "library-catalogue-procedure-holdings"
+      ],
+      "notes": "Standing Orders, Speakers' Rulings, determinations, and procedure material are authoritative for procedural models but do not by themselves prove proceedings.",
+      "primary_source_ids": [
+        "nz-parliament-parliamentary-rules",
+        "nz-parliament-standing-orders",
+        "nz-parliament-speakers-rulings"
+      ],
+      "seed_fetcher_priority": "medium"
+    },
+    "petitions": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [],
+      "notes": "Official petition pages should be sampled for current petition metadata and outcomes; publication of submission-like personal content needs rights review.",
+      "primary_source_ids": [
+        "nz-parliament-petitions"
+      ],
+      "seed_fetcher_priority": "medium"
+    },
+    "select_committees": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [],
+      "notes": "Committee reports, submissions/advice, meetings, submitters, and videos are official sources but may contain third-party personal information and publication constraints.",
+      "primary_source_ids": [
+        "nz-parliament-select-committees",
+        "nz-parliament-select-committee-reports",
+        "nz-parliament-select-committee-submissions-advice",
+        "nz-parliament-select-committee-meetings"
+      ],
+      "seed_fetcher_priority": "high"
+    },
+    "video_audio_calendar": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [],
+      "notes": "Video, audio, live/recorded Parliament in Action pages, calendars, and meeting metadata should be treated as metadata-first sources unless media rights are separately cleared.",
+      "primary_source_ids": [
+        "nz-parliament-video",
+        "nz-parliament-calendar",
+        "nz-parliament-sitting-programme"
+      ],
+      "seed_fetcher_priority": "medium"
+    }
+  },
+  "manifest_version": 1,
+  "policy": {
+    "data_govt_requests_evidence_only": true,
+    "excludes_nz_gazette": true,
+    "excludes_nz_legislation": true,
+    "hathitrust_not_acquisition_dependency": true,
+    "internet_archive_not_acquisition_dependency": true,
+    "no_bulk_acquisition": true,
+    "no_historical_completeness_claim": true,
+    "official_sources_first": true
+  },
+  "reconciliation": {
+    "authority_sources_manifest": "manifests/authority_sources.json",
+    "boundary_note": "This inventory extends Parliament website dataset discovery. NZ legislation and Gazette acquisition remain outside this repo and belong to the adjacent legislation corpus. HathiTrust and Internet Archive are recorded only as excluded baselines here.",
+    "cross_repo_architecture": "docs/cross-repo-dataset-architecture.md",
+    "historical_sitting_inventory": "manifests/historical_sitting_inventory.json"
+  },
+  "repository": "corpus-nz-hansard",
+  "retrieved_at": "2026-07-03",
+  "scope_note": "Inventory of Parliament-hosted and credible fallback datasets beyond NZ legislation and the Gazette. This is a discovery manifest only; it does not perform bulk acquisition or claim historical completeness.",
+  "seed_fetcher_handoff": [
+    {
+      "dataset_family": "hansard_debates",
+      "expected_proof": "One official index page, one sitting-day/detail page, and one downloadable/PDF or transcript reference when available, with timestamps and content hashes.",
+      "priority_source_ids": [
+        "nz-parliament-hansard-current"
+      ]
+    },
+    {
+      "dataset_family": "order_paper_questions_business_sitting_programme",
+      "expected_proof": "One index and one detail/sample for Order Paper, oral questions, written questions, business statement, and sitting programme without enumerating entire archives.",
+      "priority_source_ids": [
+        "nz-parliament-order-paper",
+        "nz-parliament-oral-questions",
+        "nz-parliament-written-questions",
+        "nz-parliament-business-statement",
+        "nz-parliament-sitting-programme"
+      ]
+    },
+    {
+      "dataset_family": "journals",
+      "expected_proof": "One weekly journal index/detail proof plus one historic/session/index surface proof, preserving source classification and no completeness claim.",
+      "priority_source_ids": [
+        "nz-parliament-weekly-journals-archive",
+        "nz-parliament-journals-session-indexes",
+        "nz-parliament-historic-journals"
+      ]
+    },
+    {
+      "dataset_family": "papers_presented_ajhr",
+      "expected_proof": "One current papers/papers-presented sample and one AJHR fallback/source-discovery sample with rights and coverage notes.",
+      "priority_source_ids": [
+        "nz-parliament-papers-presented",
+        "nz-parliament-current-papers",
+        "nz-parliament-ajhr",
+        "papers-past-ajhr"
+      ]
+    },
+    {
+      "dataset_family": "select_committees",
+      "expected_proof": "One committee list, one report detail, one submissions/advice listing, one meeting record, and one video metadata reference where public.",
+      "priority_source_ids": [
+        "nz-parliament-select-committees",
+        "nz-parliament-select-committee-reports",
+        "nz-parliament-select-committee-submissions-advice",
+        "nz-parliament-select-committee-meetings"
+      ]
+    },
+    {
+      "dataset_family": "members_parties_seating_contacts",
+      "expected_proof": "One official member list sample plus former members, roll, party, seating, and contact download metadata where accessible.",
+      "priority_source_ids": [
+        "nz-parliament-members-current",
+        "nz-parliament-former-members",
+        "nz-parliament-roll-of-members",
+        "nz-parliament-parties-current",
+        "nz-parliament-house-seating-plan",
+        "nz-parliament-member-contact-downloads"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "access_constraints": "Public Parliament website; dynamic pages and Radware protection may require browser-aware seed fetching.",
+      "acquisition_priority": "high",
+      "coverage_period": "Official Hansard debates page and read-Hansard reports surface; historical statements must be reconciled before any whole-history claim.",
+      "dataset_families": [
+        "hansard_debates"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-hansard-current",
+      "notes": "Existing authority source; use as the primary current official debates surface.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Daily during sitting periods and before debate-text publication.",
+      "source_posture": "official",
+      "title": "Hansard (Debates)",
+      "url": "https://www3.parliament.nz/en/pb/hansard-debates/"
+    },
+    {
+      "access_constraints": "Public National Library/Papers Past service; OCR and item boundaries require validation.",
+      "acquisition_priority": "defer",
+      "coverage_period": "Historical digitised newspapers and parliamentary publications where discoverable; not a substitute for official Parliament coverage.",
+      "dataset_families": [
+        "hansard_debates"
+      ],
+      "excluded": false,
+      "fallback_for": [
+        "nz-parliament-hansard-current"
+      ],
+      "id": "papers-past-hansard",
+      "notes": "Credible fallback/discovery source for older debate references and OCR cross-checks.",
+      "publisher": "National Library of New Zealand",
+      "refresh_cadence": "Only when historical gap analysis identifies a candidate volume or article.",
+      "source_posture": "fallback",
+      "title": "Papers Past Hansard and debate references",
+      "url": "https://paperspast.natlib.govt.nz/"
+    },
+    {
+      "access_constraints": "Public Google Books discovery; full-view/download status varies by item and jurisdiction.",
+      "acquisition_priority": "defer",
+      "coverage_period": "Historical digitised volumes where discoverable; item-level rights and OCR quality vary.",
+      "dataset_families": [
+        "hansard_debates"
+      ],
+      "excluded": false,
+      "fallback_for": [
+        "nz-parliament-hansard-current"
+      ],
+      "id": "google-books-hansard-volumes",
+      "notes": "Use for discovery and item triangulation, not as a bulk dependency.",
+      "publisher": "Google Books",
+      "refresh_cadence": "Manual or seed-level discovery only.",
+      "source_posture": "fallback",
+      "title": "Google Books NZ Parliamentary Debates volumes",
+      "url": "https://books.google.com/"
+    },
+    {
+      "access_constraints": "Catalogue records and physical holdings; access depends on holding institution.",
+      "acquisition_priority": "low",
+      "coverage_period": "Historical bound-volume holdings and catalogue metadata.",
+      "dataset_families": [
+        "hansard_debates"
+      ],
+      "excluded": false,
+      "fallback_for": [
+        "nz-parliament-hansard-current"
+      ],
+      "id": "library-catalogue-hansard-holdings",
+      "notes": "Use to identify physical or digitisation candidates when online official/fallback sources are insufficient.",
+      "publisher": "University and library catalogues",
+      "refresh_cadence": "Manual discovery when a historical gap remains unresolved.",
+      "source_posture": "fallback",
+      "title": "Library catalogue Hansard holdings",
+      "url": "https://natlib.govt.nz/"
+    },
+    {
+      "access_constraints": "Public page with HTML listings and document downloads.",
+      "acquisition_priority": "high",
+      "coverage_period": "Order Papers for sitting days available on the Parliament website; historical coverage is not asserted.",
+      "dataset_families": [
+        "order_paper_questions_business_sitting_programme"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-order-paper",
+      "notes": "Existing authority source; planned business must be reconciled to actual proceedings.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Daily during sitting weeks.",
+      "source_posture": "official",
+      "title": "Order Paper",
+      "url": "https://www3.parliament.nz/en/pb/order-paper-questions/order-paper/"
+    },
+    {
+      "access_constraints": "Public Parliament/Bills platform; may be JavaScript-rendered.",
+      "acquisition_priority": "high",
+      "coverage_period": "Current oral questions and/or archived lists; answers require Hansard reconciliation.",
+      "dataset_families": [
+        "order_paper_questions_business_sitting_programme"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-oral-questions",
+      "notes": "Use as official question-list source; do not treat as final answered text without Hansard.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Each sitting day with question time.",
+      "source_posture": "official",
+      "title": "List of oral questions",
+      "url": "https://www3.parliament.nz/en/pb/order-paper-questions/list-of-oral-questions/"
+    },
+    {
+      "access_constraints": "Public Parliament questions platform; structured retrieval requires endpoint/browser proof.",
+      "acquisition_priority": "high",
+      "coverage_period": "Official written questions and answers available through Parliament's questions service.",
+      "dataset_families": [
+        "order_paper_questions_business_sitting_programme"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-written-questions",
+      "notes": "Existing authority source; useful for ministerial responsibility and question-answer components.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Daily during active question publication periods.",
+      "source_posture": "official",
+      "title": "Written questions",
+      "url": "https://questions.parliament.nz/written-questions?lang=en"
+    },
+    {
+      "access_constraints": "Public listing with RSS; detail links may change.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Business statements listed on the Parliament website; usually sitting Thursdays.",
+      "dataset_families": [
+        "order_paper_questions_business_sitting_programme"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-business-statement",
+      "notes": "Planned business signal, not final outcome evidence.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Weekly during sitting periods.",
+      "source_posture": "official",
+      "title": "Business statement",
+      "url": "https://www3.parliament.nz/en/pb/order-paper-questions/business-statement/"
+    },
+    {
+      "access_constraints": "Public page or downloadable programme; cadence changes around parliamentary calendar updates.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Sitting programme and meeting schedule information for the current parliamentary calendar period.",
+      "dataset_families": [
+        "order_paper_questions_business_sitting_programme",
+        "video_audio_calendar"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-sitting-programme",
+      "notes": "Use as planned sitting/calendar evidence and reconcile to daily progress and Hansard.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before sitting-calendar or video/calendar metadata publication.",
+      "source_posture": "official",
+      "title": "Sitting programme",
+      "url": "https://www3.parliament.nz/en/pb/meetings-of-parliament/sitting-programme/"
+    },
+    {
+      "access_constraints": "Public page; latest-progress orientation requires dated snapshots.",
+      "acquisition_priority": "high",
+      "coverage_period": "Official latest updates on parliamentary proceedings as they happen.",
+      "dataset_families": [
+        "daily_progress"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-daily-progress",
+      "notes": "Existing authority source; outcome/progress evidence for proceedings, bills, motions, and votes.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Daily during sitting weeks.",
+      "source_posture": "official",
+      "title": "Daily progress in the House",
+      "url": "https://www3.parliament.nz/en/pb/daily-progress-in-the-house/"
+    },
+    {
+      "access_constraints": "Public archive with weekly documents; detail pages may include related links and downloads.",
+      "acquisition_priority": "high",
+      "coverage_period": "Concise official record of House proceedings published by sitting week.",
+      "dataset_families": [
+        "journals"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-weekly-journals-archive",
+      "notes": "Existing authority source for weekly journal reconciliation.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "After each sitting week and before reconciliation runs.",
+      "source_posture": "official",
+      "title": "Weekly Journals Archive",
+      "url": "https://www3.parliament.nz/en/pb/journals-of-the-house/weekly-journals-archive/"
+    },
+    {
+      "access_constraints": "Public Parliament pages or linked downloads; discover exact current URLs in seed track.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Sessional journals, indexes, or index pages where Parliament publishes them.",
+      "dataset_families": [
+        "journals"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-journals-session-indexes",
+      "notes": "Separate from weekly journals because session/index publication shape differs.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before journal-index reconciliation or publication.",
+      "source_posture": "official",
+      "title": "Journals sessional records and indexes",
+      "url": "https://www3.parliament.nz/en/pb/journals-of-the-house/"
+    },
+    {
+      "access_constraints": "Public Parliament historic journal pages or linked files; exact item availability requires seed proof.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Historic Journals of the House material where Parliament publishes it online.",
+      "dataset_families": [
+        "journals"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-historic-journals",
+      "notes": "Use for historic journal discovery before considering fallback sources.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before historical journal acquisition design.",
+      "source_posture": "official",
+      "title": "Historic Journals of the House",
+      "url": "https://www3.parliament.nz/en/pb/journals-of-the-house/"
+    },
+    {
+      "access_constraints": "Public National Library/Papers Past service; OCR and volume structure require review.",
+      "acquisition_priority": "defer",
+      "coverage_period": "Historical Journals, Appendix, and parliamentary papers where digitised by National Library services.",
+      "dataset_families": [
+        "journals"
+      ],
+      "excluded": false,
+      "fallback_for": [
+        "nz-parliament-weekly-journals-archive",
+        "nz-parliament-journals-session-indexes",
+        "nz-parliament-historic-journals"
+      ],
+      "id": "papers-past-journals-ajhr",
+      "notes": "Credible fallback for historical journal discovery; seed track should record rights and item structure only.",
+      "publisher": "National Library of New Zealand",
+      "refresh_cadence": "When official Parliament historical coverage leaves a documented gap.",
+      "source_posture": "fallback",
+      "title": "Papers Past Journals material",
+      "url": "https://paperspast.natlib.govt.nz/parliamentary"
+    },
+    {
+      "access_constraints": "Public Google Books discovery; availability and rights vary by item.",
+      "acquisition_priority": "defer",
+      "coverage_period": "Historical journal volumes where discoverable.",
+      "dataset_families": [
+        "journals"
+      ],
+      "excluded": false,
+      "fallback_for": [
+        "nz-parliament-historic-journals"
+      ],
+      "id": "google-books-journals",
+      "notes": "Discovery fallback only.",
+      "publisher": "Google Books",
+      "refresh_cadence": "Manual seed-level discovery only.",
+      "source_posture": "fallback",
+      "title": "Google Books Journals of the House volumes",
+      "url": "https://books.google.com/"
+    },
+    {
+      "access_constraints": "Catalogue records and physical/digital holding constraints vary.",
+      "acquisition_priority": "low",
+      "coverage_period": "Historical journal holdings and catalogue records.",
+      "dataset_families": [
+        "journals"
+      ],
+      "excluded": false,
+      "fallback_for": [
+        "nz-parliament-historic-journals"
+      ],
+      "id": "library-catalogue-journals-holdings",
+      "notes": "Use when official and public digital sources do not resolve a journal gap.",
+      "publisher": "University and library catalogues",
+      "refresh_cadence": "Manual discovery only.",
+      "source_posture": "fallback",
+      "title": "Library catalogue journal holdings",
+      "url": "https://natlib.govt.nz/"
+    },
+    {
+      "access_constraints": "Public listing and downloads; exact document URLs should be captured in seed manifests.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Papers presented to the House available on the Parliament website.",
+      "dataset_families": [
+        "papers_presented_ajhr"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-papers-presented",
+      "notes": "Official papers-presented source; high value for proceeding-to-paper reconciliation.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Each sitting week or before papers-derived publication.",
+      "source_posture": "official",
+      "title": "Papers presented",
+      "url": "https://www3.parliament.nz/en/pb/papers-presented/"
+    },
+    {
+      "access_constraints": "Public current papers page; downloads may change.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Current papers before Parliament, where published online.",
+      "dataset_families": [
+        "papers_presented_ajhr"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-current-papers",
+      "notes": "Official current paper source for active/current status tracking.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before papers-derived publication and during sitting periods.",
+      "source_posture": "official",
+      "title": "Current papers",
+      "url": "https://www3.parliament.nz/en/pb/papers-presented/current-papers/"
+    },
+    {
+      "access_constraints": "Public Parliament/AJHR surface or linked historical downloads; seed track must verify exact current URL and rights.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Appendices to the Journals of the House of Representatives where Parliament provides access.",
+      "dataset_families": [
+        "papers_presented_ajhr"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-ajhr",
+      "notes": "Official Parliament should be preferred before Papers Past, Google Books, or library holdings.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before AJHR acquisition design.",
+      "source_posture": "official",
+      "title": "Appendices to the Journals of the House of Representatives",
+      "url": "https://www3.parliament.nz/en/pb/papers-presented/"
+    },
+    {
+      "access_constraints": "Public Google Books discovery; item rights vary.",
+      "acquisition_priority": "defer",
+      "coverage_period": "Historical AJHR volumes where discoverable.",
+      "dataset_families": [
+        "papers_presented_ajhr"
+      ],
+      "excluded": false,
+      "fallback_for": [
+        "nz-parliament-ajhr"
+      ],
+      "id": "google-books-ajhr",
+      "notes": "Discovery fallback only, not a planned bulk source.",
+      "publisher": "Google Books",
+      "refresh_cadence": "Manual seed-level discovery only.",
+      "source_posture": "fallback",
+      "title": "Google Books AJHR volumes",
+      "url": "https://books.google.com/"
+    },
+    {
+      "access_constraints": "Public National Library/Papers Past service; OCR and volume structure require review.",
+      "acquisition_priority": "defer",
+      "coverage_period": "Historical Appendix and parliamentary papers where digitised by National Library services.",
+      "dataset_families": [
+        "papers_presented_ajhr"
+      ],
+      "excluded": false,
+      "fallback_for": [
+        "nz-parliament-ajhr"
+      ],
+      "id": "papers-past-ajhr",
+      "notes": "Credible fallback for historical AJHR discovery; seed track should record rights and item structure only.",
+      "publisher": "National Library of New Zealand",
+      "refresh_cadence": "When official Parliament historical coverage leaves a documented gap.",
+      "source_posture": "fallback",
+      "title": "Papers Past AJHR material",
+      "url": "https://paperspast.natlib.govt.nz/parliamentary"
+    },
+    {
+      "access_constraints": "Catalogue and physical/digital access vary by institution.",
+      "acquisition_priority": "low",
+      "coverage_period": "AJHR holdings and catalogue records.",
+      "dataset_families": [
+        "papers_presented_ajhr"
+      ],
+      "excluded": false,
+      "fallback_for": [
+        "nz-parliament-ajhr"
+      ],
+      "id": "library-catalogue-ajhr-holdings",
+      "notes": "Use for unresolved historical AJHR coverage gaps.",
+      "publisher": "University and library catalogues",
+      "refresh_cadence": "Manual discovery only.",
+      "source_posture": "fallback",
+      "title": "Library catalogue AJHR holdings",
+      "url": "https://natlib.govt.nz/"
+    },
+    {
+      "access_constraints": "Public University of Waikato/O Nehera material; scope is contextual, not a New Zealand Parliament acquisition source.",
+      "acquisition_priority": "low",
+      "coverage_period": "British Parliamentary Papers context relevant to colonial-era research and source triangulation.",
+      "dataset_families": [
+        "papers_presented_ajhr"
+      ],
+      "excluded": false,
+      "fallback_for": [
+        "nz-parliament-ajhr"
+      ],
+      "id": "o-nehera-british-parliamentary-papers-context",
+      "notes": "Contextual fallback for British Parliamentary Papers relationships, not an official NZ Parliament dataset.",
+      "publisher": "University of Waikato / O Nehera",
+      "refresh_cadence": "Manual contextual discovery only.",
+      "source_posture": "supporting",
+      "title": "O Nehera British Parliamentary Papers context",
+      "url": "https://onehera.waikato.ac.nz/"
+    },
+    {
+      "access_constraints": "Public Parliament committee pages; term-specific organization.",
+      "acquisition_priority": "high",
+      "coverage_period": "Current Parliament select committee home and committee pages.",
+      "dataset_families": [
+        "select_committees"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-select-committees",
+      "notes": "Official committee index and committee metadata source.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before committee-derived publication and after committee changes.",
+      "source_posture": "official",
+      "title": "Select committees",
+      "url": "https://www3.parliament.nz/en/pb/sc/"
+    },
+    {
+      "access_constraints": "Public reports pages and downloads; report files need per-file provenance.",
+      "acquisition_priority": "high",
+      "coverage_period": "Select committee reports published on Parliament website.",
+      "dataset_families": [
+        "select_committees"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-select-committee-reports",
+      "notes": "Official source for committee report metadata and documents.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before committee-report derived publication.",
+      "source_posture": "official",
+      "title": "Select committee reports",
+      "url": "https://www3.parliament.nz/en/pb/sc/reports/"
+    },
+    {
+      "access_constraints": "Public pages may include submissions, advice, and documents with personal information or third-party copyright.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Submissions, advice, and related committee evidence where Parliament publishes it.",
+      "dataset_families": [
+        "select_committees"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-select-committee-submissions-advice",
+      "notes": "Metadata-first source until rights and privacy boundaries are confirmed.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before submissions/advice seed or acquisition work.",
+      "source_posture": "official",
+      "title": "Select committee submissions and advice",
+      "url": "https://www3.parliament.nz/en/pb/sc/submissions-and-advice/"
+    },
+    {
+      "access_constraints": "Public meeting listing; calendars can change.",
+      "acquisition_priority": "high",
+      "coverage_period": "Upcoming and recent select committee meeting metadata.",
+      "dataset_families": [
+        "select_committees",
+        "video_audio_calendar"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-select-committee-meetings",
+      "notes": "Official committee meeting source and calendar-like metadata input.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Weekly or before committee calendar publication.",
+      "source_posture": "official",
+      "title": "Upcoming committee meetings",
+      "url": "https://www3.parliament.nz/en/pb/sc/scl/"
+    },
+    {
+      "access_constraints": "Public petitions pages; content may include personal details and publication constraints.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Petitions presented to Parliament and petition status pages where public.",
+      "dataset_families": [
+        "petitions"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-petitions",
+      "notes": "Official petitions source; seed fetchers should record metadata and rights boundaries before content capture.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before petition-derived publication and during active petition periods.",
+      "source_posture": "official",
+      "title": "Petitions",
+      "url": "https://www3.parliament.nz/en/pb/petitions/"
+    },
+    {
+      "access_constraints": "Public web page; dynamic page structure may change.",
+      "acquisition_priority": "high",
+      "coverage_period": "Current Parliament member list.",
+      "dataset_families": [
+        "members_parties_seating_contacts"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-members-current",
+      "notes": "Existing authority source for current members.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before member/party releases and at least monthly during a parliamentary term.",
+      "source_posture": "official",
+      "title": "Members of Parliament",
+      "url": "https://www3.parliament.nz/en/mps-and-electorates/members-of-parliament/"
+    },
+    {
+      "access_constraints": "Public former-member listing; dynamic listing may change.",
+      "acquisition_priority": "high",
+      "coverage_period": "Former member register with service dates where published.",
+      "dataset_families": [
+        "members_parties_seating_contacts"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-former-members",
+      "notes": "Existing authority source for historical member identity.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before member identity release and historical service rechecks.",
+      "source_posture": "official",
+      "title": "Former Members of Parliament",
+      "url": "https://www3.parliament.nz/en/mps-and-electorates/former-members-of-parliament/"
+    },
+    {
+      "access_constraints": "Public PDF; snapshot and file hash required before reuse.",
+      "acquisition_priority": "high",
+      "coverage_period": "Roll of members of the New Zealand House of Representatives from 1854 onwards.",
+      "dataset_families": [
+        "members_parties_seating_contacts"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-roll-of-members",
+      "notes": "Durable historical member register.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before historical member identity releases.",
+      "source_posture": "official",
+      "title": "Roll of members",
+      "url": "https://www3.parliament.nz/media/11482/roll-of-members-of-the-new-zealand-house-of-representatives-1854-onwards.pdf"
+    },
+    {
+      "access_constraints": "Public page; current-term only unless snapshots are retained.",
+      "acquisition_priority": "high",
+      "coverage_period": "Current parliamentary parties.",
+      "dataset_families": [
+        "members_parties_seating_contacts"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-parties-current",
+      "notes": "Official current parliamentary party source.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before party attribution releases and after party status changes.",
+      "source_posture": "official",
+      "title": "Parliamentary parties",
+      "url": "https://www3.parliament.nz/en/mps-and-electorates/political-parties/"
+    },
+    {
+      "access_constraints": "Public page; seating is a snapshot.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Current House seating plan.",
+      "dataset_families": [
+        "members_parties_seating_contacts"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-house-seating-plan",
+      "notes": "Supporting official Parliament source for seating/caucus displays.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "When seating-sensitive artifacts are generated.",
+      "source_posture": "official",
+      "title": "House seating plan",
+      "url": "https://www3.parliament.nz/en/mps-and-electorates/house-seating-plan"
+    },
+    {
+      "access_constraints": "Public web page with downloadable files; file URLs and update dates change.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Current member contact details and office downloads.",
+      "dataset_families": [
+        "members_parties_seating_contacts"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-member-contact-downloads",
+      "notes": "Supporting official source for contact and office fields.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before office/contact artifact publication.",
+      "source_posture": "official",
+      "title": "Contact an MP downloads",
+      "url": "https://www3.parliament.nz/en/get-involved/have-your-say/contact-an-mp"
+    },
+    {
+      "access_constraints": "Public page and downloadable PDF/Word editions; version each edition.",
+      "acquisition_priority": "high",
+      "coverage_period": "Parliamentary rules hub, including Standing Orders and procedure material.",
+      "dataset_families": [
+        "parliamentary_rules_procedure"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-parliamentary-rules",
+      "notes": "Existing authority source for procedure model context.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before procedure model releases and after amendments.",
+      "source_posture": "official",
+      "title": "Parliamentary Rules",
+      "url": "https://www3.parliament.nz/en/pb/parliamentary-rules/"
+    },
+    {
+      "access_constraints": "Public page with PDF and Word files; earlier editions also available.",
+      "acquisition_priority": "high",
+      "coverage_period": "Standing Orders editions published by Parliament.",
+      "dataset_families": [
+        "parliamentary_rules_procedure"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-standing-orders",
+      "notes": "Versioned rule text; cite edition and retrieval date.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "After Standing Orders amendments or before procedure releases.",
+      "source_posture": "official",
+      "title": "Standing Orders",
+      "url": "https://www3.parliament.nz/en/pb/parliamentary-rules/standing-orders/"
+    },
+    {
+      "access_constraints": "Public procedure page; downloads and editions require versioning.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Speakers' Rulings and related procedural guidance.",
+      "dataset_families": [
+        "parliamentary_rules_procedure"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-speakers-rulings",
+      "notes": "Procedure support source for rulings and interpretation.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before procedure-derived publication.",
+      "source_posture": "official",
+      "title": "Speakers' Rulings",
+      "url": "https://www3.parliament.nz/en/pb/parliamentary-rules/speakers-rulings/"
+    },
+    {
+      "access_constraints": "Catalogue and physical holdings vary.",
+      "acquisition_priority": "low",
+      "coverage_period": "Historical procedure manuals, Standing Orders, and rulings holdings.",
+      "dataset_families": [
+        "parliamentary_rules_procedure"
+      ],
+      "excluded": false,
+      "fallback_for": [
+        "nz-parliament-standing-orders",
+        "nz-parliament-speakers-rulings"
+      ],
+      "id": "library-catalogue-procedure-holdings",
+      "notes": "Fallback for historical procedure editions not available through Parliament pages.",
+      "publisher": "University and library catalogues",
+      "refresh_cadence": "Manual discovery only.",
+      "source_posture": "fallback",
+      "title": "Library catalogue procedure holdings",
+      "url": "https://natlib.govt.nz/"
+    },
+    {
+      "access_constraints": "Public video pages; media rights and embed/player metadata need separate review.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Live and recorded video of Parliament in action where public.",
+      "dataset_families": [
+        "video_audio_calendar"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-video",
+      "notes": "Metadata-first inventory source; do not bulk download media in this track.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Before media-metadata publication or sitting reconciliation.",
+      "source_posture": "official",
+      "title": "Parliament in action video",
+      "url": "https://www.parliament.nz/en/watch-parliament/"
+    },
+    {
+      "access_constraints": "Public calendar pages and meeting listings; schedule may change.",
+      "acquisition_priority": "medium",
+      "coverage_period": "Parliament calendar and event/meeting metadata where published.",
+      "dataset_families": [
+        "video_audio_calendar"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "nz-parliament-calendar",
+      "notes": "Calendar metadata should be reconciled with sitting programme and committee meetings.",
+      "publisher": "New Zealand Parliament",
+      "refresh_cadence": "Weekly or before calendar-derived outputs.",
+      "source_posture": "official",
+      "title": "Parliament calendar",
+      "url": "https://www3.parliament.nz/en/pb/meetings-of-parliament/"
+    },
+    {
+      "access_constraints": "Request/discussion records only; not a content acquisition endpoint.",
+      "acquisition_priority": "evidence_only",
+      "coverage_period": "Data request or catalogue evidence where Parliament-related datasets are discussed.",
+      "dataset_families": [
+        "hansard_debates",
+        "order_paper_questions_business_sitting_programme",
+        "daily_progress",
+        "journals",
+        "papers_presented_ajhr",
+        "select_committees",
+        "petitions",
+        "members_parties_seating_contacts",
+        "parliamentary_rules_procedure",
+        "video_audio_calendar"
+      ],
+      "excluded": false,
+      "fallback_for": [],
+      "id": "data-govt-parliament-dataset-requests",
+      "notes": "Use only as evidence of demand, gaps, or official response history; never as acquisition source.",
+      "publisher": "data.govt.nz",
+      "refresh_cadence": "Manual evidence review only.",
+      "source_posture": "evidence_only",
+      "title": "Data.govt.nz Parliament dataset requests",
+      "url": "https://catalogue.data.govt.nz/dataset"
+    },
+    {
+      "access_constraints": "Adjacent legislation corpus owns this domain.",
+      "acquisition_priority": "excluded",
+      "coverage_period": "NZ legislation records are deliberately outside this Hansard dataset expansion inventory.",
+      "dataset_families": [
+        "parliamentary_rules_procedure"
+      ],
+      "excluded": true,
+      "fallback_for": [],
+      "id": "excluded-nz-legislation",
+      "notes": "Handled through the adjacent legislation repo; do not add acquisition tasks here.",
+      "publisher": "New Zealand Legislation",
+      "refresh_cadence": "Not applicable in this repo.",
+      "source_posture": "excluded",
+      "title": "NZ legislation",
+      "url": "https://www.legislation.govt.nz/"
+    },
+    {
+      "access_constraints": "Adjacent legislation/government-publication work owns this domain.",
+      "acquisition_priority": "excluded",
+      "coverage_period": "Gazette records are deliberately outside this Hansard dataset expansion inventory.",
+      "dataset_families": [
+        "papers_presented_ajhr"
+      ],
+      "excluded": true,
+      "fallback_for": [],
+      "id": "excluded-nz-gazette",
+      "notes": "Handled through an adjacent repo; do not add acquisition tasks here.",
+      "publisher": "New Zealand Gazette",
+      "refresh_cadence": "Not applicable in this repo.",
+      "source_posture": "excluded",
+      "title": "New Zealand Gazette",
+      "url": "https://gazette.govt.nz/"
+    },
+    {
+      "access_constraints": "Not used as an acquisition dependency in this Parliament dataset inventory.",
+      "acquisition_priority": "excluded",
+      "coverage_period": "Previously considered for historical Hansard; excluded from this track's acquisition posture.",
+      "dataset_families": [
+        "hansard_debates"
+      ],
+      "excluded": true,
+      "fallback_for": [],
+      "id": "excluded-hathitrust",
+      "notes": "May be cited only as an excluded/non-primary baseline for this track.",
+      "publisher": "HathiTrust",
+      "refresh_cadence": "Not applicable for this track.",
+      "source_posture": "excluded",
+      "title": "HathiTrust historical Hansard baseline",
+      "url": "https://www.hathitrust.org/"
+    },
+    {
+      "access_constraints": "Not used as an acquisition dependency in this Parliament dataset inventory.",
+      "acquisition_priority": "excluded",
+      "coverage_period": "General web archive holdings are outside this inventory's acquisition path.",
+      "dataset_families": [
+        "hansard_debates",
+        "journals",
+        "papers_presented_ajhr"
+      ],
+      "excluded": true,
+      "fallback_for": [],
+      "id": "excluded-internet-archive",
+      "notes": "May be cited only as an excluded/non-primary baseline for this track.",
+      "publisher": "Internet Archive",
+      "refresh_cadence": "Not applicable for this track.",
+      "source_posture": "excluded",
+      "title": "Internet Archive baseline",
+      "url": "https://archive.org/"
+    }
+  ]
+}

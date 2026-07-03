@@ -70,6 +70,8 @@ Three sibling corpora sharing naming conventions, publication-surface rules, and
 
 See manifests/authority_sources.json for the full inventory (Hansard corpus only).
 
+`manifests/parliament_dataset_inventory.json` is the broader Parliament website dataset inventory for Hansard-adjacent expansion work. It covers Hansard/debates, Order Paper/questions, Daily Progress, Journals, papers/AJHR, select committees, petitions, members/parties/seating/contact downloads, procedure, and video/audio/calendar metadata while preserving the rule that NZ legislation and Gazette records stay outside this repo.
+
 | Source ID | Corpus | Status |
 |---|---|---|
 | nz-parliament-members-current | hansard | Blocked (Radware) |
