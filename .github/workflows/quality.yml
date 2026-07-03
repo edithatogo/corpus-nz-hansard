@@ -125,6 +125,12 @@ jobs:
       - name: Parliament dataset inventory
         run: pixi run python scripts\check_parliament_dataset_inventory.py
 
+      - name: Parliament dataset seed fetchers
+        run: pixi run python scripts\check_parliament_dataset_seed_fetchers.py
+
+      - name: Parliament dataset full acquisition
+        run: pixi run python scripts\check_parliament_dataset_full_acquisition.py
+
       - name: Historical sitting inventory
         run: pixi run python scripts\check_historical_sitting_inventory.py
 

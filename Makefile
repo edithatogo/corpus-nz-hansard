@@ -1,8 +1,8 @@
 PYTHON ?= python
 
-.PHONY: quality pixi-install pixi-quality quality-config learning-log provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring hathitrust-acquisition parliament-stealth-access wikipedia-mp-lists-acquisition member-identity-triangulation corpus-family-alignment corpus-family-engineering authority-sources parliament-dataset-inventory historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-sitting-reconciliation historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd ud-conllu rdf-linked-data corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation lint format-check typecheck typecheck-basedpyright typecheck-pyrefly spell workflow-audit toml-check workflow-syntax test test-offline benchmark profile-search-index security-audit sbom dependency-check dead-code mutation-smoke
+.PHONY: quality pixi-install pixi-quality quality-config learning-log provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring hathitrust-acquisition parliament-stealth-access wikipedia-mp-lists-acquisition member-identity-triangulation corpus-family-alignment corpus-family-engineering authority-sources parliament-dataset-inventory parliament-dataset-seed-fetchers parliament-dataset-full-acquisition historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-sitting-reconciliation historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd ud-conllu rdf-linked-data corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation lint format-check typecheck typecheck-basedpyright typecheck-pyrefly spell workflow-audit toml-check workflow-syntax test test-offline benchmark profile-search-index security-audit sbom dependency-check dead-code mutation-smoke
 
-quality: pixi-install lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config learning-log provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring hathitrust-acquisition parliament-stealth-access wikipedia-mp-lists-acquisition member-identity-triangulation corpus-family-alignment corpus-family-engineering authority-sources parliament-dataset-inventory historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-sitting-reconciliation historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd ud-conllu rdf-linked-data corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation test
+quality: pixi-install lint format-check typecheck spell workflow-audit toml-check workflow-syntax quality-config learning-log provenance-policy version-consistency public-surface-audit zenodo-rights shared-core metadata-packages osf-policy multi-git-archive-mirroring hathitrust-acquisition parliament-stealth-access wikipedia-mp-lists-acquisition member-identity-triangulation corpus-family-alignment corpus-family-engineering authority-sources parliament-dataset-inventory parliament-dataset-seed-fetchers parliament-dataset-full-acquisition historical-sitting-inventory historical-sitting-official-exports historical-sitting-official-exports-coverage historical-sitting-reconciliation historical-coverage release-ladder gold-evaluation canonical-ids dependency-extras procedure-model neutral-components akoma-ntoso parlamint-nz popolo-ocd ud-conllu rdf-linked-data corpus-wide-member-identity corpus-wide-party-attribution validated-speech-turn derived-fields-validation test
 
 pixi-install:
 	pixi install
@@ -63,6 +63,12 @@ authority-sources:
 
 parliament-dataset-inventory:
 	$(PYTHON) scripts/check_parliament_dataset_inventory.py
+
+parliament-dataset-seed-fetchers:
+	$(PYTHON) scripts/check_parliament_dataset_seed_fetchers.py
+
+parliament-dataset-full-acquisition:
+	$(PYTHON) scripts/check_parliament_dataset_full_acquisition.py
 
 historical-sitting-inventory:
 	$(PYTHON) scripts/check_historical_sitting_inventory.py

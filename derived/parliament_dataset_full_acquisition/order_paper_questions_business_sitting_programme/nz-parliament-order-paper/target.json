@@ -1,0 +1,29 @@
+{
+  "access_constraints": "Public page with HTML listings and document downloads.",
+  "approved": true,
+  "blocked_reason": "No detail link could be discovered from the index response.",
+  "cache_dir": "derived\\parliament_dataset_full_acquisition\\order_paper_questions_business_sitting_programme\\nz-parliament-order-paper",
+  "cache_hit": false,
+  "coverage_window": "historic",
+  "dataset_family": "order_paper_questions_business_sitting_programme",
+  "detail_artifact_count": 0,
+  "detail_paths": [],
+  "detail_record_count": 0,
+  "detail_sha256s": [],
+  "detail_urls": [],
+  "fetched_at": "2026-07-03T13:52:58Z",
+  "index_cache_path": "derived\\parliament_dataset_full_acquisition\\order_paper_questions_business_sitting_programme\\nz-parliament-order-paper\\index.html",
+  "index_fetched_at": "2026-07-03T13:52:58Z",
+  "index_record_count": 0,
+  "index_sha256": "264f547f3216599ed0bc048052d433fa27a05cac711899bba7fc7542e7163085",
+  "index_url": "https://www3.parliament.nz/en/pb/order-paper-questions/order-paper/",
+  "proof_status": "index-only",
+  "refresh_cadence": "daily",
+  "request_urls": [
+    "https://www3.parliament.nz/en/pb/order-paper-questions/order-paper/"
+  ],
+  "resume_used": false,
+  "rights_boundary": "not-public-release-ready",
+  "source_id": "nz-parliament-order-paper",
+  "source_posture": "official"
+}

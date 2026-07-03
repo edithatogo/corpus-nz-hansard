@@ -13,21 +13,12 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Parliament Dataset Seed Fetchers
+### [x] Track: Parliament Dataset Seed Fetchers
 
 Track ID: `parliament_dataset_seed_fetchers_20260703`
 
 Goal: add safe seed fetchers for high-value Parliament website dataset families identified by the inventory track, proving retrieval feasibility without bulk acquisition or publication claims.
 
-Link: [conductor/tracks/parliament_dataset_seed_fetchers_20260703/](./tracks/parliament_dataset_seed_fetchers_20260703/)
-
-### [ ] Track: Parliament Dataset Full Acquisition
-
-Track ID: `parliament_dataset_full_acquisition_20260703`
-
-Goal: implement repeatable, resumable, hash-backed, rights-safe full acquisition for approved Parliament website dataset families after inventory and seed evidence are stable.
-
-Link: [conductor/tracks/parliament_dataset_full_acquisition_20260703/](./tracks/parliament_dataset_full_acquisition_20260703/)
 
 ### [x] Track: Monthly Dynamic Archive Publication
 
@@ -502,6 +493,22 @@ Goal: auxiliary source-inventory track created during Phase 1. Implementation ev
 Link: [conductor/tracks/source_inventory_20260602/](./tracks/source_inventory_20260602/)
 
 ## Archived Tracks
+
+### [x] Track: Parliament Dataset Seed Fetchers
+
+Track ID: `parliament_dataset_seed_fetchers_20260703`
+
+Goal: add safe seed fetchers for high-value Parliament website dataset families identified by the inventory track, proving retrieval feasibility without bulk acquisition or publication claims.
+
+Link: [conductor/archive/parliament_dataset_seed_fetchers_20260703/](./archive/parliament_dataset_seed_fetchers_20260703/)
+
+### [x] Track: Parliament Dataset Full Acquisition
+
+Track ID: `parliament_dataset_full_acquisition_20260703`
+
+Goal: implement repeatable, resumable, hash-backed, rights-safe full acquisition for approved Parliament website dataset families after inventory and seed evidence are stable.
+
+Link: [conductor/archive/parliament_dataset_full_acquisition_20260703/](./archive/parliament_dataset_full_acquisition_20260703/)
 
 ### [x] Track: Wikipedia MP Lists Acquisition
 

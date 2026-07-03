@@ -1,0 +1,29 @@
+{
+  "access_constraints": "Public former-member listing; dynamic listing may change.",
+  "approved": true,
+  "blocked_reason": "No detail link could be discovered from the index response.",
+  "cache_dir": "derived\\parliament_dataset_full_acquisition\\members_parties_seating_contacts\\nz-parliament-former-members",
+  "cache_hit": false,
+  "coverage_window": "historic",
+  "dataset_family": "members_parties_seating_contacts",
+  "detail_artifact_count": 0,
+  "detail_paths": [],
+  "detail_record_count": 0,
+  "detail_sha256s": [],
+  "detail_urls": [],
+  "fetched_at": "2026-07-03T13:52:59Z",
+  "index_cache_path": "derived\\parliament_dataset_full_acquisition\\members_parties_seating_contacts\\nz-parliament-former-members\\index.html",
+  "index_fetched_at": "2026-07-03T13:52:59Z",
+  "index_record_count": 0,
+  "index_sha256": "dc3b62b61848fe7e2317d227cdf933816d6781cf35d75757b15a1f4d07e09e9c",
+  "index_url": "https://www3.parliament.nz/en/mps-and-electorates/former-members-of-parliament/",
+  "proof_status": "index-only",
+  "refresh_cadence": "daily",
+  "request_urls": [
+    "https://www3.parliament.nz/en/mps-and-electorates/former-members-of-parliament/"
+  ],
+  "resume_used": false,
+  "rights_boundary": "not-public-release-ready",
+  "source_id": "nz-parliament-former-members",
+  "source_posture": "official"
+}

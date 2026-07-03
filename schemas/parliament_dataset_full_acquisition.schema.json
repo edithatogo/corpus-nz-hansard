@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Parliament dataset full acquisition manifest",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "repository",
+    "retrieved_at",
+    "inventory_manifest",
+    "seed_manifest",
+    "cache_root",
+    "publication_boundary",
+    "policy",
+    "summary",
+    "targets",
+    "reconciliation"
+  ],
+  "properties": {
+    "manifest_version": { "type": "integer" },
+    "repository": { "type": "string" },
+    "retrieved_at": { "type": "string" },
+    "inventory_manifest": { "type": "string" },
+    "seed_manifest": { "type": "string" },
+    "cache_root": { "type": "string" },
+    "publication_boundary": { "type": "string" },
+    "policy": {
+      "type": "object",
+      "required": [
+        "official_sources_first",
+        "rights_safe",
+        "no_bulk_acquisition",
+        "no_public_release",
+        "excludes_nz_legislation",
+        "excludes_nz_gazette",
+        "hathitrust_not_acquisition_dependency",
+        "internet_archive_not_acquisition_dependency",
+        "no_historical_completeness_claim"
+      ],
+      "properties": {
+        "official_sources_first": { "type": "boolean" },
+        "rights_safe": { "type": "boolean" },
+        "no_bulk_acquisition": { "type": "boolean" },
+        "no_public_release": { "type": "boolean" },
+        "excludes_nz_legislation": { "type": "boolean" },
+        "excludes_nz_gazette": { "type": "boolean" },
+        "hathitrust_not_acquisition_dependency": { "type": "boolean" },
+        "internet_archive_not_acquisition_dependency": { "type": "boolean" },
+        "no_historical_completeness_claim": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "approved_target_count",
+        "blocked_target_count",
+        "cache_hit_count",
+        "detail_artifact_count",
+        "family_count",
+        "fetched_target_count",
+        "index_only_target_count",
+        "reconciled_family_count",
+        "resume_hit_count",
+        "total_target_count"
+      ],
+      "properties": {
+        "approved_target_count": { "type": "integer" },
+        "blocked_target_count": { "type": "integer" },
+        "cache_hit_count": { "type": "integer" },
+        "detail_artifact_count": { "type": "integer" },
+        "family_count": { "type": "integer" },
+        "fetched_target_count": { "type": "integer" },
+        "index_only_target_count": { "type": "integer" },
+        "reconciled_family_count": { "type": "integer" },
+        "resume_hit_count": { "type": "integer" },
+        "total_target_count": { "type": "integer" }
+      },
+      "additionalProperties": true
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "access_constraints",
+          "approved",
+          "blocked_reason",
+          "cache_dir",
+          "cache_hit",
+          "coverage_window",
+          "dataset_family",
+          "detail_artifact_count",
+          "detail_paths",
+          "detail_record_count",
+          "detail_sha256s",
+          "detail_urls",
+          "fetched_at",
+          "index_cache_path",
+          "index_fetched_at",
+          "index_record_count",
+          "index_sha256",
+          "index_url",
+          "proof_status",
+          "refresh_cadence",
+          "request_urls",
+          "resume_used",
+          "rights_boundary",
+          "source_id",
+          "source_posture"
+        ],
+        "properties": {
+          "access_constraints": { "type": "string" },
+          "approved": { "type": "boolean" },
+          "blocked_reason": { "type": ["string", "null"] },
+          "cache_dir": { "type": "string" },
+          "cache_hit": { "type": "boolean" },
+          "coverage_window": { "type": "string" },
+          "dataset_family": { "type": "string" },
+          "detail_artifact_count": { "type": "integer" },
+          "detail_paths": { "type": "array", "items": { "type": "string" } },
+          "detail_record_count": { "type": "integer" },
+          "detail_sha256s": { "type": "array", "items": { "type": ["string", "null"] } },
+          "detail_urls": { "type": "array", "items": { "type": "string" } },
+          "fetched_at": { "type": "string" },
+          "index_cache_path": { "type": "string" },
+          "index_fetched_at": { "type": ["string", "null"] },
+          "index_record_count": { "type": "integer" },
+          "index_sha256": { "type": ["string", "null"] },
+          "index_url": { "type": "string" },
+          "proof_status": { "type": "string" },
+          "refresh_cadence": { "type": "string" },
+          "request_urls": { "type": "array", "items": { "type": "string" } },
+          "resume_used": { "type": "boolean" },
+          "rights_boundary": { "type": "string" },
+          "source_id": { "type": "string" },
+          "source_posture": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "reconciliation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "dataset_family",
+          "reconciliation_status",
+          "source_ids",
+          "shared_hostname",
+          "notes"
+        ],
+        "properties": {
+          "dataset_family": { "type": "string" },
+          "reconciliation_status": { "type": "string" },
+          "source_ids": { "type": "array", "items": { "type": "string" } },
+          "shared_hostname": { "type": "string" },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,29 @@
+{
+  "access_constraints": "Public reports pages and downloads; report files need per-file provenance.",
+  "approved": true,
+  "blocked_reason": "No detail link could be discovered from the index response.",
+  "cache_dir": "derived\\parliament_dataset_full_acquisition\\select_committees\\nz-parliament-select-committee-reports",
+  "cache_hit": false,
+  "coverage_window": "current",
+  "dataset_family": "select_committees",
+  "detail_artifact_count": 0,
+  "detail_paths": [],
+  "detail_record_count": 0,
+  "detail_sha256s": [],
+  "detail_urls": [],
+  "fetched_at": "2026-07-03T13:52:59Z",
+  "index_cache_path": "derived\\parliament_dataset_full_acquisition\\select_committees\\nz-parliament-select-committee-reports\\index.html",
+  "index_fetched_at": "2026-07-03T13:52:59Z",
+  "index_record_count": 0,
+  "index_sha256": "dead7e7480c234712d106177a752607318d6b522e90a88eb14437930e35c9582",
+  "index_url": "https://www3.parliament.nz/en/pb/sc/reports/",
+  "proof_status": "index-only",
+  "refresh_cadence": "weekly",
+  "request_urls": [
+    "https://www3.parliament.nz/en/pb/sc/reports/"
+  ],
+  "resume_used": false,
+  "rights_boundary": "not-public-release-ready",
+  "source_id": "nz-parliament-select-committee-reports",
+  "source_posture": "official"
+}

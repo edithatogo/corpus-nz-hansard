@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "retrieved_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "inventory_manifest": {
+      "const": "manifests/parliament_dataset_inventory.json"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "official_sources_first": {
+          "const": true
+        },
+        "no_bulk_acquisition": {
+          "const": true
+        },
+        "no_completion_claim": {
+          "const": true
+        }
+      },
+      "required": [
+        "official_sources_first",
+        "no_bulk_acquisition",
+        "no_completion_claim"
+      ],
+      "type": "object"
+    },
+    "summary": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_target_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "blocked_target_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "deferred_target_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fetched_target_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "index_only_target_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "total_target_count": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "approved_target_count",
+        "blocked_target_count",
+        "deferred_target_count",
+        "fetched_target_count",
+        "index_only_target_count",
+        "total_target_count"
+      ],
+      "type": "object"
+    },
+    "targets": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "access_constraints": {
+            "type": "string"
+          },
+          "approved": {
+            "type": "boolean"
+          },
+          "blocked_reason": {
+            "type": ["string", "null"]
+          },
+          "dataset_family": {
+            "type": "string"
+          },
+          "fetched_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "index_fetched_at": {
+            "type": ["string", "null"],
+            "format": "date-time"
+          },
+          "index_record_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "index_sha256": {
+            "type": ["string", "null"],
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "index_url": {
+            "format": "uri",
+            "type": "string"
+          },
+          "output_paths": {
+            "type": "object"
+          },
+          "proof_status": {
+            "enum": [
+              "fetched",
+              "index-only",
+              "blocked",
+              "deferred"
+            ],
+            "type": "string"
+          },
+          "request_urls": {
+            "items": {
+              "format": "uri",
+              "type": "string"
+            },
+            "minItems": 1,
+            "maxItems": 2,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "sample_fetched_at": {
+            "type": ["string", "null"],
+            "format": "date-time"
+          },
+          "sample_record_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sample_sha256": {
+            "type": ["string", "null"],
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "sample_url": {
+            "type": ["string", "null"],
+            "format": "uri"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "source_posture": {
+            "enum": [
+              "official",
+              "fallback",
+              "supporting"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "access_constraints",
+          "approved",
+          "blocked_reason",
+          "dataset_family",
+          "fetched_at",
+          "index_fetched_at",
+          "index_record_count",
+          "index_sha256",
+          "index_url",
+          "output_paths",
+          "proof_status",
+          "request_urls",
+          "sample_fetched_at",
+          "sample_record_count",
+          "sample_sha256",
+          "sample_url",
+          "source_id",
+          "source_posture"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "handoff": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dataset_family": {
+            "type": "string"
+          },
+          "next_track": {
+            "const": "parliament_dataset_full_acquisition_20260703"
+          },
+          "proof_requirement": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "dataset_family",
+          "next_track",
+          "proof_requirement"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "repository",
+    "retrieved_at",
+    "inventory_manifest",
+    "policy",
+    "summary",
+    "targets",
+    "handoff"
+  ],
+  "type": "object"
+}
