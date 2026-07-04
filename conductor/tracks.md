@@ -19,15 +19,6 @@ Track ID: `parliament_dataset_seed_fetchers_20260703`
 
 Goal: add safe seed fetchers for high-value Parliament website dataset families identified by the inventory track, proving retrieval feasibility without bulk acquisition or publication claims.
 
-### [ ] Track: Historical Coverage Breadth Integration
-
-Track ID: `historical_coverage_breadth_integration_20260705`
-
-Goal: build a cross-repo historical coverage reconciliation layer that improves historical completeness and breadth while coordinating Parliament website coverage with adjacent HathiTrust and legislation boundaries.
-
-Link: [conductor/tracks/historical_coverage_breadth_integration_20260705/](./tracks/historical_coverage_breadth_integration_20260705/)
-
-
 ### [x] Track: Monthly Dynamic Archive Publication
 
 Track ID: `monthly_dynamic_archive_publication_20260629`
@@ -517,6 +508,14 @@ Track ID: `parliament_dataset_full_acquisition_20260703`
 Goal: implement repeatable, resumable, hash-backed, rights-safe full acquisition for approved Parliament website dataset families after inventory and seed evidence are stable.
 
 Link: [conductor/archive/parliament_dataset_full_acquisition_20260703/](./archive/parliament_dataset_full_acquisition_20260703/)
+
+### [x] Track: Historical Coverage Breadth Integration
+
+Track ID: `historical_coverage_breadth_integration_20260705`
+
+Goal: build a cross-repo historical coverage reconciliation layer that improves historical completeness and breadth while coordinating Parliament website coverage with adjacent HathiTrust and legislation boundaries.
+
+Link: [conductor/archive/historical_coverage_breadth_integration_20260705/](./archive/historical_coverage_breadth_integration_20260705/)
 
 ### [x] Track: Wikipedia MP Lists Acquisition
 
