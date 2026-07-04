@@ -29,16 +29,29 @@ DOC_PATH = ROOT / "docs/parliament-dataset-seed-fetchers.md"
 OUTPUT_DIR = ROOT / "derived" / "parliament_dataset_seed_fetchers"
 
 REQUIRED_DATASET_FAMILIES = {
+    "hansard_debates",
+    "daily_progress",
     "journals",
     "papers_presented_ajhr",
     "order_paper_questions_business_sitting_programme",
     "select_committees",
     "petitions",
     "members_parties_seating_contacts",
+    "parliamentary_rules_procedure",
     "video_audio_calendar",
 }
 
 TARGET_BLUEPRINTS = (
+    {
+        "dataset_family": "hansard_debates",
+        "source_id": "nz-parliament-hansard-current",
+        "sample_patterns": ("hansard", "debates", "read-hansard"),
+    },
+    {
+        "dataset_family": "daily_progress",
+        "source_id": "nz-parliament-daily-progress",
+        "sample_patterns": ("daily-progress", "progress"),
+    },
     {
         "dataset_family": "journals",
         "source_id": "nz-parliament-weekly-journals-archive",
@@ -123,6 +136,21 @@ TARGET_BLUEPRINTS = (
         "dataset_family": "members_parties_seating_contacts",
         "source_id": "nz-parliament-member-contact-downloads",
         "sample_patterns": ("contact-an-mp",),
+    },
+    {
+        "dataset_family": "parliamentary_rules_procedure",
+        "source_id": "nz-parliament-parliamentary-rules",
+        "sample_patterns": ("parliamentary-rules",),
+    },
+    {
+        "dataset_family": "parliamentary_rules_procedure",
+        "source_id": "nz-parliament-standing-orders",
+        "sample_patterns": ("standing-orders",),
+    },
+    {
+        "dataset_family": "parliamentary_rules_procedure",
+        "source_id": "nz-parliament-speakers-rulings",
+        "sample_patterns": ("speakers-rulings",),
     },
     {
         "dataset_family": "video_audio_calendar",

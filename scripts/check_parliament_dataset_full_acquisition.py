@@ -16,12 +16,15 @@ INVENTORY_PATH = ROOT / "manifests/parliament_dataset_inventory.json"
 SEED_MANIFEST_PATH = ROOT / "manifests/parliament_dataset_seed_fetchers.json"
 
 REQUIRED_DATASET_FAMILIES = {
+    "hansard_debates",
+    "daily_progress",
     "journals",
     "papers_presented_ajhr",
     "order_paper_questions_business_sitting_programme",
     "select_committees",
     "petitions",
     "members_parties_seating_contacts",
+    "parliamentary_rules_procedure",
     "video_audio_calendar",
 }
 

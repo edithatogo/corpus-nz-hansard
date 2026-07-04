@@ -59,6 +59,12 @@ class ParliamentDatasetFullAcquisitionTests(unittest.TestCase):
             {target.dataset_family for target in targets if target.approved},
             REQUIRED_DATASET_FAMILIES,
         )
+        selected_ids = {target.source_id for target in targets}
+        self.assertIn("nz-parliament-hansard-current", selected_ids)
+        self.assertIn("nz-parliament-daily-progress", selected_ids)
+        self.assertIn("nz-parliament-parliamentary-rules", selected_ids)
+        self.assertIn("nz-parliament-standing-orders", selected_ids)
+        self.assertIn("nz-parliament-speakers-rulings", selected_ids)
 
     def test_acquire_full_target_writes_cache_and_reconciles(self) -> None:
         target = SeedTarget(

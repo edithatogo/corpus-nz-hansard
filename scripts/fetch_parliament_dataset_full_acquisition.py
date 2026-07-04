@@ -34,22 +34,28 @@ TARGET_CACHE_FILENAME = "target.json"
 MAX_DETAIL_FETCHES = 1
 
 REQUIRED_DATASET_FAMILIES = {
+    "hansard_debates",
+    "daily_progress",
     "journals",
     "papers_presented_ajhr",
     "order_paper_questions_business_sitting_programme",
     "select_committees",
     "petitions",
     "members_parties_seating_contacts",
+    "parliamentary_rules_procedure",
     "video_audio_calendar",
 }
 
 REFRESH_CADENCE_BY_FAMILY = {
+    "hansard_debates": "daily",
+    "daily_progress": "daily",
     "journals": "weekly",
     "papers_presented_ajhr": "weekly",
     "order_paper_questions_business_sitting_programme": "daily",
     "select_committees": "weekly",
     "petitions": "daily",
     "members_parties_seating_contacts": "daily",
+    "parliamentary_rules_procedure": "weekly",
     "video_audio_calendar": "daily",
 }
 

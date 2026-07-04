@@ -16,6 +16,24 @@
   "publication_boundary": "not-public-release-ready",
   "reconciliation": [
     {
+      "dataset_family": "daily_progress",
+      "notes": "1 bounded targets; 0 fetched; 0 blocked.",
+      "reconciliation_status": "pass",
+      "shared_hostname": "www3.parliament.nz",
+      "source_ids": [
+        "nz-parliament-daily-progress"
+      ]
+    },
+    {
+      "dataset_family": "hansard_debates",
+      "notes": "1 bounded targets; 0 fetched; 0 blocked.",
+      "reconciliation_status": "pass",
+      "shared_hostname": "www3.parliament.nz",
+      "source_ids": [
+        "nz-parliament-hansard-current"
+      ]
+    },
+    {
       "dataset_family": "journals",
       "notes": "2 bounded targets; 0 fetched; 0 blocked.",
       "reconciliation_status": "pass",
@@ -61,6 +79,17 @@
       ]
     },
     {
+      "dataset_family": "parliamentary_rules_procedure",
+      "notes": "3 bounded targets; 0 fetched; 0 blocked.",
+      "reconciliation_status": "pass",
+      "shared_hostname": "www3.parliament.nz",
+      "source_ids": [
+        "nz-parliament-parliamentary-rules",
+        "nz-parliament-speakers-rulings",
+        "nz-parliament-standing-orders"
+      ]
+    },
+    {
       "dataset_family": "petitions",
       "notes": "1 bounded targets; 0 fetched; 0 blocked.",
       "reconciliation_status": "pass",
@@ -92,27 +121,85 @@
     }
   ],
   "repository": "corpus-nz-hansard",
-  "retrieved_at": "2026-07-03T13:52:59Z",
+  "retrieved_at": "2026-07-04T09:41:29Z",
   "seed_manifest": "manifests/parliament_dataset_seed_fetchers.json",
   "summary": {
-    "approved_target_count": 19,
+    "approved_target_count": 24,
     "blocked_target_count": 0,
-    "cache_hit_count": 0,
+    "cache_hit_count": 19,
     "detail_artifact_count": 0,
-    "family_count": 7,
+    "family_count": 10,
     "fetched_target_count": 0,
-    "index_only_target_count": 19,
-    "reconciled_family_count": 7,
-    "resume_hit_count": 0,
-    "total_target_count": 19
+    "index_only_target_count": 24,
+    "reconciled_family_count": 10,
+    "resume_hit_count": 19,
+    "total_target_count": 24
   },
   "targets": [
+    {
+      "access_constraints": "Public Parliament website; dynamic pages and Radware protection may require browser-aware seed fetching.",
+      "approved": true,
+      "blocked_reason": "No detail link could be discovered from the index response.",
+      "cache_dir": "derived\\parliament_dataset_full_acquisition\\hansard_debates\\nz-parliament-hansard-current",
+      "cache_hit": false,
+      "coverage_window": "historic",
+      "dataset_family": "hansard_debates",
+      "detail_artifact_count": 0,
+      "detail_paths": [],
+      "detail_record_count": 0,
+      "detail_sha256s": [],
+      "detail_urls": [],
+      "fetched_at": "2026-07-04T09:41:28Z",
+      "index_cache_path": "derived\\parliament_dataset_full_acquisition\\hansard_debates\\nz-parliament-hansard-current\\index.html",
+      "index_fetched_at": "2026-07-04T09:41:28Z",
+      "index_record_count": 0,
+      "index_sha256": "8b770bfd7d35a2b1fb33dcd1aae6d4b75a846845aee210cd0f6927c9ea3a1f31",
+      "index_url": "https://www3.parliament.nz/en/pb/hansard-debates/",
+      "proof_status": "index-only",
+      "refresh_cadence": "daily",
+      "request_urls": [
+        "https://www3.parliament.nz/en/pb/hansard-debates/"
+      ],
+      "resume_used": false,
+      "rights_boundary": "not-public-release-ready",
+      "source_id": "nz-parliament-hansard-current",
+      "source_posture": "official"
+    },
+    {
+      "access_constraints": "Public page; latest-progress orientation requires dated snapshots.",
+      "approved": true,
+      "blocked_reason": "No detail link could be discovered from the index response.",
+      "cache_dir": "derived\\parliament_dataset_full_acquisition\\daily_progress\\nz-parliament-daily-progress",
+      "cache_hit": false,
+      "coverage_window": "current",
+      "dataset_family": "daily_progress",
+      "detail_artifact_count": 0,
+      "detail_paths": [],
+      "detail_record_count": 0,
+      "detail_sha256s": [],
+      "detail_urls": [],
+      "fetched_at": "2026-07-04T09:41:28Z",
+      "index_cache_path": "derived\\parliament_dataset_full_acquisition\\daily_progress\\nz-parliament-daily-progress\\index.html",
+      "index_fetched_at": "2026-07-04T09:41:28Z",
+      "index_record_count": 0,
+      "index_sha256": "3be6ce22f7b6ba8c206d57c92354c5dfecb1b606a9198c205f062687b9639f39",
+      "index_url": "https://www3.parliament.nz/en/pb/daily-progress-in-the-house/",
+      "proof_status": "index-only",
+      "refresh_cadence": "daily",
+      "request_urls": [
+        "https://www3.parliament.nz/en/pb/daily-progress-in-the-house/"
+      ],
+      "resume_used": false,
+      "rights_boundary": "not-public-release-ready",
+      "source_id": "nz-parliament-daily-progress",
+      "source_posture": "official"
+    },
     {
       "access_constraints": "Public archive with weekly documents; detail pages may include related links and downloads.",
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\journals\\nz-parliament-weekly-journals-archive",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "historic",
       "dataset_family": "journals",
       "detail_artifact_count": 0,
@@ -131,7 +218,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/journals-of-the-house/weekly-journals-archive/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-weekly-journals-archive",
       "source_posture": "official"
@@ -141,7 +228,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\journals\\nz-parliament-journals-session-indexes",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "journals",
       "detail_artifact_count": 0,
@@ -160,7 +247,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/journals-of-the-house/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-journals-session-indexes",
       "source_posture": "official"
@@ -170,7 +257,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\papers_presented_ajhr\\nz-parliament-papers-presented",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "papers_presented_ajhr",
       "detail_artifact_count": 0,
@@ -189,7 +276,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/papers-presented/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-papers-presented",
       "source_posture": "official"
@@ -199,7 +286,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\papers_presented_ajhr\\nz-parliament-current-papers",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "papers_presented_ajhr",
       "detail_artifact_count": 0,
@@ -218,7 +305,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/papers-presented/current-papers/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-current-papers",
       "source_posture": "official"
@@ -228,7 +315,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\papers_presented_ajhr\\nz-parliament-ajhr",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "papers_presented_ajhr",
       "detail_artifact_count": 0,
@@ -247,7 +334,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/papers-presented/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-ajhr",
       "source_posture": "official"
@@ -257,7 +344,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\papers_presented_ajhr\\papers-past-ajhr",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "historic",
       "dataset_family": "papers_presented_ajhr",
       "detail_artifact_count": 0,
@@ -276,7 +363,7 @@
       "request_urls": [
         "https://paperspast.natlib.govt.nz/parliamentary"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "papers-past-ajhr",
       "source_posture": "fallback"
@@ -286,7 +373,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\order_paper_questions_business_sitting_programme\\nz-parliament-order-paper",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "historic",
       "dataset_family": "order_paper_questions_business_sitting_programme",
       "detail_artifact_count": 0,
@@ -305,7 +392,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/order-paper-questions/order-paper/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-order-paper",
       "source_posture": "official"
@@ -315,7 +402,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\order_paper_questions_business_sitting_programme\\nz-parliament-oral-questions",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "order_paper_questions_business_sitting_programme",
       "detail_artifact_count": 0,
@@ -334,7 +421,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/order-paper-questions/list-of-oral-questions/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-oral-questions",
       "source_posture": "official"
@@ -344,7 +431,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\order_paper_questions_business_sitting_programme\\nz-parliament-written-questions",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "order_paper_questions_business_sitting_programme",
       "detail_artifact_count": 0,
@@ -363,7 +450,7 @@
       "request_urls": [
         "https://questions.parliament.nz/written-questions?lang=en"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-written-questions",
       "source_posture": "official"
@@ -373,7 +460,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\select_committees\\nz-parliament-select-committee-reports",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "select_committees",
       "detail_artifact_count": 0,
@@ -392,7 +479,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/sc/reports/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-select-committee-reports",
       "source_posture": "official"
@@ -402,7 +489,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\select_committees\\nz-parliament-select-committee-submissions-advice",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "select_committees",
       "detail_artifact_count": 0,
@@ -421,7 +508,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/sc/submissions-and-advice/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-select-committee-submissions-advice",
       "source_posture": "official"
@@ -431,7 +518,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\select_committees\\nz-parliament-select-committee-meetings",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "select_committees",
       "detail_artifact_count": 0,
@@ -450,7 +537,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/sc/scl/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-select-committee-meetings",
       "source_posture": "official"
@@ -460,7 +547,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\petitions\\nz-parliament-petitions",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "petitions",
       "detail_artifact_count": 0,
@@ -479,7 +566,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/petitions/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-petitions",
       "source_posture": "official"
@@ -489,7 +576,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\members_parties_seating_contacts\\nz-parliament-members-current",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "members_parties_seating_contacts",
       "detail_artifact_count": 0,
@@ -508,7 +595,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/mps-and-electorates/members-of-parliament/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-members-current",
       "source_posture": "official"
@@ -518,7 +605,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\members_parties_seating_contacts\\nz-parliament-former-members",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "historic",
       "dataset_family": "members_parties_seating_contacts",
       "detail_artifact_count": 0,
@@ -537,7 +624,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/mps-and-electorates/former-members-of-parliament/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-former-members",
       "source_posture": "official"
@@ -547,7 +634,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\members_parties_seating_contacts\\nz-parliament-parties-current",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "members_parties_seating_contacts",
       "detail_artifact_count": 0,
@@ -566,7 +653,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/mps-and-electorates/political-parties/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-parties-current",
       "source_posture": "official"
@@ -576,7 +663,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\members_parties_seating_contacts\\nz-parliament-member-contact-downloads",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "members_parties_seating_contacts",
       "detail_artifact_count": 0,
@@ -595,9 +682,96 @@
       "request_urls": [
         "https://www3.parliament.nz/en/get-involved/have-your-say/contact-an-mp"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-member-contact-downloads",
+      "source_posture": "official"
+    },
+    {
+      "access_constraints": "Public page and downloadable PDF/Word editions; version each edition.",
+      "approved": true,
+      "blocked_reason": "No detail link could be discovered from the index response.",
+      "cache_dir": "derived\\parliament_dataset_full_acquisition\\parliamentary_rules_procedure\\nz-parliament-parliamentary-rules",
+      "cache_hit": false,
+      "coverage_window": "current",
+      "dataset_family": "parliamentary_rules_procedure",
+      "detail_artifact_count": 0,
+      "detail_paths": [],
+      "detail_record_count": 0,
+      "detail_sha256s": [],
+      "detail_urls": [],
+      "fetched_at": "2026-07-04T09:41:29Z",
+      "index_cache_path": "derived\\parliament_dataset_full_acquisition\\parliamentary_rules_procedure\\nz-parliament-parliamentary-rules\\index.html",
+      "index_fetched_at": "2026-07-04T09:41:29Z",
+      "index_record_count": 0,
+      "index_sha256": "d4d25e61477fc506f5d964447ba7c1caf39774d80ca28cf9bbeeaa898760dea4",
+      "index_url": "https://www3.parliament.nz/en/pb/parliamentary-rules/",
+      "proof_status": "index-only",
+      "refresh_cadence": "weekly",
+      "request_urls": [
+        "https://www3.parliament.nz/en/pb/parliamentary-rules/"
+      ],
+      "resume_used": false,
+      "rights_boundary": "not-public-release-ready",
+      "source_id": "nz-parliament-parliamentary-rules",
+      "source_posture": "official"
+    },
+    {
+      "access_constraints": "Public page with PDF and Word files; earlier editions also available.",
+      "approved": true,
+      "blocked_reason": "No detail link could be discovered from the index response.",
+      "cache_dir": "derived\\parliament_dataset_full_acquisition\\parliamentary_rules_procedure\\nz-parliament-standing-orders",
+      "cache_hit": false,
+      "coverage_window": "current",
+      "dataset_family": "parliamentary_rules_procedure",
+      "detail_artifact_count": 0,
+      "detail_paths": [],
+      "detail_record_count": 0,
+      "detail_sha256s": [],
+      "detail_urls": [],
+      "fetched_at": "2026-07-04T09:41:29Z",
+      "index_cache_path": "derived\\parliament_dataset_full_acquisition\\parliamentary_rules_procedure\\nz-parliament-standing-orders\\index.html",
+      "index_fetched_at": "2026-07-04T09:41:29Z",
+      "index_record_count": 0,
+      "index_sha256": "3cd6bb22cc615a5016627d3317e7c0a75d4a44077603ed55d2a079597c7e3333",
+      "index_url": "https://www3.parliament.nz/en/pb/parliamentary-rules/standing-orders/",
+      "proof_status": "index-only",
+      "refresh_cadence": "weekly",
+      "request_urls": [
+        "https://www3.parliament.nz/en/pb/parliamentary-rules/standing-orders/"
+      ],
+      "resume_used": false,
+      "rights_boundary": "not-public-release-ready",
+      "source_id": "nz-parliament-standing-orders",
+      "source_posture": "official"
+    },
+    {
+      "access_constraints": "Public procedure page; downloads and editions require versioning.",
+      "approved": true,
+      "blocked_reason": "No detail link could be discovered from the index response.",
+      "cache_dir": "derived\\parliament_dataset_full_acquisition\\parliamentary_rules_procedure\\nz-parliament-speakers-rulings",
+      "cache_hit": false,
+      "coverage_window": "current",
+      "dataset_family": "parliamentary_rules_procedure",
+      "detail_artifact_count": 0,
+      "detail_paths": [],
+      "detail_record_count": 0,
+      "detail_sha256s": [],
+      "detail_urls": [],
+      "fetched_at": "2026-07-04T09:41:29Z",
+      "index_cache_path": "derived\\parliament_dataset_full_acquisition\\parliamentary_rules_procedure\\nz-parliament-speakers-rulings\\index.html",
+      "index_fetched_at": "2026-07-04T09:41:29Z",
+      "index_record_count": 0,
+      "index_sha256": "cd9ed6dd2eb61568b2e5df05707c94da311243bd4d479da24ce45d5eb9695150",
+      "index_url": "https://www3.parliament.nz/en/pb/parliamentary-rules/speakers-rulings/",
+      "proof_status": "index-only",
+      "refresh_cadence": "weekly",
+      "request_urls": [
+        "https://www3.parliament.nz/en/pb/parliamentary-rules/speakers-rulings/"
+      ],
+      "resume_used": false,
+      "rights_boundary": "not-public-release-ready",
+      "source_id": "nz-parliament-speakers-rulings",
       "source_posture": "official"
     },
     {
@@ -605,7 +779,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\video_audio_calendar\\nz-parliament-video",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "video_audio_calendar",
       "detail_artifact_count": 0,
@@ -624,7 +798,7 @@
       "request_urls": [
         "https://www.parliament.nz/en/watch-parliament/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-video",
       "source_posture": "official"
@@ -634,7 +808,7 @@
       "approved": true,
       "blocked_reason": "No detail link could be discovered from the index response.",
       "cache_dir": "derived\\parliament_dataset_full_acquisition\\video_audio_calendar\\nz-parliament-calendar",
-      "cache_hit": false,
+      "cache_hit": true,
       "coverage_window": "current",
       "dataset_family": "video_audio_calendar",
       "detail_artifact_count": 0,
@@ -653,7 +827,7 @@
       "request_urls": [
         "https://www3.parliament.nz/en/pb/meetings-of-parliament/"
       ],
-      "resume_used": false,
+      "resume_used": true,
       "rights_boundary": "not-public-release-ready",
       "source_id": "nz-parliament-calendar",
       "source_posture": "official"

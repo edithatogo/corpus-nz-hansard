@@ -8,12 +8,15 @@ This track is repeatable, resumable, hash-backed, rights-safe. It stays `not-pub
 
 The acquisition layer covers the same Parliament-hosted dataset families as the inventory and seed tracks:
 
+- Hansard / debates
+- Daily progress
 - Journals
 - Papers presented, current papers, and AJHR
 - Order Papers, oral questions, written questions, business statements, and sitting programme
 - Select committees
 - Petitions
 - MPs, former MPs, parties, seating, and contact/office downloads
+- Parliamentary rules and procedure
 - Parliament video, audio, and calendar metadata
 
 NZ legislation and Gazette remain out of scope. HathiTrust and Internet Archive are not acquisition dependencies.
@@ -36,8 +39,9 @@ The target record captures URL provenance, content hashes, record counts, rights
 
 The manifest records a family-level refresh cadence so later tracks can schedule repeat acquisition without assuming completeness:
 
-- Daily for current-business, members, petitions, and media metadata surfaces
+- Daily for Hansard, daily progress, current-business, members, petitions, and media metadata surfaces
 - Weekly for journals, papers, and select-committee surfaces
+- Weekly for parliamentary rules and procedure surfaces
 
 ## Operator Commands
 

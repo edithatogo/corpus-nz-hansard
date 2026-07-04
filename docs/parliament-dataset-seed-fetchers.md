@@ -13,12 +13,15 @@ This track is intentionally small and safe:
 
 The seed set covers the families required by the track:
 
+* Hansard / debates
+* Daily progress
 * Journals
 * Papers presented and AJHR/current papers
 * Order Paper and questions
 * Select committee reports, submissions/advice, and meetings
 * Petitions
 * Members, parties, and contact downloads
+* Parliamentary rules and procedure
 
 official Parliament sources are preferred. Fallback sources are sampled only when the inventory marks them credible.
 

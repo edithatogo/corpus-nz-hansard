@@ -1,0 +1,29 @@
+{
+  "access_constraints": "Public Parliament website; dynamic pages and Radware protection may require browser-aware seed fetching.",
+  "approved": true,
+  "blocked_reason": "No detail link could be discovered from the index response.",
+  "cache_dir": "derived\\parliament_dataset_full_acquisition\\hansard_debates\\nz-parliament-hansard-current",
+  "cache_hit": false,
+  "coverage_window": "historic",
+  "dataset_family": "hansard_debates",
+  "detail_artifact_count": 0,
+  "detail_paths": [],
+  "detail_record_count": 0,
+  "detail_sha256s": [],
+  "detail_urls": [],
+  "fetched_at": "2026-07-04T09:41:28Z",
+  "index_cache_path": "derived\\parliament_dataset_full_acquisition\\hansard_debates\\nz-parliament-hansard-current\\index.html",
+  "index_fetched_at": "2026-07-04T09:41:28Z",
+  "index_record_count": 0,
+  "index_sha256": "8b770bfd7d35a2b1fb33dcd1aae6d4b75a846845aee210cd0f6927c9ea3a1f31",
+  "index_url": "https://www3.parliament.nz/en/pb/hansard-debates/",
+  "proof_status": "index-only",
+  "refresh_cadence": "daily",
+  "request_urls": [
+    "https://www3.parliament.nz/en/pb/hansard-debates/"
+  ],
+  "resume_used": false,
+  "rights_boundary": "not-public-release-ready",
+  "source_id": "nz-parliament-hansard-current",
+  "source_posture": "official"
+}
