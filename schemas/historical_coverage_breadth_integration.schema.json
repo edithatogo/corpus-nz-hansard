@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "manifest_version": {
+      "const": 1
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "track_id": {
+      "const": "historical_coverage_breadth_integration_20260705"
+    },
+    "generated_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "bridge_status": {
+      "const": "evidence-only"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "no_completeness_claim": {
+          "const": true
+        },
+        "no_bulk_acquisition": {
+          "const": true
+        },
+        "official_sources_first": {
+          "const": true
+        },
+        "legislation_and_gazette_excluded": {
+          "const": true
+        }
+      },
+      "required": [
+        "no_completeness_claim",
+        "no_bulk_acquisition",
+        "official_sources_first",
+        "legislation_and_gazette_excluded"
+      ],
+      "type": "object"
+    },
+    "coverage_taxonomy": {
+      "additionalProperties": false,
+      "properties": {
+        "official": {
+          "items": {
+            "const": "official"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "fallback": {
+          "items": {
+            "const": "fallback"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "supporting": {
+          "items": {
+            "const": "supporting"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "evidence_only": {
+          "items": {
+            "const": "evidence_only"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "excluded": {
+          "items": {
+            "const": "excluded"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "official",
+        "fallback",
+        "supporting",
+        "evidence_only",
+        "excluded"
+      ],
+      "type": "object"
+    },
+    "adjacent_repos": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "repo": {
+            "enum": [
+              "hathi-nz",
+              "corpus-law-nz"
+            ]
+          },
+          "path": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "repo",
+          "path",
+          "role"
+        ],
+        "type": "object"
+      },
+      "minItems": 2,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "boundary_rules": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "source_map": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "source_id": {
+            "type": "string"
+          },
+          "family": {
+            "enum": [
+              "hansard_debates",
+              "journals",
+              "papers_presented_ajhr",
+              "parliamentary_rules_procedure"
+            ]
+          },
+          "posture": {
+            "enum": [
+              "official",
+              "fallback",
+              "supporting",
+              "evidence_only",
+              "excluded"
+            ]
+          },
+          "role": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "family",
+          "posture",
+          "role",
+          "notes"
+        ],
+        "type": "object"
+      },
+      "minItems": 8,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "historical_gap_model": {
+      "additionalProperties": false,
+      "properties": {
+        "grains": {
+          "items": {
+            "enum": [
+              "family",
+              "time_period",
+              "source_pair"
+            ]
+          },
+          "minItems": 3,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "statuses": {
+          "items": {
+            "enum": [
+              "open",
+              "narrowed",
+              "resolved",
+              "excluded"
+            ]
+          },
+          "minItems": 4,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "grains",
+        "statuses",
+        "notes"
+      ],
+      "type": "object"
+    },
+    "linked_manifests": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 4,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "no_completeness_claims": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array",
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "manifest_version",
+    "repository",
+    "track_id",
+    "generated_at",
+    "bridge_status",
+    "policy",
+    "coverage_taxonomy",
+    "adjacent_repos",
+    "boundary_rules",
+    "source_map",
+    "historical_gap_model",
+    "linked_manifests",
+    "no_completeness_claims"
+  ],
+  "type": "object"
+}

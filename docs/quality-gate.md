@@ -42,6 +42,7 @@ pixi run python scripts/check_authority_sources.py
 pixi run python scripts/check_parliament_dataset_inventory.py
 pixi run python scripts/check_parliament_dataset_seed_fetchers.py
 pixi run python scripts/check_parliament_dataset_full_acquisition.py
+pixi run python scripts/check_historical_coverage_breadth_integration.py
 pixi run python scripts/check_historical_sitting_inventory.py
 pixi run python scripts/check_historical_sitting_official_exports.py
 pixi run python scripts/build_historical_sitting_official_exports_coverage.py

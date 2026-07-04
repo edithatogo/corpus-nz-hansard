@@ -1,0 +1,145 @@
+{
+  "adjacent_repos": [
+    {
+      "path": "C:\\Users\\60217257\\OneDrive - Flinders\\repos\\legal-nz\\hathi-nz",
+      "repo": "hathi-nz",
+      "role": "HathiTrust Hansard discovery and archive evidence"
+    },
+    {
+      "path": "C:\\Users\\60217257\\OneDrive - Flinders\\repos\\legal-nz\\corpus-law-nz",
+      "repo": "corpus-law-nz",
+      "role": "Legislation and Gazette boundary reference"
+    }
+  ],
+  "boundary_rules": [
+    "corpus-law-nz keeps NZ legislation and Gazette out of scope.",
+    "HathiTrust may be cited only as discovery or gap-detection evidence.",
+    "Supporting sources can narrow historical gaps but cannot replace official Parliament coverage."
+  ],
+  "bridge_status": "evidence-only",
+  "coverage_taxonomy": {
+    "evidence_only": [
+      "evidence_only"
+    ],
+    "excluded": [
+      "excluded"
+    ],
+    "fallback": [
+      "fallback"
+    ],
+    "official": [
+      "official"
+    ],
+    "supporting": [
+      "supporting"
+    ]
+  },
+  "generated_at": "2026-07-04",
+  "historical_gap_model": {
+    "grains": [
+      "family",
+      "time_period",
+      "source_pair"
+    ],
+    "notes": "Gap status distinguishes uncovered historical periods from narrowed source pairs and explicitly excluded domains.",
+    "statuses": [
+      "open",
+      "narrowed",
+      "resolved",
+      "excluded"
+    ]
+  },
+  "linked_manifests": [
+    "manifests/parliament_dataset_inventory.json",
+    "manifests/historical_coverage_audit.json",
+    "manifests/historical_sitting_inventory.json",
+    "../hathi-nz/manifests/hathitrust-nz/nz_parliamentary_debates_hansard.json",
+    "../corpus-law-nz/docs/cross_corpus_interoperability_hansard.md"
+  ],
+  "manifest_version": 1,
+  "no_completeness_claims": [
+    "This bridge is evidence-only, not a completeness claim.",
+    "Historical completeness requires official reconciliation plus adjacent evidence.",
+    "NZ legislation and Gazette remain excluded from this track."
+  ],
+  "policy": {
+    "legislation_and_gazette_excluded": true,
+    "no_bulk_acquisition": true,
+    "no_completeness_claim": true,
+    "official_sources_first": true
+  },
+  "repository": "corpus-nz-hansard",
+  "source_map": [
+    {
+      "family": "hansard_debates",
+      "notes": "Official debates surface remains the anchor source.",
+      "posture": "official",
+      "role": "primary",
+      "source_id": "nz-parliament-hansard-current"
+    },
+    {
+      "family": "hansard_debates",
+      "notes": "Useful for older debate references and OCR cross-checks.",
+      "posture": "fallback",
+      "role": "gap-detection",
+      "source_id": "papers-past-hansard"
+    },
+    {
+      "family": "hansard_debates",
+      "notes": "Discovery and triangulation only, not a bulk dependency.",
+      "posture": "fallback",
+      "role": "gap-detection",
+      "source_id": "google-books-hansard-volumes"
+    },
+    {
+      "family": "hansard_debates",
+      "notes": "Physical holdings and catalogue metadata for unresolved gaps.",
+      "posture": "fallback",
+      "role": "gap-detection",
+      "source_id": "library-catalogue-hansard-holdings"
+    },
+    {
+      "family": "journals",
+      "notes": "Weekly journals remain an official reconciliation input.",
+      "posture": "official",
+      "role": "primary",
+      "source_id": "nz-parliament-weekly-journals-archive"
+    },
+    {
+      "family": "papers_presented_ajhr",
+      "notes": "Historical AJHR discovery input with rights and coverage notes.",
+      "posture": "fallback",
+      "role": "gap-detection",
+      "source_id": "papers-past-ajhr"
+    },
+    {
+      "family": "papers_presented_ajhr",
+      "notes": "Contextual only; helps locate British Parliamentary Papers relationships.",
+      "posture": "supporting",
+      "role": "contextual-triangulation",
+      "source_id": "o-nehera-british-parliamentary-papers-context"
+    },
+    {
+      "family": "parliamentary_rules_procedure",
+      "notes": "Evidence of user demand or gap discussion only.",
+      "posture": "evidence_only",
+      "role": "demand-signal",
+      "source_id": "data-govt-parliament-dataset-requests"
+    },
+    {
+      "family": "parliamentary_rules_procedure",
+      "notes": "Legislation is handled in the adjacent corpus-law-nz repo.",
+      "posture": "excluded",
+      "role": "boundary",
+      "source_id": "excluded-nz-legislation"
+    },
+    {
+      "family": "papers_presented_ajhr",
+      "notes": "Gazette records are outside this Parliament bridge.",
+      "posture": "excluded",
+      "role": "boundary",
+      "source_id": "excluded-nz-gazette"
+    }
+  ],
+  "track_id": "historical_coverage_breadth_integration_20260705"
+}

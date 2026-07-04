@@ -72,6 +72,8 @@ See manifests/authority_sources.json for the full inventory (Hansard corpus only
 
 `manifests/parliament_dataset_inventory.json` is the broader Parliament website dataset inventory for Hansard-adjacent expansion work. It covers Hansard/debates, Order Paper/questions, Daily Progress, Journals, papers/AJHR, select committees, petitions, members/parties/seating/contact downloads, procedure, and video/audio/calendar metadata while preserving the rule that NZ legislation and Gazette records stay outside this repo.
 
+Historical completeness and breadth work now continues through the `historical_coverage_breadth_integration_20260705` track and its companion bridge manifests. That track uses this repo's Parliament inventory together with adjacent HathiTrust evidence and the legislation boundary repo to narrow historical gaps without upgrading fallback sources into official sources.
+
 | Source ID | Corpus | Status |
 |---|---|---|
 | nz-parliament-members-current | hansard | Blocked (Radware) |
