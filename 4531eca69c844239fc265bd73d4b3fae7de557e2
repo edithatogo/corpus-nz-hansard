@@ -1,0 +1,15 @@
+Phase checkpoint: Source Taxonomy
+
+Verification:
+- pixi run python scripts/build_parliament_video_source_inventory.py
+- pixi run lint scripts/build_parliament_video_source_inventory.py
+- pixi run format-check scripts/build_parliament_video_source_inventory.py
+
+Manual verification plan:
+1. Inspect manifests/parliament_video_source_inventory.json.
+2. Confirm taxonomy.source_families, taxonomy.platform_classes, taxonomy.fallback_roles, taxonomy.rights_statuses, and taxonomy.archive_statuses are populated.
+3. Confirm source_summary.official_source_ids includes Parliament Video, YouTube, On Demand, select committee, Vimeo, embedded website, and search/sitemap surfaces.
+4. Confirm source_summary.fallback_ids_by_role separates TVNZ Archive, Nga Taonga, RNZ, Parliament Today, Archives New Zealand, Internet Archive, web archives, and adjacent repo evidence.
+
+Result:
+Automated checks passed. User requested continuous implementation, so manual confirmation is recorded as deferred to review.
