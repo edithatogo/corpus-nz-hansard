@@ -15,11 +15,11 @@ DOC_PATH = ROOT / "docs" / "historical-coverage-breadth-integration.md"
 EVIDENCE_PATH = (
     ROOT
     / "conductor"
-    / "tracks"
+    / "archive"
     / "historical_coverage_breadth_integration_20260705"
     / "evidence.md"
 )
-TRACK_PATH = ROOT / "conductor" / "tracks" / "historical_coverage_breadth_integration_20260705"
+TRACK_PATH = ROOT / "conductor" / "archive" / "historical_coverage_breadth_integration_20260705"
 HATHI_REPO = ROOT.parent / "hathi-nz"
 LEGISLATION_REPO = ROOT.parent / "corpus-law-nz"
 
@@ -95,7 +95,7 @@ def _failures() -> list[str]:
             )
         if required_phrase not in _read(EVIDENCE_PATH):
             failures.append(
-                f"conductor/tracks/historical_coverage_breadth_integration_20260705/evidence.md is missing: {required_phrase}"
+                f"conductor/archive/historical_coverage_breadth_integration_20260705/evidence.md is missing: {required_phrase}"
             )
 
     if manifest["historical_gap_model"]["statuses"] != ["open", "narrowed", "resolved", "excluded"]:

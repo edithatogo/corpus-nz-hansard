@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/21030190"
   },
-  "generated_at": "2026-07-03T14:09:32.272159+00:00",
+  "generated_at": "2026-07-05T01:37:54.556161+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -120,7 +120,7 @@
   "track_snapshot": {
     "summary_counts": {
       "blocked": 0,
-      "complete": 72,
+      "complete": 73,
       "in_progress": 0,
       "pending": 0
     },
@@ -553,6 +553,13 @@
         "track_id": "parliament_dataset_full_acquisition_20260703"
       },
       {
+        "goal": "build a cross-repo historical coverage reconciliation layer that improves historical completeness and breadth while coordinating Parliament website coverage with adjacent HathiTrust and legislation boundaries.",
+        "link": "./archive/historical_coverage_breadth_integration_20260705/",
+        "status": "x",
+        "title": "Historical Coverage Breadth Integration",
+        "track_id": "historical_coverage_breadth_integration_20260705"
+      },
+      {
         "goal": "Extract structured MP name, party, and electorate data from Wikipedia articles for Parliaments 47-53. 895 MP records extracted across all 7 target parliaments.",
         "link": "./tracks/wikipedia_mp_lists_acquisition_20260612/",
         "status": "x",
@@ -635,6 +642,6 @@
     "current_public_release_version": "0.1.0",
     "portal_built": true,
     "public_release_urls_recorded": true,
-    "track_rows": 72
+    "track_rows": 73
   }
 }

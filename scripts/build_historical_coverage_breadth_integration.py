@@ -12,7 +12,7 @@ DOC_PATH = ROOT / "docs" / "historical-coverage-breadth-integration.md"
 EVIDENCE_PATH = (
     ROOT
     / "conductor"
-    / "tracks"
+    / "archive"
     / "historical_coverage_breadth_integration_20260705"
     / "evidence.md"
 )
