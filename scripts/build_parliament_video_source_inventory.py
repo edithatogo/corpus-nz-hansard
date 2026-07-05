@@ -357,6 +357,24 @@ def build_manifest(generated_at: str) -> dict[str, Any]:
         }
         for family in taxonomy["source_families"]
     }
+    source_summary = {
+        "source_count": len(sources),
+        "official_source_count": sum(
+            1 for source in sources if source["source_role"] == "official"
+        ),
+        "fallback_source_count": sum(
+            1 for source in sources if source["source_role"] == "fallback"
+        ),
+        "supporting_source_count": sum(
+            1 for source in sources if source["source_role"] == "supporting"
+        ),
+        "official_source_ids": [
+            source["source_id"] for source in sources if source["source_role"] == "official"
+        ],
+        "fallback_source_ids": [
+            source["source_id"] for source in sources if source["source_role"] == "fallback"
+        ],
+    }
     return {
         "manifest_version": 1,
         "track_id": "parliament_video_source_inventory_20260705",
@@ -374,6 +392,7 @@ def build_manifest(generated_at: str) -> dict[str, Any]:
             "rights_review_required_before_media_acquisition": True,
         },
         "taxonomy": taxonomy,
+        "source_summary": source_summary,
         "sources": sources,
         "family_coverage": family_coverage,
         "next_track": "parliament_video_seed_fetchers_20260705",
@@ -386,6 +405,11 @@ def write_doc(manifest: dict[str, Any]) -> None:
             **source
         )
         for source in manifest["sources"]
+    )
+    official_rows = "\n".join(
+        f"- `{source['source_id']}`: {source['title']} ({source['platform_class']})"
+        for source in manifest["sources"]
+        if source["source_role"] == "official"
     )
     fallback_rows = "\n".join(
         f"- `{source['source_id']}`: {source['fallback_role']} ({source['publisher']})"
@@ -418,6 +442,10 @@ This inventory records public NZ Parliament video source surfaces and validation
 - Archive statuses: {", ".join(manifest["taxonomy"]["archive_statuses"])}
 
 ## Source Inventory
+
+Official source surfaces:
+
+{official_rows}
 
 | Source ID | Title | Role | Fallback role | Archive status |
 | --- | --- | --- | --- | --- |

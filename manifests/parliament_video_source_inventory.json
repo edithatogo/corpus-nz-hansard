@@ -79,6 +79,32 @@
     "rights_review_required_before_media_acquisition": true
   },
   "repository": "corpus-nz-hansard",
+  "source_summary": {
+    "fallback_source_count": 7,
+    "fallback_source_ids": [
+      "tvnz-archive-looking-back",
+      "nga-taonga-av-collection",
+      "rnz-parliament",
+      "parliament-today-am-network",
+      "archives-new-zealand-av-catalogue",
+      "internet-archive-webcaptures",
+      "memento-cdx-web-archives"
+    ],
+    "official_source_count": 9,
+    "official_source_ids": [
+      "official-parliament-video",
+      "official-parliament-live-and-recorded",
+      "official-youtube-nz-parliament",
+      "parliament-on-demand-house-archive",
+      "select-committee-on-demand-archive",
+      "select-committee-live-streams-current",
+      "select-committee-vimeo-pages",
+      "parliament-website-embedded-video-pages",
+      "parliament-site-search-and-sitemaps"
+    ],
+    "source_count": 19,
+    "supporting_source_count": 3
+  },
   "sources": [
     {
       "access_method": "metadata_probe_required",

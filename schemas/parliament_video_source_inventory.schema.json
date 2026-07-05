@@ -89,6 +89,52 @@
     "repository": {
       "const": "corpus-nz-hansard"
     },
+    "source_summary": {
+      "additionalProperties": false,
+      "properties": {
+        "fallback_source_count": {
+          "minimum": 1,
+          "type": "integer"
+        },
+        "fallback_source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "official_source_count": {
+          "minimum": 8,
+          "type": "integer"
+        },
+        "official_source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 8,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "source_count": {
+          "minimum": 15,
+          "type": "integer"
+        },
+        "supporting_source_count": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source_count",
+        "official_source_count",
+        "fallback_source_count",
+        "supporting_source_count",
+        "official_source_ids",
+        "fallback_source_ids"
+      ],
+      "type": "object"
+    },
     "sources": {
       "items": {
         "additionalProperties": false,
@@ -301,6 +347,7 @@
     "inventory_status",
     "policy",
     "taxonomy",
+    "source_summary",
     "sources",
     "family_coverage",
     "next_track"

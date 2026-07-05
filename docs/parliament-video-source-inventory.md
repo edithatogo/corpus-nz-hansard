@@ -23,6 +23,18 @@ This inventory records public NZ Parliament video source surfaces and validation
 
 ## Source Inventory
 
+Official source surfaces:
+
+- `official-parliament-video`: Official Parliament Video platform (official_parliament_video)
+- `official-parliament-live-and-recorded`: Parliament website live and recorded video surface (official_parliament_website)
+- `official-youtube-nz-parliament`: Official NZ Parliament YouTube channel (youtube)
+- `parliament-on-demand-house-archive`: Parliament On Demand house video archive (parliament_on_demand)
+- `select-committee-on-demand-archive`: Select Committees On Demand archive (parliament_on_demand)
+- `select-committee-live-streams-current`: Current select committee livestream pages (official_parliament_website)
+- `select-committee-vimeo-pages`: Vimeo pages linked from select committee livestream pages (vimeo)
+- `parliament-website-embedded-video-pages`: Embedded Parliament website video pages (official_parliament_website)
+- `parliament-site-search-and-sitemaps`: Parliament website search, sitemap, and feed discovery (search_or_sitemap)
+
 | Source ID | Title | Role | Fallback role | Archive status |
 | --- | --- | --- | --- | --- |
 | `official-parliament-video` | Official Parliament Video platform | official | not_fallback | external_source_identified |
