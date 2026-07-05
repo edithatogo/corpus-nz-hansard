@@ -131,6 +131,9 @@ jobs:
       - name: Parliament dataset full acquisition
         run: pixi run python scripts\check_parliament_dataset_full_acquisition.py
 
+      - name: Parliament video source inventory
+        run: pixi run python scripts\check_parliament_video_source_inventory.py
+
       - name: Parliament video track plan
         run: pixi run parliament-video-track-plan
 
