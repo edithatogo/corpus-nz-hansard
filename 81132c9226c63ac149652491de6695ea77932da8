@@ -1,0 +1,1 @@
+Track: parliament_video_seed_fetchers_20260705\n\nCheckpoint validation: pixi run python scripts/build_static_documentation_portal.py; pixi run python scripts/check_static_documentation_portal.py; pixi run parliament-video-track-plan.\nOutcome: passed. The track plan is archived, the registry was updated, and the portal remains consistent after the move.
