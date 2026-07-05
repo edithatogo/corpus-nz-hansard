@@ -19,6 +19,14 @@ Track ID: `parliament_dataset_seed_fetchers_20260703`
 
 Goal: add safe seed fetchers for high-value Parliament website dataset families identified by the inventory track, proving retrieval feasibility without bulk acquisition or publication claims.
 
+### [x] Track: Parliament Video Archive Coverage
+
+Track ID: `parliament_video_archive_coverage_20260705`
+
+Goal: record metadata-first coverage evidence for NZ Parliament video surfaces, confirming that YouTube, Parliament website video, prior On Demand, and select committee video archives are not completely archived locally or in adjacent repos.
+
+Link: [conductor/tracks/parliament_video_archive_coverage_20260705/](./tracks/parliament_video_archive_coverage_20260705/)
+
 ### [x] Track: Monthly Dynamic Archive Publication
 
 Track ID: `monthly_dynamic_archive_publication_20260629`

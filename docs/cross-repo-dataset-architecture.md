@@ -72,6 +72,8 @@ See manifests/authority_sources.json for the full inventory (Hansard corpus only
 
 `manifests/parliament_dataset_inventory.json` is the broader Parliament website dataset inventory for Hansard-adjacent expansion work. It covers Hansard/debates, Order Paper/questions, Daily Progress, Journals, papers/AJHR, select committees, petitions, members/parties/seating/contact downloads, procedure, and video/audio/calendar metadata while preserving the rule that NZ legislation and Gazette records stay outside this repo.
 
+`manifests/parliament_video_archive_coverage.json` is the metadata-first coverage ledger for Parliament video surfaces. It records that official YouTube, `videos.parliament.nz`, previous Parliament On Demand, and select committee video/Vimeo-era surfaces are not completely archived in this repo or adjacent repos. `sm-govt-nz` remains relevant for general government YouTube metadata coverage, but it is not a complete NZ Parliament video archive.
+
 Historical completeness and breadth work now continues through the `historical_coverage_breadth_integration_20260705` track and its companion bridge manifests. That track uses this repo's Parliament inventory together with adjacent HathiTrust evidence and the legislation boundary repo to narrow historical gaps without upgrading fallback sources into official sources.
 
 | Source ID | Corpus | Status |

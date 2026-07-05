@@ -1,0 +1,88 @@
+{
+  "adjacent_repo_findings": [
+    {
+      "evidence": "../sm-govt-nz/conductor/youtube_archive_summary.md and ../sm-govt-nz/conductor/govt_archive_readiness_matrix.json",
+      "finding": "General NZ government YouTube metadata archival exists, but local evidence did not show a complete official NZ Parliament YouTube or Parliament website video archive.",
+      "repo": "sm-govt-nz",
+      "video_archive_status": "metadata-only"
+    },
+    {
+      "evidence": "../hathi-nz/manifests/hathitrust-nz/nz_parliamentary_debates_hansard.json",
+      "finding": "HathiTrust-side work covers historical print/OCR evidence, not Parliament video.",
+      "repo": "hathi-nz",
+      "video_archive_status": "not-applicable"
+    },
+    {
+      "evidence": "../corpus-law-nz/docs/shared_nz_corpus_core_schema.md",
+      "finding": "Legislation and Gazette boundaries are adjacent but do not provide Parliament video coverage.",
+      "repo": "corpus-law-nz",
+      "video_archive_status": "not-applicable"
+    }
+  ],
+  "coverage_status": "not-complete",
+  "generated_at": "2026-07-05",
+  "manifest_version": 1,
+  "next_actions": [
+    "Create a metadata-only seed fetcher for the official NZ Parliament YouTube channel.",
+    "Create metadata probes for videos.parliament.nz and the previous On Demand site.",
+    "Inventory select committee archive and Vimeo-era links before any media-file acquisition decision.",
+    "Run a rights review before video download, transcript extraction, or public media publication."
+  ],
+  "policy": {
+    "metadata_first": true,
+    "no_completeness_claim": true,
+    "no_public_release": true,
+    "no_video_file_download": true,
+    "rights_review_required_before_media_acquisition": true
+  },
+  "repository": "corpus-nz-hansard",
+  "summary": {
+    "complete_video_archive": false,
+    "ongoing_archive_complete": false,
+    "retrospective_archive_complete": false,
+    "surface_count": 5
+  },
+  "surfaces": [
+    {
+      "coverage_period": "Public channel videos; local completeness not established.",
+      "local_status": "not-archived",
+      "rights_boundary": "third-party-platform-terms-review-required",
+      "surface_id": "official-youtube-nz-parliament",
+      "title": "Official NZ Parliament YouTube channel",
+      "url": "https://www.youtube.com/channel/UCuPya3mH6P9grNmgzmVdxoQ/videos"
+    },
+    {
+      "coverage_period": "54th Parliament onward according to Parliament website help.",
+      "local_status": "metadata-inventory-only",
+      "rights_boundary": "media-rights-review-required",
+      "surface_id": "parliament-videos-current",
+      "title": "Parliament website video platform",
+      "url": "https://videos.parliament.nz/"
+    },
+    {
+      "coverage_period": "53rd Parliament and earlier according to Parliament website help.",
+      "local_status": "external-only",
+      "rights_boundary": "media-rights-review-required",
+      "surface_id": "parliament-on-demand-previous",
+      "title": "Previous Parliament On Demand site",
+      "url": "https://ondemand.parliament.nz/"
+    },
+    {
+      "coverage_period": "Select committee archive, including 2018-2023 references.",
+      "local_status": "external-only",
+      "rights_boundary": "media-rights-review-required",
+      "surface_id": "select-committee-video-archive",
+      "title": "Select committee video archive",
+      "url": "https://ondemand.parliament.nz/select-committees"
+    },
+    {
+      "coverage_period": "Current and historical live-stream link surface, including Vimeo-era links.",
+      "local_status": "external-only",
+      "rights_boundary": "third-party-platform-terms-review-required",
+      "surface_id": "select-committee-live-stream-links",
+      "title": "Select committee live stream links",
+      "url": "https://www.parliament.nz/en/pb/sc/watch-select-committee-live-streams/"
+    }
+  ],
+  "track_id": "parliament_video_archive_coverage_20260705"
+}
