@@ -80,6 +80,28 @@
   },
   "repository": "corpus-nz-hansard",
   "source_summary": {
+    "fallback_ids_by_role": {
+      "audio_or_reporting_validation": [
+        "rnz-parliament",
+        "parliament-today-am-network"
+      ],
+      "boundary_evidence": [
+        "adjacent-sm-govt-nz",
+        "adjacent-hathi-nz",
+        "adjacent-corpus-law-nz"
+      ],
+      "catalogue_validation": [
+        "nga-taonga-av-collection",
+        "archives-new-zealand-av-catalogue"
+      ],
+      "historical_broadcast_validation": [
+        "tvnz-archive-looking-back"
+      ],
+      "link_rot_validation": [
+        "internet-archive-webcaptures",
+        "memento-cdx-web-archives"
+      ]
+    },
     "fallback_source_count": 7,
     "fallback_source_ids": [
       "tvnz-archive-looking-back",

@@ -104,6 +104,59 @@
           "type": "array",
           "uniqueItems": true
         },
+        "fallback_ids_by_role": {
+          "additionalProperties": false,
+          "properties": {
+            "audio_or_reporting_validation": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "boundary_evidence": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "catalogue_validation": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "historical_broadcast_validation": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "link_rot_validation": {
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array",
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "historical_broadcast_validation",
+            "catalogue_validation",
+            "audio_or_reporting_validation",
+            "link_rot_validation",
+            "boundary_evidence"
+          ],
+          "type": "object"
+        },
         "official_source_count": {
           "minimum": 8,
           "type": "integer"
@@ -131,7 +184,8 @@
         "fallback_source_count",
         "supporting_source_count",
         "official_source_ids",
-        "fallback_source_ids"
+        "fallback_source_ids",
+        "fallback_ids_by_role"
       ],
       "type": "object"
     },

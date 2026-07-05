@@ -106,6 +106,21 @@ def _adjacent_repo_source(source_id: str, repo: str, role: str, evidence: str) -
     }
 
 
+def _fallback_summary(sources: list[dict[str, Any]]) -> dict[str, list[str]]:
+    summary: dict[str, list[str]] = {
+        "historical_broadcast_validation": [],
+        "catalogue_validation": [],
+        "audio_or_reporting_validation": [],
+        "link_rot_validation": [],
+        "boundary_evidence": [],
+    }
+    for source in sources:
+        fallback_role = source["fallback_role"]
+        if fallback_role in summary:
+            summary[fallback_role].append(source["source_id"])
+    return summary
+
+
 def build_manifest(generated_at: str) -> dict[str, Any]:
     taxonomy = {
         "source_families": [
@@ -374,6 +389,7 @@ def build_manifest(generated_at: str) -> dict[str, Any]:
         "fallback_source_ids": [
             source["source_id"] for source in sources if source["source_role"] == "fallback"
         ],
+        "fallback_ids_by_role": _fallback_summary(sources),
     }
     return {
         "manifest_version": 1,
