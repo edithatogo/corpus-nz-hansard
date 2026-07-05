@@ -1,0 +1,18 @@
+Task: Address GitHub Actions failures after Parliament video track-plan hardening
+
+Summary:
+- Updated the historical coverage breadth checker so CI validates recorded adjacent-repo references without requiring sibling hathi-nz or corpus-law-nz worktrees to exist on the runner.
+- Regenerated the static documentation portal so the six active Parliament video tracks appear in the portal manifest and HTML track table.
+- Kept unrelated generated timestamp churn out of the commit.
+
+Validation:
+- pixi run python -m pytest -q tests/test_historical_coverage_breadth_integration.py tests/test_static_documentation_portal.py tests/test_parliament_video_track_plan.py
+- pixi run parliament-video-track-plan
+- pixi run python scripts/check_historical_coverage_breadth_integration.py
+- pixi run python scripts/check_static_documentation_portal.py
+- pixi run lint scripts/check_historical_coverage_breadth_integration.py scripts/check_parliament_video_track_plan.py tests/test_parliament_video_track_plan.py
+- pixi run format-check
+- pixi run test: 683 passed, 1 subtests passed
+
+Why:
+The pushed phase exposed a CI portability issue and stale generated portal outputs. This repair keeps adjacent repository evidence explicit while making CI self-contained, and it makes the active video tracks visible in the static documentation surface.
