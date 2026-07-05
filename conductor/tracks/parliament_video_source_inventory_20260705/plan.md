@@ -10,12 +10,12 @@
 ## Phase 1: Source Taxonomy
 - [x] Task: Define source families, platform classes, fallback classes, rights classes, and archive-status values. `d476db3`
 - [x] Task: List official Parliament Video, NZ Parliament YouTube, previous Parliament On Demand, select committee archive, Vimeo-era, embedded Parliament website, feed/API, sitemap, and search surfaces. `63c301d`
-- [~] Task: Add fallback-resource taxonomy for TVNZ Archive, Ngā Taonga, RNZ, Parliament Today, Archives New Zealand, Internet Archive, and web archives.
-- [ ] Task: Commit and annotate task outputs with git notes, then update this plan with task SHAs.
-- [ ] Task: Conductor - User Manual Verification 'Source Taxonomy' (Protocol in workflow.md)
+- [x] Task: Add fallback-resource taxonomy for TVNZ Archive, Ngā Taonga, RNZ, Parliament Today, Archives New Zealand, Internet Archive, and web archives. `4b76af1`
+- [x] Task: Commit and annotate task outputs with git notes, then update this plan with task SHAs. `d476db3`, `63c301d`, `4b76af1`
+- [x] Task: Conductor - User Manual Verification 'Source Taxonomy' (Protocol in workflow.md)
 
 ## Phase 2: Manifest And Docs
-- [ ] Task: Add source inventory schema, builder, manifest, and documentation.
+- [~] Task: Add source inventory schema, builder, manifest, and documentation.
 - [ ] Task: Record adjacent repo evidence from `sm-govt-nz`, `hathi-nz`, and `corpus-law-nz`.
 - [ ] Task: Add no-download/no-completeness policy checks.
 - [ ] Task: Commit and annotate task outputs with git notes, then update this plan with task SHAs.
