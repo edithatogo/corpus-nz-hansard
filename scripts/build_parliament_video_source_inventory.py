@@ -28,6 +28,7 @@ def _official_source(
     metadata_availability: str,
     evidence: list[str],
     blockers: list[str] | None = None,
+    rights_status: str = "rights_review_required",
 ) -> dict[str, Any]:
     return {
         "source_id": source_id,
@@ -41,7 +42,7 @@ def _official_source(
         "archive_status": "external_source_identified",
         "expected_date_range": date_range,
         "access_method": "metadata_probe_required",
-        "rights_status": "rights_review_required",
+        "rights_status": rights_status,
         "media_types": ["video", "audio", "metadata"],
         "metadata_availability": metadata_availability,
         "evidence_urls": evidence,
@@ -198,6 +199,7 @@ def build_manifest(generated_at: str) -> dict[str, Any]:
             metadata_availability="channel, playlist, video, livestream, and upload metadata",
             evidence=["https://www.youtube.com/channel/UCuPya3mH6P9grNmgzmVdxoQ"],
             blockers=["YouTube API quota or page access constraints"],
+            rights_status="platform_terms_review_required",
         ),
         _official_source(
             "parliament-on-demand-house-archive",
@@ -239,6 +241,7 @@ def build_manifest(generated_at: str) -> dict[str, Any]:
             metadata_availability="Vimeo page metadata linked from Parliament pages",
             evidence=["https://www3.parliament.nz/en/pb/sc/watch-select-committee-live-streams/"],
             blockers=["some pre-29 January 2024 videos may miss hearing information"],
+            rights_status="platform_terms_review_required",
         ),
         _official_source(
             "parliament-website-embedded-video-pages",

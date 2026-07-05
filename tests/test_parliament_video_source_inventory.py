@@ -66,6 +66,20 @@ class ParliamentVideoSourceInventoryTest(unittest.TestCase):
             {"inventory-only-no-completeness-claim"},
         )
 
+    def test_platform_sources_require_platform_terms_review(self) -> None:
+        manifest = _json(MANIFEST_PATH)
+        platform_sources = [
+            source
+            for source in manifest["sources"]
+            if source["platform_class"] in {"youtube", "vimeo"}
+        ]
+
+        self.assertTrue(platform_sources)
+        self.assertEqual(
+            {source["rights_status"] for source in platform_sources},
+            {"platform_terms_review_required"},
+        )
+
     def test_checker_rejects_duplicate_source_ids(self) -> None:
         manifest = _json(MANIFEST_PATH)
         broken = copy.deepcopy(manifest)

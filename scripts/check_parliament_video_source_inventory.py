@@ -148,6 +148,11 @@ def _validate_manifest(manifest: dict[str, Any]) -> list[str]:
                 failures.append(
                     f"{source_id} official source must use New Zealand Parliament publisher."
                 )
+            if (
+                source.get("platform_class") in {"youtube", "vimeo"}
+                and source.get("rights_status") != "platform_terms_review_required"
+            ):
+                failures.append(f"{source_id} platform source must require platform terms review.")
             if source.get("fallback_role") != "not_fallback":
                 failures.append(f"{source_id} official source must use fallback_role=not_fallback.")
             if source.get("acquisition_boundary") != "metadata_only_no_media_download":
