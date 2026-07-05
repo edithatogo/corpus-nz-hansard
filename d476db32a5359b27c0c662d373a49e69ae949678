@@ -1,0 +1,15 @@
+Task: Define Parliament video source taxonomy
+
+Summary:
+- Added the deterministic Parliament video source inventory builder.
+- Added schema, generated manifest, and documentation for metadata-first/no-download source taxonomy.
+- Defined source families, platform classes, fallback roles, rights statuses, and archive statuses.
+- Included official, fallback, web-archive, and adjacent-repo evidence records without media acquisition.
+
+Validation:
+- pixi run python scripts/build_parliament_video_source_inventory.py
+- pixi run lint scripts/build_parliament_video_source_inventory.py
+- pixi run format-check scripts/build_parliament_video_source_inventory.py
+
+Why:
+The source inventory track needs a stable, machine-readable taxonomy before seed fetchers can choose bounded proof targets.
