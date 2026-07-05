@@ -1,0 +1,3 @@
+Track: parliament_video_source_inventory_20260705
+Phase: Validation
+Validation: pixi run parliament-video-source-inventory; pixi run parliament-video-track-plan; pixi run python scripts/check_static_documentation_portal.py; pixi run quality-config; pixi run lint scripts/check_parliament_video_source_inventory.py tests/test_parliament_video_source_inventory.py scripts/check_quality_gate.py; pixi run format-check scripts/check_parliament_video_source_inventory.py tests/test_parliament_video_source_inventory.py scripts/check_quality_gate.py; pixi run test (689 passed, 1 subtests passed)
