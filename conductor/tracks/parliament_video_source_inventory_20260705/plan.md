@@ -8,8 +8,8 @@
 - GitHub Actions visibility is required through the Quality workflow step that runs `scripts/check_parliament_video_track_plan.py`.
 
 ## Phase 1: Source Taxonomy
-- [ ] Task: Define source families, platform classes, fallback classes, rights classes, and archive-status values.
-- [ ] Task: List official Parliament Video, NZ Parliament YouTube, previous Parliament On Demand, select committee archive, Vimeo-era, embedded Parliament website, feed/API, sitemap, and search surfaces.
+- [x] Task: Define source families, platform classes, fallback classes, rights classes, and archive-status values. `d476db3`
+- [~] Task: List official Parliament Video, NZ Parliament YouTube, previous Parliament On Demand, select committee archive, Vimeo-era, embedded Parliament website, feed/API, sitemap, and search surfaces.
 - [ ] Task: Add fallback-resource taxonomy for TVNZ Archive, Ngā Taonga, RNZ, Parliament Today, Archives New Zealand, Internet Archive, and web archives.
 - [ ] Task: Commit and annotate task outputs with git notes, then update this plan with task SHAs.
 - [ ] Task: Conductor - User Manual Verification 'Source Taxonomy' (Protocol in workflow.md)

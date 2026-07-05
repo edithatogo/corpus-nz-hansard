@@ -13,7 +13,7 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Parliament Video Source Inventory
+### [~] Track: Parliament Video Source Inventory
 
 Track ID: `parliament_video_source_inventory_20260705`
 
