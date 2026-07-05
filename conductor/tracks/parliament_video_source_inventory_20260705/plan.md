@@ -21,7 +21,7 @@
 - [x] Task: Commit and annotate task outputs with git notes, then update this plan with task SHAs. `06d332f`
 - [x] Task: Conductor - User Manual Verification 'Manifest And Docs' (Protocol in workflow.md) `06d332f`
 
-## Phase 3: Validation
+## Phase 3: Validation [checkpoint: 44f1aac]
 - [x] Task: Add tests and checker for inventory completeness, rights status, and source ids. `06d332f`
 - [x] Task: Run focused and repo-level validation, including `pixi run parliament-video-track-plan`. `f02b360`
 - [x] Task: Create phase checkpoint, push to the remote after each phase, inspect GitHub Actions, and address any failing checks before handoff. `f02b360`
