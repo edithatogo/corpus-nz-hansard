@@ -1,0 +1,4 @@
+Track: parliament_video_source_inventory_20260705
+Phase: Manifest And Docs
+Validation: pixi run parliament-video-source-inventory; pixi run python scripts/run_pytest_with_repo_tmp.py -q tests/test_parliament_video_source_inventory.py; pixi run lint scripts/check_parliament_video_source_inventory.py tests/test_parliament_video_source_inventory.py scripts/check_quality_gate.py; pixi run format-check scripts/check_parliament_video_source_inventory.py tests/test_parliament_video_source_inventory.py scripts/check_quality_gate.py; pixi run quality-config
+Manual verification: completed through repo-local manifest, docs, and checker evidence because the user requested continuous implementation.
