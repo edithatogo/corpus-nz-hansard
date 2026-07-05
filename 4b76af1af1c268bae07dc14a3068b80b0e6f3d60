@@ -1,0 +1,14 @@
+Task: Add fallback-resource taxonomy
+
+Summary:
+- Added fallback_ids_by_role to the source summary.
+- Grouped fallback and supporting evidence into historical broadcast, catalogue, audio/reporting, link-rot, and boundary-evidence roles.
+- Regenerated manifest and docs without downloading media.
+
+Validation:
+- pixi run python scripts/build_parliament_video_source_inventory.py
+- pixi run lint scripts/build_parliament_video_source_inventory.py
+- pixi run format-check scripts/build_parliament_video_source_inventory.py
+
+Why:
+Later reconciliation needs fallback resources ranked by evidence role, not just listed as generic non-official sources.
