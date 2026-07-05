@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/21030190"
   },
-  "generated_at": "2026-07-05T07:33:25.138336+00:00",
+  "generated_at": "2026-07-05T07:37:17.326051+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -131,13 +131,6 @@
         "status": "x",
         "title": "Parliament Dataset Seed Fetchers",
         "track_id": "parliament_dataset_seed_fetchers_20260703"
-      },
-      {
-        "goal": "record metadata-first coverage evidence for NZ Parliament video surfaces, confirming that YouTube, Parliament website video, prior On Demand, and select committee video archives are not completely archived locally or in adjacent repos.",
-        "link": "./tracks/parliament_video_archive_coverage_20260705/",
-        "status": "x",
-        "title": "Parliament Video Archive Coverage",
-        "track_id": "parliament_video_archive_coverage_20260705"
       },
       {
         "goal": "ensure the entire current archive is rebuilt and published through monthly dynamic GitHub Actions releases to Hugging Face and Zenodo with protected publication gates, rights-safe exclusions, and cross-surface release evidence.",
@@ -565,6 +558,13 @@
         "status": "x",
         "title": "Historical Coverage Breadth Integration",
         "track_id": "historical_coverage_breadth_integration_20260705"
+      },
+      {
+        "goal": "record metadata-first coverage evidence for NZ Parliament video surfaces, confirming that YouTube, Parliament website video, prior On Demand, and select committee video archives are not completely archived locally or in adjacent repos.",
+        "link": "./archive/parliament_video_archive_coverage_20260705/",
+        "status": "x",
+        "title": "Parliament Video Archive Coverage",
+        "track_id": "parliament_video_archive_coverage_20260705"
       },
       {
         "goal": "Extract structured MP name, party, and electorate data from Wikipedia articles for Parliaments 47-53. 895 MP records extracted across all 7 target parliaments.",
