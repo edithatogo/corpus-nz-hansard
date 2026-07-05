@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/21030190"
   },
-  "generated_at": "2026-07-05T15:18:26.009171+00:00",
+  "generated_at": "2026-07-05T15:30:13.268558+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -120,18 +120,11 @@
   "track_snapshot": {
     "summary_counts": {
       "blocked": 0,
-      "complete": 75,
-      "in_progress": 1,
+      "complete": 76,
+      "in_progress": 0,
       "pending": 4
     },
     "tracks": [
-      {
-        "goal": "add bounded metadata-only seed fetchers for official YouTube, Parliament website video, previous On Demand, select committee archive, and Vimeo-era Parliament video surfaces.",
-        "link": "./tracks/parliament_video_seed_fetchers_20260705/",
-        "status": "~",
-        "title": "Parliament Video Seed Fetchers",
-        "track_id": "parliament_video_seed_fetchers_20260705"
-      },
       {
         "goal": "scale from seed proofs to complete, resumable, hash-backed metadata capture for all approved NZ Parliament video surfaces without downloading media files.",
         "link": "./tracks/parliament_video_full_metadata_archive_20260705/",
@@ -579,6 +572,13 @@
         "status": "x",
         "title": "Parliament Video Source Inventory",
         "track_id": "parliament_video_source_inventory_20260705"
+      },
+      {
+        "goal": "add bounded metadata-only seed fetchers for official YouTube, Parliament website video, previous On Demand, select committee archive, and Vimeo-era Parliament video surfaces.",
+        "link": "./archive/parliament_video_seed_fetchers_20260705/",
+        "status": "x",
+        "title": "Parliament Video Seed Fetchers",
+        "track_id": "parliament_video_seed_fetchers_20260705"
       },
       {
         "goal": "add safe seed fetchers for high-value Parliament website dataset families identified by the inventory track, proving retrieval feasibility without bulk acquisition or publication claims.",
