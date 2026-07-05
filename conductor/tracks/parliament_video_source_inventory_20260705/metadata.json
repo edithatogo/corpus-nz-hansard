@@ -1,6 +1,11 @@
 {
   "created_at": "2026-07-05",
   "description": "Inventory all known NZ Parliament video source surfaces before capture.",
+  "github_actions": {
+    "quality_workflow": ".github/workflows/quality.yml",
+    "required_check": "Parliament video track plan",
+    "required_script": "scripts/check_parliament_video_track_plan.py"
+  },
   "id": "parliament_video_source_inventory_20260705",
   "status": "pending",
   "title": "Parliament Video Source Inventory",

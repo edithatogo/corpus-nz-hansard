@@ -1,6 +1,11 @@
 {
   "created_at": "2026-07-05",
   "description": "Complete metadata capture for approved NZ Parliament video surfaces.",
+  "github_actions": {
+    "quality_workflow": ".github/workflows/quality.yml",
+    "required_check": "Parliament video track plan",
+    "required_script": "scripts/check_parliament_video_track_plan.py"
+  },
   "id": "parliament_video_full_metadata_archive_20260705",
   "status": "pending",
   "title": "Parliament Video Full Metadata Archive",

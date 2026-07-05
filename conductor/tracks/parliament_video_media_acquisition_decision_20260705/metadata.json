@@ -1,6 +1,11 @@
 {
   "created_at": "2026-07-05",
   "description": "Rights and acquisition decision gate for NZ Parliament video files.",
+  "github_actions": {
+    "quality_workflow": ".github/workflows/quality.yml",
+    "required_check": "Parliament video track plan",
+    "required_script": "scripts/check_parliament_video_track_plan.py"
+  },
   "id": "parliament_video_media_acquisition_decision_20260705",
   "status": "pending",
   "title": "Parliament Video Media Acquisition Decision",
