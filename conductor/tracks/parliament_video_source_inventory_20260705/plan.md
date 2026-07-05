@@ -15,14 +15,14 @@
 - [x] Task: Conductor - User Manual Verification 'Source Taxonomy' (Protocol in workflow.md)
 
 ## Phase 2: Manifest And Docs
-- [~] Task: Add source inventory schema, builder, manifest, and documentation.
-- [ ] Task: Record adjacent repo evidence from `sm-govt-nz`, `hathi-nz`, and `corpus-law-nz`.
-- [ ] Task: Add no-download/no-completeness policy checks.
-- [ ] Task: Commit and annotate task outputs with git notes, then update this plan with task SHAs.
+- [x] Task: Add source inventory schema, builder, manifest, and documentation. `06d332f`
+- [x] Task: Record adjacent repo evidence from `sm-govt-nz`, `hathi-nz`, and `corpus-law-nz`. `06d332f`
+- [x] Task: Add no-download/no-completeness policy checks. `06d332f`
+- [x] Task: Commit and annotate task outputs with git notes, then update this plan with task SHAs. `06d332f`
 - [ ] Task: Conductor - User Manual Verification 'Manifest And Docs' (Protocol in workflow.md)
 
 ## Phase 3: Validation
-- [ ] Task: Add tests and checker for inventory completeness, rights status, and source ids.
+- [~] Task: Add tests and checker for inventory completeness, rights status, and source ids.
 - [ ] Task: Run focused and repo-level validation, including `pixi run parliament-video-track-plan`.
 - [ ] Task: Create phase checkpoint, push to the remote after each phase, inspect GitHub Actions, and address any failing checks before handoff.
 - [ ] Task: Conductor - User Manual Verification 'Validation' (Protocol in workflow.md)
