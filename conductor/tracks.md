@@ -13,6 +13,54 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
+### [ ] Track: Parliament Video Source Inventory
+
+Track ID: `parliament_video_source_inventory_20260705`
+
+Goal: inventory every known public NZ Parliament video source surface, rights boundary, access path, expected date range, and adjacent-repo evidence before metadata capture.
+
+Link: [conductor/tracks/parliament_video_source_inventory_20260705/](./tracks/parliament_video_source_inventory_20260705/)
+
+### [ ] Track: Parliament Video Seed Fetchers
+
+Track ID: `parliament_video_seed_fetchers_20260705`
+
+Goal: add bounded metadata-only seed fetchers for official YouTube, Parliament website video, previous On Demand, select committee archive, and Vimeo-era Parliament video surfaces.
+
+Link: [conductor/tracks/parliament_video_seed_fetchers_20260705/](./tracks/parliament_video_seed_fetchers_20260705/)
+
+### [ ] Track: Parliament Video Full Metadata Archive
+
+Track ID: `parliament_video_full_metadata_archive_20260705`
+
+Goal: scale from seed proofs to complete, resumable, hash-backed metadata capture for all approved NZ Parliament video surfaces without downloading media files.
+
+Link: [conductor/tracks/parliament_video_full_metadata_archive_20260705/](./tracks/parliament_video_full_metadata_archive_20260705/)
+
+### [ ] Track: Parliament Video Reconciliation
+
+Track ID: `parliament_video_reconciliation_20260705`
+
+Goal: reconcile Parliament video metadata against sitting calendars, Hansard dates, committee meetings, source indexes, YouTube, On Demand, Vimeo, and Internet Archive evidence before any completeness claim.
+
+Link: [conductor/tracks/parliament_video_reconciliation_20260705/](./tracks/parliament_video_reconciliation_20260705/)
+
+### [ ] Track: Parliament Video Media Acquisition Decision
+
+Track ID: `parliament_video_media_acquisition_decision_20260705`
+
+Goal: record the rights, storage, and publication decision gate that must pass before any Parliament video or audio files are downloaded or archived.
+
+Link: [conductor/tracks/parliament_video_media_acquisition_decision_20260705/](./tracks/parliament_video_media_acquisition_decision_20260705/)
+
+### [ ] Track: Parliament Video Ongoing Archive
+
+Track ID: `parliament_video_ongoing_archive_20260705`
+
+Goal: set up scheduled Parliament video metadata refresh, gap monitoring, link-rot checks, and no-media-download guards after full metadata capture and reconciliation are in place.
+
+Link: [conductor/tracks/parliament_video_ongoing_archive_20260705/](./tracks/parliament_video_ongoing_archive_20260705/)
+
 ### [x] Track: Parliament Dataset Seed Fetchers
 
 Track ID: `parliament_dataset_seed_fetchers_20260703`
