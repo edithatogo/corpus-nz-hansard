@@ -1,0 +1,20 @@
+Task: Harden Parliament video Conductor implementation plans
+
+Summary:
+- Expanded all six active Parliament video Conductor tracks with detailed implementation discipline.
+- Added fallback-resource coverage for TVNZ Archive, Ngā Taonga Sound & Vision, RNZ, Parliament Today/AM Network, Archives New Zealand, Internet Archive, and web archives.
+- Added explicit per-task commit/git notes requirements, phase checkpoint requirements, push-after-phase requirements, and GitHub Actions failure repair requirements.
+- Added github_actions metadata to each video track.
+- Added scripts/check_parliament_video_track_plan.py and tests/test_parliament_video_track_plan.py.
+- Wired the checker into pixi.toml and .github/workflows/quality.yml.
+
+Validation:
+- pixi run parliament-video-track-plan
+- pixi run python -m pytest -q tests/test_parliament_video_track_plan.py
+- pixi run lint scripts/check_parliament_video_track_plan.py tests/test_parliament_video_track_plan.py
+- pixi run format-check
+- pixi run workflow-audit
+- pixi run toml-check
+
+Why:
+The video archive programme needs an auditable metadata-first plan that is enforced by CI before implementation begins. This commit makes the Conductor tracks and GitHub Actions agree on that discipline.
