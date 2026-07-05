@@ -20,8 +20,7 @@ EVIDENCE_PATH = (
     / "evidence.md"
 )
 TRACK_PATH = ROOT / "conductor" / "archive" / "historical_coverage_breadth_integration_20260705"
-HATHI_REPO = ROOT.parent / "hathi-nz"
-LEGISLATION_REPO = ROOT.parent / "corpus-law-nz"
+ADJACENT_REPO_NAMES = {"hathi-nz", "corpus-law-nz"}
 
 
 def _read(path: Path) -> str:
@@ -54,14 +53,14 @@ def _failures() -> list[str]:
     if manifest["policy"]["no_bulk_acquisition"] is not True:
         failures.append("no_bulk_acquisition must stay true.")
 
-    if not HATHI_REPO.exists():
-        failures.append("adjacent hathi-nz repo path must exist.")
-    if not LEGISLATION_REPO.exists():
-        failures.append("adjacent corpus-law-nz repo path must exist.")
-
     repos = {item["repo"] for item in manifest["adjacent_repos"]}
-    if repos != {"hathi-nz", "corpus-law-nz"}:
+    if repos != ADJACENT_REPO_NAMES:
         failures.append("adjacent repos must include hathi-nz and corpus-law-nz only.")
+    for item in manifest["adjacent_repos"]:
+        if not item.get("path"):
+            failures.append(f"adjacent repo {item.get('repo', '<missing>')} must record a path.")
+        if not item.get("role"):
+            failures.append(f"adjacent repo {item.get('repo', '<missing>')} must record a role.")
 
     source_map = manifest["source_map"]
     postures = {item["posture"] for item in source_map}

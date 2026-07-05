@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/21030190"
   },
-  "generated_at": "2026-07-05T07:37:17.326051+00:00",
+  "generated_at": "2026-07-05T12:33:49.061335+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -122,9 +122,51 @@
       "blocked": 0,
       "complete": 74,
       "in_progress": 0,
-      "pending": 0
+      "pending": 6
     },
     "tracks": [
+      {
+        "goal": "inventory every known public NZ Parliament video source surface, rights boundary, access path, expected date range, and adjacent-repo evidence before metadata capture.",
+        "link": "./tracks/parliament_video_source_inventory_20260705/",
+        "status": " ",
+        "title": "Parliament Video Source Inventory",
+        "track_id": "parliament_video_source_inventory_20260705"
+      },
+      {
+        "goal": "add bounded metadata-only seed fetchers for official YouTube, Parliament website video, previous On Demand, select committee archive, and Vimeo-era Parliament video surfaces.",
+        "link": "./tracks/parliament_video_seed_fetchers_20260705/",
+        "status": " ",
+        "title": "Parliament Video Seed Fetchers",
+        "track_id": "parliament_video_seed_fetchers_20260705"
+      },
+      {
+        "goal": "scale from seed proofs to complete, resumable, hash-backed metadata capture for all approved NZ Parliament video surfaces without downloading media files.",
+        "link": "./tracks/parliament_video_full_metadata_archive_20260705/",
+        "status": " ",
+        "title": "Parliament Video Full Metadata Archive",
+        "track_id": "parliament_video_full_metadata_archive_20260705"
+      },
+      {
+        "goal": "reconcile Parliament video metadata against sitting calendars, Hansard dates, committee meetings, source indexes, YouTube, On Demand, Vimeo, and Internet Archive evidence before any completeness claim.",
+        "link": "./tracks/parliament_video_reconciliation_20260705/",
+        "status": " ",
+        "title": "Parliament Video Reconciliation",
+        "track_id": "parliament_video_reconciliation_20260705"
+      },
+      {
+        "goal": "record the rights, storage, and publication decision gate that must pass before any Parliament video or audio files are downloaded or archived.",
+        "link": "./tracks/parliament_video_media_acquisition_decision_20260705/",
+        "status": " ",
+        "title": "Parliament Video Media Acquisition Decision",
+        "track_id": "parliament_video_media_acquisition_decision_20260705"
+      },
+      {
+        "goal": "set up scheduled Parliament video metadata refresh, gap monitoring, link-rot checks, and no-media-download guards after full metadata capture and reconciliation are in place.",
+        "link": "./tracks/parliament_video_ongoing_archive_20260705/",
+        "status": " ",
+        "title": "Parliament Video Ongoing Archive",
+        "track_id": "parliament_video_ongoing_archive_20260705"
+      },
       {
         "goal": "add safe seed fetchers for high-value Parliament website dataset families identified by the inventory track, proving retrieval feasibility without bulk acquisition or publication claims.",
         "link": "",
@@ -649,6 +691,6 @@
     "current_public_release_version": "0.1.0",
     "portal_built": true,
     "public_release_urls_recorded": true,
-    "track_rows": 74
+    "track_rows": 80
   }
 }
