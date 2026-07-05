@@ -13,14 +13,6 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [~] Track: Parliament Video Source Inventory
-
-Track ID: `parliament_video_source_inventory_20260705`
-
-Goal: inventory every known public NZ Parliament video source surface, rights boundary, access path, expected date range, and adjacent-repo evidence before metadata capture.
-
-Link: [conductor/tracks/parliament_video_source_inventory_20260705/](./tracks/parliament_video_source_inventory_20260705/)
-
 ### [ ] Track: Parliament Video Seed Fetchers
 
 Track ID: `parliament_video_seed_fetchers_20260705`
@@ -540,6 +532,14 @@ Goal: auxiliary source-inventory track created during Phase 1. Implementation ev
 Link: [conductor/tracks/source_inventory_20260602/](./tracks/source_inventory_20260602/)
 
 ## Archived Tracks
+
+### [x] Track: Parliament Video Source Inventory
+
+Track ID: `parliament_video_source_inventory_20260705`
+
+Goal: inventory every known public NZ Parliament video source surface, rights boundary, access path, expected date range, and adjacent-repo evidence before metadata capture.
+
+Link: [conductor/archive/parliament_video_source_inventory_20260705/](./archive/parliament_video_source_inventory_20260705/)
 
 ### [x] Track: Parliament Dataset Seed Fetchers
 

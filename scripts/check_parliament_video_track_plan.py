@@ -1,4 +1,4 @@
-"""Validate the active Parliament video Conductor track plan discipline."""
+"""Validate the Parliament video Conductor track plan discipline."""
 
 from __future__ import annotations
 
@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TRACK_ROOT = ROOT / "conductor" / "tracks"
+ARCHIVE_ROOT = ROOT / "conductor" / "archive"
 TRACKS_REGISTRY = ROOT / "conductor" / "tracks.md"
 QUALITY_WORKFLOW = ROOT / ".github" / "workflows" / "quality.yml"
 PIXI_TOML = ROOT / "pixi.toml"
@@ -62,7 +63,9 @@ def _missing_fragments(text: str, fragments: tuple[str, ...]) -> list[str]:
 
 def _validate_track(track_id: str) -> list[str]:
     failures: list[str] = []
-    track_dir = TRACK_ROOT / track_id
+    active_dir = TRACK_ROOT / track_id
+    archive_dir = ARCHIVE_ROOT / track_id
+    track_dir = active_dir if active_dir.exists() else archive_dir
     for filename in ("spec.md", "plan.md", "metadata.json", "index.md"):
         path = track_dir / filename
         if not path.exists():

@@ -7,7 +7,7 @@
     "required_script": "scripts/check_parliament_video_track_plan.py"
   },
   "id": "parliament_video_source_inventory_20260705",
-  "status": "in_progress",
+  "status": "complete",
   "title": "Parliament Video Source Inventory",
   "track_id": "parliament_video_source_inventory_20260705"
 }

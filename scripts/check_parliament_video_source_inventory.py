@@ -12,7 +12,10 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "manifests" / "parliament_video_source_inventory.json"
 SCHEMA_PATH = ROOT / "schemas" / "parliament_video_source_inventory.schema.json"
 DOC_PATH = ROOT / "docs" / "parliament-video-source-inventory.md"
-TRACK_PLAN_PATH = ROOT / "conductor/tracks/parliament_video_source_inventory_20260705/plan.md"
+TRACK_PLAN_PATHS = (
+    ROOT / "conductor/tracks/parliament_video_source_inventory_20260705/plan.md",
+    ROOT / "conductor/archive/parliament_video_source_inventory_20260705/plan.md",
+)
 
 REQUIRED_SOURCE_FAMILIES = {
     "house_video",
@@ -232,9 +235,12 @@ def _validate_manifest(manifest: dict[str, Any]) -> list[str]:
 
 def _failures() -> list[str]:
     failures: list[str] = []
-    for path in (MANIFEST_PATH, SCHEMA_PATH, DOC_PATH, TRACK_PLAN_PATH):
+    for path in (MANIFEST_PATH, SCHEMA_PATH, DOC_PATH):
         if not path.exists():
             failures.append(f"{path.relative_to(ROOT).as_posix()} must exist.")
+    track_plan_path = next((path for path in TRACK_PLAN_PATHS if path.exists()), None)
+    if track_plan_path is None:
+        failures.append("Parliament video source inventory track plan must exist.")
     if failures:
         return failures
 
@@ -255,7 +261,7 @@ def _failures() -> list[str]:
         if required not in doc:
             failures.append(f"{DOC_PATH.relative_to(ROOT).as_posix()} is missing: {required}")
 
-    plan = _read(TRACK_PLAN_PATH)
+    plan = _read(track_plan_path)
     if "No media download is allowed" not in plan:
         failures.append("track plan must preserve the no-media-download rule.")
 
