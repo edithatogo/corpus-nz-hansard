@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/21030190"
   },
-  "generated_at": "2026-07-05T12:33:49.061335+00:00",
+  "generated_at": "2026-07-05T14:23:24.480015+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -121,14 +121,14 @@
     "summary_counts": {
       "blocked": 0,
       "complete": 74,
-      "in_progress": 0,
-      "pending": 6
+      "in_progress": 1,
+      "pending": 5
     },
     "tracks": [
       {
         "goal": "inventory every known public NZ Parliament video source surface, rights boundary, access path, expected date range, and adjacent-repo evidence before metadata capture.",
         "link": "./tracks/parliament_video_source_inventory_20260705/",
-        "status": " ",
+        "status": "~",
         "title": "Parliament Video Source Inventory",
         "track_id": "parliament_video_source_inventory_20260705"
       },
