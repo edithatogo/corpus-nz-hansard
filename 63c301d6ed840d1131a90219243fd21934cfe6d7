@@ -1,0 +1,14 @@
+Task: List official Parliament video source surfaces
+
+Summary:
+- Added source_summary to the source inventory manifest.
+- Exposed official_source_ids and fallback_source_ids for downstream seed target selection.
+- Updated generated docs to list official source surfaces explicitly.
+
+Validation:
+- pixi run python scripts/build_parliament_video_source_inventory.py
+- pixi run lint scripts/build_parliament_video_source_inventory.py
+- pixi run format-check scripts/build_parliament_video_source_inventory.py
+
+Why:
+Seed fetchers need a compact machine-readable list of official source surfaces instead of deriving that from all source rows.
