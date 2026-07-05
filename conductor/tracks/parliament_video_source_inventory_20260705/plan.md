@@ -23,6 +23,6 @@
 
 ## Phase 3: Validation
 - [x] Task: Add tests and checker for inventory completeness, rights status, and source ids. `06d332f`
-- [ ] Task: Run focused and repo-level validation, including `pixi run parliament-video-track-plan`.
-- [ ] Task: Create phase checkpoint, push to the remote after each phase, inspect GitHub Actions, and address any failing checks before handoff.
-- [ ] Task: Conductor - User Manual Verification 'Validation' (Protocol in workflow.md)
+- [x] Task: Run focused and repo-level validation, including `pixi run parliament-video-track-plan`. `f02b360`
+- [x] Task: Create phase checkpoint, push to the remote after each phase, inspect GitHub Actions, and address any failing checks before handoff. `f02b360`
+- [x] Task: Conductor - User Manual Verification 'Validation' (Protocol in workflow.md) `f02b360`
