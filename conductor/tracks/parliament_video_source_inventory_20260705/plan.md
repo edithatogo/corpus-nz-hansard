@@ -7,7 +7,7 @@
 - This track must remain metadata-first/no-download. No media download is allowed, including video or audio media files.
 - GitHub Actions visibility is required through the Quality workflow step that runs `scripts/check_parliament_video_track_plan.py`.
 
-## Phase 1: Source Taxonomy
+## Phase 1: Source Taxonomy [checkpoint: 4531eca]
 - [x] Task: Define source families, platform classes, fallback classes, rights classes, and archive-status values. `d476db3`
 - [x] Task: List official Parliament Video, NZ Parliament YouTube, previous Parliament On Demand, select committee archive, Vimeo-era, embedded Parliament website, feed/API, sitemap, and search surfaces. `63c301d`
 - [x] Task: Add fallback-resource taxonomy for TVNZ Archive, Ngā Taonga, RNZ, Parliament Today, Archives New Zealand, Internet Archive, and web archives. `4b76af1`
