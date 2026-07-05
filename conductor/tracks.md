@@ -13,7 +13,7 @@ This file tracks major work items for `corpus-nz-hansard`.
 
 ## Active Tracks
 
-### [ ] Track: Parliament Video Seed Fetchers
+### [~] Track: Parliament Video Seed Fetchers
 
 Track ID: `parliament_video_seed_fetchers_20260705`
 

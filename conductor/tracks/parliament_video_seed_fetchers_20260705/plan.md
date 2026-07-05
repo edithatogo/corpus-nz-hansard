@@ -8,7 +8,7 @@
 - GitHub Actions visibility is required through the Quality workflow step that runs `scripts/check_parliament_video_track_plan.py`.
 
 ## Phase 1: Fetcher Contracts
-- [ ] Task: Define normalized video metadata, source snapshot, blocked-state, and hash fields.
+- [~] Task: Define normalized video metadata, source snapshot, blocked-state, and hash fields.
 - [ ] Task: Select bounded seed targets from the source inventory track.
 - [ ] Task: Define fallback proof contracts for TVNZ Archive, Ngā Taonga, RNZ, Parliament Today, Archives New Zealand, Internet Archive, and web archives.
 - [ ] Task: Commit and annotate task outputs with git notes, then update this plan with task SHAs.

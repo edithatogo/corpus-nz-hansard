@@ -1,0 +1,349 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "generated_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "handoff": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "next_track": {
+            "type": "string"
+          },
+          "proof_requirement": {
+            "type": "string"
+          },
+          "source_family": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_family",
+          "next_track",
+          "proof_requirement"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "inventory_manifest": {
+      "const": "manifests/parliament_video_source_inventory.json"
+    },
+    "manifest_version": {
+      "const": 1
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "fallbacks_are_validation_only": {
+          "const": true
+        },
+        "metadata_first": {
+          "const": true
+        },
+        "no_audio_file_download": {
+          "const": true
+        },
+        "no_completeness_claim": {
+          "const": true
+        },
+        "no_media_download": {
+          "const": true
+        },
+        "no_public_media_release": {
+          "const": true
+        },
+        "no_video_file_download": {
+          "const": true
+        },
+        "rights_review_required_before_media_acquisition": {
+          "const": true
+        }
+      },
+      "required": [
+        "metadata_first",
+        "no_media_download",
+        "no_video_file_download",
+        "no_audio_file_download",
+        "no_public_media_release",
+        "no_completeness_claim",
+        "fallbacks_are_validation_only",
+        "rights_review_required_before_media_acquisition"
+      ],
+      "type": "object"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "source_summary": {
+      "additionalProperties": false,
+      "properties": {
+        "fallback_source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "official_source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "proof_statuses": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "rights_gated_source_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "official_source_ids",
+        "fallback_source_ids",
+        "rights_gated_source_ids",
+        "proof_statuses"
+      ],
+      "type": "object"
+    },
+    "summary": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_target_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "fallback_target_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "fetched_target_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "index_only_target_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "official_target_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "rights_gated_target_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "target_count": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "target_count",
+        "official_target_count",
+        "fallback_target_count",
+        "rights_gated_target_count",
+        "blocked_target_count",
+        "fetched_target_count",
+        "index_only_target_count"
+      ],
+      "type": "object"
+    },
+    "targets": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "access_constraints": {
+            "type": "string"
+          },
+          "approved": {
+            "const": true
+          },
+          "blocked_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fetched_at": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "index_fetched_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "index_record_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "index_sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "index_url": {
+            "format": "uri",
+            "type": "string"
+          },
+          "output_paths": {
+            "additionalProperties": false,
+            "properties": {
+              "index": {
+                "type": "string"
+              },
+              "sample": {
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "proof_role": {
+            "type": "string"
+          },
+          "proof_status": {
+            "enum": [
+              "fetched",
+              "index-only",
+              "blocked",
+              "deferred",
+              "evidence-only"
+            ]
+          },
+          "request_urls": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "rights_status": {
+            "enum": [
+              "rights_review_required",
+              "platform_terms_review_required",
+              "fallback_rights_review_required",
+              "web_archive_rights_review_required",
+              "not_media_source"
+            ]
+          },
+          "sample_fetched_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sample_record_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "sample_sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "sample_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_classification": {
+            "enum": [
+              "official",
+              "rights-gated",
+              "fallback-validation",
+              "catalogue-only",
+              "evidence-only"
+            ]
+          },
+          "source_family": {
+            "enum": [
+              "house_video",
+              "select_committee_video",
+              "parliament_website_embeds",
+              "social_video_platform",
+              "broadcast_archive",
+              "audio_reporting",
+              "web_archive"
+            ]
+          },
+          "source_id": {
+            "pattern": "^[a-z0-9][a-z0-9-]+$",
+            "type": "string"
+          },
+          "source_role": {
+            "enum": [
+              "official",
+              "fallback"
+            ]
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "access_constraints",
+          "approved",
+          "blocked_reason",
+          "fetched_at",
+          "index_fetched_at",
+          "index_record_count",
+          "index_sha256",
+          "index_url",
+          "output_paths",
+          "proof_role",
+          "proof_status",
+          "request_urls",
+          "rights_status",
+          "sample_fetched_at",
+          "sample_record_count",
+          "sample_sha256",
+          "sample_url",
+          "source_classification",
+          "source_family",
+          "source_id",
+          "source_role",
+          "title"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "track_id": {
+      "const": "parliament_video_seed_fetchers_20260705"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "track_id",
+    "repository",
+    "generated_at",
+    "inventory_manifest",
+    "policy",
+    "summary",
+    "targets",
+    "source_summary",
+    "handoff"
+  ],
+  "type": "object"
+}

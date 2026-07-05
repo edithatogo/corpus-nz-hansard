@@ -134,6 +134,9 @@ jobs:
       - name: Parliament video source inventory
         run: pixi run python scripts\check_parliament_video_source_inventory.py
 
+      - name: Parliament video seed fetchers
+        run: pixi run python scripts\check_parliament_video_seed_fetchers.py
+
       - name: Parliament video track plan
         run: pixi run parliament-video-track-plan
 
