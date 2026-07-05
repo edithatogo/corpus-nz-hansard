@@ -1,0 +1,623 @@
+{
+  "family_coverage": {
+    "adjacent_repo_evidence": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [],
+      "primary_source_ids": []
+    },
+    "audio_reporting": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [
+        "rnz-parliament",
+        "parliament-today-am-network"
+      ],
+      "primary_source_ids": []
+    },
+    "broadcast_archive": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [
+        "tvnz-archive-looking-back",
+        "nga-taonga-av-collection",
+        "archives-new-zealand-av-catalogue"
+      ],
+      "primary_source_ids": []
+    },
+    "house_video": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [],
+      "primary_source_ids": [
+        "official-parliament-video",
+        "official-parliament-live-and-recorded",
+        "parliament-on-demand-house-archive"
+      ]
+    },
+    "parliament_website_embeds": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [],
+      "primary_source_ids": [
+        "parliament-website-embedded-video-pages",
+        "parliament-site-search-and-sitemaps"
+      ]
+    },
+    "select_committee_video": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [],
+      "primary_source_ids": [
+        "select-committee-on-demand-archive",
+        "select-committee-live-streams-current",
+        "select-committee-vimeo-pages"
+      ]
+    },
+    "social_video_platform": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [],
+      "primary_source_ids": [
+        "official-youtube-nz-parliament"
+      ]
+    },
+    "web_archive": {
+      "completion_claim": "inventory-only-no-completeness-claim",
+      "fallback_source_ids": [
+        "internet-archive-webcaptures",
+        "memento-cdx-web-archives"
+      ],
+      "primary_source_ids": []
+    }
+  },
+  "generated_at": "2026-07-05",
+  "inventory_status": "source-inventory",
+  "manifest_version": 1,
+  "next_track": "parliament_video_seed_fetchers_20260705",
+  "policy": {
+    "fallbacks_are_validation_only": true,
+    "metadata_first": true,
+    "no_audio_file_download": true,
+    "no_completeness_claim": true,
+    "no_media_download": true,
+    "no_public_media_release": true,
+    "no_video_file_download": true,
+    "rights_review_required_before_media_acquisition": true
+  },
+  "repository": "corpus-nz-hansard",
+  "sources": [
+    {
+      "access_method": "metadata_probe_required",
+      "acquisition_boundary": "metadata_only_no_media_download",
+      "archive_status": "external_source_identified",
+      "evidence_urls": [
+        "https://videos.parliament.nz/"
+      ],
+      "expected_date_range": "Current Parliament video platform; exact start date to be probed.",
+      "fallback_role": "not_fallback",
+      "known_blockers": [
+        "no local inventory count yet"
+      ],
+      "media_types": [
+        "video",
+        "audio",
+        "metadata"
+      ],
+      "metadata_availability": "video page metadata, search metadata, and possible API responses",
+      "platform_class": "official_parliament_video",
+      "publisher": "New Zealand Parliament",
+      "rights_status": "rights_review_required",
+      "source_family": "house_video",
+      "source_id": "official-parliament-video",
+      "source_role": "official",
+      "title": "Official Parliament Video platform",
+      "url": "https://videos.parliament.nz/"
+    },
+    {
+      "access_method": "metadata_probe_required",
+      "acquisition_boundary": "metadata_only_no_media_download",
+      "archive_status": "external_source_identified",
+      "evidence_urls": [
+        "https://www.parliament.nz/"
+      ],
+      "expected_date_range": "Current Parliament website navigation and Parliament in action video links.",
+      "fallback_role": "not_fallback",
+      "known_blockers": [
+        "no local inventory count yet"
+      ],
+      "media_types": [
+        "video",
+        "audio",
+        "metadata"
+      ],
+      "metadata_availability": "site navigation, live video links, and recorded-video links",
+      "platform_class": "official_parliament_website",
+      "publisher": "New Zealand Parliament",
+      "rights_status": "rights_review_required",
+      "source_family": "house_video",
+      "source_id": "official-parliament-live-and-recorded",
+      "source_role": "official",
+      "title": "Parliament website live and recorded video surface",
+      "url": "https://www.parliament.nz/"
+    },
+    {
+      "access_method": "metadata_probe_required",
+      "acquisition_boundary": "metadata_only_no_media_download",
+      "archive_status": "external_source_identified",
+      "evidence_urls": [
+        "https://www.youtube.com/channel/UCuPya3mH6P9grNmgzmVdxoQ"
+      ],
+      "expected_date_range": "Public channel video range; exact earliest upload to be probed.",
+      "fallback_role": "not_fallback",
+      "known_blockers": [
+        "YouTube API quota or page access constraints"
+      ],
+      "media_types": [
+        "video",
+        "audio",
+        "metadata"
+      ],
+      "metadata_availability": "channel, playlist, video, livestream, and upload metadata",
+      "platform_class": "youtube",
+      "publisher": "New Zealand Parliament",
+      "rights_status": "rights_review_required",
+      "source_family": "social_video_platform",
+      "source_id": "official-youtube-nz-parliament",
+      "source_role": "official",
+      "title": "Official NZ Parliament YouTube channel",
+      "url": "https://www.youtube.com/channel/UCuPya3mH6P9grNmgzmVdxoQ/videos"
+    },
+    {
+      "access_method": "metadata_probe_required",
+      "acquisition_boundary": "metadata_only_no_media_download",
+      "archive_status": "external_source_identified",
+      "evidence_urls": [
+        "https://ondemand.parliament.nz/"
+      ],
+      "expected_date_range": "House live and on-demand handoff surface; previous site redirects current viewing to Parliament Video.",
+      "fallback_role": "not_fallback",
+      "known_blockers": [
+        "no local inventory count yet"
+      ],
+      "media_types": [
+        "video",
+        "audio",
+        "metadata"
+      ],
+      "metadata_availability": "legacy page metadata and handoff links",
+      "platform_class": "parliament_on_demand",
+      "publisher": "New Zealand Parliament",
+      "rights_status": "rights_review_required",
+      "source_family": "house_video",
+      "source_id": "parliament-on-demand-house-archive",
+      "source_role": "official",
+      "title": "Parliament On Demand house video archive",
+      "url": "https://ondemand.parliament.nz/"
+    },
+    {
+      "access_method": "metadata_probe_required",
+      "acquisition_boundary": "metadata_only_no_media_download",
+      "archive_status": "external_source_identified",
+      "evidence_urls": [
+        "https://ondemand.parliament.nz/select-committees"
+      ],
+      "expected_date_range": "52nd and 53rd Parliament select committee videos according to the archive page.",
+      "fallback_role": "not_fallback",
+      "known_blockers": [
+        "no local inventory count yet"
+      ],
+      "media_types": [
+        "video",
+        "audio",
+        "metadata"
+      ],
+      "metadata_availability": "filterable committee/date/parliament metadata",
+      "platform_class": "parliament_on_demand",
+      "publisher": "New Zealand Parliament",
+      "rights_status": "rights_review_required",
+      "source_family": "select_committee_video",
+      "source_id": "select-committee-on-demand-archive",
+      "source_role": "official",
+      "title": "Select Committees On Demand archive",
+      "url": "https://ondemand.parliament.nz/select-committees"
+    },
+    {
+      "access_method": "metadata_probe_required",
+      "acquisition_boundary": "metadata_only_no_media_download",
+      "archive_status": "external_source_identified",
+      "evidence_urls": [
+        "https://www3.parliament.nz/en/pb/sc/watch-select-committee-live-streams/"
+      ],
+      "expected_date_range": "Current 54th Parliament select committee livestream and archive links.",
+      "fallback_role": "not_fallback",
+      "known_blockers": [
+        "no local inventory count yet"
+      ],
+      "media_types": [
+        "video",
+        "audio",
+        "metadata"
+      ],
+      "metadata_availability": "committee livestream pages and linked archive pages",
+      "platform_class": "official_parliament_website",
+      "publisher": "New Zealand Parliament",
+      "rights_status": "rights_review_required",
+      "source_family": "select_committee_video",
+      "source_id": "select-committee-live-streams-current",
+      "source_role": "official",
+      "title": "Current select committee livestream pages",
+      "url": "https://www3.parliament.nz/en/pb/sc/watch-select-committee-live-streams/"
+    },
+    {
+      "access_method": "metadata_probe_required",
+      "acquisition_boundary": "metadata_only_no_media_download",
+      "archive_status": "external_source_identified",
+      "evidence_urls": [
+        "https://www3.parliament.nz/en/pb/sc/watch-select-committee-live-streams/"
+      ],
+      "expected_date_range": "Committee videos linked from current committee pages; pre-August 2023 handoff goes to On Demand archive.",
+      "fallback_role": "not_fallback",
+      "known_blockers": [
+        "some pre-29 January 2024 videos may miss hearing information"
+      ],
+      "media_types": [
+        "video",
+        "audio",
+        "metadata"
+      ],
+      "metadata_availability": "Vimeo page metadata linked from Parliament pages",
+      "platform_class": "vimeo",
+      "publisher": "New Zealand Parliament",
+      "rights_status": "rights_review_required",
+      "source_family": "select_committee_video",
+      "source_id": "select-committee-vimeo-pages",
+      "source_role": "official",
+      "title": "Vimeo pages linked from select committee livestream pages",
+      "url": "https://www3.parliament.nz/en/pb/sc/watch-select-committee-live-streams/"
+    },
+    {
+      "access_method": "metadata_probe_required",
+      "acquisition_boundary": "metadata_only_no_media_download",
+      "archive_status": "external_source_identified",
+      "evidence_urls": [
+        "https://www3.parliament.nz/mi/get-involved/features/parliament-on-demand-nz-parliament-s-new-home-of-video-content/"
+      ],
+      "expected_date_range": "Feature and information pages with embedded or linked video content.",
+      "fallback_role": "not_fallback",
+      "known_blockers": [
+        "no local inventory count yet"
+      ],
+      "media_types": [
+        "video",
+        "audio",
+        "metadata"
+      ],
+      "metadata_availability": "page metadata and embedded-player references",
+      "platform_class": "official_parliament_website",
+      "publisher": "New Zealand Parliament",
+      "rights_status": "rights_review_required",
+      "source_family": "parliament_website_embeds",
+      "source_id": "parliament-website-embedded-video-pages",
+      "source_role": "official",
+      "title": "Embedded Parliament website video pages",
+      "url": "https://www3.parliament.nz/en/get-involved/features/"
+    },
+    {
+      "access_method": "metadata_probe_required",
+      "acquisition_boundary": "metadata_only_no_media_download",
+      "archive_status": "external_source_identified",
+      "evidence_urls": [
+        "https://www.parliament.nz/"
+      ],
+      "expected_date_range": "Discovery surface for video pages; range follows indexed Parliament website content.",
+      "fallback_role": "not_fallback",
+      "known_blockers": [
+        "search result coverage and sitemap format to be verified by seed fetchers"
+      ],
+      "media_types": [
+        "video",
+        "audio",
+        "metadata"
+      ],
+      "metadata_availability": "search result metadata, sitemap URLs, and page discovery metadata",
+      "platform_class": "search_or_sitemap",
+      "publisher": "New Zealand Parliament",
+      "rights_status": "rights_review_required",
+      "source_family": "parliament_website_embeds",
+      "source_id": "parliament-site-search-and-sitemaps",
+      "source_role": "official",
+      "title": "Parliament website search, sitemap, and feed discovery",
+      "url": "https://www.parliament.nz/"
+    },
+    {
+      "access_method": "metadata_or_catalogue_probe_required",
+      "acquisition_boundary": "validation_only_no_media_download",
+      "archive_status": "fallback_evidence_only",
+      "evidence_urls": [
+        "https://www3.parliament.nz/mi/get-involved/features/parliament-on-demand-nz-parliament-s-new-home-of-video-content/"
+      ],
+      "expected_date_range": "Evidence range to be determined by later metadata probes.",
+      "fallback_role": "historical_broadcast_validation",
+      "known_blockers": [
+        "not an official Parliament acquisition source"
+      ],
+      "media_types": [
+        "metadata"
+      ],
+      "metadata_availability": "catalogue_or_page_metadata",
+      "platform_class": "broadcast_catalogue",
+      "publisher": "TVNZ Archive / New Zealand Parliament",
+      "rights_status": "fallback_rights_review_required",
+      "source_family": "broadcast_archive",
+      "source_id": "tvnz-archive-looking-back",
+      "source_role": "fallback",
+      "title": "TVNZ Archive / Looking Back historical footage references",
+      "url": "https://www3.parliament.nz/mi/get-involved/features/parliament-on-demand-nz-parliament-s-new-home-of-video-content/"
+    },
+    {
+      "access_method": "metadata_or_catalogue_probe_required",
+      "acquisition_boundary": "validation_only_no_media_download",
+      "archive_status": "fallback_evidence_only",
+      "evidence_urls": [
+        "https://www.ngataonga.org.nz/search-use-collection/search/"
+      ],
+      "expected_date_range": "Evidence range to be determined by later metadata probes.",
+      "fallback_role": "catalogue_validation",
+      "known_blockers": [
+        "not an official Parliament acquisition source"
+      ],
+      "media_types": [
+        "metadata"
+      ],
+      "metadata_availability": "catalogue_or_page_metadata",
+      "platform_class": "broadcast_catalogue",
+      "publisher": "Nga Taonga Sound & Vision",
+      "rights_status": "fallback_rights_review_required",
+      "source_family": "broadcast_archive",
+      "source_id": "nga-taonga-av-collection",
+      "source_role": "fallback",
+      "title": "Nga Taonga Sound & Vision audiovisual collection search",
+      "url": "https://www.ngataonga.org.nz/search-use-collection/search/"
+    },
+    {
+      "access_method": "metadata_or_catalogue_probe_required",
+      "acquisition_boundary": "validation_only_no_media_download",
+      "archive_status": "fallback_evidence_only",
+      "evidence_urls": [
+        "https://www.rnz.co.nz/parliament"
+      ],
+      "expected_date_range": "Evidence range to be determined by later metadata probes.",
+      "fallback_role": "audio_or_reporting_validation",
+      "known_blockers": [
+        "not an official Parliament acquisition source"
+      ],
+      "media_types": [
+        "metadata"
+      ],
+      "metadata_availability": "catalogue_or_page_metadata",
+      "platform_class": "audio_reporting",
+      "publisher": "RNZ",
+      "rights_status": "fallback_rights_review_required",
+      "source_family": "audio_reporting",
+      "source_id": "rnz-parliament",
+      "source_role": "fallback",
+      "title": "RNZ Parliament reporting and audio evidence",
+      "url": "https://www.rnz.co.nz/parliament"
+    },
+    {
+      "access_method": "metadata_or_catalogue_probe_required",
+      "acquisition_boundary": "validation_only_no_media_download",
+      "archive_status": "fallback_evidence_only",
+      "evidence_urls": [
+        "http://parliamenttoday.co.nz/"
+      ],
+      "expected_date_range": "Evidence range to be determined by later metadata probes.",
+      "fallback_role": "audio_or_reporting_validation",
+      "known_blockers": [
+        "not an official Parliament acquisition source"
+      ],
+      "media_types": [
+        "metadata"
+      ],
+      "metadata_availability": "catalogue_or_page_metadata",
+      "platform_class": "audio_reporting",
+      "publisher": "Parliament Today / AM Network",
+      "rights_status": "fallback_rights_review_required",
+      "source_family": "audio_reporting",
+      "source_id": "parliament-today-am-network",
+      "source_role": "fallback",
+      "title": "Parliament Today and AM Network broadcast references",
+      "url": "http://parliamenttoday.co.nz/"
+    },
+    {
+      "access_method": "metadata_or_catalogue_probe_required",
+      "acquisition_boundary": "validation_only_no_media_download",
+      "archive_status": "fallback_evidence_only",
+      "evidence_urls": [
+        "https://collections.archives.govt.nz/"
+      ],
+      "expected_date_range": "Evidence range to be determined by later metadata probes.",
+      "fallback_role": "catalogue_validation",
+      "known_blockers": [
+        "not an official Parliament acquisition source"
+      ],
+      "media_types": [
+        "metadata"
+      ],
+      "metadata_availability": "catalogue_or_page_metadata",
+      "platform_class": "broadcast_catalogue",
+      "publisher": "Archives New Zealand",
+      "rights_status": "fallback_rights_review_required",
+      "source_family": "broadcast_archive",
+      "source_id": "archives-new-zealand-av-catalogue",
+      "source_role": "fallback",
+      "title": "Archives New Zealand audiovisual catalogue evidence",
+      "url": "https://collections.archives.govt.nz/"
+    },
+    {
+      "access_method": "metadata_or_catalogue_probe_required",
+      "acquisition_boundary": "validation_only_no_media_download",
+      "archive_status": "fallback_evidence_only",
+      "evidence_urls": [
+        "https://web.archive.org/"
+      ],
+      "expected_date_range": "Evidence range to be determined by later metadata probes.",
+      "fallback_role": "link_rot_validation",
+      "known_blockers": [
+        "not an official Parliament acquisition source"
+      ],
+      "media_types": [
+        "metadata"
+      ],
+      "metadata_availability": "catalogue_or_page_metadata",
+      "platform_class": "web_archive",
+      "publisher": "Internet Archive",
+      "rights_status": "web_archive_rights_review_required",
+      "source_family": "web_archive",
+      "source_id": "internet-archive-webcaptures",
+      "source_role": "fallback",
+      "title": "Internet Archive web captures for Parliament video URLs",
+      "url": "https://web.archive.org/"
+    },
+    {
+      "access_method": "metadata_or_catalogue_probe_required",
+      "acquisition_boundary": "validation_only_no_media_download",
+      "archive_status": "fallback_evidence_only",
+      "evidence_urls": [
+        "https://web.archive.org/cdx"
+      ],
+      "expected_date_range": "Evidence range to be determined by later metadata probes.",
+      "fallback_role": "link_rot_validation",
+      "known_blockers": [
+        "not an official Parliament acquisition source"
+      ],
+      "media_types": [
+        "metadata"
+      ],
+      "metadata_availability": "catalogue_or_page_metadata",
+      "platform_class": "web_archive",
+      "publisher": "Web archives",
+      "rights_status": "web_archive_rights_review_required",
+      "source_family": "web_archive",
+      "source_id": "memento-cdx-web-archives",
+      "source_role": "fallback",
+      "title": "Memento/CDX web-archive discovery",
+      "url": "https://web.archive.org/cdx"
+    },
+    {
+      "access_method": "repository_manifest_review",
+      "acquisition_boundary": "evidence_only_no_media_download",
+      "archive_status": "supporting_evidence_only",
+      "evidence_urls": [
+        "../sm-govt-nz/"
+      ],
+      "expected_date_range": "Repo-local evidence only; not a Parliament video source range.",
+      "fallback_role": "boundary_evidence",
+      "known_blockers": [
+        "does not provide a full NZ Parliament video archive"
+      ],
+      "media_types": [
+        "metadata"
+      ],
+      "metadata_availability": "General NZ government YouTube metadata, not a Parliament video archive.",
+      "platform_class": "repository",
+      "publisher": "sm-govt-nz",
+      "rights_status": "not_media_source",
+      "source_family": "adjacent_repo_evidence",
+      "source_id": "adjacent-sm-govt-nz",
+      "source_role": "supporting",
+      "title": "Adjacent repo evidence: sm-govt-nz",
+      "url": "../sm-govt-nz/"
+    },
+    {
+      "access_method": "repository_manifest_review",
+      "acquisition_boundary": "evidence_only_no_media_download",
+      "archive_status": "supporting_evidence_only",
+      "evidence_urls": [
+        "../hathi-nz/"
+      ],
+      "expected_date_range": "Repo-local evidence only; not a Parliament video source range.",
+      "fallback_role": "boundary_evidence",
+      "known_blockers": [
+        "does not provide a full NZ Parliament video archive"
+      ],
+      "media_types": [
+        "metadata"
+      ],
+      "metadata_availability": "Historical print/OCR evidence only; no Parliament video coverage.",
+      "platform_class": "repository",
+      "publisher": "hathi-nz",
+      "rights_status": "not_media_source",
+      "source_family": "adjacent_repo_evidence",
+      "source_id": "adjacent-hathi-nz",
+      "source_role": "supporting",
+      "title": "Adjacent repo evidence: hathi-nz",
+      "url": "../hathi-nz/"
+    },
+    {
+      "access_method": "repository_manifest_review",
+      "acquisition_boundary": "evidence_only_no_media_download",
+      "archive_status": "supporting_evidence_only",
+      "evidence_urls": [
+        "../corpus-law-nz/"
+      ],
+      "expected_date_range": "Repo-local evidence only; not a Parliament video source range.",
+      "fallback_role": "boundary_evidence",
+      "known_blockers": [
+        "does not provide a full NZ Parliament video archive"
+      ],
+      "media_types": [
+        "metadata"
+      ],
+      "metadata_availability": "Legislation and Gazette boundary only; no Parliament video coverage.",
+      "platform_class": "repository",
+      "publisher": "corpus-law-nz",
+      "rights_status": "not_media_source",
+      "source_family": "adjacent_repo_evidence",
+      "source_id": "adjacent-corpus-law-nz",
+      "source_role": "supporting",
+      "title": "Adjacent repo evidence: corpus-law-nz",
+      "url": "../corpus-law-nz/"
+    }
+  ],
+  "taxonomy": {
+    "archive_statuses": [
+      "external_source_identified",
+      "fallback_evidence_only",
+      "supporting_evidence_only",
+      "blocked_or_unknown"
+    ],
+    "fallback_roles": [
+      "not_fallback",
+      "historical_broadcast_validation",
+      "catalogue_validation",
+      "audio_or_reporting_validation",
+      "link_rot_validation",
+      "boundary_evidence"
+    ],
+    "platform_classes": [
+      "official_parliament_video",
+      "official_parliament_website",
+      "youtube",
+      "vimeo",
+      "parliament_on_demand",
+      "broadcast_catalogue",
+      "audio_reporting",
+      "web_archive",
+      "repository",
+      "search_or_sitemap"
+    ],
+    "rights_statuses": [
+      "rights_review_required",
+      "platform_terms_review_required",
+      "fallback_rights_review_required",
+      "web_archive_rights_review_required",
+      "not_media_source"
+    ],
+    "source_families": [
+      "house_video",
+      "select_committee_video",
+      "parliament_website_embeds",
+      "social_video_platform",
+      "broadcast_archive",
+      "audio_reporting",
+      "web_archive",
+      "adjacent_repo_evidence"
+    ]
+  },
+  "track_id": "parliament_video_source_inventory_20260705"
+}

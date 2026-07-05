@@ -1,0 +1,309 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "family_coverage": {
+      "additionalProperties": {
+        "additionalProperties": false,
+        "properties": {
+          "completion_claim": {
+            "const": "inventory-only-no-completeness-claim"
+          },
+          "fallback_source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          },
+          "primary_source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "primary_source_ids",
+          "fallback_source_ids",
+          "completion_claim"
+        ],
+        "type": "object"
+      },
+      "type": "object"
+    },
+    "generated_at": {
+      "format": "date",
+      "type": "string"
+    },
+    "inventory_status": {
+      "const": "source-inventory"
+    },
+    "manifest_version": {
+      "const": 1
+    },
+    "next_track": {
+      "const": "parliament_video_seed_fetchers_20260705"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "fallbacks_are_validation_only": {
+          "const": true
+        },
+        "metadata_first": {
+          "const": true
+        },
+        "no_audio_file_download": {
+          "const": true
+        },
+        "no_completeness_claim": {
+          "const": true
+        },
+        "no_media_download": {
+          "const": true
+        },
+        "no_public_media_release": {
+          "const": true
+        },
+        "no_video_file_download": {
+          "const": true
+        },
+        "rights_review_required_before_media_acquisition": {
+          "const": true
+        }
+      },
+      "required": [
+        "metadata_first",
+        "no_media_download",
+        "no_video_file_download",
+        "no_audio_file_download",
+        "no_public_media_release",
+        "no_completeness_claim",
+        "fallbacks_are_validation_only",
+        "rights_review_required_before_media_acquisition"
+      ],
+      "type": "object"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard"
+    },
+    "sources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "access_method": {
+            "type": "string"
+          },
+          "acquisition_boundary": {
+            "enum": [
+              "metadata_only_no_media_download",
+              "validation_only_no_media_download",
+              "evidence_only_no_media_download"
+            ]
+          },
+          "archive_status": {
+            "enum": [
+              "external_source_identified",
+              "fallback_evidence_only",
+              "supporting_evidence_only",
+              "blocked_or_unknown"
+            ]
+          },
+          "evidence_urls": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "expected_date_range": {
+            "type": "string"
+          },
+          "fallback_role": {
+            "enum": [
+              "not_fallback",
+              "historical_broadcast_validation",
+              "catalogue_validation",
+              "audio_or_reporting_validation",
+              "link_rot_validation",
+              "boundary_evidence"
+            ]
+          },
+          "known_blockers": {
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "media_types": {
+            "items": {
+              "enum": [
+                "video",
+                "audio",
+                "metadata"
+              ]
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "metadata_availability": {
+            "type": "string"
+          },
+          "platform_class": {
+            "enum": [
+              "official_parliament_video",
+              "official_parliament_website",
+              "youtube",
+              "vimeo",
+              "parliament_on_demand",
+              "broadcast_catalogue",
+              "audio_reporting",
+              "web_archive",
+              "repository",
+              "search_or_sitemap"
+            ]
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "rights_status": {
+            "enum": [
+              "rights_review_required",
+              "platform_terms_review_required",
+              "fallback_rights_review_required",
+              "web_archive_rights_review_required",
+              "not_media_source"
+            ]
+          },
+          "source_family": {
+            "enum": [
+              "house_video",
+              "select_committee_video",
+              "parliament_website_embeds",
+              "social_video_platform",
+              "broadcast_archive",
+              "audio_reporting",
+              "web_archive",
+              "adjacent_repo_evidence"
+            ]
+          },
+          "source_id": {
+            "pattern": "^[a-z0-9][a-z0-9-]+$",
+            "type": "string"
+          },
+          "source_role": {
+            "enum": [
+              "official",
+              "fallback",
+              "supporting"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "title",
+          "url",
+          "publisher",
+          "source_family",
+          "platform_class",
+          "source_role",
+          "fallback_role",
+          "archive_status",
+          "expected_date_range",
+          "access_method",
+          "rights_status",
+          "media_types",
+          "metadata_availability",
+          "evidence_urls",
+          "known_blockers",
+          "acquisition_boundary"
+        ],
+        "type": "object"
+      },
+      "minItems": 15,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "taxonomy": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_statuses": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 4,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "fallback_roles": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 6,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "platform_classes": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 8,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "rights_statuses": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 5,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "source_families": {
+          "items": {
+            "type": "string"
+          },
+          "minItems": 8,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "source_families",
+        "platform_classes",
+        "fallback_roles",
+        "rights_statuses",
+        "archive_statuses"
+      ],
+      "type": "object"
+    },
+    "track_id": {
+      "const": "parliament_video_source_inventory_20260705"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "track_id",
+    "repository",
+    "generated_at",
+    "inventory_status",
+    "policy",
+    "taxonomy",
+    "sources",
+    "family_coverage",
+    "next_track"
+  ],
+  "type": "object"
+}
