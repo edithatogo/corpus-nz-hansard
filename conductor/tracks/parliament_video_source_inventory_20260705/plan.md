@@ -14,7 +14,7 @@
 - [x] Task: Commit and annotate task outputs with git notes, then update this plan with task SHAs. `d476db3`, `63c301d`, `4b76af1`
 - [x] Task: Conductor - User Manual Verification 'Source Taxonomy' (Protocol in workflow.md)
 
-## Phase 2: Manifest And Docs
+## Phase 2: Manifest And Docs [checkpoint: 87dbabb]
 - [x] Task: Add source inventory schema, builder, manifest, and documentation. `06d332f`
 - [x] Task: Record adjacent repo evidence from `sm-govt-nz`, `hathi-nz`, and `corpus-law-nz`. `06d332f`
 - [x] Task: Add no-download/no-completeness policy checks. `06d332f`
