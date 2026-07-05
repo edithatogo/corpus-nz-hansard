@@ -1,0 +1,4 @@
+Track: parliament_video_source_inventory_20260705
+Archive: moved completed track to conductor/archive and updated registry/metadata.
+Review: archive-aware source inventory and video track plan checkers added.
+Validation: pixi run parliament-video-source-inventory; pixi run parliament-video-track-plan; pixi run python scripts/check_static_documentation_portal.py; pixi run python scripts/run_pytest_with_repo_tmp.py -q tests/test_parliament_video_source_inventory.py tests/test_parliament_video_track_plan.py tests/test_static_documentation_portal.py; pixi run lint scripts/check_parliament_video_source_inventory.py scripts/check_parliament_video_track_plan.py; pixi run format-check scripts/check_parliament_video_source_inventory.py scripts/check_parliament_video_track_plan.py
