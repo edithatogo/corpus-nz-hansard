@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/21030190"
   },
-  "generated_at": "2026-07-06T13:47:06.827367+00:00",
+  "generated_at": "2026-07-06T14:16:05.482447+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -120,9 +120,9 @@
   "track_snapshot": {
     "summary_counts": {
       "blocked": 0,
-      "complete": 77,
+      "complete": 78,
       "in_progress": 0,
-      "pending": 3
+      "pending": 2
     },
     "tracks": [
       {
@@ -131,13 +131,6 @@
         "status": " ",
         "title": "Parliament Video Full Metadata Archive",
         "track_id": "parliament_video_full_metadata_archive_20260705"
-      },
-      {
-        "goal": "record the rights, storage, and publication decision gate that must pass before any Parliament video or audio files are downloaded or archived.",
-        "link": "./tracks/parliament_video_media_acquisition_decision_20260705/",
-        "status": " ",
-        "title": "Parliament Video Media Acquisition Decision",
-        "track_id": "parliament_video_media_acquisition_decision_20260705"
       },
       {
         "goal": "set up scheduled Parliament video metadata refresh, gap monitoring, link-rot checks, and no-media-download guards after full metadata capture and reconciliation are in place.",
@@ -607,6 +600,13 @@
         "status": "x",
         "title": "Parliament Video Archive Coverage",
         "track_id": "parliament_video_archive_coverage_20260705"
+      },
+      {
+        "goal": "record the rights, storage, and publication decision gate that must pass before any Parliament video or audio files are downloaded or archived.",
+        "link": "./archive/parliament_video_media_acquisition_decision_20260705/",
+        "status": "x",
+        "title": "Parliament Video Media Acquisition Decision",
+        "track_id": "parliament_video_media_acquisition_decision_20260705"
       },
       {
         "goal": "Extract structured MP name, party, and electorate data from Wikipedia articles for Parliaments 47-53. 895 MP records extracted across all 7 target parliaments.",

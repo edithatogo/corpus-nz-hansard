@@ -21,14 +21,6 @@ Goal: scale from seed proofs to complete, resumable, hash-backed metadata captur
 
 Link: [conductor/tracks/parliament_video_full_metadata_archive_20260705/](./tracks/parliament_video_full_metadata_archive_20260705/)
 
-### [ ] Track: Parliament Video Media Acquisition Decision
-
-Track ID: `parliament_video_media_acquisition_decision_20260705`
-
-Goal: record the rights, storage, and publication decision gate that must pass before any Parliament video or audio files are downloaded or archived.
-
-Link: [conductor/tracks/parliament_video_media_acquisition_decision_20260705/](./tracks/parliament_video_media_acquisition_decision_20260705/)
-
 ### [ ] Track: Parliament Video Ongoing Archive
 
 Track ID: `parliament_video_ongoing_archive_20260705`
@@ -572,6 +564,14 @@ Track ID: `parliament_video_archive_coverage_20260705`
 Goal: record metadata-first coverage evidence for NZ Parliament video surfaces, confirming that YouTube, Parliament website video, prior On Demand, and select committee video archives are not completely archived locally or in adjacent repos.
 
 Link: [conductor/archive/parliament_video_archive_coverage_20260705/](./archive/parliament_video_archive_coverage_20260705/)
+
+### [x] Track: Parliament Video Media Acquisition Decision
+
+Track ID: `parliament_video_media_acquisition_decision_20260705`
+
+Goal: record the rights, storage, and publication decision gate that must pass before any Parliament video or audio files are downloaded or archived.
+
+Link: [conductor/archive/parliament_video_media_acquisition_decision_20260705/](./archive/parliament_video_media_acquisition_decision_20260705/)
 
 ### [x] Track: Wikipedia MP Lists Acquisition
 

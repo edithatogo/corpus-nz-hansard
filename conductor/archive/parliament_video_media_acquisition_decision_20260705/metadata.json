@@ -7,7 +7,7 @@
     "required_script": "scripts/check_parliament_video_track_plan.py"
   },
   "id": "parliament_video_media_acquisition_decision_20260705",
-  "status": "pending",
+  "status": "complete",
   "title": "Parliament Video Media Acquisition Decision",
   "track_id": "parliament_video_media_acquisition_decision_20260705"
 }
