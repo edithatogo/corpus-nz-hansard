@@ -21,13 +21,13 @@ Goal: scale from seed proofs to complete, resumable, hash-backed metadata captur
 
 Link: [conductor/tracks/parliament_video_full_metadata_archive_20260705/](./tracks/parliament_video_full_metadata_archive_20260705/)
 
-### [ ] Track: Parliament Video Ongoing Archive
+### [x] Track: Parliament Video Ongoing Archive
 
 Track ID: `parliament_video_ongoing_archive_20260705`
 
 Goal: set up scheduled Parliament video metadata refresh, gap monitoring, link-rot checks, and no-media-download guards after full metadata capture and reconciliation are in place.
 
-Link: [conductor/tracks/parliament_video_ongoing_archive_20260705/](./tracks/parliament_video_ongoing_archive_20260705/)
+Link: [conductor/archive/parliament_video_ongoing_archive_20260705/](./archive/parliament_video_ongoing_archive_20260705/)
 
 ### [x] Track: Parliament Dataset Seed Fetchers
 

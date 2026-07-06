@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/21030190"
   },
-  "generated_at": "2026-07-06T14:16:05.482447+00:00",
+  "generated_at": "2026-07-06T14:47:40.000086+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -120,9 +120,9 @@
   "track_snapshot": {
     "summary_counts": {
       "blocked": 0,
-      "complete": 78,
+      "complete": 79,
       "in_progress": 0,
-      "pending": 2
+      "pending": 1
     },
     "tracks": [
       {
@@ -134,8 +134,8 @@
       },
       {
         "goal": "set up scheduled Parliament video metadata refresh, gap monitoring, link-rot checks, and no-media-download guards after full metadata capture and reconciliation are in place.",
-        "link": "./tracks/parliament_video_ongoing_archive_20260705/",
-        "status": " ",
+        "link": "./archive/parliament_video_ongoing_archive_20260705/",
+        "status": "x",
         "title": "Parliament Video Ongoing Archive",
         "track_id": "parliament_video_ongoing_archive_20260705"
       },
