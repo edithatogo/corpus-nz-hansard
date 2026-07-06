@@ -1,0 +1,1 @@
+Validated with pixi run format-check, pixi run lint, pixi run python scripts/check_quality_gate.py, pixi run parliament-video-track-plan, pixi run python -m pytest -q tests/test_parliament_video_ongoing_archive.py, and pixi run test.
