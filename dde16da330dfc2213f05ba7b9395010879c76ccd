@@ -1,0 +1,16 @@
+parliament_video_media_acquisition_decision_20260705 implementation
+
+- Added a metadata-only media-acquisition decision manifest, schema, checker, docs, and build script.
+- Added a guard that fails closed when media acquisition is not explicitly approved.
+- Wired the new checker into Pixi quality, Makefile, GitHub Actions, and the repo quality gate docs.
+- Added focused tests for the manifest shape, gate failure, and checker execution.
+
+Validation:
+- pixi run python scripts/build_parliament_video_media_acquisition_decision.py
+- pixi run python scripts/check_parliament_video_media_acquisition_decision.py
+- pixi run format-check
+- pixi run lint
+- pixi run parliament-video-track-plan
+- pixi run python scripts/check_quality_gate.py
+- pixi run python -m pytest -q tests/test_parliament_video_media_acquisition_decision.py tests/test_check_quality_gate.py
+- pixi run test
