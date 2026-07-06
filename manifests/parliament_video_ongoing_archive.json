@@ -1,0 +1,110 @@
+{
+  "alert_thresholds": {
+    "blocked_source_threshold": 1,
+    "count_regression_sources": 1,
+    "link_rot_failures": 1,
+    "stale_source_days": 30
+  },
+  "archive_coverage_manifest": "manifests/parliament_video_archive_coverage.json",
+  "archive_surface_count": 5,
+  "change_policy": [
+    "new_deletions",
+    "new_sources",
+    "deleted_sources",
+    "changed_sources",
+    "gap-ledger-updates-only"
+  ],
+  "change_summary": {
+    "changed_source_count": 0,
+    "deleted_source_count": 0,
+    "new_source_count": 0
+  },
+  "comparison": {
+    "changed_source_ids": [],
+    "deleted_source_ids": [],
+    "new_source_ids": []
+  },
+  "generated_at": "2026-07-06T14:44:34+00:00",
+  "manifest_version": 1,
+  "media_acquisition_decision_manifest": "manifests/parliament_video_media_acquisition_decision.json",
+  "media_acquisition_decision_state": "excluded",
+  "monitored_source_count": 19,
+  "monitored_surface_count": 24,
+  "monitoring": {
+    "blocked_source_ids": [
+      "memento-cdx-web-archives"
+    ],
+    "link_rot_watch_ids": [
+      "official-youtube-nz-parliament",
+      "parliament-videos-current",
+      "parliament-on-demand-previous",
+      "select-committee-video-archive",
+      "select-committee-live-stream-links"
+    ],
+    "stale_source_ids": [
+      "tvnz-archive-looking-back",
+      "nga-taonga-av-collection",
+      "rnz-parliament",
+      "parliament-today-am-network",
+      "archives-new-zealand-av-catalogue",
+      "internet-archive-webcaptures",
+      "memento-cdx-web-archives"
+    ]
+  },
+  "no_media_download_guard": true,
+  "notes": [
+    "Scheduled refresh remains metadata-first and never downloads media by default.",
+    "Snapshot retention preserves history so changes can be audited over time.",
+    "Fallback sources stay validation-only and cannot be promoted to acquisition sources here."
+  ],
+  "policy": {
+    "fallbacks_are_validation_only": true,
+    "metadata_first": true,
+    "no_audio_file_download": true,
+    "no_completeness_claim": true,
+    "no_media_download": true,
+    "no_public_media_release": true,
+    "no_video_file_download": true,
+    "rights_review_required_before_media_acquisition": true
+  },
+  "reconciliation_ledger_count": 22,
+  "reconciliation_manifest": "manifests/parliament_video_reconciliation.json",
+  "refresh_policy": {
+    "cadence": "weekly",
+    "comparison_basis": "latest_snapshot",
+    "preserve_history": true,
+    "snapshot_retention": 12
+  },
+  "repository": "corpus-nz-hansard",
+  "seed_fetchers_manifest": "manifests/parliament_video_seed_fetchers.json",
+  "seed_target_count": 16,
+  "snapshot": {
+    "path": "derived/parliament_video_ongoing_archive/parliament_video_ongoing_archive_snapshot.json",
+    "previous_snapshot_path": "C:/Users/60217257/OneDrive - Flinders/repos/legal-nz/corpus-nz-hansard/derived/parliament_video_ongoing_archive/snapshots/2026-07-06T14-43-46+00-00.json",
+    "retention_directory": "derived/parliament_video_ongoing_archive/snapshots"
+  },
+  "source_count": 19,
+  "source_inventory_manifest": "manifests/parliament_video_source_inventory.json",
+  "summary": {
+    "blocked_source_watch_count": 1,
+    "changed_source_count": 0,
+    "deleted_source_count": 0,
+    "link_rot_watch_count": 5,
+    "monitored_source_count": 19,
+    "monitored_surface_count": 24,
+    "new_source_count": 0,
+    "no_media_download": true,
+    "retention_limit": 12,
+    "stale_source_watch_count": 7
+  },
+  "track_id": "parliament_video_ongoing_archive_20260705",
+  "workflow": {
+    "dispatch_modes": [
+      "dry-run",
+      "refresh"
+    ],
+    "path": ".github/workflows/parliament-video-ongoing-archive.yml",
+    "runner": "scripts/build_parliament_video_ongoing_archive.py",
+    "schedule_cron": "37 3 * * 0"
+  }
+}

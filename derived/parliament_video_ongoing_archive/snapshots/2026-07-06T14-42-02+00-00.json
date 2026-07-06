@@ -1,0 +1,357 @@
+{
+  "generated_at": "2026-07-06T14:42:02+00:00",
+  "manifest_version": 1,
+  "records": [
+    {
+      "digest": "ff4e794f0c78ade02e8278fb80777c4b11767c79de63472472c9ad4865a7886d",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "official-parliament-video",
+      "record_type": "source",
+      "rights_status": "rights_review_required",
+      "source_family": "house_video",
+      "source_posture": "external_source_identified",
+      "source_role": "official",
+      "surface_status": "metadata-only"
+    },
+    {
+      "digest": "991eacc43a8dabec690c0d5cee3a0eefb97de2aa615c9d0657764b39fe50889a",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "official-parliament-live-and-recorded",
+      "record_type": "source",
+      "rights_status": "rights_review_required",
+      "source_family": "house_video",
+      "source_posture": "external_source_identified",
+      "source_role": "official",
+      "surface_status": "metadata-only"
+    },
+    {
+      "digest": "0a50478129d4c8abc6927b74e117c0eb3634f661a4be832f6caa76be38b592df",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "official-youtube-nz-parliament",
+      "record_type": "source",
+      "rights_status": "platform_terms_review_required",
+      "source_family": "social_video_platform",
+      "source_posture": "external_source_identified",
+      "source_role": "official",
+      "surface_status": "rights-gated"
+    },
+    {
+      "digest": "bae08b51841598206b793056686f88fc32db310f7019bb72cf37237e0430c71c",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "parliament-on-demand-house-archive",
+      "record_type": "source",
+      "rights_status": "rights_review_required",
+      "source_family": "house_video",
+      "source_posture": "external_source_identified",
+      "source_role": "official",
+      "surface_status": "migrated"
+    },
+    {
+      "digest": "7f732e9c356cf8c116a061d9185487dd512c2db6756fd2854d6e5e850102150f",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "select-committee-on-demand-archive",
+      "record_type": "source",
+      "rights_status": "rights_review_required",
+      "source_family": "select_committee_video",
+      "source_posture": "external_source_identified",
+      "source_role": "official",
+      "surface_status": "metadata-only"
+    },
+    {
+      "digest": "2d08593cbf81e499b039d72968ebcc5445bdbc103155102536e8d7a800d039ff",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "select-committee-live-streams-current",
+      "record_type": "source",
+      "rights_status": "rights_review_required",
+      "source_family": "select_committee_video",
+      "source_posture": "external_source_identified",
+      "source_role": "official",
+      "surface_status": "metadata-only"
+    },
+    {
+      "digest": "73774ac8e3125407ff70e06fdd22c8d7ebe866881d0c225af7c57b154c312968",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "select-committee-vimeo-pages",
+      "record_type": "source",
+      "rights_status": "platform_terms_review_required",
+      "source_family": "select_committee_video",
+      "source_posture": "external_source_identified",
+      "source_role": "official",
+      "surface_status": "rights-gated"
+    },
+    {
+      "digest": "680cfb0c3bbf555a7c9445710d18210dbe20257eeb1925c66439eab8b5bee81a",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "parliament-website-embedded-video-pages",
+      "record_type": "source",
+      "rights_status": "rights_review_required",
+      "source_family": "parliament_website_embeds",
+      "source_posture": "external_source_identified",
+      "source_role": "official",
+      "surface_status": "metadata-only"
+    },
+    {
+      "digest": "d8e8a0d365df9d5a0e20ff6c7916303522a8b46172b7ca700f4fa3a5cc5f7c35",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "parliament-site-search-and-sitemaps",
+      "record_type": "source",
+      "rights_status": "rights_review_required",
+      "source_family": "parliament_website_embeds",
+      "source_posture": "external_source_identified",
+      "source_role": "official",
+      "surface_status": "metadata-only"
+    },
+    {
+      "digest": "d89cdd40c9469ad6248e18d46f081ed0e5392655fbfabcd954ac8671c48311cd",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "tvnz-archive-looking-back",
+      "record_type": "source",
+      "rights_status": "fallback_rights_review_required",
+      "source_family": "broadcast_archive",
+      "source_posture": "fallback_evidence_only",
+      "source_role": "fallback",
+      "surface_status": "fallback-only"
+    },
+    {
+      "digest": "470b3a9544f286c4720a48c6788f83ba84355c7cee72a723eb55012c70570a03",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "nga-taonga-av-collection",
+      "record_type": "source",
+      "rights_status": "fallback_rights_review_required",
+      "source_family": "broadcast_archive",
+      "source_posture": "fallback_evidence_only",
+      "source_role": "fallback",
+      "surface_status": "fallback-only"
+    },
+    {
+      "digest": "b4c88f23662caebd04fc6433369f634c93911f770e2aeff891b922aa674bc1fe",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "rnz-parliament",
+      "record_type": "source",
+      "rights_status": "fallback_rights_review_required",
+      "source_family": "audio_reporting",
+      "source_posture": "fallback_evidence_only",
+      "source_role": "fallback",
+      "surface_status": "evidence-only"
+    },
+    {
+      "digest": "d93a261f553dbdc4d5ce1778b3f5a6aeecbd1972a530f68f3f0d63e7212f9743",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "parliament-today-am-network",
+      "record_type": "source",
+      "rights_status": "fallback_rights_review_required",
+      "source_family": "audio_reporting",
+      "source_posture": "fallback_evidence_only",
+      "source_role": "fallback",
+      "surface_status": "evidence-only"
+    },
+    {
+      "digest": "9261bf1271741ada4decfb386436415b5a05f77a4ac28e44f5cc4caddf69b014",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "archives-new-zealand-av-catalogue",
+      "record_type": "source",
+      "rights_status": "fallback_rights_review_required",
+      "source_family": "broadcast_archive",
+      "source_posture": "fallback_evidence_only",
+      "source_role": "fallback",
+      "surface_status": "fallback-only"
+    },
+    {
+      "digest": "8b080ae16a2fd96b43bb802112a3b3bd2882d9aa45610c3a8f0c6c1fa6b28740",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "internet-archive-webcaptures",
+      "record_type": "source",
+      "rights_status": "web_archive_rights_review_required",
+      "source_family": "web_archive",
+      "source_posture": "fallback_evidence_only",
+      "source_role": "fallback",
+      "surface_status": "fallback-only"
+    },
+    {
+      "digest": "9b14d77f968a47711f5cbf27f7b5c923b858c11b49819817bf40f40fbf29d645",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "memento-cdx-web-archives",
+      "record_type": "source",
+      "rights_status": "web_archive_rights_review_required",
+      "source_family": "web_archive",
+      "source_posture": "fallback_evidence_only",
+      "source_role": "fallback",
+      "surface_status": "access-blocked"
+    },
+    {
+      "digest": "d305e332598686d52408e5109833b024b305d08e3a2bc6cf7279fa4bb3d4a54a",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "adjacent-sm-govt-nz",
+      "record_type": "source",
+      "rights_status": "not_media_source",
+      "source_family": "adjacent_repo_evidence",
+      "source_posture": "supporting_evidence_only",
+      "source_role": "supporting",
+      "surface_status": "evidence-only"
+    },
+    {
+      "digest": "ed5cf92b7c83cbfea643f491d436fbaa83f17ff3d0b84304de2cfa3ddc247e81",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "adjacent-hathi-nz",
+      "record_type": "source",
+      "rights_status": "not_media_source",
+      "source_family": "adjacent_repo_evidence",
+      "source_posture": "supporting_evidence_only",
+      "source_role": "supporting",
+      "surface_status": "evidence-only"
+    },
+    {
+      "digest": "fd980f78739be50ee08628679f61c7c17c761cb001b74582a5272a1d2fa9fe9d",
+      "evidence": [
+        "manifests/parliament_video_source_inventory.json",
+        "manifests/parliament_video_reconciliation.json",
+        "manifests/parliament_video_seed_fetchers.json"
+      ],
+      "record_id": "adjacent-corpus-law-nz",
+      "record_type": "source",
+      "rights_status": "not_media_source",
+      "source_family": "adjacent_repo_evidence",
+      "source_posture": "supporting_evidence_only",
+      "source_role": "supporting",
+      "surface_status": "evidence-only"
+    },
+    {
+      "digest": "726f919f18ebf3a7f6323d3f09de77a92f571426bcc8bc4343bac3a1ab39e66b",
+      "evidence": [
+        "manifests/parliament_video_archive_coverage.json"
+      ],
+      "record_id": "official-youtube-nz-parliament",
+      "record_type": "surface",
+      "rights_status": "third-party-platform-terms-review-required",
+      "source_family": "coverage_surface",
+      "source_posture": "not-archived",
+      "source_role": "supporting",
+      "surface_status": "third-party-platform-terms-review-required"
+    },
+    {
+      "digest": "7e5573ade59dc855ad47081d29cb765399a8089da1c29733c377e4037d2058cd",
+      "evidence": [
+        "manifests/parliament_video_archive_coverage.json"
+      ],
+      "record_id": "parliament-videos-current",
+      "record_type": "surface",
+      "rights_status": "media-rights-review-required",
+      "source_family": "coverage_surface",
+      "source_posture": "metadata-inventory-only",
+      "source_role": "supporting",
+      "surface_status": "media-rights-review-required"
+    },
+    {
+      "digest": "9a12248d375f91135e866fc6f1c69f5f3c2f3f92fb0d6e6e04da349c3b6edcdd",
+      "evidence": [
+        "manifests/parliament_video_archive_coverage.json"
+      ],
+      "record_id": "parliament-on-demand-previous",
+      "record_type": "surface",
+      "rights_status": "media-rights-review-required",
+      "source_family": "coverage_surface",
+      "source_posture": "external-only",
+      "source_role": "supporting",
+      "surface_status": "media-rights-review-required"
+    },
+    {
+      "digest": "1fb8493a41eb900823a4d047fdcad13196f1ce7994307addace8ed3eb84648bf",
+      "evidence": [
+        "manifests/parliament_video_archive_coverage.json"
+      ],
+      "record_id": "select-committee-video-archive",
+      "record_type": "surface",
+      "rights_status": "media-rights-review-required",
+      "source_family": "coverage_surface",
+      "source_posture": "external-only",
+      "source_role": "supporting",
+      "surface_status": "media-rights-review-required"
+    },
+    {
+      "digest": "619895e47ce2c1e83384821652cd89df27071f971e07a31d7a53fd127859589f",
+      "evidence": [
+        "manifests/parliament_video_archive_coverage.json"
+      ],
+      "record_id": "select-committee-live-stream-links",
+      "record_type": "surface",
+      "rights_status": "third-party-platform-terms-review-required",
+      "source_family": "coverage_surface",
+      "source_posture": "external-only",
+      "source_role": "supporting",
+      "surface_status": "third-party-platform-terms-review-required"
+    }
+  ],
+  "track_id": "parliament_video_ongoing_archive_20260705"
+}

@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "alert_thresholds": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_source_threshold": { "type": "integer", "const": 1 },
+        "count_regression_sources": { "type": "integer", "const": 1 },
+        "link_rot_failures": { "type": "integer", "const": 1 },
+        "stale_source_days": { "type": "integer", "const": 30 }
+      },
+      "required": [
+        "count_regression_sources",
+        "stale_source_days",
+        "link_rot_failures",
+        "blocked_source_threshold"
+      ],
+      "type": "object"
+    },
+    "archive_coverage_manifest": { "type": "string" },
+    "archive_surface_count": { "type": "integer", "minimum": 0 },
+    "change_policy": {
+      "items": { "type": "string" },
+      "minItems": 3,
+      "type": "array"
+    },
+    "change_summary": {
+      "additionalProperties": false,
+      "properties": {
+        "changed_source_count": { "type": "integer", "minimum": 0 },
+        "deleted_source_count": { "type": "integer", "minimum": 0 },
+        "new_source_count": { "type": "integer", "minimum": 0 }
+      },
+      "required": ["new_source_count", "deleted_source_count", "changed_source_count"],
+      "type": "object"
+    },
+    "comparison": {
+      "additionalProperties": false,
+      "properties": {
+        "changed_source_ids": { "items": { "type": "string" }, "type": "array" },
+        "deleted_source_ids": { "items": { "type": "string" }, "type": "array" },
+        "new_source_ids": { "items": { "type": "string" }, "type": "array" }
+      },
+      "required": ["new_source_ids", "deleted_source_ids", "changed_source_ids"],
+      "type": "object"
+    },
+    "generated_at": { "type": "string" },
+    "manifest_version": { "const": 1, "type": "integer" },
+    "media_acquisition_decision_state": { "const": "excluded", "type": "string" },
+    "media_acquisition_decision_manifest": { "type": "string" },
+    "monitored_source_count": { "type": "integer", "minimum": 1 },
+    "monitored_surface_count": { "type": "integer", "minimum": 1 },
+    "monitoring": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_source_ids": { "items": { "type": "string" }, "type": "array" },
+        "link_rot_watch_ids": { "items": { "type": "string" }, "type": "array" },
+        "stale_source_ids": { "items": { "type": "string" }, "type": "array" }
+      },
+      "required": ["stale_source_ids", "link_rot_watch_ids", "blocked_source_ids"],
+      "type": "object"
+    },
+    "no_media_download_guard": { "const": true, "type": "boolean" },
+    "notes": {
+      "items": { "type": "string" },
+      "minItems": 1,
+      "type": "array"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "fallbacks_are_validation_only": { "const": true, "type": "boolean" },
+        "metadata_first": { "const": true, "type": "boolean" },
+        "no_audio_file_download": { "const": true, "type": "boolean" },
+        "no_completeness_claim": { "const": true, "type": "boolean" },
+        "no_media_download": { "const": true, "type": "boolean" },
+        "no_public_media_release": { "const": true, "type": "boolean" },
+        "no_video_file_download": { "const": true, "type": "boolean" },
+        "rights_review_required_before_media_acquisition": { "const": true, "type": "boolean" }
+      },
+      "required": [
+        "metadata_first",
+        "no_media_download",
+        "no_video_file_download",
+        "no_audio_file_download",
+        "no_public_media_release",
+        "no_completeness_claim",
+        "rights_review_required_before_media_acquisition",
+        "fallbacks_are_validation_only"
+      ],
+      "type": "object"
+    },
+    "reconciliation_manifest": { "type": "string" },
+    "reconciliation_ledger_count": { "type": "integer", "minimum": 0 },
+    "refresh_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "cadence": { "const": "weekly", "type": "string" },
+        "comparison_basis": { "const": "latest_snapshot", "type": "string" },
+        "preserve_history": { "const": true, "type": "boolean" },
+        "snapshot_retention": { "const": 12, "type": "integer" }
+      },
+      "required": ["cadence", "snapshot_retention", "comparison_basis", "preserve_history"],
+      "type": "object"
+    },
+    "repository": { "const": "corpus-nz-hansard", "type": "string" },
+    "seed_fetchers_manifest": { "type": "string" },
+    "seed_target_count": { "type": "integer", "minimum": 0 },
+    "source_count": { "type": "integer", "minimum": 1 },
+    "source_inventory_manifest": { "type": "string" },
+    "snapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "path": { "type": "string" },
+        "previous_snapshot_path": { "type": ["string", "null"] },
+        "retention_directory": { "type": "string" }
+      },
+      "required": ["path", "previous_snapshot_path", "retention_directory"],
+      "type": "object"
+    },
+    "summary": {
+      "additionalProperties": false,
+      "properties": {
+        "blocked_source_watch_count": { "type": "integer", "minimum": 0 },
+        "changed_source_count": { "type": "integer", "minimum": 0 },
+        "deleted_source_count": { "type": "integer", "minimum": 0 },
+        "link_rot_watch_count": { "type": "integer", "minimum": 0 },
+        "monitored_source_count": { "type": "integer", "minimum": 1 },
+        "monitored_surface_count": { "type": "integer", "minimum": 1 },
+        "new_source_count": { "type": "integer", "minimum": 0 },
+        "no_media_download": { "const": true, "type": "boolean" },
+        "retention_limit": { "const": 12, "type": "integer" },
+        "stale_source_watch_count": { "type": "integer", "minimum": 0 }
+      },
+      "required": [
+        "monitored_source_count",
+        "monitored_surface_count",
+        "new_source_count",
+        "deleted_source_count",
+        "changed_source_count",
+        "retention_limit",
+        "no_media_download",
+        "stale_source_watch_count",
+        "link_rot_watch_count",
+        "blocked_source_watch_count"
+      ],
+      "type": "object"
+    },
+    "track_id": { "const": "parliament_video_ongoing_archive_20260705", "type": "string" },
+    "workflow": {
+      "additionalProperties": false,
+      "properties": {
+        "dispatch_modes": {
+          "items": {
+            "enum": ["dry-run", "refresh"]
+          },
+          "minItems": 2,
+          "type": "array"
+        },
+        "path": { "const": ".github/workflows/parliament-video-ongoing-archive.yml", "type": "string" },
+        "runner": { "type": "string" },
+        "schedule_cron": { "const": "37 3 * * 0", "type": "string" }
+      },
+      "required": ["path", "schedule_cron", "dispatch_modes", "runner"],
+      "type": "object"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "track_id",
+    "repository",
+    "generated_at",
+    "workflow",
+    "refresh_policy",
+    "policy",
+    "alert_thresholds",
+    "change_policy",
+    "monitored_source_count",
+    "monitored_surface_count",
+    "source_count",
+    "source_inventory_manifest",
+    "seed_fetchers_manifest",
+    "reconciliation_manifest",
+    "archive_coverage_manifest",
+    "media_acquisition_decision_manifest",
+    "monitoring",
+    "snapshot",
+    "change_summary",
+    "comparison",
+    "summary",
+    "media_acquisition_decision_state",
+    "no_media_download_guard",
+    "notes"
+  ],
+  "title": "Parliament Video Ongoing Archive",
+  "type": "object"
+}
