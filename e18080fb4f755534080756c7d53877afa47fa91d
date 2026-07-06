@@ -1,0 +1,1 @@
+Track follow-up: parliament_video_reconciliation_20260705\n\nFix: formatted the reconciliation builder, checker, and tests to satisfy Ruff format and restore the quality workflow.\nValidation: pixi run format-check; pixi run test; pixi run parliament-video-track-plan; pixi run python scripts/check_static_documentation_portal.py.\nOutcome: passed.
