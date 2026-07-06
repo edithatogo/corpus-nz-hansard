@@ -1,0 +1,157 @@
+{
+  "decision_scope": "media acquisition",
+  "decision_state": "excluded",
+  "decision_summary": "Parliament video and audio media acquisition is not approved; metadata-only archival remains the release posture.",
+  "fallback_resources": [
+    {
+      "classification": "evidence-only",
+      "resource_id": "parliament-website-video",
+      "title": "Parliament website video and Parliament Video help pages",
+      "url": "https://www3.parliament.nz/en/footer/website-help/the-parliament-tv-and-radio-page-explained/"
+    },
+    {
+      "classification": "evidence-only",
+      "resource_id": "youtube-parliament-channel",
+      "title": "Official NZ Parliament YouTube channel",
+      "url": "https://www.youtube.com/channel/UCuPya3mH6P9grNmgzmVdxoQ/videos"
+    },
+    {
+      "classification": "evidence-only",
+      "resource_id": "vimeo-era-links",
+      "title": "Vimeo-era Parliament video links",
+      "url": "https://vimeo.com/"
+    },
+    {
+      "classification": "evidence-only",
+      "resource_id": "tvnz-licensing",
+      "title": "TVNZ Licensing",
+      "url": "https://licensing.tvnz.co.nz/"
+    },
+    {
+      "classification": "evidence-only",
+      "resource_id": "nga-taonga",
+      "title": "Ng\u0101 Taonga Sound & Vision",
+      "url": "https://www.ngataonga.org.nz/"
+    },
+    {
+      "classification": "evidence-only",
+      "resource_id": "internet-archive",
+      "title": "Internet Archive",
+      "url": "https://archive.org/"
+    }
+  ],
+  "generated_at": "2026-07-06",
+  "guard": {
+    "approved_states": [
+      "private preservation only",
+      "public release"
+    ],
+    "blocked_state": "excluded",
+    "media_download_allowed": false
+  },
+  "manifest_version": 1,
+  "media": {
+    "audio": "excluded",
+    "captions": "excluded",
+    "metadata": "allowed",
+    "page_snapshots": "excluded",
+    "thumbnails": "excluded",
+    "transcripts": "excluded",
+    "video": "excluded"
+  },
+  "notes": [
+    "Metadata-only archival is the supported posture in this track.",
+    "No downloader may assume media approval without an explicit later decision state.",
+    "Fallback resources stay evidence-only until a later rights decision approves a different posture."
+  ],
+  "policy": {
+    "metadata_first": true,
+    "no_audio_file_download": true,
+    "no_media_download": true,
+    "no_private_media_archive": true,
+    "no_public_media_release": true,
+    "no_video_file_download": true,
+    "rights_review_required_before_media_acquisition": true
+  },
+  "repository": "corpus-nz-hansard",
+  "review_notes": [
+    {
+      "note": "RNZ official reuse guidance should be checked before any future approval; direct retrieval was not reliable in this run.",
+      "source_id": "rnz-reuse-terms-review",
+      "status": "review_pending"
+    }
+  ],
+  "rights_evidence": [
+    {
+      "access_status": "official-terms-review-complete",
+      "implication": "Parliament TV footage is not licensed for reuse under the CC-BY notice and needs separate terms review.",
+      "source_id": "parliament-copyright-and-video-terms",
+      "title": "Copyright - New Zealand Parliament",
+      "url": "https://www3.parliament.nz/en/footer/copyright/"
+    },
+    {
+      "access_status": "official-help-review-complete",
+      "implication": "Parliament Video and Parliament on Demand are distinct hosted surfaces with separate reuse constraints.",
+      "source_id": "parliament-tv-explained",
+      "title": "The Parliament TV and Radio page explained",
+      "url": "https://www3.parliament.nz/en/footer/website-help/the-parliament-tv-and-radio-page-explained/"
+    },
+    {
+      "access_status": "official-terms-review-complete",
+      "implication": "Official coverage is governed by Standing Orders conditions rather than blanket media reuse permission.",
+      "source_id": "standing-orders-appendix-d",
+      "title": "Appendix D: Coverage of proceedings",
+      "url": "https://www3.parliament.nz/en/pb/parliamentary-rules/standing-orders-2020-by-chapter/appendix-d-coverage-of-proceedings/"
+    },
+    {
+      "access_status": "official-practice-review-complete",
+      "implication": "Official coverage is published under Parliamentary authority and remains subject to stated use conditions.",
+      "source_id": "parliament-practice-official-coverage",
+      "title": "Chapter 12 - Communicating and Engaging with Parliament",
+      "url": "https://www3.parliament.nz/en/visit-and-learn/how-parliament-works/parliamentary-practice-in-new-zealand-2023-by-chapter/chapter-12-communicating-and-engaging-with-parliament/"
+    },
+    {
+      "access_status": "platform-terms-review-complete",
+      "implication": "YouTube-hosted Parliament videos remain governed by YouTube platform terms and channel rights metadata.",
+      "source_id": "youtube-terms-of-service",
+      "title": "Terms of Service - YouTube",
+      "url": "https://www.youtube.com/static?template=terms"
+    },
+    {
+      "access_status": "platform-terms-review-complete",
+      "implication": "Vimeo-era Parliament video surfaces remain governed by Vimeo terms and page-specific rights signals.",
+      "source_id": "vimeo-terms-of-service",
+      "title": "Vimeo Terms of Service",
+      "url": "https://vimeo.com/legal"
+    },
+    {
+      "access_status": "licensing-review-complete",
+      "implication": "TVNZ footage is a separate rights channel and does not authorize blanket Parliament media acquisition.",
+      "source_id": "tvnz-footage-licensing",
+      "title": "TVNZ Licensing footage request",
+      "url": "https://licensing.tvnz.co.nz/footage-request-public-setting/"
+    },
+    {
+      "access_status": "archive-access-review-complete",
+      "implication": "Ng\u0101 Taonga is an adjacent archive reference, not an automatic acquisition or redistribution right.",
+      "source_id": "ngataonga-collection-home",
+      "title": "Ng\u0101 Taonga Sound & Vision",
+      "url": "https://www.ngataonga.org.nz/"
+    },
+    {
+      "access_status": "reuse-review-complete",
+      "implication": "Archives New Zealand reuse requires separate permission and source-specific clearance.",
+      "source_id": "archives-nz-audiovisual-reuse",
+      "title": "Audiovisual collections - Archives New Zealand",
+      "url": "https://www.archives.govt.nz/research-guidance/research-guides/audiovisual"
+    },
+    {
+      "access_status": "web-archive-terms-review-complete",
+      "implication": "Web-archive copies remain subject to archive.org terms and rights review before any media claim.",
+      "source_id": "internet-archive-terms-of-use",
+      "title": "Internet Archive's Terms of Use",
+      "url": "https://archive.org/about/terms.php"
+    }
+  ],
+  "track_id": "parliament_video_media_acquisition_decision_20260705"
+}

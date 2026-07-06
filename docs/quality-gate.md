@@ -45,6 +45,7 @@ pixi run python scripts/check_parliament_dataset_full_acquisition.py
 pixi run python scripts/check_parliament_video_source_inventory.py
 pixi run python scripts/check_parliament_video_seed_fetchers.py
 pixi run python scripts/check_parliament_video_reconciliation.py
+pixi run python scripts/check_parliament_video_media_acquisition_decision.py
 pixi run python scripts/check_historical_coverage_breadth_integration.py
 pixi run python scripts/check_parliament_video_archive_coverage.py
 pixi run python scripts/check_historical_sitting_inventory.py

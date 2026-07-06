@@ -1,0 +1,267 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "decision_scope": {
+      "const": "media acquisition",
+      "type": "string"
+    },
+    "decision_state": {
+      "enum": [
+        "excluded",
+        "private preservation only",
+        "public release"
+      ],
+      "type": "string"
+    },
+    "decision_summary": {
+      "type": "string"
+    },
+    "fallback_resources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "classification": {
+            "enum": [
+              "evidence-only"
+            ],
+            "type": "string"
+          },
+          "resource_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "resource_id",
+          "title",
+          "url",
+          "classification"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "guard": {
+      "additionalProperties": false,
+      "properties": {
+        "approved_states": {
+          "items": {
+            "enum": [
+              "private preservation only",
+              "public release"
+            ],
+            "type": "string"
+          },
+          "minItems": 2,
+          "type": "array"
+        },
+        "blocked_state": {
+          "const": "excluded",
+          "type": "string"
+        },
+        "media_download_allowed": {
+          "const": false,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "media_download_allowed",
+        "approved_states",
+        "blocked_state"
+      ],
+      "type": "object"
+    },
+    "manifest_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "media": {
+      "additionalProperties": false,
+      "properties": {
+        "audio": {
+          "const": "excluded",
+          "type": "string"
+        },
+        "captions": {
+          "const": "excluded",
+          "type": "string"
+        },
+        "metadata": {
+          "const": "allowed",
+          "type": "string"
+        },
+        "page_snapshots": {
+          "const": "excluded",
+          "type": "string"
+        },
+        "thumbnails": {
+          "const": "excluded",
+          "type": "string"
+        },
+        "transcripts": {
+          "const": "excluded",
+          "type": "string"
+        },
+        "video": {
+          "const": "excluded",
+          "type": "string"
+        }
+      },
+      "required": [
+        "metadata",
+        "captions",
+        "transcripts",
+        "thumbnails",
+        "audio",
+        "video",
+        "page_snapshots"
+      ],
+      "type": "object"
+    },
+    "notes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "metadata_first": {
+          "const": true,
+          "type": "boolean"
+        },
+        "no_audio_file_download": {
+          "const": true,
+          "type": "boolean"
+        },
+        "no_media_download": {
+          "const": true,
+          "type": "boolean"
+        },
+        "no_private_media_archive": {
+          "const": true,
+          "type": "boolean"
+        },
+        "no_public_media_release": {
+          "const": true,
+          "type": "boolean"
+        },
+        "no_video_file_download": {
+          "const": true,
+          "type": "boolean"
+        },
+        "rights_review_required_before_media_acquisition": {
+          "const": true,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "metadata_first",
+        "no_media_download",
+        "no_video_file_download",
+        "no_audio_file_download",
+        "no_public_media_release",
+        "no_private_media_archive",
+        "rights_review_required_before_media_acquisition"
+      ],
+      "type": "object"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard",
+      "type": "string"
+    },
+    "review_notes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "review_pending"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "status",
+          "note"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "rights_evidence": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "access_status": {
+            "type": "string"
+          },
+          "implication": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "title",
+          "url",
+          "access_status",
+          "implication"
+        ],
+        "type": "object"
+      },
+      "minItems": 8,
+      "type": "array"
+    },
+    "track_id": {
+      "const": "parliament_video_media_acquisition_decision_20260705",
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "track_id",
+    "repository",
+    "generated_at",
+    "decision_scope",
+    "decision_state",
+    "decision_summary",
+    "policy",
+    "media",
+    "guard",
+    "rights_evidence",
+    "fallback_resources",
+    "review_notes",
+    "notes"
+  ],
+  "title": "Parliament Video Media Acquisition Decision",
+  "type": "object"
+}
