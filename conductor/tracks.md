@@ -21,14 +21,6 @@ Goal: scale from seed proofs to complete, resumable, hash-backed metadata captur
 
 Link: [conductor/tracks/parliament_video_full_metadata_archive_20260705/](./tracks/parliament_video_full_metadata_archive_20260705/)
 
-### [~] Track: Parliament Video Reconciliation
-
-Track ID: `parliament_video_reconciliation_20260705`
-
-Goal: reconcile Parliament video metadata against sitting calendars, Hansard dates, committee meetings, source indexes, YouTube, On Demand, Vimeo, and Internet Archive evidence before any completeness claim.
-
-Link: [conductor/tracks/parliament_video_reconciliation_20260705/](./tracks/parliament_video_reconciliation_20260705/)
-
 ### [ ] Track: Parliament Video Media Acquisition Decision
 
 Track ID: `parliament_video_media_acquisition_decision_20260705`
@@ -532,6 +524,14 @@ Track ID: `parliament_video_source_inventory_20260705`
 Goal: inventory every known public NZ Parliament video source surface, rights boundary, access path, expected date range, and adjacent-repo evidence before metadata capture.
 
 Link: [conductor/archive/parliament_video_source_inventory_20260705/](./archive/parliament_video_source_inventory_20260705/)
+
+### [x] Track: Parliament Video Reconciliation
+
+Track ID: `parliament_video_reconciliation_20260705`
+
+Goal: reconcile Parliament video metadata against sitting calendars, Hansard dates, committee meetings, source indexes, YouTube, On Demand, Vimeo, and Internet Archive evidence before any completeness claim.
+
+Link: [conductor/archive/parliament_video_reconciliation_20260705/](./archive/parliament_video_reconciliation_20260705/)
 
 ### [x] Track: Parliament Video Seed Fetchers
 

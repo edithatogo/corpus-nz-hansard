@@ -54,7 +54,7 @@
     "migrated",
     "missing-everywhere"
   ],
-  "generated_at": "2026-07-06T13:42:23+00:00",
+  "generated_at": "2026-07-06T13:47:55+00:00",
   "inputs": {
     "archive_coverage_manifest": "manifests/parliament_video_archive_coverage.json",
     "inventory_manifest": "manifests/parliament_video_source_inventory.json",
