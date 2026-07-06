@@ -1,0 +1,12 @@
+parliament_video_media_acquisition_decision_20260705 archive
+
+- Moved the completed track from conductor/tracks/ to conductor/archive/.
+- Updated conductor/tracks.md to show the archived entry only.
+- Marked the archived metadata status complete.
+- Regenerated the static documentation portal so the archived link appears under the archive path.
+
+Validation:
+- pixi run python scripts/check_static_documentation_portal.py
+- pixi run parliament-video-track-plan
+- pixi run python scripts/check_quality_gate.py
+- pixi run test
