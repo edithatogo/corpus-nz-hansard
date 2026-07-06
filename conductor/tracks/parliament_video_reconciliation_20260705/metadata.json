@@ -7,7 +7,7 @@
     "required_script": "scripts/check_parliament_video_track_plan.py"
   },
   "id": "parliament_video_reconciliation_20260705",
-  "status": "pending",
+  "status": "in_progress",
   "title": "Parliament Video Reconciliation",
   "track_id": "parliament_video_reconciliation_20260705"
 }

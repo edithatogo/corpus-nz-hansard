@@ -21,7 +21,7 @@ Goal: scale from seed proofs to complete, resumable, hash-backed metadata captur
 
 Link: [conductor/tracks/parliament_video_full_metadata_archive_20260705/](./tracks/parliament_video_full_metadata_archive_20260705/)
 
-### [ ] Track: Parliament Video Reconciliation
+### [~] Track: Parliament Video Reconciliation
 
 Track ID: `parliament_video_reconciliation_20260705`
 

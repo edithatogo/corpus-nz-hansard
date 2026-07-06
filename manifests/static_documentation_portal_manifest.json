@@ -11,7 +11,7 @@
     "version": "0.1.0",
     "zenodo_record": "https://zenodo.org/records/21030190"
   },
-  "generated_at": "2026-07-05T15:30:13.268558+00:00",
+  "generated_at": "2026-07-06T13:41:49.198680+00:00",
   "manifest_version": 1,
   "reference_catalog": {
     "citation_guidance": [
@@ -121,8 +121,8 @@
     "summary_counts": {
       "blocked": 0,
       "complete": 76,
-      "in_progress": 0,
-      "pending": 4
+      "in_progress": 1,
+      "pending": 3
     },
     "tracks": [
       {
@@ -135,7 +135,7 @@
       {
         "goal": "reconcile Parliament video metadata against sitting calendars, Hansard dates, committee meetings, source indexes, YouTube, On Demand, Vimeo, and Internet Archive evidence before any completeness claim.",
         "link": "./tracks/parliament_video_reconciliation_20260705/",
-        "status": " ",
+        "status": "~",
         "title": "Parliament Video Reconciliation",
         "track_id": "parliament_video_reconciliation_20260705"
       },

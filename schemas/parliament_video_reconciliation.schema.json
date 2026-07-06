@@ -1,0 +1,426 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adjacent_repo_findings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence": {
+            "type": "string"
+          },
+          "finding": {
+            "type": "string"
+          },
+          "repo": {
+            "type": "string"
+          },
+          "video_archive_status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "repo",
+          "finding",
+          "video_archive_status",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "cross_checks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "check_id": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "check_id",
+          "status",
+          "evidence",
+          "details"
+        ],
+        "type": "object"
+      },
+      "minItems": 4,
+      "type": "array"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "gap_taxonomy": {
+      "items": {
+        "enum": [
+          "metadata-only",
+          "rights-gated",
+          "fallback-only",
+          "evidence-only",
+          "access-blocked",
+          "migrated",
+          "missing-everywhere"
+        ],
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "inputs": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_coverage_manifest": {
+          "type": "string"
+        },
+        "inventory_manifest": {
+          "type": "string"
+        },
+        "seed_fetchers_manifest": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "inventory_manifest",
+        "seed_fetchers_manifest",
+        "archive_coverage_manifest"
+      ],
+      "type": "object"
+    },
+    "ledger": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "boundary_finding": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evidence": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "gap_status": {
+            "enum": [
+              "metadata-only",
+              "rights-gated",
+              "fallback-only",
+              "evidence-only",
+              "access-blocked",
+              "migrated",
+              "missing-everywhere"
+            ],
+            "type": "string"
+          },
+          "inventory_archive_status": {
+            "type": "string"
+          },
+          "inventory_rights_status": {
+            "type": "string"
+          },
+          "reconciliation_grain": {
+            "type": "string"
+          },
+          "seed_blocked_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "seed_index_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "seed_proof_status": {
+            "type": "string"
+          },
+          "seed_rights_status": {
+            "type": "string"
+          },
+          "seed_sample_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_classification": {
+            "type": "string"
+          },
+          "source_family": {
+            "type": "string"
+          },
+          "source_id": {
+            "type": "string"
+          },
+          "source_priority": {
+            "type": "integer"
+          },
+          "source_role": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "source_id",
+          "source_family",
+          "source_role",
+          "source_priority",
+          "source_classification",
+          "gap_status",
+          "reconciliation_grain",
+          "inventory_archive_status",
+          "inventory_rights_status",
+          "seed_proof_status",
+          "seed_rights_status",
+          "seed_index_url",
+          "seed_sample_url",
+          "seed_blocked_reason",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "minItems": 19,
+      "type": "array"
+    },
+    "manifest_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "notes": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 3,
+      "type": "array"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "fallbacks_are_validation_only": {
+          "const": true,
+          "type": "boolean"
+        },
+        "metadata_first": {
+          "const": true,
+          "type": "boolean"
+        },
+        "no_audio_file_download": {
+          "const": true,
+          "type": "boolean"
+        },
+        "no_completeness_claim": {
+          "const": true,
+          "type": "boolean"
+        },
+        "no_public_media_release": {
+          "const": true,
+          "type": "boolean"
+        },
+        "no_video_file_download": {
+          "const": true,
+          "type": "boolean"
+        },
+        "rights_review_required_before_media_acquisition": {
+          "const": true,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "metadata_first",
+        "no_video_file_download",
+        "no_audio_file_download",
+        "no_public_media_release",
+        "no_completeness_claim",
+        "rights_review_required_before_media_acquisition",
+        "fallbacks_are_validation_only"
+      ],
+      "type": "object"
+    },
+    "reconciliation_grains": {
+      "items": {
+        "type": "string"
+      },
+      "minItems": 4,
+      "type": "array"
+    },
+    "reconciliation_status": {
+      "const": "not-complete",
+      "type": "string"
+    },
+    "repository": {
+      "const": "corpus-nz-hansard",
+      "type": "string"
+    },
+    "source_priorities": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "source_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "rank",
+          "label",
+          "source_ids"
+        ],
+        "type": "object"
+      },
+      "minItems": 4,
+      "type": "array"
+    },
+    "summary": {
+      "additionalProperties": false,
+      "properties": {
+        "access_blocked_source_count": {
+          "type": "integer"
+        },
+        "complete_video_archive": {
+          "const": false,
+          "type": "boolean"
+        },
+        "evidence_only_source_count": {
+          "type": "integer"
+        },
+        "fallback_only_source_count": {
+          "type": "integer"
+        },
+        "fallback_source_count": {
+          "type": "integer"
+        },
+        "gap_status_counts": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "ledger_row_count": {
+          "type": "integer"
+        },
+        "metadata_completeness_claim": {
+          "const": false,
+          "type": "boolean"
+        },
+        "metadata_reconciled_source_count": {
+          "type": "integer"
+        },
+        "media_completeness_claim": {
+          "const": false,
+          "type": "boolean"
+        },
+        "missing_everywhere_source_count": {
+          "type": "integer"
+        },
+        "migrated_source_count": {
+          "type": "integer"
+        },
+        "ongoing_archive_complete": {
+          "const": false,
+          "type": "boolean"
+        },
+        "official_source_count": {
+          "type": "integer"
+        },
+        "reconciliation_source_count": {
+          "type": "integer"
+        },
+        "retrospective_archive_complete": {
+          "const": false,
+          "type": "boolean"
+        },
+        "rights_gated_source_count": {
+          "type": "integer"
+        },
+        "seed_target_count": {
+          "type": "integer"
+        },
+        "source_classification_counts": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "source_count": {
+          "type": "integer"
+        },
+        "source_role_counts": {
+          "additionalProperties": {
+            "type": "integer"
+          },
+          "type": "object"
+        },
+        "supporting_source_count": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "source_count",
+        "official_source_count",
+        "fallback_source_count",
+        "supporting_source_count",
+        "seed_target_count",
+        "ledger_row_count",
+        "metadata_reconciled_source_count",
+        "fallback_only_source_count",
+        "evidence_only_source_count",
+        "rights_gated_source_count",
+        "access_blocked_source_count",
+        "migrated_source_count",
+        "missing_everywhere_source_count",
+        "retrospective_archive_complete",
+        "ongoing_archive_complete",
+        "complete_video_archive",
+        "metadata_completeness_claim",
+        "media_completeness_claim",
+        "gap_status_counts",
+        "source_classification_counts",
+        "source_role_counts"
+      ],
+      "type": "object"
+    },
+    "track_id": {
+      "const": "parliament_video_reconciliation_20260705",
+      "type": "string"
+    }
+  },
+  "required": [
+    "manifest_version",
+    "track_id",
+    "repository",
+    "generated_at",
+    "reconciliation_status",
+    "policy",
+    "inputs",
+    "reconciliation_grains",
+    "gap_taxonomy",
+    "source_priorities",
+    "cross_checks",
+    "summary",
+    "ledger",
+    "notes",
+    "adjacent_repo_findings"
+  ],
+  "title": "Parliament video reconciliation manifest",
+  "type": "object"
+}
