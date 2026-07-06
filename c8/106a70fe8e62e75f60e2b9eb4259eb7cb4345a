@@ -1,0 +1,14 @@
+parliament_video_media_acquisition_decision_20260705 checkpoint
+
+Validation evidence:
+- pixi run python scripts/build_parliament_video_media_acquisition_decision.py
+- pixi run python scripts/check_parliament_video_media_acquisition_decision.py
+- pixi run format-check
+- pixi run lint
+- pixi run parliament-video-track-plan
+- pixi run python scripts/check_quality_gate.py
+- pixi run python -m pytest -q tests/test_parliament_video_media_acquisition_decision.py tests/test_check_quality_gate.py
+- pixi run test
+
+Review result:
+- No blocking implementation issues found after review of the manifest, schema, checker, docs, and quality wiring.
