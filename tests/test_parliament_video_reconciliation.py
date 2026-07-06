@@ -10,7 +10,12 @@ ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "manifests" / "parliament_video_reconciliation.json"
 DOC = ROOT / "docs" / "parliament-video-reconciliation.md"
 SCHEMA = ROOT / "schemas" / "parliament_video_reconciliation.schema.json"
-LEDGER = ROOT / "derived" / "parliament_video_reconciliation" / "parliament_video_reconciliation_ledger.json"
+LEDGER = (
+    ROOT
+    / "derived"
+    / "parliament_video_reconciliation"
+    / "parliament_video_reconciliation_ledger.json"
+)
 
 
 def run_script(script: str) -> None:
@@ -37,7 +42,9 @@ class ParliamentVideoReconciliationTest(unittest.TestCase):
         assert manifest["summary"]["supporting_source_count"] == 3
         assert manifest["summary"]["gap_status_counts"]["metadata-only"] >= 1
         assert manifest["summary"]["gap_status_counts"]["access-blocked"] >= 1
-        assert any(row["source_id"] == "official-youtube-nz-parliament" for row in manifest["ledger"])
+        assert any(
+            row["source_id"] == "official-youtube-nz-parliament" for row in manifest["ledger"]
+        )
         assert any(row["source_id"] == "memento-cdx-web-archives" for row in manifest["ledger"])
         assert any(row["source_id"] == "adjacent-sm-govt-nz" for row in manifest["ledger"])
         assert DOC.exists()

@@ -13,7 +13,10 @@ MANIFEST_PATH = ROOT / "manifests" / "parliament_video_reconciliation.json"
 SCHEMA_PATH = ROOT / "schemas" / "parliament_video_reconciliation.schema.json"
 DOC_PATH = ROOT / "docs" / "parliament-video-reconciliation.md"
 LEDGER_PATH = (
-    ROOT / "derived" / "parliament_video_reconciliation" / "parliament_video_reconciliation_ledger.json"
+    ROOT
+    / "derived"
+    / "parliament_video_reconciliation"
+    / "parliament_video_reconciliation_ledger.json"
 )
 INVENTORY_PATH = ROOT / "manifests" / "parliament_video_source_inventory.json"
 SEED_PATH = ROOT / "manifests" / "parliament_video_seed_fetchers.json"
@@ -39,7 +42,15 @@ def _json(path: Path) -> dict[str, Any]:
 
 def _failures() -> list[str]:
     failures: list[str] = []
-    for path in (MANIFEST_PATH, SCHEMA_PATH, DOC_PATH, LEDGER_PATH, INVENTORY_PATH, SEED_PATH, ARCHIVE_PATH):
+    for path in (
+        MANIFEST_PATH,
+        SCHEMA_PATH,
+        DOC_PATH,
+        LEDGER_PATH,
+        INVENTORY_PATH,
+        SEED_PATH,
+        ARCHIVE_PATH,
+    ):
         if not path.exists():
             failures.append(f"{path.relative_to(ROOT).as_posix()} must exist.")
     if failures:
@@ -100,9 +111,13 @@ def _failures() -> list[str]:
     archive = _json(ARCHIVE_PATH)
     if manifest["summary"]["seed_target_count"] != seed["summary"]["target_count"]:
         failures.append("summary.seed_target_count must match the seed manifest target count.")
-    if manifest["summary"]["official_source_count"] != len(inventory["source_summary"]["official_source_ids"]):
+    if manifest["summary"]["official_source_count"] != len(
+        inventory["source_summary"]["official_source_ids"]
+    ):
         failures.append("summary.official_source_count must match the inventory manifest.")
-    if manifest["summary"]["fallback_source_count"] != len(inventory["source_summary"]["fallback_source_ids"]):
+    if manifest["summary"]["fallback_source_count"] != len(
+        inventory["source_summary"]["fallback_source_ids"]
+    ):
         failures.append("summary.fallback_source_count must match the inventory manifest.")
     if len(manifest["adjacent_repo_findings"]) != len(archive["adjacent_repo_findings"]):
         failures.append("adjacent repo findings must mirror the archive coverage manifest.")

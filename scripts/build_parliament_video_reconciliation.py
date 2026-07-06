@@ -14,7 +14,10 @@ SEED_PATH = ROOT / "manifests" / "parliament_video_seed_fetchers.json"
 ARCHIVE_COVERAGE_PATH = ROOT / "manifests" / "parliament_video_archive_coverage.json"
 MANIFEST_PATH = ROOT / "manifests" / "parliament_video_reconciliation.json"
 LEDGER_PATH = (
-    ROOT / "derived" / "parliament_video_reconciliation" / "parliament_video_reconciliation_ledger.json"
+    ROOT
+    / "derived"
+    / "parliament_video_reconciliation"
+    / "parliament_video_reconciliation_ledger.json"
 )
 DOC_PATH = ROOT / "docs" / "parliament-video-reconciliation.md"
 
@@ -178,7 +181,11 @@ def _build_manifest(
     official_source_count = len(inventory["source_summary"]["official_source_ids"])
     fallback_source_count = len(inventory["source_summary"]["fallback_source_ids"])
     supporting_source_count = len(
-        [row for row in ledger if row["source_role"] == "supporting" and row["source_id"].startswith("adjacent-")]
+        [
+            row
+            for row in ledger
+            if row["source_role"] == "supporting" and row["source_id"].startswith("adjacent-")
+        ]
     )
     return {
         "manifest_version": 1,
@@ -286,7 +293,9 @@ def _build_manifest(
             "seed_target_count": seed["summary"]["target_count"],
             "ledger_row_count": len(ledger),
             "metadata_reconciled_source_count": sum(
-                1 for row in ledger if row["gap_status"] in {"metadata-only", "rights-gated", "migrated"}
+                1
+                for row in ledger
+                if row["gap_status"] in {"metadata-only", "rights-gated", "migrated"}
             ),
             "fallback_only_source_count": gap_counts["fallback-only"],
             "evidence_only_source_count": gap_counts["evidence-only"],
@@ -347,31 +356,31 @@ This track reconciles Parliament video metadata against multiple independent sou
 
 ## Inputs
 
-- `{manifest['inputs']['inventory_manifest']}`
-- `{manifest['inputs']['seed_fetchers_manifest']}`
-- `{manifest['inputs']['archive_coverage_manifest']}`
+- `{manifest["inputs"]["inventory_manifest"]}`
+- `{manifest["inputs"]["seed_fetchers_manifest"]}`
+- `{manifest["inputs"]["archive_coverage_manifest"]}`
 
 ## Summary
 
 | Field | Value |
 | --- | --- |
-| Source count | {summary['source_count']} |
-| Official sources | {summary['official_source_count']} |
-| Fallback sources | {summary['fallback_source_count']} |
-| Supporting boundary sources | {summary['supporting_source_count']} |
-| Seed targets | {summary['seed_target_count']} |
-| Ledger rows | {summary['ledger_row_count']} |
-| Metadata reconciled | {summary['metadata_reconciled_source_count']} |
-| Rights gated | {summary['rights_gated_source_count']} |
-| Fallback only | {summary['fallback_only_source_count']} |
-| Evidence only | {summary['evidence_only_source_count']} |
-| Access blocked | {summary['access_blocked_source_count']} |
-| Migrated | {summary['migrated_source_count']} |
-| Missing everywhere | {summary['missing_everywhere_source_count']} |
+| Source count | {summary["source_count"]} |
+| Official sources | {summary["official_source_count"]} |
+| Fallback sources | {summary["fallback_source_count"]} |
+| Supporting boundary sources | {summary["supporting_source_count"]} |
+| Seed targets | {summary["seed_target_count"]} |
+| Ledger rows | {summary["ledger_row_count"]} |
+| Metadata reconciled | {summary["metadata_reconciled_source_count"]} |
+| Rights gated | {summary["rights_gated_source_count"]} |
+| Fallback only | {summary["fallback_only_source_count"]} |
+| Evidence only | {summary["evidence_only_source_count"]} |
+| Access blocked | {summary["access_blocked_source_count"]} |
+| Migrated | {summary["migrated_source_count"]} |
+| Missing everywhere | {summary["missing_everywhere_source_count"]} |
 
-Retrospective archive complete: {summary['retrospective_archive_complete']}
-Ongoing archive complete: {summary['ongoing_archive_complete']}
-Complete video archive: {summary['complete_video_archive']}
+Retrospective archive complete: {summary["retrospective_archive_complete"]}
+Ongoing archive complete: {summary["ongoing_archive_complete"]}
+Complete video archive: {summary["complete_video_archive"]}
 
 ## Gap Taxonomy
 
@@ -415,7 +424,15 @@ def build_manifest(*, generated_at: str | None = None) -> dict[str, Any]:
     ledger = _build_ledger(inventory, seed, archive)
     manifest = _build_manifest(generated_at, inventory, seed, archive, ledger)
     _write_json(MANIFEST_PATH, manifest)
-    _write_json(LEDGER_PATH, {"track_id": manifest["track_id"], "generated_at": generated_at, "summary": manifest["summary"], "ledger": ledger})
+    _write_json(
+        LEDGER_PATH,
+        {
+            "track_id": manifest["track_id"],
+            "generated_at": generated_at,
+            "summary": manifest["summary"],
+            "ledger": ledger,
+        },
+    )
     _write_doc(manifest)
     return manifest
 
