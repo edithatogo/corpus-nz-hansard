@@ -21,8 +21,8 @@
 - [x] Task: Commit and annotate task outputs with git notes, then update this plan with task SHAs. `6204542`
 - [x] Task: Conductor - User Manual Verification 'Reconciliation Builders' (Protocol in workflow.md) `6204542`
 
-## Phase 3: Completeness Gates
+## Phase 3: Completeness Gates [checkpoint: e6886ce]
 - [x] Task: Add gates for metadata completeness and media completeness separation. `6204542`
 - [x] Task: Run full validation, including `pixi run parliament-video-track-plan`, and document residual gaps. `6204542`
-- [ ] Task: Create phase checkpoint, push to the remote after each phase, inspect GitHub Actions, and address any failing checks before handoff.
-- [ ] Task: Conductor - User Manual Verification 'Completeness Gates' (Protocol in workflow.md)
+- [x] Task: Create phase checkpoint, push to the remote after each phase, inspect GitHub Actions, and address any failing checks before handoff. `e6886ce`
+- [x] Task: Conductor - User Manual Verification 'Completeness Gates' (Protocol in workflow.md) `e6886ce`
