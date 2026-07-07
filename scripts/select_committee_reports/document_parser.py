@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import re
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 
@@ -123,6 +124,45 @@ def extract_text_from_pdf(
 # ---------------------------------------------------------------------------
 
 
+class _VisibleTextExtractor(HTMLParser):
+    """Collect visible HTML text while dropping script and style content."""
+
+    BLOCK_TAGS = {"p", "div", "h1", "h2", "h3", "h4", "h5", "h6", "li", "tr", "blockquote", "section"}
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self._chunks: list[str] = []
+        self._ignored_tag: str | None = None
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag in {"script", "style"}:
+            self._ignored_tag = tag
+            return
+        if self._ignored_tag is not None:
+            return
+        if tag == "br":
+            self._chunks.append("\n")
+
+    def handle_endtag(self, tag: str) -> None:
+        if self._ignored_tag == tag:
+            self._ignored_tag = None
+            return
+        if self._ignored_tag is not None:
+            return
+        if tag in self.BLOCK_TAGS:
+            self._chunks.append("\n")
+
+    def handle_data(self, data: str) -> None:
+        if self._ignored_tag is None:
+            self._chunks.append(data)
+
+    def handle_comment(self, data: str) -> None:
+        return
+
+    def text(self) -> str:
+        return "".join(self._chunks)
+
+
 def extract_text_from_html(
     html: str,
     compute_hash: bool = False,
@@ -144,45 +184,17 @@ def extract_text_from_html(
     if not html:
         return {"text": "", "sha256": _hash("")} if compute_hash else ""
 
-    # Remove script and style elements
-    cleaned = re.sub(r"<script[^>]*>.*?</script>", "", html, flags=re.DOTALL | re.IGNORECASE)
-    cleaned = re.sub(r"<style[^>]*>.*?</style>", "", cleaned, flags=re.DOTALL | re.IGNORECASE)
-
-    # Replace <br> and block-level tags with newlines
-    cleaned = re.sub(r"<br\s*/?>", "\n", cleaned, flags=re.IGNORECASE)
-    cleaned = re.sub(
-        r"</(p|div|h[1-6]|li|tr|blockquote|section)>", "\n", cleaned, flags=re.IGNORECASE
-    )
-
-    # Strip remaining tags
-    text = re.sub(r"<[^>]+>", "", cleaned)
-
-    # Decode HTML entities
-    text = _decode_html_entities(text)
+    extractor = _VisibleTextExtractor()
+    extractor.feed(html)
+    extractor.close()
+    text = extractor.text()
 
     # Collapse whitespace
     text = re.sub(r"[ \t]+\n", "\n", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     text = text.strip()
-
     if compute_hash:
         return {"text": text, "sha256": _hash(text)}
-    return text
-
-
-def _decode_html_entities(text: str) -> str:
-    """Decode common HTML entities."""
-    replacements = {
-        "&amp;": "&",
-        "&lt;": "<",
-        "&gt;": ">",
-        "&quot;": '"',
-        "&#39;": "'",
-        "&nbsp;": " ",
-        "&#160;": " ",
-    }
-    for entity, char in replacements.items():
-        text = text.replace(entity, char)
     return text
 
 

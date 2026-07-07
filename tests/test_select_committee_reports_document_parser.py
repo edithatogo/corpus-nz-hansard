@@ -93,6 +93,16 @@ class ExtractTextFromHtmlTest(unittest.TestCase):
         self.assertIn("Line1", text)
         self.assertIn("Line2", text)
 
+    def test_extract_strips_script_and_style_content(self):
+        html = (
+            "<html><head><style>body {display:none}</style></head>"
+            "<body><script>alert(1)</script foo=\"bar\">Visible</body></html>"
+        )
+        text = extract_text_from_html(html)
+        self.assertEqual(text, "Visible")
+        self.assertNotIn("alert(1)", text)
+        self.assertNotIn("display:none", text)
+
 
 class ExtractTextFromDocxTest(unittest.TestCase):
     def test_extract_from_missing_file(self):

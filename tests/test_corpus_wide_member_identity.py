@@ -4,6 +4,7 @@ import csv
 import re
 import unittest
 from typing import Any
+from urllib.parse import urlparse
 
 import pyarrow as pa
 import pyarrow.parquet as pq
@@ -50,8 +51,11 @@ class DetectedReversedNameTests(unittest.TestCase):
 class GenerateAuthorityUrlTests(unittest.TestCase):
     def test_simple_name(self) -> None:
         url = _generate_authority_url("Clayton Cosgrove")
+        parsed = urlparse(url)
         self.assertIn("cosgrove-clayton", url)
-        self.assertTrue(url.startswith("https://www3.parliament.nz"))
+        self.assertEqual(parsed.scheme, "https")
+        self.assertEqual(parsed.netloc, "www3.parliament.nz")
+        self.assertTrue(parsed.path.endswith("/cosgrove-clayton/"))
 
     def test_hyphenated_surname(self) -> None:
         url = _generate_authority_url("Iain Lees-Galloway")
