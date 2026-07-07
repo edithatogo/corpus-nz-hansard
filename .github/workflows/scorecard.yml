@@ -27,8 +27,4 @@ jobs:
         with:
           sarif_file: results.sarif
       - name: Fail on blocking code-scanning alerts
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          python scripts/check_code_scanning_alerts.py
+        uses: edithatogo/.github/.github/actions/code-scanning-gate@main
