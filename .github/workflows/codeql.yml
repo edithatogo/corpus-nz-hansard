@@ -25,8 +25,4 @@ jobs:
           languages: python
       - uses: github/codeql-action/analyze@8aad20d150bbac5944a9f9d289da16a4b0d87c1e
       - name: Fail on blocking code-scanning alerts
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          python scripts/check_code_scanning_alerts.py
+        uses: edithatogo/.github/.github/actions/code-scanning-gate@main
