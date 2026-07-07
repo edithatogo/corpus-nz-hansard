@@ -7,7 +7,7 @@
     "required_script": "scripts/check_parliament_video_track_plan.py"
   },
   "id": "parliament_video_full_metadata_archive_20260705",
-  "status": "pending",
+  "status": "complete",
   "title": "Parliament Video Full Metadata Archive",
   "track_id": "parliament_video_full_metadata_archive_20260705"
 }
