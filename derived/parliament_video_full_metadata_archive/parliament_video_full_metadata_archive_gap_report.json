@@ -1,0 +1,114 @@
+{
+  "adjacent_repo_findings": [
+    {
+      "evidence": "../sm-govt-nz/conductor/youtube_archive_summary.md and ../sm-govt-nz/conductor/govt_archive_readiness_matrix.json",
+      "finding": "General NZ government YouTube metadata archival exists, but local evidence did not show a complete official NZ Parliament YouTube or Parliament website video archive.",
+      "repo": "sm-govt-nz",
+      "video_archive_status": "metadata-only"
+    },
+    {
+      "evidence": "../hathi-nz/manifests/hathitrust-nz/nz_parliamentary_debates_hansard.json",
+      "finding": "HathiTrust-side work covers historical print/OCR evidence, not Parliament video.",
+      "repo": "hathi-nz",
+      "video_archive_status": "not-applicable"
+    },
+    {
+      "evidence": "../corpus-law-nz/docs/shared_nz_corpus_core_schema.md",
+      "finding": "Legislation and Gazette boundaries are adjacent but do not provide Parliament video coverage.",
+      "repo": "corpus-law-nz",
+      "video_archive_status": "not-applicable"
+    }
+  ],
+  "gap_status_counts": {
+    "access-blocked": 1,
+    "evidence-only": 2,
+    "fallback-only": 4,
+    "metadata-only": 6,
+    "migrated": 1,
+    "rights-gated": 2
+  },
+  "gap_taxonomy": [
+    "access-blocked",
+    "evidence-only",
+    "fallback-only",
+    "metadata-only",
+    "migrated",
+    "rights-gated"
+  ],
+  "generated_at": "2026-07-07T09:55:03+00:00",
+  "manifest_version": 1,
+  "notes": [
+    "Gap report reflects metadata-only capture and does not imply media completeness.",
+    "Blocked records remain blocked until an approved retrieval path is created."
+  ],
+  "policy": {
+    "fallbacks_are_validation_only": true,
+    "metadata_first": true,
+    "no_audio_file_download": true,
+    "no_completeness_claim": true,
+    "no_media_download": true,
+    "no_public_media_release": true,
+    "no_video_file_download": true,
+    "rights_review_required_before_media_acquisition": true
+  },
+  "proof_status_counts": {
+    "blocked": 1,
+    "fetched": 6,
+    "index-only": 9
+  },
+  "records_by_gap_status": {
+    "access-blocked": [
+      "memento-cdx-web-archives"
+    ],
+    "evidence-only": [
+      "parliament-today-am-network",
+      "rnz-parliament"
+    ],
+    "fallback-only": [
+      "archives-new-zealand-av-catalogue",
+      "internet-archive-webcaptures",
+      "nga-taonga-av-collection",
+      "tvnz-archive-looking-back"
+    ],
+    "metadata-only": [
+      "official-parliament-live-and-recorded",
+      "official-parliament-video",
+      "parliament-site-search-and-sitemaps",
+      "parliament-website-embedded-video-pages",
+      "select-committee-live-streams-current",
+      "select-committee-on-demand-archive"
+    ],
+    "migrated": [
+      "parliament-on-demand-house-archive"
+    ],
+    "rights-gated": [
+      "official-youtube-nz-parliament",
+      "select-committee-vimeo-pages"
+    ]
+  },
+  "records_by_proof_status": {
+    "blocked": [
+      "memento-cdx-web-archives"
+    ],
+    "fetched": [
+      "internet-archive-webcaptures",
+      "nga-taonga-av-collection",
+      "official-youtube-nz-parliament",
+      "parliament-on-demand-house-archive",
+      "parliament-today-am-network",
+      "rnz-parliament"
+    ],
+    "index-only": [
+      "archives-new-zealand-av-catalogue",
+      "official-parliament-live-and-recorded",
+      "official-parliament-video",
+      "parliament-site-search-and-sitemaps",
+      "parliament-website-embedded-video-pages",
+      "select-committee-live-streams-current",
+      "select-committee-on-demand-archive",
+      "select-committee-vimeo-pages",
+      "tvnz-archive-looking-back"
+    ]
+  },
+  "track_id": "parliament_video_full_metadata_archive_20260705"
+}

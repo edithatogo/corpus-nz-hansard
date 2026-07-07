@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "adjacent_repo_findings": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "archive": {
+      "additionalProperties": false,
+      "properties": {
+        "gap_report_path": { "type": "string" },
+        "records_path": { "type": "string" },
+        "snapshot_history_directory": { "type": "string" },
+        "snapshot_path": { "type": "string" }
+      },
+      "required": [
+        "records_path",
+        "snapshot_path",
+        "gap_report_path",
+        "snapshot_history_directory"
+      ],
+      "type": "object"
+    },
+    "cache_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "normalized_id_prefix": { "const": "parliament-video-full-metadata-archive", "type": "string" },
+        "pagination_policy": {
+          "additionalProperties": false,
+          "properties": {
+            "page_size": { "const": 50, "type": "integer" },
+            "stable_sort": { "const": true, "type": "boolean" }
+          },
+          "required": ["stable_sort", "page_size"],
+          "type": "object"
+        },
+        "retry_policy": {
+          "additionalProperties": false,
+          "properties": {
+            "backoff_strategy": { "const": "exponential", "type": "string" },
+            "max_attempts": { "const": 3, "type": "integer" },
+            "max_backoff_seconds": { "const": 60, "type": "integer" }
+          },
+          "required": ["max_attempts", "backoff_strategy", "max_backoff_seconds"],
+          "type": "object"
+        },
+        "root": { "type": "string" }
+      },
+      "required": ["root", "normalized_id_prefix", "retry_policy", "pagination_policy"],
+      "type": "object"
+    },
+    "comparison": {
+      "additionalProperties": false,
+      "properties": {
+        "changed_source_ids": { "items": { "type": "string" }, "type": "array" },
+        "deleted_source_ids": { "items": { "type": "string" }, "type": "array" },
+        "new_source_ids": { "items": { "type": "string" }, "type": "array" }
+      },
+      "required": ["new_source_ids", "deleted_source_ids", "changed_source_ids"],
+      "type": "object"
+    },
+    "generated_at": { "type": "string" },
+    "manifest_version": { "const": 1, "type": "integer" },
+    "notes": {
+      "items": { "type": "string" },
+      "minItems": 1,
+      "type": "array"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "fallbacks_are_validation_only": { "const": true, "type": "boolean" },
+        "metadata_first": { "const": true, "type": "boolean" },
+        "no_audio_file_download": { "const": true, "type": "boolean" },
+        "no_completeness_claim": { "const": true, "type": "boolean" },
+        "no_media_download": { "const": true, "type": "boolean" },
+        "no_public_media_release": { "const": true, "type": "boolean" },
+        "no_video_file_download": { "const": true, "type": "boolean" },
+        "rights_review_required_before_media_acquisition": { "const": true, "type": "boolean" }
+      },
+      "required": [
+        "metadata_first",
+        "no_media_download",
+        "no_video_file_download",
+        "no_audio_file_download",
+        "no_public_media_release",
+        "no_completeness_claim",
+        "rights_review_required_before_media_acquisition",
+        "fallbacks_are_validation_only"
+      ],
+      "type": "object"
+    },
+    "refresh_policy": {
+      "additionalProperties": false,
+      "properties": {
+        "cadence": { "const": "monthly", "type": "string" },
+        "comparison_basis": { "const": "latest_snapshot", "type": "string" },
+        "preserve_history": { "const": true, "type": "boolean" },
+        "snapshot_retention": { "const": 12, "type": "integer" }
+      },
+      "required": ["cadence", "snapshot_retention", "comparison_basis", "preserve_history"],
+      "type": "object"
+    },
+    "repository": { "const": "corpus-nz-hansard", "type": "string" },
+    "source_manifests": {
+      "additionalProperties": false,
+      "properties": {
+        "archive_coverage_manifest": { "type": "string" },
+        "inventory_manifest": { "type": "string" },
+        "reconciliation_manifest": { "type": "string" },
+        "seed_fetchers_manifest": { "type": "string" }
+      },
+      "required": [
+        "inventory_manifest",
+        "seed_fetchers_manifest",
+        "reconciliation_manifest",
+        "archive_coverage_manifest"
+      ],
+      "type": "object"
+    },
+    "summary": {
+      "additionalProperties": false,
+      "properties": {
+        "adjacent_repo_finding_count": { "type": "integer", "minimum": 0 },
+        "approved_source_count": { "type": "integer", "minimum": 1 },
+        "blocked_source_count": { "type": "integer", "minimum": 0 },
+        "captured_source_count": { "type": "integer", "minimum": 0 },
+        "complete_video_archive": { "const": false, "type": "boolean" },
+        "fallback_source_count": { "type": "integer", "minimum": 0 },
+        "fetched_source_count": { "type": "integer", "minimum": 0 },
+        "gap_status_counts": {
+          "additionalProperties": { "type": "integer", "minimum": 0 },
+          "type": "object"
+        },
+        "index_only_source_count": { "type": "integer", "minimum": 0 },
+        "media_completeness_claim": { "const": false, "type": "boolean" },
+        "metadata_completeness_claim": { "const": false, "type": "boolean" },
+        "official_source_count": { "type": "integer", "minimum": 0 },
+        "ongoing_archive_complete": { "const": false, "type": "boolean" },
+        "record_count": { "type": "integer", "minimum": 1 },
+        "record_status_counts": {
+          "additionalProperties": { "type": "integer", "minimum": 0 },
+          "type": "object"
+        },
+        "retrospective_archive_complete": { "const": false, "type": "boolean" },
+        "rights_gated_source_count": { "type": "integer", "minimum": 0 },
+        "source_classification_counts": {
+          "additionalProperties": { "type": "integer", "minimum": 0 },
+          "type": "object"
+        },
+        "source_role_counts": {
+          "additionalProperties": { "type": "integer", "minimum": 0 },
+          "type": "object"
+        }
+      },
+      "required": [
+        "record_count",
+        "approved_source_count",
+        "captured_source_count",
+        "blocked_source_count",
+        "fetched_source_count",
+        "index_only_source_count",
+        "official_source_count",
+        "fallback_source_count",
+        "rights_gated_source_count",
+        "adjacent_repo_finding_count",
+        "metadata_completeness_claim",
+        "media_completeness_claim",
+        "retrospective_archive_complete",
+        "ongoing_archive_complete",
+        "complete_video_archive",
+        "record_status_counts",
+        "gap_status_counts",
+        "source_classification_counts",
+        "source_role_counts"
+      ],
+      "type": "object"
+    },
+    "track_id": { "const": "parliament_video_full_metadata_archive_20260705", "type": "string" }
+  },
+  "required": [
+    "manifest_version",
+    "track_id",
+    "repository",
+    "generated_at",
+    "refresh_policy",
+    "cache_policy",
+    "policy",
+    "source_manifests",
+    "archive",
+    "summary",
+    "comparison",
+    "adjacent_repo_findings",
+    "notes"
+  ],
+  "title": "Parliament Video Full Metadata Archive",
+  "type": "object"
+}

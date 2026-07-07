@@ -132,6 +132,7 @@ parliament-video-source-inventory = ".pixi/envs/default/python.exe scripts/check
 parliament-video-seed-fetchers = ".pixi/envs/default/python.exe scripts/check_parliament_video_seed_fetchers.py"
 parliament-video-reconciliation = ".pixi/envs/default/python.exe scripts/check_parliament_video_reconciliation.py"
 parliament-video-media-acquisition-decision = ".pixi/envs/default/python.exe scripts/check_parliament_video_media_acquisition_decision.py"
+parliament-video-full-metadata-archive = ".pixi/envs/default/python.exe scripts/check_parliament_video_full_metadata_archive.py"
 parliament-video-track-plan = ".pixi/envs/default/python.exe scripts/check_parliament_video_track_plan.py"
 historical-sitting-inventory = ".pixi/envs/default/python.exe scripts/check_historical_sitting_inventory.py"
 historical-sitting-official-exports = ".pixi/envs/default/python.exe scripts/check_historical_sitting_official_exports.py"
@@ -193,6 +194,7 @@ quality = { depends-on = [
   "parliament-video-seed-fetchers",
   "parliament-video-reconciliation",
   "parliament-video-media-acquisition-decision",
+  "parliament-video-full-metadata-archive",
   "parliament-video-track-plan",
   "historical-sitting-inventory",
   "historical-sitting-official-exports",

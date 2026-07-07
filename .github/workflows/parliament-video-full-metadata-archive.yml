@@ -1,0 +1,60 @@
+name: Parliament Video Full Metadata Archive
+
+on:
+  schedule:
+    - cron: "41 3 1 * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Refresh mode"
+        required: true
+        default: "refresh"
+        type: choice
+        options:
+          - dry-run
+          - refresh
+
+permissions:
+  contents: read
+
+jobs:
+  full-metadata-archive:
+    runs-on: windows-2025-vs2026
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405
+        with:
+          python-version: "3.14"
+
+      - name: Install Pixi
+        shell: pwsh
+        run: |
+          iwr -UseBasicParsing https://pixi.sh/install.ps1 | iex
+          Add-Content -Path $env:GITHUB_PATH -Value "$env:USERPROFILE\.pixi\bin"
+
+      - name: Install dependencies
+        run: pixi install
+
+      - name: Build full metadata archive
+        shell: pwsh
+        env:
+          REFRESH_MODE: ${{ github.event.inputs.mode || 'refresh' }}
+        run: |
+          if ($env:REFRESH_MODE -eq "dry-run") {
+            pixi run python scripts\build_parliament_video_full_metadata_archive.py --no-write
+          } else {
+            pixi run parliament-video-full-metadata-archive
+          }
+
+      - name: Upload archive artifacts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: parliament-video-full-metadata-archive-${{ github.run_id }}
+          path: |
+            manifests/parliament_video_full_metadata_archive.json
+            docs/parliament-video-full-metadata-archive.md
+            derived/parliament_video_full_metadata_archive/**
+          if-no-files-found: error

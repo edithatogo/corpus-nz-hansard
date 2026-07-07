@@ -1,0 +1,118 @@
+{
+  "adjacent_repo_findings": [
+    {
+      "evidence": "../sm-govt-nz/conductor/youtube_archive_summary.md and ../sm-govt-nz/conductor/govt_archive_readiness_matrix.json",
+      "finding": "General NZ government YouTube metadata archival exists, but local evidence did not show a complete official NZ Parliament YouTube or Parliament website video archive.",
+      "repo": "sm-govt-nz",
+      "video_archive_status": "metadata-only"
+    },
+    {
+      "evidence": "../hathi-nz/manifests/hathitrust-nz/nz_parliamentary_debates_hansard.json",
+      "finding": "HathiTrust-side work covers historical print/OCR evidence, not Parliament video.",
+      "repo": "hathi-nz",
+      "video_archive_status": "not-applicable"
+    },
+    {
+      "evidence": "../corpus-law-nz/docs/shared_nz_corpus_core_schema.md",
+      "finding": "Legislation and Gazette boundaries are adjacent but do not provide Parliament video coverage.",
+      "repo": "corpus-law-nz",
+      "video_archive_status": "not-applicable"
+    }
+  ],
+  "archive": {
+    "gap_report_path": "derived/parliament_video_full_metadata_archive/parliament_video_full_metadata_archive_gap_report.json",
+    "records_path": "derived/parliament_video_full_metadata_archive/parliament_video_full_metadata_archive_records.jsonl",
+    "snapshot_history_directory": "derived/parliament_video_full_metadata_archive/snapshots",
+    "snapshot_path": "derived/parliament_video_full_metadata_archive/parliament_video_full_metadata_archive_snapshot.json"
+  },
+  "cache_policy": {
+    "normalized_id_prefix": "parliament-video-full-metadata-archive",
+    "pagination_policy": {
+      "page_size": 50,
+      "stable_sort": true
+    },
+    "retry_policy": {
+      "backoff_strategy": "exponential",
+      "max_attempts": 3,
+      "max_backoff_seconds": 60
+    },
+    "root": "derived/parliament_video_full_metadata_archive/cache"
+  },
+  "comparison": {
+    "changed_source_ids": [],
+    "deleted_source_ids": [],
+    "new_source_ids": []
+  },
+  "generated_at": "2026-07-07T09:55:03+00:00",
+  "manifest_version": 1,
+  "notes": [
+    "Metadata archive completeness remains separate from media archive completeness.",
+    "Normalized JSONL, hashes, and request logs are archived without downloading video or audio media files.",
+    "Fallback sources remain validation-only unless a later rights decision changes their status."
+  ],
+  "policy": {
+    "fallbacks_are_validation_only": true,
+    "metadata_first": true,
+    "no_audio_file_download": true,
+    "no_completeness_claim": true,
+    "no_media_download": true,
+    "no_public_media_release": true,
+    "no_video_file_download": true,
+    "rights_review_required_before_media_acquisition": true
+  },
+  "refresh_policy": {
+    "cadence": "monthly",
+    "comparison_basis": "latest_snapshot",
+    "preserve_history": true,
+    "snapshot_retention": 12
+  },
+  "repository": "corpus-nz-hansard",
+  "source_manifests": {
+    "archive_coverage_manifest": "manifests/parliament_video_archive_coverage.json",
+    "inventory_manifest": "manifests/parliament_video_source_inventory.json",
+    "reconciliation_manifest": "manifests/parliament_video_reconciliation.json",
+    "seed_fetchers_manifest": "manifests/parliament_video_seed_fetchers.json"
+  },
+  "summary": {
+    "adjacent_repo_finding_count": 3,
+    "approved_source_count": 16,
+    "blocked_source_count": 1,
+    "captured_source_count": 15,
+    "complete_video_archive": false,
+    "fallback_source_count": 7,
+    "fetched_source_count": 6,
+    "gap_status_counts": {
+      "access-blocked": 1,
+      "evidence-only": 2,
+      "fallback-only": 4,
+      "metadata-only": 6,
+      "migrated": 1,
+      "rights-gated": 2
+    },
+    "index_only_source_count": 9,
+    "media_completeness_claim": false,
+    "metadata_completeness_claim": false,
+    "official_source_count": 9,
+    "ongoing_archive_complete": false,
+    "record_count": 16,
+    "record_status_counts": {
+      "blocked": 1,
+      "fetched": 6,
+      "index-only": 9
+    },
+    "retrospective_archive_complete": false,
+    "rights_gated_source_count": 2,
+    "source_classification_counts": {
+      "catalogue-only": 3,
+      "evidence-only": 2,
+      "fallback-validation": 2,
+      "official": 7,
+      "rights-gated": 2
+    },
+    "source_role_counts": {
+      "fallback": 7,
+      "official": 9
+    }
+  },
+  "track_id": "parliament_video_full_metadata_archive_20260705"
+}
