@@ -20,7 +20,7 @@
     }
   ],
   "coverage_status": "not-complete",
-  "generated_at": "2026-07-06",
+  "generated_at": "2026-07-07",
   "manifest_version": 1,
   "next_actions": [
     "Create a metadata-only seed fetcher for the official NZ Parliament YouTube channel.",

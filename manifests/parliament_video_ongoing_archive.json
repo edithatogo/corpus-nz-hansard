@@ -24,7 +24,7 @@
     "deleted_source_ids": [],
     "new_source_ids": []
   },
-  "generated_at": "2026-07-06T14:49:00+00:00",
+  "generated_at": "2026-07-07T09:51:46+00:00",
   "manifest_version": 1,
   "media_acquisition_decision_manifest": "manifests/parliament_video_media_acquisition_decision.json",
   "media_acquisition_decision_state": "excluded",
@@ -80,7 +80,7 @@
   "seed_target_count": 16,
   "snapshot": {
     "path": "derived/parliament_video_ongoing_archive/parliament_video_ongoing_archive_snapshot.json",
-    "previous_snapshot_path": "C:/Users/60217257/OneDrive - Flinders/repos/legal-nz/corpus-nz-hansard/derived/parliament_video_ongoing_archive/snapshots/2026-07-06T14-44-34+00-00.json",
+    "previous_snapshot_path": "C:/Users/60217257/OneDrive - Flinders/repos/legal-nz/corpus-nz-hansard/derived/parliament_video_ongoing_archive/snapshots/2026-07-06T14-49-00+00-00.json",
     "retention_directory": "derived/parliament_video_ongoing_archive/snapshots"
   },
   "source_count": 19,
