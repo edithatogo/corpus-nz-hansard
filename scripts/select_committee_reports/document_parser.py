@@ -6,7 +6,7 @@ import hashlib
 import re
 from html.parser import HTMLParser
 from pathlib import Path
-from typing import Any
+from typing import Any, ClassVar
 
 
 SUPPORTED_FORMATS = frozenset({"pdf", "html", "docx"})
@@ -127,14 +127,27 @@ def extract_text_from_pdf(
 class _VisibleTextExtractor(HTMLParser):
     """Collect visible HTML text while dropping script and style content."""
 
-    BLOCK_TAGS = {"p", "div", "h1", "h2", "h3", "h4", "h5", "h6", "li", "tr", "blockquote", "section"}
+    BLOCK_TAGS: ClassVar[set[str]] = {
+        "p",
+        "div",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "li",
+        "tr",
+        "blockquote",
+        "section",
+    }
 
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self._chunks: list[str] = []
         self._ignored_tag: str | None = None
 
-    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+    def handle_starttag(self, tag: str, _attrs: list[tuple[str, str | None]]) -> None:
         if tag in {"script", "style"}:
             self._ignored_tag = tag
             return
@@ -156,7 +169,7 @@ class _VisibleTextExtractor(HTMLParser):
         if self._ignored_tag is None:
             self._chunks.append(data)
 
-    def handle_comment(self, data: str) -> None:
+    def handle_comment(self, _data: str) -> None:
         return
 
     def text(self) -> str:

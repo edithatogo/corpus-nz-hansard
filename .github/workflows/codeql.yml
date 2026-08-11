@@ -25,4 +25,4 @@ jobs:
           languages: python
       - uses: github/codeql-action/analyze@8aad20d150bbac5944a9f9d289da16a4b0d87c1e
       - name: Fail on blocking code-scanning alerts
-        uses: edithatogo/.github/.github/actions/code-scanning-gate@main
+        uses: edithatogo/.github/.github/actions/code-scanning-gate@c3e51f894a500198e67c864a1f0c460ba72e12cd
