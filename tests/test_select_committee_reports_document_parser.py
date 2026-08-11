@@ -96,7 +96,7 @@ class ExtractTextFromHtmlTest(unittest.TestCase):
     def test_extract_strips_script_and_style_content(self):
         html = (
             "<html><head><style>body {display:none}</style></head>"
-            "<body><script>alert(1)</script foo=\"bar\">Visible</body></html>"
+            '<body><script>alert(1)</script foo="bar">Visible</body></html>'
         )
         text = extract_text_from_html(html)
         self.assertEqual(text, "Visible")
