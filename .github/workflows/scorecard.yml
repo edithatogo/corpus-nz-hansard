@@ -27,4 +27,4 @@ jobs:
         with:
           sarif_file: results.sarif
       - name: Fail on blocking code-scanning alerts
-        uses: edithatogo/.github/.github/actions/code-scanning-gate@main
+        uses: edithatogo/.github/.github/actions/code-scanning-gate@c3e51f894a500198e67c864a1f0c460ba72e12cd
